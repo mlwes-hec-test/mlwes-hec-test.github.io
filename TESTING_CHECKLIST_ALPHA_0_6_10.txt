@@ -1,0 +1,40 @@
+ALPHA 0.6.10 TESTING CHECKLIST
+
+1. DIARY CATEGORIES
+[ ] Diary shows Breakfast, Lunch, Dinner, Snacks and Other only.
+[ ] Morning Tea and Afternoon Tea no longer appear in selectors or Meal Planner.
+[ ] Older Morning/Afternoon Tea entries appear under Snacks after upgrade.
+
+2. WEIGHT
+[ ] Weekly/Monthly/All Time Weight Trend shows bars on iPhone Safari.
+[ ] Every displayed weight has one decimal place.
+[ ] Enter a weight >2.0 kg away from the nearest dated record and confirm the warning appears.
+[ ] Cancel the warning and confirm the incorrect value is not saved.
+
+3. FOOD SEARCH ON IPHONE
+[ ] Open Add Food and begin typing with the keyboard visible.
+[ ] The typed text remains visible.
+[ ] Up to three Top Matches appear above the keyboard and can be tapped.
+[ ] Normal page scrolling no longer drags a large sticky search/control block over the food list.
+
+4. BARCODE
+[ ] Scan Barcode opens directly in Barcode mode.
+[ ] Camera view appears immediately after permission and shows a framing guide.
+[ ] Barcode detection stops the camera and starts lookup automatically.
+[ ] Product review scrolls into view after a successful lookup.
+[ ] Manual barcode entry remains available as a fallback.
+[ ] Lookup stays disabled for an empty/invalid barcode.
+[ ] A packaged product defaults to a natural serving where the source supplies one.
+
+5. NUTRITION PANEL
+[ ] Read Nutrition Panel opens directly in Nutrition Panel mode.
+[ ] Captured image can be read.
+[ ] Editable recognised nutrition fields are shown before raw OCR text.
+[ ] Raw OCR output is hidden under Show Recognised Text until requested.
+
+6. REGRESSION
+[ ] Diary, Daily Progress and Progress History remain in sync for the same date.
+[ ] Food entries count immediately as recorded/eaten.
+[ ] Add A Drink continues to update hydration and Diary nutrition correctly.
+[ ] Existing profile, weights, foods, recipes, shopping list and Diary data survive the upgrade.
+[ ] Confirmation pop-ups normally disappear after about two seconds.

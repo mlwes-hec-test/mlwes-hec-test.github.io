@@ -1,0 +1,10 @@
+HEC Alpha 0.6.26 — Quick iPhone Test
+
+1. Search KFC. Tap the KFC Australia heading itself. Confirm a grouped menu opens.
+2. Confirm KFC menu exposes burgers/main items, chicken/nuggets and sides.
+3. Search McDonalds. Tap McDonald’s Australia heading. Confirm grouped menu opens.
+4. Confirm McDonald’s menu includes Chicken McNuggets, Fries and drinks.
+5. Search Cheese Slice, choose/review Cheddar Cheese. Confirm Egg is NOT offered as a serving unit.
+6. Confirm useful cheese measures remain (slice, grams and Australian hard-cheese serve where appropriate).
+7. Confirm energy continues to show both Cal and kJ in search/review/Diary.
+8. Confirm adding a food creates a new Diary entry rather than overwriting an earlier identical food.

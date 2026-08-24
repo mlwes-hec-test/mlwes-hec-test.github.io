@@ -1,0 +1,56 @@
+HEC ALPHA 0.6.27 — SEARCH INTELLIGENCE DEVICE CHECK
+
+For this round, test search/sequence behaviour before cosmetic polish.
+
+1. PARTIAL PREDICTION
+   - Type Ap -> App -> Appl. Apple should be the useful prediction; "App" must
+     never become a food.
+   - Type Ba -> Ban -> Bana. Banana should progressively rise/stay at the top.
+   - Type Ch -> Che -> Chee. Cheese should be stable rather than briefly being
+     displaced by Cheezels/Sakata products.
+
+2. SOURCE-FIRST (SELECTIVE)
+   - Search Sausage. Confirm the source/origin choices appear early.
+   - Search Apple. Confirm HEC does NOT waste a mandatory Home/Commercial step.
+   - Search a clearly branded food. Confirm HEC does not ask a redundant source
+     question when the brand already implies Commercial/Packaged.
+
+3. EGG
+   - Search Egg and follow species -> size -> whole/white/yolk -> preparation ->
+     fat/oil -> quantity.
+   - Confirm the final unit defaults to the chosen egg size and quantity is a
+     normal number box. Try Medium and X-Large.
+   - Microwave Poached should be able to use a compatible poached reference when
+     no extra fat is involved; unsupported choices should stop safely.
+
+4. SAUSAGE
+   - Sausage -> Beef -> Plain/Flavoured -> source/preparation -> size -> quantity.
+   - Search Beef Sausage; Beef should not be asked again.
+   - Search Herb and Garlic Sausage; HEC should recognise Flavoured from the words.
+   - Confirm useful units include long thin, long thick, cocktail/small and grams.
+   - Repeat the identical Herb and Garlic Sausage query and use Back: existing
+     product results should retain their ordering.
+
+5. BREAD / CHEESE
+   - Bread should not present Wrap/Tortilla as ordinary bread choices.
+   - Confirm slice/grams choices are practical.
+   - Search Cheddar Cheese; HEC should not ask which cheese type again.
+   - Cheese units must not contain Egg; grams must remain available.
+
+6. AUSTRALIAN MENU ITEM ROUTING
+   - Search McMuffin without typing McDonald's.
+   - Search Whopper without typing Hungry Jack's.
+   - Search Zinger without typing KFC.
+   - Exact generic Sausage must still remain the generic Sausage concept.
+
+7. QUICK FOOD LOG
+   - From Home: confirm Today + blank Meal, choose meal, then choose Keyboard,
+     Voice, Barcode or Nutrition Panel.
+   - Keyboard/Voice should open the normal Food Search with the same date/meal.
+   - Barcode/Nutrition Panel should preserve the same date/meal through review.
+
+8. SAFETY / PRESENTATION
+   - An incomplete chain nutrition record must not inherit the previous item's
+     calories and should show Not scored where nutrients are insufficient.
+   - Look for any "1 1 Slice" / "1 1 Sausage" wording (should be gone).
+   - Look for redundant zero decimals such as 150.000000 g (should be cleaned).

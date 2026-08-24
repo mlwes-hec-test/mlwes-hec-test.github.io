@@ -1,0 +1,40 @@
+HEC ALPHA 0.6.30 — STABILITY REGRESSION RESULTS
+
+STATIC / SOURCE ASSERTIONS PASSED
+- Food Search input is owned by alpha0630HandleFoodSearchInput.
+- No synchronous saveExt + full render sequence remains in the Food Search input handler.
+- Local search/ranking is debounced 140 ms to allow keyboard paint first.
+- Search UI token invalidates stale delayed renders.
+- Every app.js screen switch calls the Alpha 0.6.30 pre-screen cleanup hook.
+- Leaving Food Library cancels local and automatic-online timers.
+- In-flight online product requests use AbortController and are aborted when obsolete.
+- Online callbacks are prevented from re-rendering an inactive Food Library.
+- Automatic online lookup is blocked while Food Library is inactive.
+- Unsaved online cache capped at 220; saved online foods retained.
+- Online search completion does not synchronously persist the full functional state.
+- Registry identify/predict uses memoisation.
+- Query/entity context is cached once per normalised phrase.
+- Brand index, product intent and product match calculations use revision caches.
+- Online data changes invalidate search computation caches.
+- Whole Egg facet order remains Species -> Part -> Size -> Preparation.
+- Selected egg serving still defaults through the guided selected size.
+- Storage keys remain healthyEatingCompanionAlpha06 / healthyEatingCompanionAlpha06Functional.
+
+ENTITY REGISTRY RUNTIME UNIT CHECKS PASSED
+- 12 retailer / 17 brand / 10 restaurant entities.
+- Kellogg, Kelloggs and Kellogg's map to Kellogg's.
+- Kell predicts Kellogg's.
+- Doritos supplies corn-chip identity.
+- Woolies maps to Woolworths and leaves multigrain bread as residual food phrase.
+- Maccas maps to McDonald's.
+- Repeated entity identification returns the memoised result.
+
+PACKAGE CHECKS PASSED
+- JavaScript syntax: all runtime JS files passed node --check.
+- HTML IDs: 454 total / 454 unique / no duplicates.
+- All local index.html file references resolve.
+- AFCD Release 3: 1,588 food records still bundled.
+- Service worker cache: healthy-eating-companion-alpha-0-6-30-v1.
+
+BROWSER ENVIRONMENT LIMITATION
+A Chromium --headless attempt in the build container timed out before producing a DOM and logged only container/DBus startup failures. Therefore no Chromium runtime pass is claimed. The iPhone installed-PWA/HTTPS test remains the decisive navigation, keyboard, service-worker, camera, OCR and voice test.

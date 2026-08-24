@@ -1,0 +1,37 @@
+HEC ALPHA 0.6.29 — AUSTRALIAN ENTITY REGISTRY / SEARCH REGRESSION
+Registry version: 0.6.29
+Registry entities: 39 total (12 retailers, 17 brands, 10 restaurant/takeaway chains)
+
+PASS — registry contains 12 starter retailer entities
+PASS — registry contains 17 starter brand entities
+PASS — registry contains 10 starter restaurant/takeaway entities
+PASS — Kellogg alias resolves to Kellogg’s
+PASS — Kelloggs alias resolves to Kellogg’s
+PASS — Kellogg's alias resolves to Kellogg’s
+PASS — partial Kell predicts Kellogg’s instead of being treated as an invented food
+PASS — Doritos resolves to branded Corn Chips
+PASS — Doritos supplies Commercial/Packaged context
+PASS — Doritos maps into Corn Chip food-family logic
+PASS — Doritos skips generic Homemade/Commercial source question
+PASS — Kellogg maps to Breakfast Cereal concept
+PASS — Kelloggs maps to Breakfast Cereal concept
+PASS — Woolies resolves to Woolworths
+PASS — Woolies is stripped as retailer while multigrain bread is preserved
+PASS — Woolies supplies commercial/store context
+PASS — Maccas resolves to McDonald’s
+PASS — Maccas supplies restaurant/takeaway context
+PASS — Kellogg canonical online-search text normalises to Kellogg’s
+PASS — Woolies canonicalises to Woolworths for product search
+PASS — Egg base order is Species → Part → Size → Preparation
+PASS — plain Egg does not silently claim Chicken species before asking
+PASS — typed Duck Egg pre-fills Duck species
+PASS — Egg species choices include Chicken, Duck and Quail
+PASS — Cheese Supreme Corn Chips remains snack/corn-chip identity
+PASS — Cheese flavour cannot leak a cheese Slice serving unit into corn chips
+PASS — explicit Doritos package portion remains the default serving unit
+PASS — selected Large whole egg becomes the default review unit
+PASS — Large egg remains available as a review correction choice
+PASS — Egg White removes generic whole-Egg unit
+PASS — Egg White keeps practical tablespoon default
+
+TOTAL: 31 regression assertions passed.

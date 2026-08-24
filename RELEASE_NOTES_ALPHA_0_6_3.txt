@@ -1,0 +1,34 @@
+HEALTHY EATING COMPANION — ALPHA 0.6.3 RELEASE NOTES
+
+This build implements the focused amendments agreed during the Alpha 0.6.2 testing session.
+
+HOME AND STARTUP
+- Fixed the oval Home orbit and placed all seven rooms at equal angles.
+- New users arrive at Home immediately after profile setup.
+- Later app launches open Daily Progress.
+
+DAILY PROGRESS
+- Planned food is visible from the start of the day.
+- Every nutrient and food-group card distinguishes Eaten and Planned.
+- Summary shows eaten, planned, projected and remaining-after-plan energy.
+- Fluids target is separated from estimated solid-food moisture.
+
+MEAL PLANNER
+- Morning Tea and Snacks wording.
+- Meal calorie guides are calculated from the daily goal and existing diary entries.
+- Accepted cards change to Added to Plan and cannot be accidentally added twice.
+- Accepted plans appear in Daily Progress immediately.
+
+FOOD DATA AND SCANNING
+- Explicit online search of Open Food Facts and USDA FoodData Central.
+- Official AFCD search link.
+- Barcode camera/photo/manual lookup.
+- Nutrition-panel OCR with editable review fields.
+- Guided egg and potato preparation choices.
+- Meal photos remain review-first rather than producing unsafe calorie guesses.
+
+SHOPPING LIST
+- Edit quantity, category, spelling, brand and notes without deleting.
+- Duplicate and typo prompts.
+- Automatic category suggestions.
+- Print, share, clear checked and speech entry.

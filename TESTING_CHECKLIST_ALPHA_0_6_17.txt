@@ -1,0 +1,16 @@
+ALPHA 0.6.17 FOUNDER TEST CHECKLIST
+
+1. Dinner: add Chiko Roll, Party Pie and Bunnings sausage consecutively. Confirm HEC stays in Dinner until Done.
+2. Search “sausage”; try Beef, Pork/Chicken, Plain/Flavoured and cooking/source refinements.
+3. Search “beef sausage”; confirm HEC does not ask you to choose beef again.
+4. Search “herb and garlic sausage”; check that results/refinements remain relevant.
+5. Search “sausage roll”; try Woolworths, Coles, Aldi and Black & Gold refinement buttons.
+6. Search both “Black and Gold” and “Black & Gold”; results should behave equivalently.
+7. Search “Woolies”, then “Woolies sausage roll”.
+8. Open a Bavarian result, tap Back, and confirm the previous query/results return.
+9. Try a very specific product phrase (e.g. Ascend Elite Muscle Protein Bar). Unrelated peanut butter/Weet-Bix must not be called Top Matches.
+10. Go above the daily Cal target; confirm HEC reports “Cal Over”.
+11. Delete a diary food; confirm it disappears immediately and Undo restores it immediately.
+12. Check Progress: developer-style Food Diary Days summary should be hidden; overall weight change should appear if history is available.
+13. Look for any ordinary food showing 0 Cal; incomplete nutrition should be flagged rather than treated as genuine zero.
+14. Confirm existing profile, diary, My Foods and My Meals & Recipes remain intact after updating.

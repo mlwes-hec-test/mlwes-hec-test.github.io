@@ -1,0 +1,26 @@
+FOUNDER TESTING — ALPHA 0.6.16
+
+MEAL ENTRY FLOW
+[ ] Open Breakfast and tap Add Food.
+[ ] Add one food. Confirm the Food Library remains in Breakfast context.
+[ ] Add a second and third food without reopening Breakfast.
+[ ] Tap Done Adding To Breakfast and confirm Diary opens at Breakfast.
+[ ] Repeat once for Dinner or Snacks.
+
+DELETE / UNDO
+[ ] Delete an item while viewing the meal/Diary and confirm it disappears immediately.
+[ ] Undo and confirm it reappears immediately.
+[ ] Delete from Daily Progress meal detail and confirm the progress screen refreshes immediately.
+
+NUTRITION PANEL
+[ ] Capture a panel that shows both Per Serving and Per 100 g. Confirm Per Serving is selected when serving size is detected.
+[ ] Capture a panel showing kJ but no Calories. Confirm Calories are derived and both Cal and kJ are visible for review.
+[ ] Check serving size, decimal points and column choice against the package before saving.
+
+FOOD INTEGRITY
+[ ] Scan a barcode already saved on the device and check that duplicate barcode copies do not clutter normal search.
+[ ] Check source badges such as Barcode, Nutrition Panel, Package Verified and Manual remain visible.
+
+GENERAL
+[ ] Search should show local matches immediately even if online results take longer.
+[ ] Back should preserve the active add-food meal context; Done should end it.

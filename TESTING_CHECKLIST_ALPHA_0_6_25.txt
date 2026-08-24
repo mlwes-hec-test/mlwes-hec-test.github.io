@@ -1,0 +1,39 @@
+HEC ALPHA 0.6.25 — CONDITIONAL BRANCHING + MATCH VALIDATION DEVICE CHECK
+
+PRIMARY PIE REGRESSION
+1. Search Pie.
+2. Choose Sweet.
+   EXPECT: next food-identity choice is sweet-specific. It must NOT offer Meat, Chicken & Vegetable, Seafood, etc.
+   With the current AFCD reference set, Apple is the supported sweet-pie filling.
+3. Complete the Sweet/Apple path.
+   EXPECT: Review identifies Apple Pie and the underlying nutrition reference is Pie, sweet, apple, commercial.
+4. Search Pie again -> Savoury.
+   EXPECT: supported savoury fillings include Chicken & Vegetable, Meat and Steak & Kidney; Apple must not appear.
+5. Choose Savoury -> Meat.
+   EXPECT: source choices narrow to supported meat-pie sources such as Commercial / Ready To Eat and Purchased Frozen.
+6. Confirm Review source agrees with every choice. No apple-pie reference may appear in a savoury/meat path.
+
+CONTRADICTION / SAFETY CHECKS
+7. Search Homemade Beef Pie.
+   EXPECT: HEC must not silently use a commercial source if it cannot support Homemade. It should stop safely or find a genuinely compatible source.
+8. Search Curry Pie.
+   EXPECT: HEC must preserve Curry as part of the typed intent. It must not silently finish on a plain meat-pie reference that contains no curry information.
+9. Search Beef Pie.
+   EXPECT: if HEC uses a generic AFCD meat-pie record, the underlying reference must be visible. The AFCD description supports beef/mutton as the usual filling, so this can be treated as a closest generic reference rather than an exact branded product.
+
+OTHER FOOD FAMILIES
+10. Lettuce -> confirm Cos / Iceberg / Mignonette remain data-driven and serving measures remain sensible.
+11. Apple -> confirm all supported varieties remain reachable. If more than six choices exist, use More Choices / Earlier Choices.
+12. Orange -> Navel / Valencia.
+13. Sausage -> protein branch. Choosing Chicken should narrow later choices to chicken-compatible options such as Plain / Flavoured where supported.
+14. Cheese -> choose a type and confirm later choices narrow rather than remaining a mixed cheese catalogue.
+15. Try at least 3 foods never discussed during development. Each answer should remove incompatible later choices.
+
+PRODUCT SEARCH
+16. Westacre / Cheer / Seasons Pride style searches should remain Product Search and progressively narrow actual product terms rather than reverting to broad generic categories.
+17. Package serving and grams/mL behaviour from Alpha 0.6.24 should remain unchanged.
+
+DISPLAY / TRANSACTION REGRESSION
+18. Calories and kJ remain together at food level and Review.
+19. Add the same food twice to the same Diary meal and confirm two independent entries remain.
+20. Food Library -> Add to Diary must use the intended date rather than silently moving the entry to Tomorrow.

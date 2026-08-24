@@ -1,0 +1,85 @@
+HEALTHY EATING COMPANION — FOUNDER TRIAL ALPHA 0.6.12
+
+FOCUS OF THIS BUILD
+Alpha 0.6.12 incorporates the founder-testing findings gathered after Alpha 0.6.11. The emphasis is reliability, natural food entry, profile-aware suggestions, cleaner progress screens, improved package verification, safer navigation, and easier sharing between users/devices.
+
+1. WEIGHT AND PROGRESS
+- Weight Trend changed from the awkward mobile bar chart to a responsive line graph with a dot for each recorded weight.
+- The graph fits the screen width and uses a tight, sensible vertical range around the recorded values.
+- 7 Days / 30 Days / 3 Months / 1 Year / All period choices replace the previous larger period set.
+- Earliest valid weight record is repaired as the Starting Weight during migration; later records accidentally labelled Starting Weight become Progress Check-Ins.
+- Change Since Start is calculated from the earliest valid starting record.
+- View All Weight History no longer includes an unnecessary record count; it becomes Hide Weight History when expanded.
+- Today / Yesterday / Tomorrow friendly date wording remains in weight history/check-in.
+
+2. DAILY PROGRESS CLEAN-UP
+- Removed Recorded/Open Meal badges from Today’s Meals.
+- Meal name, calories and entry count already communicate whether the meal has entries.
+- Help copy now says: Tap any meal to view, add or change its entries.
+
+3. FOOD SEARCH RANKING
+- Search ranking now gives stronger priority to the food itself rather than foods merely flavoured with the search term.
+- Common cappuccino misspellings such as Cappucino/Capuccino are normalised to Cappuccino for ranking.
+- The user’s saved/verified foods receive a strong ranking boost.
+- Australian exact matches receive an additional preference.
+- Dessert/flavour-only matches such as cappuccino gelato are penalised when a true cappuccino result is available.
+
+4. CONTEXT-AWARE SERVINGS AND UNITS
+- Food entry now expands natural units where reliable context exists: bar, sachet, tub, bottle, can, whole fruit and similar food-specific units.
+- Open Food Facts barcode requests now include additional package quantity/category fields when available.
+- Packaged bars can prefer Bar; small dry cappuccino/coffee portions can offer Sachet; normal gram/mL options remain available.
+- Fresh fruit entries can offer natural whole-item units where a practical conversion is known.
+- The same unit system is used by ordinary food entry, barcode foods and Voice/Text review.
+
+5. VOICE / TEXT QUANTITY REVIEW
+- Voice/Text review now includes editable Amount and Unit controls before Confirm & Add.
+- Requests such as “two bananas”, “one orange”, “one sachet” and similar quantities are interpreted where the food supports that unit.
+- Users can correct quantity/unit without editing the recognised speech text.
+
+6. PROFILE-AWARE COMPANION SUGGESTIONS
+- Food Allergies, Food Intolerances, Foods To Never Suggest and relevant cultural restrictions act as hard exclusions when a food match is identifiable.
+- Vegetarian, Vegan, Pescatarian, Halal and Kosher patterns add explicit suggestion filtering for identifiable incompatible foods.
+- Foods I Love and Foods I Like improve suggestion ranking.
+- Foods I Prefer Not To Eat reduce suggestion ranking without being treated the same as an allergy.
+- Medical/cultural free-text remains a founder-trial aid, not a substitute for professional dietary safety review.
+
+7. BARCODE + NUTRITION PANEL COMPARISON
+- Barcode review now offers Compare With Nutrition Panel.
+- After the panel is read, the app compares per-serving barcode values against the package values and highlights material differences.
+- The user can keep the barcode record or use the package values.
+- Package verification date/method is retained for saved foods.
+
+8. PERIODIC SAVED-FOOD REVIEW
+- Saved packaged foods can carry a last-checked record.
+- Foods not checked for more than approximately six months can trigger an occasional, non-blocking review invitation.
+- Foods never expire automatically; the user stays in control.
+
+9. FOOD / MEAL / RECIPE SHARING
+- Saved foods can be shared as portable Healthy Eating Companion share files.
+- Saved meals and recipes can also be shared.
+- Another Companion user can import the share file into their own private library.
+- Sharing does not include the sender’s Diary, weight history or profile.
+
+10. DEVICE TRANSFER AND LOCAL DATA RELIABILITY
+- Alpha 0.6.12 keeps the existing Alpha 0.6 localStorage keys for migration compatibility.
+- A second IndexedDB mirror is maintained when the browser permits it, and the app attempts to restore from that mirror if primary local storage is unexpectedly missing.
+- A full Companion device-copy file can be shared/restored manually from Family & Connections.
+- Important: Safari Private Browsing intentionally removes website storage when private tabs are closed. A website cannot override that behaviour. The build now warns users to use a normal Safari tab or installed Home Screen app for persistent data.
+
+11. DUPLICATE ENTRY PROTECTION
+- After Add To Diary succeeds, that review transaction is marked completed.
+- Returning to the completed Review screen cannot accidentally submit the same transaction again.
+- Deliberately selecting the same food again still creates a legitimate new entry.
+
+12. FUTURE CONNECTION ARCHITECTURE
+- Hidden profile structure reserves future Health/Activity, wearable, household/community sharing and optional social-connection settings without cluttering current onboarding.
+
+KNOWN LIMITATION — AUTOMATIC CROSS-DEVICE SYNC
+True automatic iPhone/iPad synchronisation is NOT falsely simulated in this build. It requires a secure cloud account/database service that cannot be provided by the static GitHub Pages application alone. Alpha 0.6.12 provides manual full-device transfer and the data architecture required for a later secure sync service. No claim of live automatic sync is made.
+
+DATA CONTINUITY
+The existing Alpha 0.6 storage identifiers remain unchanged:
+- healthyEatingCompanionAlpha06
+- healthyEatingCompanionAlpha06Functional
+
+Existing data should migrate forward when the complete build is published at the same site address in the same normal browser storage context.

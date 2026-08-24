@@ -1,0 +1,47 @@
+HEALTHY EATING COMPANION — FOUNDER TRIAL ALPHA 0.6.22
+
+MAIN PURPOSE
+Alpha 0.6.22 consolidates the founder-testing findings from Alpha 0.6.21. The priority remains safe, useful food search and reliable diary entry, with the Home and Nutrition Balance changes included in the same build.
+
+SEARCH & GUIDED ENTRY
+- Generic food searches remain guided, but the first result now follows what the user actually typed: Pie -> Pie; Curry -> Curry; Curry Pie -> Curry Pie.
+- Brand/product-style searches now use a separate progressive product pathway. A search such as Westacre -> Westacre tasty -> Westacre tasty cheese -> Westacre tasty cheese slices is designed to narrow real product records rather than fall backwards to a generic Dairy Food guide.
+- Pie refinement uses shorter sequential questions, skips details already typed, and provides a visible Back control at each guided step.
+- Guided entries are no longer presented as exact verified foods when the nutrition actually comes from an underlying reference record. The review identifies the reference and asks the user to check serving/source details.
+- Banana is a guided family with Australian-relevant choices including Cavendish and Lady Finger, with Other/Not Sure available.
+- Voice/Text food interpretation normalises simple plurals before matching. “2 bananas” is intended to mean two bananas, not banana bread.
+
+ENERGY DISPLAY
+- Food-level energy is displayed as both Calories and kilojoules where practical, for example 86 Cal · 360 kJ.
+- This includes food search/resource rows, review nutrition cards, Quick Food Log review and diary food-entry rows.
+
+BARCODE / PACKAGE DATA
+- Barcode recognition remains unchanged where it was working well.
+- Open Food Facts serving metadata is checked for internally inconsistent per-serving vs per-100 g columns. Where a plausible serving size can be inferred from several nutrient ratios, HEC labels that serving as inferred and requires package verification.
+- Community records that cannot be safely reconciled remain review-required rather than being silently treated as package-verified.
+
+NUTRITION PANEL CAPTURE
+- The parser now recognises common Australian panels containing per-serving, per-100 g and prepared-serving columns at the same time.
+- It retains separate dry/as-sold and prepared-serving values when detected.
+- The Simplee Creamy Carbonara founder test panel is used as a regression example: 31 g dry serving, 100 g dry column and ~144 g prepared serving.
+
+DIARY DESTINATION & REPEATED FOODS
+- An independent Food Library add defaults to Today rather than inheriting a previously viewed Tomorrow date.
+- When Food Library was opened from a particular Diary meal/date, that explicit meal/date context is preserved.
+- Fresh food selections clear stale replacement state so adding the same product again creates a separate diary instance rather than silently replacing another serving.
+
+NUTRITION BALANCE
+- No food recorded: no numeric score; HEC says the day is not scored yet.
+- Future partial plans: no numeric score; HEC says planning is still in progress / not all entries are complete.
+- Very lightly recorded current/past days are treated as incomplete rather than being judged as a poor nutrition day.
+- A 1–10 score appears only once there is enough information for it to be meaningful.
+
+HOME & NAVIGATION
+- Home remains the default opening screen.
+- Clockwise from the top: Daily Progress, Quick Food Log, Diary, Food Library, Settings, Shopping List, Nutrition Balance & Weight, Quick Weight Log.
+- The companion inner circle is simplified to companion image/name + Tap for guidance.
+- The readable companion quote/joke/tip card is restored below the circle, with category selection and tap-for-another behaviour.
+- Weight Check-In has been removed from the Nutrition, Balance & Weight hub because Quick Weight Log is already on Home.
+
+DATA CONTINUITY
+Existing browser-storage keys remain unchanged so founder-trial data can continue across the complete-folder replacement.

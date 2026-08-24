@@ -1,0 +1,18 @@
+HEALTHY EATING COMPANION — FOUNDER TRIAL ALPHA 0.6.16
+
+FOCUS
+This build concentrates on reducing taps during ordinary meal entry and strengthening packaged-food data integrity.
+
+MAIN CHANGES
+- Continuous meal-entry session: add several Breakfast/Lunch/Dinner/Snacks/Other foods without reopening the meal after every item.
+- Clear Done Adding To [Meal] action returns to the Diary when that meal is complete.
+- Deleting an item refreshes the visible Diary/Daily Progress immediately; Undo refreshes immediately too.
+- Nutrition review now exposes both Calories and kilojoules (kJ).
+- Nutrition-panel OCR retains native kJ values and derives Calories when the package does not print Calories.
+- OCR prefers Per Serving when a valid serving size and serving column are detected instead of unnecessarily defaulting to Per 100 g / 100 mL.
+- Saved-food integrity layer collapses exact barcode duplicates and supports superseding older records without changing historical Diary snapshots.
+- Package-verified / Nutrition Panel / Barcode / Manual source status is clearer in food-library results.
+- Existing Alpha 0.6 storage keys remain unchanged.
+
+IMPORTANT
+The app is still a static founder-trial PWA. A food scanned or corrected on one tester device does not automatically become a global database record for every tester; founder-verified additions need to be bundled into a later release or moved to a shared backend in a future architecture.

@@ -1,0 +1,34 @@
+HEALTHY EATING COMPANION — ALPHA 0.6.19 FOCUSED TESTING CHECKLIST
+
+FIRST CHECK — CONFIRM THE NEW CODE IS REALLY RUNNING
+[ ] After deployment, open Add Food and type PIE.
+[ ] The Top Matches helper text should say “Guided Food Entry · Alpha 0.6.19”.
+[ ] The first two choices should be “Pie, Curry” and “Pie”.
+[ ] If that wording is not visible, do not continue testing: the browser is still serving an older build.
+
+PIE GUIDED FLOW
+[ ] Type PIE and tap “Pie, Curry”.
+[ ] HEC must not ask “What kind of pie?” again; Curry is already known.
+[ ] Continue through the relevant filling/source choices.
+[ ] Finish at a review screen where exact unit/amount can be chosen before adding.
+[ ] Go Back and tap “Pie”; confirm the full pie chooser appears.
+
+OTHER FOODS
+[ ] Search SAUSAGE and confirm guided entry appears before raw database foods.
+[ ] Search WHITE BREAD and confirm a Bread guided choice appears first.
+[ ] Search EGG and confirm preparation choices are available through the guide.
+[ ] Search a food not in the named families and confirm the live Top Matches area still uses a guided route rather than immediately showing unrelated AFCD rows.
+
+AUSTRALIAN CHAINS
+[ ] Search HUNGRY JACKS and confirm Australian menu handling.
+[ ] Search MCDONALDS / MACCAS and confirm menu handling.
+[ ] Search KFC and confirm menu handling.
+[ ] Search BURGER KING and confirm it is not treated as the normal Australian chain choice.
+
+BACK / SEARCH STATE
+[ ] Enter a guided food, then Back; confirm the active meal/date and search context are retained.
+[ ] Start a genuinely new Add Food action; confirm the search box starts blank.
+
+WEIGHT GRAPH
+[ ] Confirm range buttons show 7 Days, 14 Days, 30 Days, 3 Months, 6 Months, 1 Year and All.
+[ ] Check that 14 Days and 6 Months both redraw the graph correctly.

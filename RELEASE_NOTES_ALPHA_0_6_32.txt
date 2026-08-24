@@ -1,0 +1,54 @@
+HEALTHY EATING COMPANION — FOUNDER TRIAL ALPHA 0.6.32
+CATALOGUE, DIARY PLANNING, SCANNER-BASIS & STARTUP RELIABILITY BUILD
+
+PURPOSE
+Alpha 0.6.32 consolidates the founder testing performed against Easy Diet Diary and the real iPhone. The focus is making HEC less clunky in normal planning/search, improving Australian catalogue discovery, fixing serving-basis errors found in barcode data, and reducing the chance of slow/blank startup.
+
+SEARCH SPEED & STABILITY
+- Full local search settling is reduced from 95 ms to 70 ms.
+- Automatic online lookup begins after 180 ms instead of 360 ms.
+- Local results remain usable while online sources continue checking.
+- Existing stale-query/token protection and stable-ranking rules remain in place.
+- Exact product/brand words remain important; HEC must not silently drop a typed brand and substitute a different product.
+
+AUSTRALIAN CHAIN CATALOGUES
+- KFC Australia now has 11 grouped menu sections and 126 unique discoverable item names in the current founder snapshot.
+- McDonald’s Australia / Maccas now has 10 grouped sections and 86 unique discoverable item names.
+- Hungry Jack’s Australia now has 7 grouped sections and 63 unique discoverable item names.
+- Typing the chain name can open its grouped Australian menu instead of returning only a few examples.
+- Chain discovery and nutrition verification remain deliberately separate. If HEC knows a menu item name but does not hold a complete verified nutrition record, it stops before Diary entry and does not invent 0 Cal or borrow nutrition from another item.
+- This is the reusable catalogue foundation for later expansion to additional Australian fast-food chains and large retailers. Because menus/ranges change, this static founder build does not claim permanent live completeness for every chain/supermarket product.
+
+DIARY — COPY, MOVE & REPEATING MEALS
+- Each populated meal now has Copy Meal and Move Meal actions.
+- Copy Meal can copy the full meal to one or more future dates.
+- Quick selections include Next 7 Days and Same Weekday x4, useful for regular breakfasts or set weekly meals.
+- A copied meal can be placed into Breakfast, Lunch, Dinner, Snacks or Other.
+- Move Meal relocates the complete meal to another date/category without forcing deletion and re-entry.
+- Individual diary foods now also have Move as well as Copy/Delete.
+- Recent Meal copying now honours the explicit Recent meal filter/source meal. A Lunch meal selected while the user is still technically inside a Breakfast add session no longer defaults into Breakfast.
+
+BARCODE / PACKAGE SERVING BASIS
+- Open Food Facts package servings now undergo a coherence check against the same product’s per-100-g/mL values.
+- If a `_serving` nutrient is materially inconsistent with `per100 x serving size`, HEC uses the coherent scaled value and records a serving-basis warning.
+- This specifically addresses the Morning Sun 45 g muesli test where energy was correctly per serving but protein/carbohydrate/fat/fibre/sugars/sodium were effectively being taken from the 100 g column.
+- Package-serving, per-100 reference and package-serving-without-mass remain distinct states.
+
+NUTRITION PANEL OCR
+- Image preprocessing now upscales the nutrition panel, converts to grayscale, estimates an automatic threshold and can invert dark-background panels to dark text on white before OCR.
+- OCR requests a table-friendly page segmentation mode and 300-DPI interpretation when supported.
+- HEC still treats OCR as review-required: low-confidence/garbled columns remain editable and are not silently trusted.
+
+STARTUP / INSTALLED PWA
+- ZXing barcode libraries and Tesseract OCR are no longer requested at every normal app launch. Existing on-demand loaders fetch them only when barcode/OCR features are opened.
+- The new service worker uses stale-while-revalidate for core JS/CSS assets and a short network-first timeout for navigation before falling back to the cached shell.
+- Install-time cache fetches run in parallel rather than serially.
+- Cache fallback handling was corrected so a missing exact asset can fall back to the cached app shell when appropriate.
+- New cache: healthy-eating-companion-alpha-0-6-32-v1
+
+DATA CONTINUITY
+Storage identifiers remain unchanged:
+- healthyEatingCompanionAlpha06
+- healthyEatingCompanionAlpha06Functional
+
+No intentional deletion of profile, diary, weight, saved foods/recipes, meals, shopping data or settings is introduced.

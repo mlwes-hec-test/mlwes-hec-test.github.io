@@ -1,0 +1,54 @@
+HEALTHY EATING COMPANION — FOUNDER TRIAL ALPHA 0.6.14
+RELEASE NOTES
+
+FOCUS OF THIS BUILD
+Alpha 0.6.14 concentrates on the food-capture and personal-library workflow being tested most heavily on iPhone, while carrying forward the Alpha 0.6.13 planner, weight-date, Diary and Companion improvements.
+
+1. SIMPLER FOOD LIBRARY
+- Permanent Food Library categories are now: All Resources, My Foods, and My Meals & Recipes.
+- Recent appears only as a contextual shortcut while adding/planning food.
+- Online-only results are folded into All Resources rather than requiring a separate category.
+- Legacy Foods I Created and Saved Foods both resolve into My Foods.
+- Legacy Saved Meals and My Recipes both resolve into My Meals & Recipes.
+- Existing saved foods, custom foods, recipes and reusable meals are retained; this is a presentation/workflow merge, not an intentional data deletion.
+
+2. FOOD SOURCE INDICATORS
+- My Foods shows a compact source badge so a user can distinguish Barcode, Nutrition Panel and Manual entries.
+- Source/verification metadata remains available internally for later re-check prompts and sharing.
+
+3. BARCODE + NUTRITION PANEL COMPARISON
+- The Nutrition Panel is treated as the preferred package source after the user has checked it, while OCR remains an assistant rather than an authority.
+- Comparison now works nutrient by nutrient and shows Barcode, Package and Difference values.
+- A whole-product “matches closely” message is shown only when enough reliable values were read.
+- Incomplete recognition is labelled as incomplete instead of receiving a misleading green match message.
+- Package values remain editable before they are used.
+
+4. NUTRITION PANEL SERVING BASIS
+- When a manufacturer serving size is recognised, the review defaults to Per Serving rather than Per 100 g / 100 mL.
+- Per-100-g / per-100-mL values are retained as reference values when they can be recognised or derived.
+- Missing nutrients stay blank; blank means unknown/not supplied, whereas a genuine package zero remains zero.
+- Basic plausibility checks reject impossible OCR mappings such as a nutrient mass greater than the serving mass.
+
+5. CAMERA REUSE
+- After a successful barcode scan, the live camera stream is paused and can be reused for another scan while the user remains in Scan & Review Centre.
+- This reduces repeated getUserMedia requests during a scanning session.
+- iOS/Safari ultimately controls permission persistence; if the operating system revokes or re-prompts permission after leaving the scanner/app, the static web app cannot override that system decision.
+
+6. PROTECTED PERSONAL LIBRARY DURING TEST RESET
+- Reset App for Testing now offers a reset that clears onboarding/profile, Diary, weight/progress and other test-session data while keeping My Foods and My Meals & Recipes.
+- The retained library is mirrored to a separate local protected-library record and restored after onboarding reset.
+- Full Reset — Delete Everything remains available as an explicit destructive option.
+- Leave Healthy Eating Companion remains the full local-data removal path.
+
+7. WEIGHT TREND MOBILE LAYOUT
+- The selected/latest weight, date and change-in-view summary now sits above the graph.
+- The line graph uses the full card width rather than sharing horizontal space with oversized text.
+- Mobile graph labels are smaller and the plotting area is more readable.
+
+DATA CONTINUITY
+Alpha 0.6.14 keeps the existing Alpha 0.6 primary storage identifiers. Updating the complete folder at the same GitHub Pages address is not intended to delete existing profile, Diary, weight, My Foods, recipes, reusable meals, Shopping List or settings data.
+
+FOUNDER-TRIAL LIMITATIONS
+- Secure accounts, server cloud sync, live family invitations, Apple Health/Health Connect and production sharing are not yet connected.
+- Nutrition-panel OCR still depends on photo quality and browser-side recognition; every captured value must remain user-reviewable.
+- Camera and speech permission persistence are controlled partly by iOS/Safari and require real-device testing.

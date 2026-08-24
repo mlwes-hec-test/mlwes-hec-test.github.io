@@ -1,0 +1,28 @@
+HEALTHY EATING COMPANION — ALPHA 0.6.4 BUILD AND TEST REPORT
+
+BUILD STATUS
+- JavaScript syntax checks: passed for app.js, alpha06.js and alpha064.js.
+- HTML duplicate-ID check: passed.
+- Mobile browser automation completed using a Brisbane time zone and an Alpha 0.6.3 data fixture.
+
+AUTOMATED CHECKS PASSED
+- Alpha 0.6.3 profile and functional records migrated to version 0.6.4 without removing test Diary or Shopping data.
+- Surname schema added.
+- Existing user launch opens Daily Progress.
+- Home-to-Diary opens Today using local date.
+- Date label displays “Today · Sat 1 Aug 2026” style without UTC rollover.
+- Back and Home controls present.
+- Planned foods visible in Diary and Daily Progress.
+- Adult-male fluid target displays 2,600 mL.
+- Favourite Foods and Foods I Created labels present.
+- Create or Scan menu opens and closes on tab change.
+- Recipe ingredient search returns bacon with Rasher and gram measures.
+- Recipe saves successfully and can be starred into Favourite Foods.
+- Maintain-to-Lose goal change calculates without the stale-goal error.
+- Calculation details begin collapsed and can be expanded.
+- Feedback, data/privacy, reset, leave and founder actions are present.
+- Founder PIN dashboard, invitation creation, feedback storage, backup/restore controls and opt-in local analytics render without runtime errors.
+
+LIMITATIONS OF THIS TEST
+- Camera, barcode, OCR, external databases, Share Sheet, email handoff and service-worker update behaviour require testing on the published HTTPS site and real devices.
+- Central cross-device invitations, analytics and feedback are not implemented in this static build; the Alpha 0.6.4 versions are local prototypes.

@@ -1,0 +1,27 @@
+HEALTHY EATING COMPANION — FOUNDER TRIAL ALPHA 0.6.19
+
+PRIMARY PURPOSE
+Alpha 0.6.19 makes the guided food-entry workflow the first search pathway rather than allowing raw AFCD/database rows to replace it.
+
+SEARCH ARCHITECTURE
+- Live Top Matches are now guide-first.
+- A broad PIE search deliberately shows “Pie, Curry” first and “Pie” second.
+- Choosing “Pie, Curry” skips the already-known Curry choice, then continues through filling/source choices before quantity/unit review.
+- Choosing “Pie” opens the full pie refinement sequence.
+- Existing guided families include pie, sausage, egg, bread, potato, rice, pasta/noodles, meat, fish/seafood, dairy, cereal, coffee/hot drinks, burgers and sandwiches/wraps.
+- Searches outside a named family still enter the guided/closest-food route rather than exposing raw database rows as the primary live choices.
+- Australian chain handling remains ahead of international equivalents. Burger King redirects toward Hungry Jack’s in the Australian workflow.
+- Chain/menu searches remain compatible with the Australian menu work started in Alpha 0.6.18.
+
+IMPORTANT CACHE / DEPLOYMENT CHANGE
+- The build number is now 0.6.19 throughout the visible app and script URLs.
+- The service-worker cache has a new Alpha 0.6.19 cache name.
+- This deliberately prevents an older Alpha 0.6.18 alpha06.js file from continuing to drive the search screen after deployment.
+
+WEIGHT GRAPH
+- Progress History includes 7 Days, 14 Days, 30 Days, 3 Months, 6 Months, 1 Year and All.
+
+DATA CONTINUITY
+- Existing Alpha 0.6 browser-storage keys are retained.
+- Publishing over the same GitHub Pages address is intended to preserve existing tester data.
+- A Download Backup remains recommended before replacing the deployed files.

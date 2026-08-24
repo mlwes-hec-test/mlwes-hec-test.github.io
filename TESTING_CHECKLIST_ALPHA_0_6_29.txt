@@ -1,0 +1,75 @@
+HEC ALPHA 0.6.29 — FOUNDER DEVICE CHECK
+
+BEFORE DEPLOYING
+[ ] IMPORTANT: in currently deployed Alpha 0.6.28, go to Data, Backup & Privacy and Download Backup.
+[ ] Replace the complete deployed folder; do not mix old/new runtime files.
+[ ] Wait for GitHub Pages to finish, reopen HEC and confirm Alpha 0.6.29.
+[ ] Confirm profile, diary, saved foods/recipes, weight history and settings remain.
+
+1. KELLOGG'S / BRAND NORMALISATION
+[ ] Type Kell. Confirm HEC predicts/recognises Kellogg's rather than inventing a food.
+[ ] Type Kellogg. Confirm it remains a Kellogg's brand search.
+[ ] Type Kelloggs. Confirm it remains a Kellogg's brand search.
+[ ] Type Kellogg's. Confirm the apostrophe version behaves the same way.
+[ ] Continue with "Kelloggs corn" or another product word and confirm results narrow
+    rather than becoming less relevant.
+[ ] Confirm generic AFCD cereals do not displace recognised Kellogg's intent at the top.
+
+2. DORITOS / CORN-CHIP ENTITY ROUTING
+[ ] Type Doritos by itself. Confirm HEC does NOT ask Homemade / Commercial / Takeaway.
+[ ] Confirm HEC treats Doritos as commercial branded Corn Chips and proceeds toward
+    Doritos products/flavours.
+[ ] Search Doritos Cheese Supreme and open the product.
+[ ] Confirm Unit is NOT Slice and the review never says 1/2 Slice, 3/4 Slices, etc.
+[ ] If an explicit package portion is present, confirm that portion/serve is preferred;
+    grams remains available.
+[ ] Temporarily offline/unavailable product search: confirm Doritos is still understood
+    locally as a commercial corn-chip brand even if exact product nutrition cannot load.
+
+3. RETAILER / ALIAS INFERENCE
+[ ] Search "Woolies multigrain bread". Confirm Woolies is understood as Woolworths.
+[ ] Confirm Commercial/Bought/store context is inferred instead of being asked again.
+[ ] Search "Tip Top wholemeal bread". Confirm Tip Top is recognised as a commercial
+    bread brand and HEC does not ask whether it is homemade.
+[ ] Try Coles / ALDI / IGA with an identifying food phrase and check that store context
+    is retained.
+
+4. RESTAURANT ALIASES
+[ ] Search Maccas with a food/menu word. Confirm McDonald's restaurant context.
+[ ] Search HJ's with a food/menu word. Confirm Hungry Jack's context.
+[ ] Search GYG with a food/menu word. Confirm Guzman y Gomez context.
+[ ] Confirm these do not enter a Homemade/Commercial grocery source question.
+
+5. EGG — WHOLE PATH
+[ ] Search plain Egg. Confirm first identification step asks What kind of egg is it?
+[ ] Confirm species choices include Chicken / Duck / Quail / Not Sure-Typical.
+[ ] Choose Chicken -> Whole.
+[ ] Confirm SIZE is asked before preparation/cooking.
+[ ] Choose Large -> Poached.
+[ ] Confirm Review defaults to Large Egg, not generic Egg.
+[ ] Confirm the user does not need to choose Large a second time.
+[ ] Change amount to 2 and confirm natural plural wording.
+[ ] Check King-Size consistency if visible in the size options/review correction list.
+[ ] Search "duck egg" and confirm Duck is inferred rather than asked again; if no
+    compatible nutrition record exists, confirm HEC stops safely instead of using
+    chicken nutrition.
+
+6. EGG — YOLK / WHITE REGRESSION
+[ ] Chicken -> Yolk: confirm direct yolk/grams quantity path; no irrelevant cooking.
+[ ] Chicken -> White: confirm practical Egg White / tablespoon / mL / teaspoon / grams.
+[ ] Confirm White does not regain generic whole-Egg unit.
+[ ] Confirm species is established before the branch.
+
+7. SEARCH STABILITY / INTENT
+[ ] Repeat an identical branded search and confirm the ordering does not change after a delay.
+[ ] Add more identifying words and confirm the earlier correct brand/retailer intent remains.
+[ ] Banana / 2 bananas remain Banana, not Banana Bread.
+[ ] Sausage Roll remains Sausage Roll rather than generic Sausage.
+[ ] Cheese/cheddar search remains cheese; flavour words inside another food must not
+    change the food family or serving units.
+
+8. REAL-DEVICE FEATURES
+[ ] Barcode camera permission and scan on iPhone.
+[ ] Nutrition-panel photo/OCR review on iPhone.
+[ ] Voice recognition and microphone permission.
+[ ] Close/reopen installed PWA and confirm Alpha 0.6.29 remains current.

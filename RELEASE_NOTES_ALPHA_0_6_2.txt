@@ -1,0 +1,62 @@
+HEALTHY EATING COMPANION — FOUNDER TRIAL ALPHA 0.6.2
+
+FOCUSED PURPOSE
+Alpha 0.6.2 implements the navigation, Daily Progress, Diary, Food Library, Meal Planner, hydration and food-group changes agreed during Mal's Alpha 0.6.1 review. The built-in food list deliberately remains a small trial sample. A larger staged food database is planned for Alpha 0.6.3 after this interface is tested.
+
+DAILY PROGRESS
+- Remains the first screen shown after setup.
+- Uses one compact Home / title / help header.
+- Uses one swipeable date card with Today, Tomorrow and Yesterday wording; tap the date for a calendar.
+- Removes the large help panel, Open Today's Diary, quick-action tiles, daily note and separate Save Today's Update button.
+- Displays compact Energy, Protein, Carbohydrate, Fat, Fibre, Sugars, Sodium, Hydration and Steps progress.
+- Adds personalised Australian five-food-group targets: Veges & Legumes, Fruit, Grains, Protein Foods and Dairy & Alternatives.
+- Adds a seven-day food-group average so fasting and unusual days have context.
+- Renames Water to Hydration.
+- Hydration includes logged drinks, estimated food moisture and additional drinks not already logged.
+- Uses Australian age, sex and life-stage hydration starting references rather than the previous 30 mL per kg formula.
+- Additional drinks and steps save automatically.
+- Uses a compact Today's Summary that hides zero-value details.
+
+HOME
+- Centres the seven-room Companion Circle.
+- Adds Shopping List as its own Circle room.
+- Circle rooms: Daily Progress, Diary, Food Library, Meal Planner, Shopping List, Progress & Weight and Settings.
+- Moves the daily joke, thought, fact, quote or tip beneath the Circle.
+- Moves Reset Founder Trial into Settings.
+
+DIARY & DAY PLAN
+- Uses the same compact swipeable date control as Daily Progress.
+- Day Settings displays Save Day Settings only after Day Type or Energy Target changes.
+- Date changes with unsaved settings offer Save, Discard or Stay Here.
+- Uses a compact, swipeable summary for Goal / Consumed / Remaining, macronutrients and food groups.
+- Uses familiar meal sections with individual food rows, meal totals, plus buttons and three-dot action menus.
+- Supports All, Eaten and Planned views.
+- Keeps planned food separate until it is marked eaten.
+
+MEAL PLANNER
+- Allows one, several or all meal periods to be ticked for automatic planning.
+- Generates one separate suggestion card per selected meal.
+- Adds Accept Meal and individual Try Again actions.
+- Adds Try Again for Selected Meals.
+- Avoids immediately repeating a rejected suggestion during the planning session.
+- Protects existing plans by offering Add Alongside Existing or Replace Existing Planned Items.
+- Accepted suggestions are added as Planned, never automatically as Eaten.
+- Suggestions include food-group contributions.
+
+FOOD LIBRARY
+- Uses a compact list-style Resources layout with search and tabs for All Resources, Saved Foods, My Foods, My Recipes and Saved Meals.
+- Keeps careful typo matching and exact-match prioritisation.
+- Shows a close-spelling explanation when appropriate.
+- Provides clear Save and Review/Add actions.
+- The floating plus menu opens Create Custom Food, Create Recipe and Scan & Review.
+
+CALCULATION AND DATA SAFEGUARDS
+- Food and recipe entries now carry food-group and estimated water contributions where the trial record contains them.
+- Voice/text-reviewed entries and Meal Planner entries carry the same calculation metadata.
+- Older diary entries calculate missing food-group and hydration values from their matching food record where possible.
+- Custom foods without enough information remain unclassified rather than being guessed.
+
+TESTING COMPLETED BEFORE RELEASE
+- JavaScript syntax checks passed for app.js and alpha06.js.
+- Browser interaction test passed with no runtime errors.
+- Tested Daily Progress opening, official hydration target, five food groups, Home Circle, all seven Circle rooms, Diary dirty-save behaviour, date-change protection, multi-meal planning, Try Again, accepted planned meals, Food Library list and typo search.

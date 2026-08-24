@@ -1,0 +1,26 @@
+HEALTHY EATING COMPANION — FOUNDER TRIAL ALPHA 0.6.23
+
+BUILD THEME
+Universal Search Foundation. This build deliberately concentrates on replacing food-specific search patches with one data-driven search controller.
+
+SEARCH FOUNDATION
+- One active search controller owns normal Food Library search.
+- Query parsing separates quantity/unit from food identity and normalises common plurals.
+- Generic food searches resolve to a food concept and use reusable facet logic derived from Australian food records and taxonomy metadata.
+- Food varieties/types are derived from available food records where possible rather than requiring one-off UI code.
+- Brand/product searches preserve every typed brand/product word and progressively narrow real product records.
+- Unknown brand prefixes such as Cheer or Westacre route to product search without requiring the brand to be hard-coded first.
+- Strong generic database concepts not explicitly listed in the taxonomy can still create a dynamic guided pathway.
+- Unrecognised foods fail safely rather than substituting an unrelated food.
+- Guided questions expose Back navigation and are kept to short, relevant steps.
+- Calories and kilojoules remain displayed together at food level.
+
+VOICE/TEXT
+- Voice/text food identity now uses the same parser and candidate hierarchy as normal food search.
+- Quantity/plural cases such as “2 bananas” are separated from food identity before matching.
+
+ENTRY INTEGRITY
+- Fresh Food Library/search/scanner additions clear stale replacement state so repeated foods can remain independent diary instances.
+
+DATA LIMITATION
+No static founder-trial build can contain every current packaged product. Product search can only show product records currently loaded from HEC/local/online sources; barcode and nutrition-panel capture remain the fallback for missing products.

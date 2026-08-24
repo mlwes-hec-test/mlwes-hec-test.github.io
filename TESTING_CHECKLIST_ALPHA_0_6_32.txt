@@ -1,0 +1,67 @@
+FOUNDER TESTING CHECKLIST — ALPHA 0.6.32
+CATALOGUE / COPY-MOVE / SERVING BASIS / STARTUP
+
+BEFORE TESTING
+[ ] Confirm Home badge says Alpha 0.6.32.
+[ ] Confirm profile, Diary, weight/history, saved foods/meals and settings remain present.
+[ ] Keep the latest JSON backup available.
+
+STARTUP / IPHONE
+[ ] Fully close HEC and reopen it several times with normal internet access.
+[ ] Try one launch with weak/temporarily unavailable internet after the build has been opened once.
+[ ] Confirm HEC does not sit on a blank white screen for an unreasonable period.
+[ ] Confirm ordinary startup does not require camera/OCR libraries; scanner libraries should load only when those tools are used.
+[ ] Repeat keyboard/open/back navigation and watch for the narrow/small-screen rendering issue.
+
+SEARCH RESPONSE
+[ ] Type several generic foods and branded foods and confirm useful local results appear quickly.
+[ ] Start a branded online search; local results should remain usable while HEC says it is still checking online sources.
+[ ] Change the query while online lookup is pending; stale results must not replace the new search.
+
+KFC AUSTRALIA
+[ ] Search KFC and tap the KFC Australia menu heading.
+[ ] Confirm grouped categories are shown (burgers, boxes, chicken, snack/value, sides/drinks etc.).
+[ ] Scroll well beyond the first few burgers and confirm many more items are available.
+[ ] Select an item for which HEC has no verified nutrition. Confirm HEC stops safely and does NOT add 0 Cal.
+
+MACCAS / McDONALD'S
+[ ] Search Maccas and McDonald’s.
+[ ] Confirm both recognise McDonald’s Australia.
+[ ] Open the menu and check burgers, breakfast, sides, desserts/drinks/McCafe and other grouped sections.
+[ ] Missing verified nutrition must stop safely rather than inventing values.
+
+HUNGRY JACK'S
+[ ] Search Hungry Jacks.
+[ ] Open the grouped menu and check Whopper/beef, chicken, breakfast, sides/snacks, drinks and desserts.
+[ ] Search Burger King and confirm HEC directs Australian users toward Hungry Jack’s rather than ranking overseas Burger King results as the local chain.
+
+RECENT MEAL DESTINATION BUG
+[ ] Open tomorrow -> Breakfast -> Add Food -> Recent.
+[ ] Switch Recent filter to Lunch.
+[ ] Tap Add To Lunch / add the recent Lunch meal WITHOUT first backing out of Breakfast.
+[ ] Confirm the copied meal goes to tomorrow’s Lunch, not Breakfast.
+
+COPY MEAL
+[ ] On a populated Breakfast, open the meal ••• menu and tap Copy Meal.
+[ ] Copy to one future date as Breakfast; confirm all foods are copied independently.
+[ ] Repeat using Next 7 Days.
+[ ] Repeat using Same Weekday x4.
+[ ] Confirm source entries are unchanged and copied entries can be edited separately.
+
+MOVE MEAL / MOVE FOOD
+[ ] Move an entire meal to another date and meal category; confirm the original disappears and the destination contains it once.
+[ ] Use Undo once.
+[ ] Move a single diary food to a different date/category and confirm no duplicate is left behind.
+
+MORNING SUN 45 g SERVING-BASIS TEST
+Package values for the supplied photo are approximately:
+- 45 g serving: 650 kJ (~155 Cal), protein 4.6 g, fat 0.8 g, saturated fat 0.2 g, carbohydrate 29.4 g, sugars 5.0 g, fibre 5.4 g, sodium 12 mg.
+[ ] Scan/search barcode 9300605118027 if available.
+[ ] Confirm a 45 g serving no longer combines ~155 Cal with the 100 g macro values (10.2 g protein, 65.4 g carbohydrate etc.).
+[ ] If online data itself is incomplete/outdated, compare with the physical package and prefer the package.
+
+NUTRITION PANEL OCR
+[ ] Try the green Morning Sun nutrition panel image.
+[ ] Try a clear black-on-white panel.
+[ ] Confirm dark/coloured panels are preprocessed more effectively.
+[ ] Any garbled OCR should remain review-required and editable; do not accept values merely because fields were populated.

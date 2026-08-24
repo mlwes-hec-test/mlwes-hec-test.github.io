@@ -1,0 +1,30 @@
+HEALTHY EATING COMPANION — FOUNDER TRIAL ALPHA 0.6.18
+14 August 2026
+
+FOCUS: DD-like guided food entry with HEC Australian intelligence and safer data integrity.
+
+• Progress History now offers 7 Days, 2 Weeks, 30 Days, 3 Months, 6 Months, 1 Year and All.
+• Removed the Food Diary Days / Weight Check-Ins / Activities summary box.
+• Fish-finger results that only have gram data now offer a clearly-labelled estimated per-finger unit as well as grams.
+• Copy Food can copy to the same day or another day and explicitly choose Breakfast/Lunch/Dinner/Snacks/Other.
+• Recent keeps the current meal filter, allows row-tap quantity/unit review, and keeps deliberate quick repeats while blocking accidental rapid double-taps.
+• Search Back restores the prior query/tab/scroll state consistently.
+• Sausage gets a DD-style guided path: meat → plain/flavoured → cooking method → size/grams. Search words already supplied skip redundant questions.
+• Australian chain discovery added for KFC Australia, McDonald’s Australia/Macca’s, and Hungry Jack’s.
+• Burger King is suppressed as an Australian chain search and points users to Hungry Jack’s.
+• Chain menu discovery never turns missing nutrition into 0 Cal. A small set of current official Australian items is included as verified Alpha 0.6.18 snapshots; unverified menu items are discoverable but blocked from Diary entry until current nutrition is verified.
+• Existing Alpha 0.6 browser-storage keys and personal libraries are retained.
+
+DATA NOTE: restaurant menus change. Alpha 0.6.18 deliberately separates menu discovery from nutrition authority so a later protected shared-data updater can refresh menus and values without changing the food-entry workflow.
+
+ALPHA 0.6.18 REVISION 2 — UNIVERSAL GUIDED FOOD SEARCH
+- Guided food entry is now the first search pathway for every food query, not just selected foods such as sausage.
+- Search words already supplied by the user are carried into the workflow and redundant questions are skipped.
+- Curry pie now begins with Pie, Curry and Pie guided choices before raw database records.
+- Pie flow includes filling/type, protein where relevant, source/style, closest nutrition record, then the standard amount/unit review.
+- Family-aware guided flows are included for pies, sausages, eggs, bread, potatoes, rice, pasta/noodles, meat, fish/seafood, dairy foods, cereals, coffee/hot drinks, burgers and sandwiches/wraps.
+- Every other food uses the same universal guided shell and finishes by choosing the closest nutrition record before quantity/unit entry.
+- Australian chain menu handling remains ahead of generic databases; Burger King is redirected to Hungry Jack's in the Australian context.
+- Missing nutrition is still never represented as 0 Cal simply to complete an entry.
+- Weight graph retains 7 Days, 14 Days/2 Weeks, 30 Days, 3 Months, 6 Months, 1 Year and All.
+- Copy destination, Recent context/editable reuse, natural units and Back-state restoration from the earlier Alpha 0.6.18 build are retained.

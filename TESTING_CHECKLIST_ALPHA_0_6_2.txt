@@ -1,0 +1,54 @@
+HEALTHY EATING COMPANION — ALPHA 0.6.2 FOUNDER TESTING CHECKLIST
+
+OPENING AND HOME
+[ ] Existing Alpha 0.6.1 data remains available when published at the same address.
+[ ] Daily Progress is the first screen after setup.
+[ ] Home opens the centred seven-room Companion Circle.
+[ ] Daily joke/thought appears below the Circle.
+[ ] Shopping List appears on the Circle and opens correctly.
+[ ] Reset Founder Trial appears under Settings rather than Home.
+
+DAILY PROGRESS
+[ ] Swipe left moves to the next day; swipe right moves to the previous day.
+[ ] Tapping the date opens a calendar picker.
+[ ] Today / Tomorrow / Yesterday wording is correct.
+[ ] Energy and nutrient totals update from foods marked Eaten.
+[ ] Five food-group progress appears and targets suit the test profile's age, sex and life stage.
+[ ] Seven-day food-group averages update.
+[ ] Hydration includes diary drinks and estimated moisture from classified foods.
+[ ] Additional unlogged drinks and steps save automatically.
+[ ] Today's Summary remains compact and omits irrelevant zero-value details.
+
+DIARY & DAY PLAN
+[ ] Date swiping and calendar selection work.
+[ ] Save Day Settings is hidden until Day Type or Energy Target changes.
+[ ] Leaving a changed date offers Save, Discard and Stay Here.
+[ ] Goal / Consumed / Remaining summary works.
+[ ] Macronutrient and food-group summary panels can be swiped.
+[ ] All / Eaten / Planned filters work.
+[ ] Plus beside a meal opens Food Library with the correct meal and date.
+[ ] Three-dot entry and meal actions work.
+[ ] Planned items can be marked Eaten without changing their quantities unexpectedly.
+
+MEAL PLANNER
+[ ] One meal can be selected and planned.
+[ ] Several meals can be selected and planned together.
+[ ] Select all meals works.
+[ ] Individual Try Again replaces only that meal.
+[ ] Try Again for Selected Meals replaces all selected suggestions.
+[ ] A rejected suggestion is not immediately repeated when another option exists.
+[ ] Accept Meal adds Planned entries to the right date and meal.
+[ ] Existing entries trigger Add Alongside / Replace Planned protection.
+[ ] Existing Eaten entries are never removed by Replace Planned.
+
+FOOD LIBRARY
+[ ] Empty search shows the sample food list.
+[ ] Exact searches rank the intended food first.
+[ ] A careful typo such as bananna finds Banana and identifies it as a close spelling match.
+[ ] Unrelated fuzzy results are excluded.
+[ ] All Resources, Saved Foods, My Foods, My Recipes and Saved Meals tabs work.
+[ ] Save / remove Saved Food provides confirmation and Undo.
+[ ] Plus opens Create Custom Food, Create Recipe and Scan & Review.
+
+KNOWN LIMITATION FOR THIS TEST
+The built-in food variety is intentionally small. Test the workflow and calculations with available foods. The larger staged database is planned for Alpha 0.6.3 after the Alpha 0.6.2 interface is approved.

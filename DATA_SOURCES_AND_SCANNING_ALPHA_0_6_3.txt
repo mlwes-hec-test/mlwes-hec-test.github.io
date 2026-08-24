@@ -1,0 +1,33 @@
+HEALTHY EATING COMPANION — ALPHA 0.6.3
+FOOD DATA AND SCANNING NOTES
+
+FOOD DATA LAYERS
+1. Local Australian trial foods
+   - Small curated set that works without internet.
+   - Used to test Australian terminology, serving choices, five-food-group calculations and guided preparation.
+
+2. Open Food Facts
+   - Live packaged-product and barcode lookup.
+   - Community supplied; records may be incomplete, duplicated or inaccurate.
+   - Always compare nutrition values, serving sizes, ingredients and allergens with the package.
+
+3. USDA FoodData Central
+   - Supplementary generic and branded-food search.
+   - International values may not match an Australian product or preparation.
+   - Alpha 0.6.3 uses the public DEMO_KEY unless a tester enters their own API key in Food Data Sources.
+
+4. Australian Food Composition Database (FSANZ)
+   - Preferred official Australian generic-food reference.
+   - Alpha 0.6.3 links to the official search rather than copying the complete dataset into the trial.
+   - A later validated import should map AFCD foods to Australian serves, cooking variants and the five food groups.
+
+SCANNING
+- Barcode: live camera where supported, barcode photo fallback, or manual number entry. Product data comes from Open Food Facts and requires review.
+- Nutrition panel: OCR attempts to read text and nutrition values from a photograph. Every field remains editable and nothing is saved automatically.
+- Meal photo: image capture and review workflow only. The static founder build does not claim reliable automatic food recognition or calorie estimation.
+
+PRIVACY AND DEPLOYMENT
+- Local foods, diary data and cached online results remain in this browser's local storage.
+- Online searches send the search words or barcode to the named external database.
+- Camera access normally requires HTTPS and user permission.
+- A production release should use a protected backend for database keys, caching, validation, moderation, rate limits and future AI meal-photo recognition.

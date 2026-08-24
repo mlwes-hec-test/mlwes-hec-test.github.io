@@ -1,0 +1,86 @@
+HEALTHY EATING COMPANION — FOUNDER TRIAL ALPHA 0.6.29
+AUSTRALIAN ENTITY REGISTRY + QUERY UNDERSTANDING
+
+PURPOSE
+Alpha 0.6.29 restructures the front of HEC Food Intelligence around a small local
+Australian Food Entity Registry. The aim is to understand brands, retailers and
+restaurant/takeaway names before generic food matching so HEC does not ask questions
+the user's words have already answered.
+
+AUSTRALIAN FOOD ENTITY REGISTRY
+A new entity-registry.js loads before search-foundation.js.
+Starter registry: 39 entities total:
+- 12 retailers: Woolworths, Coles, ALDI, IGA, Costco, FoodWorks, Drakes,
+  Foodland, Harris Farm Markets, Friendly Grocer, SPAR and Spudshed.
+- 17 brands used as starter founder-test vocabulary, including Kellogg's,
+  Doritos, CC's, Mission, Tip Top, Sunblest, Country Bake, Arnott's, Nescafé,
+  Sanitarium, San Remo, Flora, Chiko, Pepsi, Black & Gold, Westacre and
+  Seasons Pride.
+- 10 restaurant/takeaway entities: McDonald's, KFC, Hungry Jack's, Subway,
+  Domino's, Red Rooster, Oporto, Guzman y Gomez, Grill'd and Chicken Treat.
+
+ALIASES / CANONICALISATION
+Common user language maps to canonical entities before search. Examples:
+- Woolies / Woolworths Metro -> Woolworths
+- Kellogg / Kelloggs / Kellogg's -> Kellogg's
+- Maccas / Macca's -> McDonald's
+- HJ's -> Hungry Jack's
+- GYG -> Guzman y Gomez
+Canonical text is also available to product search so punctuation/possessives do not
+need to be typed exactly.
+
+SEARCH BEHAVIOUR
+- Recognised brand/store/restaurant context is separated from residual food words.
+- Brand-only searches can imply a food family where the registry knows it:
+  * Doritos -> Corn Chips
+  * Kellogg's -> Breakfast Cereal
+  * Tip Top / Sunblest / Country Bake -> Bread
+- Recognised commercial brands/retailers skip redundant source questions.
+- Recognised restaurant/takeaway names supply restaurant context.
+- Partial entity prediction is available before declaring unfinished text a food.
+  The protected founder example is Kell -> Kellogg's.
+- Exact recognised brand intent proceeds to product matching rather than opening the
+  generic food-source wizard first.
+- Product ranking uses recognised entity match + residual product words so additional
+  typing should narrow the same intent rather than make results less relevant.
+
+SERVING IDENTITY PROTECTION
+Alpha 0.6.28 exposed "Doritos Cheese Supreme Corn Chips -> Slice". Alpha 0.6.29
+changes serving-category inference so resolved snack/corn-chip identity outranks
+incidental flavour words such as cheese. Stale cheese/bread slice measures are removed
+from corn-chip/snack records. A removed serving unit can no longer remain as the
+invisible default. Explicit package portion/serve data remains preferred when present.
+
+EGG CORRECTIONS
+- Plain Egg no longer silently assumes Chicken before the identity question.
+- Egg sequencing is Species -> Part -> Size -> Preparation for Whole Egg.
+- Species options include Chicken, Duck and Quail; a typed species is inferred and
+  skipped when already supplied.
+- Whole-Egg size is established before cooking/preparation.
+- The selected size is carried into Review as the default size unit; choosing Large
+  should not fall back to generic Egg and make the user select Large again.
+- King-Size is included in the supported size vocabulary for consistency.
+- Yolk/White retain their Alpha 0.6.28 direct practical-measure branches rather than
+  being forced through irrelevant cooking questions.
+- HEC still validates the final nutrition source. The bundled AFCD data contains
+  chicken-egg records but no matching duck/quail egg records found in the local check,
+  so unsupported species must stop safely rather than borrow chicken nutrition.
+
+DATA CONTINUITY
+The Alpha 0.6 browser-storage identifiers remain unchanged:
+- healthyEatingCompanionAlpha06
+- healthyEatingCompanionAlpha06Functional
+A backup from Alpha 0.6.28 is strongly recommended before deployment.
+
+CACHE
+Service-worker cache: healthy-eating-companion-alpha-0-6-29-v1
+
+FOUNDER-TRIAL LIMITATIONS
+- This is a starter entity vocabulary, not a complete Australian brand/retailer list.
+- Registry recognition provides intent/context; it does not manufacture nutrition.
+- Exact packaged-food coverage still depends on available product sources, barcode or
+  nutrition-panel information.
+- Online product search may be unavailable temporarily while local entity recognition
+  remains available.
+- Browser/runtime camera, OCR, speech and service-worker behaviour require real-device
+  HTTPS testing.

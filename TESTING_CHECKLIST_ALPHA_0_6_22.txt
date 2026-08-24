@@ -1,0 +1,49 @@
+HEC ALPHA 0.6.22 — FOCUSED FOUNDER TEST CHECKLIST
+
+BEFORE TESTING
+1. Back up the current founder-trial data.
+2. Replace the complete deployed folder with Alpha 0.6.22.
+3. Confirm the visible version says Alpha 0.6.22.
+
+PRIORITY 1 — SEARCH
+[ ] Diary -> Dinner -> Add Food -> type Pie slowly. Screen stays responsive; first guided choice is Pie.
+[ ] Select Pie. Confirm every guided step has Back and the lists are short/progressive.
+[ ] Type Curry. First guided concept is Curry.
+[ ] Type Curry Pie. First guided concept is Curry Pie.
+[ ] Type Westacre, then Westacre tasty, then Westacre tasty cheese, then Westacre tasty cheese slices. Results become progressively more specific and do not collapse to Dairy Food.
+[ ] Search Banana and confirm variety choices include Cavendish and Lady Finger.
+
+PRIORITY 2 — QUICK FOOD LOG
+[ ] “banana” resolves to banana, not banana bread.
+[ ] “1 banana” resolves to one banana.
+[ ] “2 banana” resolves to two bananas.
+[ ] “2 bananas” also resolves to two bananas.
+[ ] Energy on the review shows both Cal and kJ.
+
+PRIORITY 3 — BARCODE / DIARY DESTINATION
+[ ] From Today Dinner -> Add Food -> scan a barcode -> add. It remains on Today Dinner.
+[ ] From Home -> Food Library -> scan a barcode -> Add to Diary. Default date is Today and is clearly visible/changeable before confirmation.
+[ ] Add the same scanned product to the same meal twice. Confirm two independent diary entries remain and both are included in the total.
+[ ] Food rows show Calories and kilojoules together.
+
+PRIORITY 4 — SERVING BASIS
+[ ] Re-test San Remo barcode 9310155001830.
+[ ] If the community record cannot safely establish the true package serve, HEC must label the basis as review-required/inferred rather than falsely claiming an exact 100 g serving.
+[ ] Where a real natural serving is available (for example a cheese slice), confirm HEC offers that serving before grams.
+
+PRIORITY 5 — NUTRITION PANEL
+[ ] Capture the Simplee Creamy Carbonara panel again.
+[ ] Check whether HEC detects the 31 g dry serving, the per-100 g dry column and the ~144 g prepared serving as separate bases.
+[ ] Confirm recognised values remain editable and the package is still treated as the final authority.
+
+PRIORITY 6 — NUTRITION BALANCE
+[ ] Blank day: no 1/10 score; Not scored yet / no food recorded wording.
+[ ] Future day with only one planned meal: no 2/10 score; Planning in progress / entries incomplete wording.
+[ ] Meaningfully recorded day: numeric score appears and tapping gives strengths/gaps/suggestions.
+
+PRIORITY 7 — HOME
+[ ] Clockwise room order matches the founder-requested order.
+[ ] Companion inner circle is readable and contains no long quote/tip.
+[ ] Quote/joke/tip card is readable below the circle.
+[ ] Category selector and tap-for-another message work.
+[ ] Nutrition, Balance & Weight hub no longer contains Weight Check-In.

@@ -1,0 +1,94 @@
+HEALTHY EATING COMPANION — ALPHA 0.6.9 TESTING CHECKLIST
+
+Recommended approach: test naturally first. Only deliberately stress individual controls after the normal workflow feels comfortable.
+
+BEFORE STARTING FRESH
+[ ] Publish Alpha 0.6.9 to the SAME GitHub Pages address.
+[ ] Confirm Alpha 0.6.9 appears in the app.
+[ ] Optional: Settings → Data, Backup & Privacy → Download Backup.
+[ ] Settings → Reset App for Testing.
+[ ] Confirm the app returns to the Welcome/onboarding screen.
+
+ONBOARDING / PROFILE
+[ ] Choose Australia and confirm State Or Territory is a list, not a typing box.
+[ ] Confirm all eight Australian states/territories are available.
+[ ] Enter a Queensland postcode while Queensland is selected and continue successfully.
+[ ] Deliberately enter an obviously mismatched postcode/state and confirm the app asks for correction.
+[ ] Confirm the home time zone is sensible for the selected Australian state.
+[ ] Confirm Sex Used For Energy Calculation has a short explanation.
+[ ] Check that major section headings are easy to distinguish and use consistent Title Case.
+
+COMPANIONS
+[ ] Tap several companion cards.
+[ ] Confirm each description opens immediately without scrolling below the full companion list.
+[ ] Use Back To Companions without changing the selection.
+[ ] Use Choose [Name] and confirm the chosen companion is retained.
+
+RECOMMENDATIONS
+[ ] Confirm Daily Fluids is visible without opening extra details.
+[ ] Confirm Detailed Nutrition Goals is collapsed by default.
+[ ] Expand/collapse Detailed Nutrition Goals.
+[ ] Confirm the recommendation acceptance controls are easier to reach.
+
+NORMAL / FASTING DAY TARGETS
+[ ] Confirm a Normal Day uses the accepted profile energy recommendation.
+[ ] Change to Flexible Fasting Day and confirm the fasting target appears.
+[ ] Change back to Normal Day and confirm the normal recommendation returns.
+[ ] Use a deliberate Different Energy Target for one date and confirm it does not silently replace the normal profile recommendation for other dates.
+
+FOOD LIBRARY — DATABASE COVERAGE
+[ ] Open All Resources with a blank search and confirm familiar foods are already visible.
+[ ] Search “cappu” and confirm a cappuccino/coffee-with-milk result appears near the top.
+[ ] Search “carrot cake” and confirm carrot-cake records appear rather than plain carrot.
+[ ] Search common foods you personally use: bacon, ham, cheese, yoghurt, egg, bread, English muffin, sausage, steak, chicken, fish, potato, pumpkin, rice, pasta, cereal/oats, crackers/biscuits, milk, juice, soft drink, pizza, soup, baked beans, tuna and salmon.
+[ ] Note which familiar foods still cannot be found so the next data pass can target them.
+
+FOOD SEARCH ON IPHONE/IPAD
+[ ] Start a new Add Food action and confirm the search box is blank.
+[ ] Type a partial word while the keyboard is open.
+[ ] Confirm useful live results remain visible/reachable above the keyboard without first scrolling down or dismissing the keyboard.
+[ ] Switch between All Resources and Online Foods and confirm one tab does not leave stale results in the other.
+
+DIARY
+[ ] Add a food to a meal and confirm it counts immediately without a Planned/Eaten question.
+[ ] Confirm there are no ordinary Planned/Eaten badges or “Ate As Planned” step.
+[ ] Edit an amount and confirm totals change immediately.
+[ ] Delete one food from its three-dot menu and test Undo.
+[ ] Use a meal’s three-dot menu → Clear [Meal], confirm the warning, and test Undo.
+[ ] Add a saved recipe/meal from a general library screen and confirm a meal must be chosen instead of silently defaulting to Breakfast or Dinner.
+[ ] Use Suggest inside Breakfast/Lunch/Dinner and confirm accepted foods simply appear in the Diary.
+
+VOICE OR TEXT LOG
+[ ] Say “carrot cake”.
+[ ] Confirm the review keeps the whole phrase and does not convert it to Baby Snacking Carrot.
+[ ] From the general microphone/Voice Or Text Log, confirm Meal begins as Choose A Meal.
+[ ] Confirm Add cannot complete until a meal is chosen.
+[ ] Start voice/add-food entry from inside a specific meal and confirm that known meal may be preselected and remains editable.
+
+WEIGHT CHECK-IN
+[ ] Save a new weight/date.
+[ ] Confirm spoken feedback is brief rather than reading the entire written message.
+[ ] Confirm the Save button becomes Saved ✓ after saving.
+[ ] Try to save again without changing anything and confirm no duplicate is created.
+[ ] Enter a different weight for an already-recorded date and confirm the app asks before replacing it.
+[ ] Add/edit an older historical weight and confirm a newer dated record remains the Current Weight.
+
+PROGRESS HISTORY
+[ ] Confirm Weight Check-Ins are plotted on the Weight Trend chart.
+[ ] Confirm small weight changes are visible because the vertical scale is reasonably tight.
+[ ] Confirm chart dates are readable Australian dates rather than YYYY-MM-DD.
+[ ] Confirm the summary distinguishes Food Diary Days, Weight Check-Ins and Activities.
+
+HYDRATION
+[ ] Open Daily Progress and use Add A Drink.
+[ ] Add Water and confirm the fluid total increases.
+[ ] Add a Zero-Calorie Drink and confirm the fluid total increases.
+[ ] Choose Milk, Juice, Tea Or Coffee or Soft Drink and confirm the app asks for the exact food/drink record rather than recording only an anonymous volume.
+[ ] Confirm Daily Fluid Target remains visible and editable.
+
+RESET / DATA
+[ ] After testing, use Reset App for Testing only if you deliberately want to erase this browser/device’s trial profile and begin onboarding again.
+[ ] Confirm another tester/device is not affected by this local reset.
+
+NOT YET THE MAIN TEST TARGET
+Barcode scanning, nutrition-panel OCR and meal-photo recognition remain prototype/device-dependent workflows in Alpha 0.6.9. The next development round is intended to concentrate on barcode and nutrition-panel capture after this stabilisation build is tested.

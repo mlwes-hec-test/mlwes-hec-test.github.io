@@ -1,0 +1,85 @@
+HEC ALPHA 0.6.28 — FOUNDER DEVICE CHECK
+
+BEFORE DEPLOYING
+[ ] Download a HEC backup from the current build.
+[ ] Replace the complete deployed folder; do not mix old and new runtime files.
+[ ] Wait for GitHub Pages to finish, reopen HEC and confirm Alpha 0.6.28.
+[ ] Confirm existing profile, diary, saved foods/recipes and weight history remain.
+
+1. EGG BRANCHING
+[ ] Search Egg -> Whole. Confirm a normal whole-egg cooking/size path reaches Review.
+[ ] Search Egg -> Yolk. Confirm HEC does NOT ask how the yolk was poached/fried/etc.
+[ ] On Yolk review confirm Yolk(s) is the natural count unit and grams remains available.
+[ ] Back and change Yolk -> White. Confirm the remaining path changes immediately.
+[ ] On White review confirm units include Egg White, Tablespoon, mL and g.
+[ ] Confirm White does NOT offer the generic whole Egg unit.
+[ ] Enter 2 egg whites and confirm the display says Egg Whites rather than 2 Egg.
+
+2. TWO EGGS ON TOAST
+[ ] Quick Log or Food Search: enter "Two eggs on toast".
+[ ] Confirm HEC keeps quantity 2 for the eggs.
+[ ] Finish the egg entry and confirm HEC continues to toasted bread.
+[ ] Confirm the second food is not silently discarded.
+
+3. BREAD
+[ ] Search Bread. Confirm source options include Homemade and Commercial / Bought.
+[ ] Choose Commercial / Bought. Confirm HEC asks where the bread is from rather than
+    displaying a long mixed raw database list.
+[ ] Test Bakery / Café / Restaurant.
+[ ] Test Supermarket / Store Brand -> type Woolworths or Coles.
+[ ] Test Bread Brand -> type Tip Top or Sunblest.
+[ ] Search "Tip Top wholemeal bread" and check that already supplied information is
+    not unnecessarily asked again.
+
+4. CORN CHIPS
+[ ] Search Corn Chip. Confirm source is asked.
+[ ] Choose Commercial / Packaged. Confirm Plain / Salted vs Flavoured is asked before
+    a raw product dump.
+[ ] Choose Plain / Salted and confirm a usable nutrition review is reached.
+[ ] Confirm Small Handful and grams are available where shown.
+[ ] Choose Flavoured. Confirm HEC asks for flavour/brand and does not reuse the plain
+    salted reference as if it were exact.
+
+5. NATURAL SERVING TESTS
+[ ] Cheese: confirm Slice is available when HEC has a usable conversion.
+[ ] Crispbread: confirm individual Crispbread is available on a generic/source-supported
+    record. For a branded package, confirm HEC uses an individual count only when the
+    package/source actually provides enough information to calculate it; otherwise note
+    the missing natural unit for the next source-data improvement.
+[ ] Sausage: confirm Sausage and practical size choices remain available.
+[ ] Protein bar with known package mass: test 1 bar, 1/2 bar and grams.
+[ ] A pourable food with an mL basis (for example an oil/dressing): confirm sensible
+    teaspoon/tablespoon/cup choices and the clearly approximate Small Drizzle option.
+[ ] Confirm quick fraction buttons 1/4, 1/2, 3/4, 1 appear for suitable foods.
+[ ] Confirm the diary shows natural text plus metric conversion when known, such as
+    5 Slices (100 g) or 1/2 Bar (40 g).
+[ ] Check for unwanted labels such as "Package Serve", "Mpara", "150.000000 g" or
+    duplicated "100 g Serving" wording.
+
+6. QUICK FOOD LOG
+[ ] Open Quick Food Log from Home. Confirm method choice appears first.
+[ ] Tap Keyboard Entry. Confirm date/meal is then required before save.
+[ ] Tap Voice Entry. Confirm date/meal is then required before save.
+[ ] Tap Barcode Scanning. Confirm no silent Breakfast default.
+[ ] Tap Nutrition Panel Reading. Confirm no silent Breakfast default.
+[ ] Confirm meal choices are Breakfast / Lunch / Dinner / Snacks / Other.
+
+7. DIARY / DISPLAY
+[ ] Confirm Diary opens with the date header fully visible.
+[ ] Confirm no empty duplicate calculation strip occupies space under the top summary.
+[ ] Open a meal and confirm quantities use the same natural wording as the main diary.
+[ ] Check Recent Foods and Daily Progress for the same natural quantity wording.
+[ ] Add two identical foods deliberately and confirm both remain valid independent entries.
+
+8. REGRESSION SEARCHES
+[ ] Banana / 1 banana / 2 bananas remain Banana and do not become Banana Bread.
+[ ] Sausage, Beef Sausage and Herb & Garlic Sausage remain distinct sensible searches.
+[ ] Sausage Roll remains Sausage Roll rather than generic Sausage.
+[ ] Cheese and Cheddar Cheese keep the guided concept pinned ahead of unrelated snacks.
+[ ] Repeating an identical product search does not reorder the result after a delay.
+
+9. REAL-DEVICE FEATURES
+[ ] Barcode camera permission and scan on iPhone.
+[ ] Nutrition-panel photo/OCR review on iPhone.
+[ ] Voice recognition and microphone permission.
+[ ] Close/reopen installed PWA and confirm Alpha 0.6.28 remains current.

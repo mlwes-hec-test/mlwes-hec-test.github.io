@@ -1,0 +1,24 @@
+HEC ALPHA 0.6.24 — SEARCH + SERVING FOUNDATION DEVICE CHECK
+
+DO NOT spend time on cosmetic testing yet. The purpose of this check is to prove the foundation from food identity through serving selection.
+
+GENERIC FOOD PATHS
+1. Lettuce -> confirm varieties such as Cos / Iceberg / Mignonette are offered from AFCD data.
+2. Choose Iceberg -> confirm review offers 1 cup raw leafy/salad vegetable (75 g Australian standard serve) and grams.
+3. Apple -> confirm variety choices include Granny Smith / Pink Lady / Royal Gala / Red Delicious etc.
+4. Choose Granny Smith -> confirm 1 Medium Apple (150 g Australian standard fruit serve) and grams.
+5. Orange -> confirm Navel / Valencia; then medium orange 150 g standard serve and grams.
+6. Try foods we have never discussed. Confirm HEC still identifies/refines them and ends with defensible measures or grams/mL.
+
+PRODUCT PATHS
+7. Search a branded product progressively (for example Cheer ... or Westacre ...). Confirm it remains Product Search as words are added.
+8. For a product with an explicit package serving, confirm Package Serve and grams/mL are both available when the serving mass/volume is known.
+9. For a product whose package text includes a count and weight (for example 2 slices / 40 g), confirm the natural count unit is derived correctly.
+10. For a product with no reliable package serving, confirm HEC does NOT call 100 g a package serve. It should keep grams/mL or ask for package verification.
+
+REGRESSION
+11. 2 bananas must remain Banana x 2, not Banana Bread.
+12. Pie / Curry Pie / Homemade Beef Pie must keep their supplied intent.
+13. Calories and kJ should appear together at food level.
+14. Add the same food more than once to a Diary meal and confirm independent entries remain.
+15. Food Library -> Add to Diary should default to Today unless another date was explicitly selected.

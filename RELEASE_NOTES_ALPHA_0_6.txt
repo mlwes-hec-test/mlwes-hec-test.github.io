@@ -1,0 +1,35 @@
+HEALTHY EATING COMPANION — ALPHA 0.6 RELEASE NOTES
+
+Identity and migration
+- Renamed the app Healthy Eating Companion.
+- Centralised app identity and version in config.js.
+- Added automatic migration from Alpha 0.5 main and functional local-storage records.
+
+Simpler onboarding
+- Reduced personal setup to email, given name and preferred name.
+- Moved date of birth and energy unit to the Health Profile.
+- Retained address and phone fields in the data model while hiding them from onboarding.
+
+Australian Companions
+- Added Koko, Skip, Wally, Ernie, Rusty, Barnaby, Chuckles, Gary, Percy, Clancy, Rowdy, Salty, Spike, Anna, Monty and Shelly.
+- Added fixed species, personality, speaking style, strengths, introduction and fasting support for each.
+- Added selection cards, detail preview, voice preview and prototype portrait assets.
+- Added the selected portrait to Circle Home.
+
+Calculation trust
+- Added formula name and version.
+- Added visible BMR, activity factor, maintenance estimate, goal adjustment, minimum check and starting target.
+- Changed BMI wording to a gentler planning estimate.
+
+Food and diary reliability
+- Improved exact, token-order and typo search ranking.
+- Added low-confidence filtering to prevent unrelated fuzzy matches.
+- Added source/type labels.
+- Blocked missing-energy entries from being logged as zero.
+- Added item-energy and new-total confirmations.
+- Added diary calculation diagnostics.
+
+Known work still ahead
+- Larger verified Australian food and packaged-product datasets.
+- Original multi-expression artwork and animation.
+- Full recipe management refinements, graph interaction, native health integrations and secure cloud services.

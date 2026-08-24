@@ -1,0 +1,27 @@
+ALPHA 0.6.18 FOUNDER TEST CHECKLIST
+
+1. Progress History: verify 7 Days / 2 Weeks / 30 Days / 3 Months / 6 Months / 1 Year / All.
+2. Confirm the Food Diary Days summary box is gone.
+3. Birds Eye Fish Fingers: confirm Fish Finger and grams are available; try 4 fingers.
+4. Copy a Breakfast item to Dinner on the same date, then to another date/meal.
+5. Recent: enter Dinner, open Recent, confirm Dinner stays selected. Tap a recent food row and change its amount before adding.
+6. Quick-repeat a cappuccino intentionally two or three times; confirm it is possible, while very rapid accidental double taps do not create duplicates.
+7. Search something, open a result, tap Back, and confirm query/tab/scroll state returns consistently.
+8. Search Sausage and tap Sausage — Guided Entry. Test Beef/Pork/Chicken, Plain/Flavoured, cooking method and size.
+9. Search Beef sausage; confirm the guided path skips the meat question. Search herb and garlic sausage; confirm it recognises Flavoured.
+10. Search KFC, Maccas/McDonalds and Hungry Jacks. Confirm Australian menu guides appear.
+11. Search Burger King; confirm HEC does not present it as an Australian chain and suggests Hungry Jack’s.
+12. Open an unverified chain item; confirm HEC says current nutrition verification is required instead of showing 0 Cal.
+13. Confirm profile, Diary, My Foods, recipes, weight history and shopping list survive the update.
+
+ALPHA 0.6.18 REVISION 2 — UNIVERSAL SEARCH PRIORITY TESTS
+[ ] Search CURRY PIE: first guided choices are Pie, Curry and Pie.
+[ ] Open Pie, Curry: already-typed Curry is not asked again; refine filling/protein/source, then choose closest record and amount/unit.
+[ ] Search SAUSAGE, WHITE BREAD, EGG, POTATO, RICE, PASTA, STEAK, FISH, YOGHURT, COFFEE and BURGER: each starts with the same guided-entry pattern rather than a raw database-only list.
+[ ] Search an unconfigured food such as DRAGONFRUIT: it still receives the universal guided shell and closest-record choice rather than bypassing the guided system.
+[ ] Search KFC, MCDONALD'S/MACCAS and HUNGRY JACK'S: Australian menu handling remains ahead of generic results.
+[ ] Search BURGER KING: HEC redirects the Australian context toward Hungry Jack's rather than ranking US Burger King foods first.
+[ ] Back from quantity review restores the exact search term and library context.
+[ ] Recent retains the current destination meal; tapping a recent row opens quantity/unit review; + Add Food remains intentional quick-repeat.
+[ ] Copy allows same day or another day and any of Breakfast/Lunch/Dinner/Snacks/Other.
+[ ] Weight Trend shows 7 Days, 2 Weeks, 30 Days, 3 Months, 6 Months, 1 Year and All.

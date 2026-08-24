@@ -1,0 +1,17 @@
+HEC ALPHA 0.6.15 — FOUNDER TESTING CHECKLIST
+
+1. Confirm Home shows Alpha 0.6.15.
+2. In Food Library search each of: Bunnings sausage, Bunnings snag, Chiko Roll, potato scallop, potato cake, potato fritter.
+3. Try voice/text: “Add a Chiko Roll for lunch” and “Add a Bunnings sausage for lunch”. Review before confirming.
+4. Open several foods and inspect Unit choices. Confirm natural units appear only where sensible (serve, g, mL, slice, biscuit/cracker, piece, etc.).
+5. In Daily Progress check Grey/Yellow/Green/Orange/Red behaviour. Small deviations around target should be green.
+6. Confirm each target card states how far under/over target it is.
+7. When fibre or another suitable nutrient is low, tap Suggest Food and review a suggestion.
+8. Inspect a previous Daily Progress date, close/reopen the app, and confirm Daily Progress opens on Today.
+9. From tomorrow in Diary, tap Plan Multiple Meals and confirm the planner remains on tomorrow.
+10. From a selected Diary date, open Quick Log. Confirm the date is retained, Cancel returns without adding anything, and Stop Listening is hidden until listening starts.
+11. From Breakfast (or another meal) open Recent. Confirm it defaults to that meal and shows roughly the previous 14 days. Switch to other meal filters.
+12. Tap a Diary meal heading. Confirm the whole meal opens; tap an item to edit. On iPhone swipe a row left and confirm Delete is revealed rather than immediate.
+13. Inspect Progress & Weight and confirm the Weight Trend graph uses most of the available card width with summary above it.
+14. Check My Foods and other relevant lists for visible Barcode / Nutrition Panel / Manual source badges.
+15. Confirm previously saved foods, recipes, diary data and profile information remain present after the upgrade.

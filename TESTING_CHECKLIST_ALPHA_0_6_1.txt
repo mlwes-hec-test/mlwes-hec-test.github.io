@@ -1,0 +1,16 @@
+HEALTHY EATING COMPANION — ALPHA 0.6.1 QUICK TEST
+
+[ ] Existing Alpha 0.6 data remains available when opened from the same website address.
+[ ] A completed profile opens on Daily Progress.
+[ ] The Home button opens the separate Companion Circle page.
+[ ] Daily Progress on the Circle returns to Daily Progress.
+[ ] Diary, Food Library and Meal Planner Circle buttons open the correct screens.
+[ ] Progress & Weight opens its three-choice sub-room.
+[ ] Settings opens correctly.
+[ ] Home has no Today panel, Open Today’s Diary button, quick-action row, separate thought card or long menu-card list.
+[ ] The top Home message displays a daily food thought, tip, fact, quote or joke.
+[ ] Greeting displays Good Morning, Good Afternoon or Good Evening with capitalisation.
+[ ] Initial setup does not ask for food likes and dislikes.
+[ ] Settings > Food Preferences allows optional preferences to be saved and reopened.
+[ ] Activity wording explains the normal day and excludes separately logged exercise.
+[ ] Recommendations show one selected goal only, with no future goal stages.

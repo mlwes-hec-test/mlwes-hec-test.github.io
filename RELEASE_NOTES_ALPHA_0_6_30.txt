@@ -1,0 +1,42 @@
+HEALTHY EATING COMPANION — FOUNDER TRIAL ALPHA 0.6.30
+STABILITY & RESPONSIVENESS BUILD
+
+PURPOSE
+Alpha 0.6.30 keeps the Alpha 0.6.29 Australian Food Entity Registry and food-intelligence work, but concentrates on the founder-device regressions reported after 0.6.29 deployment: delayed typing in Food Search and Home/navigation controls becoming intermittently unresponsive after search/navigation activity.
+
+STABILITY CHANGES
+- Food Search no longer serialises/writes the full functional data record to localStorage on every keystroke.
+- Typed characters are allowed to paint first; local AFCD/product ranking runs after a short 140 ms idle pause.
+- A new search UI token prevents an older delayed render from overwriting a newer query.
+- Leaving Food Library cancels pending local-search timers, automatic online-search timers and in-flight online requests.
+- Open Food Facts / USDA requests now use AbortController so obsolete searches are actually cancelled rather than only ignored later.
+- Online result callbacks do not re-render Food Library after the user has left that screen.
+- Automatic online lookup will not start while Food Library is inactive.
+- Unsaved online product cache is capped at 220 records; saved online foods are always retained. Online results remain a session cache and are not synchronously persisted merely because a search completed.
+- Home navigation clears stale Food Library live-results/menu state and closes any generic modal left over from a prior screen switch.
+
+SEARCH PERFORMANCE
+- Australian Entity Registry identification/prediction now memoises repeated phrases.
+- Entity parsing is calculated once per query and reused while hundreds/thousands of food candidates are ranked.
+- Product-intent, brand-index and product-match calculations are cached for the current food-data revision.
+- Online result updates invalidate only the relevant search caches.
+
+FOOD INTELLIGENCE PRESERVED
+- Kellogg / Kelloggs / Kellogg's entity recognition.
+- Doritos commercial/corn-chip inference and serving-identity protection.
+- Woolies -> Woolworths and other Australian aliases.
+- Whole Egg sequence: Species -> Part -> Size -> Preparation.
+- Selected egg size carries into Review; yolk/white practical-measure branches remain.
+
+DATA CONTINUITY
+The two Alpha 0.6 browser-storage identifiers remain unchanged:
+- healthyEatingCompanionAlpha06
+- healthyEatingCompanionAlpha06Functional
+
+The existing 0.6.28 backup remains a useful recovery point. Alpha 0.6.30 is designed to migrate the currently stored 0.6.29 data forward without intentionally deleting profile, diary, weight, saved foods/recipes, meals or shopping data.
+
+SERVICE WORKER
+New cache: healthy-eating-companion-alpha-0-6-30-v1
+
+IMPORTANT DEVICE TEST
+The first 0.6.30 test should be stability-only: repeatedly open/close Home destinations, return Home, type quickly in Food Search, change queries, leave search while online lookup is pending, and confirm navigation remains responsive. Only after that should normal Kellogg/Doritos/Bread/Egg intelligence testing resume.

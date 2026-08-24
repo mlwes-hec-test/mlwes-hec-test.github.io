@@ -1,0 +1,89 @@
+HEC ALPHA 0.6.31 — SEARCH / SERVING / REVIEW REGRESSION RESULTS
+18 AUG 2026
+
+RESULT: STATIC / PURE-MODULE CHECKS PASSED
+
+VERSION / DATA CONTINUITY
+PASS — config version is 0.6.31.
+PASS — service worker cache is healthy-eating-companion-alpha-0-6-31-v1.
+PASS — storage key remains healthyEatingCompanionAlpha06.
+PASS — functional storage key remains healthyEatingCompanionAlpha06Functional.
+
+JAVASCRIPT / HTML
+PASS — node --check completed successfully for all 10 runtime JavaScript files.
+PASS — index.html contains 459 IDs with 0 duplicate IDs.
+
+AUSTRALIAN FOOD DATA / STEAK
+PASS — bundled AFCD Release 3 contains 1,588 foods.
+PASS — four Lamb, steak AFCD records are present:
+  - Lamb, steak, boneless, lean, raw
+  - Lamb, steak, boneless, lean, grilled, no added fat
+  - Lamb, steak, boneless, untrimmed, raw
+  - Lamb, steak, boneless, untrimmed, grilled, no added fat
+PASS — lamb steak resolves to the Steak concept rather than defaulting to Beef.
+PASS — lamb steak seeds Protein = Lamb and Cut = Steak.
+PASS — Steak candidate recovery can include AFCD rows where steak is not the first database word.
+
+RETAILER / WORD ORDER
+PASS — entity-first query normalisation converges all three test phrases to:
+  Woolworths lamb steak
+Test phrases:
+  - lamb steak Woolworths
+  - Woolworths lamb steak
+  - Woolies lamb steaks
+
+PRODUCT TOKEN PRESERVATION
+PASS — product candidate filtering now requires every meaningful residual search token to match, using the existing exact/prefix/fuzzy-token tolerance.
+EXPECTED — if Ascend protein bar is not available, HEC should not silently substitute a Fulfil/Nature Valley/etc. protein bar merely because “protein bar” matches.
+
+GUIDED COMPATIBILITY
+PASS — a generic Cooked chicken reference is a safe/soft fallback for Baked/Oven when no contradictory ingredient/preparation is introduced.
+PASS — physical shape word strips does not invalidate an otherwise compatible chicken-breast reference.
+PASS — Air Fried can use a compatible baked/roasted/grilled reference for applicable foods while remaining a distinct user-facing preparation.
+
+EGG SERVING
+PASS — selected Large whole-egg size is locked through Review.
+PASS — alternative egg-size count units are removed after Large has already been selected.
+EXPECTED — Review asks for quantity, not a second size decision.
+
+ONLINE SEARCH RESPONSIVENESS
+PASS — local predictive rendering is scheduled immediately after the typed character paints.
+PASS — full local settle is reduced to 95 ms.
+PASS — automatic online lookup delay is reduced to 360 ms.
+PASS — Open Food Facts results can render before the optional generic USDA lookup completes.
+PASS — stale query token / abort guards remain in place.
+
+NUTRITION PANEL
+PASS — Serving Size OCR accepts additional common OCR variants.
+PASS — serving amount and serving-unit controls have live rescaling listeners.
+PASS — rescaling is based on the recognised source basis (per serving vs per 100 g/mL).
+CALCULATION SANITY — 185 Cal at 135 g corresponds to approximately 137.0 Cal per 100 g; returning from 100 g to 135 g restores approximately the original serving energy (rounding dependent).
+
+FRONT-OF-PACK ASSIST
+PASS — optional front-of-pack image input is present.
+PASS — front OCR result populates an editable Food Name suggestion only; it does not auto-save.
+
+BRAND / DIARY IDENTITY
+PASS — Diary/meal overview display helper prepends a useful brand when the product name does not already contain it.
+EXPECTED — Cappuccino Strong + Nescafé displays as Nescafé Cappuccino Strong.
+
+IPHONE / GUIDED STATE HARDENING
+PASS — mobile text inputs/selects use 16 px minimum input sizing to reduce Safari focus zoom.
+PASS — viewport/screen/modal width constraints are present.
+PASS — guided choice buttons disable immediately and move to the next visible state on requestAnimationFrame.
+
+BROWSER RUNTIME LIMITATION
+NOT CLAIMED — Playwright local navigation was blocked by the execution environment administrator, and direct headless Chromium could not establish a usable browser session in this container. Therefore Alpha 0.6.31 is not marked as browser-runtime passed here.
+REQUIRED — physical iPhone HTTPS/PWA founder testing remains the final validation for keyboard/viewport behaviour, camera/OCR, service-worker replacement, live network product search, and tap/navigation feel.
+
+PURE MODULE TEST OUTPUT
+PASS module versions 0.6.31
+PASS lamb steak resolves to Steak concept
+PASS lamb steak infers Lamb protein
+PASS steak word seeds Steak cut
+PASS generic cooked chicken safely supports baked/oven fallback
+PASS physical word strips does not invalidate chicken reference
+PASS air fried may use compatible baked vegetable reference
+PASS selected Large egg is locked
+PASS alternative egg sizes removed after selection
+ALL MODULE TESTS PASSED

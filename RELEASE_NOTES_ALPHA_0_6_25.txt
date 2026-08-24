@@ -1,0 +1,50 @@
+HEALTHY EATING COMPANION — FOUNDER TRIAL ALPHA 0.6.25
+CONDITIONAL BRANCHING + MATCH VALIDATION
+
+PRIMARY PURPOSE
+This build keeps the Alpha 0.6.24 universal search and serving foundations, but fixes the next structural problem found in founder testing: earlier answers must actually constrain later choices and the final nutrition record.
+
+WHAT CHANGED
+1. Conditional branching is now record-driven.
+   - A selected answer filters the nutrition-candidate pool immediately.
+   - Later buttons are generated only from records that remain compatible.
+   - Example: Pie -> Sweet no longer offers Meat, Chicken & Vegetable or Steak & Kidney. It narrows to the supported sweet-pie branch.
+   - Pie -> Savoury offers only supported savoury fillings from the current Australian reference records.
+
+2. Impossible branches are no longer kept alive.
+   - Previous logic retained the old candidate pool when a selected answer produced zero matches. That could make a contradictory path finish on an unrelated reference.
+   - Alpha 0.6.25 uses strict compatible-candidate filtering.
+
+3. Final nutrition-reference validation is mandatory.
+   - Before Review/Add, HEC checks every selected facet against the proposed nutrition reference.
+   - It also checks meaningful words the user typed but which were not represented by a button choice.
+   - If no record supports the complete intent, HEC stops and says it cannot find one safe matching reference. It does not silently substitute another food.
+
+4. Query specificity is protected.
+   - Example: Curry Pie cannot silently finish on a plain generic meat-pie record if the underlying reference contains no curry information.
+   - Beef Pie may use the AFCD generic meat-pie reference because its description explicitly states the filling is usually beef and/or mutton; the source remains visible for review.
+   - Homemade cannot silently use a commercial record when source is part of the selected/typed intent.
+
+5. Pie record semantics improved.
+   - AFCD pie records now expose Kind and Filling correctly from their names:
+     Savoury / Sweet; Chicken & Vegetable; Meat; Apple; Steak & Kidney.
+   - The Sweet and Savoury pathways therefore diverge properly.
+
+6. Long option sets now paginate.
+   - Guided questions show up to six choices at a time with More Choices / Earlier Choices navigation.
+   - This preserves the shorter progressive style while allowing all supported values (for example more apple varieties) to remain reachable.
+
+7. Single meaningful branch values can be shown rather than silently assumed.
+   - Example: after Pie -> Sweet, Apple is shown as the supported filling choice rather than Meat/Chicken/Vegetable choices from the savoury branch.
+   - Redundant facts already implied by an earlier answer may still be skipped.
+
+UNCHANGED / PRESERVED
+- Universal generic-food versus branded-product search split.
+- Data-driven varieties for foods such as lettuce, apple, orange and banana.
+- Universal Serving & Measure Foundation from Alpha 0.6.24.
+- Package serving versus per-100-g safeguards.
+- Calories + kilojoules together at food level.
+- Existing browser storage keys, so founder-trial data is not intentionally reset.
+
+FOUNDER TEST FOCUS
+Test search/refinement/serving only. Do not spend time on cosmetic details yet.

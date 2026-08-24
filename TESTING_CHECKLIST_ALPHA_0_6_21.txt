@@ -1,0 +1,27 @@
+HEALTHY EATING COMPANION — ALPHA 0.6.21 FOUNDER CHECKLIST
+
+PRIORITY 1 — SEARCH / FREEZE
+[ ] Open Diary > Dinner > Add Food. Type Pie slowly. Screen remains responsive.
+[ ] First guided result for Pie is Pie.
+[ ] Type Curry. First guided result is Curry.
+[ ] Type Curry Pie. First guided result is Curry Pie.
+[ ] Tap the guided choice and complete every question through amount/unit review.
+[ ] Repeat with sausage, egg, bread, banana and an uncommon food.
+[ ] Refresh Online Results during a search. Guided choices remain primary and the screen remains responsive.
+[ ] Back from amount review restores the same search and destination meal.
+
+HOME
+[ ] Normal app launch opens Home.
+[ ] Home header no longer repeats current weight, goal weight or energy target.
+[ ] Quick Food Log opens voice/text logging.
+[ ] Quick Weight Log opens Weight Check-In.
+[ ] Meal Planner is not a Home-circle room; Plan Multiple Meals still works from Diary.
+[ ] Companion centre shows name, Tap for guidance and a short current thought/joke/quote.
+
+DAILY PROGRESS
+[ ] Nutrition Balance displays a 1–10 score and horizontal line.
+[ ] Tapping it opens strengths / areas to improve.
+[ ] Optional suggestions control responds.
+
+WEIGHT HISTORY
+[ ] Range controls show 7 Days, 14 Days, 30 Days, 3 Months, 6 Months, 1 Year, All.

@@ -1,0 +1,18 @@
+Healthy Eating Companion — Founder Trial Alpha 0.6.15
+
+FOCUS: AUSTRALIAN FOOD SEARCH + EVERYDAY DIARY POLISH
+
+- Recognises Bunnings sausage/Bunnings snag/sausage sizzle, Chiko Roll, potato scallop/potato cake/potato fritter and more Australian terms.
+- Voice/text logging shares the improved Australian search matching.
+- Adds more food-appropriate serving choices such as serving, g, mL, slice, biscuit, piece, egg and sausage where sensible.
+- Daily Progress now uses Grey, Yellow, Green, Orange and Red status bands and shows how far over/under target the user is.
+- Adds Suggest Food actions for materially low nutrients such as fibre.
+- Fresh app opening returns Daily Progress to Today.
+- Recent defaults to the current meal and covers about the last 14 days, with quick meal filters.
+- Tapping a Diary meal heading opens the whole meal; foods can be edited individually and swiped left to reveal Delete on touch devices.
+- Plan Multiple Meals preserves the selected Diary date.
+- Quick Log gains Cancel and only shows Stop Listening while needed.
+- Weight graph uses more of the available width.
+- Food source badges are more consistently visible.
+
+Existing Alpha 0.6 local storage keys are retained so normal version upgrades do not intentionally erase tester data.

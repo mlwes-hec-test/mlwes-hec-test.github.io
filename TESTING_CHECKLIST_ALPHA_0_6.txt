@@ -1,0 +1,37 @@
+HEALTHY EATING COMPANION — ALPHA 0.6 FOUNDER TEST
+
+A. Existing Alpha 0.5 tester
+1. Open Alpha 0.6 from the same published website address used for Alpha 0.5.
+2. Confirm the app opens with your existing profile and diary information.
+3. Confirm the app name is Healthy Eating Companion.
+4. Open Settings > Companion & theme and confirm the 16 Australian Companions appear.
+
+B. Clean onboarding
+1. Use Reset Trial only on a device/browser where a clean test is intended.
+2. Complete email and prototype verification.
+3. Create the prototype password.
+4. Confirm the Companion screen shows 16 named Australian characters.
+5. Select Percy, then Wally, and confirm the detail panel changes.
+6. Confirm personal setup asks only for given name and preferred name.
+7. Complete date of birth, energy unit, sex used for calculation, height, weight, goal and activity.
+8. Confirm the recommendation screen explains how the energy figure was calculated.
+
+C. Search
+1. Search Banana: plain Banana should be first.
+2. Search Bananna: a close-match notice should appear and Banana should be offered.
+3. Search Weet Bix and Weet-Bix: Sanitarium Weet-Bix should be found.
+4. Search words in reversed order where practical and confirm token order does not prevent a match.
+
+D. Diary calorie calculation
+1. Add one Banana as Eaten.
+2. Confirm the message states 105 Cal and a new daily total of 105 Cal.
+3. Confirm the diary calculation status says one eaten entry was counted.
+4. Add a planned food and confirm it remains visible but does not increase Energy Eaten.
+5. Mark it Eaten and confirm the new daily total is stated.
+
+E. Companion and fasting
+1. Set today as a Flexible Fasting Day.
+2. Return Home and tap the Companion.
+3. Confirm the Companion gives fasting-related support without scolding.
+
+Please record the device, browser, exact action and screenshot for any problem.

@@ -1,0 +1,20 @@
+HEALTHY EATING COMPANION — FOUNDER TRIAL ALPHA 0.6.10
+
+This build focuses on the latest founder-testing feedback since Alpha 0.6.9.
+
+KEY CHANGES
+- Meal categories simplified to Breakfast, Lunch, Dinner, Snacks and Other. Existing Morning Tea and Afternoon Tea entries migrate to Snacks without deleting historical data.
+- Meal Planner uses the same five meal categories and continues to account for food already recorded before making suggestions.
+- Weight Trend rebuilt as a Safari-safe HTML/CSS bar chart with one-decimal weight labels.
+- Weight Check-In warns when a new entry differs by more than 2.0 kg from the nearest dated entry, while still allowing the user to confirm a genuine change.
+- Food Library mobile search keeps the typed text visible and presents up to three Top Matches directly under the search box while the keyboard is open.
+- Food Library no longer keeps the entire search/tab/control block permanently sticky during normal browsing.
+- Scan Barcode shortcut opens directly in Barcode mode; Read Nutrition Panel opens directly in Nutrition Panel mode.
+- Barcode mode is camera-first, includes a barcode framing guide, auto-stops after detection, automatically looks up the product and scrolls the review card into view.
+- Manual barcode entry is now a secondary fallback and lookup is disabled until a plausible 8–14 digit code is present.
+- Barcode products default to natural serving units when available (for example, one serve with its package serving description) while still retaining gram/mL alternatives.
+- Nutrition Panel review places editable recognised values first; raw OCR text is available behind Show Recognised Text.
+- Two-second confirmation pop-ups remain the standard.
+
+DATA CONTINUITY
+Alpha 0.6.10 deliberately keeps the same Alpha 0.6 local-storage keys as Alpha 0.6.9 so founder trial data can carry forward. Use the in-app Reset option only when deliberately starting a clean-user test.

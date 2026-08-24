@@ -1,0 +1,85 @@
+HEALTHY EATING COMPANION — ALPHA 0.6.32 TARGETED REGRESSION RESULTS
+
+{
+  "passed": 7,
+  "failed": 0,
+  "results": [
+    {
+      "name": "Version is Alpha 0.6.32",
+      "pass": true,
+      "detail": "0.6.32"
+    },
+    {
+      "name": "Service worker uses fresh 0.6.32 cache",
+      "pass": true,
+      "detail": "healthy-eating-companion-alpha-0-6-32-v1"
+    },
+    {
+      "name": "Search settle/online delays reduced",
+      "pass": true,
+      "detail": "local 70 ms, auto-online 180 ms"
+    },
+    {
+      "name": "Meal Copy/Move controls and multi-date tools exist",
+      "pass": true,
+      "detail": "copy/move + multi-date controls present"
+    },
+    {
+      "name": "Recent explicit meal filter outranks stale pending meal",
+      "pass": true,
+      "detail": "explicit Recent filter returns before pendingMeal"
+    },
+    {
+      "name": "Expanded Australian chain menus",
+      "pass": true,
+      "detail": {
+        "kfc": {
+          "groups": 11,
+          "items": 126
+        },
+        "mcd": {
+          "groups": 10,
+          "items": 86
+        },
+        "hj": {
+          "groups": 7,
+          "items": 63
+        }
+      }
+    },
+    {
+      "name": "Morning Sun serving-basis coherence repair",
+      "pass": true,
+      "detail": {
+        "serving": "45 g",
+        "basis": "package-explicit",
+        "nutrients": {
+          "calories": 155.35372848948373,
+          "protein": 4.59,
+          "carbs": 29.430000000000003,
+          "fat": 0.855,
+          "satFat": 0.18000000000000002,
+          "fibre": 5.445,
+          "sugar": 4.995,
+          "sodium": 11.700000000000001
+        },
+        "warnings": [
+          "sodium",
+          "proteins",
+          "carbohydrates",
+          "fat",
+          "saturated-fat",
+          "fiber",
+          "sugars"
+        ]
+      }
+    }
+  ]
+}
+
+
+Additional static checks:
+- Active JavaScript/service-worker syntax checks: PASS
+- HTML IDs: 459 total / 459 unique / 0 duplicates
+- Local index.html file references: 0 missing
+- Headless Chromium runtime attempt: NOT COMPLETED (container session timed out); no browser-runtime pass claimed.

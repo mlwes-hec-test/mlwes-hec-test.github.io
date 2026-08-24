@@ -1,0 +1,55 @@
+HEALTHY EATING COMPANION — RELEASE NOTES ALPHA 0.6.4
+
+DATA AND UPGRADES
+- Reuses Alpha 0.6.3 storage keys so existing same-site browser data is retained and schema-upgraded.
+- Adds Download Backup and Restore Backup.
+- Adds Reset App for Testing.
+- Adds Leave Healthy Eating Companion to remove local registration/profile and app data.
+
+PROFILE, DATE AND TIME
+- Adds optional surname.
+- Adds optional country, state/province, postcode, home time zone and time-zone behaviour.
+- Uses local calendar dates instead of UTC for Today.
+- Daylight saving is handled by the selected IANA time zone.
+- Detects device time-zone changes and can ask, follow the device, or retain home time.
+- New records store local date, time zone and creation time where applicable.
+
+HOME AND RECOMMENDATIONS
+- Clearer Current Weight, Goal Weight and Daily Energy Target labels.
+- Last recorded weight date shown.
+- Calculation details collapsed behind help control.
+- Fixes duplicate/inconsistent final calorie display.
+- Adds tappable category-based companion content.
+
+GOALS AND DAILY PAGES
+- Fixes Maintain/Lose/Gain goal-change validation.
+- Preserves decimal maintenance weights.
+- Home entry to date-based rooms starts on Today.
+- Contextual dated actions retain the relevant date.
+- Adds Back and Home controls to applicable pages.
+
+DIARY, DAILY PROGRESS AND MEAL PLANNER
+- Planned foods are named and actionable in Daily Progress.
+- Adds editable fluid target.
+- Meal planner counts existing eaten and planned energy, provides full nutrient/food-group details, persistent View in Diary and Undo, and duplicate protection.
+
+FOOD LIBRARY AND RECIPES
+- Fixes tab/results mismatch caused by delayed online searches.
+- Renames Favourite Foods and Foods I Created.
+- Improves Cancel Adding context.
+- Replaces persistent floating menu with closable Create or Scan actions.
+- Adds guided creation choice for single foods, recipes and saved meals.
+- Recipe builder supports ingredient search, custom/scanned ingredients, food-specific measures, live total/per-serving nutrition, retained drafts and Favourite recipes.
+- Adds trial records/measures for English muffin, bacon, cheddar, sauce, margarine, sausage and steak.
+- Applies clearer capitalisation to displayed recipe measures.
+
+FEEDBACK, ANALYTICS AND FOUNDER TOOLS
+- Adds structured feedback categories and Share/Copy/email handoff.
+- Adds opt-in local anonymous feature-use counts.
+- Adds PIN-protected local founder dashboard.
+- Adds up to 10 locally managed invitation links.
+
+KNOWN LIMITATIONS
+- Founder invitations, insights and feedback are local prototypes and are not centrally synchronised.
+- A secure backend is required for real accounts, central analytics, central feedback, secure invitations and cross-device deregistration.
+- Online databases, barcode scanning and OCR still require broad real-device testing.

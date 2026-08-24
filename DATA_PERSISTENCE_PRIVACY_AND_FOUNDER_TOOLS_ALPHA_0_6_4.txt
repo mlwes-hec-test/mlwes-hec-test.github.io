@@ -1,0 +1,33 @@
+HEALTHY EATING COMPANION — ALPHA 0.6.4 DATA, PRIVACY AND FOUNDER TOOLS
+
+1. HOW DATA CONTINUES BETWEEN VERSIONS
+Alpha 0.6.4 deliberately uses the same two browser-storage identifiers as Alpha 0.6.3:
+- healthyEatingCompanionAlpha06
+- healthyEatingCompanionAlpha06Functional
+
+When the complete new build replaces the old files at the same GitHub Pages address, the app migrates these records to version 0.6.4 rather than intentionally deleting them.
+
+2. WHEN LOCAL DATA MAY NOT FOLLOW
+Local browser data does not automatically move between different devices, different browsers, Private Browsing sessions, different domains or changed GitHub repository paths. Clearing website history/data can also remove it. An in-app browser opened from Messages may not behave exactly like Safari.
+
+Use Download Backup before major changes and Restore Backup when moving or recovering a profile.
+
+3. RESET APP FOR TESTING
+Reset is intended for deliberate clean-start testing. It removes the local profile and functional trial data from that browser, then returns to setup. It is not an ordinary sign-out button.
+
+4. LEAVE HEALTHY EATING COMPANION
+Leave removes the local registration/profile, Diary, food data, plans, lists, caches and service-worker registration from that browser. Download a backup first if the user may return.
+
+5. OPTIONAL ANALYTICS
+Analytics are off unless the user chooses to enable them. Alpha 0.6.4 records only local event counts such as opening a room or accepting a planner suggestion. It does not intentionally attach Diary writing, food-entry details, exact weight, address, phone number or meal photos.
+
+6. FEEDBACK
+Feedback is structured by category and saved locally. App version, screen and basic device information may be included. Private Diary, food, weight, photo and contact content is not attached automatically. In the static build, the user must Share, Copy or send the prepared email.
+
+7. FOUNDER TOOLS
+Mal can enable the local founder area by opening the deployed page once with ?founder=1. The area then appears under Settings and is protected on that device by a six-digit local PIN.
+
+It can create up to 10 local invitation records, export local insights and display feedback stored on that same device.
+
+8. STATIC-BUILD LIMITATION
+A static GitHub Pages site cannot securely prove that only Mal is the founder, centrally enforce a 10-person invitation limit, combine analytics from every tester or automatically deliver all feedback. Those functions need authenticated accounts, a protected database and server-side permissions in a future build. Alpha 0.6.4 therefore provides the workflow and data structure for testing without claiming server-grade security.

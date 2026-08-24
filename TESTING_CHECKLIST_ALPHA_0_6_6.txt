@@ -1,0 +1,88 @@
+HEALTHY EATING COMPANION — ALPHA 0.6.6 TESTING CHECKLIST
+
+BEFORE UPDATING
+[ ] In Alpha 0.6.5, use Settings > Data, Backup & Privacy > Download Backup.
+[ ] Publish Alpha 0.6.6 to the SAME GitHub Pages address.
+[ ] Do not clear Safari/website data.
+
+DATA MIGRATION
+[ ] Existing profile is still present.
+[ ] Existing weight history is still present.
+[ ] Existing Diary/Planned foods are still present.
+[ ] Existing recipes/favourites are still present.
+[ ] Existing Shopping List is still present.
+
+NORMAL / FASTING DAY
+[ ] Open Diary on a Normal Day and confirm the Recommended Normal Target matches the profile recommendation.
+[ ] Confirm an old/stale 2,000 Cal value does not replace the recommendation.
+[ ] Change to Flexible Fasting Day and confirm the fasting target appears.
+[ ] Change back to Normal Day and confirm the recommended Normal target returns.
+[ ] Enable Use a Different Energy Target for This Date and confirm only that date uses the custom value.
+[ ] Check Tomorrow/another date and confirm the energy heading uses the correct date wording.
+
+FOOD LIBRARY / AUSTRALIAN DATA
+[ ] Start a new Breakfast food search and confirm the search box is blank.
+[ ] Search BACON. Confirm Australian guided/AFCD bacon records appear before unrelated international records.
+[ ] Search LASAGNE. Confirm Australian AFCD prepared-food records appear.
+[ ] Search several everyday foods: chicken, steak, potato, cheese, rice, cereal, yoghurt, fish.
+[ ] Open an AFCD record and check the source is clearly identified.
+[ ] Add an AFCD food to Diary and confirm calories/nutrients change with grams or mL where available.
+[ ] From Breakfast/Lunch/Dinner Food Library context, tap Suggest [Meal] and confirm the Planner opens for that meal/date.
+
+MEAL PLANNER — NEW SESSION
+[ ] Open Meal Planner from Home and confirm all meal boxes start unticked.
+[ ] Select some meals, leave the Planner, then start a NEW session and confirm previous selections are cleared.
+
+MEAL PLANNER — NORMAL DAY
+[ ] Add one or two foods yourself first.
+[ ] Ask the companion to plan selected remaining meals.
+[ ] Confirm the planner reports calories already Eaten/Planned.
+[ ] Confirm it builds around existing user food rather than pretending the day is empty.
+[ ] Leave some meal categories unticked and confirm some energy is reserved for them.
+[ ] Generate all meals and review whole-day grains, fruit, vegetables, protein foods and dairy balance.
+
+MEAL PLANNER — FASTING DAY
+[ ] Set a 500 Cal fasting day.
+[ ] Select only Lunch and Dinner. Confirm unticked meals do NOT reserve energy.
+[ ] Confirm the two meal guides together do not exceed the remaining fasting allowance.
+[ ] Generate suggestions and confirm they are appropriately smaller.
+[ ] Try selecting all meal occasions on a fresh 500 Cal day and confirm small suggestions are spread across the selected occasions.
+[ ] Add/accept food until very little energy remains, then ask for more planning and confirm the app can say No Additional Food Suggested rather than forcing an over-budget meal.
+
+PLANNER ACCEPTANCE
+[ ] Accept each selected suggestion.
+[ ] Confirm Added to Plan appears only once and duplicates are prevented.
+[ ] Confirm View in Diary and Undo are available.
+[ ] Once all selected meals are complete, confirm Plan Selected Meals / Try Again controls disappear.
+[ ] Confirm View Day Plan and Plan More Meals appear.
+
+DAILY PROGRESS / NUTRIENTS
+[ ] Confirm Protein target is no longer the very high old value.
+[ ] Confirm Total Sugars is informational rather than a fixed 50 g warning.
+[ ] Confirm Free Sugars is shown when available and says Not Available when the underlying food records do not support it.
+[ ] Confirm Fibre above the minimum does not become a warning merely for being above 30 g.
+[ ] After a companion-planned day, review all five Australian food-group estimates for overall balance.
+
+EXERCISE SETUP
+[ ] Open Settings > Edit Health Profile.
+[ ] Confirm the exercise-credit question is easy to notice and understand.
+[ ] Test No Credit, 50%, and 100% and confirm separately logged exercise changes the daily allowance accordingly.
+
+SHOPPING LIST
+[ ] Add enough items to require scrolling. Confirm Add Item / Speak Item quick controls remain accessible.
+[ ] Try voice entry for SAO Biscuits and Shredded Cheese. Review the suggested correction before adding.
+[ ] Try a spoken quantity such as “two packets of SAO biscuits” and confirm item, quantity and unit are separated sensibly.
+[ ] Correct a deliberately misheard grocery item, then try it again later and check whether the local alias helps.
+[ ] Add apples, chicken drumsticks, cheese and toilet paper. Confirm sensible categories are suggested.
+[ ] Tap Select All; confirm all items tick and the control changes to Deselect All.
+[ ] Test Clear Checked.
+[ ] Test Clear Entire List and its confirmation.
+[ ] Share the list and confirm one category heading is shown for each group, without repeated Other prefixes.
+[ ] Print/Save as PDF and check the same grouped presentation.
+
+REAL-DEVICE FEATURES STILL TO TEST
+[ ] Barcode camera scanning over HTTPS.
+[ ] Barcode photo recognition.
+[ ] Nutrition-panel OCR and manual review.
+[ ] Shopping/food voice entry on iPhone/iPad/Safari.
+[ ] Home Screen-installed app update behaviour.

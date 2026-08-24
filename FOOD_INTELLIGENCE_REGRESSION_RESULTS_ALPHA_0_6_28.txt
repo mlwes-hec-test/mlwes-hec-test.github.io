@@ -1,0 +1,34 @@
+HEC ALPHA 0.6.28 — FOOD INTELLIGENCE / SERVING REGRESSION RESULTS
+
+PASS — JavaScript syntax: config, companions, app, search foundation, guided branching,
+       serving foundation, alpha06 and alpha064.
+PASS — "two eggs" retains quantity 2.
+PASS — 1/2 and 1/4 typed fractions parse as 0.5 and 0.25.
+PASS — "2 banana" retains quantity 2.
+PASS — Corn Chip resolves as Corn Chips.
+PASS — Banana Bread does not resolve as Banana.
+PASS — "Two eggs on toast" splits to Egg then Toasted Bread.
+PASS — Egg White query infers White and ordinary Chicken context.
+PASS — Bread source choices include Commercial / Bought.
+PASS — Corn Chip source choices include Commercial / Packaged.
+PASS — Egg White default = tablespoon; Egg White / mL / grams are present.
+PASS — Egg White does not retain the whole-Egg unit.
+PASS — Egg Yolk default = Yolk; whole-Egg unit removed.
+PASS — Whole Egg retains size/count measures.
+PASS — Cheddar Cheese receives Slice.
+PASS — Bread defaults to Regular Slice.
+PASS — Corn Chips receives Small Handful (~25 g) practical measure.
+PASS — Generic/source-supported Crispbread receives individual Crispbread measure.
+PASS — Branded package records do not receive an invented crispbread count when the
+       package serving has no explicit count data.
+PASS — Explicit 80 g packaged bar receives Bar unit and fraction support.
+PASS — Pourable foods with an mL basis receive teaspoon/tablespoon/cup and a clearly
+       approximate Small Drizzle measure.
+PASS — HTML ID uniqueness and local file-reference checks.
+PASS — AFCD local data count remains 1,588 foods.
+PASS — Storage identifiers remain healthyEatingCompanionAlpha06 and
+       healthyEatingCompanionAlpha06Functional.
+PASS — Service-worker cache advanced to healthy-eating-companion-alpha-0-6-28-v1.
+
+DEVICE TEST STILL REQUIRED — iPhone/iPad camera, microphone, OCR, HTTPS service-worker
+replacement and physical mobile layout.

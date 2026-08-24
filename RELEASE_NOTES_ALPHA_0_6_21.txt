@@ -1,0 +1,36 @@
+HEALTHY EATING COMPANION — FOUNDER TRIAL ALPHA 0.6.21
+
+PRIMARY PURPOSE
+Stabilise food search first, remove the iPhone search freeze, and apply the newly agreed Home/Daily Progress design.
+
+FOOD SEARCH — CRITICAL
+- Removed the self-triggering MutationObserver that could repeatedly rewrite Food Library results and freeze the screen on iPhone.
+- Search rendering is now explicit and one-pass rather than observer-driven.
+- Typing “Pie” presents Pie first; Curry Pie is secondary.
+- Typing “Curry” presents Curry and continues through a guided curry workflow.
+- Typing “Curry Pie” presents Curry Pie first and carries the words already supplied into the guided pie workflow.
+- Existing food families continue through guided refinement before amount/unit review.
+- Foods not covered by a specialist family still receive a generic guided source/refinement step instead of falling straight into raw database rows.
+- Raw AFCD/online records remain secondary evidence/data sources, not the primary ordinary-entry workflow.
+
+HOME
+- Completed users now open to Home on normal app launch.
+- Removed Current Weight, Goal Weight and Daily Energy Target from the Home header.
+- Removed Meal Planner from the Home circle; Plan Multiple Meals remains inside Diary.
+- Removed Quick Log from Diary.
+- Added Quick Food Log and Quick Weight Log to the Home circle.
+- Renamed the progress hub to Nutrition, Balance & Weight Progress.
+- Companion personality tagline is no longer repeated in the inner circle.
+- The companion’s current quote/joke/thought now sits inside the companion centre instead of a separate large Home card.
+
+DAILY PROGRESS
+- Added a tappable Nutrition Balance score from 1–10 with a horizontal yellow-to-green progress line.
+- The score combines recorded food-group coverage, protein/fibre progress, energy position and sodium.
+- Tapping the card explains strengths and areas worth attention and offers an optional suggestion prompt.
+
+WEIGHT GRAPH
+- Retains 7 Days, 14 Days, 30 Days, 3 Months, 6 Months, 1 Year and All.
+
+DATA CONTINUITY
+- Existing Alpha 0.6 storage keys remain unchanged.
+- Replace the complete deployed folder at the same GitHub Pages location to preserve browser-local tester data.

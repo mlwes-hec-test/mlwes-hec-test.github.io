@@ -1,0 +1,26 @@
+HEALTHY EATING COMPANION — FOUNDER TRIAL ALPHA 0.6.24
+UNIVERSAL SERVING & MEASURE FOUNDATION
+
+PURPOSE
+Alpha 0.6.24 completes the next foundation layer after Alpha 0.6.23 search: once HEC identifies a food, the same serving resolver now determines defensible quantity/measure choices instead of relying on one-off food code.
+
+WHAT CHANGED
+- Added serving-foundation.js as the canonical serving/measure resolver.
+- Priority order is: explicit package serving/count data -> existing source-specific measures -> Australian Dietary Guidelines standard serves -> safe grams/mL fallback.
+- Generic foods and dynamically discovered AFCD foods now use the same serving rules.
+- Lettuce example: Cos/Iceberg/Mignonette remain data-derived varieties; raw lettuce can proceed to 1 cup raw leafy/salad vegetable (75 g Australian standard serve) or grams.
+- Apple example: AFCD-derived varieties include Bonza, Fuji, Golden Delicious, Granny Smith, Jonathan, Pink Lady, Red Delicious and Royal Gala; a medium apple is offered as the 150 g Australian standard fruit serve plus grams.
+- Orange example: AFCD-derived Navel/Valencia choices then medium orange (150 g Australian standard fruit serve) or grams.
+- Bread, yoghurt, hard cheese, milk, cooked meats, poultry, fish, eggs and other five-food-group examples gain Australian standard-serve measures where the guideline supplies a defensible exact conversion.
+- Where the Australian guideline provides only a range (for example 1/2 cup cooked grain = 75–120 g), HEC does not invent one exact multiplier. It keeps grams primary and displays the range as guidance.
+- Packaged foods use the package serving when a reliable serving mass/volume is supplied, while retaining grams/mL when calculable.
+- A missing package serving is no longer silently manufactured as “Serve (100 g)”. A 100 g nutrition basis stays a 100 g reference.
+- Explicit package count text such as “2 slices (40 g)” can generate a natural Slice unit (20 g each) without guessing.
+- Calories and kilojoules remain paired in food-level displays from the Alpha 0.6.23 foundation.
+
+AUSTRALIAN STANDARD-SERVE SOURCE
+Australian Government Eat for Health / Australian Dietary Guidelines serve-size guidance.
+https://www.eatforhealth.gov.au/food-essentials/how-much-do-we-need-each-day/serve-sizes
+
+IMPORTANT DISTINCTION
+A dietary-guideline standard serve is clearly labelled as such. It is not presented as proof that every physical apple, lettuce cup, cheese slice or other item weighs exactly that amount. Where an exact package or household conversion is not defensible, HEC keeps grams/mL available instead of inventing precision.

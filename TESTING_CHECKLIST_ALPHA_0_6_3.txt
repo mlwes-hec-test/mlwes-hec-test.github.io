@@ -1,0 +1,37 @@
+FOUNDER TESTING CHECKLIST — ALPHA 0.6.3
+
+STARTUP
+[ ] Complete a reset profile and confirm first destination is Home.
+[ ] Close/reopen and confirm Daily Progress opens.
+
+HOME
+[ ] Orbit is circular and all seven rooms are evenly spaced on iPhone/iPad/desktop.
+
+DAILY PROGRESS
+[ ] Add planned food and confirm it appears in lighter bar sections before being eaten.
+[ ] Mark a planned item eaten and confirm the solid/lighter sections update.
+[ ] Confirm Fluids target is about 2,600 mL for an adult man profile and solid-food moisture is separate.
+
+MEAL PLANNER
+[ ] Select one meal, several meals and all meals; review the calculated energy guides.
+[ ] Accept a meal once; confirm Added to Plan and no duplicate on a second tap.
+[ ] Confirm accepted plan appears in Daily Progress.
+
+FOOD LIBRARY
+[ ] Search local foods.
+[ ] Search Online Foods and review Open Food Facts / USDA source wording.
+[ ] Select Egg and Potato and test preparation choices.
+[ ] Confirm the sticky search header is opaque with no text showing through.
+
+SCANNING
+[ ] Enter a known barcode manually and review product.
+[ ] Test barcode camera/photo if browser supports it.
+[ ] Photograph a nutrition panel, run OCR and correct values before saving.
+[ ] Confirm a meal photo never auto-logs guessed food.
+
+SHOPPING LIST
+[ ] Add 2 hot chooks, edit to 1 without deleting.
+[ ] Move cottage cheese to Dairy & eggs.
+[ ] Add Greek yoghurt twice and review duplicate prompt.
+[ ] Enter Geek yoghurt and review spelling suggestion.
+[ ] Print unchecked items and test Share/clipboard.

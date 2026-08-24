@@ -1,0 +1,15 @@
+HEALTHY EATING COMPANION — ALPHA 0.6.11 FOUNDER TEST CHECKLIST
+
+1. After deployment, confirm the app identifies itself as Alpha 0.6.11 and refresh once if Safari was already open on the old build.
+2. Diary: confirm only Breakfast, Lunch, Dinner, Snacks and Other appear.
+3. If old Morning Tea/Afternoon Tea records exist, confirm they appear under Snacks rather than disappearing.
+4. Weight Check-In: confirm Today's date box says Today plus the full date. Change it to yesterday/tomorrow and confirm the friendly label changes.
+5. Enter a weight more than 2 kg away from the nearest record and confirm the detailed warning shows both weights, date and exact change.
+6. Progress History: confirm Weight Trend is visible with several recorded weights.
+7. Food Library from Breakfast: confirm the context line remains but Cancel Adding and duplicate Suggest Breakfast are gone.
+8. Confirm Scan Barcode and Read Nutrition Panel are immediately below search without scrolling.
+9. Confirm the Open Australian AFCD link is no longer on the everyday Food Library.
+10. Tap Scan Barcode: confirm Barcode mode opens directly and the live scanner appears without first choosing a file/photo.
+11. Hold a clear retail EAN/UPC barcode inside the frame. Confirm detection stops the camera and starts lookup automatically.
+12. If a barcode is not recognised, test Enter Barcode Manually.
+13. Tap Read Nutrition Panel: confirm Nutrition Panel mode opens directly and photo selection is available there.

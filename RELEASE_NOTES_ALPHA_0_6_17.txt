@@ -1,0 +1,16 @@
+HEALTHY EATING COMPANION — FOUNDER TRIAL ALPHA 0.6.17
+13 August 2026
+
+FOCUS: faster, more intelligent Australian food entry with less tapping.
+
+• Progressive intent-aware food search. “sausage” offers useful refinement paths; “beef sausage” retains beef and skips redundant meat questions; “sausage roll” changes intent and offers generic plus Australian retailer/brand refinements.
+• Brand-first and food-first searching: Woolworths/Woolies, Coles, Aldi, Black & Gold/Black and Gold, Seasons Pride, Home Brand, Westacre and Kellogg’s are recognised as search refinements without inventing nutrition records that have not been verified.
+• Stricter multi-word relevance so specific searches no longer fall back to unrelated Top Matches.
+• Search Back-state preserved when reviewing a food: query/tab/results context and approximate scroll position return.
+• Continuous meal-entry strengthened: Breakfast/Lunch/Dinner/Snacks/Other remains the destination while several foods are added; Done ends the session.
+• Above-target energy now reports the amount Over instead of “0 remaining”.
+• Progress summary removes the developer-like Food Diary Days box and adds overall weight change since starting where history is available.
+• Obviously caloric foods with missing energy are labelled Nutrition incomplete rather than silently appearing as 0 Cal.
+• Retains 0.6.16 food integrity/versioning, Cal+kJ review, immediate delete refresh, Australian foods, source transparency and protected personal library behaviour.
+
+NOTE: retailer/brand refinement is search intelligence, not fabricated product data. Exact packaged nutrition should enter the HEC Core Library only after barcode/package/manufacturer verification.

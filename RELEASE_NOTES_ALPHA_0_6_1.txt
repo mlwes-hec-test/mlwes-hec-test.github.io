@@ -1,0 +1,18 @@
+HEALTHY EATING COMPANION — FOUNDER TRIAL ALPHA 0.6.1
+
+FOCUSED NAVIGATION AND PROFILE UPDATE
+
+- Daily Progress is now the first working screen after setup and on later app openings.
+- Daily Progress has a clear Home button.
+- Home is now a dedicated Companion Circle page rather than a mixed dashboard and menu.
+- Removed the duplicated Today panel, Open Today’s Diary button, quick-action row, separate inspiration card and long menu-card list from Home.
+- Added Daily Progress, Diary, Food Library, Meal Planner, Progress & Weight and Settings to the Circle.
+- Added a Progress & Weight sub-room for history, weight check-ins and printable reports.
+- Moved the daily food thought, quote, tip, fact or joke into the Healthy Eating Companion message box.
+- Food likes and dislikes are no longer requested during initial setup. They can be entered later under Settings > Food Preferences.
+- Improved normal-day activity wording and examples.
+- Removed future staged weight goals; the app now uses one current weight goal.
+- Capitalised Morning, Afternoon and Evening in the home greeting.
+
+DATA
+- Alpha 0.6 local data is retained because the same storage keys are used.

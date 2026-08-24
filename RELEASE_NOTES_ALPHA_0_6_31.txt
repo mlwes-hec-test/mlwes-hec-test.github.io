@@ -1,0 +1,45 @@
+HEALTHY EATING COMPANION — FOUNDER TRIAL ALPHA 0.6.31
+SEARCH, SERVING & REVIEW POLISH BUILD
+
+PURPOSE
+Alpha 0.6.31 builds directly on the stable Alpha 0.6.30 founder test. It focuses on the remaining differences seen beside Easy Diet Diary: delayed search results, query word-order sensitivity, preventable guided-search dead ends, practical serving units, product identity in the Diary, Nutrition Panel scaling, and occasional iPhone layout/state glitches.
+
+SEARCH & RANKING
+- Live food intelligence appears immediately after the typed character paints; full local ranking settles after a shorter pause.
+- Automatic online lookup now starts sooner.
+- Open Food Facts results are rendered as soon as they arrive instead of waiting for FoodData Central as well.
+- Brand/retailer searches are normalised entity-first, so reasonable word orders such as “lamb steak Woolworths”, “Woolworths lamb steak” and “Woolies lamb steaks” converge on the same product intent.
+- USDA lookup is skipped for recognised branded/retailer searches where it is unlikely to help an Australian package search.
+- Generic Steak now includes AFCD records stored as “Lamb, steak...” / “Beef, steak...” instead of requiring Steak to be the first database word.
+- Generic “steak” no longer silently means Beef; protein is inferred only when the user supplies it or selected when needed.
+- Suspicious online package records with missing nutrition represented as 0 Cal are filtered rather than presented as real zero-energy foods.
+- Every meaningful product-search token must now match (with existing fuzzy-token tolerance), preventing an unavailable brand such as “Ascend” from silently falling back to a different brand’s protein bar.
+
+GUIDED ENTRY
+- Physical words such as strip/strips/piece/chunks no longer make an otherwise compatible plain single-ingredient reference fail.
+- A generic Cooked reference may safely support a more specific normal no-fat cooking description when no contradictory ingredient/preparation is introduced; exact preparation records still rank above this fallback.
+- Air Fried is added to applicable meat, fish and vegetable cooking paths.
+- Wizard taps disable immediately and transition on the next animation frame to reduce the occasional “tap did nothing / Back reveals next screen” state mismatch.
+
+SERVING & IDENTITY
+- Once a whole-egg size has been chosen, Review uses that selected count unit and hides the redundant second size/unit selector. Quantity remains editable.
+- Diary rows and meal overview now preserve useful brand + product identity when the brand is not already contained in the product name (for example Nescafé Cappuccino Strong).
+- Explicit package servings from online products remain preferred over generic grams when supplied by the source.
+
+NUTRITION PANEL
+- Serving-size OCR accepts more common OCR variants of “Serving Size”.
+- Changing the recognised serving amount now immediately rescales calories, kJ-derived calories and every recognised nutrient from the selected source basis.
+- Per-serving and per-100-g/mL bases remain distinct and editable.
+- Nutrition Panel now includes an optional front-of-pack photo. HEC can OCR a suggested brand/product name from the front photo and populate the editable Food Name field; the user still checks the package before saving.
+
+IPHONE LAYOUT
+- Mobile inputs are hardened to 16 px to avoid Safari focus zoom creating a temporarily narrow/squeezed page.
+- App/screens/modals are constrained to the visual viewport width and update a visual-viewport width marker during keyboard/orientation changes.
+
+DATA CONTINUITY
+The Alpha 0.6 storage identifiers remain unchanged:
+- healthyEatingCompanionAlpha06
+- healthyEatingCompanionAlpha06Functional
+
+SERVICE WORKER
+New cache: healthy-eating-companion-alpha-0-6-31-v1

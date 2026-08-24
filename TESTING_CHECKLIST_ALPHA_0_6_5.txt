@@ -1,0 +1,17 @@
+HEALTHY EATING COMPANION — ALPHA 0.6.5 FAMILY TESTING CHECKLIST
+
+1. Confirm existing Alpha 0.6.4 profile, diary, recipes, shopping list and weight history remain after deployment.
+2. Open Daily Progress. Confirm Today opens in the correct local time zone and Today’s Meals appears before Nutrition Progress.
+3. Add several foods to a future day. Confirm they are Planned without repeatedly asking for a status.
+4. Expand a meal on Daily Progress. Test Ate as Planned, individual Eaten, Change, Skip and Open Meal.
+5. Review a food. Confirm Unit appears before Amount and changing Unit resets Amount to 1.
+6. Confirm Optional Note is collapsed by default.
+7. Search Egg. Confirm plain Egg, Scrambled Eggs, Omelette and Eggs Benedict are separate results.
+8. Plain Egg: verify Boiled, Poached, Microwave-Poached and Fried choices; confirm Milk is not a plain-egg option.
+9. Scrambled Eggs/Omelette: test Microwave and Cottage Cheese choices.
+10. Test Air-Fried on potato, sausage, steak, rissole and chicken where offered.
+11. Food Library > Recent: confirm the last 14 days are grouped by date/meal and can be reused.
+12. Meal Planner > Browse Recent: copy a recent item/meal into the selected planning date.
+13. Open a long food-details popup. Confirm × Close is visible at the top without scrolling.
+14. Change Normal Day -> Fasting (500) -> Normal. Confirm the normal energy target and explanatory text restore correctly.
+15. Confirm Reset App for Testing still works only when deliberately selected, and Download Backup works before reset.

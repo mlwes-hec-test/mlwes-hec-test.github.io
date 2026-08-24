@@ -1,0 +1,22 @@
+Healthy Eating Companion — Founder Trial Alpha 0.6.13
+
+FOCUS
+Food capture, Diary/Planner usability, weight-history rules, permissions guidance and first Companion polish pass.
+
+CHANGES
+- Barcode-scanned foods can now be saved to Saved Foods without being added to the Diary.
+- A neutral Food Library scan opens a Save Food workflow; Add To Diary & Save Food reveals a Diary destination only when requested.
+- Recent single foods are labelled as Recent Food and use Add Food, rather than being presented as a meal.
+- Saved-food terminology is clearer for scanned/package foods.
+- Meal Photo and Nutrition Panel now have large, explicit Take Photo / Photograph Nutrition Panel buttons plus Choose Existing Photo.
+- Weight Check-In blocks future dates and new entries earlier than the profile start date.
+- Starting Weight is anchored to the profile-start period rather than being redefined by later historical test entries.
+- Weight Trend graph enlarged for phone readability.
+- Diary meal categories have darker, thicker separators.
+- Select All Meals excludes Other. Other remains opt-in. Planner suggestions now include Skip This Meal and Cancel Planning controls.
+- Nutrition progress language is less judgemental while the day is incomplete; sodium now uses daily-limit language rather than misleading Within Range wording.
+- First Companion polish pass: stronger Home circle, larger central presence, subtle idle animation and personality tagline.
+- Speech/camera permission copy clarifies that iOS should normally remember a granted permission; system prompts remain controlled by iOS/Safari.
+
+DATA
+Uses the same Alpha 0.6 storage keys. Existing trial data is preserved.

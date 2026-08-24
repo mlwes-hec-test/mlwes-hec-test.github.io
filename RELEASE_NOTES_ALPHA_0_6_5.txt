@@ -1,0 +1,54 @@
+HEALTHY EATING COMPANION — FOUNDER TRIAL ALPHA 0.6.5
+
+PURPOSE
+Alpha 0.6.5 is a focused usability refinement built from Alpha 0.6.4 testing. Existing storage keys are retained so tester data is designed to carry forward when the files are deployed to the same GitHub Pages address in the same browser/device.
+
+MAIN CHANGES
+1. DAILY PROGRESS — ACTION FIRST
+- Today's meal categories now appear before detailed nutrition bars.
+- Meals are compact and grouped by Breakfast, Morning Tea, Lunch, Afternoon Tea, Dinner and Snacks.
+- Planned, Eaten and Skipped states are shown with both symbols and subtle colour treatment.
+- A meal can be confirmed with one Ate as Planned action.
+- Individual planned items can be marked Eaten, Changed or Skipped from the expanded meal.
+- Open Meal takes the user into the Diary for fuller editing.
+
+2. PLAN FIRST, CONFIRM LATER
+- Foods added from a Diary meal or a future planning context default to Planned.
+- The Status control remains available under More Entry Options rather than interrupting normal planning.
+- Future dates remain Planned until confirmed.
+
+3. UNIT BEFORE AMOUNT
+- Food review and recipe ingredient entry now show Unit before Amount.
+- Changing the unit resets Amount to 1 so the user reviews the measure rather than silently carrying an old number across units.
+- A compact confirmation line shows the exact amount/unit and energy before saving.
+
+4. OPTIONAL NOTES
+- Free-text Notes are collapsed under Add an Optional Note.
+- Cooking method and ingredients that change nutrition are handled by structured choices instead.
+
+5. EGG AND COOKING-METHOD REDESIGN
+- Plain Egg is separate from Scrambled Eggs, Omelette and Eggs Benedict.
+- Plain Egg offers appropriate methods such as Boiled, Poached, Microwave-Poached, Fried and Oven-Baked. Milk is no longer offered for a plain egg.
+- Scrambled Eggs and Omelette have their own shorter guided choices including microwave preparation and Cottage Cheese.
+- Potato and several meat foods now include Air-Fried and other modern cooking methods.
+- Other Cooking Method can be described, but the trial does not silently guess nutrition for an unknown method.
+
+6. RECENT FOODS AND MEALS
+- Food Library now has a Recent tab covering the last 14 days.
+- Recent items are grouped by meal/date and can be quickly copied into a new plan.
+- Meal Planner includes Browse Recent to reuse recent foods/meals.
+
+7. CLEARER INFORMATION POPUPS
+- Modal information panels have a fixed × Close control at the top.
+- Information-only popups no longer require scrolling to bottom buttons just to close.
+
+8. NORMAL / FASTING DAY TARGETS
+- Normal Day and Flexible Fasting Day now retain separate preferred energy targets.
+- Switching from a fasting day back to Normal restores the normal target and explanation immediately.
+- A small migration repairs the specific Alpha 0.6.4 stale 500-Cal Normal-Day state where detected.
+
+DATA PRESERVATION
+The following storage keys are unchanged:
+- healthyEatingCompanionAlpha06
+- healthyEatingCompanionAlpha06Functional
+Do not clear Safari/browser website data when upgrading if you want the local trial records to remain. Use Download Backup before major testing changes.

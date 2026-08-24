@@ -1,0 +1,75 @@
+HEALTHY EATING COMPANION — FOUNDER TRIAL ALPHA 0.6.6
+RELEASE NOTES
+
+FOCUS OF THIS BUILD
+Alpha 0.6.6 concentrates on the problems identified during Alpha 0.6.5 family testing: incorrect Normal-Day energy state, limited food coverage, Meal Planner state/calculation issues, nutrient-balance presentation, and Shopping List usability.
+
+1. NORMAL / FASTING DAY ENERGY
+- The profile recommendation is now the single default Normal-Day target.
+- A stale stored 2,000 Cal value can no longer silently replace a profile recommendation such as 1,506 Cal.
+- A different energy target for one date requires the explicit Use a Different Energy Target for This Date option.
+- Fasting target remains separate from the Normal target.
+- Switching Day Type immediately refreshes the displayed target and explanation.
+- Existing Alpha 0.6.5 records migrate without deleting diary/profile data.
+
+2. EXERCISE CREDIT CLARITY
+- Health Profile now asks clearly whether separately recorded exercise should increase the user's food-energy allowance.
+- Choices remain No / 50% / 100%.
+- Guidance clarifies that normal work/walking/activity is already represented by the selected activity level so it should not be double-counted.
+
+3. AUSTRALIAN FOOD DATABASE
+- Added a compact local copy derived from FSANZ Australian Food Composition Database Release 3.
+- 1,588 Australian food records are available locally for Food Library and recipe ingredient search.
+- Core values imported include energy, protein, carbohydrate, fat, saturated fat, fibre, total sugars, added sugars, free sugars, sodium and moisture where available.
+- Exact/guided Australian records rank ahead of international results.
+- Searches such as bacon and lasagne now return relevant Australian records without requiring an online search.
+- Imported AFCD records are identified with an AFCD badge and FSANZ source attribution.
+- See AFCD_DATA_NOTICE_ALPHA_0_6_6.txt.
+
+4. FOOD LIBRARY WORKFLOW
+- Each new add-to-meal or replacement task starts with a blank search field.
+- Back within the same active flow can preserve the search.
+- When adding to a meal, a contextual Suggest Breakfast / Lunch / Dinner / etc button is available directly in Food Library.
+- A blank All Resources view remains compact rather than attempting to render all 1,588 imported records at once.
+
+5. MEAL PLANNER SESSION STATE
+- New Meal Planner sessions start with all meal boxes unticked.
+- Previous selections do not carry into a new session/date.
+- Accepted meal controls are removed when the selected planning task is complete.
+- Completion provides View Day Plan and Plan More Meals.
+- Accepted cards retain View in Diary and Undo.
+
+6. SMARTER COMPANION PLANNING
+- The companion subtracts all food already Eaten or Planned before calculating what remains.
+- Existing user-selected foods in a selected meal are accounted for rather than ignored.
+- Normal Day: unticked meal categories keep a sensible reserve.
+- Fasting Day: unticked categories are treated as intentionally skipped and do not consume a reserve.
+- Selected fasting meals share only the remaining fasting-day allowance.
+- Added smaller fasting-friendly meal suggestions for very low daily allowances.
+- If too little energy remains for another sensible suggestion, the planner says No Additional Food Suggested rather than forcing a meal that would exceed the plan.
+- Candidate scoring considers other companion suggestions already generated in the same session, improving whole-day balance.
+
+7. NUTRITION PROGRESS
+- Corrected excessively high protein targeting from the previous profile calculation logic.
+- Weight-loss macro guide: approximately 25% protein energy, 30% fat energy, remainder carbohydrate.
+- Other goals: approximately 20% protein energy, 30% fat energy, remainder carbohydrate.
+- Fibre is treated as a minimum target.
+- Total Sugars is informational rather than being compared with a fixed 50 g red limit.
+- Free Sugars has a separate reference when the food record contains reliable free-sugar data; otherwise the app states that the value is unavailable.
+
+8. SHOPPING LIST
+- Sticky Add Item and Speak Item controls remain accessible as the list grows.
+- Australian grocery vocabulary helps interpret likely speech-recognition errors after the device provides a transcript.
+- Spoken quantities and units can be interpreted for common phrases such as “two packets of SAO biscuits”.
+- Confirmed voice corrections can be remembered locally as aliases for future Shopping List entry.
+- Expanded grocery categories and automatic reclassification reduce overuse of Other.
+- Added Select All / Deselect All.
+- Added Clear Entire List with confirmation.
+- Share and Print output is grouped by category headings.
+
+DATA PRESERVATION
+Alpha 0.6.6 keeps the same two primary storage keys:
+healthyEatingCompanionAlpha06
+healthyEatingCompanionAlpha06Functional
+
+Existing testers should update at the same GitHub Pages address and keep the same browser/device. Download Backup is recommended before deployment.

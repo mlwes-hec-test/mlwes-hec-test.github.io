@@ -1,0 +1,20 @@
+HEALTHY EATING COMPANION — FOUNDER TRIAL ALPHA 0.6.11
+
+FOCUS OF THIS BUILD
+Alpha 0.6.11 is a founder-testing repair build for the issues confirmed immediately after Alpha 0.6.10. It concentrates on the weight area, the five-meal Diary structure, Food Library decluttering, barcode entry, and reliable deployment of matching app assets.
+
+KEY CHANGES
+- Enforces the agreed five Diary categories everywhere: Breakfast, Lunch, Dinner, Snacks and Other. Any legacy Morning Tea or Afternoon Tea records migrate to Snacks.
+- Adds versioned local asset URLs and a network-first service worker for app files so a deployed update is far less likely to mix an old HTML/JavaScript file with a new one.
+- Weight Check-In now shows Today, Yesterday or Tomorrow together with the full Australian date while retaining the native date picker.
+- Large weight discrepancies above 2.0 kg now use a specific confirmation showing the nearest weight, its date, the entered weight and the exact change before saving.
+- Change Since Start uses the actual starting-weight record rather than simply the oldest back-entered historical date.
+- Weight Trend rendering avoids the previous Array.at dependency, keeps the mobile-safe bar chart, and adds a visible textual value/date fallback beneath the chart.
+- Food Library no longer shows Cancel Adding or a duplicate Suggest Meal button when a meal is already known; Back/Home and the Diary Suggest action remain the clear routes.
+- Scan Barcode and Read Nutrition Panel are moved directly beneath food search for quicker access.
+- The visible Open Australian AFCD link is removed from the everyday Food Library. Data-source detail remains available through settings/help.
+- Direct Scan Barcode opens Barcode mode and starts a live in-page scanner. Barcode mode does not require the Take/Choose Photo file box.
+- Live scanning now tries the browser's native BarcodeDetector first and falls back to ZXing. Successful detection stops the camera and immediately starts product lookup. Manual barcode entry remains available.
+
+DATA CONTINUITY
+The existing Alpha 0.6 local-storage keys are unchanged. Installing Alpha 0.6.11 at the same site address is intended to retain the existing profile, Diary, recipes, favourites, weight history, Shopping List and other founder-test data.

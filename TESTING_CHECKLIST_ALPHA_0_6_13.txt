@@ -1,0 +1,13 @@
+Alpha 0.6.13 focused checks
+1. Home > Food Library > Scan Barcode: review product, Save Food only, confirm no Diary entry and item appears under Saved Foods.
+2. Repeat and choose Add To Diary & Save Food; choose a meal and confirm both outcomes.
+3. Diary > Snacks > Add Food > Scan Barcode: confirm direct Diary-oriented workflow still works.
+4. Nutrition Panel and Meal Photo: confirm clear camera/photo buttons.
+5. Recent: single item says Recent Food / Add Food; multi-item groups may offer Add Meal To Diary.
+6. Weight: future date blocked; date before profile start blocked; starting weight remains coherent.
+7. Progress History: graph readable on iPhone in 7 Days and 30 Days.
+8. Diary: meal separators clearly visible.
+9. Meal Planner: Select All leaves Other unticked; Skip This Meal and Cancel Planning work.
+10. Daily Progress: low sodium says Well Below Daily Limit; early macros avoid premature On Track judgement.
+11. Home circle: selected Companion is larger, animated subtly and personality tagline appears.
+12. Close/reopen Home Screen app and confirm persistence.

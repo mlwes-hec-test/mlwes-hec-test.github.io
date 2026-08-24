@@ -1,0 +1,69 @@
+HEALTHY EATING COMPANION — ALPHA 0.6.12 FOUNDER TESTING CHECKLIST
+
+FIRST: DATA SAFETY
+[ ] Open the app in a NORMAL Safari tab (not Private Browsing).
+[ ] Existing profile opens without onboarding.
+[ ] Existing Diary, weights, foods, recipes, meals and Shopping List remain present.
+[ ] Close Safari completely, reopen later and confirm data remains.
+[ ] Repeat on iPad using its own existing data.
+
+WEIGHT
+[ ] Weight Trend is a line graph with dots.
+[ ] Graph fits iPhone width with no clipping/sideways scroll.
+[ ] 7 Days / 30 Days / 3 Months / 1 Year / All work.
+[ ] Earliest record is Starting Weight.
+[ ] Change Since Start is correct.
+[ ] View All Weight History has no count and changes to Hide Weight History when open.
+
+DIARY / DAILY PROGRESS
+[ ] Only Breakfast / Lunch / Dinner / Snacks / Other appear.
+[ ] Daily Progress meal cards have no Recorded/Open Meal badge.
+[ ] Add an egg, tap Add To Diary, then navigate Back to the Review screen: Add To Diary must not be usable a second time for that completed transaction.
+[ ] Deliberately starting a new egg entry still works.
+
+FOOD SEARCH
+[ ] Search Cappuccino and Cappucino.
+[ ] A true cappuccino outranks gelato/dessert matches.
+[ ] A personally saved/verified cappuccino ranks strongly.
+[ ] Repeat search and confirm top results remain sensible while online results load.
+
+SERVINGS / UNITS
+[ ] Caramel/protein bar offers Bar where package/category data supports it.
+[ ] Nescafé-style dry cappuccino offers Sachet where appropriate.
+[ ] Natural units coexist with grams/mL.
+[ ] Changing Amount recalculates nutrition correctly.
+
+VOICE / TEXT
+[ ] Say/type “two bananas” and review Amount = 2 with a banana unit.
+[ ] Say/type “one orange” and confirm a natural orange unit is available.
+[ ] Change Amount and Unit manually before Confirm & Add.
+
+SUGGESTIONS
+[ ] Add a clear food to Foods I Love and confirm it is favoured when nutritionally appropriate.
+[ ] Add a food to Foods I Prefer Not To Eat and confirm it is de-prioritised.
+[ ] Add a food to Foods To Never Suggest and confirm it is excluded.
+[ ] Test a Vegetarian/Vegan/Pescatarian profile against clearly incompatible suggestions.
+[ ] Treat allergy/restriction filtering as founder-trial safety assistance, not clinical validation.
+
+BARCODE / PACKAGE COMPARISON
+[ ] Scan a known barcode.
+[ ] Compare With Nutrition Panel is available.
+[ ] Photograph/read the current panel.
+[ ] Matching values show close agreement.
+[ ] Changed values are highlighted.
+[ ] Choose Keep Barcode Values and repeat with Use Package Values.
+
+SAVED FOOD REVIEW
+[ ] Saved packaged foods show verification information when available.
+[ ] Periodic review prompt remains non-blocking.
+
+SHARING
+[ ] Share a saved food and import it on another test device/user.
+[ ] Share a saved meal and import it.
+[ ] Share a recipe and import it.
+[ ] Confirm shared items do not expose Diary/weight/profile data.
+[ ] Share A Full Device Copy and restore on another test browser/device if desired.
+
+CROSS-DEVICE NOTE
+[ ] Do not interpret manual Device Copy as live sync.
+[ ] Automatic account-based iPhone/iPad sync remains pending a secure backend service.

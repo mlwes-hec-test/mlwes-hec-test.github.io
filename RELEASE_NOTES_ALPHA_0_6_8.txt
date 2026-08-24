@@ -1,0 +1,80 @@
+HEALTHY EATING COMPANION — FOUNDER TRIAL ALPHA 0.6.9
+
+BUILD THEME
+Stabilise the everyday food-entry experience before moving quickly into barcode and nutrition-panel testing.
+
+WHAT CHANGED
+
+1. DIARY SIMPLIFIED
+- Removed the user-facing Planned/Eaten workflow from ordinary Diary use.
+- A food counts as soon as it is added to the selected date and meal.
+- Food rows provide direct edit/copy/delete actions.
+- Meal menus provide Save As Reusable Meal and Clear Meal.
+- Clear Meal asks for confirmation and offers Undo through the action notification.
+- Single-meal Suggest stays inside the Diary.
+- Plan Multiple Meals remains available for bulk planning.
+
+2. FOOD LIBRARY EXPANDED FOR TESTING
+- The bundled Australian Food Composition Database Release 3 still contains 1,588 local records.
+- All Resources now surfaces a curated set of familiar AFCD foods even before the user types a search.
+- Search continues across the complete local AFCD dataset.
+- Everyday aliases/ranking were expanded for common Australian search language and familiar foods.
+- New Add Food flows start blank.
+- All Resources and Online Foods maintain separate result behaviour.
+- Search results are made keyboard-aware on mobile so the first useful matches remain reachable above the iOS keyboard.
+
+3. SAFER FOOD/VOICE MATCHING
+- Whole recognised phrases are retained during food matching.
+- “Carrot cake” is treated as a complete food phrase rather than silently substituting plain carrot.
+- General Voice Or Text Log starts with Choose A Meal instead of Breakfast.
+- General Food Library/recipe entry no longer silently assumes a meal.
+- Starting from a specific Diary meal may still preselect that known meal.
+
+4. COMPANION CHOICE
+- The number of companions has not been reduced.
+- Tapping a companion opens an immediate preview with portrait, personality/tagline, speaking style, strengths and sample introduction.
+- The user then explicitly chooses that companion or returns to the list.
+
+5. LOCATION AND PROFILE SETUP
+- Australia now supplies a State Or Territory list: ACT, NSW, NT, QLD, SA, TAS, VIC and WA.
+- Australian postcode/state plausibility checking was added.
+- Australian time-zone suggestions are linked to the selected state/territory; daylight saving follows time-zone rules.
+- The calculation field remains Sex Used For Energy Calculation and now explains its purpose.
+- Major headings/labels use a clearer hierarchy and consistent Title Case.
+
+6. RECOMMENDATIONS SCREEN
+- Daily Fluids stays visible.
+- Detailed Nutrition Goals is collapsed by default and expands on demand.
+- This shortens the path to the recommendation acceptance controls.
+
+7. WEIGHT CHECK-IN AND HISTORY
+- Successful saves change the button to Saved ✓ until something changes.
+- An unchanged repeat save does not create another record.
+- A same-date/different-weight save asks before replacing the existing entry.
+- Routine companion speech is shortened to “Weight and date saved.”
+- Historical entries do not replace the current weight when a newer dated record exists.
+- Progress History now plots Weight Check-In data as a visible trend with tighter scaling and readable Australian dates.
+- Summary wording separates Food Diary Days, Weight Check-Ins and Activities.
+
+8. HYDRATION ENTRY
+- Replaced the bare Additional Drinks volume field with Add A Drink.
+- Water and Zero-Calorie Drink can be quick-added to hydration.
+- Other drink types open the food-selection workflow so calorie/nutrient information can be recorded as well as fluid.
+- Daily Fluid Target remains visible and adjustable.
+
+9. ENERGY/DAY SETTINGS STABILISATION
+- Normal Day continues to use the accepted profile recommendation rather than a stale fallback.
+- Flexible Fasting Day retains its separate target.
+- A different target applies only when explicitly selected for that date.
+- Exercise credit uses the activity’s local recorded date.
+
+DATA PRESERVATION AND RESET
+Alpha 0.6.9 uses the established Alpha 0.6 browser-storage keys, so publishing it over Alpha 0.6.7 at the same website address is designed to migrate existing records.
+
+For the founder’s planned fresh-start test, use:
+Settings → Data, Backup & Privacy → Download Backup (optional but recommended), then Settings → Reset App for Testing.
+
+This clears that device’s trial profile/data and returns the app to onboarding without intentionally clearing other testers’ devices.
+
+NEXT INTENDED FOCUS
+After Alpha 0.6.9 is retested from a clean profile, move quickly to barcode lookup and nutrition-panel capture/review so packaged foods can be added accurately from the products actually being used.

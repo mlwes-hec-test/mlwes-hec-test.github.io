@@ -1,0 +1,19 @@
+HEALTHY EATING COMPANION — ALPHA 0.6.20 FOUNDER CHECK
+
+MOST IMPORTANT — SEARCH
+[ ] Open Dinner > Add Food and type Pie.
+[ ] While the keyboard is open, Top Matches shows Pie, Curry first and Pie second.
+[ ] With the keyboard dismissed, Guided Food Entry remains above the database and raw AFCD rows are not the default path.
+[ ] Tap Refresh Online Results. Guided Food Entry must remain the first path.
+[ ] Tap Pie, Curry. HEC must not ask whether the pie is Curry again.
+[ ] Continue through filling/protein and source, then reach the normal amount/unit review.
+[ ] Confirm pie has natural units including Pie, Half Pie and g.
+[ ] Search Sausage, Egg, White Bread and Potato and confirm each enters the same guided style.
+[ ] Search an unfamiliar ordinary food term and confirm HEC still offers a guided route rather than unrelated Top Matches.
+[ ] Search Burger King and confirm the Australian Hungry Jack’s redirect.
+
+REGRESSION
+[ ] Existing diary and profile data are still present.
+[ ] Recent foods still retain the selected destination meal.
+[ ] Copy food still allows date and meal selection.
+[ ] Progress History still shows 7 Days, 14 Days, 30 Days, 3 Months, 6 Months, 1 Year and All.

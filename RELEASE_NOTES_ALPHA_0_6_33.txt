@@ -1,0 +1,54 @@
+HEALTHY EATING COMPANION — FOUNDER TRIAL ALPHA 0.6.33
+RELEASE CANDIDATE
+
+PURPOSE
+Alpha 0.6.33 brings together the approved Stage 1–8 work as a single Founder Trial release candidate. It improves release safety, companions, onboarding, activity and progress tracking, Shopping and Recent, and Australian food capture and search while preserving the established local storage keys and historical records.
+
+RELEASE AND DATA SAFETY
+- HEC now uses one canonical active version and checks the page shell before loading runtime modules, reducing the risk of mixing an old cached runtime with a new release shell.
+- Service-worker cache handling covers the current runtime modules, replaces the prior cache, and keeps large companion hero artwork lazy-cached.
+- Reset & Keep My Library, Full Reset, backup and restore paths retain their established scopes and repeated-action protection.
+- The legacy profile-start compatibility warning has been corrected without changing intended historical migration meaning. Representative earlier Alpha data remains preserved and migration remains idempotent.
+- Existing local storage identifiers remain unchanged.
+
+COMPANIONS
+- The active roster contains 16 canonical companions, with compatibility for approved legacy companion names and IDs.
+- Final approved picker and Home artwork replaces the prototype presentation.
+- Each companion has three portable user-facing voice styles. Device voice resolution uses conservative known-voice metadata to prefer a suitable same-sex voice while retaining unknown voices as safe fallbacks.
+- A no-companion choice remains supported.
+
+ONBOARDING, PROFILE AND DEVICES
+- Onboarding wording and validation are clearer, with accessible field feedback and preserved adult DOB bounds.
+- Surname remains hidden during fresh onboarding while existing profile surname data is retained.
+- Theme selection persists, and active/home/device time zones are handled separately without silent time-zone changes.
+- Phone, iPad portrait, iPad landscape and reduced-height keyboard layouts have been refined.
+
+ACTIVITY, WEIGHT AND PROGRESS
+- Exercise & Activity supports eight presets plus manual activity, stable editing/deletion, and explicit 0%, 50% or 100% food-allowance credit.
+- Historical activity credit is preserved and baseline activity is not double-counted.
+- Weight Check-In uses one guarded save transaction, including Save & View Weight Graph and same-date replacement behaviour.
+- Weight & Nutrition Progress Graphs include seven ranges, readable local scaling, selectable saved points, and summaries that keep Start, Current and Goal separate from the plotted local scale.
+
+SHOPPING AND RECENT
+- Shopping supports add, edit, check, delete, clear, print/share paths and long two-line item names.
+- Recent supports meal/category filtering, per-food and whole-meal additions, and duplicate prevention.
+
+AUSTRALIAN FOOD, SERVINGS AND PACKAGED FOODS
+- The bundled Australian food catalogue and search foundation improve exact, alias, token and controlled-typo matching, including Australian terms, brands and retailers.
+- Natural serving and compound quantity handling preserve explicit amounts and preparation without converting a per-100-g reference into a serving.
+- My Foods, My Recipes and Recent remain available, and historical Diary entries retain immutable nutrition snapshots.
+- Missing nutrition remains missing rather than becoming zero. Recognised but unverified products remain blocked from Diary entry until usable nutrition is confirmed.
+- Optional USDA lookup is skipped unless a key is deliberately supplied; any online failure leaves the local Australian catalogue usable.
+
+BARCODE AND NUTRITION PANEL FOUNDER-TRIAL WORKFLOWS
+- Barcode capture is one-shot per scan session and includes a manual barcode fallback.
+- Barcode results require review before Save to My Foods or Add to Diary, and no meal defaults silently to Breakfast.
+- Nutrition Panel capture keeps printed per-serve and per-100 values distinct, leaves uncertain or missing values editable, and requires confirmation for material discrepancies.
+
+FOUNDER-TRIAL LIMITATIONS
+- Real barcode-camera permission, focus, decoding and product coverage still require physical iPhone and iPad testing.
+- OCR accuracy varies with lighting, focus, label design and image quality. Users must review and confirm captured values.
+- Online product data may be unavailable, incomplete or outdated. HEC does not include a client-side commercial credential, and the local Australian catalogue continues independently.
+- The bundled catalogue is a curated Founder Trial resource; it is not claimed to be a complete or permanently current Australian food database.
+- Speech voices, native Share/Print behaviour, installed-PWA updates and offline reopening require final physical-device validation.
+- This is a Founder Trial, not a public production health service or a substitute for individual medical advice.

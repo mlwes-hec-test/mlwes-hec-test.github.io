@@ -1,0 +1,55 @@
+HEALTHY EATING COMPANION — FOUNDER TRIAL ALPHA 0.6.9
+
+PURPOSE
+Alpha 0.6.9 is a stabilisation and scanning build. It addresses the Daily Progress / Diary / Progress History sync fault found in Alpha 0.6.8 and introduces early barcode lookup and Nutrition Information Panel reading for real-device testing.
+
+MAIN CHANGES
+
+DAILY PROGRESS, DIARY AND HISTORY SYNC
+- Diary, Daily Progress and Progress History now use the same per-date diary entries as the source of truth.
+- Food entries count immediately as recorded food. The old Planned/Eaten confirmation model is no longer used for ordinary diary entries.
+- Daily Progress recalculates from the same diary data used by Diary and Progress History.
+- Nutrition totals, food-group totals, hydration and date summaries are refreshed together after add/edit/delete actions.
+- Future diary entries remain visible on their selected future date but are not treated as historical recorded days until that date arrives.
+
+HYDRATION
+- The anonymous additional-drinks box has been replaced with a clearer Add A Drink flow.
+- The user must choose a drink type before adding a volume.
+- Water and zero-calorie drinks update hydration directly.
+- Drinks with energy or nutrients route to the Food Library so calories and nutrients can be captured.
+- The saved profile fluid target is restored into Daily Progress rather than appearing blank.
+
+FOOD ENTRY
+- Ordinary entries are treated as eaten/recorded immediately.
+- More Entry Options has been removed from the basic food confirmation flow.
+- Delete/edit/copy controls remain available from Diary meal entries.
+- Confirmation pop-ups now use a shorter two-second default for ordinary success messages.
+
+FOOD SEARCH
+- All Resources now searches the local Australian data first and can surface cached online packaged-food matches.
+- Online-only search remains available for wider packaged-food searching.
+- Search and scan shortcuts have been added to the Food Library.
+
+BARCODE SCANNING
+- Barcode Centre supports manual barcode entry, barcode-photo reading and live camera barcode scanning where the browser supports it.
+- Barcode lookup uses Open Food Facts product data and requires the user to review the package before adding.
+- If the barcode is not found or nutrition is incomplete, the user is directed to Nutrition Panel reading or custom food entry.
+
+NUTRITION PANEL READING
+- Nutrition Panel mode uses OCR to read package nutrition panels.
+- Recognised values are placed into editable review fields.
+- The user can choose whether the panel values are per serving or per 100 g / 100 mL.
+- OCR values are copied into Custom Food only after user review; nothing is saved automatically.
+
+DATA PRESERVATION
+Alpha 0.6.9 retains the Alpha 0.6 family browser-storage keys:
+- healthyEatingCompanionAlpha06
+- healthyEatingCompanionAlpha06Functional
+
+Existing tester records should migrate forward on the same browser/device when this build replaces Alpha 0.6.8 at the same GitHub Pages address. Use Reset App for Testing only when a clean start is wanted.
+
+KNOWN LIMITATIONS
+- Barcode and OCR behaviour must be tested on the real HTTPS GitHub Pages site and physical phone/tablet camera.
+- Open Food Facts records are community supplied and must be checked against the current package.
+- OCR can misread decimal points, units and columns, so package values must be reviewed before saving.
+- This is still founder-trial software, not medical or professional nutrition advice.

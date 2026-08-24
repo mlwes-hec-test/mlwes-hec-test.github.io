@@ -1,0 +1,93 @@
+HEALTHY EATING COMPANION — ALPHA 0.6.4 TESTING CHECKLIST
+
+BEFORE UPDATING
+[ ] On Alpha 0.6.3, note a profile value, one Diary entry and one Shopping List item.
+[ ] Do not clear browser/website data.
+[ ] Optional but recommended: download a data backup after Alpha 0.6.4 is published.
+
+UPGRADE AND DATA RETENTION
+[ ] Publish to the same GitHub Pages address.
+[ ] Confirm the badge says Alpha 0.6.4.
+[ ] Confirm the existing profile remains.
+[ ] Confirm old Diary entries remain.
+[ ] Confirm old planned foods, recipes, favourite foods and Shopping List remain.
+[ ] Confirm a downloaded backup can be restored on a spare/reset test installation.
+
+DATE AND TIME
+[ ] Confirm Today matches the device’s local date early in the morning.
+[ ] Open Diary from Home after viewing another date; confirm it returns to Today.
+[ ] Open a specifically dated Diary action; confirm it opens that requested date.
+[ ] Change device time zone or simulate travel; confirm the app follows the chosen time-zone behaviour.
+[ ] Check month-end and year-end date arrows.
+
+PROFILE AND GOALS
+[ ] Confirm surname can be entered and retained.
+[ ] Change Maintain Weight to Lose Weight and calculate recommendations.
+[ ] Change Lose Weight to Maintain Weight.
+[ ] Confirm maintenance goal can retain one decimal place.
+[ ] Confirm calculation details start hidden and open with the question mark.
+
+HOME
+[ ] Confirm Current Weight, recorded date, Goal Weight and Daily Energy Target are clear.
+[ ] Select each companion-message category.
+[ ] Tap repeatedly and confirm messages change without immediate repetition.
+
+NAVIGATION
+[ ] Confirm applicable pages show separate Back and Home controls.
+[ ] Confirm Back returns to the prior screen and retains useful context/scroll position.
+[ ] Confirm Home always returns to the Companion Circle.
+
+DIARY AND DAILY PROGRESS
+[ ] Add a Planned food and confirm it remains visible until marked Eaten or Skipped.
+[ ] From Daily Progress test Mark Eaten, Change, Replace, Move and Skip.
+[ ] Adjust the Daily Fluid Target and confirm it remains for that date.
+[ ] Confirm the default adult-male example is 2,600 mL, not 3,400 mL.
+
+MEAL PLANNER
+[ ] Test planning one meal, several meals and all meals.
+[ ] Confirm existing eaten/planned energy reduces the available budget.
+[ ] Confirm accepted meals show Added to Plan, View in Diary and Undo.
+[ ] Confirm the same suggestion cannot be accepted twice accidentally.
+
+FOOD LIBRARY
+[ ] Confirm All Resources always shows local foods.
+[ ] Start an online search, switch tabs before it finishes, and confirm the selected tab is not overwritten.
+[ ] Confirm Favourite Foods includes starred library foods and starred recipes.
+[ ] Confirm Foods I Created contains custom foods but does not automatically favourite them.
+[ ] Confirm Cancel Adding removes the active meal destination.
+[ ] Confirm Create or Scan closes when tapping outside, changing tabs, Back/Home or choosing an option.
+
+RECIPE BUILDER
+[ ] Create a one-serving Bacon, Egg and Cheese Muffin recipe.
+[ ] Search and add English muffin, bacon, cheese, egg, sauce and margarine.
+[ ] Confirm food-specific units appear and grams/mL are available where applicable.
+[ ] Confirm displayed measures use clear capitalisation.
+[ ] Leave to create/scan an ingredient and return; confirm the recipe draft remains.
+[ ] Confirm total and per-serving nutrition update.
+[ ] Save the recipe, add it to Diary, star it and find it in Favourite Foods.
+
+FEEDBACK AND PRIVACY
+[ ] Submit each feedback category and use Share or Copy.
+[ ] Confirm private Diary/weight data is not automatically attached.
+[ ] Toggle anonymous usage information on and off.
+
+FOUNDER TOOLS — MAL ONLY
+[ ] Open the published address once with ?founder=1.
+[ ] Set a six-digit Founder PIN.
+[ ] Create, copy and share invitation links.
+[ ] Confirm the 10-slot limit.
+[ ] Export local insights.
+
+RESET AND LEAVING
+[ ] Download a backup first.
+[ ] On a spare test installation, use Reset App for Testing and confirm setup restarts.
+[ ] Restore the backup.
+[ ] On a spare test installation, use Leave Healthy Eating Companion and confirm local profile/data are removed.
+
+DEVICES
+[ ] iPhone Safari.
+[ ] iPad Safari.
+[ ] Link opened from Messages.
+[ ] Home Screen-installed app.
+[ ] Windows browser.
+[ ] Barcode camera, barcode photo, manual barcode, OCR and online-food searches on HTTPS.

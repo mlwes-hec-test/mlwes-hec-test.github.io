@@ -1,0 +1,22 @@
+HEC ALPHA 0.6.23 — SEARCH FOUNDATION REGRESSION RESULTS
+
+PASS — JavaScript syntax: search-foundation.js, alpha06.js, app.js, alpha064.js, config.js, service-worker.js.
+PASS — Browser DOM harness: no page-script errors with full 1,588 AFCD dataset.
+PASS — 385 / 385 unique AFCD first-level food heads resolved as generic food concepts, not product/brand searches.
+PASS — 250 sampled complete AFCD food names: 0 left without either a food concept or product route.
+PASS — Rapid 20-query mobile input stress test: no freeze/recursive render error.
+PASS — Pie: Pie first; raw fallback contains actual pie records only, not piece false positives.
+PASS — Orange: Navel / Valencia varieties derived from AFCD; Navel reaches Navel Orange review.
+PASS — 2 bananas: quantity remains 2; Banana remains the food; review = 225 Cal / 942 kJ in harness.
+PASS — Lady Finger Banana: already-supplied variety skipped; AFCD Lady Finger/Sugar banana reference selected.
+PASS — Chicken Sausage: Chicken supplied in query, so the flow advances to plain/flavoured rather than asking meat type again.
+PASS — Curry Pie: remains Curry Pie and skips the implied savoury question.
+PASS — Homemade Beef Pie: supplied/implied attributes are preserved rather than asked again.
+PASS — Dynamic concepts: Quinoa, Avocado, Lasagne.
+PASS — Compound foods: Carrot Cake, Banana Bread, Sausage Roll.
+PASS — Product progression: Sanitarium → Sanitarium Weet → Sanitarium Weet Bix keeps the real product route.
+PASS — Unknown-brand routing: Cheer and Westacre stay Product Search while additional words are typed; they do not collapse to Cheese.
+PASS — Food-level energy display includes both Calories and kilojoules.
+
+DEVICE CHECK STILL REQUIRED
+The harness cannot certify iPhone/iPad visual keyboard, camera, live speech services, or live internet data sources. The next founder test should therefore concentrate on the search foundation first, not cosmetic issues.

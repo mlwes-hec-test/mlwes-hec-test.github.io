@@ -1,0 +1,31 @@
+HEALTHY EATING COMPANION — ALPHA 0.6.23 SEARCH FOUNDATION CHECKLIST
+
+Do not begin broad cosmetic testing until the search foundation passes these checks.
+
+GENERIC FOODS
+[ ] Pie → first concept is Pie; guided flow uses short progressive questions and Back works.
+[ ] Curry → first concept is Curry.
+[ ] Curry Pie → first concept is Curry Pie and already supplied words are not discarded.
+[ ] Banana / 2 bananas / Lady Finger banana resolve to banana, with quantity separated from food identity.
+[ ] Orange opens Orange and offers record-derived variety choices where available (e.g. Navel/Valencia from AFCD).
+[ ] Apple offers record-derived varieties where available.
+[ ] Sausage and chicken sausage progressively refine without repeating already supplied information.
+[ ] Try at least one food not explicitly listed in the taxonomy (e.g. quinoa) and confirm a strong database concept can still use the dynamic guided path.
+
+BRAND/PRODUCT SEARCH
+[ ] Westacre → Westacre tasty → Westacre tasty cheese → Westacre tasty cheese slices remains a product search at every stage.
+[ ] Cheer → Cheer cheese → Cheer tasty cheese slices remains product search even if an exact product is not yet loaded.
+[ ] Extra words narrow results and never revert to a broader food category.
+[ ] Missing exact products offer online refresh / barcode / nutrition-panel fallback instead of an unrelated food.
+
+AUSTRALIAN CHAINS
+[ ] KFC, McDonalds/Maccas and Hungry Jacks use Australian menu search.
+[ ] Burger King redirects to Hungry Jack’s context in Australia.
+
+ENERGY / SERVINGS
+[ ] Food results/review show Calories and kilojoules together.
+[ ] Natural units appear when HEC has a defensible serving conversion; grams remain available.
+[ ] Missing/unreliable energy is not silently logged as zero.
+
+REPEAT ENTRY
+[ ] Add the same food to the same meal three times. Confirm three independent diary entries remain unless the user explicitly edits/replaces one.

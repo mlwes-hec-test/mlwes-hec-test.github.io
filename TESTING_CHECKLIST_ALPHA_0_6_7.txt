@@ -1,0 +1,75 @@
+HEALTHY EATING COMPANION — ALPHA 0.6.7 TESTING CHECKLIST
+
+BEFORE UPDATING
+[ ] In Alpha 0.6.6, use Settings > Data, Backup & Privacy > Download Backup.
+[ ] Publish Alpha 0.6.7 to the SAME GitHub Pages repository/address.
+[ ] Do not clear Safari/website data.
+
+DATA MIGRATION
+[ ] Existing profile remains present.
+[ ] Existing Diary/Planned/Eaten records remain present.
+[ ] Existing weight history remains present.
+[ ] Existing Shopping List, recipes, favourites and saved meals remain present.
+
+DIARY-FIRST WORKFLOW
+[ ] Open Diary and confirm meal sections are visible without first working through a large Day Settings panel.
+[ ] Breakfast, Morning Tea, Lunch, Afternoon Tea, Dinner and Snacks each show Add Food and Suggest.
+[ ] Tap Add Food on Breakfast: Food Library opens with a blank search.
+[ ] Add a food and confirm it returns to the correct meal.
+[ ] Tap Suggest on a meal and try the quick preference choices.
+[ ] Try Just Suggest Something.
+[ ] Confirm the suggestion is reviewed before anything is added.
+[ ] Add the suggestion and confirm it appears as Planned in the Diary.
+[ ] Confirm a planned meal using Ate as Planned.
+[ ] Edit one item when the meal differs from the plan.
+
+NORMAL / FASTING TARGETS
+[ ] On a Normal Day, Edit Day shows the current profile recommendation — not 2,000 Cal and not a dash.
+[ ] Switch to Flexible Fasting Day and confirm the fasting target appears immediately.
+[ ] Switch back to Normal Day and confirm the profile recommendation returns immediately.
+[ ] Tick Use a Different Energy Target for This Date; enter a custom value and save it.
+[ ] Untick the custom-target option and confirm the standard Day Type target returns.
+[ ] Confirm Save Day Settings only appears when something has changed.
+
+FASTING PLANNING
+[ ] Set a 500 Cal fasting day with no foods entered.
+[ ] In Plan Multiple Meals, select Breakfast, Lunch and Dinner.
+[ ] Confirm the combined companion suggestions stay within 500 Cal.
+[ ] Add one food yourself first, then repeat planning.
+[ ] Confirm the companion deducts that food before allocating suggestions.
+[ ] Confirm unticked fasting meal categories are treated as skipped.
+[ ] On a Normal Day, confirm the planner keeps some allowance for unticked meals.
+
+FOOD LIBRARY SEARCH
+[ ] Start a new Add Food action after a previous search; confirm the new search box is blank.
+[ ] Search Cappucino and confirm Cappuccino matches are offered.
+[ ] Switch to Online Foods and confirm unrelated results such as gelato are not shown for cappuccino.
+[ ] Return to All Resources and confirm the local cappuccino results return.
+[ ] Search several common Australian foods and inspect AFCD/guided matches.
+
+WEIGHT HISTORY
+[ ] Confirm dates display as friendly Australian dates.
+[ ] Tap an older weight entry and edit it.
+[ ] Confirm a newer dated weight remains the current weight.
+[ ] Confirm editing an older record does not unexpectedly recalculate the current plan.
+[ ] Check Recent Weight Entries and View All behaviour as more entries accumulate.
+
+SETTINGS
+[ ] Confirm Location is shown rather than Address for region/postcode/country.
+[ ] Confirm Mobile is not shown as Not Entered when setup never requested a phone number.
+
+REAL-DEVICE FEATURES
+[ ] Test speech/voice entry on iPhone/iPad.
+[ ] Test barcode scanning and barcode photos.
+[ ] Test nutrition-panel OCR.
+[ ] Test Shopping List Share/Print.
+
+WHEN REPORTING A PROBLEM
+Please note:
+- screen/page;
+- date selected;
+- Day Type;
+- what you tapped;
+- what you expected;
+- what actually happened;
+- screenshot if useful.

@@ -1,0 +1,91 @@
+HEALTHY EATING COMPANION — FOUNDER TRIAL ALPHA 0.6.27
+SEARCH INTELLIGENCE + QUICK FOOD LOG FOUNDATION
+
+PRIMARY PURPOSE
+Alpha 0.6.27 is a search-engine architecture build. It uses Apple, Banana, Egg,
+Sausage, Bread, Cheese and Australian chain foods as regression cases, but the
+changes are implemented through shared query, taxonomy, branching, ranking and
+serving logic rather than one-off food wizards.
+
+SEARCH INTELLIGENCE
+- Partial typed words are search prefixes, not foods. HEC now predicts likely
+  complete food concepts (for example Ap/App/Appl -> Apple; Ban/Bana -> Banana;
+  Che/Chee -> Cheese) rather than creating "App" or "Banan" as foods.
+- Concept predictions are shown ahead of noisy product substring matches while
+  the user is still typing.
+- Product matches already shown for an unchanged query keep their order. Slower
+  online results may append instead of jumping above an item the user was about
+  to tap. Refresh Online Results deliberately resets the ordering cache.
+- Exact generic food concepts outrank chain items with the same word. "Sausage"
+  remains Sausage; recognised branded menu names such as McMuffin, Whopper and
+  Zinger can route directly to their Australian chain without the chain name.
+- Typed attributes continue to pre-fill the guided path so HEC does not ask for
+  information the user already supplied (e.g. beef sausage, cheddar cheese,
+  herb and garlic sausage).
+
+SOURCE / ORIGIN ROUTING
+- Source is now a first-class food attribute.
+- When source materially changes the search universe, HEC can ask early:
+    Home Made / Grown
+    Commercial / Packaged
+    Takeaway / Restaurant (where relevant)
+    Not Sure / Typical
+- This is selective, not compulsory. Basic fresh produce such as Apple does not
+  waste a step asking where it came from unless the query makes source relevant.
+- Commercial / Packaged routes surface real product records first; Home Made /
+  Grown routes use guided identification; restaurant/takeaway remains separate.
+
+GUIDED SEQUENCING
+- Egg taxonomy now follows species -> size -> whole/white/yolk -> preparation ->
+  added fat/oil. Chicken, Duck and Quail can be represented in the identification
+  path. If no trustworthy nutrition reference supports a selected branch, HEC
+  stops rather than inventing nutrition.
+- Egg size/count serving choices use Australian Eggs edible-portion references
+  for Medium, Large, X-Large, Jumbo and King-Size eggs; grams remain available.
+- Sausage sequencing supports protein/meat, plain/flavoured, source, broader
+  cooking methods and practical sausage forms. Serving options now include
+  generic, long thin, long thick, cocktail/small and grams. Approximate sausage
+  sizes are labelled as approximate so a package/butcher weight can override them.
+- Bread search excludes wrap/tortilla from the ordinary Bread candidate family.
+  Bread refinement and serving now distinguish bread type/style and offer regular
+  slice, thick/toast slice and grams where supported.
+- Cheese keeps cheese identity separate from cheese-flavoured products while
+  typing. Cheddar typed in the query pre-fills Cheddar. Grams and appropriate
+  hard-cheese slice/standard-serve measures remain available.
+- Strict final match validation remains: a selected path cannot silently finish
+  on a contradictory nutrition record.
+
+SERVING / DISPLAY
+- Review quantity labels no longer duplicate the number (e.g. "1 1 Sausage").
+- Category-incompatible units remain sanitised (e.g. Egg cannot leak into Cheese).
+- Whole-number package measures are displayed cleanly (e.g. 150 g rather than
+  150.000000 g where the underlying data supplies redundant zero decimals).
+- Calories and kilojoules remain paired at food level.
+
+QUICK FOOD LOG
+- Quick Food Log now begins by asking the user to confirm Date and Meal.
+- It then asks how the user wants to add food:
+    Keyboard Entry
+    Voice Entry
+    Barcode Scanning
+    Nutrition Panel
+- Keyboard and Voice send the interpreted text into the same canonical Food
+  Search used by Food Library instead of maintaining a second search brain.
+- Barcode and Nutrition Panel keep the selected date/meal context through review.
+- Returning from a scan launched by Quick Food Log returns to Quick Food Log.
+- Multi-food natural-language interpretation (for example an entire spoken meal)
+  remains a future expansion of this shared engine; 0.6.27 does not pretend to
+  solve that with guessed nutrition.
+
+CHAIN / DATA SAFETY
+- Unverified chain menu items clear stale review state before showing the warning.
+- HEC does not borrow calories from the previously viewed chain item.
+- Foods without enough verified nutrient fields display "Not scored" instead of
+  presenting a misleading numeric nutrition score.
+
+PERSISTENCE
+Existing storage keys are unchanged:
+  healthyEatingCompanionAlpha06
+  healthyEatingCompanionAlpha06Functional
+
+Founder-test data is intended to migrate in place at the same deployed URL.

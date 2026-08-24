@@ -1,0 +1,23 @@
+HEALTHY EATING COMPANION — FOUNDER TRIAL ALPHA 0.6.20
+
+PRIMARY PURPOSE
+This build fixes the recurring search-architecture fault that allowed raw AFCD/database rows to replace the guided food workflow.
+
+SEARCH — PROTECTED UNIVERSAL GUIDED PATH
+- Every ordinary food search now presents the guided path first.
+- A broad “Pie” search deliberately presents “Pie, Curry” first and “Pie” second.
+- Choosing “Pie, Curry” carries Curry forward and does not ask the user to choose Curry again.
+- Pie continues through filling/protein and source (homemade, bakery/fresh, commercial/ready-to-eat, frozen, takeaway/restaurant) before quantity/unit review.
+- The final food-entry screen uses a friendly guided name while the closest Australian nutrition record remains behind the scenes as the data source.
+- Raw database rows are hidden behind a deliberate “Browse database matches” control so they cannot become the primary workflow after AFCD loading or online refresh.
+- The guided surface is re-applied after local AFCD loading and online-result refreshes.
+- Existing guided families remain available for sausage, egg, bread, potato, rice, pasta/noodles, meat, fish/seafood, dairy, cereal, coffee/hot drinks, burgers and sandwiches/wraps. Unknown food terms still enter a generic guided route rather than becoming an unstructured result dump.
+- Burger King continues to redirect toward Hungry Jack’s in the Australian workflow.
+
+WEIGHT GRAPH
+- The Alpha 0.6.19 range controls are retained: 7 Days, 14 Days, 30 Days, 3 Months, 6 Months, 1 Year and All.
+
+DATA CONTINUITY
+- Existing Alpha 0.6 storage keys are unchanged.
+- Publish the complete replacement folder to the same GitHub Pages location to preserve local tester data.
+- Download Backup before replacing files.

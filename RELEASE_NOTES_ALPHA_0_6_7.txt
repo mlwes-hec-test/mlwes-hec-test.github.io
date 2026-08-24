@@ -1,0 +1,76 @@
+HEALTHY EATING COMPANION — FOUNDER TRIAL ALPHA 0.6.7
+RELEASE NOTES
+
+FOCUS OF THIS BUILD
+Alpha 0.6.7 rebuilds the Diary and Meal Planner workflow around a simpler principle:
+
+  The Diary is where the day is built. The companion helps from inside the Diary.
+
+This build also incorporates the Alpha 0.6.6 corrections identified during founder testing, while retaining the expanded Australian food database introduced in Alpha 0.6.6.
+
+DIARY-FIRST REDESIGN
+- Breakfast, Morning Tea, Lunch, Afternoon Tea, Dinner and Snacks are now the main Diary workspace.
+- Each meal has direct Add Food and Suggest actions.
+- Single-meal companion suggestions no longer require a trip through the separate Meal Planner.
+- The Diary shows a compact Day Type / Energy summary first, then the meal sections.
+- Detailed Normal/Fasting Day settings are collapsed behind Edit Day.
+- Nutrition detail remains available below the meals rather than taking priority over the food plan.
+- Planned food remains Planned until confirmed; Ate as Planned can confirm a meal quickly.
+- The separate Meal Planner remains for planning several meals at once.
+
+COMPANION SUGGESTIONS INSIDE THE DIARY
+- Tap Suggest on a meal to open optional quick choices such as hunger level, meal style and familiar/new foods.
+- A Just Suggest Something option skips the questions.
+- The companion uses the selected day's Day Type, energy target, existing Eaten/Planned foods, nutrition gaps and user history when choosing a suggestion.
+- Existing foods in that meal are treated as part of the meal and the suggestion is built around them.
+- Nothing is added until the user confirms the suggestion.
+
+NORMAL / FASTING ENERGY INTEGRITY
+- Normal Day now uses the current accepted profile recommendation as its standard target.
+- A stale/fallback 2,000 Cal value is no longer silently substituted.
+- If a valid profile recommendation is unavailable, the Diary says that the recommendation needs attention instead of inventing a target.
+- Flexible Fasting Day keeps its own separate fasting target.
+- Switching Day Type previews the correct target immediately.
+- Use a Different Energy Target for This Date reveals a deliberate date-specific override; turning it off returns to the standard target for the selected Day Type.
+- Save Day Settings appears only when there is an actual unsaved change.
+- Fasting multi-meal planning now applies a hard whole-day cap: combined companion suggestions cannot exceed the remaining fasting allowance.
+- Foods already Eaten or Planned by the user are deducted before the companion plans anything else.
+- On Normal Days, reasonable energy is reserved for unticked meal occasions.
+- On Fasting Days, unticked meal occasions are treated as intentionally skipped.
+
+FOOD LIBRARY SEARCH STATE
+- Starting a new Add Food action opens with a blank search field.
+- Back within the same active add/search flow may preserve the current search.
+- All Resources and Online Foods keep their result behaviour separate.
+- Returning to All Resources reruns/restores the local Australian search rather than leaving an online result on screen.
+- Obvious irrelevant online matches are suppressed.
+- Common close spellings such as Cappucino can resolve to Cappuccino results.
+- Australian guided records and local AFCD results remain the primary generic food sources.
+
+WEIGHT HISTORY / CURRENT WEIGHT
+- Editing or adding an older historical weight no longer replaces the user's current weight when a newer dated entry exists.
+- Recommendation logic uses the latest applicable dated weight record rather than whichever history row was edited most recently.
+- Weight History now shows a compact summary and recent entries with friendly Australian dates such as Fri 7 Aug 2026.
+- History rows can be tapped/edited; the main view no longer needs to grow indefinitely with every record.
+
+SETTINGS / PROFILE DISPLAY
+- Mobile and other future contact/address fields remain hidden when the app has never asked the user to supply them.
+- The visible regional field is labelled Location rather than Address.
+- Full residential/postal address and phone fields remain available in the underlying expandable profile structure for possible future use.
+
+AUSTRALIAN FOOD DATA
+- The full local Australian Food Composition Database Release 3 search dataset introduced in Alpha 0.6.6 remains included: 1,588 Australian foods.
+- See AFCD_DATA_NOTICE_ALPHA_0_6_7.txt.
+
+DATA PRESERVATION
+Alpha 0.6.7 retains the same two main browser-storage keys used by the Alpha 0.6 family:
+- healthyEatingCompanionAlpha06
+- healthyEatingCompanionAlpha06Functional
+
+Existing tester records are designed to migrate forward when Alpha 0.6.7 replaces Alpha 0.6.6 at the same GitHub Pages address in the same browser/device. A Download Backup is still recommended before publishing the new build.
+
+FOUNDER-TRIAL LIMITATIONS
+- Voice recognition quality still depends on the device/browser speech service.
+- Packaged product accuracy should be checked against current labels.
+- Camera/barcode/OCR features still require real HTTPS-device testing.
+- Invitations, cross-device analytics and feedback remain limited by the current static GitHub Pages architecture.

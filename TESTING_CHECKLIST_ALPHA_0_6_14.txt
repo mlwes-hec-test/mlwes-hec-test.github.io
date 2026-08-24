@@ -1,0 +1,56 @@
+HEALTHY EATING COMPANION — ALPHA 0.6.14 FOUNDER TESTING CHECKLIST
+
+FOOD LIBRARY
+[ ] Food Library shows All Resources, My Foods, My Meals & Recipes as the permanent categories.
+[ ] Recent appears when adding/planning a meal but is not a permanent library category.
+[ ] Existing barcode-saved foods and Nutrition Panel/manual foods all appear in My Foods.
+[ ] My Foods shows sensible Barcode / Nutrition Panel / Manual source badges.
+[ ] Existing recipes and reusable saved meals appear together in My Meals & Recipes.
+[ ] All Resources still finds local Australian foods and appropriate online packaged foods.
+
+BARCODE SCANNING
+[ ] First camera use requests permission as expected.
+[ ] Multiple barcode scans in the same Scan & Review Centre session reuse the camera without a fresh permission prompt where iOS allows it.
+[ ] Scanned product can be saved to My Foods without being forced into the Diary.
+[ ] Natural units such as bar/sachet appear where package data supports them.
+
+NUTRITION PANEL
+[ ] Photograph Nutrition Panel has a clear camera action.
+[ ] If serving size is visible (for example 125 g), review defaults to Per Serving and uses that serving amount.
+[ ] Per-100-g / per-100-mL remains available as a secondary basis.
+[ ] Nutrient fields that were not recognised are blank, not zero.
+[ ] A real 0 on the label can still be entered and saved as zero.
+[ ] Implausible OCR values are left blank/flagged rather than silently accepted.
+
+BARCODE + PACKAGE COMPARISON
+[ ] Compare With Nutrition Panel shows Barcode and Package values nutrient by nutrient.
+[ ] Meaningful differences are visible.
+[ ] Incomplete OCR does not claim “Package Information Matches Closely”.
+[ ] Package values are the prominent recommended choice after visual checking.
+[ ] Keep Barcode Values remains available.
+[ ] Editing individual package values before saving works.
+
+RESET / DATA PROTECTION
+[ ] Add several foods plus a meal/recipe to the personal library.
+[ ] Use Reset App for Testing -> Reset & Keep My Library.
+[ ] Onboarding restarts.
+[ ] After onboarding, My Foods and My Meals & Recipes are still present.
+[ ] Diary, weight history and other intended test-session records were cleared.
+[ ] Full Reset clearly warns that it will delete the retained library too.
+
+WEIGHT TREND
+[ ] Weight summary appears above the graph rather than to the right.
+[ ] Graph spans the available width on iPhone.
+[ ] 7 Days / 30 Days / 3 Months / 1 Year / All remain selectable.
+[ ] No future-dated weight can be saved.
+[ ] No weight can be saved before the user’s onboarding/profile start date.
+
+REGRESSION
+[ ] Existing user reopens at Daily Progress, not onboarding.
+[ ] Diary has Breakfast, Lunch, Dinner, Snacks, Other only.
+[ ] Meal separators are visually clear.
+[ ] Planner Select All excludes Other unless explicitly chosen.
+[ ] Planner provides Cancel/leave-plan behaviour.
+[ ] Voice quantities can be edited before confirmation.
+[ ] Barcode scan -> Review -> Save Food does not create an unwanted Diary entry.
+[ ] No accidental duplicate add occurs after returning from a completed Diary add.

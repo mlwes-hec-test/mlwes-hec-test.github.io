@@ -1,0 +1,43 @@
+FOUNDER TESTING CHECKLIST — ALPHA 0.6.30
+STABILITY FIRST
+
+BEFORE TESTING
+[ ] Confirm the Home badge says Alpha 0.6.30.
+[ ] Keep the saved 0.6.28 JSON backup in Files.
+[ ] Confirm existing profile/diary/weight data is still present.
+
+HOME / NAVIGATION STABILITY
+[ ] From Home open Daily Progress, return Home, repeat several times.
+[ ] Open Quick Food Log, return Home.
+[ ] Open Diary, return Home.
+[ ] Open Food Library, return Home.
+[ ] Open Settings, return Home.
+[ ] Open Shopping List, return Home.
+[ ] Open Nutrition, Balance & Weight, return Home.
+[ ] Open Quick Weight Log, return Home.
+[ ] Repeat mixed navigation for several minutes and confirm every Home icon keeps responding.
+
+FOOD SEARCH RESPONSIVENESS
+[ ] Type egg normally; each character appears immediately with no missing/doubled letters.
+[ ] Type Kellogg quickly, then delete and type Kelloggs.
+[ ] Type Doritos Cheese Supreme quickly.
+[ ] Type Woolies multigrain bread quickly.
+[ ] Rapidly backspace/change a search and confirm old results do not replace the newer query.
+[ ] Start a 3+ character search, immediately return Home, and confirm Home stays responsive while the old online lookup is cancelled.
+
+REGISTRY / FOOD INTELLIGENCE REGRESSION
+[ ] Kell -> Kellogg -> Kelloggs -> Kellogg's retains Kellogg's brand intent.
+[ ] Doritos does not ask Homemade vs Commercial.
+[ ] Doritos Cheese Supreme never offers Slice as a corn-chip serving unit.
+[ ] Woolies multigrain bread retains Woolworths + multigrain + bread intent.
+[ ] Egg asks species first.
+[ ] Whole Egg order is Species -> Part -> Size -> Preparation.
+[ ] Selecting Large remains Large at Review without choosing size twice.
+[ ] Egg White still offers tablespoon/mL/grams/count as appropriate.
+[ ] Egg Yolk still avoids irrelevant cooking questions.
+
+IF ANY FREEZE RETURNS
+[ ] Note the exact screen you came from.
+[ ] Note whether the keyboard was still open.
+[ ] Note whether an online search was showing Checking online sources.
+[ ] Screenshot the frozen Home/screen before closing HEC.

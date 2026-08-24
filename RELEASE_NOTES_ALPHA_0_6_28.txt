@@ -1,0 +1,124 @@
+HEALTHY EATING COMPANION — FOUNDER TRIAL ALPHA 0.6.28
+FOOD INTELLIGENCE, NATURAL SERVINGS & QUICK-LOG REFINEMENT
+
+PURPOSE
+Alpha 0.6.28 is a focused founder-test build based on the Alpha 0.6.27 Food
+Intelligence architecture. It addresses the problems exposed during like-for-like
+HEC / Diet Diary testing and the egg, bread and corn-chip search tests.
+
+FOOD INTELLIGENCE
+- Guided answers can now change the remaining question path rather than forcing
+  every food through one fixed sequence.
+- Egg is now branched by part:
+  * Whole egg continues through relevant preparation and size questions.
+  * Egg yolk skips cooking and goes to yolk/gram quantity choices.
+  * Egg white skips cooking and supports egg-white count, tablespoon, mL and grams.
+  * Whole-egg units are removed from separated yolk/white entry.
+- Plain egg searches retain the ordinary Chicken assumption internally without
+  requiring a separate species question in the main egg path.
+- Added fat/oil is only retained in the whole-egg guided sequence when the chosen
+  preparation makes it relevant (currently Fried).
+- Back One Step remains able to change the branch; changing Yolk to White changes
+  the remaining serving pathway.
+
+BREAD
+- Bread source wording is now Homemade vs Commercial / Bought rather than treating
+  all commercial bread as packaged.
+- Commercial / Bought bread now asks where it is from before showing records:
+  Bakery / Café / Restaurant; Supermarket / Store Brand; Bread Brand; or
+  Not Sure / Typical.
+- Supermarket/store and bread-brand routes allow the user to type identifying
+  information such as Woolworths, Coles, Tip Top or Sunblest and rerun search.
+- Wrap/tortilla remains separate from ordinary Bread search behaviour.
+
+CORN CHIPS
+- Corn Chip is now a recognised guided food concept.
+- Generic Corn Chip asks source when useful: Homemade, Commercial / Packaged,
+  Takeaway / Restaurant, or Not Sure / Typical.
+- Commercial Corn Chip proceeds to Plain / Salted vs Flavoured instead of dumping
+  a raw product list first.
+- Flavoured Corn Chips asks for a flavour or brand/product search rather than
+  pretending a plain salted reference is nutritionally identical.
+- A small handful (about 25 g) is available as a practical approximate measure,
+  while grams/package serving remains available for greater precision.
+
+NATURAL SERVING & QUANTITY ENTRY
+HEC's rule is now explicit in the UI and serving resolver: HEC does the maths; the
+user describes what they ate.
+- Food-appropriate measures have been expanded, including:
+  * cheese slices;
+  * bread slices;
+  * individual crispbreads;
+  * sausage forms;
+  * egg yolk count;
+  * egg-white count / tablespoon / mL / grams;
+  * package-derived bars, biscuits, crackers, slices, pieces, sachets and similar
+    units when a usable package serving is available;
+  * metric cup/spoon choices for foods with a reliable mL basis;
+  * a clearly approximate Small Drizzle (about 5 mL) for applicable pourable foods
+    such as oils, dressings and sauces when HEC has an mL conversion.
+- Fraction buttons ¼, ½, ¾ and 1 are shown for suitable divisible foods such as
+  bars, slices, bottles, cans, tubs and other supported serving units.
+- A packaged 80 g bar can therefore be entered naturally as ½ bar or as grams.
+- Technical labels are cleaned before display; common package/database wording
+  such as Package Serve, duplicated 100 g Serving labels, excess decimal zeroes
+  and Mpara no longer need to be interpreted by the user.
+- Diary, Daily Progress, Recent Foods and meal-overview rows use natural quantity
+  formatting and pluralisation where possible and show the metric equivalent when
+  HEC has a known conversion (for example 2 Eggs (90 g), 5 Slices (100 g),
+  or ½ Bar (40 g)). New entries snapshot that metric equivalent with the diary entry.
+
+MULTI-FOOD BENCHMARK
+- The benchmark phrase "Two eggs on toast" is now split into two food components.
+  HEC retains the quantity 2 for the eggs, completes the egg entry, then continues
+  to toasted bread rather than losing the second food.
+- This is the first protected compound-food benchmark, not a claim that every
+  possible multi-food sentence is already parsed in Alpha 0.6.28.
+
+QUICK FOOD LOG
+- Quick Food Log now presents the entry method first:
+  Keyboard Entry / Voice Entry / Barcode Scanning / Nutrition Panel Reading.
+- The date/meal destination card is hidden initially and is shown after the method
+  is chosen when destination information is still required.
+- Nothing may be saved silently to Breakfast; date and one of Breakfast, Lunch,
+  Dinner, Snacks or Other must be confirmed before diary save.
+- Keyboard and Voice continue into the same Food Intelligence search engine.
+
+DIARY
+- The redundant diary calculation strip is hidden when there is no missing-energy
+  warning, leaving more room for actual meals.
+- Guided entries retain more useful human-readable names such as Egg Yolk,
+  Egg White and size/preparation descriptions for whole eggs.
+- Quantity text is cleaned in the main diary, Daily Progress, Recent and meal
+  overview surfaces.
+
+SEARCH / STATE STABILITY CARRIED FORWARD
+- Exact food intent remains primary over containing terms.
+- Same-query product ordering remains stable unless the user explicitly refreshes.
+- Guided paths must remain compatible with their final nutrition record; HEC stops
+  instead of silently substituting contradictory nutrition.
+- Source-specific records and physical package labels should be preferred when
+  available and should not be represented as more precise than the source allows.
+
+ENERGY RECOMMENDATION
+- Alpha 0.6.28 does NOT change the Recommended/Faster energy-target formula. The
+  current founder-test Faster target remains separate from the food-entry changes.
+
+DATA CONTINUITY
+The two Alpha 0.6 browser-storage identifiers remain unchanged:
+- healthyEatingCompanionAlpha06
+- healthyEatingCompanionAlpha06Functional
+A backup is still recommended before deployment.
+
+CACHE
+Service-worker cache: healthy-eating-companion-alpha-0-6-28-v1
+
+FOUNDER-TRIAL LIMITATIONS
+- Food-aware measures are expanded but are only offered where HEC has a defensible
+  conversion or an explicitly labelled practical estimate. Branded package foods do
+  not receive an invented piece/slice/crispbread count merely because the product name
+  suggests one; package count needs explicit source data. The long-term goal is broader
+  food-specific spoon/cup/drizzle/portion support as trustworthy conversions are added.
+- Packaged product accuracy still needs checking against the physical package.
+- Barcode camera, nutrition-panel OCR, microphone permissions and service-worker
+  update behaviour require real HTTPS testing on the intended iPhone/iPad site.

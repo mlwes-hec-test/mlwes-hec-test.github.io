@@ -1,0 +1,17 @@
+HEALTHY EATING COMPANION — AFCD DATA NOTICE — ALPHA 0.6.9
+
+DATA SOURCE
+Australian Food Composition Database (AFCD) Release 3
+Publisher: Food Standards Australia New Zealand (FSANZ)
+
+Healthy Eating Companion Alpha 0.6.9 includes a compact, adapted local search dataset derived from the AFCD Release 3 Food Details and Nutrient Profiles files. The app preserves the AFCD public food key for each imported record and attributes displayed records to FSANZ.
+
+LICENCE
+FSANZ makes Australian food-composition publications available under its Data User Licence Agreement, which is based on the Creative Commons Attribution-ShareAlike 3.0 Australia licence.
+Licence agreement:
+https://www.foodstandards.gov.au/science-data/monitoringnutrients/afcd/datauserlicenceagreement
+
+DATA LIMITATIONS
+Food-composition values are reference averages. Actual nutrient content can vary between brands and batches and with season, processing practices and ingredient source. Australian food-composition data may not be appropriate for use in other countries.
+
+The Alpha 0.6.9 local file is intended for founder-trial testing and should not be treated as a substitute for a current product nutrition panel, clinician advice or professional dietary assessment. Packaged-food values should be checked against the current product label when accuracy matters.

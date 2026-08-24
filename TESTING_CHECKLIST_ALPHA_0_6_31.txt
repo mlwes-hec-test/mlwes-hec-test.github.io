@@ -1,0 +1,65 @@
+FOUNDER TESTING CHECKLIST — ALPHA 0.6.31
+SEARCH / SERVING / REVIEW POLISH
+
+BEFORE TESTING
+[ ] Confirm Home badge says Alpha 0.6.31.
+[ ] Confirm profile, diary, weight, saved foods/meals and settings are still present.
+[ ] Keep your recent JSON backup available.
+
+SEARCH SPEED / STATE
+[ ] Type egg, pumpkin, chicken strips, Mission wraps and a branded snack; confirm a useful local/predictive response appears promptly.
+[ ] Start an online search and confirm packaged matches can appear before all online references finish.
+[ ] Change a query while online lookup is pending; old results must not overwrite the newer query.
+[ ] Tap guided choices normally and confirm each tap visibly advances; Back should never reveal a step that had invisibly advanced.
+[ ] Search Ascend protein bar. If no Ascend product is loaded, confirm HEC does not silently substitute Fulfil or another brand just because “protein bar” matches.
+
+LAMB STEAK / WORD ORDER
+[ ] Search lamb steak — a generic Australian lamb steak path/result should now be available.
+[ ] Search Woolworths lamb steak.
+[ ] Search lamb steak Woolworths.
+[ ] Search Woolies lamb steaks.
+[ ] Confirm the three retailer phrases converge on the same Woolworths intent/ranking where the same online product is available.
+
+CHICKEN STRIPS
+[ ] Search chicken strips.
+[ ] Choose Breast and Baked/Oven (or Grilled) with no added fat.
+[ ] Confirm HEC no longer dead-ends solely because the word strips is physical shape or because the closest source says Cooked.
+[ ] Confirm a genuinely contradictory preparation still does not get silently substituted.
+
+AIR FRYER
+[ ] Pumpkin: Air Fried appears as an applicable preparation.
+[ ] Potato: Air Fried appears.
+[ ] Chicken: Air Fried appears.
+[ ] Confirm Air Fried is not shown indiscriminately for foods where it is not useful.
+
+EGG
+[ ] Enter Egg -> Whole -> Large -> Poached.
+[ ] On Review, confirm Large is retained and there is no second size/unit choice to make.
+[ ] Change Amount from 1 to 2 and confirm nutrition doubles.
+
+BRAND DISPLAY
+[ ] Add Nescafé Cappuccino Strong and confirm the Diary keeps the useful full brand/product identity.
+[ ] Check Mission / Westacre / Praise examples where applicable; brand should not be duplicated if already part of the name.
+
+MISSION WRAPS / PACKAGE SERVES
+[ ] Search Mission Wraps Roasted Garlic.
+[ ] If the online product source supplies a 71 g package serving, confirm HEC offers/defaults to the natural package serve rather than forcing 71 g manual entry.
+[ ] If the source lacks serving mass, confirm HEC does not invent one.
+
+NUTRITION PANEL — 135 g LAMB STEAK TEST
+[ ] Photograph the Woolworths lamb-steak Nutrition Panel.
+[ ] Confirm HEC recognises Serving Size 135 g when the OCR text is readable.
+[ ] At 135 g, compare recognised values with the package.
+[ ] Change amount from 135 g to 100 g — calories and every nutrient must rescale immediately.
+[ ] Change back to 135 g — values must return to the serving values.
+
+FRONT-OF-PACK PHOTO
+[ ] In Nutrition Panel mode, add a front-of-pack photo.
+[ ] Tap Read Brand & Product Name.
+[ ] Confirm HEC suggests a useful editable product name when the front is clear.
+[ ] Correct the name if OCR is imperfect; nothing should be saved automatically.
+
+IPHONE VIEWPORT
+[ ] Open several Review screens with keyboard visible.
+[ ] Close/open keyboard and switch screens.
+[ ] Confirm HEC does not become squeezed into the left side with a blank right margin.

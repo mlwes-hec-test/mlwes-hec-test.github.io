@@ -1,0 +1,13 @@
+Healthy Eating Companion — Founder Trial Alpha 0.6.26
+
+Focused search and serving polish from Alpha 0.6.25 iPhone testing.
+
+CHANGES
+- KFC Australia / McDonald’s Australia heading is now actionable: tap it to browse a grouped full menu.
+- McDonald’s discovery now includes fries, Chicken McNuggets and common soft-drink choices in the menu guide.
+- Chain menu choices with no trusted nutrition remain blocked from Diary entry rather than being recorded as 0 Cal.
+- Serving lists now defensively remove category-incompatible measures (including the stray Egg measure seen while reviewing Cheddar Cheese).
+- Duplicate serving labels are suppressed when two internal keys describe the same practical measure.
+- Calories and kilojoules remain displayed together for food energy.
+
+This is deliberately a small, foundation-focused build so testing can continue without mixing in unrelated cosmetic changes.

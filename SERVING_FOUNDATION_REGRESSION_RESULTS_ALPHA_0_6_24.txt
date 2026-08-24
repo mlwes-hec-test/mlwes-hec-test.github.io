@@ -1,0 +1,25 @@
+HEC ALPHA 0.6.24 — SERVING FOUNDATION REGRESSION RESULTS
+
+PASS — Active JavaScript syntax validation.
+PASS — 1,588 / 1,588 AFCD records have a valid positive default unit and valid positive unit multipliers after serving resolution.
+PASS — 0 invalid AFCD serving/unit records detected.
+PASS — 761 AFCD records gained at least one additional defensible measure.
+PASS — 129 AFCD records use a range hint where a source range cannot safely become one exact multiplier.
+PASS — Lettuce varieties from AFCD: Cos, Iceberg, Mignonette.
+PASS — Lettuce Iceberg: Cup = 75 g Australian standard raw leafy/salad vegetable serve; grams retained.
+PASS — Apple varieties include Granny Smith, Pink Lady, Royal Gala, Red Delicious and other AFCD varieties.
+PASS — Apple: 1 medium item = 150 g Australian standard fruit serve; grams retained.
+PASS — Orange: Navel / Valencia; 1 medium item = 150 g Australian standard fruit serve; grams retained.
+PASS — Hard cheese: Australian standard serve 40 g / 2 slices; 1 slice = 20 g as guideline-derived measure (not package claim).
+PASS — Yoghurt: 3/4 cup = 200 g Australian standard dairy serve.
+PASS — Milk: 1 cup = 250 mL Australian standard dairy serve when an mL conversion exists.
+PASS — Cooked red meat: 65 g standard serve; raw red meat uses the published 90–100 g range as a hint rather than an invented exact midpoint.
+PASS — Cooked poultry: 80 g; cooked fish: 100 g; eggs: 2 large / 120 g.
+PASS — Cooked grain 1/2-cup range (75–120 g) is NOT converted to a fabricated exact weight; grams remain primary.
+PASS — Explicit 27 g package serving remains 27 g and retains serving-level calories.
+PASS — Missing package serving does NOT become a fake 100 g package serve.
+PASS — Explicit `2 slices (40 g)` package text derives a 20 g-per-slice unit.
+PASS — Calories + kJ display code carried forward from Alpha 0.6.23.
+
+DEVICE CHECK REQUIRED
+Managed Chromium blocks local app pages in this environment. The founder iPhone/iPad check should focus on the search -> refinement -> serving -> review chain before cosmetic testing resumes.

@@ -1,0 +1,49 @@
+HEALTHY EATING COMPANION — ALPHA 0.6.9 TESTING CHECKLIST
+
+STARTUP AND DATA
+[ ] Existing Alpha 0.6.8 profile opens without data loss.
+[ ] Reset App for Testing still allows a clean first-user setup.
+[ ] App displays Alpha 0.6.9 labels.
+
+DIARY / DAILY PROGRESS SYNC
+[ ] Add a food to today’s Breakfast; Diary and Daily Progress both update immediately.
+[ ] Progress History counts today as a food diary day only after entries exist.
+[ ] Add a future meal; future Diary shows it but Progress History does not count it as historical yet.
+[ ] Delete a food entry; Diary, Daily Progress and Progress History all update.
+[ ] Daily Progress shows the saved fluid target, e.g. 2,600 mL, not a blank field.
+
+FOOD ENTRY
+[ ] Food confirmation no longer asks Planned vs Eaten for ordinary entries.
+[ ] Food entries can still be edited, copied and deleted from the Diary.
+[ ] Confirmation pop-ups disappear after about two seconds unless action is required.
+
+HYDRATION
+[ ] Add A Drink requires a drink type before Add Drink works.
+[ ] Water adds to hydration without opening Food Library.
+[ ] Milk/juice/soft drink routes through Food Library so nutrition is captured.
+[ ] Fluid summary updates after each drink.
+
+FOOD SEARCH
+[ ] New Add Food starts with a blank search field.
+[ ] All Resources finds local Australian foods first.
+[ ] Online Only search can be used for wider packaged-food checks.
+[ ] Cached online product matches can appear in All Resources after online lookup.
+
+BARCODE
+[ ] Manual barcode entry can look up a known product.
+[ ] Barcode photo can be read on a real device if supported.
+[ ] Live camera barcode scanning asks for camera permission and detects a barcode where supported.
+[ ] Missing barcode gives a clear message and suggests Nutrition Panel or Custom Food.
+
+NUTRITION PANEL OCR
+[ ] Taking a clear nutrition-panel photo enables Read Nutrition Panel.
+[ ] OCR fills editable fields.
+[ ] Per Serving / Per 100 g selection changes which values are copied.
+[ ] Review as a Custom Food opens Custom Food with copied values.
+[ ] No OCR result is saved without user review.
+
+REAL DEVICE NOTES
+[ ] Test in mobile Safari on the GitHub Pages HTTPS site.
+[ ] Test camera permission prompts.
+[ ] Test poor lighting / blurry panel behaviour.
+[ ] Compare barcode and OCR values against the physical package.
