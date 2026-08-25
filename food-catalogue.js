@@ -8,7 +8,7 @@
 
   const VERSION='0.6.33';
   const RECORD_TYPES=Object.freeze({
-    AFCD:'afcd',PACKAGED:'packaged',PRIVATE:'private',RECIPE:'recipe',ONLINE:'online-candidate',LOCAL:'local'
+    AFCD:'afcd',FOOD_SOURCE:'food-source',PACKAGED:'packaged',PRIVATE:'private',RECIPE:'recipe',ONLINE:'online-candidate',LOCAL:'local'
   });
   const CONTROLLED_TYPOS=Object.freeze({
     capuccino:'cappuccino',cappucino:'cappuccino',cappacino:'cappuccino',
@@ -37,6 +37,7 @@
   function sourceText(food){return norm(`${food?.source||''} ${food?.category||''}`);}
 
   function recordType(food){
+    if(food?.foodSourceId||food?.recordType===RECORD_TYPES.FOOD_SOURCE)return RECORD_TYPES.FOOD_SOURCE;
     if(food?.afcd||food?.afcdKey||/australian food composition database|\bafcd\b/.test(sourceText(food)))return RECORD_TYPES.AFCD;
     if(food?.category==='Recipe'||food?.brand==='My Recipe'||food?.recipeId)return RECORD_TYPES.RECIPE;
     if(food?.source==='User Created'||food?.private===true)return RECORD_TYPES.PRIVATE;
@@ -49,6 +50,7 @@
   function preparationKey(food){return norm(food?.preparation||food?.prep||food?.guidedSelections?.prep||food?.variantSelections?.prep||'');}
   function canonicalKey(food){
     const kind=recordType(food),sourceId=sourceIdFor(food);
+    if(kind===RECORD_TYPES.FOOD_SOURCE&&food?.foodSourceId&&food?.sourceItemId)return `food-source:${food.foodSourceId}:${food.sourceItemId}${food?.sourceVariantId?`:${food.sourceVariantId}`:''}`;
     if(kind===RECORD_TYPES.AFCD&&sourceId)return `afcd:${sourceId}`;
     if(food?.barcode)return `barcode:${String(food.barcode).replace(/\D/g,'')}`;
     if([RECORD_TYPES.PRIVATE,RECORD_TYPES.RECIPE].includes(kind)&&sourceId)return `${kind}:${sourceId}`;
@@ -71,6 +73,8 @@
   function fields(food){
     return [
       food?.name,food?.brand,`${food?.brand||''} ${food?.name||''}`,...(food?.aliases||[]),
+      food?.sourceDisplayName,...(food?.sourceAliases||[]),
+      food?.familyName,food?.variantLabel,...(food?.categoryMemberships||[]),
       food?.retailer,food?.sourceContext,food?.serving,food?.packageServingText,
       ...Object.values(food?.unitLabels||{})
     ].map(norm).filter(Boolean);
@@ -79,10 +83,11 @@
   function prefixTokenMatch(queryTokens,fieldValues){const all=fieldValues.flatMap(tokens);return queryTokens.length>0&&queryTokens.every(token=>token.length>=3&&all.some(value=>value.startsWith(token)));}
   function rank(food,query,{saved=false,locallyVerified=false}={}){
     const raw=norm(query);if(!raw)return {score:100,tier:'browse'};
-    const q=corrected(raw),values=fields(food),name=norm(food?.name),brand=norm(food?.brand),aliases=(food?.aliases||[]).map(norm),combined=norm(`${food?.brand||''} ${food?.name||''}`),qt=tokens(q);
+    const q=corrected(raw),values=fields(food),name=norm(food?.name),brand=norm(food?.brand),aliases=(food?.aliases||[]).map(norm),sourceAliases=[food?.sourceDisplayName,...(food?.sourceAliases||[])].map(norm).filter(Boolean),combined=norm(`${food?.brand||''} ${food?.name||''}`),qt=tokens(q);
     const typoCorrected=q!==raw;let score=0,tier='none';
     if(!typoCorrected&&(name===q||combined===q)){score=1600;tier='exact-name';}
     else if(!typoCorrected&&aliases.includes(q)){score=1500;tier='exact-alias';}
+    else if(!typoCorrected&&sourceAliases.includes(q)){score=1480;tier='exact-source-alias';}
     else if(!typoCorrected&&brand===q){score=1450;tier='exact-brand';}
     else if(!typoCorrected&&exactTokenSetMatch(qt,values)){score=1320+qt.length;tier='all-tokens';}
     else {
@@ -98,7 +103,7 @@
     return {score,tier,query:q};
   }
   function toksafe(value){return Math.min(20,tokens(value).length);}
-  function quality(food){let score=0;if(food?.verified)score+=100;if(marketFor(food)==='AU')score+=25;if(hasEnergy(food))score+=20;const type=recordType(food);if(type===RECORD_TYPES.AFCD)score+=15;if(type===RECORD_TYPES.LOCAL||type===RECORD_TYPES.PRIVATE)score+=8;return score;}
+  function quality(food){let score=0;if(food?.verified)score+=100;if(marketFor(food)==='AU')score+=25;if(hasEnergy(food))score+=20;const type=recordType(food);if(type===RECORD_TYPES.FOOD_SOURCE)score+=20;if(type===RECORD_TYPES.AFCD)score+=15;if(type===RECORD_TYPES.LOCAL||type===RECORD_TYPES.PRIVATE)score+=8;return score;}
   function dedupe(records){
     const best=new Map(),order=[];
     for(const food of records||[]){if(!food)continue;const key=canonicalKey(food);if(!best.has(key)){best.set(key,food);order.push(key);}else if(quality(food)>quality(best.get(key)))best.set(key,food);}
@@ -111,6 +116,7 @@
   }
   function provenance(food){
     const type=recordType(food),verified=food?.verified||food?.verificationStatus==='verified';
+    if(type===RECORD_TYPES.FOOD_SOURCE)return {label:food?.sourceDisplayName||food?.brand||'Official Food Source',detail:food?.source||food?.sourceUrl||'Official source catalogue',verified:true};
     if(type===RECORD_TYPES.AFCD)return {label:'Australian AFCD',detail:food?.source||'Food Standards Australia New Zealand · AFCD',verified:true};
     if(type===RECORD_TYPES.PRIVATE)return {label:'My Food',detail:'Private food saved on this device',verified:false};
     if(type===RECORD_TYPES.RECIPE)return {label:'My Recipe',detail:'Nutrition calculated from saved ingredient snapshots',verified:false};
@@ -118,7 +124,7 @@
     if(type===RECORD_TYPES.PACKAGED)return {label:verified?'Verified Packaged Food':'Packaged Food',detail:food?.source||'Check the current package',verified:!!verified};
     return {label:verified?'Verified Food':'Food Record',detail:food?.source||'Source not supplied',verified:!!verified};
   }
-  function canLog(food){return hasEnergy(food)&&food?.verificationStatus!=='recognised-only'&&food?.recognisedOnly!==true;}
+  function canLog(food){return food?.loggable!==false&&food?.nutritionStatus!=='unavailable'&&food?.nutritionStatus!=='configurable'&&hasEnergy(food)&&food?.verificationStatus!=='recognised-only'&&food?.recognisedOnly!==true;}
   function newSearchState(){return {query:'',tab:'all',revision:0,snapshot:null};}
   function beginSearch(state={},context={}){return {...newSearchState(),...state,query:'',tab:context.tab||'all',revision:Number(state.revision||0)+1,snapshot:null};}
   function rememberSearch(state={},view={}){return {...state,snapshot:{query:String(view.query||''),tab:view.tab||'all',scrollY:Number(view.scrollY||0)}};}

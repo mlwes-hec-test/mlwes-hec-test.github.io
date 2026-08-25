@@ -70,7 +70,11 @@
   function startingRecord(records,{today,profileStart="",startingWeightDate=""}={}){
     const all=effectiveRecords(records,{today:String(today||"9999-12-31")}),eligible=all.filter(record=>!profileStart||record.date>=profileStart);
     if(!eligible.length)return null;
-    return eligible.find(record=>record.date===startingWeightDate)||eligible.find(record=>record.isStartingWeight||/starting weight/i.test(record.note||""))||eligible[0];
+    // A later marker must never replace an earlier effective record that is
+    // visibly part of the same history. An explicit start date is valid here
+    // only when it identifies that earliest effective record.
+    const earliest=eligible[0],explicit=eligible.find(record=>record.date===startingWeightDate);
+    return explicit&&explicit.date===earliest.date?explicit:earliest;
   }
   function journeySummary(records,{today,goalWeight=0,goal="",selectedId="",period="30",profileStart="",startingWeightDate=""}={}){
     const all=effectiveRecords(records,{today:String(today||"9999-12-31")}),view=chartModel(records,{period,today,selectedId}),start=startingRecord(records,{today,profileStart,startingWeightDate}),current=all[all.length-1]||null;

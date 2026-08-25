@@ -349,6 +349,7 @@ function speakText(text, {force=false, allowWithoutCompanion=false,companion=nul
   utterance.rate=resolution.rate;utterance.pitch=resolution.pitch;
   window.speechSynthesis.cancel();window.speechSynthesis.speak(utterance);
 }
+window.HECSpeakText=speakText;
 
 const COUNTRY_CONFIG = {
   "Australia": {
@@ -1308,10 +1309,9 @@ $("speak-home")?.addEventListener("click", () => speakText($("message-text")?.te
 document.querySelectorAll(".room").forEach(button => button.addEventListener("click", () => {
   const room = button.dataset.room;
   if(room === "settings"){ show("settings"); return; }
-  if(room === "quick-weight"){ show("weight-checkin", {speak:false}); return; }
-  if(room === "quick-food" && typeof window.openAlpha05Feature === "function"){ window.openAlpha05Feature("quick-log",{fromHome:true}); return; }
+  if(room === "quick-voice" && typeof window.openAlpha05Feature === "function"){ window.openAlpha05Feature("quick-log",{fromHome:true}); return; }
   if(room === "progress-weight"){
-    if(typeof window.openAlpha05Feature === "function")window.openAlpha05Feature("progress-history",{fromHome:true,progressView:"weight"});
+    if(typeof window.openAlpha05Feature === "function")window.openAlpha05Feature("progress-history",{fromHome:true});
     else show("progress-history",{speak:false});
     return;
   }
@@ -1457,8 +1457,7 @@ function friendlyWeightRelativeDate(value){const today=todayISO();if(value===tod
 function updateCheckinDateDisplay(){const value=$("checkin-date")?.value||todayISO(),relative=$("checkin-date-relative"),full=$("checkin-date-full");if(!relative||!full)return;const today=todayISO();relative.textContent=value===today?"Today":value===shiftWeightISO(today,-1)?"Yesterday":value===shiftWeightISO(today,1)?"Tomorrow":"Selected Date";full.textContent=friendlyWeightDate(value);}
 function startingWeightRecord(){
   const profileStart=data.profileStartedDate||"",history=[...(data.weightHistory||[])].filter(item=>item?.date&&Number(item.weightKg)>0&&(!profileStart||item.date>=profileStart));if(!history.length)return null;
-  const date=data.health?.startingWeightDate;if(date){const exact=history.find(item=>item.date===date&&(item.isStartingWeight||/starting weight/i.test(item.note||"")))||history.find(item=>item.date===date);if(exact)return exact;}
-  const marked=history.filter(item=>item.isStartingWeight||/starting weight/i.test(item.note||"")).sort((a,b)=>String(a.recordedAt||"").localeCompare(String(b.recordedAt||"")));return marked[0]||history.slice().sort((a,b)=>String(a.date).localeCompare(String(b.date))||String(a.recordedAt||"").localeCompare(String(b.recordedAt||"")))[0];
+  return history.slice().sort((a,b)=>String(a.date).localeCompare(String(b.date))||String(a.recordedAt||"").localeCompare(String(b.recordedAt||"")))[0];
 }
 let lastSavedCheckinSnapshot = null;
 let checkinSavePending = false;
@@ -1533,7 +1532,7 @@ function saveCheckinSnapshot(snapshot,{outlierConfirmed=false,navigateAfter=fals
     if(meaningfulCurrentWeightChange||goalChanged){recalculateFromStored();recommendationsUpdated=true;message=data.recommendations.manual?"Your health estimates were refreshed while your manual targets were retained.":`Recommendations were recalculated using ${formatWeight(latestWeight)} kg.`;}
     else if(!savedIsCurrent)message=`Historical weight saved for ${friendlyWeightRelativeDate(date)}. Your current weight remains ${formatWeight(latestWeight)} kg because a newer entry exists.`;
     else message="Your recommendations stayed steady because the current change was less than 1 kg.";
-    save();lastSavedCheckinSnapshot=currentCheckinSnapshot();checkinSavePending=false;setCheckinSaveState(true);renderSavedCheckinResult(savedRecord,message,recommendationsUpdated);renderWeightHistoryOnly();if(data.companion.enabled)speakText("Weight and date saved.");if(navigateAfter)openWeightProgressGraph();
+    save();lastSavedCheckinSnapshot=currentCheckinSnapshot();checkinSavePending=false;setCheckinSaveState(true);renderSavedCheckinResult(savedRecord,message,recommendationsUpdated);renderWeightHistoryOnly();if(data.companion.enabled)speakText("Weight and date saved.");if(navigateAfter){window.HECSelectWeightPoint?.(savedRecord?.id||savedRecord?.date);openWeightProgressGraph();}
     return {status:"saved",record:savedRecord,recommendationsUpdated};
   };
   if(existing && Number(existing.weightKg)!==Number(weight)){

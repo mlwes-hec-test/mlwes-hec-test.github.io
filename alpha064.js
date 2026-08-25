@@ -48,7 +48,7 @@ handleTimeZone();
 
 // Navigation: every working room has both Back and Home.
 const APP_SCREEN_EXCLUSIONS=new Set(["welcome","language","register","verify","password","companion","personal","health","recommendations","home"]);
-const functionalScreens=new Set(["food-diary","food-library","food-entry-editor","custom-food","recipe-builder","quick-log","scan-centre","meal-planner","daily-progress","exercise-log","progress-history","shopping-list","food-preferences","family-connections","printable-report"]);
+const functionalScreens=new Set(["food-diary","food-library","food-entry-editor","custom-food","recipe-builder","quick-log","scan-centre","meal-planner","daily-progress","nutrition-trends","exercise-log","progress-history","shopping-list","food-preferences","family-connections","printable-report"]);
 let navStack=[],lastActive=activeScreen(),goingBack=false;
 const scrollByScreen={};
 function installNavigation(){

@@ -351,23 +351,17 @@
       <div><div class="badge">Healthy Eating Companion · Alpha 0.6.33</div><h1 id="home-greeting">Welcome</h1><p id="home-summary"></p></div>
     </header>
     <main class="home-main home-main-centred">
-      <div class="circle seven-room-circle nine-room-circle" aria-label="Healthy Eating Companion Home navigation">
+      <div class="circle eight-room-circle" aria-label="Healthy Eating Companion Home navigation">
         <div class="orbit"></div>
-        <button class="room r1" data-room="daily-progress"><span>📊</span><b>Daily Progress</b><small>Today at a glance</small></button>
-        <button class="room r2" data-room="quick-food"><span>⚡</span><b>Quick Food Log</b><small>Type, speak or scan</small></button>
-        <button class="room r3" data-room="diary"><span>🍽️</span><b>Diary</b><small>Plan and log</small></button>
-        <button class="room r4" data-room="database"><span>🥕</span><b>Food Library</b><small>Find, save and scan</small></button>
-        <button class="room r5" data-room="settings"><span>⚙️</span><b>Settings</b><small>Your choices</small></button>
-        <button class="room r6" data-room="shopping-list"><span>🛒</span><b>Shopping List</b><small>Groceries and ingredients</small></button>
-        <button class="room r7" data-room="progress-weight"><span>📈</span><b>Weight &amp; Nutrition Progress Graphs</b><small>Review your progress</small></button>
-        <button class="room r8" data-room="quick-weight"><span>⚖️</span><b>Quick Weight Log</b><small>Record weight</small></button>
-        <button class="room r9" data-room="exercise-activity"><span>🏃</span><b>Exercise &amp; Activity</b><small>Record extra activity</small></button>
+        <button class="room r1" data-room="daily-progress"><span>📊</span><b>Daily Progress</b></button>
+        <button class="room r2" data-room="quick-voice"><span>🎙️</span><b>Quick Voice Log</b></button>
+        <button class="room r3" data-room="diary"><span>🍽️</span><b>Diary</b></button>
+        <button class="room r4" data-room="database"><span>🥕</span><b>Food Library</b></button>
+        <button class="room r5" data-room="settings"><span>⚙️</span><b>Settings</b></button>
+        <button class="room r6" data-room="shopping-list"><span>🛒</span><b>Shopping List</b></button>
+        <button class="room r7" data-room="progress-weight"><span>⚖️</span><b>Weight &amp; Progress</b></button>
+        <button class="room r8" data-room="exercise-activity"><span>🏃</span><b>Exercise &amp; Activity</b></button>
         <button id="home-companion" class="companion-centre"><img id="home-avatar-image" class="home-avatar-image hidden" alt=""><span id="home-avatar">🐦</span><strong id="home-companion-name">Companion</strong><small id="home-companion-action">Tap for guidance</small></button>
-      </div>
-      <div id="inspiration-card" class="home-message daily-inspiration-card tappable-card compact-companion-message-card" role="button" tabindex="0" aria-label="Tap for another food tip, quote, joke or fact">
-        <span id="message-avatar">🐵</span>
-        <div><strong id="message-name">Companion Says</strong><span id="message-type" class="eyebrow">Today’s thought</span><p id="message-text">Small changes are easier to repeat than perfect days.</p></div>
-        <div class="inspiration-actions"><select id="inspiration-category" aria-label="Companion message category"><option value="mix">Mix Them Up</option><option value="tip">Healthy Eating Tips</option><option value="quote">Food Quotes</option><option value="joke">Food Jokes</option><option value="fact">Did You Know?</option><option value="encouragement">Encouragement</option></select><small>Tap the card for another</small></div><button id="speak-home" class="speak-note companion-only" aria-label="Speak this message">🔊</button>
       </div>
     </main>
   </section>
@@ -502,17 +496,16 @@
   </section>
 
   <section id="quick-log" class="screen content-screen">
-    <header class="topbar sticky"><button class="back" data-go="home">← Back</button><div class="grow"><h2>Quick Food Log</h2><p>Choose how you want to tell HEC what you ate.</p></div><button class="help-button" data-help="quick-log">Help With This Screen</button></header>
-    <main class="page narrow quick-log-page">
-      <div id="quick-log-method-card" class="card"><h3>How do you want to log your food?</h3><p class="fine">Choose the method first. HEC will then confirm where the food belongs.</p><div class="quick-log-method-grid">
-        <button type="button" class="quick-log-method" data-quick-log-method="keyboard"><span>⌨️</span><strong>Keyboard Entry</strong><small>Type one food or a natural description</small></button>
-        <button type="button" class="quick-log-method" data-quick-log-method="voice"><span>🎙️</span><strong>Voice Entry</strong><small>Tell HEC what you ate</small></button>
-        <button type="button" class="quick-log-method" data-quick-log-method="barcode"><span>▦</span><strong>Barcode Scanning</strong><small>Identify a packaged product</small></button>
-        <button type="button" class="quick-log-method" data-quick-log-method="label"><span>▤</span><strong>Nutrition Panel</strong><small>Read the current package panel</small></button>
-      </div><p id="quick-log-method-status" class="fine">All four methods feed into the same HEC food intelligence and review process.</p></div>
-      <div id="quick-log-context-card" class="card quick-log-context-card hidden"><h3>Where should HEC record it?</h3><div class="form-grid"><label>Date<input id="voice-date" type="date"></label><label>Meal<select id="voice-meal"><option value="">Choose A Meal</option><option>Breakfast</option><option>Lunch</option><option>Dinner</option><option>Snacks</option><option>Other</option></select></label></div><p class="fine">Confirm the date and meal. HEC keeps this destination through search, scanning and review.</p></div>
-      <div id="quick-log-entry" class="card hidden"><h3 id="quick-log-entry-title">Keyboard Entry</h3><label>Food<textarea id="voice-transcript" rows="4" placeholder="Example: two poached eggs and two slices of wholemeal toast"></textarea></label><div class="quick-action-row quick-log-actions"><button id="start-voice-log" class="primary hidden">🎙️ Start Listening</button><button id="stop-voice-log" class="secondary hidden">Stop Listening</button><button id="parse-voice-log" class="secondary">Review Food</button><button id="quick-log-change-method" class="secondary">Change Method</button><button id="quick-log-cancel" class="secondary">Cancel</button></div><p id="voice-status" class="fine">HEC will identify the food using the same search intelligence as Food Library. Nothing is added until you review it.</p></div>
-      <div id="voice-review" class="card hidden"><h3>Review Before Adding</h3><div id="voice-review-items"></div><div class="status-box"><strong id="quick-log-review-destination">Choose a date and meal above.</strong></div><div class="quick-action-row"><button id="confirm-voice-log" class="primary">Confirm & Add</button><button id="cancel-voice-review" class="secondary">Edit Entry</button></div></div>
+    <header class="topbar sticky"><button class="back" data-go="home">← Back</button><div class="grow"><h2>Quick Voice Log</h2><p>Tell your companion what you want to record, then review it before saving.</p></div><button class="help-button" data-help="quick-log">Help With This Screen</button></header>
+    <main class="page narrow quick-log-page companion-voice-page">
+      <div id="quick-voice-companion" class="card quick-voice-companion-card">
+        <div class="quick-voice-avatar"><img id="quick-voice-avatar-image" class="hidden" alt=""><span id="quick-voice-avatar" aria-hidden="true">💬</span></div>
+        <div><span class="eyebrow">Companion Voice Entry</span><h3 id="quick-voice-companion-name">Your Companion</h3><p id="quick-voice-prompt">Tell your companion what you want to log.</p></div>
+      </div>
+      <div id="quick-log-context-card" class="card quick-log-context-card"><h3>Where should it be recorded?</h3><div class="form-grid"><label>Date<input id="voice-date" type="date"></label><label>Meal<select id="voice-meal"><option value="">Choose A Meal</option><option>Breakfast</option><option>Lunch</option><option>Dinner</option><option>Snacks</option><option>Other</option></select></label></div><p class="fine">You can change the date or meal before or after speaking.</p></div>
+      <div id="quick-log-entry" class="card"><h3 id="quick-log-entry-title">Tell Your Companion</h3><p id="quick-voice-wake-hint" class="voice-wake-hint">You can begin with “Hey Companion” if that feels natural.</p><label>Transcript<textarea id="voice-transcript" rows="4" placeholder="Example: add a Big Mac to lunch today"></textarea></label><div class="quick-action-row quick-log-actions"><button id="start-voice-log" class="primary" type="button">🎙️ Tap To Speak</button><button id="stop-voice-log" class="secondary hidden" type="button">Stop Listening</button><button id="parse-voice-log" class="secondary" type="button">Review Request</button><button id="clear-voice-log" class="secondary" type="button">Clear</button><button id="quick-log-cancel" class="secondary" type="button">Cancel</button></div><p id="voice-status" class="fine" aria-live="polite">Nothing is listening yet. Tap To Speak when you are ready, or edit the transcript directly.</p></div>
+      <div id="quick-voice-fallback" class="card hidden"><strong>Voice entry is unavailable on this device.</strong><p>You can still add food safely through the Diary and central Food Library.</p><button id="quick-voice-open-diary" class="primary" type="button">Open Diary Add Food</button></div>
+      <div id="voice-review" class="card hidden"><h3>Review Before Saving</h3><p class="fine">Check the food, source, quantity, date and meal. Nothing has been added yet.</p><div id="voice-review-items"></div><div class="status-box"><strong id="quick-log-review-destination">Choose a date and meal above.</strong></div><div class="quick-action-row"><button id="confirm-voice-log" class="primary" type="button">Save Once To Diary</button><button id="cancel-voice-review" class="secondary" type="button">Correct Transcript</button></div></div>
     </main>
   </section>
 
@@ -647,16 +640,12 @@
       </div>
 
       <div id="daily-progress-explanation" class="card compact-summary-card"></div>
-      <button id="daily-balance-card" type="button" class="card daily-balance-card" aria-label="Open today’s nutrition balance details">
-        <div class="daily-balance-heading"><span><strong>Nutrition Balance</strong><small id="daily-balance-label">Building today’s picture</small></span><b id="daily-balance-score">—/10</b></div>
-        <div class="daily-balance-track" aria-hidden="true"><span id="daily-balance-fill"></span></div>
-        <small>Tap for what is going well, what may need attention and optional suggestions.</small>
-      </button>
       <section class="progress-section meal-progress-section"><div class="section-heading compact-heading"><div><h3 id="daily-meals-heading">Today’s Meals</h3><p id="daily-meals-copy">Tap any meal to view, add or change its entries.</p></div></div><div id="daily-meal-status" class="daily-meal-status"></div></section>
-      <section class="progress-section"><div class="section-heading compact-heading"><div><h3>Nutrition Progress</h3><p>Bars show the food and drinks currently recorded in your Diary for this day.</p></div></div><div id="daily-progress-grid" class="progress-grid"></div></section>
-      <section class="progress-section"><div class="section-heading compact-heading"><div><h3>Five Food Groups</h3><p>Personalised Australian daily serve targets.</p></div></div><div id="daily-food-group-progress" class="food-group-progress-grid"></div><div id="weekly-food-group-progress" class="weekly-food-groups"></div></section>
-      <section class="compact-update-strip" aria-label="Quick hydration and steps update">
-        <div class="quick-drink-heading"><div><h3>Add A Drink</h3><p class="fine">Choose what you drank so hydration and nutrition are counted correctly.</p></div></div>
+      <section class="progress-section daily-fluid-section"><div class="section-heading compact-heading"><div><h3>Fluids</h3><p>Water and drinks recorded for this day.</p></div></div>
+        <button id="daily-fluids-card" type="button" class="card daily-action-card" aria-expanded="false" aria-controls="daily-fluid-actions"><span class="daily-action-icon">💧</span><span id="daily-fluid-card-summary"><strong>0 / 0 mL</strong><small>Tap for fluid actions</small></span><b>›</b></button>
+        <div id="daily-fluid-actions" class="card daily-inline-actions hidden">
+          <div class="quick-action-row"><button id="daily-add-water" class="primary" type="button">Add Water</button><button id="daily-add-drink" class="secondary" type="button">Add Drink</button><button id="daily-view-drinks" class="secondary" type="button">View/Edit Today’s Drinks</button></div>
+          <div class="quick-drink-heading"><div><h4>Quick Fluid Entry</h4><p class="fine">Water and zero-energy drinks add directly. Other drinks use the central Food Library.</p></div></div>
         <div class="form-grid quick-drink-grid">
           <label>Drink Type<select id="quick-drink-type"><option value="" selected>Choose A Drink</option><option value="water">Water</option><option value="zero">Zero-Calorie Drink</option><option value="coffee">Tea Or Coffee</option><option value="milk">Milk</option><option value="juice">Juice</option><option value="soft drink">Soft Drink</option><option value="cordial">Cordial</option><option value="smoothie">Smoothie</option><option value="soup">Soup Or Broth</option><option value="other">Other</option></select></label>
           <label>Amount (mL)<input id="quick-drink-amount" type="number" min="10" step="10" inputmode="numeric" placeholder="e.g. 250"></label>
@@ -665,10 +654,24 @@
         <div id="quick-drink-status" class="fine"></div><div id="today-fluid-summary" class="status-box compact-fluid-summary"></div>
         <input id="today-water" type="hidden" value="0">
         <label>Daily Fluid Target (mL)<input id="today-fluid-target" type="number" min="250" step="50" inputmode="numeric"></label>
-        <label>Steps<input id="today-steps" type="number" min="0" step="100" inputmode="numeric"></label>
-        <small>Water and zero-calorie drinks can be added instantly. Drinks with energy open the Food Library so you can choose the exact drink before it is recorded.</small>
+        </div>
       </section>
+      <section class="progress-section daily-activity-section"><div class="section-heading compact-heading"><div><h3>Activity / Exercise / Steps</h3><p>Movement deliberately recorded in HEC for this day.</p></div></div>
+        <button id="daily-activity-card" type="button" class="card daily-action-card" aria-expanded="false" aria-controls="daily-activity-actions"><span class="daily-action-icon">🏃</span><span id="daily-activity-card-summary"><strong>No activity recorded</strong><small>Tap for activity actions</small></span><b>›</b></button>
+        <div id="daily-activity-actions" class="card daily-inline-actions hidden"><div class="quick-action-row"><button id="daily-add-activity" class="primary" type="button">Add Activity</button><button id="daily-view-activity" class="secondary" type="button">View/Edit Today’s Activity</button><button id="daily-open-activity" class="secondary" type="button">Open Exercise &amp; Activity</button></div><label>Steps Recorded In HEC<input id="today-steps" type="number" min="0" step="100" inputmode="numeric" placeholder="No steps recorded"></label><small>HEC does not read device steps in this trial. Enter a value only when you genuinely have one.</small></div>
+      </section>
+      <section class="progress-section detailed-nutrition-section"><div class="section-heading compact-heading"><div><h3>Detailed Nutrition Progress</h3><p>Bars use the food and nutrient-containing drinks recorded in Diary.</p></div><button id="open-nutrition-trends" class="secondary" data-open-feature="nutrition-trends" type="button">View Nutrition Trends</button></div><div id="daily-progress-grid" class="progress-grid"></div></section>
+      <section class="progress-section"><div class="section-heading compact-heading"><div><h3>Nutrients To Watch</h3><p>Neutral indicators based only on the nutrition currently recorded.</p></div></div><button id="daily-balance-card" type="button" class="card daily-balance-card" aria-label="Open nutrients to watch details"><div class="daily-balance-heading"><span><strong>Nutrients To Watch</strong><small id="daily-balance-label">Needs More Recorded Food</small></span><b aria-hidden="true">›</b></div><small>Tap for objective recorded indicators. Missing nutrition remains unavailable.</small></button></section>
+      <section class="progress-section"><div class="section-heading compact-heading"><div><h3>Five Food Groups</h3><p>Personalised Australian daily serve targets.</p></div></div><div id="daily-food-group-progress" class="food-group-progress-grid"></div><div id="weekly-food-group-progress" class="weekly-food-groups"></div></section>
       <button class="floating-mic" data-open-feature="quick-log" aria-label="Voice or text food log">🎙️</button>
+    </main>
+  </section>
+
+  <section id="nutrition-trends" class="screen content-screen">
+    <header class="topbar sticky compact-feature-header"><button class="home-nav-button" data-go="home">🏠 Home</button><div class="grow"><h2>Nutrition Trends</h2><p>Recorded Diary days only. Missing days are not zero.</p></div></header>
+    <main class="page nutrition-trends-page">
+      <div class="card nutrition-trend-controls"><div class="segmented nutrition-metric-switch" role="tablist" aria-label="Nutrition metric"><button class="active" data-nutrition-metric="energy" type="button">Energy</button><button data-nutrition-metric="protein" type="button">Protein</button><button data-nutrition-metric="fibre" type="button">Fibre</button><button data-nutrition-metric="sodium" type="button">Sodium</button></div><div class="segmented nutrition-period" aria-label="Nutrition trend range"><button data-nutrition-period="7">7 Days</button><button data-nutrition-period="14">14 Days</button><button data-nutrition-period="30" class="active">30 Days</button><button data-nutrition-period="90">3 Months</button><button data-nutrition-period="180">6 Months</button><button data-nutrition-period="365">1 Year</button><button data-nutrition-period="all">All</button></div></div>
+      <div class="card nutrition-trend-card"><div class="stage6-chart-heading"><div><span class="eyebrow">Recorded-Day Nutrition</span><h3 id="nutrition-trend-title">Energy Trend</h3></div></div><div id="nutrition-trend-chart"></div><div id="nutrition-trend-selected" class="weight-point-summary" aria-live="polite"></div><details class="nutrition-trend-details"><summary>View Recorded-Day Details</summary><div id="nutrition-trend-table"></div></details></div>
     </main>
   </section>
 
@@ -711,11 +714,8 @@
   </section>
 
   <section id="progress-history" class="screen content-screen">
-    <header class="topbar sticky compact-feature-header"><button class="home-nav-button" data-go="home">🏠 Home</button><div class="grow"><h2>Weight &amp; Nutrition Progress Graphs</h2><p>Review your recorded progress over time.</p></div><div class="quick-action-row compact-header-actions"><button class="secondary" data-open-feature="printable-report" type="button">Print / Save Report</button><button class="help-button" data-help="progress-history" type="button">Help</button></div></header>
+    <header class="topbar sticky compact-feature-header"><button class="home-nav-button" data-go="home">🏠 Home</button><div class="grow"><h2>Weight Check-In &amp; Progress</h2><p>Record, review and edit your weight history.</p></div><div class="quick-action-row compact-header-actions"><button class="secondary" data-open-feature="printable-report" type="button">Print / Save Report</button><button class="help-button" data-help="progress-history" type="button">Help</button></div></header>
     <main class="page stage6-progress-page">
-      <div class="card stage6-progress-controls">
-        <div class="segmented progress-view-switch" role="tablist" aria-label="Progress graph category"><button class="active" data-progress-view="weight" role="tab" aria-selected="true" aria-controls="progress-weight-panel">Weight</button><button data-progress-view="nutrition" role="tab" aria-selected="false" aria-controls="progress-nutrition-panel">Nutrition</button></div>
-      </div>
       <section id="progress-weight-panel" class="progress-panel" role="tabpanel">
         <div id="weight-journey-summary" class="weight-journey-summary" aria-live="polite"></div>
         <div class="card stage6-weight-chart-card">
@@ -724,10 +724,7 @@
           <div id="history-bars" class="history-bars"></div>
           <div id="weight-point-summary" class="weight-point-summary" aria-live="polite"></div>
         </div>
-      </section>
-      <section id="progress-nutrition-panel" class="progress-panel hidden" role="tabpanel">
-        <div class="card"><h3>Recorded-Day Nutrition</h3><p class="fine">Averages include days with Diary entries only. Unrecorded days are not treated as zero.</p><div id="nutrition-history"></div></div>
-        <div class="card"><h3>Activity &amp; Fluids</h3><div id="activity-history-summary"></div></div>
+        <div class="card weight-room-history-card"><div class="stage6-chart-heading"><div><span class="eyebrow">Weight History</span><h3>Recent Check-Ins</h3></div><button class="secondary" data-open-weight-checkin type="button">Edit Weight</button></div><div id="weight-room-history"></div></div>
       </section>
     </main>
   </section>
@@ -843,8 +840,8 @@
   const runtimeFiles=[
     "installation-foundation.js",
     "migrations.js","companions.js","companion-artwork.js","companion-voice-metadata.js","companion-voices.js",
-    "stage4-foundation.js","weight-progress-foundation.js","app.js","entity-registry.js","search-foundation.js",
-    "food-catalogue.js","guided-branching.js","packaged-foods.js","capture-foundation.js","serving-foundation.js",
+    "stage4-foundation.js","weight-progress-foundation.js","nutrition-trends-foundation.js","app.js","entity-registry.js","search-foundation.js",
+    "food-sources.js","mcdonalds-au-catalogue-data.js","mcdonalds-au-catalogue.js","food-catalogue.js","guided-branching.js","packaged-foods.js","capture-foundation.js","serving-foundation.js",
     "activity-foundation.js","alpha06.js","alpha064.js"
   ];
   function releaseNotice(title,copy){

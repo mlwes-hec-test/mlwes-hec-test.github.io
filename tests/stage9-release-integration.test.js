@@ -28,7 +28,7 @@ test("2. every active visible and static release copy is 0.6.33",()=>{
   assert.match(html,/data-hec-release="0\.6\.33"/);assert.match(html,/Founder Trial Alpha 0\.6\.33/);assert.match(html,/Alpha 0\.6\.33/);
   assert.match(html,/manifest\.webmanifest\?v=0\.6\.33/);assert.match(html,/styles\.css\?v=0\.6\.33/);assert.match(html,/config\.js\?v=0\.6\.33/);
   assert.match(read("manifest.webmanifest"),/Founder Trial Alpha 0\.6\.33/);
-  assert.match(worker,/const VERSION = "0\.6\.33"/);assert.match(worker,/alpha-0-6-33-v1/);
+  assert.match(worker,/const VERSION = "0\.6\.33"/);assert.match(worker,/alpha-0-6-33-v3/);
   assert.doesNotMatch(runtime,/Meal Photos Stay[^"`]*Alpha 0\.6\./);assert.doesNotMatch(runtime,/Private Browsing[^`]*Alpha 0\.6\./);
   assert.match(read("README.txt"),/FOUNDER TRIAL ALPHA 0\.6\.33/);
 });
@@ -49,11 +49,16 @@ test("4. release assertion blocks runtime loading when an old config is served",
 });
 
 test("5. cache-busting for dynamically loaded runtime files derives from HEC_APP.version",()=>{
-  assert.equal(runtimeFiles.length,19);assert.match(html,/script\.src=`\$\{file\}\?v=\$\{encodeURIComponent\(actual\)\}`/);
+  assert.equal(runtimeFiles.length,23);assert.match(html,/script\.src=`\$\{file\}\?v=\$\{encodeURIComponent\(actual\)\}`/);
   assert.equal(runtimeFiles[0],"installation-foundation.js");
   assert.ok(runtimeFiles.indexOf("migrations.js")<runtimeFiles.indexOf("app.js"));
   assert.ok(runtimeFiles.indexOf("companion-voice-metadata.js")<runtimeFiles.indexOf("companion-voices.js"));
   assert.ok(runtimeFiles.indexOf("entity-registry.js")<runtimeFiles.indexOf("search-foundation.js"));
+  assert.ok(runtimeFiles.indexOf("food-sources.js")<runtimeFiles.indexOf("mcdonalds-au-catalogue-data.js"));
+  assert.ok(runtimeFiles.indexOf("mcdonalds-au-catalogue-data.js")<runtimeFiles.indexOf("mcdonalds-au-catalogue.js"));
+  assert.ok(runtimeFiles.indexOf("mcdonalds-au-catalogue.js")<runtimeFiles.indexOf("food-catalogue.js"));
+  assert.ok(runtimeFiles.indexOf("weight-progress-foundation.js")<runtimeFiles.indexOf("nutrition-trends-foundation.js"));
+  assert.ok(runtimeFiles.indexOf("nutrition-trends-foundation.js")<runtimeFiles.indexOf("app.js"));
   assert.ok(runtimeFiles.indexOf("capture-foundation.js")<runtimeFiles.indexOf("alpha06.js"));
 });
 
@@ -72,11 +77,11 @@ test("7. companion authoring sources remain absent and only 48 runtime WebPs shi
   assert.equal(coreFiles.some(file=>String(file).includes("assets/companions/source")),false);
 });
 
-test("8. My Data activation removes 0.6.22 and 0.6.32 shells without touching TEST, storage or databases",async()=>{
+test("8. My Data activation removes superseded My Data shells without touching TEST, storage or databases",async()=>{
   const handlers={},deleted=[];let claimed=false;
   const context={URL,Promise,Error,setTimeout:()=>0,caches:{open:async()=>({}),keys:async()=>["healthy-eating-companion-alpha-0-6-22-v1","healthy-eating-companion-alpha-0-6-32-v3","healthy-eating-companion-my-data-alpha-0-6-32-v1","healthy-eating-companion-my-data-alpha-0-6-33-v1","healthy-eating-companion-test-alpha-0-6-32-v1","unrelated-cache"],delete:async key=>{deleted.push(key);return true;}},fetch:async()=>({ok:true,clone(){return this;}}),self:{location:{href:"https://hec.example/service-worker.js?v=0.6.33&role=my-data",origin:"https://hec.example"},clients:{claim:async()=>{claimed=true;}},skipWaiting:()=>{},addEventListener:(type,handler)=>{handlers[type]=handler;}}};
   vm.runInNewContext(worker,context);let promise;handlers.activate({waitUntil:value=>{promise=value;}});await promise;
-  assert.deepEqual(deleted,["healthy-eating-companion-alpha-0-6-22-v1","healthy-eating-companion-alpha-0-6-32-v3","healthy-eating-companion-my-data-alpha-0-6-32-v1"]);assert.equal(claimed,true);
+  assert.deepEqual(deleted,["healthy-eating-companion-alpha-0-6-22-v1","healthy-eating-companion-alpha-0-6-32-v3","healthy-eating-companion-my-data-alpha-0-6-32-v1","healthy-eating-companion-my-data-alpha-0-6-33-v1"]);assert.equal(claimed,true);
   assert.doesNotMatch(worker,/localStorage|indexedDB|deleteDatabase/);
 });
 

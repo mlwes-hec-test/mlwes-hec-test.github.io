@@ -18,6 +18,15 @@
 - Exact versioned runtime requests do not fall back to an older same-path cached file while online. Activation removes the old cache and claims clients.
 - Blank USDA configuration now skips the optional request. Online failure cannot remove valid local results, trap the interface in a loading state, or expose a technical stack trace to ordinary users.
 
+## McDonald's Australia Food Source pilot
+
+- A source-neutral catalogue registry now supports stable source and item IDs, Australian market metadata, aliases, current/retired status, source checks, version history and exact provenance.
+- A non-deployed McDonald's Australia pilot registers 26 current products across Breakfast, Burgers, Chicken, Sides, Drinks and Desserts. It was checked against official product pages on 25 August 2026.
+- These records enter the existing central food catalogue and Diary flows. McDonald's, McDonalds, Macca's/Macca’s, Maccas, product aliases and punctuation variations are handled without a McDonald's-specific search engine.
+- Products retain their natural serving defaults and do not fall back to an arbitrary 1 g serving. Official per-serving and per-100 g values are kept separately, and nutrients absent from the source remain absent.
+- Diary snapshots now retain source identity, catalogue/version dates and provenance as well as nutrition. Reconciliation versions nutrition changes and retires removed items without deleting their historical records.
+- The source/access boundary and proposed human-reviewed weekly refresh process are documented in `MCDONALDS_AU_FOOD_SOURCE_PILOT.md`. Production use remains subject to a legal/licensing and source-access review.
+
 ## Legacy migration correction and preservation
 
 The recurring Alpha 0.6.16 `profileStart is not defined` warning was a genuine `ReferenceError` in the legacy weight-history compatibility path. The intended profile-start date was already established immediately above the failing reference, so the small repair was isolated in the migration foundation without redesigning historical migration behaviour.
@@ -39,8 +48,8 @@ Reset and restore tests execute the active paths and prove that Reset & Keep My 
 
 ## Automated validation
 
-- Full regression suite: **282/282 passed**, with no failures, skips or cancellations.
-- JavaScript syntax: **32/32 files passed** `node --check` (including every runtime JavaScript file and the service worker).
+- Full regression suite: **309/309 passed**, with no failures, skips or cancellations.
+- JavaScript syntax: **39/39 files passed** `node --check` (the complete workspace JavaScript set, including tests, runtime files and the service worker).
 - HTML duplicate-ID check: passed.
 - Local script, stylesheet, manifest, data and dynamic-entry reference checks: passed.
 - Service-worker asset and version-consistency assertions: passed.

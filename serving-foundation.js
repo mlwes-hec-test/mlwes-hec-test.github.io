@@ -31,7 +31,7 @@
 
   function isPackageFood(food){
     const source=norm(food?.source||''),category=norm(food?.category||''),brand=norm(food?.brand||'');
-    return !!food?.barcode||/open food facts|barcode|package|online product|product data|nutrition panel/.test(source+' '+category)||(/user created/.test(source)&&!!brand);
+    return !!food?.foodSourceId||!!food?.barcode||/open food facts|barcode|package|online product|product data|nutrition panel/.test(source+' '+category)||(/user created/.test(source)&&!!brand);
   }
 
   function explicitPackageServing(food){
