@@ -1,6 +1,17 @@
 HEALTHY EATING COMPANION — FOUNDER TRIAL ALPHA 0.6.33
 RELEASE CANDIDATE
 
+RC3 FOOD SEARCH AND McDONALD’S AUDIT CORRECTIONS
+- The current McDonald’s Australia catalogue was reconciled product-by-product across all 17 official category surfaces on 26 August 2026. All 167 current family identities and category memberships matched; no unconfirmed nutrition, promotion or availability change was introduced.
+- Exact product identity now outranks partial family matches. Australian and McDonald’s phrasing includes Macca’s/Maccas, McMuffin/Mc Muffin, McWrap/MC wrap, brekkie/breakie/breaky and the controlled Megga/Mega variation.
+- Generic burger, wrap, muffin, chips and soft-drink searches stay generic. Chips asks whether the user means hot chips/fries, packet chips/crisps, homemade, takeaway/restaurant or a brand/store product.
+- Fresh and cleared search states no longer show stale results or carry incompatible Quick Drink amounts into a food selection.
+- Quick Voice uses the same food resolver as typed search, handles Hi/Hey plus Shelly/Shelley wake phrasing, keeps failed matches unsaveable and asks for confirmation when confidence is only moderate.
+- Official products use natural whole-product or reviewed-portion defaults, allow fractions, and warn before saving implausibly large natural-unit quantities.
+- Add to Diary and Add & Save to My Foods are separate actions. Saving retains canonical source identity and official provenance instead of making a manual duplicate.
+- Individual food numeric scores and “Why This Score” have been removed from search/review/details. The UI shows factual nutrition and neutral guidance instead.
+- Diary meals now use food/foods wording and display the product name first, with source and natural quantity as secondary information.
+
 PURPOSE
 Alpha 0.6.33 brings together the approved Stage 1–8 work as a single Founder Trial release candidate. It improves release safety, companions, onboarding, activity and progress tracking, Shopping and Recent, and Australian food capture and search while preserving the established local storage keys and historical records.
 

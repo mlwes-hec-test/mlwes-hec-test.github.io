@@ -1,5 +1,20 @@
 # Healthy Eating Companion — Alpha 0.6.33 Build & Test Report
 
+## RC3 food-search correction addendum
+
+RC3 retains runtime version 0.6.33 and adds the 26 August 2026 McDonald’s Australia catalogue reconciliation, stale-search cleanup, intent-aware Australian aliases, generic-food clarification, shared typed/voice resolution, serving-aware quantity confirmation, separate Diary/My Foods actions, neutral individual-food nutrition presentation and product-first Diary labels.
+
+The current 17 official McDonald’s category surfaces reconcile exactly to 167 catalogue families and 209 runtime records. There were no confirmed additions, removals, renames, category differences or nutrition changes. The current checkpoint remains 142 complete families, 17 nutrition-unavailable families and 8 configurable bundles; 184 runtime records are loggable. The detailed audit and bounded automation limitation are recorded in `MCDONALDS_AU_FOOD_SOURCE_PILOT.md`.
+
+### RC3 final validation
+
+- Final full regression suite: **344/344 passed**, with no failures, skips, cancellations or TODOs.
+- JavaScript syntax: **44/44 files passed** `node --check`.
+- Focused RC3 coverage proves the 167-family audit checkpoint, exact-product rank, Australian aliases and controlled spelling variants, generic clarification, typed/voice resolver parity, stale-state invalidation, natural-serving quantity protection, official provenance preservation, separate Diary/My Foods actions and removal of individual numeric food scoring.
+- In-app Chromium QA covered 375 × 667, 390 × 844, 430 × 932 and 768 × 1024, plus a 390 × 520 reduced-height keyboard view. No page-level horizontal overflow was present and live search remained visible and scrollable.
+- Browser journeys verified neutral fresh/cleared search, exact Big Mac rank, generic burger/chips clarification, `Mega breakie wrap`, Date/Meal review, 250-burger confirmation, half-Big-Mac logging, official My Foods provenance, product-first Diary wording and Quick Voice success/failure gates.
+- A 250 mL Quick Drink context was deliberately replaced with a Big Mac search; the stale drink context was removed and review opened at Big Mac’s natural **1 Burger** default.
+
 ## Release-candidate basis
 
 - Branch: `alpha-0.6.33`
@@ -21,7 +36,7 @@
 ## McDonald's Australia Food Source pilot
 
 - A source-neutral catalogue registry now supports stable source and item IDs, Australian market metadata, aliases, current/retired status, source checks, version history and exact provenance.
-- A non-deployed McDonald's Australia pilot registers 26 current products across Breakfast, Burgers, Chicken, Sides, Drinks and Desserts. It was checked against official product pages on 25 August 2026.
+- A non-deployed McDonald's Australia pilot registers 167 current product families across all 17 official Australian category surfaces. Identity/category membership was rechecked on 26 August 2026; the reviewed product nutrition checkpoint was created from official product pages on 25 August 2026 and no unconfirmed change was introduced by RC3.
 - These records enter the existing central food catalogue and Diary flows. McDonald's, McDonalds, Macca's/Macca’s, Maccas, product aliases and punctuation variations are handled without a McDonald's-specific search engine.
 - Products retain their natural serving defaults and do not fall back to an arbitrary 1 g serving. Official per-serving and per-100 g values are kept separately, and nutrients absent from the source remain absent.
 - Diary snapshots now retain source identity, catalogue/version dates and provenance as well as nutrition. Reconciliation versions nutrition changes and retires removed items without deleting their historical records.

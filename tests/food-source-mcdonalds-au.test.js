@@ -22,8 +22,8 @@ test('source identity, official references, refresh metadata and Founder-Trial l
   assert.equal(registered.schemaVersion,2);assert.equal(source.id,'mcdonalds-au');assert.equal(source.displayName,"McDonald's Australia");
   assert.equal(source.sourceType,'restaurant/fast food');assert.equal(source.market,'AU');assert.equal(source.country,'Australia');
   assert.ok(source.aliases.includes('Macca’s'));assert.ok(source.aliases.includes('Maccas'));
-  assert.match(source.officialUrl,/^https:\/\/www\.mcdonalds\.com\/au\/en-au\/menu/);assert.equal(source.lastCheckedDate,'2026-08-25');
-  assert.match(source.catalogueVersion,/mcdonalds-au-2026-08-25-founder-trial\.1/);assert.match(source.catalogueCheckedAt,/^2026-08-25T/);
+  assert.match(source.officialUrl,/^https:\/\/www\.mcdonalds\.com\/au\/en-au\/menu/);assert.equal(source.lastCheckedDate,'2026-08-26');
+  assert.match(source.catalogueVersion,/mcdonalds-au-2026-08-26-founder-trial\.1/);assert.match(source.catalogueCheckedAt,/^2026-08-26T/);
   assert.equal(source.usageScope,'development/founder-trial');assert.equal(source.licenceStatus,'no-affirmative-production-catalogue-reuse-licence-granted');assert.equal(source.productionApproved,false);
   assert.equal(source.refreshPolicy.schedulerIncluded,false);assert.equal(source.refreshPolicy.preservePublishedAnomalies,true);
 });
@@ -107,7 +107,7 @@ test('Diary snapshots preserve catalogue facts, variant identity and non-product
   cappuccino.nutrients.calories=9999;cappuccino.sourceAnomalies.push('later mutation');
   assert.deepEqual(snapshot,saved);assert.equal(snapshot.sourceItemId,'cappuccino');assert.equal(snapshot.sourceVariantId,'large');assert.equal(snapshot.familyName,'Cappuccino');
   assert.equal(snapshot.usageScope,'development/founder-trial');assert.equal(snapshot.productionApproved,false);assert.match(snapshot.licenceStatus,/no-affirmative-production/);
-  assert.equal(snapshot.lastSeenAt,'2026-08-25T08:26:07+10:00');
+  assert.equal(snapshot.lastSeenAt,'2026-08-26T17:01:32+10:00');
   const historical=packaged.foodFromSnapshot({foodSnapshot:snapshot});assert.equal(historical.nutrients.calories,saved.nutrients.calories);assert.equal(historical.sourceVariantId,'large');
 });
 

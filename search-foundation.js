@@ -29,6 +29,25 @@
   function singular(v){return norm(v).split(' ').filter(Boolean).map(singularWord).join(' ');}
   function title(v){return String(v||'').replace(/\b\w/g,c=>c.toUpperCase()).replace(/\bAnd\b/g,'&');}
   function tokens(v){return singular(v).split(' ').filter(Boolean);}
+  function normaliseIntent(v){
+    return norm(v)
+      .replace(/\bbreak(?:y|ie)\b/g,'brekkie')
+      .replace(/\bmegga\b/g,'mega')
+      .replace(/\bmc\s+wrap\b/g,'mcwrap')
+      .replace(/\bmc\s+muffin\b/g,'mcmuffin')
+      .replace(/\bmc\s+donalds\b/g,'mcdonalds')
+      .replace(/\s+/g,' ').trim();
+  }
+  function queryIntent(v){
+    const normalised=normaliseIntent(v),source=/\b(?:maccas?|mcdonalds)\b/.test(normalised)?'mcdonalds-au':'',drink=/\b(?:drink|soft drink|coke|sprite|fanta|coffee|tea|juice|water|shake|frappe)\b/.test(normalised);
+    return {raw:String(v||''),normalised,source,drink,generic:/^(?:burger|wrap|muffin|chip|chips|soft drink)$/.test(singular(normalised))};
+  }
+  function stripVoiceWake(v,names=[]){
+    let value=normaliseIntent(v),wakeNames=[...(Array.isArray(names)?names:[names]),'companion','hec','shelly','shelley'].map(normaliseIntent).filter(Boolean);
+    wakeNames=[...new Set(wakeNames.flatMap(name=>/^shell(?:y|ey)$/.test(name)?[name,'shelly','shelley']:[name]))].sort((a,b)=>b.length-a.length);
+    for(const name of wakeNames){const escaped=name.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),next=value.replace(new RegExp(`^(?:hey|hi)\\s+${escaped}\\b\\s*`),'');if(next!==value){value=next;break;}}
+    return value.replace(/^(?:please\s+)?(?:i\s+)?(?:had|ate|logged|recorded|want(?:ed)?|would like)\s+/,'').trim();
+  }
 
   // sourcePolicy: early = source changes the search universe; contextual = ask only
   // when records make it useful; skip = not normally useful for the basic food.
@@ -72,7 +91,11 @@
     {key:'coffee',label:'Coffee',aliases:['coffee','cappuccino','latte','flat white','espresso'],category:'drink',sourcePolicy:'early',facetOrder:['type','milk','size','source'],natural:{unit:'serve',label:'Serve',grams:1}},
     {key:'tea',label:'Tea',aliases:['tea'],category:'drink',sourcePolicy:'contextual',facetOrder:['type','milk','size','source'],natural:{unit:'serve',label:'Serve',grams:1}},
     {key:'juice',label:'Juice',aliases:['juice'],category:'drink',sourcePolicy:'early',facetOrder:['type','source','size'],natural:{unit:'mL',label:'mL',grams:1}},
+    {key:'soft-drink',label:'Soft Drink',aliases:['soft drink','softdrink'],category:'drink',sourcePolicy:'early',facetOrder:['type','source','size'],natural:{unit:'mL',label:'mL',grams:1}},
     {key:'burger',label:'Burger',aliases:['burger','hamburger'],category:'prepared',sourcePolicy:'early',facetOrder:['protein','type','source','size'],natural:{unit:'serve',label:'Burger',grams:1}},
+    {key:'wrap',label:'Wrap',aliases:['wrap'],category:'prepared',sourcePolicy:'early',facetOrder:['kind','protein','source','size'],natural:{unit:'serve',label:'Wrap',grams:1}},
+    {key:'muffin',label:'Muffin',aliases:['muffin','english muffin'],category:'prepared',sourcePolicy:'early',facetOrder:['kind','flavour','source','size'],natural:{unit:'serve',label:'Muffin',grams:1},supplemental:{kind:['Sweet','Savoury'],flavour:['Blueberry','Chocolate Chip','Banana','Apple','Plain']}},
+    {key:'chips',label:'Chips',aliases:['chips'],category:'snack',sourcePolicy:'early',facetOrder:['type','flavour','source','size'],natural:{unit:'g',label:'g',grams:1}},
     {key:'sandwich',label:'Sandwich',aliases:['sandwich','toastie'],category:'prepared',sourcePolicy:'early',facetOrder:['type','protein','source','size'],natural:{unit:'serve',label:'Sandwich',grams:1}},
     {key:'pizza',label:'Pizza',aliases:['pizza'],category:'prepared',sourcePolicy:'early',facetOrder:['type','topping','source','size'],natural:{unit:'slice',label:'Slice',grams:1}},
     {key:'curry',label:'Curry',aliases:['curry'],category:'prepared',sourcePolicy:'early',facetOrder:['protein','type','source','size'],natural:{unit:'g',label:'g',grams:1}},
@@ -98,7 +121,7 @@
     part:[['Whole',/\bwhole\b/],['White',/\bwhite\b|\balbumen\b/],['Yolk',/\byolk\b/]],
     addedFat:[['No added fat/oil',/\bno\s+(?:added\s+)?(?:fat|oil)\b|\bwithout\s+(?:fat|oil)\b/],['Added fat/oil',/\badded\s+(?:fat|oil)\b|\bwith\s+(?:fat|oil)\b/]],
     fat:[['Regular Fat',/\bregular fat\b/],['Reduced / Light',/\breduced fat\b|\blow fat\b|\blight\b/],['Lean',/\blean\b/],['Untrimmed',/\buntrimmed\b/]],
-    flavour:[['Plain / Salted',/\bplain\b|\bsalted\b/],['Flavoured',/\bflavou?red\b|\bherb\b|\bgarlic\b|\bhoney\b|\bchilli\b|\bpepper\b|\bcheese\b|\bnacho\b|\bbarbecue\b|\bbbq\b/]],
+    flavour:[['Blueberry',/\bblueberr(?:y|ies)\b/],['Chocolate Chip',/\bchocolate\s+chip\b/],['Banana',/\bbanana\b/],['Apple',/\bapple\b/],['Plain',/\bplain\b/],['Plain / Salted',/\bsalted\b/],['Flavoured',/\bflavou?red\b|\bherb\b|\bgarlic\b|\bhoney\b|\bchilli\b|\bpepper\b|\bcheese\b|\bnacho\b|\bbarbecue\b|\bbbq\b/]],
     style:[['Natural',/\bnatural\b/],['Processed',/\bprocessed\b/]],
     form:[['Peeled',/\bpeeled\b/],['Unpeeled',/\bunpeeled\b/],['Sliced',/\bsliced\b/],['Diced / Chopped',/\bdiced\b|\bchopped\b/],['Dried',/\bdried\b/],['Frozen',/\bfrozen\b/],['Juice',/\bjuice\b/],['Whole',/\bwhole\b/],['Grated',/\bgrated\b|\bshredded\b/],['Block / Piece',/\bblock\b|\bpiece\b/]],
     skin:[['Skinless',/\bskinless\b|\bwithout skin\b/],['With Skin',/\bwith skin\b|\bskin and fat\b/]],
@@ -110,7 +133,7 @@
     let rawText=String(raw||''),explicitFraction=null;
     const fm=rawText.match(/^\s*(\d+)\s*\/\s*(\d+)(?=\s|$)/);
     if(fm&&Number(fm[2])){explicitFraction=Number(fm[1])/Number(fm[2]);rawText=rawText.slice(fm[0].length).trim();}
-    const n=norm(rawText),ws=n.split(' ').filter(Boolean);let quantity=explicitFraction,unit='',keep=[];
+    const n=normaliseIntent(rawText),ws=n.split(' ').filter(Boolean);let quantity=explicitFraction,unit='',keep=[];
     for(let i=0;i<ws.length;i++){
       const w=ws[i];
       if(quantity===null&&(Number.isFinite(Number(w))||WORD_NUMBERS[w]!==undefined)){quantity=Number.isFinite(Number(w))?Number(w):WORD_NUMBERS[w];continue;}
@@ -158,7 +181,7 @@
     const before=q.slice(0,q.indexOf(a)).trim();if(!before)return '';
     const b=before.split(' ').filter(Boolean),unknown=b.filter(x=>!knownFacetToken(x));return unknown.join(' ');
   }
-  function labelFor(parsed,concept){const exact=REG?.exactEntity?REG.exactEntity(parsed.raw||parsed.food,['brand','retailer','restaurant']):null;if(exact)return exact.name;if(!concept)return title(parsed.food);const brandPrefix=likelyBrandPrefix(parsed,concept);if(brandPrefix)return title(parsed.food);return title(parsed.food||singular(concept.label));}
+  function labelFor(parsed,concept){const exact=REG?.exactEntity?REG.exactEntity(parsed.raw||parsed.food,['brand','retailer','restaurant']):null;if(exact)return exact.name;if(!concept)return title(parsed.food);const brandPrefix=likelyBrandPrefix(parsed,concept);if(brandPrefix)return title(parsed.food);if((concept.aliases||[]).some(alias=>singular(alias)===parsed.food))return concept.label;return title(parsed.food||singular(concept.label));}
 
   function classifyText(text){const n=norm(text),out={};Object.entries(PATTERNS).forEach(([facet,list])=>{for(const [label,re] of list){if(re.test(n)){out[facet]=label;break;}}});return out;}
 
@@ -201,6 +224,7 @@
       if(concept.key==='cheese'&&/\bcheddar\b/.test(q))out.type='Cheddar';
       if(concept.key==='egg'){if(!out.part&&out.prep)out.part='Whole';}
       if(concept.key==='corn-chip'&&/\bplain\b|\bsalted\b/.test(q))out.flavour='Plain / Salted';
+      if(concept.key==='muffin'&&['Blueberry','Chocolate Chip','Banana','Apple'].includes(out.flavour))out.kind='Sweet';
     }
     return out;
   }
@@ -211,10 +235,21 @@
     if(!concept||concept.sourcePolicy==='skip')return[];
     if(concept.key==='bread')return ['Homemade','Commercial / Bought','Not Sure / Typical'];
     if(concept.key==='corn-chip')return ['Homemade','Commercial / Packaged','Takeaway / Restaurant','Not Sure / Typical'];
+    if(concept.key==='chips')return ['Hot Chips / Fries','Packet Chips / Crisps','Homemade','Takeaway / Restaurant','Brand / Store Product'];
     if(['fruit','vegetable'].includes(concept.category))return ['Home Grown','Commercial / Bought','Not Sure / Typical'];
     const choices=['Homemade','Commercial / Bought'];
     if(['prepared','pie','meat','drink','snack'].includes(concept.category))choices.push('Takeaway / Restaurant');
     choices.push('Not Sure / Typical');return choices;
+  }
+  function clarificationChoices(raw,concept=conceptFromQuery(raw)){
+    if(concept?.key==='chips')return [
+      {label:'Hot Chips / Fries',query:'hot chips',source:'restaurant'},
+      {label:'Packet Chips / Crisps',query:'potato chips',source:'commercial'},
+      {label:'Homemade',query:'homemade chips',source:'home'},
+      {label:'Takeaway / Restaurant',query:'takeaway hot chips',source:'restaurant'},
+      {label:'Brand / Store Product',query:'commercial potato chips',source:'commercial'}
+    ];
+    return sourceChoices(concept).map(label=>({label,query:String(raw||''),source:/home/i.test(label)?'home':/takeaway|restaurant/i.test(label)?'restaurant':/commercial|bought|brand|store/i.test(label)?'commercial':'unsure'}));
   }
 
   function splitCompoundQuery(raw){
@@ -224,5 +259,5 @@
     return [];
   }
 
-  global.HECSearchFoundation={version:VERSION,norm,singular,title,tokens,parseQuery,conceptFromQuery,predictConcepts,labelFor,likelyBrandPrefix,knownFacetToken,classifyText,descriptorFeatures,queryFacetSeeds,sourceModeFromQuery,shouldOfferSourceFirst,sourceChoices,splitCompoundQuery,registry:REG,concepts:CONCEPTS,patterns:PATTERNS,modifierWords:MODIFIER_WORDS};
+  global.HECSearchFoundation={version:VERSION,norm,singular,title,tokens,normaliseIntent,queryIntent,stripVoiceWake,parseQuery,conceptFromQuery,predictConcepts,labelFor,likelyBrandPrefix,knownFacetToken,classifyText,descriptorFeatures,queryFacetSeeds,sourceModeFromQuery,shouldOfferSourceFirst,sourceChoices,clarificationChoices,splitCompoundQuery,registry:REG,concepts:CONCEPTS,patterns:PATTERNS,modifierWords:MODIFIER_WORDS};
 })(typeof window!=='undefined'?window:globalThis);

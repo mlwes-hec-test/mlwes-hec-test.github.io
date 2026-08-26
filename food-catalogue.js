@@ -12,7 +12,8 @@
   });
   const CONTROLLED_TYPOS=Object.freeze({
     capuccino:'cappuccino',cappucino:'cappuccino',cappacino:'cappuccino',
-    sausuage:'sausage',sausge:'sausage',potatoe:'potato',chicko:'chiko',chico:'chiko'
+    sausuage:'sausage',sausge:'sausage',potatoe:'potato',chicko:'chiko',chico:'chiko',
+    breaky:'brekkie',breakie:'brekkie',megga:'mega'
   });
   // These are explicit Australian food-language equivalences, not general fuzzy
   // guesses. A bare "scallop" or "chips" is intentionally never rewritten.
@@ -129,7 +130,17 @@
   function beginSearch(state={},context={}){return {...newSearchState(),...state,query:'',tab:context.tab||'all',revision:Number(state.revision||0)+1,snapshot:null};}
   function rememberSearch(state={},view={}){return {...state,snapshot:{query:String(view.query||''),tab:view.tab||'all',scrollY:Number(view.scrollY||0)}};}
   function restoreSearch(state={}){return state.snapshot?{...state,...state.snapshot}:{...state};}
+  function transitionSearch(state={},nextQuery='',context={}){
+    const previous=corrected(state.query||''),query=String(nextQuery||''),next=corrected(query),changed=previous!==next,blank=!next;
+    return {...newSearchState(),...state,query,tab:context.tab||state.tab||'all',revision:Number(state.revision||0)+(changed?1:0),snapshot:(changed||blank)?null:state.snapshot,pendingDrink:(changed||blank)?null:(context.pendingDrink??state.pendingDrink??null),sourceIntent:(changed||blank)?'':(state.sourceIntent||'')};
+  }
+  function naturalQuantityWarning(food,amount,unit){
+    const quantity=Number(amount);if(!Number.isFinite(quantity)||quantity<=0)return {level:'invalid',requiresConfirmation:false,message:'Enter an amount greater than zero.'};
+    const natural=String(unit||food?.defaultUnit||''),limits={burger:10,muffin:10,wrap:10,drink:12,portion:20,serve:20,sundae:10,mcflurry:10,cone:10,pie:10,item:20,meal:6},limit=limits[natural]||(['mL','g'].includes(natural)?10000:50);
+    if(quantity<=limit)return {level:'normal',requiresConfirmation:false,message:''};
+    const label=food?.unitLabels?.[natural]||natural||'servings';return {level:'implausible',requiresConfirmation:true,message:`${quantity} ${label} is much larger than a usual logging amount. Check whether you meant the natural serving, grams or millilitres before continuing.`};
+  }
 
-  const api={version:VERSION,recordTypes:RECORD_TYPES,controlledTypos:CONTROLLED_TYPOS,australianAliases:AUSTRALIAN_ALIASES,norm,tokens,corrected,australianAlternates,recordType,marketFor,sourceIdFor,canonicalKey,normaliseRecord,rank,dedupe,dedupeRanked,provenance,hasEnergy,canLog,newSearchState,beginSearch,rememberSearch,restoreSearch};
+  const api={version:VERSION,recordTypes:RECORD_TYPES,controlledTypos:CONTROLLED_TYPOS,australianAliases:AUSTRALIAN_ALIASES,norm,tokens,corrected,australianAlternates,recordType,marketFor,sourceIdFor,canonicalKey,normaliseRecord,rank,dedupe,dedupeRanked,provenance,hasEnergy,canLog,newSearchState,beginSearch,rememberSearch,restoreSearch,transitionSearch,naturalQuantityWarning};
   global.HECFoodCatalogue=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);

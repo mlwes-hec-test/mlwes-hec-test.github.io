@@ -60,8 +60,8 @@
     if(/mcmuffin/i.test(name))return {unitKey:'muffin',unitLabel:'McMuffin',standardServingLabel:'1 McMuffin'};
     if(/mcwrap|wrap/i.test(name))return {unitKey:'wrap',unitLabel:'Wrap',standardServingLabel:'1 wrap'};
     if(/burger|big mac|quarter pounder|cheeseburger|hamburger|mcchicken|mccrispy|mcspicy|chicken 'n' cheese|filet-o-fish|big arch/i.test(lower))return {unitKey:'burger',unitLabel:'Burger',standardServingLabel:'1 burger'};
-    const pieces=name.match(/(\d+)\s*(?:pc|piece)/i);if(pieces)return {unitKey:'serve',unitLabel:`${pieces[1]} Pieces`,standardServingLabel:`${pieces[1]} pieces`};
-    if(/fries/i.test(name))return {unitKey:'serve',unitLabel:'Small Fries Serve',standardServingLabel:'1 small fries serve'};
+    const pieces=name.match(/(\d+)\s*(?:pc|piece)/i);if(pieces)return {unitKey:'portion',unitLabel:`${pieces[1]}-Piece Portion`,standardServingLabel:`1 ${pieces[1]}-piece portion`};
+    if(/fries/i.test(name))return {unitKey:'portion',unitLabel:'Small Fries Portion',standardServingLabel:'1 small fries portion'};
     if(/sundae/i.test(name))return {unitKey:'sundae',unitLabel:'Sundae',standardServingLabel:'1 sundae'};
     if(/mcflurry/i.test(name))return {unitKey:'mcflurry',unitLabel:'McFlurry',standardServingLabel:'1 McFlurry'};
     if(/cone/i.test(name))return {unitKey:'cone',unitLabel:'Cone',standardServingLabel:'1 cone'};
@@ -72,6 +72,9 @@
   }
   function aliasesFor(name,family,variantLabel=''){
     const base=cleanName(name),pathName=pathSlug(family.u).replace(/-/g,' '),out=[base,pathName,cleanName(family.n),`maccas ${base}`,`mcdonalds ${base}`];
+    const brekkie=base.replace(/\bbreakfast\b/gi,'brekkie');if(brekkie!==base)out.push(brekkie,brekkie.replace(/\bbrekkie\b/gi,'breakie'),brekkie.replace(/\bbrekkie\b/gi,'breaky'),brekkie.replace(/\bmega\b/gi,'megga'),`maccas ${brekkie}`);
+    if(/mcmuffin/i.test(base)){out.push(base.replace(/mcmuffin/ig,'mc muffin'),`maccas ${base.replace(/mcmuffin/ig,'mc muffin')}`);}
+    if(/mcwrap|wrap/i.test(base)){const wrap=base.replace(/mcwrap/ig,'wrap');out.push(wrap,`maccas ${wrap}`,`mcdonalds ${wrap}`);}
     if(/coca-cola/i.test(base))out.push(base.replace(/coca-cola/i,'coke'));
     const nuggets=base.match(/^(\d+)pc Chicken McNuggets/i);if(nuggets)out.push(`${nuggets[1]} nuggets`,`${nuggets[1]} mcnuggets`);
     if(/cappuccino/i.test(base))out.push('maccas cappuccino','mcdonalds cappuccino');
@@ -108,7 +111,7 @@
       officialUrl:'https://www.mcdonalds.com/au/en-au/menu/featured.html',referenceUrls:['https://www.mcdonalds.com/au/en-au/about-us/our-impact/food-sourcing/nutrition.html','https://www.mcdonalds.com/au/en-au/terms-and-conditions.html',...raw.categorySurfaces.map(surface=>surface.url)],
       referenceMetadata:{publisher:"McDonald's Australia Limited",nutritionBasis:'Official live Australian menu product pages; Avg Qty / Serve and Per 100g or 100mL',retrievalMethod:'Founder-Trial catalogue transcription from reviewed official McDonald’s Australia category and product-page checkpoint',termsCheckedDate:raw.checkedDate},
       usageScope:'development/founder-trial',licenceStatus:'no-affirmative-production-catalogue-reuse-licence-granted',productionApproved:false,licensingInheritedByItems:true,
-      lastCheckedDate:raw.checkedDate,catalogueVersion:'mcdonalds-au-2026-08-25-founder-trial.1',catalogueCheckedAt:raw.checkedAt,effectiveDate:raw.checkedDate,
+      lastCheckedDate:raw.checkedDate,catalogueVersion:`mcdonalds-au-${raw.checkedDate}-founder-trial.1`,catalogueCheckedAt:raw.checkedAt,effectiveDate:raw.checkedDate,
       inventory:{uniqueProductFamilies:167,completeNutritionFamilies:142,incompleteNutritionFamilies:17,configurableBundles:8,mccafeFamilies:42,mccafeNutritionVariants:63,promotionalFamilies:20,limitedTimeFamilies:5,categorySurfaces:raw.categorySurfaces},
       refreshPolicy:{cadence:'proposed-weekly-manual-review',schedulerIncluded:false,retainLastApprovedOnFailure:true,humanApprovalRequired:true,retireMissingItems:true,preservePublishedAnomalies:true,auditFields:['retrievedAt','sourceUrls','diff','validation','humanApproval']}
     },
