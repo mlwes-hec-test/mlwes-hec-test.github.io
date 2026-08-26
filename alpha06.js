@@ -2962,7 +2962,7 @@ const alpha0623LegacyRank=searchRank;
 const alpha0630QueryContextCache=new Map();
 function alpha0630QueryContext(raw){
   const key=s23Norm(raw);if(!key)return{parsed:s23Parsed(raw),entities:[],residualTokens:[]};let ctx=alpha0630QueryContextCache.get(key);if(ctx)return ctx;
-  const parsed=s23Parsed(raw),entities=REG29?.identify?REG29.identify(raw):[],residual=REG29?.stripRecognisedEntities?REG29.stripRecognisedEntities(raw):parsed.food;
+  const parsed=s23Parsed(raw),entities=REG29?.identify?REG29.identify(raw):[],residual=parsed.entityResidual??(REG29?.stripRecognisedEntities?REG29.stripRecognisedEntities(parsed.food):parsed.food);
   ctx={parsed,entities,residualTokens:s23Singular(residual).split(' ').filter(Boolean)};alpha0630QueryContextCache.set(key,ctx);if(alpha0630QueryContextCache.size>120)alpha0630QueryContextCache.delete(alpha0630QueryContextCache.keys().next().value);return ctx;
 }
 function alpha0629EntityInfo(raw){return alpha0630QueryContext(raw).entities;}
