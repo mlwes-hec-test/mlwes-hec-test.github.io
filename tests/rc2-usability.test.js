@@ -91,20 +91,21 @@ test("Quick Voice is companion-first, explicit-start and has no method chooser",
 
 test("Quick Voice keeps date and meal editable and offers a safe fallback",()=>{
   const voice=section("quick-log");assert.match(voice,/id="voice-date"/);assert.match(voice,/id="voice-meal"/);assert.match(voice,/id="quick-voice-fallback"/);assert.match(voice,/Open Diary Add Food/);
-  assert.match(runtime,/not-allowed/);assert.match(runtime,/quick-voice-open-diary/);
+  assert.match(voice,/quick-voice-manual-fallback/);assert.match(voice,/voice-transcript/);assert.match(voice,/View Details \/ Edit/);assert.match(runtime,/not-allowed/);assert.match(runtime,/quick-voice-open-diary/);
   assert.match(runtime,/by\('voice-date'\)\?\.addEventListener\('change',[^\n]*alpha0633StopVoice/);assert.match(runtime,/by\('voice-meal'\)\?\.addEventListener\('change',[^\n]*alpha0633StopVoice/);
-  assert.match(runtime,/`Tell \$\{companion\.name\} what you want to log\.`/);
+  assert.match(runtime,/prompt='What would you like to do\?'/);assert.doesNotMatch(runtime,/setTimeout\(\(\)=>alpha0633StartListening/);
 });
 
 test("Quick Voice review is structured, uses central foods and saves exactly once",()=>{
-  assert.match(runtime,/allFoods\(\)\.filter\(food=>!C8\?\.canLog\|\|C8\.canLog\(food\)\)/);assert.match(runtime,/Math\.max\(searchRank\(food,query\),C8\?\.rank/);assert.match(runtime,/structured-voice-review/);assert.match(runtime,/data-voice-item-amount/);assert.match(runtime,/data-voice-item-unit/);
-  assert.match(runtime,/alpha0633VoiceSaveLocked/);assert.match(runtime,/if\(alpha0633VoiceSaveLocked\)return/);assert.match(runtime,/Save Once To Diary|recorded \$\{count\}/);
-  assert.match(app,/window\.HECSpeakText=speakText/);assert.match(runtime,/if\(companion\.speech\)window\.HECSpeakText\?\.\(acknowledgement\)/);
+  const voice=section("quick-log");
+  assert.match(runtime,/allFoods\(\)\.map\(food=>\(\{food,rank:Math\.max\(searchRank\(food,q\),C8\?\.rank/);assert.match(runtime,/structured-voice-review/);assert.match(runtime,/data-voice-item-amount/);assert.match(runtime,/data-voice-item-unit/);
+  assert.match(runtime,/alpha0633VoiceSaveLocked/);assert.match(runtime,/if\(alpha0633VoiceSaveLocked\|\|!voiceParsed/);assert.match(runtime,/createSaveAdapter/);assert.match(runtime,/alpha0633CommitPending/);assert.match(runtime,/status=pending\.recurrence\|\|date>isoToday\(\)\|\|pending\.status==='planned'\?'planned':'eaten'/);
+  assert.match(app,/window\.HECSpeakText=speakText/);assert.match(runtime,/alpha0633Speak\(acknowledgement\)/);assert.match(voice,/Nothing is saved until you confirm/);
   assert.match(runtime,/energyText\(values\.calories\).*nutrientText\(values\.protein,'g',true\).*nutrientText\(values\.fibre,'g',true\).*nutrientText\(values\.sodium,'mg'\)/);
 });
 
 test("Quick Voice recognises companion wake phrasing, spoken destinations and natural water",()=>{
-  assert.match(runtime,/alpha0633StripWake/);assert.match(runtime,/tomorrow/);assert.match(runtime,/mealFromText\(clean\)/);assert.match(runtime,/glass\|glasses/);assert.match(runtime,/amount:numberFrom\(water\[1\],1\)\*250/);assert.match(runtime,/Array\.isArray\(split\)&&split\.length\?split:\[clean\]/);
+  assert.match(runtime,/alpha0633StripWake/);assert.match(runtime,/CONVERSATION\?\.parseRequest/);assert.match(runtime,/selectedDate:by\('voice-date'\)/);assert.match(runtime,/selectedMeal:by\('voice-meal'\)/);assert.match(runtime,/spokenUnit==='glass'&&food\.id==='water'/);assert.match(runtime,/amount\*=250;unit='mL'/);assert.match(runtime,/splitCompoundQuery/);
 });
 
 test("responsive RC2 rules cover small phones, tablets and short-height devices",()=>{

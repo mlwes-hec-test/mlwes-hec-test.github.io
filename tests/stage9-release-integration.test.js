@@ -49,13 +49,14 @@ test("4. release assertion blocks runtime loading when an old config is served",
 });
 
 test("5. cache-busting for dynamically loaded runtime files derives from HEC_APP.version",()=>{
-  assert.equal(runtimeFiles.length,23);assert.match(html,/script\.src=`\$\{file\}\?v=\$\{encodeURIComponent\(actual\)\}`/);
+  assert.equal(runtimeFiles.length,24);assert.match(html,/script\.src=`\$\{file\}\?v=\$\{encodeURIComponent\(actual\)\}`/);
   assert.equal(runtimeFiles[0],"installation-foundation.js");
   assert.ok(runtimeFiles.indexOf("migrations.js")<runtimeFiles.indexOf("app.js"));
   assert.ok(runtimeFiles.indexOf("companion-voice-metadata.js")<runtimeFiles.indexOf("companion-voices.js"));
   assert.ok(runtimeFiles.indexOf("entity-registry.js")<runtimeFiles.indexOf("search-foundation.js"));
   assert.ok(runtimeFiles.indexOf("food-sources.js")<runtimeFiles.indexOf("mcdonalds-au-catalogue-data.js"));
   assert.ok(runtimeFiles.indexOf("mcdonalds-au-catalogue-data.js")<runtimeFiles.indexOf("mcdonalds-au-catalogue.js"));
+  assert.ok(runtimeFiles.indexOf("conversation-foundation.js")<runtimeFiles.indexOf("alpha06.js"));
   assert.ok(runtimeFiles.indexOf("mcdonalds-au-catalogue.js")<runtimeFiles.indexOf("food-catalogue.js"));
   assert.ok(runtimeFiles.indexOf("weight-progress-foundation.js")<runtimeFiles.indexOf("nutrition-trends-foundation.js"));
   assert.ok(runtimeFiles.indexOf("nutrition-trends-foundation.js")<runtimeFiles.indexOf("app.js"));

@@ -112,6 +112,7 @@ test('blank search, incompatible drink carry-over and moderate voice confirmatio
   assert.match(runtime,/pendingDrink&&!S23\?\.queryIntent\?\.\(value\)\?\.drink/);
   assert.match(runtime,/context\.innerHTML='';context\.classList\.add\('hidden'\)/);
   assert.match(runtime,/function rc3DrinkCompatible/);assert.match(runtime,/usedDrinkContext:false/);
-  assert.match(runtime,/confidence:best\.rank>=1400\?'high':'moderate'/);
-  assert.match(runtime,/Did you mean/);assert.match(runtime,/audio-capture.*captured/s);
+  assert.match(runtime,/const catalogueRank=C8\?\.rank\?\.\(food,intent\.foodText\)/);
+  assert.match(runtime,/confidence:exact\?'high':rankInfo\.rank>=1400\?'high':'moderate'/);
+  assert.match(runtime,/quick-voice-clarification/);assert.match(runtime,/audio-capture.*captured/s);
 });
