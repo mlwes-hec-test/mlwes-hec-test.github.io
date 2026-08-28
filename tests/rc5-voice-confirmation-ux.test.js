@@ -34,7 +34,7 @@ test('conversation state stores original request, response and corrections indep
 
 test('response recognition never overwrites the original request textarea',()=>{
   const source=productionFunction('alpha0633StartListening');assert.match(source,/if\(mode==='request'&&by\('voice-transcript'\)\)by\('voice-transcript'\)\.value=captured/);
-  assert.doesNotMatch(source,/mode==='response'[\s\S]{0,180}voice-transcript/);assert.match(source,/else alpha0633HandleResponse\(captured\)/);
+  assert.equal((source.match(/by\('voice-transcript'\)\)by\('voice-transcript'\)\.value=captured/g)||[]).length,2);assert.match(source,/else\{alpha0633GestureSession=false;alpha0633HandleResponse\(captured\);\}/);
 });
 
 test('confirmation handler saves affirmative speech directly through the one guarded save path',()=>{
@@ -68,6 +68,6 @@ test('ready review collapses manual capture and scrolls confirmation into view',
 });
 
 test('all confirmation controls remain accessible before any save',()=>{
-  for(const label of ['Yes, Confirm','Change','View Details / Edit','Cancel','Respond By Voice'])assert.match(voiceSection,new RegExp(label.replace('/','\\/')));
-  assert.match(voiceSection,/Nothing is saved until you confirm/);assert.match(voiceSection,/aria-live="polite"/);
+  for(const label of ['Yes, Confirm','Change','View Details / Edit','Cancel','Tap to Answer'])assert.match(voiceSection,new RegExp(label.replace('/','\\/')));
+  assert.match(voiceSection,/Nothing is saved or removed until you confirm/);assert.match(voiceSection,/aria-live="polite"/);
 });

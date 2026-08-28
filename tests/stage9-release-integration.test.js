@@ -28,7 +28,7 @@ test("2. every active visible and static release copy is 0.6.33",()=>{
   assert.match(html,/data-hec-release="0\.6\.33"/);assert.match(html,/Founder Trial Alpha 0\.6\.33/);assert.match(html,/Alpha 0\.6\.33/);
   assert.match(html,/manifest\.webmanifest\?v=0\.6\.33/);assert.match(html,/styles\.css\?v=0\.6\.33/);assert.match(html,/config\.js\?v=0\.6\.33/);
   assert.match(read("manifest.webmanifest"),/Founder Trial Alpha 0\.6\.33/);
-  assert.match(worker,/const VERSION = "0\.6\.33"/);assert.match(worker,/alpha-0-6-33-v3/);
+  assert.match(worker,/const VERSION = "0\.6\.33"/);assert.match(worker,/alpha-0-6-33-v4/);
   assert.doesNotMatch(runtime,/Meal Photos Stay[^"`]*Alpha 0\.6\./);assert.doesNotMatch(runtime,/Private Browsing[^`]*Alpha 0\.6\./);
   assert.match(read("README.txt"),/FOUNDER TRIAL ALPHA 0\.6\.33/);
 });
@@ -49,7 +49,7 @@ test("4. release assertion blocks runtime loading when an old config is served",
 });
 
 test("5. cache-busting for dynamically loaded runtime files derives from HEC_APP.version",()=>{
-  assert.equal(runtimeFiles.length,24);assert.match(html,/script\.src=`\$\{file\}\?v=\$\{encodeURIComponent\(actual\)\}`/);
+  assert.equal(runtimeFiles.length,25);assert.ok(runtimeFiles.includes('food-groups-foundation.js'));assert.match(html,/script\.src=`\$\{file\}\?v=\$\{encodeURIComponent\(actual\)\}`/);
   assert.equal(runtimeFiles[0],"installation-foundation.js");
   assert.ok(runtimeFiles.indexOf("migrations.js")<runtimeFiles.indexOf("app.js"));
   assert.ok(runtimeFiles.indexOf("companion-voice-metadata.js")<runtimeFiles.indexOf("companion-voices.js"));

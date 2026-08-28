@@ -40,7 +40,8 @@
   }
   function queryIntent(v){
     const normalised=normaliseIntent(v),source=/\b(?:maccas?|mcdonalds)\b/.test(normalised)?'mcdonalds-au':'',drink=/\b(?:drink|soft drink|coke|sprite|fanta|coffee|tea|juice|water|shake|frappe)\b/.test(normalised);
-    return {raw:String(v||''),normalised,source,drink,generic:/^(?:burger|wrap|muffin|chip|chips|soft drink)$/.test(singular(normalised))};
+    const genericFries=/^(?:(?:small|medium|large|regular|extra large)\s+)?(?:fries|french fries|hot chips)$/.test(singular(normalised));
+    return {raw:String(v||''),normalised,source,drink,generic:genericFries||/^(?:burger|wrap|muffin|chip|chips|soft drink)$/.test(singular(normalised)),genericFries};
   }
   function stripVoiceWake(v,names=[]){
     let value=normaliseIntent(v),wakeNames=[...(Array.isArray(names)?names:[names]),'companion','hec','shelly','shelley'].map(normaliseIntent).filter(Boolean);
@@ -95,6 +96,7 @@
     {key:'burger',label:'Burger',aliases:['burger','hamburger'],category:'prepared',sourcePolicy:'early',facetOrder:['protein','type','source','size'],natural:{unit:'serve',label:'Burger',grams:1}},
     {key:'wrap',label:'Wrap',aliases:['wrap'],category:'prepared',sourcePolicy:'early',facetOrder:['kind','protein','source','size'],natural:{unit:'serve',label:'Wrap',grams:1}},
     {key:'muffin',label:'Muffin',aliases:['muffin','english muffin'],category:'prepared',sourcePolicy:'early',facetOrder:['kind','flavour','source','size'],natural:{unit:'serve',label:'Muffin',grams:1},supplemental:{kind:['Sweet','Savoury'],flavour:['Blueberry','Chocolate Chip','Banana','Apple','Plain']}},
+    {key:'fries',label:'Hot Chips / Fries',aliases:['fries','french fries','hot chips'],category:'snack',sourcePolicy:'contextual',facetOrder:['source','size'],natural:{unit:'g',label:'g',grams:1}},
     {key:'chips',label:'Chips',aliases:['chips'],category:'snack',sourcePolicy:'early',facetOrder:['type','flavour','source','size'],natural:{unit:'g',label:'g',grams:1}},
     {key:'sandwich',label:'Sandwich',aliases:['sandwich','toastie'],category:'prepared',sourcePolicy:'early',facetOrder:['type','protein','source','size'],natural:{unit:'serve',label:'Sandwich',grams:1}},
     {key:'pizza',label:'Pizza',aliases:['pizza'],category:'prepared',sourcePolicy:'early',facetOrder:['type','topping','source','size'],natural:{unit:'slice',label:'Slice',grams:1}},
@@ -259,5 +261,6 @@
     return [];
   }
 
-  global.HECSearchFoundation={version:VERSION,norm,singular,title,tokens,normaliseIntent,queryIntent,stripVoiceWake,parseQuery,conceptFromQuery,predictConcepts,labelFor,likelyBrandPrefix,knownFacetToken,classifyText,descriptorFeatures,queryFacetSeeds,sourceModeFromQuery,shouldOfferSourceFirst,sourceChoices,clarificationChoices,splitCompoundQuery,registry:REG,concepts:CONCEPTS,patterns:PATTERNS,modifierWords:MODIFIER_WORDS};
+  const api={version:VERSION,norm,singular,title,tokens,normaliseIntent,queryIntent,stripVoiceWake,parseQuery,conceptFromQuery,predictConcepts,labelFor,likelyBrandPrefix,knownFacetToken,classifyText,descriptorFeatures,queryFacetSeeds,sourceModeFromQuery,shouldOfferSourceFirst,sourceChoices,clarificationChoices,splitCompoundQuery,registry:REG,concepts:CONCEPTS,patterns:PATTERNS,modifierWords:MODIFIER_WORDS};
+  global.HECSearchFoundation=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);

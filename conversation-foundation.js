@@ -6,6 +6,7 @@
 
   const VERSION='0.6.33';
   const MAX_BATCH_ENTRIES=31;
+  const ACTION_TYPES=Object.freeze({ADD_FOOD:'ADD_FOOD',REMOVE_FOOD:'REMOVE_FOOD',RECORD_WEIGHT:'RECORD_WEIGHT'});
   const STATES=Object.freeze({
     IDLE:'idle',PROMPTING:'prompting',LISTENING:'listening',CAPTURED:'transcript-captured',
     INTERPRETING:'interpreting',CLARIFICATION:'clarification-required',READY:'confirmation-ready',
@@ -120,11 +121,71 @@
     if(intent==='past'&&compareISO(date,localToday)>0)unresolved.push({field:'timing',message:'That sounds eaten, but the date is in the future. Should this be planned instead?'});
     if(intent==='plan'&&compareISO(date,localToday)<0)unresolved.push({field:'timing',message:'That sounds planned, but the date is in the past. Should this be recorded as eaten instead?'});
     if(!foodText&&!allowMissingFood)unresolved.push({field:'food',message:'Which food or product did you mean?'});
-    return {actionType:'food-log',raw,transcript:raw,cleanText:withoutWake,foodText,meal,localDate:date,dateIntent,recurrence,quantity,intent,status,entryCount:recurrence?.count||1,confidence:dateIntent.invalid?'low':'pending-food',unresolved,ambiguities:dateIntent.ambiguous?[{field:'date',message:`I resolved ${dateIntent.phrase} as ${date}.`}]:[],provenance:{parser:`hec-conversation-${VERSION}`,localCalendar:true}};
+    return {actionType:ACTION_TYPES.ADD_FOOD,raw,transcript:raw,cleanText:withoutWake,foodText,meal,localDate:date,dateIntent,recurrence,quantity,intent,status,entryCount:recurrence?.count||1,confidence:dateIntent.invalid?'low':'pending-food',unresolved,ambiguities:dateIntent.ambiguous?[{field:'date',message:`I resolved ${dateIntent.phrase} as ${date}.`}]:[],provenance:{parser:`hec-conversation-${VERSION}`,localCalendar:true}};
+  }
+  function detectActionType(text){
+    const clean=norm(text);
+    if(/\b(?:remove|delete|take)\b/.test(clean)||/\bi\s+didn'?t\s+(?:have|eat)\b/.test(clean))return ACTION_TYPES.REMOVE_FOOD;
+    if(/\b(?:weigh|weighed|weight)\b/.test(clean)&&(/\b(?:kg|kilos?|kilograms?)\b/.test(clean)||/\b\d{2,3}(?:\s+\d+)?\b/.test(clean)))return ACTION_TYPES.RECORD_WEIGHT;
+    return ACTION_TYPES.ADD_FOOD;
+  }
+  function parseWeightRequest(text,{today,selectedDate,companionNames=[]}={}){
+    const localToday=validISO(today)?today:toISO(new Date()),raw=String(text||'').trim(),cleanText=stripWake(raw,companionNames),dateIntent=parseDateIntent(cleanText,{today:localToday,selectedDate}),match=cleanText.match(/\b(\d{2,3}(?:[.,]\d+)?)\s*(?:kg|kilos?|kilograms?)?\b/i),weightKg=match?Math.round(Number(match[1].replace(',','.'))*10)/10:null,unresolved=[];
+    if(!weightKg||weightKg<30||weightKg>400)unresolved.push({field:'weight',message:'Please say a weight from 30 to 400 kilograms.'});
+    if(dateIntent.invalid)unresolved.push({field:'date',message:dateIntent.reason||'The date could not be resolved safely.'});
+    if(compareISO(dateIntent.date,localToday)>0)unresolved.push({field:'date',message:'Future-dated weight check-ins are not allowed.'});
+    return {actionType:ACTION_TYPES.RECORD_WEIGHT,raw,transcript:raw,cleanText,weightKg,localDate:dateIntent.date,dateIntent,unresolved,ambiguities:dateIntent.ambiguous?[{field:'date',message:`I resolved ${dateIntent.phrase} as ${dateIntent.date}.`}]:[],confidence:unresolved.length?'low':'high',provenance:{parser:`hec-conversation-${VERSION}`,localCalendar:true}};
+  }
+  function removalFoodPhrase(text,{dateIntent,quantity}={}){
+    let value=norm(text);for(const phrase of dateIntent?.removePhrases||[])value=removePhrase(value,phrase);
+    if(quantity?.explicit&&quantity.phrase)value=removePhrase(value,quantity.phrase);
+    value=value.replace(/\b(?:breakfast|lunch|dinner|morning tea|afternoon tea|tea|smoko|supper|snacks?|other)\b/g,' ');
+    value=value.replace(/\bi\s+didn'?t\s+(?:have|eat)\s+(?:that\s+)?/g,' ').replace(/\b(?:remove|delete|take|out|from|of|at|on|in|my|the|that|please|all|one|it)\b/g,' ');
+    return value.replace(/\s+/g,' ').trim();
+  }
+  function parseRemoveRequest(text,{today,selectedDate,selectedMeal='',companionNames=[]}={}){
+    const localToday=validISO(today)?today:toISO(new Date()),raw=String(text||'').trim(),cleanText=stripWake(raw,companionNames),dateIntent=parseDateIntent(cleanText,{today:localToday,selectedDate}),meal=parseMeal(cleanText)||selectedMeal||'',all=/\b(?:all|both)\b/.test(norm(cleanText)),quantity=extractQuantity(cleanText),foodText=removalFoodPhrase(cleanText,{dateIntent,quantity}),unresolved=[];
+    const removeMode=all?'all':quantity.explicit?'quantity':'unspecified',removeQuantity=all?null:quantity.explicit?Number(quantity.amount)||1:null;
+    if(!meal)unresolved.push({field:'meal',message:'Which meal should I remove it from?'});
+    if(dateIntent.invalid)unresolved.push({field:'date',message:dateIntent.reason||'The date could not be resolved safely.'});
+    if(compareISO(dateIntent.date,localToday)>0)unresolved.push({field:'date',message:'Diary removal is limited to today or an earlier date.'});
+    if(!foodText)unresolved.push({field:'food',message:'Which Diary food should I remove?'});
+    return {actionType:ACTION_TYPES.REMOVE_FOOD,raw,transcript:raw,cleanText,foodText,meal,localDate:dateIntent.date,dateIntent,removeMode,removeQuantity,quantity,unresolved,ambiguities:[],confidence:unresolved.length?'low':'pending-diary-match',provenance:{parser:`hec-conversation-${VERSION}`,localCalendar:true}};
+  }
+  function parseActionRequest(text,options={}){
+    const actionType=detectActionType(stripWake(text,options.companionNames||[]));
+    if(actionType===ACTION_TYPES.RECORD_WEIGHT)return parseWeightRequest(text,options);
+    if(actionType===ACTION_TYPES.REMOVE_FOOD)return parseRemoveRequest(text,options);
+    return parseRequest(text,options);
+  }
+  function entryIdentity(entry){return String(entry?.canonicalId||entry?.foodSnapshot?.canonicalId||entry?.foodSnapshot?.id||entry?.foodId||'');}
+  function singularIdentity(value){return norm(value).split(' ').map(word=>word.length>3&&/s$/.test(word)&&!/ss$/.test(word)?word.slice(0,-1):word).join(' ');}
+  function matchRemoval(entries,pending){
+    const targetCanonical=String(pending?.canonicalId||pending?.items?.[0]?.canonicalId||''),targetName=norm(pending?.foodText||pending?.items?.[0]?.name||''),candidates=(entries||[]).filter(entry=>{
+      if(entry?.status==='skipped')return false;if(targetCanonical&&entryIdentity(entry)===targetCanonical)return true;
+      const names=[entry?.name,entry?.foodSnapshot?.name,...(entry?.foodSnapshot?.aliases||[])].map(singularIdentity).filter(Boolean);return !!targetName&&names.includes(singularIdentity(targetName));
+    });
+    if(!candidates.length)return {status:'none',matches:[],totalQuantity:0,message:`I could not find ${pending?.foodText||'that food'} in ${pending?.meal||'that meal'}.`};
+    const identities=new Set(candidates.map(entryIdentity).filter(Boolean)),totalQuantity=candidates.reduce((sum,entry)=>sum+Math.max(0,Number(entry.amount)||0),0);
+    if(!targetCanonical&&identities.size>1)return {status:'ambiguous',matches:candidates,totalQuantity,message:`Several Diary products match “${pending?.foodText}”. Open the Diary to choose the exact one.`};
+    if(pending?.removeMode==='unspecified'&&totalQuantity>1)return {status:'ambiguous-quantity',matches:candidates,totalQuantity,message:`You have ${totalQuantity} ${pending?.foodText}. Remove one or all?`};
+    return {status:'exact',matches:candidates,totalQuantity,message:''};
+  }
+  function scaleRecord(entry,remaining){
+    const previous=Math.max(0,Number(entry.amount)||0),ratio=previous?remaining/previous:0,scaleObject=value=>Object.fromEntries(Object.entries(value||{}).map(([key,item])=>[key,item===null||item===undefined?item:Number(item)*ratio]));
+    return {...entry,amount:remaining,nutrients:scaleObject(entry.nutrients),foodGroups:scaleObject(entry.foodGroups),waterMl:Number(entry.waterMl||0)*ratio,updatedAt:new Date().toISOString()};
+  }
+  function applyRemoval(entries,pending){
+    const matched=matchRemoval(entries,pending);if(matched.status!=='exact')return {...matched,records:[...(entries||[])],changes:[]};
+    const ids=new Set(matched.matches.map(entry=>entry.id)),removeAll=pending.removeMode==='all',requested=removeAll?Infinity:Math.max(1,Number(pending.removeQuantity)||1);let remainingToRemove=requested;const changes=[],records=[];
+    for(const entry of entries||[]){if(!ids.has(entry.id)||remainingToRemove<=0){records.push(entry);continue;}const amount=Math.max(0,Number(entry.amount)||0),taken=removeAll?amount:Math.min(amount,remainingToRemove),left=amount-taken;remainingToRemove-=taken;if(left>0){const updated=scaleRecord(entry,left);records.push(updated);changes.push({type:'reduced',id:entry.id,from:amount,to:left});}else changes.push({type:'removed',id:entry.id,from:amount,to:0});}
+    return {status:'applied',records,changes,removedQuantity:removeAll?matched.totalQuantity:requested-remainingToRemove};
   }
   function classifyResponse(text){const clean=norm(text);if(/^(?:(?:yes|yep|yeah|ok|okay)(?: (?:please|confirm|confirmed|correct|that is correct|that's correct|thats correct|that is right|that's right|thats right))?|confirm|confirmed|that's correct|thats correct|that is correct|correct|that's right|thats right|that is right)$/.test(clean))return'confirm';if(/^(?:cancel|stop|forget it|never mind|nevermind)$/.test(clean))return'cancel';if(/^(?:no|change|change it|that's wrong|thats wrong|that is wrong|that's not correct|thats not correct|that is not correct)$/.test(clean))return'change';return'correction';}
   function applyCorrection(pending,text,options={}){
     const response=classifyResponse(text);if(response!=='correction')return {response,pending};
+    if(pending?.actionType===ACTION_TYPES.RECORD_WEIGHT){const match=String(text||'').match(/\b(\d{2,3}(?:[.,]\d+)?)\b/),parsed=parseWeightRequest(`${match?.[1]||''} kg ${text}`,{...options,selectedDate:pending.localDate}),next={...pending};if(parsed.weightKg)next.weightKg=parsed.weightKg;if(parsed.dateIntent.spoken&&!parsed.dateIntent.invalid)next.localDate=parsed.localDate;next.transcript=`${pending.transcript}\nCorrection: ${String(text||'').trim()}`;next.unresolved=parsed.unresolved;return {response:'correction',pending:next,parsed};}
+    if(pending?.actionType===ACTION_TYPES.REMOVE_FOOD){const parsed=parseRemoveRequest(text,{...options,selectedDate:pending.localDate,selectedMeal:pending.meal}),next={...pending};if(parseMeal(text))next.meal=parsed.meal;if(parsed.dateIntent.spoken&&!parsed.dateIntent.invalid)next.localDate=parsed.localDate;if(/\b(?:all|both)\b/.test(norm(text))){next.removeMode='all';next.removeQuantity=null;}else if(parsed.quantity.explicit){next.removeMode='quantity';next.removeQuantity=parsed.quantity.amount;}next.transcript=`${pending.transcript}\nCorrection: ${String(text||'').trim()}`;next.unresolved=(pending.unresolved||[]).filter(item=>!(item.field==='meal'&&next.meal)&&!(item.field==='date'&&parsed.dateIntent.spoken&&!parsed.dateIntent.invalid)&&!(item.field==='quantity'&&next.removeMode!=='unspecified'));return {response:'correction',pending:next,parsed};}
     const parsed=parseRequest(text,{...options,selectedDate:pending?.localDate,selectedMeal:pending?.meal,allowMissingFood:true}),next={...pending};
     if(parsed.dateIntent.spoken&&!parsed.dateIntent.invalid)next.localDate=parsed.localDate;
     if(parseMeal(text))next.meal=parsed.meal;
@@ -140,7 +201,20 @@
     const states={open:STATES.PROMPTING,startListening:STATES.LISTENING,captured:STATES.CAPTURED,interpret:STATES.INTERPRETING,clarify:STATES.CLARIFICATION,ready:STATES.READY,await:STATES.AWAITING,save:STATES.SAVING,saved:STATES.SAVED,cancel:STATES.CANCELLED,error:STATES.ERROR,reset:STATES.IDLE};
     if(states[event])next.state=states[event];if(Object.hasOwn(payload,'pendingAction'))next.pendingAction=payload.pendingAction;if(Object.hasOwn(payload,'transcript'))next.lastTranscript=payload.transcript;if(Object.hasOwn(payload,'originalTranscript'))next.originalTranscript=payload.originalTranscript;if(Object.hasOwn(payload,'responseTranscript'))next.responseTranscript=payload.responseTranscript;if(Object.hasOwn(payload,'correction'))next.correctionHistory=[...(next.correctionHistory||[]),payload.correction];if(Object.hasOwn(payload,'error'))next.error=payload.error;return next;
   }
-  function saveLockKey(pending){return [pending?.actionId||'',pending?.actionType||'',pending?.items?.map(item=>`${item.canonicalId||item.foodId}:${item.amount}:${item.unit}`).join(',')||'',pending?.localDate||'',pending?.meal||'',pending?.recurrence?.endDate||''].join('|');}
+  function saveLockKey(pending){return [pending?.actionId||'',pending?.actionType||'',pending?.items?.map(item=>`${item.canonicalId||item.foodId}:${item.amount}:${item.unit}`).join(',')||'',pending?.weightKg||'',pending?.removeMode||'',pending?.removeQuantity||'',pending?.localDate||'',pending?.meal||'',pending?.recurrence?.endDate||''].join('|');}
+
+  function createVoiceSession({timeoutMs=7000,onListen=()=>true,onFallback=()=>{},onStop=()=>{},setTimer=setTimeout,clearTimer=clearTimeout}={}){
+    let active=false,listening=false,timer=null,restartAttempted=false;
+    const clear=()=>{if(timer)clearTimer(timer);timer=null;};
+    const stop=reason=>{clear();const wasActive=active;active=false;listening=false;if(wasActive)onStop(reason);return snapshot();};
+    const fallback=reason=>{clear();active=false;listening=false;onFallback(reason);return snapshot();};
+    const snapshot=()=>({active,listening,restartAttempted,timeoutMs});
+    return {
+      begin({userGesture=false}={}){clear();active=!!userGesture;listening=false;restartAttempted=false;return snapshot();},
+      afterPrompt(){if(!active||restartAttempted)return snapshot();restartAttempted=true;let started=false;try{started=onListen()!==false;}catch{started=false;}if(!started)return fallback('restart-blocked');listening=true;timer=setTimer(()=>{if(active)fallback('timeout');},timeoutMs);return snapshot();},
+      response(){return stop('response');},cancel(){return stop('cancel');},leave(){return stop('leave');},fallback,snapshot
+    };
+  }
 
   function createSaveAdapter({save,undo}={}){
     if(typeof save!=='function')throw new TypeError('A confirmed-action save function is required.');
@@ -162,6 +236,6 @@
     };
   }
 
-  const api={version:VERSION,maxBatchEntries:MAX_BATCH_ENTRIES,states:STATES,weekdays:WEEKDAYS,months:MONTHS,norm,validISO,toISO,fromISO,shiftISO,compareISO,daysBetween,weekdayOf,parseNumber,stripWake,parseDateIntent,parseMeal,parseRecurrence,extractQuantity,parseRequest,classifyResponse,applyCorrection,createConversation,transition,saveLockKey,createSaveAdapter};
+  const api={version:VERSION,maxBatchEntries:MAX_BATCH_ENTRIES,states:STATES,actionTypes:ACTION_TYPES,weekdays:WEEKDAYS,months:MONTHS,norm,validISO,toISO,fromISO,shiftISO,compareISO,daysBetween,weekdayOf,parseNumber,stripWake,parseDateIntent,parseMeal,parseRecurrence,extractQuantity,detectActionType,parseRequest,parseWeightRequest,parseRemoveRequest,parseActionRequest,matchRemoval,applyRemoval,classifyResponse,applyCorrection,createConversation,transition,saveLockKey,createSaveAdapter,createVoiceSession};
   global.HECConversationFoundation=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);

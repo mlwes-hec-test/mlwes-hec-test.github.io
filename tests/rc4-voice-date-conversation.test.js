@@ -103,13 +103,13 @@ test('conversation states are explicit and reusable independent of food DOM hand
 });
 
 function createListeningHarness(){
-  const elements={},make=()=>({value:'',textContent:'',dataset:{},classList:{add(){},remove(){},toggle(){}},setAttribute(){},querySelector(){return{dataset:{}}}});for(const id of ['quick-log','start-voice-log','stop-voice-log','voice-status','quick-voice-fallback','quick-voice-manual-fallback','voice-transcript'])elements[id]=make();let starts=0,aborts=0;
+  const elements={},make=()=>({value:'',textContent:'',dataset:{},classList:{add(){},remove(){},toggle(){}},setAttribute(){},querySelector(){return{dataset:{}}}});for(const id of ['quick-log','start-voice-log','stop-voice-log','voice-status','voice-response-mic','quick-voice-fallback','quick-voice-manual-fallback','voice-transcript'])elements[id]=make();let starts=0,aborts=0;
   class Recognition{start(){starts++;}abort(){aborts++;}stop(){}}
-  const context={conversation,elements,Recognition,console,window:null,globalThis:null};context.window=context;context.globalThis=context;vm.createContext(context);
+  const context={conversation,elements,Recognition,console,setTimeout,clearTimeout,window:null,globalThis:null};context.window=context;context.globalThis=context;vm.createContext(context);
   vm.runInContext(`
-    const CONVERSATION=conversation,ext={ui:{}},main={preferences:{language:'en-AU'}};let recognition=null,voiceParsed=[],alpha0633ListenMode='request',alpha0633Conversation=CONVERSATION.createConversation();
+    const CONVERSATION=conversation,ext={ui:{}},main={preferences:{language:'en-AU'}};let recognition=null,voiceParsed=[],alpha0633ListenMode='request',alpha0633Conversation=CONVERSATION.createConversation(),alpha0633ResponseTimer=null,alpha0633GestureSession=false;
     window.SpeechRecognition=Recognition;window.speechSynthesis={cancel(){}};
-    function by(id){return elements[id]||null;}function mainData(){return main;}function saveExt(){}function alpha0633Companion(){return{enabled:true,name:'Shelly',speech:true};}function alpha0633InterpretTranscript(){}function alpha0633HandleResponse(){}function alpha0633CancelSpeech(){}
+    function by(id){return elements[id]||null;}function mainData(){return main;}function saveExt(){}function alpha0633Companion(){return{enabled:true,name:'Shelly',speech:true};}function alpha0633InterpretTranscript(){}function alpha0633HandleResponse(){}function alpha0633CancelSpeech(){}function alpha0633ShowAnswerFallback(){}
     ${productionFunction('alpha0633SetState')}
     ${productionFunction('alpha0633StopVoice')}
     ${productionFunction('alpha0633StartListening')}
@@ -122,13 +122,13 @@ test('microphone remains deliberate and duplicate listening starts are rejected'
 });
 
 test('companion speech is gated, non-overlapping, and the written prompt is always present',()=>{
-  let enabled=true,spoken=[],cancelled=0;const context={console,clearTimeout,window:null,globalThis:null};context.window=context;context.globalThis=context;context.speechSynthesis={cancel(){cancelled++;}};context.HECSpeakText=text=>spoken.push(text);context.alpha0633Companion=()=>({enabled:true,speech:enabled,name:'Shelly'});vm.createContext(context);vm.runInContext(`let alpha0633PromptTimer=null;${productionFunction('alpha0633CancelSpeech')}\n${productionFunction('alpha0633Speak')}`,context);
+  let enabled=true,spoken=[],cancelled=0;const context={console,setTimeout,clearTimeout,window:null,globalThis:null};context.window=context;context.globalThis=context;context.speechSynthesis={cancel(){cancelled++;}};context.HECSpeakText=text=>{spoken.push(text);return null;};context.alpha0633Companion=()=>({enabled:true,speech:enabled,name:'Shelly'});vm.createContext(context);vm.runInContext(`let alpha0633PromptTimer=null;${productionFunction('alpha0633CancelSpeech')}\n${productionFunction('alpha0633Speak')}`,context);
   context.alpha0633Speak('What would you like to do?');assert.deepEqual(spoken,['What would you like to do?']);assert.equal(cancelled,1);enabled=false;context.alpha0633Speak('Hidden speech');assert.equal(spoken.length,1);
-  const voice=section('quick-log');assert.match(voice,/What would you like to do\?/);assert.match(voice,/id="start-voice-log"/);assert.match(voice,/Nothing is saved until you confirm/);assert.match(runtime,/alpha0633PromptTimer=setTimeout\(\(\)=>alpha0633Speak\(prompt\),120\)/);assert.doesNotMatch(runtime,/setTimeout\(\(\)=>alpha0633StartListening/);
+  const voice=section('quick-log');assert.match(voice,/What would you like to do\?/);assert.match(voice,/id="start-voice-log"/);assert.match(voice,/Nothing is saved or removed until you confirm/);assert.match(runtime,/alpha0633PromptTimer=setTimeout\(\(\)=>alpha0633Speak\(prompt\),120\)/);assert.doesNotMatch(runtime,/setTimeout\(\(\)=>alpha0633StartListening/);
 });
 
 test('confirmation controls, manual detail fallback and accessibility remain present',()=>{
-  const voice=section('quick-log');for(const label of ['Yes, Confirm','Change','View Details / Edit','Cancel','Respond By Voice','Review Request','Open Diary Add Food'])assert.match(voice,new RegExp(label.replace(/[/?]/g,'\\$&')));for(const label of ['Start microphone for a food request','Yes, confirm this action','Change this action','View details and edit this action','Cancel this action','Use microphone to confirm or change this action'])assert.match(voice,new RegExp(label));
+  const voice=section('quick-log');for(const label of ['Yes, Confirm','Change','View Details / Edit','Cancel','Tap to Answer','Review Request','Open Diary Add Food'])assert.match(voice,new RegExp(label.replace(/[/?]/g,'\\$&')));for(const label of ['Start microphone for a food request','Yes, confirm this action','Change this action','View details and edit this action','Cancel this action','Tap to answer this confirmation'])assert.match(voice,new RegExp(label));
   assert.match(voice,/id="voice-transcript"/);assert.match(voice,/id="voice-date"/);assert.match(voice,/id="voice-meal"/);assert.match(runtime,/if\(ready\)alpha0633SetState\('ready'/);assert.match(runtime,/else\{alpha0633SetState\('clarify'/);assert.match(styles,/@media\(prefers-reduced-motion:reduce\)/);
 });
 
@@ -138,6 +138,6 @@ test('typed fallback, speech transcript and corrections share one parser and uns
 });
 
 test('leaving Quick Voice cancels recognition and companion speech without changing Weight',()=>{
-  assert.match(runtime,/if\(id!=='quick-log'\)\{alpha0633StopVoice\(\);alpha0633CancelSpeech\(\);\}/);assert.doesNotMatch(runtime,/Quick Weight Voice|weight-action|voice-weight/);assert.doesNotMatch(section('progress-history'),/Quick Voice|microphone|voice-response/);
+  assert.match(runtime,/if\(id!=='quick-log'\)\{alpha0633GestureSession=false;alpha0633StopVoice\(\);alpha0633CancelSpeech\(\);\}/);assert.match(runtime,/RECORD_WEIGHT/);assert.match(section('weight-checkin'),/Log Weight by Voice/);
   assert.match(worker,/conversation-foundation\.js/);assert.match(html,/"conversation-foundation\.js"/);assert.match(html,/Founder Trial Alpha 0\.6\.33/);assert.doesNotMatch(`${read('conversation-foundation.js')}\n${section('quick-log')}`,/family sharing|household sharing|cloud synchroni[sz]ation|iphone-to-ipad/i);
 });

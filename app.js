@@ -340,14 +340,14 @@ function speakText(text, {force=false, allowWithoutCompanion=false,companion=nul
   const speechCompanion=companion||selectedCompanionDefinition()||data.companion;
   const resolution=companionVoiceResolution(speechCompanion,voiceStyleId||data.companion.voiceStyleId);
   if(VOICE_SYSTEM?.speakResolvedVoice){
-    VOICE_SYSTEM.speakResolvedVoice(window.speechSynthesis,window.SpeechSynthesisUtterance,String(text||""),resolution,{language:data.preferences.language||"en-AU"});
-    return;
+    return VOICE_SYSTEM.speakResolvedVoice(window.speechSynthesis,window.SpeechSynthesisUtterance,String(text||""),resolution,{language:data.preferences.language||"en-AU"});
   }
   const utterance=new SpeechSynthesisUtterance(String(text||""));
   if(resolution.voice)utterance.voice=resolution.voice;
   utterance.lang=resolution.voice?.lang||data.preferences.language||"en-AU";
   utterance.rate=resolution.rate;utterance.pitch=resolution.pitch;
   window.speechSynthesis.cancel();window.speechSynthesis.speak(utterance);
+  return utterance;
 }
 window.HECSpeakText=speakText;
 
@@ -1488,7 +1488,7 @@ function renderSavedCheckinResult(record,message,recommendationsUpdated){
   $("checkin-result").innerHTML=`<strong>Saved</strong>${updated}<div class="checkin-result-actions"><button class="primary" data-view-weight-graph type="button">View Weight Graph</button><button class="secondary" data-edit-weight-date="${escapeHtml(record.date)}" type="button">Edit Weight</button></div>`;
   $("checkin-result").classList.remove("hidden");
 }
-function saveCheckinSnapshot(snapshot,{outlierConfirmed=false,navigateAfter=false}={}){
+function saveCheckinSnapshot(snapshot,{outlierConfirmed=false,navigateAfter=false,sameDateConfirmed=false}={}){
   if(checkinSavePending)return {status:"pending"};
   checkinSavePending=true;setCheckinSaveState(false);
   const date=snapshot.date,weight=snapshot.weight,goal=snapshot.goal,note=snapshot.note||"Progress Check-In";
@@ -1510,9 +1510,9 @@ function saveCheckinSnapshot(snapshot,{outlierConfirmed=false,navigateAfter=fals
     const extra=`<div class="weight-warning-comparison"><div><span>Nearest Weight</span><strong>${escapeHtml(formatWeight(nearby.weightKg))} kg</strong><small>${escapeHtml(friendlyWeightRelativeDate(nearby.date))}</small></div><div><span>Entered Weight</span><strong>${escapeHtml(formatWeight(weight))} kg</strong><small>Change ${signedDifference>0?"+":""}${escapeHtml(formatWeight(signedDifference))} kg</small></div></div><p class="fine">A large change can be genuine. This check is only here to catch typing mistakes before they affect your progress and recommendations.</p>`;
     checkinSavePending=false;setCheckinSaveState(false);
     if(typeof window.HECOpenModal==="function"){
-      window.HECOpenModal(title,copy,`Yes, Save ${formatWeight(weight)} kg`,()=>saveCheckinSnapshot(snapshot,{outlierConfirmed:true,navigateAfter}),extra);
+      window.HECOpenModal(title,copy,`Yes, Save ${formatWeight(weight)} kg`,()=>saveCheckinSnapshot(snapshot,{outlierConfirmed:true,navigateAfter,sameDateConfirmed}),extra);
       const cancel=$("a05-modal-cancel");if(cancel)cancel.textContent="No, Let Me Correct It";
-    }else if(confirm(`${copy}\n\nIs ${formatWeight(weight)} kg correct?`))saveCheckinSnapshot(snapshot,{outlierConfirmed:true,navigateAfter});
+    }else if(confirm(`${copy}\n\nIs ${formatWeight(weight)} kg correct?`))saveCheckinSnapshot(snapshot,{outlierConfirmed:true,navigateAfter,sameDateConfirmed});
     else $("checkin-weight")?.focus();
     return {status:"confirmation-required"};
   }
@@ -1536,11 +1536,17 @@ function saveCheckinSnapshot(snapshot,{outlierConfirmed=false,navigateAfter=fals
     return {status:"saved",record:savedRecord,recommendationsUpdated};
   };
   if(existing && Number(existing.weightKg)!==Number(weight)){
+    if(sameDateConfirmed)return persist();
     if(confirm(`A weight is already recorded for ${friendlyWeightRelativeDate(date)}. Replace ${formatWeight(existing.weightKg)} kg with ${formatWeight(weight)} kg?`))return persist();
     return stop("cancelled");
   }
   return persist();
 }
+window.HECWeightCheckIn={
+  existing(date){const record=(data.weightHistory||[]).find(item=>item.date===date);return record?{date:record.date,weightKg:Number(record.weightKg),note:record.note||''}:null;},
+  limits(){return {today:todayISO(),profileStart:data.profileStartedDate||data.health?.startingWeightDate||todayISO(),minKg:30,maxKg:400};},
+  saveVoice({date,weightKg}){const existing=(data.weightHistory||[]).find(item=>item.date===date),snapshot={date,weight:roundWeight(Number(weightKg)||0),goal:roundWeight(Number(data.health.selectedGoalWeight||data.health.recommendedGoalWeight)||0),note:existing?.note||'Progress Check-In'};if($("checkin-date"))$("checkin-date").value=date;if($("checkin-weight"))$("checkin-weight").value=formatWeight(weightKg);if($("checkin-goal"))$("checkin-goal").value=formatWeight(snapshot.goal);if($("checkin-note"))$("checkin-note").value=snapshot.note;updateCheckinDateDisplay();return saveCheckinSnapshot(snapshot,{sameDateConfirmed:true,navigateAfter:true});}
+};
 $("save-checkin")?.addEventListener("click", () => saveCheckinSnapshot(currentCheckinSnapshot()));
 $("save-checkin-view")?.addEventListener("click", () => saveCheckinSnapshot(currentCheckinSnapshot(),{navigateAfter:true}));
 

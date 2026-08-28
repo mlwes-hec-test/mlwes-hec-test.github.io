@@ -1,8 +1,8 @@
 const WORKER_URL = new URL(self.location.href);
 const INSTALLATION_ROLE = WORKER_URL.searchParams.get("role") === "test" ? "test" : "my-data";
 const CACHE_PREFIX = INSTALLATION_ROLE === "test" ? "healthy-eating-companion-test" : "healthy-eating-companion-my-data";
-let CACHE_NAME = `${CACHE_PREFIX}-alpha-0-6-33-v3`;
-if(INSTALLATION_ROLE === "test")CACHE_NAME = `${CACHE_PREFIX}-alpha-0-6-33-v7`;
+let CACHE_NAME = `${CACHE_PREFIX}-alpha-0-6-33-v4`;
+if(INSTALLATION_ROLE === "test")CACHE_NAME = `${CACHE_PREFIX}-alpha-0-6-33-v8`;
 const VERSION = "0.6.33";
 const CORE_FILES = [
   `./index.html`,
@@ -30,6 +30,7 @@ const CORE_FILES = [
   `./capture-foundation.js?v=${VERSION}`,
   `./serving-foundation.js?v=${VERSION}`,
   `./activity-foundation.js?v=${VERSION}`,
+  `./food-groups-foundation.js?v=${VERSION}`,
   `./conversation-foundation.js?v=${VERSION}`,
   `./alpha06.js?v=${VERSION}`,
   `./alpha064.js?v=${VERSION}`,

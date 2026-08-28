@@ -99,8 +99,8 @@ test("Quick Voice keeps date and meal editable and offers a safe fallback",()=>{
 test("Quick Voice review is structured, uses central foods and saves exactly once",()=>{
   const voice=section("quick-log");
   assert.match(runtime,/allFoods\(\)\.map\(food=>\(\{food,rank:Math\.max\(searchRank\(food,q\),C8\?\.rank/);assert.match(runtime,/structured-voice-review/);assert.match(runtime,/data-voice-item-amount/);assert.match(runtime,/data-voice-item-unit/);
-  assert.match(runtime,/alpha0633VoiceSaveLocked/);assert.match(runtime,/if\(alpha0633VoiceSaveLocked\|\|!voiceParsed/);assert.match(runtime,/createSaveAdapter/);assert.match(runtime,/alpha0633CommitPending/);assert.match(runtime,/status=pending\.recurrence\|\|date>isoToday\(\)\|\|pending\.status==='planned'\?'planned':'eaten'/);
-  assert.match(app,/window\.HECSpeakText=speakText/);assert.match(runtime,/alpha0633Speak\(acknowledgement\)/);assert.match(voice,/Nothing is saved until you confirm/);
+  assert.match(runtime,/alpha0633VoiceSaveLocked/);assert.match(runtime,/if\(alpha0633VoiceSaveLocked\|\|!rc6VoiceActionReady\(voiceParsed\)/);assert.match(runtime,/createSaveAdapter/);assert.match(runtime,/alpha0633CommitPending/);assert.match(runtime,/status=pending\.recurrence\|\|date>isoToday\(\)\|\|pending\.status==='planned'\?'planned':'eaten'/);
+  assert.match(app,/window\.HECSpeakText=speakText/);assert.match(runtime,/alpha0633Speak\(acknowledgement\)/);assert.match(voice,/Nothing is saved or removed until you confirm/);
   assert.match(runtime,/energyText\(values\.calories\).*nutrientText\(values\.protein,'g',true\).*nutrientText\(values\.fibre,'g',true\).*nutrientText\(values\.sodium,'mg'\)/);
 });
 

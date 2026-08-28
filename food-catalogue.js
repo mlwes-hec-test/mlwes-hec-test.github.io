@@ -82,6 +82,19 @@
   }
   function exactTokenSetMatch(queryTokens,fieldValues){const set=new Set(fieldValues.flatMap(tokens));return queryTokens.length>0&&queryTokens.every(token=>set.has(token));}
   function prefixTokenMatch(queryTokens,fieldValues){const all=fieldValues.flatMap(tokens);return queryTokens.length>0&&queryTokens.every(token=>token.length>=3&&all.some(value=>value.startsWith(token)));}
+  function friesIntent(query){
+    const q=norm(query),generic=/^(?:(?:small|medium|large|regular|extra large)\s+)?(?:fries|french fries|hot chips)$/.test(q);
+    return {generic,query:q,base:q.replace(/^(?:small|medium|large|regular|extra large)\s+/,'').replace(/^french fries$/,'fries').replace(/^hot chips$/,'fries')};
+  }
+  function explicitlyNamesSource(food,query){
+    const q=` ${norm(query)} `,phrases=[food?.brand,food?.sourceDisplayName,...(food?.sourceAliases||[])].map(norm).filter(value=>value.length>2);
+    if(/\b(?:maccas?|mcdonalds|mc donalds)\b/.test(norm(query))&&food?.foodSourceId==='mcdonalds-au')return true;
+    return phrases.some(phrase=>q.includes(` ${phrase} `));
+  }
+  function genericFriesRecord(food){
+    const text=norm(`${food?.name||''} ${(food?.aliases||[]).join(' ')} ${food?.category||''} ${food?.sourceContext||''}`);
+    return /\bfries\b/.test(text)||(/\bchips\b/.test(text)&&/\b(?:potato|hot|fast food|takeaway|deep fried)\b/.test(text));
+  }
   function rank(food,query,{saved=false,locallyVerified=false}={}){
     const raw=norm(query);if(!raw)return {score:100,tier:'browse'};
     const q=corrected(raw),values=fields(food),name=norm(food?.name),brand=norm(food?.brand),aliases=(food?.aliases||[]).map(norm),sourceAliases=[food?.sourceDisplayName,...(food?.sourceAliases||[])].map(norm).filter(Boolean),combined=norm(`${food?.brand||''} ${food?.name||''}`),qt=tokens(q);
@@ -99,8 +112,14 @@
       else if(prefixTokenMatch(qt,values)){score=820+qt.length;tier='token-prefix';}
       else if(q.length>=4&&(name.includes(q)||aliases.some(a=>a.includes(q)))){score=700;tier='broader';}
     }
+    const fries=friesIntent(query),explicitSource=explicitlyNamesSource(food,query);
+    if(fries.generic&&!explicitSource&&genericFriesRecord(food)){
+      const baseValues=fields(food),baseTokens=tokens(fries.base),baseMatch=baseValues.includes(fries.base)||exactTokenSetMatch(baseTokens,baseValues)||baseValues.some(value=>value.includes(fries.base));
+      if(baseMatch){const type=recordType(food),australian=marketFor(food)==='AU',generic=type===RECORD_TYPES.AFCD||(!food?.brand&&!food?.foodSourceId);score=Math.max(score,generic&&australian?1800:australian?1350:760);tier=generic&&australian?'generic-au-fries':australian?'australian-fries':'generic-fries';}
+    }
     if(!score)return {score:0,tier};
     const type=recordType(food);if(saved)score+=120;if(locallyVerified||food?.verified)score+=70;if(marketFor(food)==='AU')score+=35;if(type===RECORD_TYPES.AFCD)score+=25;
+    if(fries.generic&&!explicitSource&&marketFor(food)!=='AU'&&(food?.brand||[RECORD_TYPES.FOOD_SOURCE,RECORD_TYPES.ONLINE,RECORD_TYPES.PACKAGED].includes(type)))score=Math.min(score,780);
     return {score,tier,query:q};
   }
   function toksafe(value){return Math.min(20,tokens(value).length);}
@@ -126,6 +145,14 @@
     return {label:verified?'Verified Food':'Food Record',detail:food?.source||'Source not supplied',verified:!!verified};
   }
   function canLog(food){return food?.loggable!==false&&food?.nutritionStatus!=='unavailable'&&food?.nutritionStatus!=='configurable'&&hasEnergy(food)&&food?.verificationStatus!=='recognised-only'&&food?.recognisedOnly!==true;}
+  function quickAddPolicy(food,{date='',meal='',sourceTrusted=false,safetyBlocked=false}={}){
+    const unit=String(food?.defaultUnit||''),amount=Number(food?.defaultAmount),units=food?.units||{},natural=!!unit&&Number.isFinite(amount)&&amount>0&&units[unit]!==undefined&&!['g','mL'].includes(unit);let reason='';
+    if(!food)reason='identity';else if(!date||!meal)reason='destination';else if(!canLog(food))reason='nutrition';else if(!natural)reason='serving';else if(!sourceTrusted)reason='source';else if(safetyBlocked)reason='safety';return {ready:!reason,reason,amount,unit,date,meal};
+  }
+  function fullReviewPolicy(food,{safetyBlocked=false}={}){
+    const rawAmount=Number(food?.defaultAmount),amount=Number.isFinite(rawAmount)&&rawAmount>0?rawAmount:1,unit=String(food?.defaultUnit||'');let reason='';
+    if(!food)reason='identity';else if(!canLog(food))reason='nutrition';else if(safetyBlocked)reason='safety';else if(!unit||(food?.units||{})[unit]===undefined)reason='unit';return {ready:!reason,reason,amount,unit};
+  }
   function newSearchState(){return {query:'',tab:'all',revision:0,snapshot:null};}
   function beginSearch(state={},context={}){return {...newSearchState(),...state,query:'',tab:context.tab||'all',revision:Number(state.revision||0)+1,snapshot:null};}
   function rememberSearch(state={},view={}){return {...state,snapshot:{query:String(view.query||''),tab:view.tab||'all',scrollY:Number(view.scrollY||0)}};}
@@ -141,6 +168,6 @@
     const label=food?.unitLabels?.[natural]||natural||'servings';return {level:'implausible',requiresConfirmation:true,message:`${quantity} ${label} is much larger than a usual logging amount. Check whether you meant the natural serving, grams or millilitres before continuing.`};
   }
 
-  const api={version:VERSION,recordTypes:RECORD_TYPES,controlledTypos:CONTROLLED_TYPOS,australianAliases:AUSTRALIAN_ALIASES,norm,tokens,corrected,australianAlternates,recordType,marketFor,sourceIdFor,canonicalKey,normaliseRecord,rank,dedupe,dedupeRanked,provenance,hasEnergy,canLog,newSearchState,beginSearch,rememberSearch,restoreSearch,transitionSearch,naturalQuantityWarning};
+  const api={version:VERSION,recordTypes:RECORD_TYPES,controlledTypos:CONTROLLED_TYPOS,australianAliases:AUSTRALIAN_ALIASES,norm,tokens,corrected,australianAlternates,recordType,marketFor,sourceIdFor,canonicalKey,normaliseRecord,friesIntent,rank,dedupe,dedupeRanked,provenance,hasEnergy,canLog,quickAddPolicy,fullReviewPolicy,newSearchState,beginSearch,rememberSearch,restoreSearch,transitionSearch,naturalQuantityWarning};
   global.HECFoodCatalogue=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);
