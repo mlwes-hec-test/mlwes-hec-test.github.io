@@ -101,7 +101,7 @@
     const per100=clone(entity.nutritionPer100||entity.nutritionPer100g||{}),licensing={usageScope:source.usageScope,licenceStatus:source.licenceStatus,productionApproved:source.productionApproved,inheritedFromSource:true};
     return {
       id:`food-source:${sourceItemKey}`,canonicalId:`food-source:${sourceItemKey}`,recordType:'food-source',foodSourceId:source.id,sourceItemId:item.id,sourceVariantId:variant?.id||'',sourceId:sourceItemKey,
-      familyId:item.id,familyName:item.name,variantLabel:variant?.variantLabel||'',name:entity.name,brand:source.displayName,category:item.category,categoryMemberships:clone(item.categoryMemberships),country:source.country,market:source.market,
+      familyId:item.id,familyName:item.name,variantLabel:variant?.variantLabel||'',name:entity.name,brand:source.displayName,category:item.category,categoryMemberships:clone(item.categoryMemberships),browseCategory:entity.browseCategory||item.browseCategory||'Other',browseTags:unique([...(item.browseTags||[]),...(entity.browseTags||[])]),country:source.country,market:source.market,
       aliases:unique([...(item.aliases||[]),...(entity.aliases||[])]),sourceAliases:clone(source.aliases),sourceDisplayName:source.displayName,sourceType:source.sourceType,
       itemStatus:item.status,current:item.status===ITEM_STATUSES.CURRENT,retiredAt:item.retiredAt||'',nutritionStatus:entity.nutritionStatus,loggable:!!entity.loggable,entryBlockedReason:entity.entryBlockedReason||blockedReason(entity.nutritionStatus),
       itemKind:item.itemKind||'product',assemblyModel:clone(item.assemblyModel||null),promotionalStatus:item.promotionalStatus||'standard',promotional:!!item.promotional,limitedTime:!!item.limitedTime,promotionExpiry:item.promotionExpiry||'',

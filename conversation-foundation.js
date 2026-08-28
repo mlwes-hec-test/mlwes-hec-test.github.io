@@ -106,7 +106,7 @@
     if(recurrence?.phrase)value=removePhrase(value,recurrence.phrase);
     if(quantity?.explicit&&quantity.phrase)value=removePhrase(value,quantity.phrase);
     value=value.replace(/\b(?:breakfast|lunch|dinner|morning tea|afternoon tea|tea|smoko|supper|snacks?|other)\b/gi,' ');
-    value=value.replace(/\b(?:add|log|record|plan|planned|please|i had|i ate|had|ate|i want|want|put|include|make that|change it|change|that is|that's|to|for|at|on|in|my|the|a|an)\b/gi,' ');
+    value=value.replace(/\b(?:add|log|record|plan|planned|please|i had|i ate|had|ate|i want|want|put|include|make that|change it|change|that is|that's|to|into|for|at|on|in|my|the|a|an)\b/gi,' ');
     value=value.replace(/[,.!?]+/g,' ').replace(/\s+/g,' ').trim();
     return value;
   }
@@ -122,7 +122,7 @@
     if(!foodText&&!allowMissingFood)unresolved.push({field:'food',message:'Which food or product did you mean?'});
     return {actionType:'food-log',raw,transcript:raw,cleanText:withoutWake,foodText,meal,localDate:date,dateIntent,recurrence,quantity,intent,status,entryCount:recurrence?.count||1,confidence:dateIntent.invalid?'low':'pending-food',unresolved,ambiguities:dateIntent.ambiguous?[{field:'date',message:`I resolved ${dateIntent.phrase} as ${date}.`}]:[],provenance:{parser:`hec-conversation-${VERSION}`,localCalendar:true}};
   }
-  function classifyResponse(text){const clean=norm(text);if(/^(?:yes|confirm|confirmed|that's correct|that is correct|correct|yep|yeah|ok|okay)$/.test(clean))return'confirm';if(/^(?:cancel|stop|forget it|never mind|nevermind)$/.test(clean))return'cancel';if(/^(?:no|change|change it|that's wrong|that is wrong)$/.test(clean))return'change';return'correction';}
+  function classifyResponse(text){const clean=norm(text);if(/^(?:(?:yes|yep|yeah|ok|okay)(?: (?:please|confirm|confirmed|correct|that is correct|that's correct|thats correct|that is right|that's right|thats right))?|confirm|confirmed|that's correct|thats correct|that is correct|correct|that's right|thats right|that is right)$/.test(clean))return'confirm';if(/^(?:cancel|stop|forget it|never mind|nevermind)$/.test(clean))return'cancel';if(/^(?:no|change|change it|that's wrong|thats wrong|that is wrong|that's not correct|thats not correct|that is not correct)$/.test(clean))return'change';return'correction';}
   function applyCorrection(pending,text,options={}){
     const response=classifyResponse(text);if(response!=='correction')return {response,pending};
     const parsed=parseRequest(text,{...options,selectedDate:pending?.localDate,selectedMeal:pending?.meal,allowMissingFood:true}),next={...pending};
@@ -134,11 +134,11 @@
     next.transcript=`${pending.transcript}\nCorrection: ${String(text||'').trim()}`;next.unresolved=(pending.unresolved||[]).filter(item=>!(item.field==='meal'&&next.meal)&&!(item.field==='date'&&parsed.dateIntent.spoken&&!parsed.dateIntent.invalid)&&!(item.field==='recurrence'&&next.recurrence&&!next.recurrence.overLimit));
     return {response:'correction',pending:next,parsed};
   }
-  function createConversation(){return {state:STATES.IDLE,pendingAction:null,lastTranscript:'',error:'',revision:0};}
+  function createConversation(){return {state:STATES.IDLE,pendingAction:null,lastTranscript:'',originalTranscript:'',responseTranscript:'',correctionHistory:[],error:'',revision:0};}
   function transition(conversation,event,payload={}){
     const next={...createConversation(),...(conversation||{}),revision:Number(conversation?.revision||0)+1};
     const states={open:STATES.PROMPTING,startListening:STATES.LISTENING,captured:STATES.CAPTURED,interpret:STATES.INTERPRETING,clarify:STATES.CLARIFICATION,ready:STATES.READY,await:STATES.AWAITING,save:STATES.SAVING,saved:STATES.SAVED,cancel:STATES.CANCELLED,error:STATES.ERROR,reset:STATES.IDLE};
-    if(states[event])next.state=states[event];if(Object.hasOwn(payload,'pendingAction'))next.pendingAction=payload.pendingAction;if(Object.hasOwn(payload,'transcript'))next.lastTranscript=payload.transcript;if(Object.hasOwn(payload,'error'))next.error=payload.error;return next;
+    if(states[event])next.state=states[event];if(Object.hasOwn(payload,'pendingAction'))next.pendingAction=payload.pendingAction;if(Object.hasOwn(payload,'transcript'))next.lastTranscript=payload.transcript;if(Object.hasOwn(payload,'originalTranscript'))next.originalTranscript=payload.originalTranscript;if(Object.hasOwn(payload,'responseTranscript'))next.responseTranscript=payload.responseTranscript;if(Object.hasOwn(payload,'correction'))next.correctionHistory=[...(next.correctionHistory||[]),payload.correction];if(Object.hasOwn(payload,'error'))next.error=payload.error;return next;
   }
   function saveLockKey(pending){return [pending?.actionId||'',pending?.actionType||'',pending?.items?.map(item=>`${item.canonicalId||item.foodId}:${item.amount}:${item.unit}`).join(',')||'',pending?.localDate||'',pending?.meal||'',pending?.recurrence?.endDate||''].join('|');}
 
