@@ -28,13 +28,13 @@ test('source identity, official references, refresh metadata and Founder-Trial l
   assert.equal(source.refreshPolicy.schedulerIncluded,false);assert.equal(source.refreshPolicy.preservePublishedAnomalies,true);
 });
 
-test('complete current catalogue has the reviewed 167-family classification and 209 runtime records',()=>{
-  assert.equal(data.items.length,167);assert.equal(records.length,209);assert.ok(data.items.every(item=>item.status==='current'));
+test('complete current catalogue has the reviewed 167-family classification and 211 runtime records',()=>{
+  assert.equal(data.items.length,167);assert.equal(records.length,211);assert.ok(data.items.every(item=>item.status==='current'));
   assert.equal(data.items.filter(item=>item.nutritionStatus==='complete').length,142);
   assert.equal(data.items.filter(item=>item.nutritionStatus==='unavailable').length,17);
   assert.equal(data.items.filter(item=>item.nutritionStatus==='configurable').length,8);
-  assert.equal(records.filter(record=>record.loggable).length,184);assert.equal(records.filter(record=>!record.loggable).length,25);
-  assert.equal(new Set(data.items.map(item=>item.id)).size,167);assert.equal(new Set(records.map(record=>record.id)).size,209);
+  assert.equal(records.filter(record=>record.loggable).length,186);assert.equal(records.filter(record=>!record.loggable).length,25);
+  assert.equal(new Set(data.items.map(item=>item.id)).size,167);assert.equal(new Set(records.map(record=>record.id)).size,211);
 });
 
 test('all 17 official category surfaces and overlapping memberships are retained',()=>{
@@ -102,6 +102,15 @@ test('every record uses a natural fixed serving and none defaults to 1 g',()=>{
   const resolved=serving.applyToFood(structuredClone(byItem('big-mac')));assert.equal(resolved.defaultUnit,'burger');assert.equal(resolved.lockedServingUnit,'burger');
 });
 
+test('official fries sizes keep distinct servings and January 2026 source-backed nutrition',()=>{
+  const small=byItem('small-fries'),medium=byVariant('small-fries','medium'),large=byVariant('small-fries','large');
+  assert.equal(small.name,'Small Fries');assert.equal(medium.name,'Medium Fries');assert.equal(large.name,'Large Fries');
+  assert.equal(medium.serving,'1 medium fries portion');assert.equal(large.serving,'1 large fries portion');
+  assert.deepEqual(medium.nutrients,{energyKj:1320,calories:316,protein:5,fat:16.6,satFat:1.4,carbs:35.2,sugar:0,sodium:304});
+  assert.deepEqual(large.nutrients,{energyKj:1630,calories:389,protein:6.1,fat:20.5,satFat:1.7,carbs:43.3,sugar:0,sodium:374});
+  assert.match(medium.provenance.supportingReference,/Aus%20Core%20Food%20Menu_January%202026\.pdf$/);assert.equal(large.nutritionPer100.calories,304);
+});
+
 test('Diary snapshots preserve catalogue facts, variant identity and non-production licensing immutably',()=>{
   const cappuccino=byVariant('cappuccino','large'),snapshot=packaged.diarySnapshot(cappuccino,{amount:1,unit:'drink',unitLabel:'Large Drink',nutrients:cappuccino.nutrients,loggedAt:'2026-08-25T10:00:00+10:00'}),saved=structuredClone(snapshot);
   cappuccino.nutrients.calories=9999;cappuccino.sourceAnomalies.push('later mutation');
@@ -151,7 +160,7 @@ test('official provenance is factual verification and never implies production r
 });
 
 test('program integrity report returns the reviewed totals with zero errors',()=>{
-  const report=integrity.buildIntegrityReport();assert.equal(report.totalEntities,167);assert.equal(report.totalRuntimeRecords,209);assert.equal(report.fullyLoggableEntities,142);assert.equal(report.fullyLoggableRecords,184);assert.equal(report.incompleteEntities,17);assert.equal(report.configurableEntities,8);assert.equal(report.mccafeFamilies,42);assert.equal(report.mccafeVariants,63);assert.equal(report.promotionalEntities,20);assert.equal(report.limitedTimeEntities,5);assert.equal(report.errorCount,0);assert.deepEqual(report.errors,[]);
+  const report=integrity.buildIntegrityReport();assert.equal(report.totalEntities,167);assert.equal(report.totalRuntimeRecords,211);assert.equal(report.fullyLoggableEntities,142);assert.equal(report.fullyLoggableRecords,186);assert.equal(report.incompleteEntities,17);assert.equal(report.configurableEntities,8);assert.equal(report.mccafeFamilies,42);assert.equal(report.mccafeVariants,63);assert.equal(report.promotionalEntities,20);assert.equal(report.limitedTimeEntities,5);assert.equal(report.errorCount,0);assert.deepEqual(report.errors,[]);
 });
 
 test('UI contract keeps blocked products details-only and displays exact reasons and licensing',()=>{

@@ -20,13 +20,13 @@ test('reviewed browse taxonomy is presentation metadata beside the official sour
   assert.ok(foods.every(food=>approved.includes(food.browseCategory)));
 });
 
-test('all 209 runtime records have exactly one primary browse category',()=>{
-  assert.equal(foods.length,209);assert.equal(Object.values(counts).reduce((sum,value)=>sum+value,0),209);
-  assert.equal(foods.filter(food=>typeof food.browseCategory==='string').length,209);
+test('all 211 runtime records have exactly one primary browse category',()=>{
+  assert.equal(foods.length,211);assert.equal(Object.values(counts).reduce((sum,value)=>sum+value,0),211);
+  assert.equal(foods.filter(food=>typeof food.browseCategory==='string').length,211);
 });
 
 test('all eleven reviewed category counts are stable, including the safe Other group',()=>{
-  assert.deepEqual(counts,{'Burgers':15,'Chicken & Nuggets':15,'Sides & Fries':4,'Cold Drinks':70,'Breakfast':19,'Desserts & Treats':16,'Wraps':3,'McCafé / Hot Drinks':40,'Sauces':14,'Meals & Bundles':7,'Other':6});
+  assert.deepEqual(counts,{'Burgers':15,'Chicken & Nuggets':15,'Sides & Fries':6,'Cold Drinks':70,'Breakfast':19,'Desserts & Treats':16,'Wraps':3,'McCafé / Hot Drinks':40,'Sauces':14,'Meals & Bundles':7,'Other':6});
   assert.equal(Object.keys(counts).length,11);
 });
 
@@ -40,7 +40,7 @@ test('category adapter separates common menu families users browse differently',
 });
 
 test('size-prefixed products are distributed by meaning rather than forming one alphabetical wall',()=>{
-  const sized=foods.filter(food=>/^(?:Small|Medium|Large)\b/.test(food.name));assert.equal(sized.length,80);
+  const sized=foods.filter(food=>/^(?:Small|Medium|Large)\b/.test(food.name));assert.equal(sized.length,82);
   assert.deepEqual([...new Set(sized.map(food=>food.browseCategory))].sort(),['Cold Drinks','McCafé / Hot Drinks','Sides & Fries']);
 });
 
@@ -50,7 +50,7 @@ test('browse tags retain useful official memberships and product language for so
   assert.ok(latte.browseTags.includes('McCafé Drinks'));assert.ok(latte.browseTags.includes('iced'));
 });
 
-test('source hub renders category counts, All Items and an honest 209-item scope',()=>{
+test('source hub renders category counts, All Items and an honest 211-item scope',()=>{
   assert.match(runtime,/RC5_SOURCE_CATEGORIES/);assert.match(runtime,/data-rc5-source-category/);assert.match(runtime,/All Items/);
   assert.match(runtime,/Browse \$\{grouped\.foods\.length\} loaded products by reviewed menu category/);
 });

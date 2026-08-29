@@ -22,7 +22,7 @@ test('RC3 audit checkpoint preserves the reconciled 167-family current catalogue
   const data=sources.getCatalogue('mcdonalds-au');
   assert.equal(data.source.lastCheckedDate,'2026-08-26');
   assert.match(data.source.catalogueCheckedAt,/^2026-08-26T/);
-  assert.equal(data.items.length,167);assert.equal(records.length,209);
+  assert.equal(data.items.length,167);assert.equal(records.length,211);
   assert.equal(data.items.filter(item=>item.nutritionStatus==='complete').length,142);
   assert.equal(data.items.filter(item=>item.nutritionStatus==='unavailable').length,17);
   assert.equal(data.items.filter(item=>item.nutritionStatus==='configurable').length,8);

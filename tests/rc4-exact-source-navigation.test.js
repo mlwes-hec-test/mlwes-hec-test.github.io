@@ -94,24 +94,24 @@ test('generic Big, burger and wrap queries remain on the broad path',()=>{
 
 test('source-card click preserves Big Mac and keeps it first in the filtered source view',()=>{
   const ui=createHarness();ui.api.direct('Big Mac');ui.click('source',{rc4SourceBrowse:'mcdonalds-au',rc4SourceLabel:"McDonald's Australia",rc4SourceQuery:'Big Mac'});
-  const state=ui.api.state(),names=cardNames(ui.results.innerHTML);assert.equal(ui.input.value,'Big Mac');assert.equal(state.foodSearch,'Big Mac');assert.equal(state.foodSourceBrowse.query,'Big Mac');assert.equal(names[0],'Big Mac');assert.match(ui.results.innerHTML,/Showing \d+ matching items from 209 loaded McDonald&#39;s Australia entries/);assert.match(ui.results.innerHTML,/Clear Product Filter/);
+  const state=ui.api.state(),names=cardNames(ui.results.innerHTML);assert.equal(ui.input.value,'Big Mac');assert.equal(state.foodSearch,'Big Mac');assert.equal(state.foodSourceBrowse.query,'Big Mac');assert.equal(names[0],'Big Mac');assert.match(ui.results.innerHTML,/Showing \d+ matching items from 211 loaded McDonald&#39;s Australia entries/);assert.match(ui.results.innerHTML,/Clear Product Filter/);
   assert.ok(!names.length||names.indexOf('10pc Chicken McNuggets')<0||names.indexOf('10pc Chicken McNuggets')>names.indexOf('Big Mac'));
 });
 
-test('clearing only the source product filter opens an honest progressive 209-entry browse',()=>{
+test('clearing only the source product filter opens an honest progressive 211-entry browse',()=>{
   const ui=createHarness();ui.api.direct('Big Mac');ui.click('source',{rc4SourceBrowse:'mcdonalds-au',rc4SourceLabel:"McDonald's Australia",rc4SourceQuery:'Big Mac'});ui.click('clear');
-  assert.equal(ui.input.value,'');assert.match(ui.results.innerHTML,/Showing 20 of 209 loaded McDonald&#39;s Australia entries/);assert.match(ui.results.innerHTML,/Show More \(189 remaining\)/);
+  assert.equal(ui.input.value,'');assert.match(ui.results.innerHTML,/Showing 20 of 211 loaded McDonald&#39;s Australia entries/);assert.match(ui.results.innerHTML,/Show More \(191 remaining\)/);
   for(let index=0;index<10;index++)ui.click('more');
   const names=cardNames(ui.results.innerHTML),representatives=[];for(const food of sourceFoods){const category=food.categoryMemberships?.[0]||food.category;if(category&&!representatives.some(item=>item.category===category))representatives.push({category,name:food.name});if(representatives.length===4)break;}
-  assert.equal(names.length,209);for(const item of representatives)assert.ok(names.includes(item.name),`${item.category}: ${item.name}`);assert.doesNotMatch(ui.results.innerHTML,/Show More/);
+  assert.equal(names.length,211);for(const item of representatives)assert.ok(names.includes(item.name),`${item.category}: ${item.name}`);assert.doesNotMatch(ui.results.innerHTML,/Show More/);
 });
 
 test('source-only spellings intentionally open the broad McDonald’s browse',()=>{
-  const ui=createHarness();for(const query of ["McDonald's",'McDonalds','Maccas',"Macca's"]){const view=ui.api.direct(query);assert.equal(ui.api.sourceOnly(query),true,query);assert.match(view.results,/McDonald&#39;s Australia/);assert.match(view.results,/Showing 20 of 209 loaded/);}
+  const ui=createHarness();for(const query of ["McDonald's",'McDonalds','Maccas',"Macca's"]){const view=ui.api.direct(query);assert.equal(ui.api.sourceOnly(query),true,query);assert.match(view.results,/McDonald&#39;s Australia/);assert.match(view.results,/Showing 20 of 211 loaded/);}
 });
 
 test('source ranking retains exact identity and the complete loaded scope',()=>{
-  const ui=createHarness(),names=ui.api.sourceNames('Big Mac');assert.equal(names[0],'Big Mac');assert.equal(ui.api.sourceNames('').length,209);assert.ok(names.indexOf('Double Big Mac')>0);
+  const ui=createHarness(),names=ui.api.sourceNames('Big Mac');assert.equal(names[0],'Big Mac');assert.equal(ui.api.sourceNames('').length,211);assert.ok(names.indexOf('Double Big Mac')>0);
 });
 
 test('clearing the general search invalidates source state and stale live cards',()=>{

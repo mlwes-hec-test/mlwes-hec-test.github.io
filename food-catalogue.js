@@ -12,7 +12,7 @@
   });
   const CONTROLLED_TYPOS=Object.freeze({
     capuccino:'cappuccino',cappucino:'cappuccino',cappacino:'cappuccino',
-    sausuage:'sausage',sausge:'sausage',potatoe:'potato',chicko:'chiko',chico:'chiko',
+    sausuage:'sausage',sausge:'sausage',potatoe:'potato',chicko:'chiko',chico:'chiko',chicco:'chiko',cheeko:'chiko',
     breaky:'brekkie',breakie:'brekkie',megga:'mega'
   });
   // These are explicit Australian food-language equivalences, not general fuzzy
@@ -39,6 +39,7 @@
 
   function recordType(food){
     if(food?.foodSourceId||food?.recordType===RECORD_TYPES.FOOD_SOURCE)return RECORD_TYPES.FOOD_SOURCE;
+    if(Object.values(RECORD_TYPES).includes(food?.recordType))return food.recordType;
     if(food?.afcd||food?.afcdKey||/australian food composition database|\bafcd\b/.test(sourceText(food)))return RECORD_TYPES.AFCD;
     if(food?.category==='Recipe'||food?.brand==='My Recipe'||food?.recipeId)return RECORD_TYPES.RECIPE;
     if(food?.source==='User Created'||food?.private===true)return RECORD_TYPES.PRIVATE;
@@ -86,6 +87,12 @@
     const q=norm(query),generic=/^(?:(?:small|medium|large|regular|extra large)\s+)?(?:fries|french fries|hot chips)$/.test(q);
     return {generic,query:q,base:q.replace(/^(?:small|medium|large|regular|extra large)\s+/,'').replace(/^french fries$/,'fries').replace(/^hot chips$/,'fries')};
   }
+  function displayQuantity(value,{maxDecimals=3,tolerance=1e-9}={}){
+    const amount=Number(value);if(!Number.isFinite(amount))return String(value??'');
+    const integer=Math.round(amount),scale=Math.max(1,Math.abs(amount));if(Math.abs(amount-integer)<=tolerance*scale)return String(integer);
+    const places=Math.max(0,Math.min(8,Number(maxDecimals)||0)),factor=10**places,rounded=Math.round((amount+Number.EPSILON)*factor)/factor;
+    return rounded.toFixed(places).replace(/\.0+$/,'').replace(/(\.\d*?[1-9])0+$/,'$1');
+  }
   function explicitlyNamesSource(food,query){
     const q=` ${norm(query)} `,phrases=[food?.brand,food?.sourceDisplayName,...(food?.sourceAliases||[])].map(norm).filter(value=>value.length>2);
     if(/\b(?:maccas?|mcdonalds|mc donalds)\b/.test(norm(query))&&food?.foodSourceId==='mcdonalds-au')return true;
@@ -94,6 +101,9 @@
   function genericFriesRecord(food){
     const text=norm(`${food?.name||''} ${(food?.aliases||[]).join(' ')} ${food?.category||''} ${food?.sourceContext||''}`);
     return /\bfries\b/.test(text)||(/\bchips\b/.test(text)&&/\b(?:potato|hot|fast food|takeaway|deep fried)\b/.test(text));
+  }
+  function genericFriesCandidates(records){
+    return dedupe((records||[]).filter(food=>recordType(food)===RECORD_TYPES.AFCD&&marketFor(food)==='AU'&&/\b(?:fries|french fries|hot chips)\b/.test(norm(food?.name||''))));
   }
   function rank(food,query,{saved=false,locallyVerified=false}={}){
     const raw=norm(query);if(!raw)return {score:100,tier:'browse'};
@@ -134,6 +144,25 @@
     for(const item of items||[]){if(!item?.food)continue;const key=canonicalKey(item.food),old=best.get(key);if(!old){best.set(key,item);order.push(key);}else if(Number(item.rank)>Number(old.rank)||(Number(item.rank)===Number(old.rank)&&quality(item.food)>quality(old.food)))best.set(key,item);}
     return order.map(key=>best.get(key));
   }
+  function resolvedIdentityKey(food){
+    return [norm(food?.brand),norm(food?.name),norm(food?.serving),String(food?.defaultAmount??''),norm(food?.defaultUnit),String(food?.nutrients?.calories??'')].join('|');
+  }
+  function mcDonaldsFriesSizes(records,query){
+    const q=corrected(query),namesSource=/\b(?:maccas?|mcdonalds|mc donalds)\b/.test(q),namesFries=/\b(?:fries|french fries)\b/.test(q),size=q.match(/\b(small|medium|large)\b/)?.[1]||'';
+    if(!namesSource||!namesFries)return null;
+    const choices=(records||[]).filter(food=>food?.foodSourceId==='mcdonalds-au'&&/\bfries\b/.test(norm(food.name))).sort((a,b)=>['small','medium','large'].indexOf(norm(a.name).split(' ')[0])-['small','medium','large'].indexOf(norm(b.name).split(' ')[0]));
+    return choices.length>1?{size,choices}:null;
+  }
+  function resolve(records,query,{minScore=1000,allowTiers=['exact-name','exact-alias','all-tokens','australian-alias','controlled-typo']}={}){
+    const raw=String(query||'').trim();if(!raw)return {status:'none',food:null,candidates:[],query:'',correctedQuery:''};
+    const fries=mcDonaldsFriesSizes(records,raw);
+    if(fries&&!fries.size)return {status:'ambiguous',food:null,candidates:fries.choices,query:raw,correctedQuery:corrected(raw),reason:'Which McDonald’s fries size: Small, Medium or Large?'};
+    const allowed=new Set(allowTiers),ranked=dedupeRanked((records||[]).map(food=>{const result=rank(food,raw);return {food,rank:result.score,result};}).filter(item=>item.rank>=minScore&&allowed.has(item.result.tier))).sort((a,b)=>b.rank-a.rank||quality(b.food)-quality(a.food)||norm(a.food.name).localeCompare(norm(b.food.name)));
+    if(!ranked.length)return {status:'none',food:null,candidates:[],query:raw,correctedQuery:corrected(raw)};
+    const first=ranked[0],firstIdentity=resolvedIdentityKey(first.food),credible=ranked.filter(item=>item.rank===first.rank&&canonicalKey(item.food)!==canonicalKey(first.food)&&resolvedIdentityKey(item.food)!==firstIdentity);
+    if(credible.length)return {status:'ambiguous',food:null,candidates:[first,...credible].map(item=>item.food),query:raw,correctedQuery:corrected(raw),reason:`Several foods match “${raw}”. Choose the exact one.`};
+    return {status:'exact',food:first.food,candidates:[first.food],rank:first.rank,tier:first.result.tier,query:raw,correctedQuery:corrected(raw)};
+  }
   function provenance(food){
     const type=recordType(food),verified=food?.verified||food?.verificationStatus==='verified';
     if(type===RECORD_TYPES.FOOD_SOURCE)return {label:food?.sourceDisplayName||food?.brand||'Official Food Source',detail:food?.source||food?.sourceUrl||'Official source catalogue',verified:true};
@@ -168,6 +197,6 @@
     const label=food?.unitLabels?.[natural]||natural||'servings';return {level:'implausible',requiresConfirmation:true,message:`${quantity} ${label} is much larger than a usual logging amount. Check whether you meant the natural serving, grams or millilitres before continuing.`};
   }
 
-  const api={version:VERSION,recordTypes:RECORD_TYPES,controlledTypos:CONTROLLED_TYPOS,australianAliases:AUSTRALIAN_ALIASES,norm,tokens,corrected,australianAlternates,recordType,marketFor,sourceIdFor,canonicalKey,normaliseRecord,friesIntent,rank,dedupe,dedupeRanked,provenance,hasEnergy,canLog,quickAddPolicy,fullReviewPolicy,newSearchState,beginSearch,rememberSearch,restoreSearch,transitionSearch,naturalQuantityWarning};
+  const api={version:VERSION,recordTypes:RECORD_TYPES,controlledTypos:CONTROLLED_TYPOS,australianAliases:AUSTRALIAN_ALIASES,norm,tokens,corrected,australianAlternates,recordType,marketFor,sourceIdFor,canonicalKey,normaliseRecord,friesIntent,genericFriesCandidates,displayQuantity,rank,dedupe,dedupeRanked,resolve,provenance,hasEnergy,canLog,quickAddPolicy,fullReviewPolicy,newSearchState,beginSearch,rememberSearch,restoreSearch,transitionSearch,naturalQuantityWarning};
   global.HECFoodCatalogue=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);

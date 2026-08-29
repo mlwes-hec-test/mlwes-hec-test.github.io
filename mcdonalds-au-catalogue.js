@@ -11,6 +11,7 @@
   if(!registry||!raw)throw new Error("McDonald's Australia catalogue dependencies were not loaded");
 
   const BASE='https://www.mcdonalds.com/au/en-au/menu/';
+  const CORE_MENU_PDF='https://www.mcdonalds.com/content/dam/sites/au/nfl/nutrition/PDFs/Aus%20Core%20Food%20Menu_January%202026.pdf';
   const NUTRIENTS=['energyKj','calories','protein','fat','satFat','carbs','sugar','sodium'];
   const BUNDLES=new Set(['The Big Breakfast Deal',"Macca's® Mega Meal",'Macca’s® Bundle for 2','Macca’s® Bundle for 4','Macca’s® Bundle for 6','McSmart® Saver','McSmart® Meal','McSmart® Plus']);
   const LIMITED_PATHS=new Set(['beef/cheesy-quarter-pounder.html','beef/cheesy-double-quarter-pounder.html','chicken-fish/cheesy-mccrispy.html','sides/mozzarella-sticks.html','value-bundle-meals/maccas-mega-meal.html']);
@@ -79,7 +80,7 @@
     if(/sauce|syrup|jam|butter|ketchup|aioli|mayonnaise/i.test(name))return {unitKey:'serve',unitLabel:'Condiment Serve',standardServingLabel:'1 condiment serve'};
     if(/burger|big mac|quarter pounder|cheeseburger|hamburger|mcchicken|mccrispy|mcspicy|chicken 'n' cheese|filet-o-fish|big arch/i.test(lower))return {unitKey:'burger',unitLabel:'Burger',standardServingLabel:'1 burger'};
     const pieces=name.match(/(\d+)\s*(?:pc|piece)/i);if(pieces)return {unitKey:'portion',unitLabel:`${pieces[1]}-Piece Portion`,standardServingLabel:`1 ${pieces[1]}-piece portion`};
-    if(/fries/i.test(name))return {unitKey:'portion',unitLabel:'Small Fries Portion',standardServingLabel:'1 small fries portion'};
+    if(/fries/i.test(name)){const friesSize=cleanName(variantLabel||name.match(/\b(Small|Medium|Large)\b/i)?.[1]||'Small');return {unitKey:'portion',unitLabel:`${friesSize} Fries Portion`,standardServingLabel:`1 ${friesSize.toLowerCase()} fries portion`};}
     if(/sundae/i.test(name))return {unitKey:'sundae',unitLabel:'Sundae',standardServingLabel:'1 sundae'};
     if(/mcflurry/i.test(name))return {unitKey:'mcflurry',unitLabel:'McFlurry',standardServingLabel:'1 McFlurry'};
     if(/cone/i.test(name))return {unitKey:'cone',unitLabel:'Cone',standardServingLabel:'1 cone'};
@@ -100,6 +101,10 @@
   }
   function officialVolume(name){const match=String(name).match(/\b(\d+)\s*m[lL]\b/);return match?Number(match[1]):null;}
   function provenance(path,hasNutrition=true){return {publisher:"McDonald's Australia",url:`${BASE}${path}`,referenceType:hasNutrition?'Official current Australian menu product nutrition table':'Official current Australian menu product page',tableBasis:hasNutrition?'Avg Qty / Serve and Per 100g or 100mL':'Nutrition unavailable/incomplete on the published product page'};}
+  function friesVariant(size,path,values){
+    const name=`${size} Fries`,serving=naturalServing(name,'Sides',{variantLabel:size});
+    return {id:size.toLowerCase(),variantLabel:size,name,aliases:[name,`${size} Macca's Fries`,`${size} Maccas Fries`,`${size} McDonald's Fries`,`Maccas ${size} Fries`,`McDonald's ${size} Fries`,'Fries'],browseCategory:'Sides & Fries',browseTags:['Sides','Fries',size.toLowerCase()],nutritionStatus:'complete',loggable:true,standardServingLabel:serving.standardServingLabel,serving:{unitKey:serving.unitKey,unitLabel:serving.unitLabel},servingWeightG:null,servingVolumeMl:null,nutritionPer100Unit:'g',nutritionPerServing:nutrients(values),nutritionPer100:nutrients([1270,304,4.8,16,1.3,33.8,0,292]),provenance:{publisher:"McDonald's Australia",url:`${BASE}${path}`,supportingReference:CORE_MENU_PDF,referenceType:'Official current Australian menu size and published January 2026 core nutrition table',tableBasis:'Avg Qty / Serve and Avg Qty / 100g'},sourceLastCheckedDate:raw.checkedDate,lastSeenAt:raw.checkedAt,effectiveDate:'2026-01',sourceAnomalies:[]};
+  }
   function assemblyModel(name){return {type:'configurable-assembly',nutritionAggregation:'sum-selected-components',componentSlots:[{id:'products',label:'Selected products'},{id:'sides',label:'Selected side sizes'},{id:'drinks',label:'Selected drink sizes'}],implementationStatus:'future-configurator',sourceDescription:name};}
   function itemFromFamily(family){
     const id=familyId(family),name=displayName(family),category=primaryCategory(family),configurable=BUNDLES.has(family.n),nutritionStatus=configurable?'configurable':family.v?'complete':'unavailable';
@@ -117,6 +122,12 @@
         const variantName=`${variant.l} ${cleanName(family.n)}`,variantServing=naturalServing(variantName,category,{variantLabel:variant.l});
         return {id:slug(variant.l),variantLabel:variant.l,name:variantName,aliases:aliasesFor(variantName,family,variant.l),browseCategory:browseCategory(family,variantName,category),browseTags:browseTags(family,variantName,category),nutritionStatus:'complete',loggable:true,standardServingLabel:variantServing.standardServingLabel,serving:{unitKey:variantServing.unitKey,unitLabel:variantServing.unitLabel},servingWeightG:null,servingVolumeMl:null,nutritionPer100Unit:variant.b||'',nutritionPerServing:nutrients(variant.v[0]),nutritionPer100:nutrients(variant.v[1]),provenance:provenance(variant.u,true),sourceLastCheckedDate:raw.checkedDate,lastSeenAt:raw.checkedAt,effectiveDate:raw.checkedDate,sourceAnomalies:PUBLISHED_ANOMALIES[variant.u]||[]};
       });
+    }
+    if(family.u==='sides/small-fries.html'){
+      item.includeBaseRecord=true;
+      item.familyDisplayName='Fries';
+      item.variantAliasIsolation='size';
+      item.variants.push(friesVariant('Medium','sides/medium-fries.html',[1320,316,5,16.6,1.4,35.2,0,304]),friesVariant('Large','sides/large-fries.html',[1630,389,6.1,20.5,1.7,43.3,0,374]));
     }
     return item;
   }
