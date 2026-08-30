@@ -21,7 +21,7 @@ function assertOrbit(viewport,circleWidth,roomWidthPercent,roomHeightPercent){
   points.forEach(({x,y},index)=>{assert.ok(x-roomWidthPercent/2>=-1&&x+roomWidthPercent/2<=101,`r${index+1} horizontal`);assert.ok(y-roomHeightPercent/2>=-1&&y+roomHeightPercent/2<=101,`r${index+1} vertical`);});
 }
 
-test("1. Home contains exactly the eight approved room controls",()=>{assert.equal((html.match(/class="room r\d+"/g)||[]).length,8);assert.equal((html.match(/data-room=/g)||[]).length,8);assert.doesNotMatch(html,/data-room="quick-weight"/);});
+test("1. Home contains exactly the eight approved room controls",()=>{assert.equal((html.match(/class="room r\d+(?: [^"]*)?"/g)||[]).length,8);assert.equal((html.match(/data-room=/g)||[]).length,8);assert.doesNotMatch(html,/data-room="quick-weight"/);});
 test("2. Exercise & Activity opens the existing activity screen from Home",()=>{assert.match(html,/data-room="exercise-activity"[\s\S]*?<b>Exercise &amp; Activity/);assert.match(app,/room === "exercise-activity"[\s\S]*?openAlpha05Feature\("exercise-log"/);assert.equal((html.match(/id="exercise-log"/g)||[]).length,1);});
 test("3. the eight approved activity presets are exact",()=>{assert.deepEqual(activity.PRESETS.map(x=>x.label),["Walking","Cycling","Swimming","Gym Work","Gardening","Mowing","Hiking","Manual / Other Activity"]);assert.equal((html.match(/data-activity-preset=/g)||[]).length,8);});
 test("4. Walking saves with a conservative HEC estimate",()=>{const r=make("walking");assert.equal(r.name,"Walking");assert.ok(r.caloriesBurned>0);assert.equal(r.energySource,"hec-estimate");});

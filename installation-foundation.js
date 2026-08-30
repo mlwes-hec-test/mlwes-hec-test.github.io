@@ -78,6 +78,20 @@
       banner.innerHTML="<strong>HEC — TEST</strong><span>Disposable isolated testing data</span>";
       document.body?.prepend(banner);
     }
+    const testBanner=document.getElementById("hec-test-installation-banner");
+    if(role===ROLES.TEST&&testBanner){
+      const updateInset=()=>{
+        const height=Math.ceil(testBanner.getBoundingClientRect?.().height||testBanner.offsetHeight||54);
+        document.documentElement.style.setProperty("--hec-installation-banner-inset",`${Math.max(42,height)}px`);
+      };
+      updateInset();
+      const view=document.defaultView;
+      view?.requestAnimationFrame?.(updateInset);
+      if(view?.ResizeObserver&&!testBanner.__hecInsetObserver){
+        testBanner.__hecInsetObserver=new view.ResizeObserver(updateInset);
+        testBanner.__hecInsetObserver.observe(testBanner);
+      }
+    }else document.documentElement.style.removeProperty("--hec-installation-banner-inset");
     const identity=document.getElementById("installation-identity");
     if(identity){
       identity.classList.toggle("test-installation-identity",role===ROLES.TEST);

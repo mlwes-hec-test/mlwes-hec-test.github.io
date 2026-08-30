@@ -66,7 +66,7 @@ test("voice configuration covers exactly the 16 canonical active companions",()=
   assert.equal(voiceSystem.voiceConfigFor("sunny"),null);
 });
 
-test("each companion has exactly three approved visible styles and the first is recommended",()=>{
+test("each companion retains three approved internal profiles and its predefined default",()=>{
   for(const config of voiceSystem.CONFIGURATIONS){
     assert.equal(config.styles.length,3,config.id);
     assert.deepEqual(config.styles.map(style=>style.label),EXPECTED_STYLES[config.id],config.id);
@@ -313,17 +313,16 @@ test("legacy companion identities use canonical styles while Salty remains activ
   assert.equal(voiceSystem.defaultVoiceStyleId(salty),"warm-easy-going");
 });
 
-test("normal UI uses portable styles, preserves transaction boundaries and hides companion speech when off",()=>{
+test("normal UI uses each companion's predefined profile without a duplicate style selector",()=>{
   const html=readText("index.html");
   const app=readText("app.js");
   assert.doesNotMatch(html,/id="voice-select"|>Device voice</);
-  assert.match(html,/id="companion-voice-styles"[^>]*companion-only/);
-  assert.match(html,/id="voice-style-options"/);
-  assert.match(app,/heading\.textContent=`Choose \$\{companion\.name\}’s Voice`/);
+  assert.doesNotMatch(html,/id="companion-voice-styles"|id="voice-style-options"/);
+  assert.match(html,/id="speech-enabled"/);
+  assert.match(html,/id="preview-voice"/);
   assert.match(app,/data\.companion\.voiceStyleId=voiceStyleId/);
   assert.match(app,/if\(!data\.companion\.voice&&resolution\.voiceName\)data\.companion\.voice=resolution\.voiceName/);
   assert.match(app,/if\(!String\(result\.voiceStyleId\|\|""\)\.trim\(\)\)result\.voiceStyleId=/);
-  assert.match(app,/fieldset\.classList\.toggle\("hidden",!visible\)/);
   assert.match(app,/\$\("toggle-speech"\)\.classList\.toggle\("hidden",!data\.companion\.enabled\)/);
   const preview=app.match(/\$\("preview-voice"\)\?\.addEventListener\("click", \(\) => \{([\s\S]*?)\n\}\);/)[1];
   assert.doesNotMatch(preview,/syncCompanionForm|save\(\)|data\.[\w.]+\s*=/);

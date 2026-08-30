@@ -80,9 +80,12 @@ test("Stage 4 wording is precise without replacing unrelated recommendations",()
   assert.match(html,/Preferred Rate Of Weight Loss[\s\S]*?<strong>Recommended<\/strong>/);
 });
 
-test("theme selection is saved through onboarding and reapplied on load and navigation",()=>{
-  assert.match(app,/data\.preferences\.theme = document\.body\.dataset\.theme \|\| data\.preferences\.theme;\s*\n\s*}/);
-  assert.match(app,/function applyTheme\(theme = data\.preferences\.theme\)/);
+test("stored theme compatibility remains while one HEC standard appearance is rendered",()=>{
+  assert.match(app,/const THEME_COLOURS = \{garden:/);
+  assert.match(app,/function applyTheme\(\)/);
+  assert.match(app,/STANDARD_APPEARANCE=\{id:"hec-standard"/);
+  assert.doesNotMatch(html,/data-theme-choice|Choose An App Theme/);
+  assert.doesNotMatch(app,/data\.preferences\.theme\s*=\s*document\.body\.dataset\.theme/);
   assert.match(app,/populateForms\(\)\{\s*\n\s*applyTheme\(\)/);
   assert.match(app,/function show[\s\S]*?applyTheme\(\);[\s\S]*?applyLanguage\(\)/);
 });
@@ -146,7 +149,9 @@ test("Stage 3 artwork and voice assets remain loaded before Stage 4 and app star
   const ordered=["companion-artwork.js","companion-voice-metadata.js","companion-voices.js","stage4-foundation.js","app.js"];
   ordered.reduce((position,item)=>{const next=html.indexOf(item);assert.ok(next>position,item);return next;},-1);
   assert.match(worker,/`\.\/stage4-foundation\.js\?v=\$\{VERSION\}`/);
-  assert.match(html,/id="companion-voice-styles"/);
+  assert.doesNotMatch(html,/id="companion-voice-styles"|id="voice-style-options"/);
+  assert.match(html,/id="speech-enabled"/);
+  assert.match(html,/id="preview-voice"/);
   assert.match(html,/id="companion-preview-modal"/);
   assert.match(app,/companionPreviewMarkup\(companion,"companion-preview-modal-title"\)/);
 });

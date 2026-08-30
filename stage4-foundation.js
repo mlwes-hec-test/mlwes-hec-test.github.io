@@ -9,6 +9,13 @@
   const MINIMUM_AGE=18;
   const MAXIMUM_AGE=100;
   const DATE_PATTERN=/^(\d{4})-(\d{2})-(\d{2})$/;
+  const ONBOARDING_STEPS=Object.freeze(["register","verify","password","companion","personal","health","recommendations"]);
+  const AUSTRALIAN_TIME_ZONES=Object.freeze([
+    "Australia/Adelaide","Australia/Brisbane","Australia/Broken_Hill","Australia/Currie","Australia/Darwin",
+    "Australia/Eucla","Australia/Hobart","Australia/Lindeman","Australia/Lord_Howe","Australia/Melbourne",
+    "Australia/Perth","Australia/Sydney","Antarctica/Macquarie","Indian/Christmas","Indian/Cocos","Pacific/Norfolk"
+  ]);
+  const AUSTRALIAN_TIME_ZONE_SET=new Set(AUSTRALIAN_TIME_ZONES);
 
   function parseCalendarDate(value){
     const match=DATE_PATTERN.exec(String(value||""));
@@ -64,6 +71,44 @@
       activity:Number(values.activity)>0?"":"Choose the activity level that best matches your normal day."
     };
   }
+  function isAustralianTimeZone(value){return AUSTRALIAN_TIME_ZONE_SET.has(String(value||""));}
+  function initialAustralianTimeZone(deviceTimeZone,fallback="Australia/Brisbane"){
+    return isAustralianTimeZone(deviceTimeZone)?String(deviceTimeZone):isAustralianTimeZone(fallback)?String(fallback):"Australia/Brisbane";
+  }
+  function onboardingProgress(step){
+    const index=ONBOARDING_STEPS.indexOf(String(step||""));
+    return index<0?"":`Step ${index+1} of ${ONBOARDING_STEPS.length}`;
+  }
+  function createWelcomeSession({delay=9000,schedule=setTimeout,cancel=clearTimeout,onDismiss=()=>{}}={}){
+    let timer=null,dismissed=false,waitingForSpeech=false;
+    function dismiss(reason="manual"){
+      if(dismissed)return false;
+      dismissed=true;waitingForSpeech=false;
+      if(timer!==null)cancel(timer);
+      timer=null;onDismiss(reason);return true;
+    }
+    function beginTimer(){
+      if(dismissed||timer!==null)return false;
+      waitingForSpeech=false;
+      timer=schedule(()=>dismiss("timer"),delay);
+      return true;
+    }
+    function waitForSpeech(utterance){
+      if(!utterance){beginTimer();return null;}
+      waitingForSpeech=true;let finished=false;
+      const complete=()=>{if(finished)return;finished=true;beginTimer();};
+      if(typeof utterance.addEventListener==="function"){
+        utterance.addEventListener("end",complete,{once:true});
+        utterance.addEventListener("error",complete,{once:true});
+      }else{
+        const previousEnd=utterance.onend,previousError=utterance.onerror;
+        utterance.onend=event=>{previousEnd?.call(utterance,event);complete();};
+        utterance.onerror=event=>{previousError?.call(utterance,event);complete();};
+      }
+      return complete;
+    }
+    return Object.freeze({beginTimer,waitForSpeech,dismiss,get dismissed(){return dismissed;},get waitingForSpeech(){return waitingForSpeech;},get timerActive(){return timer!==null;}});
+  }
   function normaliseTimeZoneBehaviour(value){return value==="home"?"home":"ask";}
   function timeZoneDecisionToken(deviceTimeZone,activeTimeZone){return `${deviceTimeZone||""}|${activeTimeZone||""}`;}
   function evaluateTimeZoneChange({completed,deviceTimeZone,activeTimeZone,homeTimeZone,behaviour,lastDecision,approved}){
@@ -79,7 +124,8 @@
   }
 
   return Object.freeze({
-    MINIMUM_AGE,MAXIMUM_AGE,parseCalendarDate,localDateISO,dobBounds,ageFromDob,
-    validateRecommendationFields,normaliseTimeZoneBehaviour,timeZoneDecisionToken,evaluateTimeZoneChange
+    MINIMUM_AGE,MAXIMUM_AGE,ONBOARDING_STEPS,AUSTRALIAN_TIME_ZONES,parseCalendarDate,localDateISO,dobBounds,ageFromDob,
+    validateRecommendationFields,isAustralianTimeZone,initialAustralianTimeZone,onboardingProgress,createWelcomeSession,
+    normaliseTimeZoneBehaviour,timeZoneDecisionToken,evaluateTimeZoneChange
   });
 });

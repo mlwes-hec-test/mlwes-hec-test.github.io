@@ -37,30 +37,8 @@
     </div>
   </section>
 
-  <section id="language" class="screen content-screen">
-    <header class="topbar">
-      <button id="language-back" class="back" data-go="welcome">← Back</button>
-      <div class="grow"><h2>Choose Your Language</h2><p>Step 1 of 8 · Language and regional format</p></div>
-      <div class="step-pill">Language</div>
-    </header>
-    <main class="page narrow">
-      <aside class="guide-note"><span>🌏</span><p>Choose the language and regional format you want Healthy Eating Companion to use.</p></aside>
-      <div class="card">
-        <div class="language-grid">
-          <label class="selection-card"><input type="radio" name="language" value="en-AU" checked><span><strong>English (Australia)</strong><small>Australian spelling, addresses and phone formats</small></span></label>
-          <label class="selection-card"><input type="radio" name="language" value="en-NZ"><span><strong>English (New Zealand)</strong><small>New Zealand regional formats</small></span></label>
-          <label class="selection-card"><input type="radio" name="language" value="en-GB"><span><strong>English (United Kingdom)</strong><small>United Kingdom regional formats</small></span></label>
-          <label class="selection-card"><input type="radio" name="language" value="en-US"><span><strong>English (United States)</strong><small>United States regional formats</small></span></label>
-        </div>
-        <p class="fine">Alpha 0.6.33 uses English wording throughout. Its text and regional settings are structured so more languages can be added later.</p>
-        <small id="language-error" class="field-error"></small>
-        <button id="language-next" class="primary wide">Continue</button>
-      </div>
-    </main>
-  </section>
-
-  <section id="register" class="screen content-screen" data-speech="Please enter the email address you would like to use. I will check that it looks valid before we continue.">
-    <header class="topbar"><button class="back" data-go="language">← Back</button><div><h2>Create Your Account</h2><p>Step 2 of 8 · Email address</p></div></header>
+  <section id="register" class="screen content-screen" data-onboarding-step="register" data-speech="Please enter the email address you would like to use. I will check that it looks valid before we continue.">
+    <header class="topbar"><button class="back" data-go="welcome">← Back</button><div><h2>Create Your Account</h2><p><span data-onboarding-progress></span> · Email address</p></div></header>
     <main class="page narrow">
       <aside class="guide-note"><span>🤝</span><p>Let’s begin with an email address you can access.</p></aside>
       <div class="card">
@@ -71,8 +49,8 @@
     </main>
   </section>
 
-  <section id="verify" class="screen content-screen" data-speech="A six digit verification code has been prepared. Enter the code shown in the prototype email preview.">
-    <header class="topbar"><button class="back" data-go="register">← Back</button><div><h2>Verify Your Email</h2><p>Step 3 of 8 · Six-digit code</p></div></header>
+  <section id="verify" class="screen content-screen" data-onboarding-step="verify" data-speech="A six digit verification code has been prepared. Enter the code shown in the prototype email preview.">
+    <header class="topbar"><button class="back" data-go="register">← Back</button><div><h2>Verify Your Email</h2><p><span data-onboarding-progress></span> · Six-digit code</p></div></header>
     <main class="page narrow">
       <aside class="guide-note speakable"><span class="guide-avatar">📧</span><p id="verify-message">A six-digit verification code has been prepared.</p><button class="speak-note companion-only" aria-label="Repeat instruction">🔊</button></aside>
       <div class="prototype-email"><div><strong>Prototype email preview</strong><small>Real delivery will be connected in a later secure build.</small></div><div class="code-display" id="preview-code">000 000</div></div>
@@ -85,8 +63,8 @@
     </main>
   </section>
 
-  <section id="password" class="screen content-screen" data-speech="Choose a password with at least eight characters, including a letter and a number. Enter it twice so I can make sure they match.">
-    <header class="topbar"><button class="back" data-go="verify">← Back</button><div><h2>Create Your Password</h2><p>Step 4 of 8 · Account security</p></div></header>
+  <section id="password" class="screen content-screen" data-onboarding-step="password" data-speech="Choose a password with at least eight characters, including a letter and a number. Enter it twice so I can make sure they match.">
+    <header class="topbar"><button class="back" data-go="verify">← Back</button><div><h2>Create Your Password</h2><p><span data-onboarding-progress></span> · Account security</p></div></header>
     <main class="page narrow">
       <aside class="guide-note speakable"><span class="guide-avatar">🔐</span><p>Use at least eight characters, including a letter and a number.</p><button class="speak-note companion-only" aria-label="Repeat instruction">🔊</button></aside>
       <div class="card">
@@ -99,10 +77,10 @@
     </main>
   </section>
 
-  <section id="companion" class="screen content-screen" data-speech="Choose the Australian Companion who feels right for you. Each one has a fixed name, personality and support style.">
+  <section id="companion" class="screen content-screen" data-onboarding-step="companion" data-speech="Choose the Australian Companion who feels right for you. Each one has a fixed name, personality and support style.">
     <header class="topbar sticky">
       <button id="companion-back" class="back" data-go="password">← Back</button>
-      <div class="grow"><h2>Choose Your Companion</h2><p>Step 5 of 8 · Australian character and appearance</p></div>
+      <div class="grow"><h2>Choose Your Companion</h2><p><span data-onboarding-progress></span> · Australian character and personality</p></div>
       <div class="step-pill">Companion</div>
     </header>
     <main class="page">
@@ -122,26 +100,9 @@
           <div id="character-grid" class="character-grid companion-roster"></div>
           <div id="companion-preview" class="companion-preview hidden" aria-live="polite"></div>
           <p class="fine">Approved production artwork is stored separately from companion identity and behaviour, so appearance updates do not change your saved Companion preferences.</p>
-          <fieldset id="companion-voice-styles" class="voice-style-panel companion-only">
-            <legend id="companion-voice-heading">Choose Your Companion’s Voice</legend>
-            <p class="fine">Choose a broad speaking style. Healthy Eating Companion will find the best suitable English voice available on each device.</p>
-            <div id="voice-style-options" class="voice-style-options"></div>
-            <p id="voice-style-status" class="fine" aria-live="polite">Your device is preparing its available voices.</p>
-          </fieldset>
           <label class="toggle companion-only"><input id="speech-enabled" type="checkbox" checked><span>Allow my Companion to speak instructions automatically</span></label>
           <button id="preview-voice" class="secondary wide companion-only">🔊 Hear this Companion’s introduction</button>
         </div>
-
-        <fieldset>
-          <legend>Choose An App Theme</legend>
-          <p class="fine">Tap each example to preview it immediately.</p>
-          <div id="theme-grid" class="theme-grid">
-            <button type="button" class="theme-card theme-garden" data-theme-choice="garden"><span class="theme-picture">🌿</span><strong>Garden</strong><small>Fresh greens and soft natural tones</small><i><b></b><b></b><b></b></i></button>
-            <button type="button" class="theme-card theme-coast" data-theme-choice="coast"><span class="theme-picture">🌊</span><strong>Coast</strong><small>Blue water and light sandy tones</small><i><b></b><b></b><b></b></i></button>
-            <button type="button" class="theme-card theme-outback" data-theme-choice="outback"><span class="theme-picture">🌅</span><strong>Outback</strong><small>Warm earth, sunset and eucalyptus</small><i><b></b><b></b><b></b></i></button>
-            <button type="button" class="theme-card theme-classic" data-theme-choice="classic"><span class="theme-picture">✨</span><strong>Classic</strong><small>Clean blue-grey and white</small><i><b></b><b></b><b></b></i></button>
-          </div>
-        </fieldset>
 
         <small id="companion-error" class="field-error"></small>
         <button id="companion-next" class="primary wide">Continue to Your Name</button>
@@ -160,10 +121,10 @@
     </div>
   </div>
 
-  <section id="personal" class="screen content-screen" data-speech="Tell me your given name and the name you prefer to be called. That is all the personal information needed at this stage.">
+  <section id="personal" class="screen content-screen" data-onboarding-step="personal" data-speech="Tell me your given name and the name you prefer to be called. That is all the personal information needed at this stage.">
     <header class="topbar sticky">
       <button id="personal-back" class="back" data-go="companion">← Back</button>
-      <div class="grow"><h2>Your Name</h2><p>Step 6 of 8 · Simple personal setup</p></div>
+      <div class="grow"><h2>Your Name</h2><p><span data-onboarding-progress></span> · Simple personal setup</p></div>
       <div class="step-pill">You</div>
     </header>
     <main class="page narrow">
@@ -198,10 +159,10 @@
     </main>
   </section>
 
-  <section id="health" class="screen content-screen" data-speech="Next we will look at your health information so I can calculate a suitable starting plan. These figures are estimates for planning, not medical advice.">
+  <section id="health" class="screen content-screen" data-onboarding-step="health" data-speech="Next we will look at your health information so I can calculate a suitable starting plan. These figures are estimates for planning, not medical advice.">
     <header class="topbar sticky">
       <button id="health-back" class="back" data-go="personal">← Back</button>
-      <div class="grow"><h2>Health Profile</h2><p>Step 7 of 8 · Your starting point</p></div>
+      <div class="grow"><h2>Health Profile</h2><p><span data-onboarding-progress></span> · Your starting point</p></div>
       <div class="step-pill">Health</div>
     </header>
     <main class="page">
@@ -252,6 +213,28 @@
           <small id="goal-error" class="field-error" aria-live="polite"></small>
         </fieldset>
 
+        <section id="activity-exercise-block" class="onboarding-activity-block" aria-labelledby="normal-activity-heading">
+          <label id="normal-activity-heading">How Active Is Your Normal Day? *
+            <small id="activity-help" class="field-help">Consider your usual work, household activity, standing and walking. Do not include exercise that you intend to record separately.</small>
+            <select id="activity" aria-invalid="false" aria-describedby="activity-help activity-error">
+              <option value="">Select</option>
+              <option value="1.2">Mostly seated — desk work, driving or little usual walking</option>
+              <option value="1.375">Lightly active — some standing and walking during the day</option>
+              <option value="1.55">Moderately active — regularly on your feet or doing physical tasks</option>
+              <option value="1.725">Very active — physical work for much of the day</option>
+              <option value="1.9">Heavy physical work — strenuous manual work for most of the day</option>
+            </select>
+            <small id="activity-error" class="field-error" aria-live="polite"></small>
+          </label>
+
+          <fieldset class="exercise-credit-fieldset">
+            <legend>Exercise Energy</legend>
+            <p class="fine">Your normal activity choice above already covers usual work, standing, walking and household activity. This setting applies only to extra exercise you record separately, so the same activity is not counted twice.</p>
+            <div class="choice-grid three"><label><input type="radio" name="exercise-credit" value="0" checked> No — Keep My Food Target Unchanged</label><label><input type="radio" name="exercise-credit" value="50"> Add Back 50%</label><label><input type="radio" name="exercise-credit" value="100"> Add Back 100%</label></div>
+            <p class="fine">You can change this later in Settings → Edit Health Profile.</p>
+          </fieldset>
+        </section>
+
         <fieldset>
           <legend>Fasting Interest</legend>
           <p class="fine">Turn this on if you may want to eat less on some days. You will choose the day and amount later; nothing is scheduled during setup.</p>
@@ -283,36 +266,16 @@
           <p>Food likes and dislikes are optional. You can build your Food Preferences later from Settings, or gradually as you use the app.</p>
         </aside>
 
-        <label>How Active Is Your Normal Day? *
-          <small id="activity-help" class="field-help">Consider your usual work, household activity, standing and walking. Do not include exercise that you intend to record separately.</small>
-          <select id="activity" aria-invalid="false" aria-describedby="activity-help activity-error">
-            <option value="">Select</option>
-            <option value="1.2">Mostly seated — desk work, driving or little usual walking</option>
-            <option value="1.375">Lightly active — some standing and walking during the day</option>
-            <option value="1.55">Moderately active — regularly on your feet or doing physical tasks</option>
-            <option value="1.725">Very active — physical work for much of the day</option>
-            <option value="1.9">Heavy physical work — strenuous manual work for most of the day</option>
-          </select>
-          <small id="activity-error" class="field-error" aria-live="polite"></small>
-        </label>
-
-        <fieldset class="exercise-credit-fieldset">
-          <legend>Exercise Energy</legend>
-          <p class="fine">Your normal activity choice above already covers usual work, standing, walking and household activity. This setting applies only to extra exercise you record separately, so the same activity is not counted twice.</p>
-          <div class="choice-grid three"><label><input type="radio" name="exercise-credit" value="0" checked> No — Keep My Food Target Unchanged</label><label><input type="radio" name="exercise-credit" value="50"> Add Back 50%</label><label><input type="radio" name="exercise-credit" value="100"> Add Back 100%</label></div>
-          <p class="fine">You can change this later in Settings → Edit Health Profile.</p>
-        </fieldset>
-
         <small id="health-error" class="field-error"></small>
         <button id="calculate-button" class="primary wide">Calculate My Recommendations</button>
       </div>
     </main>
   </section>
 
-  <section id="recommendations" class="screen content-screen" data-speech="I have prepared a starting plan for you. Review the HEC suggested starting goal and choose the goal weight that suits you.">
+  <section id="recommendations" class="screen content-screen" data-onboarding-step="recommendations" data-speech="I have prepared a starting plan for you. Review the HEC suggested starting goal and choose the goal weight that suits you.">
     <header class="topbar sticky">
       <button class="back" data-go="health">← Back</button>
-      <div class="grow"><h2>Your Recommendations</h2><p>Step 8 of 8 · Review your plan</p></div>
+      <div class="grow"><h2>Your Recommendations</h2><p><span data-onboarding-progress></span> · Review your plan</p></div>
       <div class="step-pill">Review</div>
     </header>
     <main class="page">
@@ -349,13 +312,23 @@
 
   <section id="home" class="screen home-screen">
     <header class="home-header compact-home-header">
-      <div><div class="badge">Healthy Eating Companion · Alpha 0.6.33</div><h1 id="home-greeting">Welcome</h1><p id="home-summary"></p></div>
+      <div><div id="home-release-label" class="badge">Healthy Eating Companion · Alpha 0.6.33</div><h1 id="home-greeting">Welcome</h1><p id="home-summary"></p></div>
     </header>
+    <div id="first-home-welcome" class="first-home-welcome hidden" role="dialog" aria-modal="true" aria-labelledby="first-home-welcome-title" aria-describedby="first-home-welcome-copy">
+      <article class="first-home-welcome-card">
+        <button id="first-home-welcome-close" class="first-home-welcome-close" type="button" aria-label="Close welcome">×</button>
+        <span class="first-home-welcome-mark" aria-hidden="true">🌱</span>
+        <h2 id="first-home-welcome-title">Welcome!</h2>
+        <p id="first-home-welcome-copy">You’re all set. This is your HEC Home screen.</p>
+        <p>From here you can log food or weight, check Daily Progress, use your Diary, track exercise, manage your Shopping List and more.</p>
+        <p id="first-home-welcome-companion" class="first-home-welcome-companion hidden"></p>
+        <button id="first-home-welcome-done" class="primary" type="button">Start Exploring</button>
+      </article>
+    </div>
     <main class="home-main home-main-centred">
       <div class="circle eight-room-circle" aria-label="Healthy Eating Companion Home navigation">
-        <div class="orbit"></div>
         <button class="room r1" data-room="daily-progress"><span>📊</span><b>Daily Progress</b></button>
-        <button class="room r2" data-room="quick-voice" aria-label="Quick Voice Log — log food or weight by voice"><span>🎙️</span><b>Quick Voice Log</b><small>Food or weight</small></button>
+        <button class="room r2 quick-log-room" data-room="quick-voice" aria-label="Quick Log — log food or weight by voice"><span>🎙️</span><b>Quick Log</b><small>Food or Weight</small></button>
         <button class="room r3" data-room="diary"><span>🍽️</span><b>Diary</b></button>
         <button class="room r4" data-room="database"><span>🥕</span><b>Food Library</b></button>
         <button class="room r5" data-room="settings"><span>⚙️</span><b>Settings</b></button>
@@ -771,10 +744,9 @@
     <main class="page">
       <div id="settings-summary" class="card"></div>
       <div class="settings-grid">
-        <button id="edit-language" class="secondary">Language &amp; Region</button>
         <button id="edit-personal" class="primary">Edit Personal Details</button>
         <button id="edit-health" class="primary">Edit Health Profile</button>
-        <button id="edit-companion" class="secondary">Companion &amp; Theme</button>
+        <button id="edit-companion" class="secondary">Companion</button>
         <button id="toggle-companion" class="secondary">Turn Companion Off</button>
         <button id="toggle-speech" class="secondary">Turn Spoken Guidance Off</button>
         <button data-open-feature="food-preferences" class="secondary">Food Preferences</button>

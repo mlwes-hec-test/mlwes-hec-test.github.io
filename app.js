@@ -15,7 +15,9 @@ const DEFAULTS = {
   code: "",
   passwordSet: false,
   completed: false,
-  preferences: { language: "en-AU", theme: "garden", inspirationIndex: 0 },
+  firstHomeWelcomePending: false,
+  firstHomeWelcomeShown: false,
+  preferences: { language: "en-AU", theme: "hec-standard", inspirationIndex: 0 },
   personal: {
     givenName: "", surname: "", fullName: "", preferredName: "", preferredPronunciation: "", email: "", dob: "",
     energyUnit: "kJ", country: "Australia", region: "", postcode: "", suburb: "",
@@ -45,6 +47,8 @@ let voices = [];
 let voiceCatalog = null;
 let editMode = null;
 let returnToSettingsAfterRecommendations = false;
+let firstHomeWelcomeSession = null;
+let screenSpeechTimer = null;
 
 function clone(value){ return JSON.parse(JSON.stringify(value)); }
 function persistentId(prefix){ return window.HECMigrations?.createId?.(prefix) || `${prefix}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2,10)}`; }
@@ -216,16 +220,20 @@ function loadStoredData(){
 }
 
 const THEME_COLOURS = {garden:"#2e6d4d",coast:"#17759b",outback:"#a64f2b",classic:"#385f84"};
-function applyTheme(theme = data.preferences.theme){
-  const safe = THEME_COLOURS[theme] ? theme : "garden";
-  data.preferences.theme = safe;
-  document.body.dataset.theme = safe;
-  document.querySelector('meta[name="theme-color"]')?.setAttribute("content", THEME_COLOURS[safe]);
-  document.querySelectorAll("[data-theme-choice]").forEach(card => card.classList.toggle("selected", card.dataset.themeChoice === safe));
+const STANDARD_APPEARANCE={id:"hec-standard",themeColor:"#2e6d4d"};
+function applyTheme(){
+  document.body.dataset.theme = STANDARD_APPEARANCE.id;
+  document.querySelector('meta[name="theme-color"]')?.setAttribute("content", STANDARD_APPEARANCE.themeColor);
 }
 function applyLanguage(){
-  document.documentElement.lang = data.preferences.language || "en-AU";
-  setRadio("language", data.preferences.language || "en-AU");
+  data.preferences.language = "en-AU";
+  document.documentElement.lang = "en-AU";
+}
+function applyOnboardingStepNumbers(){
+  document.querySelectorAll("[data-onboarding-step]").forEach(screen=>{
+    const progress=screen.querySelector("[data-onboarding-progress]");
+    if(progress)progress.textContent=STAGE4?.onboardingProgress(screen.dataset.onboardingStep)||"";
+  });
 }
 function currentCompanionChoice(){
   const radio = selected("companion-choice");
@@ -250,6 +258,8 @@ function show(id, {speak=true} = {}){
   // openAlpha05Feature.
   window.HECBeforeScreenShow?.(id);
   if(id!=="scan-centre")window.HECStopBarcodeCamera?.();
+  if(screenSpeechTimer!==null)clearTimeout(screenSpeechTimer);
+  screenSpeechTimer=null;
   window.speechSynthesis?.cancel?.();
   document.querySelectorAll(".screen").forEach(screen => screen.classList.remove("active"));
   $(id).classList.add("active");
@@ -270,7 +280,7 @@ function show(id, {speak=true} = {}){
 
   const text = $(id).dataset.speech;
   if(speak && text && data.companion.enabled && data.companion.configured && data.companion.speechEnabled){
-    setTimeout(() => speakText(personaliseSpeech(text)), 260);
+    screenSpeechTimer=setTimeout(() => {screenSpeechTimer=null;speakText(personaliseSpeech(text));}, 260);
   }
   if(id === "settings"){
     editMode = null;
@@ -517,23 +527,8 @@ document.addEventListener("click", event => {
 });
 
 $("join-check").addEventListener("change", event => $("join-button").disabled = !event.target.checked);
-$("join-button").addEventListener("click", () => show("language"));
+$("join-button").addEventListener("click", () => show("register"));
 $("cancel-button").addEventListener("click", () => show("goodbye"));
-
-$("language-next").addEventListener("click", () => {
-  const language = selected("language");
-  if(!language) return friendlyError("language-error", "Please choose a language.", "Please choose a language before we continue.");
-  const oldSuggested = suggestedCountryForLanguage(data.preferences.language);
-  data.preferences.language = language;
-  if(!data.personal.country || data.personal.country === oldSuggested) data.personal.country = suggestedCountryForLanguage(language);
-  save();
-  applyLanguage();
-  if(editMode === "language"){
-    editMode = null;
-    populateForms();
-    show("settings", {speak:false});
-  }else show("register");
-});
 
 $("register-email").addEventListener("input", () => {
   const value = $("register-email").value;
@@ -713,15 +708,10 @@ function syncCompanionForm(){
   const resolution=companionVoiceResolution(companion,voiceStyleId);
   if(!data.companion.voice&&resolution.voiceName)data.companion.voice=resolution.voiceName;
   data.companion.speechEnabled = $("speech-enabled")?.checked !== false;
-  data.preferences.theme = document.body.dataset.theme || data.preferences.theme;
 }
 document.querySelectorAll('input[name="companion-choice"]').forEach(input => input.addEventListener("change", () => {
   updateCompanionUI();
   if(selected("companion-choice") === "no") window.speechSynthesis?.cancel?.();
-}));
-document.querySelectorAll("[data-theme-choice]").forEach(card => card.addEventListener("click", () => {
-  data.preferences.theme = card.dataset.themeChoice;
-  applyTheme();
 }));
 $("preview-voice")?.addEventListener("click", () => {
   const companion = selectedCompanionDefinition();
@@ -1208,7 +1198,8 @@ $("finish-setup").addEventListener("click", () => {
   data.recommendations.manual = manual;
   data.goalMilestones = [];
   data.completed = true;
-  data.firstHomePending = false;
+  data.firstHomeWelcomePending = true;
+  data.firstHomeWelcomeShown = false;
   data.profileStartedDate = data.profileStartedDate || todayISO();
   if(!data.weightHistory.length){
     const startingDate=todayISO();data.health.startingWeightDate=startingDate;
@@ -1265,9 +1256,38 @@ function homeMessage(){
   }
   return `${greeting()}${name ? ", " + name : ""}. Your Healthy Eating Companion plan is ready. Written guidance is available throughout the app.`;
 }
+function hideFirstHomeWelcome(){
+  const welcome=$("first-home-welcome");
+  welcome?.classList.add("hidden");
+  welcome?.setAttribute("aria-hidden","true");
+}
+function dismissFirstHomeWelcome(){
+  if(!firstHomeWelcomeSession?.dismiss("manual"))hideFirstHomeWelcome();
+}
+function showFirstHomeWelcome(){
+  if(!data.completed||!data.firstHomeWelcomePending||data.firstHomeWelcomeShown)return false;
+  const welcome=$("first-home-welcome");if(!welcome)return false;
+  const name=displayName(),companionName=companionDisplayName();
+  $("first-home-welcome-title").textContent=`Welcome${name?`, ${name}`:""}!`;
+  $("first-home-welcome-copy").textContent="You’re all set. This is your HEC Home screen.";
+  const companionCopy=$("first-home-welcome-companion");
+  companionCopy.textContent=data.companion.enabled?`Tap ${companionName} anytime for guidance.`:"";
+  companionCopy.classList.toggle("hidden",!data.companion.enabled);
+  welcome.classList.remove("hidden");welcome.setAttribute("aria-hidden","false");
+  data.firstHomeWelcomePending=false;data.firstHomeWelcomeShown=true;save();
+  firstHomeWelcomeSession=STAGE4?.createWelcomeSession({delay:9000,onDismiss:hideFirstHomeWelcome})||null;
+  const shouldSpeak=data.companion.enabled&&data.companion.configured&&data.companion.speechEnabled;
+  if(shouldSpeak){
+    const spokenName=spokenUserName(),spokenCompanion=spokenCompanionName();
+    const message=`Welcome${spokenName?`, ${spokenName}`:""}. You’re all set. This is your Home screen. Everything you need is right here, and you can tap ${spokenCompanion} anytime if you want a hand.`;
+    firstHomeWelcomeSession?.waitForSpeech(speakText(message));
+  }else firstHomeWelcomeSession?.beginTimer();
+  return true;
+}
 function renderHome(){
   const name = displayName();
   $("home-greeting").textContent = `${greeting()}${name ? ", " + name : ""}`;
+  $("home-release-label").textContent=APP.installationRole==="test"?`HEC — TEST · Alpha ${VERSION}`:`Healthy Eating Companion · Alpha ${VERSION}`;
   const lastWeight=[...(data.weightHistory||[])].sort((a,b)=>String(b.date).localeCompare(String(a.date)))[0];
   $("home-summary").innerHTML = "";
   $("home-summary").classList.add("hidden");
@@ -1292,7 +1312,10 @@ function renderHome(){
   if($("message-text")) $("message-text").textContent = item.text;
   if($("home-companion-message")) $("home-companion-message").textContent = item.text;
   updateCompanionUI();
+  showFirstHomeWelcome();
 }
+$("first-home-welcome-close")?.addEventListener("click",dismissFirstHomeWelcome);
+$("first-home-welcome-done")?.addEventListener("click",dismissFirstHomeWelcome);
 function personalityGuidance(companion){
   const bank={calm:["No rush. Pick one useful thing to do next and we’ll build from there.","A steady day beats a perfect one. Let’s keep the next choice simple."],encouraging:["You’re moving forward. Let’s make the next meal fit the day you actually have.","Good start. We can adjust the plan as the day changes."],steady:["Keep it practical. Familiar food and a clear portion are a perfectly good plan.","No fuss. Let’s sort the next meal and get on with the day."],thoughtful:["Let’s check the details that matter, then leave the rest alone.","A quick portion and ingredient check can make this much clearer."],loyal:["Busy day? I’m still here. We’ll adapt the plan instead of throwing it out.","Tell me what changed and we’ll work around it."],curious:["There may be an easy swap here. Want to see another way to build this meal?","Let’s find an option you’ll actually enjoy eating."],"light-hearted":["No food police here. Let’s find the next useful choice and keep moving.","A rough meal doesn’t ruin a good day. What’s next?"],social:["Tell me what’s happening today and we’ll fit the food around real life.","Eating with other people counts as real life, so let’s plan for it."],planner:["Let’s look at the whole day before we worry about one meal.","We can reserve room for the meal that matters most and build around it."],confident:["Let’s keep the non-negotiables clear and make the rest easy.","One clear decision at a time. I’ll flag anything that doesn’t fit."],energetic:["Let’s get the important bit sorted quickly and keep moving.","Quick win: choose the next meal, then we’re done here."],direct:["The numbers are information, not a drama. Let’s use them and move on.","Keep it realistic. We only need the next decision to make sense."],protective:["I’ll keep an eye on the restrictions that matter while you choose freely around them.","Safety first, then flexibility. Let’s check this one properly."],resourceful:["If the ideal option isn’t available, we’ll find the best realistic one.","There’s nearly always another workable option. Let’s find it."],relaxed:["No need to force it. A plan that feels natural is easier to keep.","Slow it down. One comfortable adjustment is enough."],patient:["There’s no rush. Steady choices are doing the work over time.","We’re looking for progress you can live with, not speed."]};
   const pool=bank[companion?.personality]||HOME_GUIDANCE;return pool[Math.floor(Math.random()*pool.length)];
@@ -1351,8 +1374,8 @@ function renderSettings(){
   $("settings-summary").innerHTML = `
     <h3>${escapeHtml(data.personal.preferredName || data.personal.fullName || "Founder tester")}</h3>
     <div class="summary-grid">
-      <div class="summary-item"><span>Language</span><strong>${escapeHtml(data.preferences.language)}</strong></div>
-      <div class="summary-item"><span>Theme</span><strong>${escapeHtml(data.preferences.theme[0].toUpperCase() + data.preferences.theme.slice(1))}</strong></div>
+      <div class="summary-item"><span>Language</span><strong>English (Australia)</strong></div>
+      <div class="summary-item"><span>Appearance</span><strong>HEC Standard</strong></div>
       <div class="summary-item"><span>Email</span><strong>${escapeHtml(data.personal.email || data.email)}</strong></div>
       <div class="summary-item"><span>Location</span><strong>${escapeHtml(formatSavedLocation())}</strong></div>
       <div class="summary-item"><span>Companion</span><strong>${companionText}</strong></div>
@@ -1366,11 +1389,6 @@ function renderSettings(){
   $("toggle-speech").disabled = !data.companion.enabled;
   $("toggle-speech").classList.toggle("hidden",!data.companion.enabled);
 }
-$("edit-language").addEventListener("click", () => {
-  editMode = "language";
-  populateForms();
-  show("language", {speak:false});
-});
 $("edit-personal").addEventListener("click", () => {
   editMode = "personal";
   populateForms();
@@ -1661,18 +1679,20 @@ data.version = VERSION;
 if(data.personal.energyUnit === "Calories") data.personal.energyUnit = "Cal";
 if(!data.personal.givenName && data.personal.fullName) data.personal.givenName = data.personal.fullName.trim().split(/\s+/)[0];
 if(data.personal.surname===undefined) data.personal.surname="";
-if(!data.personal.homeTimeZone) data.personal.homeTimeZone=deviceTimeZone();
+if(!data.personal.homeTimeZone) data.personal.homeTimeZone=STAGE4?.initialAustralianTimeZone(deviceTimeZone())||"Australia/Brisbane";
 if(!data.personal.activeTimeZone) data.personal.activeTimeZone=data.personal.homeTimeZone;
 if(!data.personal.timeZoneBehaviour) data.personal.timeZoneBehaviour="ask";
 if(!data.personal.fullName && data.personal.givenName) data.personal.fullName = data.personal.givenName;
 if(!data.personal.preferredName && (data.personal.givenName || data.personal.fullName)) data.personal.preferredName = (data.personal.givenName || data.personal.fullName).trim().split(/\s+/)[0];
 data.companion = normaliseCompanionRecord(data.companion);
 if(!data.preferences) data.preferences = clone(DEFAULTS.preferences);
+data.preferences.language="en-AU";
 if(!data.goalMilestones) data.goalMilestones = [];
 if(!data.weightHistory) data.weightHistory = [];
 if(!data.health.startingWeightDate){const start=startingWeightRecord();if(start)data.health.startingWeightDate=start.date;}
 applyTheme();
 initialiseCompanionVoices();
+applyOnboardingStepNumbers();
 populateForms();
 save();
 if(data.completed) show("home", {speak:false}); // alpha06.js immediately opens Daily Progress once functional data is ready.
