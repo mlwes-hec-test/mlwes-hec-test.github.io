@@ -119,7 +119,7 @@ test("service worker precaches all pickers, lazily caches heroes and has no prot
   const installationIcons=staticFiles.filter(file=>file.includes("/app-icons/"));
   assert.equal(pickers.length,16);
   assert.equal(pickers.every(file=>file.endsWith(".webp")),true);
-  assert.equal(installationIcons.length,4);
+  assert.equal(installationIcons.length,6);
   assert.match(worker,/companion-artwork\.js/);
   assert.match(worker,/companion-voice-metadata\.js/);
   assert.match(worker,/companion-voices\.js/);

@@ -54,8 +54,8 @@ test('spoken summary is concise while the visible destination retains full detai
   assert.equal(context.test.spoken(pending),'Add a Big Mac to today’s lunch. Is that correct?');assert.match(context.test.visual(pending),/Fri 28 Aug 2026/);assert.ok(context.test.spoken(pending).length<context.test.visual(pending).length);
 });
 
-test('Quick Voice has one opening question and no duplicate idle helper',()=>{
-  assert.equal((voiceSection.match(/What would you like to do\?/g)||[]).length,1);assert.doesNotMatch(voiceSection,/quick-log-entry-title/);assert.doesNotMatch(voiceSection,/Nothing is listening yet/);assert.match(voiceSection,/id="voice-status"[^>]*><\/p>/);
+test('Quick Voice has one opening request and no duplicate idle helper',()=>{
+  assert.equal((voiceSection.match(/Tell me what food or weight you’d like to record/g)||[]).length,1);assert.doesNotMatch(voiceSection,/quick-log-entry-title/);assert.doesNotMatch(voiceSection,/Nothing is listening yet/);assert.match(voiceSection,/id="voice-status"[^>]*><\/p>/);
 });
 
 test('confirmation-ready layout collapses capture surfaces and keeps two-column controls on a 390px phone',()=>{

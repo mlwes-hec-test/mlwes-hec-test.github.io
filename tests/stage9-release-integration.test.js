@@ -6,11 +6,13 @@ const fs=require("node:fs");
 const path=require("node:path");
 const vm=require("node:vm");
 const migrations=require("../migrations.js");
+const deployment=require("./deployment-test-context.js");
 
 const ROOT=path.join(__dirname,"..");
 const read=relative=>fs.readFileSync(path.join(ROOT,relative),"utf8");
 const exists=relative=>fs.existsSync(path.join(ROOT,relative));
 const html=read("index.html"),config=read("config.js"),worker=read("service-worker.js"),runtime=read("alpha06.js"),polish=read("alpha064.js");
+const installationContext=deployment.contextFromSources(read("installation-config.js"),config,read("manifest.webmanifest"));
 const RELEASE="0.6.33";
 const runtimeFiles=vm.runInNewContext(html.match(/const runtimeFiles=(\[[\s\S]*?\n  \]);/)?.[1]||"[]");
 const coreFiles=vm.runInNewContext(worker.match(/const CORE_FILES = (\[[\s\S]*?\]);/)?.[1]||"[]",{VERSION:RELEASE});
@@ -28,7 +30,7 @@ test("2. every active visible and static release copy is 0.6.33",()=>{
   assert.match(html,/data-hec-release="0\.6\.33"/);assert.match(html,/Founder Trial Alpha 0\.6\.33/);assert.match(html,/Alpha 0\.6\.33/);
   assert.match(html,/manifest\.webmanifest\?v=0\.6\.33/);assert.match(html,/styles\.css\?v=0\.6\.33/);assert.match(html,/config\.js\?v=0\.6\.33/);
   assert.match(read("manifest.webmanifest"),/Founder Trial Alpha 0\.6\.33/);
-  assert.match(worker,/const VERSION = "0\.6\.33"/);assert.match(worker,/alpha-0-6-33-v4/);
+  assert.match(worker,/const VERSION = "0\.6\.33"/);deployment.assertCacheDeclaration(assert,worker,installationContext.app);
   assert.doesNotMatch(runtime,/Meal Photos Stay[^"`]*Alpha 0\.6\./);assert.doesNotMatch(runtime,/Private Browsing[^`]*Alpha 0\.6\./);
   assert.match(read("README.txt"),/FOUNDER TRIAL ALPHA 0\.6\.33/);
 });

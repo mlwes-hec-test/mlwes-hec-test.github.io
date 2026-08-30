@@ -96,7 +96,7 @@
     {key:'burger',label:'Burger',aliases:['burger','hamburger'],category:'prepared',sourcePolicy:'early',facetOrder:['protein','type','source','size'],natural:{unit:'serve',label:'Burger',grams:1}},
     {key:'wrap',label:'Wrap',aliases:['wrap'],category:'prepared',sourcePolicy:'early',facetOrder:['kind','protein','source','size'],natural:{unit:'serve',label:'Wrap',grams:1}},
     {key:'muffin',label:'Muffin',aliases:['muffin','english muffin'],category:'prepared',sourcePolicy:'early',facetOrder:['kind','flavour','source','size'],natural:{unit:'serve',label:'Muffin',grams:1},supplemental:{kind:['Sweet','Savoury'],flavour:['Blueberry','Chocolate Chip','Banana','Apple','Plain']}},
-    {key:'fries',label:'Hot Chips / Fries',aliases:['fries','french fries','hot chips'],category:'snack',sourcePolicy:'contextual',facetOrder:['source','size'],natural:{unit:'g',label:'g',grams:1}},
+    {key:'fries',label:'Hot Chips / Fries',aliases:['fries','french fries','hot chips'],category:'snack',sourcePolicy:'contextual',facetOrder:['source','prep'],natural:{unit:'g',label:'Reference quantity: 100 g',grams:100}},
     {key:'chips',label:'Chips',aliases:['chips'],category:'snack',sourcePolicy:'early',facetOrder:['type','flavour','source','size'],natural:{unit:'g',label:'g',grams:1}},
     {key:'sandwich',label:'Sandwich',aliases:['sandwich','toastie'],category:'prepared',sourcePolicy:'early',facetOrder:['type','protein','source','size'],natural:{unit:'serve',label:'Sandwich',grams:1}},
     {key:'pizza',label:'Pizza',aliases:['pizza'],category:'prepared',sourcePolicy:'early',facetOrder:['type','topping','source','size'],natural:{unit:'slice',label:'Slice',grams:1}},
@@ -142,7 +142,7 @@
       if(!unit&&UNIT_LOOKUP[w]){unit=UNIT_LOOKUP[w];if(['item','piece','slice','serve','pie','sausage','egg','biscuit','cracker','bar','sachet','packet','can','bottle'].includes(unit))keep.push(singularWord(w));continue;}
       keep.push(w);
     }
-    const food=singular(keep.join(' ')),entities=REG?.identify?REG.identify(raw):[];return {raw:String(raw||''),normalised:n,food,quantity:quantity===null?1:quantity,unit,tokens:tokens(food),entities,entityResidual:REG?.stripRecognisedEntities?REG.stripRecognisedEntities(food):food};
+    const food=singular(keep.join(' ')),entities=REG?.identify?REG.identify(raw):[];return {raw:String(raw||''),normalised:n,food,quantityExplicit:quantity!==null,quantity:quantity===null?1:quantity,unit,tokens:tokens(food),entities,entityResidual:REG?.stripRecognisedEntities?REG.stripRecognisedEntities(food):food};
   }
 
   function conceptFromQuery(raw){
@@ -189,6 +189,13 @@
 
   function descriptorFeatures(name,concept){
     const raw=String(name||''),parts=raw.split(',').map(x=>norm(x)).filter(Boolean),out=classifyText(raw),category=concept?.category||'generic';let extras=[];
+    if(concept?.key==='fries'){
+      const n=norm(raw);
+      if(/independent takeaway outlet/.test(n))out.source='Independent Takeaway';
+      else if(/fast food outlet/.test(n))out.source='Fast-Food Outlet';
+      else if(/purchased frozen/.test(n))out.source='Frozen Supermarket';
+      if(/\bbaked\b/.test(n))out.prep='Oven-Baked';else if(/deep fried/.test(n))out.prep='Deep-Fried';
+    }
     // Egg records are structured enough to derive the requested sequence.
     if(category==='egg'){
       const n=norm(raw);if(/\begg\s*,\s*chicken\b|\bchicken\b/.test(n))out.species='Chicken';if(/\bduck\b/.test(n))out.species='Duck';if(/\bquail\b/.test(n))out.species='Quail';

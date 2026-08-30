@@ -31,7 +31,8 @@
 
   function isPackageFood(food){
     const source=norm(food?.source||''),category=norm(food?.category||''),brand=norm(food?.brand||'');
-    return !!food?.foodSourceId||!!food?.barcode||/open food facts|barcode|package|online product|product data|nutrition panel/.test(source+' '+category)||(/user created/.test(source)&&!!brand);
+    const recordType=norm(food?.recordType||'');
+    return !!food?.foodSourceId||!!food?.barcode||['packaged','online candidate'].includes(recordType)||!!food?.manufacturerServing||food?.packageServingExplicit===true||food?.servingBasis==='package-explicit'||/open food facts|barcode|package|online product|product data|nutrition panel|official .* product/.test(source+' '+category)||(/user created/.test(source)&&!!brand);
   }
 
   function explicitPackageServing(food){
@@ -298,6 +299,13 @@
         if((snackState.cornChip&&/slice/i.test(k))||/cheese|bread|grain serve|dairy/.test(label+' '+origin)){delete food.units[k];delete food.unitLabels[k];if(food.unitOrigins)delete food.unitOrigins[k];}
       }
     }
+    if(isPackageFood(food)){
+      for(const key of Object.keys(food.units)){
+        const label=norm(food.unitLabels?.[key]||''),origin=norm(food.unitOrigins?.[key]?.origin||'');
+        if(/australian standard|vegetable group|fruit serve|grain serve|dietary guidelines/.test(`${label} ${origin}`)){delete food.units[key];delete food.unitLabels[key];if(food.unitOrigins)delete food.unitOrigins[key];}
+      }
+      const basis=basisInfo(food);if(basis.servingG>0&&basis.servingG<=250){delete food.units.kg;delete food.unitLabels.kg;if(food.unitOrigins)delete food.unitOrigins.kg;}
+    }
     // Category-specific measures must never leak into another food (the 0.6.25
     // cheese test exposed an Egg measure in a cheese unit list).
     if(category!=='egg'){for(const k of ['egg','smallEgg','mediumEgg','largeEgg','xLargeEgg','jumboEgg','kingEgg','eggWhite','yolk']){delete food.units[k];delete food.unitLabels[k];}}
@@ -314,6 +322,7 @@
 
   function applyToFood(food,context={}){
     if(!food)return food;
+    const originalDefaultUnit=food.defaultUnit,originalDefaultAmount=Number(food.defaultAmount);
     food.units ||= {}; food.unitLabels ||= {};
     sanitizeUnits(food,context);
     // Always retain safe base units already present. Do not create an invented gram
@@ -332,7 +341,7 @@
     // then any alternatives made redundant by a guided choice (for example egg
     // sizes other than the selected Large) are removed before the dropdown/default.
     sanitizeUnits(food,context);
-    const chosen=chooseDefault(food,context);if(chosen&&food.units[chosen]!==undefined){food.servingDefaultUnit=chosen;food.defaultUnit=chosen;food.defaultAmount=1;}
+    const chosen=chooseDefault(food,context);if(chosen&&food.units[chosen]!==undefined){food.servingDefaultUnit=chosen;food.defaultUnit=chosen;if(chosen===originalDefaultUnit&&Number.isFinite(originalDefaultAmount)&&originalDefaultAmount>0)food.defaultAmount=originalDefaultAmount;else if(chosen==='g')food.defaultAmount=100;else if(chosen==='mL')food.defaultAmount=100;else food.defaultAmount=1;}
     const fractionCandidates=['bar','bottle','can','tub','pie','slice','regularSlice','thickSlice','serve','portion','chip','cracker','crispbread','item'];food.fractionUnits=fractionCandidates.filter(k=>food.units?.[k]!==undefined);
     food.servingMeasureVersion=VERSION;
     return food;

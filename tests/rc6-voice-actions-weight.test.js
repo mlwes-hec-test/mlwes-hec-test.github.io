@@ -55,7 +55,7 @@ test('voice session uses Tap to Answer fallback when restart is blocked',()=>{
 });
 
 test('a missing speech-finished event cannot trap the confirmation session',()=>{
-  assert.match(runtime,/alpha0633PromptTimer=setTimeout\(\(\)=>\{window\.speechSynthesis\?\.cancel\?\.\(\);done\(\);\},6000\)/);assert.match(runtime,/function alpha0633AutoListenForResponse/);
+  assert.match(runtime,/function alpha0633SpeechWatchdogDelay/);assert.match(runtime,/if\(synthesis\?\.speaking&&elapsed<120000\)/);assert.match(runtime,/alpha0633PromptTimer=setTimeout\(watch,alpha0633SpeechWatchdogDelay\(text\)\)/);assert.doesNotMatch(runtime,/done\(\);\},6000\)/);assert.match(runtime,/function alpha0633AutoListenForResponse/);
 });
 
 test('voice session timeout and cancellation stop the short session',()=>{

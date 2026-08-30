@@ -6,6 +6,7 @@
     displayName: "HEC — TEST",
     shortName: "HEC TEST",
     manifestId: "/hec-test",
+    iconApple: "assets/app-icons/hec-test-180.png",
     icon192: "assets/app-icons/hec-test-192.png",
     icon512: "assets/app-icons/hec-test-512.png",
     themeColor: "#111111",

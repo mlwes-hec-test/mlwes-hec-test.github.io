@@ -4,10 +4,12 @@ const test=require("node:test");
 const assert=require("node:assert/strict");
 const fs=require("node:fs");
 const path=require("node:path");
+const deployment=require("./deployment-test-context.js");
 
 const ROOT=path.join(__dirname,"..");
 const read=relative=>fs.readFileSync(path.join(ROOT,relative),"utf8");
 const runtime=read("alpha06.js"),styles=read("styles.css"),html=read("index.html"),app=read("app.js"),worker=read("service-worker.js"),config=read("config.js"),migrations=read("migrations.js");
+const installationContext=deployment.contextFromSources(read("installation-config.js"),config,read("manifest.webmanifest"));
 const between=(source,start,end)=>{const from=source.indexOf(start),to=source.indexOf(end,from+start.length);assert.ok(from>=0,`missing ${start}`);assert.ok(to>from,`missing ${end}`);return source.slice(from,to);};
 const shoppingRenderer=between(runtime,"function renderShopping()","function shoppingShareText()");
 const recentRenderer=between(runtime,"function alpha0618RenderRecent()","const alpha0618RenderLibraryBase");
@@ -40,4 +42,4 @@ test("24. Stage 3 companion artwork and curated voices remain intact",()=>{const
 test("25. Stage 4 onboarding and time-zone behaviour remain intact",()=>{const stage4=require("../stage4-foundation.js");assert.equal(stage4.MINIMUM_AGE,18);assert.ok(html.indexOf("stage4-foundation.js")<html.indexOf("app.js"));assert.match(read("alpha064.js"),/handleTimeZone/);});
 test("26. Stage 5 activity records, presets and navigation remain intact",()=>{const activity=require("../activity-foundation.js");assert.equal(activity.PRESETS.length,8);assert.match(app,/room === "exercise-activity"/);assert.match(worker,/activity-foundation\.js/);});
 test("27. Stage 6 weight and progress foundations remain intact",()=>{const weight=require("../weight-progress-foundation.js");assert.equal(weight.RANGES.length,7);assert.equal((runtime.match(/function renderHistory\(/g)||[]).length,1);assert.match(worker,/weight-progress-foundation\.js/);});
-test("28. prior suites remain present while migrations and release runtime stay intact",()=>{for(const file of ["migrations.test.js","companion-artwork.test.js","companion-voices.test.js","stage4-onboarding.test.js","stage5-activity.test.js","stage6-weight-progress.test.js"])assert.equal(fs.existsSync(path.join(__dirname,file)),true);assert.match(config,/const version = "0\.6\.33"/);assert.match(html,/v=0\.6\.33/);assert.match(worker,/const VERSION = "0\.6\.33"/);assert.match(worker,/CACHE_NAME = `\$\{CACHE_PREFIX\}-alpha-0-6-33-v4`/);assert.doesNotMatch(migrations,/Stage 7|shopping-category-heading|recent-group-list/);});
+test("28. prior suites remain present while migrations and release runtime stay intact",()=>{for(const file of ["migrations.test.js","companion-artwork.test.js","companion-voices.test.js","stage4-onboarding.test.js","stage5-activity.test.js","stage6-weight-progress.test.js"])assert.equal(fs.existsSync(path.join(__dirname,file)),true);assert.match(config,/const version = "0\.6\.33"/);assert.match(html,/v=0\.6\.33/);assert.match(worker,/const VERSION = "0\.6\.33"/);deployment.assertCacheDeclaration(assert,worker,installationContext.app);assert.doesNotMatch(migrations,/Stage 7|shopping-category-heading|recent-group-list/);});

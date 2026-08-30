@@ -67,7 +67,7 @@
     if(theme&&app.themeColor)theme.setAttribute("content",app.themeColor);
     let touchIcon=document.querySelector('link[rel="apple-touch-icon"]');
     if(!touchIcon){touchIcon=document.createElement("link");touchIcon.setAttribute("rel","apple-touch-icon");document.head?.append(touchIcon);}
-    if(app.icon192)touchIcon.setAttribute("href",app.icon192);
+    if(app.iconApple||app.icon192)touchIcon.setAttribute("href",app.iconApple||app.icon192);
     document.body?.classList.toggle("hec-test-installation",role===ROLES.TEST);
     if(role===ROLES.TEST && !document.getElementById("hec-test-installation-banner")){
       const banner=document.createElement("div");

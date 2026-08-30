@@ -13,6 +13,7 @@
     buildLabel: `Founder Trial Alpha ${version}`,
     installationRole: installation.role,
     manifestId: installation.manifestId,
+    iconApple: installation.iconApple,
     icon192: installation.icon192,
     icon512: installation.icon512,
     themeColor: installation.themeColor,

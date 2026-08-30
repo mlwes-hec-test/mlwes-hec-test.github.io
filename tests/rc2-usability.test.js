@@ -93,7 +93,7 @@ test("Quick Voice keeps date and meal editable and offers a safe fallback",()=>{
   const voice=section("quick-log");assert.match(voice,/id="voice-date"/);assert.match(voice,/id="voice-meal"/);assert.match(voice,/id="quick-voice-fallback"/);assert.match(voice,/Open Diary Add Food/);
   assert.match(voice,/quick-voice-manual-fallback/);assert.match(voice,/voice-transcript/);assert.match(voice,/View Details \/ Edit/);assert.match(runtime,/not-allowed/);assert.match(runtime,/quick-voice-open-diary/);
   assert.match(runtime,/by\('voice-date'\)\?\.addEventListener\('change',[^\n]*alpha0633StopVoice/);assert.match(runtime,/by\('voice-meal'\)\?\.addEventListener\('change',[^\n]*alpha0633StopVoice/);
-  assert.match(runtime,/prompt='What would you like to do\?'/);assert.doesNotMatch(runtime,/setTimeout\(\(\)=>alpha0633StartListening/);
+  assert.match(runtime,/prompt='Tell me what food or weight you’d like to record\. I’ll confirm before saving\.'/);assert.doesNotMatch(runtime,/setTimeout\(\(\)=>alpha0633StartListening/);
 });
 
 test("Quick Voice review is structured, uses central foods and saves exactly once",()=>{

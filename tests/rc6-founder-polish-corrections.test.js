@@ -69,7 +69,7 @@ test('live food search debounces full ranking, preserves the caret and hides raw
 });
 
 test('generic fries use Australian AFCD candidates and collapse online or overseas rows',()=>{
-  const au={id:'au',afcd:true,afcdKey:'au-fries',name:'Potato, french fries, deep fried',market:'AU'},us={id:'us',recordType:'online-candidate',name:'French fries',market:'US'},chips={id:'chips',afcd:true,name:'Potato crisps',market:'AU'};
+  const au={id:'au',afcd:true,afcdKey:'au-fries',name:'Potato, fries, fast food outlet, deep fried, monounsaturated oil, salted',market:'AU'},us={id:'us',recordType:'online-candidate',name:'French fries',market:'US'},chips={id:'chips',afcd:true,name:'Potato crisps',market:'AU'};
   assert.deepEqual(catalogue.genericFriesCandidates([us,chips,au]).map(food=>food.id),['au']);
   assert.match(runtime,/concept\?\.key==='fries'[\s\S]*?genericFriesCandidates/);assert.match(runtime,/function rc6GroupGenericFries/);assert.match(runtime,/Show more online\/overseas matches/);assert.match(styles,/founder-polish-overseas/);
 });
