@@ -37,8 +37,8 @@
     {id:'nescafe',type:'brand',name:'Nescafé',aliases:['nescafe','nescafé'],sourceMode:'commercial',foodConcept:'coffee',foodFamily:'Coffee'},
     {id:'sanitarium',type:'brand',name:'Sanitarium',aliases:['sanitarium'],sourceMode:'commercial',foodConcept:'cereal',foodFamily:'Breakfast Cereal'},
     {id:'san-remo',type:'brand',name:'San Remo',aliases:['san remo','sanremo'],sourceMode:'commercial',foodConcept:'pasta',foodFamily:'Pasta'},
-    {id:'flora',type:'brand',name:'Flora',aliases:['flora','flora proactiv','proactiv'],sourceMode:'commercial'},
-    {id:'chiko',type:'brand',name:'Chiko',aliases:['chiko','chiko roll'],sourceMode:'commercial'},
+    {id:'flora',type:'brand',name:'Flora',aliases:['flora','flora proactiv','proactiv'],familyAliases:['flora','flora proactiv','proactiv'],sourceMode:'commercial'},
+    {id:'chiko',type:'brand',name:'Chiko',aliases:['chiko','chiko roll'],familyAliases:['chiko'],sourceMode:'commercial'},
     {id:'pepsi',type:'brand',name:'Pepsi',aliases:['pepsi','pepsi max'],sourceMode:'commercial'},
     {id:'black-gold',type:'brand',name:'Black & Gold',aliases:['black and gold','black gold'],sourceMode:'commercial'},
     {id:'westacre',type:'brand',name:'Westacre',aliases:['westacre'],sourceMode:'commercial'},
@@ -93,5 +93,6 @@
   function entityMatchesHay(entity,hay){const h=` ${norm(hay)} `;return entity.aliases.some(a=>h.includes(` ${norm(a)} `));}
   function canonicalSearchText(text){let out=norm(text);for(const m of identify(text)){const canonical=norm(m.entity.name);if(canonical!==m.matchedNorm){const re=new RegExp(`(?:^|\\s)${m.matchedNorm.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}(?=\\s|$)`,'g');out=out.replace(re,` ${canonical}`);}}return out.replace(/\s+/g,' ').trim();}
 
-  global.HECAustralianEntityRegistry={version:VERSION,entries:ENTRIES,norm,identify,primary,exactEntity,predict,sourceMode,foodConcept,stripRecognisedEntities,entityMatchesHay,canonicalSearchText};
+  const api={version:VERSION,entries:ENTRIES,norm,identify,primary,exactEntity,predict,sourceMode,foodConcept,stripRecognisedEntities,entityMatchesHay,canonicalSearchText};
+  global.HECAustralianEntityRegistry=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);

@@ -281,6 +281,8 @@
     if(!food)return food;
     food.units ||= {}; food.unitLabels ||= {};
     const category=inferCategory(food,context);
+    const semantics=SEM?.classify?.(food),foodGroupEligibility=SEM?.foodGroupUnitEligibility?.(food,semantics);
+    if(foodGroupEligibility&&!foodGroupEligibility.allowed){for(const key of Object.keys(food.units)){if(!SEM?.foodGroupUnitEvidence?.(food,key))continue;delete food.units[key];delete food.unitLabels[key];if(food.unitOrigins)delete food.unitOrigins[key];}if(/dietary guidelines|eat for health/i.test(String(food.servingFoundationSource||''))){delete food.servingFoundationSource;delete food.servingFoundationNotes;}}
     const selectedPart=norm(context?.selected?.part||food?.guidedSelections?.part||'');
     if(category==='egg'&&/yolk|white/.test(selectedPart)){for(const k of ['egg','smallEgg','mediumEgg','largeEgg','xLargeEgg','jumboEgg','kingEgg','standardServe']){delete food.units[k];delete food.unitLabels[k];}}
     if(category==='egg'&&!/yolk|white/.test(selectedPart)){
@@ -350,8 +352,9 @@
   }
 
   function diagnostic(food,context={}){
-    const f=applyToFood(clone(food),context),policy=SEM?.servingPolicy?.(f);return {defaultUnit:f.servingDefaultUnit||f.defaultUnit,units:Object.entries(f.units||{}).map(([key,multiplier])=>({key,label:f.unitLabels?.[key]||key,multiplier})),source:f.servingFoundationSource||'',hint:f.servingRangeHint||'',category:inferCategory(f,context),packageExplicit:explicitPackageServing(f),semanticType:policy?.semanticType||'',nutritionBasis:policy?.nutritionBasis||'',allowedUnitFamily:policy?.allowedUnitFamily||''};
+    const f=applyToFood(clone(food),context),policy=SEM?.servingPolicy?.(f);return {defaultUnit:f.servingDefaultUnit||f.defaultUnit,units:Object.entries(f.units||{}).map(([key,multiplier])=>({key,label:f.unitLabels?.[key]||key,multiplier})),source:f.servingFoundationSource||'',hint:f.servingRangeHint||'',category:inferCategory(f,context),packageExplicit:explicitPackageServing(f),semanticType:policy?.semanticType||'',nutritionBasis:policy?.nutritionBasis||'',allowedUnitFamily:policy?.allowedUnitFamily||'',foodGroupUnitEligibility:policy?.foodGroupUnitEligibility||null};
   }
 
-  global.HECServingFoundation={version:VERSION,GUIDELINE_SOURCE,norm,basisInfo,isPackageFood,explicitPackageServing,inferCategory,stateInfo,sanitizeUnits,applyToFood,diagnostic};
+  const api={version:VERSION,GUIDELINE_SOURCE,norm,basisInfo,isPackageFood,explicitPackageServing,inferCategory,stateInfo,sanitizeUnits,applyToFood,diagnostic};
+  global.HECServingFoundation=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);

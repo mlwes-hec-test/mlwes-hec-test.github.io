@@ -51,7 +51,7 @@ test("4. release assertion blocks runtime loading when an old config is served",
 });
 
 test("5. cache-busting for dynamically loaded runtime files derives from HEC_APP.version",()=>{
-  assert.equal(runtimeFiles.length,26);assert.ok(runtimeFiles.includes('food-groups-foundation.js'));assert.ok(runtimeFiles.includes('product-serving-semantics.js'));assert.match(html,/script\.src=`\$\{file\}\?v=\$\{encodeURIComponent\(actual\)\}`/);
+  assert.equal(runtimeFiles.length,27);assert.ok(runtimeFiles.includes('food-groups-foundation.js'));assert.ok(runtimeFiles.includes('product-serving-semantics.js'));assert.ok(runtimeFiles.includes('guided-product-resolution.js'));assert.match(html,/script\.src=`\$\{file\}\?v=\$\{encodeURIComponent\(actual\)\}`/);
   assert.equal(runtimeFiles[0],"installation-foundation.js");
   assert.ok(runtimeFiles.indexOf("migrations.js")<runtimeFiles.indexOf("app.js"));
   assert.ok(runtimeFiles.indexOf("companion-voice-metadata.js")<runtimeFiles.indexOf("companion-voices.js"));
