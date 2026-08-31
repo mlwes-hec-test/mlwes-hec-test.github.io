@@ -75,6 +75,37 @@
     return {kind:'product',query:raw,normalised:normal,entity:match?.entity||null,productQuery:residual||raw,reason:match?'entity-plus-product':'product'};
   }
   function entityMatchesFood(entity,food){return !!entity&&!!food&&!!REG?.entityMatchesHay?.(entity,`${food?.brand||''} ${food?.name||''} ${(food?.aliases||[]).join(' ')} ${food?.sourceDisplayName||''} ${(food?.sourceAliases||[]).join(' ')}`);}
+  function consumerBrandMembership(entity,food){
+    if(!entity||entity.type!=='brand'||!food)return {matches:false,reason:'not-a-brand-candidate'};
+    const mapped=norm(food.consumerBrandId||food.brandEntityId||''),entityIds=new Set([norm(entity.id),norm(entity.name)]);
+    if(mapped)return {matches:entityIds.has(mapped),reason:entityIds.has(mapped)?'trusted-brand-registry-id':'different-brand-registry-id'};
+    const aliases=new Set([entity.name,...(entity.aliases||[]),...(entity.familyAliases||[])].map(norm).filter(Boolean)),raw=String(food.brand||'').trim(),normal=norm(raw);
+    if(!normal)return {matches:false,reason:'missing-explicit-brand'};
+    if(aliases.has(normal))return {matches:true,reason:'exact-canonical-brand'};
+    const primary=norm(raw.split(/[,;|/]/,1)[0]);
+    if(primary&&aliases.has(primary))return {matches:true,reason:'exact-primary-consumer-brand'};
+    return {matches:false,reason:'different-consumer-brand'};
+  }
+  function consumerProductSpecificity(entity,food){
+    const name=norm(food?.name),brandNames=new Set([entity?.name,...(entity?.aliases||[]),...(entity?.familyAliases||[])].map(norm).filter(Boolean));
+    if(!name||brandNames.has(name)||food?.recognisedOnly===true||food?.verificationStatus==='recognised-only')return {specific:false,reason:'non-specific-brand-reference'};
+    return {specific:true,reason:'specific-consumer-product'};
+  }
+  function trustworthyLocalBrandProduct(food){
+    const type=recordType(food),status=norm(food?.verificationStatus),trusted=food?.verified===true||['verified','user confirmed','package confirmed'].includes(status)||food?.saved===true||food?.isSaved===true;
+    return marketFor(food)==='AU'&&food?.current!==false&&food?.itemStatus!=='retired'&&type!==RECORD_TYPES.ONLINE&&type!==RECORD_TYPES.AFCD&&trusted;
+  }
+  function defensibleSavedBrandProduct(food){
+    const type=recordType(food),status=norm(food?.verificationStatus),saved=food?.saved===true||food?.isSaved===true||food?.private===true||['user confirmed','package confirmed'].includes(status);
+    return food?.current!==false&&food?.itemStatus!=='retired'&&[RECORD_TYPES.PRIVATE,RECORD_TYPES.PACKAGED,RECORD_TYPES.LOCAL].includes(type)&&saved;
+  }
+  function brandQueryEvidence(food,entity,query){
+    const queryTokens=tokens(query),brandTokens=new Set(tokens(entity?.name)),residual=queryTokens.filter(token=>!brandTokens.has(token)),hay=new Set(tokens(`${food?.name||''} ${(food?.aliases||[]).join(' ')}`));
+    return residual.reduce((score,token)=>score+(hay.has(token)?1:0),0);
+  }
+  function brandProductSimplicity(food,entity){
+    const brandTokens=new Set(tokens(entity?.name));return tokens(food?.name).filter(token=>!brandTokens.has(token)).length;
+  }
   function brandProductQuality(food){
     const type=recordType(food),market=marketFor(food);let score=0;
     if(market==='AU')score+=500;if(food?.verified||food?.verificationStatus==='verified')score+=300;if(food?.current!==false&&food?.itemStatus!=='retired')score+=120;
@@ -83,8 +114,13 @@
   }
   function brandFamilyResults(records,query){
     const intent=queryIntent(query);if(!['brand-family','source'].includes(intent.kind)||!intent.entity)return null;
-    const products=dedupe(records||[]).filter(food=>entityMatchesFood(intent.entity,food)).sort((a,b)=>brandProductQuality(b)-brandProductQuality(a)||norm(a.name).localeCompare(norm(b.name)));
-    return {intent,entity:intent.entity,products,primary:products.filter(food=>marketFor(food)==='AU'&&recordType(food)!==RECORD_TYPES.ONLINE),broader:products.filter(food=>marketFor(food)!=='AU'||recordType(food)===RECORD_TYPES.ONLINE)};
+    if(intent.kind==='source'){const products=dedupe(records||[]).filter(food=>entityMatchesFood(intent.entity,food)).sort((a,b)=>brandProductQuality(b)-brandProductQuality(a)||norm(a.name).localeCompare(norm(b.name)));return {intent,entity:intent.entity,products,primary:products.filter(food=>marketFor(food)==='AU'&&recordType(food)!==RECORD_TYPES.ONLINE),broader:products.filter(food=>marketFor(food)!=='AU'||recordType(food)===RECORD_TYPES.ONLINE),activeTier:0,broad:products,excluded:[]};}
+    const broad=dedupe(records||[]).filter(food=>entityMatchesFood(intent.entity,food)),eligible=[],excluded=[];
+    for(const food of broad){const membership=consumerBrandMembership(intent.entity,food),specificity=consumerProductSpecificity(intent.entity,food);if(!membership.matches)excluded.push({food,reason:membership.reason});else if(!specificity.specific)excluded.push({food,reason:specificity.reason});else eligible.push(food);}
+    const tier1=eligible.filter(trustworthyLocalBrandProduct),tier2=eligible.filter(food=>!tier1.includes(food)&&defensibleSavedBrandProduct(food)),tier3=eligible.filter(food=>!tier1.includes(food)&&!tier2.includes(food)),active=tier1.length?tier1:tier2.length?tier2:tier3,activeTier=tier1.length?1:tier2.length?2:tier3.length?3:0;
+    const order=(a,b)=>brandQueryEvidence(b,intent.entity,query)-brandQueryEvidence(a,intent.entity,query)||brandProductSimplicity(a,intent.entity)-brandProductSimplicity(b,intent.entity)||brandProductQuality(b)-brandProductQuality(a)||norm(a.name).localeCompare(norm(b.name));
+    const products=[...active].sort(order),broader=eligible.filter(food=>!active.includes(food)).sort(order);
+    return {intent,entity:intent.entity,products,primary:products,broader,activeTier,broad,excluded};
   }
 
   function australianAlternates(query){
@@ -270,6 +306,6 @@
     const label=food?.unitLabels?.[natural]||natural||'servings';return {level:'implausible',requiresConfirmation:true,message:`${quantity} ${label} is much larger than a usual logging amount. Check whether you meant the natural serving, grams or millilitres before continuing.`};
   }
 
-  const api={version:VERSION,recordTypes:RECORD_TYPES,controlledTypos:CONTROLLED_TYPOS,australianAliases:AUSTRALIAN_ALIASES,norm,tokens,corrected,queryIntent,brandProductQuality,brandFamilyResults,australianAlternates,recordType,marketFor,sourceIdFor,canonicalKey,normaliseRecord,friesIntent,genericFriesCandidates,displayQuantity,rank,dedupe,dedupeRanked,duplicateIdentityEvidence,duplicateIdentity,duplicateAudit,resolve,partitionSearchRecords,provenance,hasEnergy,canLog,quickAddPolicy,fullReviewPolicy,newSearchState,beginSearch,rememberSearch,restoreSearch,transitionSearch,naturalQuantityWarning};
+  const api={version:VERSION,recordTypes:RECORD_TYPES,controlledTypos:CONTROLLED_TYPOS,australianAliases:AUSTRALIAN_ALIASES,norm,tokens,corrected,queryIntent,brandProductQuality,consumerBrandMembership,consumerProductSpecificity,brandFamilyResults,australianAlternates,recordType,marketFor,sourceIdFor,canonicalKey,normaliseRecord,friesIntent,genericFriesCandidates,displayQuantity,rank,dedupe,dedupeRanked,duplicateIdentityEvidence,duplicateIdentity,duplicateAudit,resolve,partitionSearchRecords,provenance,hasEnergy,canLog,quickAddPolicy,fullReviewPolicy,newSearchState,beginSearch,rememberSearch,restoreSearch,transitionSearch,naturalQuantityWarning};
   global.HECFoodCatalogue=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);
