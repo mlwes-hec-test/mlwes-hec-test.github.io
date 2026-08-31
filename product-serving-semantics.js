@@ -41,7 +41,7 @@
     const type=recordKind(food),member=memberships(food),name=norm(food?.name),kind=norm(food?.itemKind),nutritionStatus=norm(food?.nutritionStatus),count=Number(food?.semanticCount)||countFrom(food?.name)||countFrom(food?.standardServingLabel),size=sizeFrom(food);
     if(kind==='configurable-assembly'||nutritionStatus==='configurable'||food?.assemblyModel)return {type:TYPES.CONFIGURABLE,confidence:'high'};
     if(member.includes('condiments')||member.includes('sauces')||type==='component')return {type:TYPES.COMPONENT,confidence:'high',parentKey:componentBase(name)};
-    if(type==='packaged'||type==='online-candidate'||food?.manufacturerServing||food?.packageServingExplicit)return {type:TYPES.PACKAGED,confidence:'high'};
+    if(type==='packaged'||type==='online-candidate'||type==='external-catalogue'||food?.manufacturerServing||food?.packageServingExplicit)return {type:TYPES.PACKAGED,confidence:'high'};
     if(isPer100Reference(food))return {type:TYPES.REFERENCE,confidence:'high'};
     if(size)return {type:TYPES.SIZED,confidence:'high',size};
     if(count>0)return {type:TYPES.COUNTED,confidence:'high',count};
@@ -67,7 +67,7 @@
   function foodGroupUnitEvidence(food,key){const label=norm(food?.unitLabels?.[key]||key),origin=norm(food?.unitOrigins?.[key]?.origin||'');return FOOD_GROUP_UNIT_PATTERN.test(`${label} ${origin}`);}
   function commercialOrComposite(food,semantics=classify(food)){
     const type=recordKind(food),name=norm(food?.name),category=memberships(food).join(' '),brand=norm(food?.brand),genericBrand=!brand||/^(?:generic|generic australian|fresh|fresh produce|fresh or frozen|australian food composition database|afcd)$/.test(brand);
-    return !!food?.foodSourceId||['packaged','online-candidate'].includes(type)||[TYPES.MEAL,TYPES.COMPONENT,TYPES.PACKAGED,TYPES.CONFIGURABLE].includes(semantics.type)||/restaurant|takeaway|meal|bundle|spreads/.test(category)||/\b(?:with|in bread|burger|sandwich|wrap|meal|bundle|sauce)\b/.test(name)||!genericBrand;
+    return !!food?.foodSourceId||['packaged','online-candidate','external-catalogue'].includes(type)||[TYPES.MEAL,TYPES.COMPONENT,TYPES.PACKAGED,TYPES.CONFIGURABLE].includes(semantics.type)||/restaurant|takeaway|meal|bundle|spreads/.test(category)||/\b(?:with|in bread|burger|sandwich|wrap|meal|bundle|sauce)\b/.test(name)||!genericBrand;
   }
   function foodGroupUnitEligibility(food={},semantics=classify(food)){
     const explicit=food?.foodGroupUnitPolicy||food?.productSemantics?.foodGroupUnitPolicy;

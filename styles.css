@@ -832,3 +832,4 @@ html[data-hec-installation-role="test"] body{padding-top:var(--hec-installation-
   .eight-room-circle .room{height:70px!important}.eight-room-circle .companion-centre,.eight-room-circle .companion-centre.companion-polished{height:40%!important}
 }
 @media(max-width:390px){.first-home-welcome{padding:10px}.first-home-welcome-card{padding:22px 18px}.eight-room-circle .room{width:82px!important}.eight-room-circle .r3{left:88.5%!important}.eight-room-circle .r7{left:11.5%!important}}
+.off-catalogue-results{display:grid;gap:.65rem;margin-top:.85rem}.off-catalogue-results [data-off-rows]{display:grid;gap:.55rem}.off-load-more{min-height:48px}.off-catalogue-results .resource-row{content-visibility:auto;contain-intrinsic-size:76px}

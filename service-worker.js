@@ -1,7 +1,7 @@
 const WORKER_URL = new URL(self.location.href);
 const INSTALLATION_ROLE = WORKER_URL.searchParams.get("role") === "test" ? "test" : "my-data";
 const CACHE_PREFIX = INSTALLATION_ROLE === "test" ? "healthy-eating-companion-test" : "healthy-eating-companion-my-data";
-const CACHE_NAME = `${CACHE_PREFIX}-alpha-0-6-33-v14`;
+const CACHE_NAME = `${CACHE_PREFIX}-alpha-0-6-33-v15`;
 const VERSION = "0.6.33";
 const CORE_FILES = [
   `./index.html`,
@@ -25,6 +25,7 @@ const CORE_FILES = [
   `./mcdonalds-au-catalogue-data.js?v=${VERSION}`,
   `./mcdonalds-au-catalogue.js?v=${VERSION}`,
   `./food-catalogue.js?v=${VERSION}`,
+  `./off-catalogue.js?v=${VERSION}`,
   `./guided-branching.js?v=${VERSION}`,
   `./packaged-foods.js?v=${VERSION}`,
   `./capture-foundation.js?v=${VERSION}`,
@@ -36,6 +37,7 @@ const CORE_FILES = [
   `./alpha06.js?v=${VERSION}`,
   `./alpha064.js?v=${VERSION}`,
   `./manifest.webmanifest?v=${VERSION}`,
+  "./data/open-food-facts-au/manifest.json",
   "./afcd-release-3.json"
 ];
 const STATIC_FILES = [
@@ -64,6 +66,7 @@ const STATIC_FILES = [
 ];
 const CORE_PATHS = new Set(CORE_FILES.map(x=>new URL(x,self.location.href).pathname));
 const COMPANION_HERO_PATH="/assets/companions/runtime/hero/";
+const OFF_CATALOGUE_PATH="/data/open-food-facts-au/";
 const timeout = ms => new Promise((_,reject)=>setTimeout(()=>reject(new Error("network timeout")),ms));
 
 self.addEventListener("install",event=>{
@@ -113,5 +116,6 @@ self.addEventListener("fetch",event=>{
   if(event.request.mode==="navigate"||event.request.destination==="document"){event.respondWith(navigationResponse(event.request));return;}
   if(CORE_PATHS.has(url.pathname)||["script","style","manifest"].includes(event.request.destination)){event.respondWith(staleWhileRevalidate(event.request));return;}
   if(url.pathname.includes(COMPANION_HERO_PATH)){event.respondWith(cacheFirst(event.request));return;}
+  if(url.pathname.includes(OFF_CATALOGUE_PATH)){event.respondWith(cacheFirst(event.request));return;}
   event.respondWith(cacheFirst(event.request));
 });

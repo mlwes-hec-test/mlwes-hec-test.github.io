@@ -10,7 +10,7 @@
   const SEM=global.HECProductServingSemantics||(typeof require==='function'?require('./product-serving-semantics.js'):null);
   const REG=global.HECAustralianEntityRegistry||(typeof require==='function'?require('./entity-registry.js'):null);
   const RECORD_TYPES=Object.freeze({
-    AFCD:'afcd',FOOD_SOURCE:'food-source',PACKAGED:'packaged',PRIVATE:'private',RECIPE:'recipe',ONLINE:'online-candidate',LOCAL:'local'
+    AFCD:'afcd',FOOD_SOURCE:'food-source',PACKAGED:'packaged',EXTERNAL:'external-catalogue',PRIVATE:'private',RECIPE:'recipe',ONLINE:'online-candidate',LOCAL:'local'
   });
   const CONTROLLED_TYPOS=Object.freeze({
     capuccino:'cappuccino',cappucino:'cappuccino',cappacino:'cappuccino',
@@ -93,7 +93,8 @@
   }
   function trustworthyLocalBrandProduct(food){
     const type=recordType(food),status=norm(food?.verificationStatus),trusted=food?.verified===true||['verified','user confirmed','package confirmed'].includes(status)||food?.saved===true||food?.isSaved===true;
-    return marketFor(food)==='AU'&&food?.current!==false&&food?.itemStatus!=='retired'&&type!==RECORD_TYPES.ONLINE&&type!==RECORD_TYPES.AFCD&&trusted;
+    const eligibleExternal=type===RECORD_TYPES.EXTERNAL&&food?.provenanceClass==='australian-external-catalogue';
+    return marketFor(food)==='AU'&&food?.current!==false&&food?.itemStatus!=='retired'&&type!==RECORD_TYPES.ONLINE&&type!==RECORD_TYPES.AFCD&&(trusted||eligibleExternal);
   }
   function defensibleSavedBrandProduct(food){
     const type=recordType(food),status=norm(food?.verificationStatus),saved=food?.saved===true||food?.isSaved===true||food?.private===true||['user confirmed','package confirmed'].includes(status);
@@ -109,7 +110,7 @@
   function brandProductQuality(food){
     const type=recordType(food),market=marketFor(food);let score=0;
     if(market==='AU')score+=500;if(food?.verified||food?.verificationStatus==='verified')score+=300;if(food?.current!==false&&food?.itemStatus!=='retired')score+=120;
-    if(type===RECORD_TYPES.FOOD_SOURCE)score+=220;else if(type===RECORD_TYPES.PACKAGED)score+=180;else if(type===RECORD_TYPES.AFCD)score+=150;else if(type===RECORD_TYPES.LOCAL)score+=120;else if(type===RECORD_TYPES.PRIVATE)score+=100;else if(type===RECORD_TYPES.ONLINE)score-=160;
+    if(type===RECORD_TYPES.FOOD_SOURCE)score+=220;else if(type===RECORD_TYPES.PACKAGED)score+=180;else if(type===RECORD_TYPES.EXTERNAL)score+=165;else if(type===RECORD_TYPES.AFCD)score+=150;else if(type===RECORD_TYPES.LOCAL)score+=120;else if(type===RECORD_TYPES.PRIVATE)score+=100;else if(type===RECORD_TYPES.ONLINE)score-=160;
     if(hasEnergy(food))score+=40;score+=Math.max(0,Math.min(25,Number(food?.score)||0));return score;
   }
   function brandFamilyResults(records,query){
