@@ -95,8 +95,9 @@ test('source, punctuation and product aliases use the shared exact-first resolve
   assert.ok(catalogue.rank(byItem('6pc-chicken-mcnuggets'),'6 nuggets').score>=1400);
 });
 
-test('every record uses a natural fixed serving and none defaults to 1 g',()=>{
-  assert.ok(records.every(record=>record.defaultAmount===1));assert.ok(records.every(record=>record.defaultUnit!=='g'));
+test('every record uses its central semantic serving and none defaults to 1 g',()=>{
+  assert.ok(records.every(record=>record.semanticType&&record.semanticType!=='unknown'));assert.ok(records.every(record=>record.defaultUnit!=='g'));
+  assert.ok(records.filter(record=>record.semanticType==='counted-item').every(record=>record.defaultAmount>1&&record.defaultUnit==='piece'));
   assert.equal(byItem('big-mac').defaultUnit,'burger');assert.equal(byItem('bacon-egg-mcmuffin').defaultUnit,'muffin');
   assert.equal(byVariant('cappuccino','large').serving,'1 large drink');
   const resolved=serving.applyToFood(structuredClone(byItem('big-mac')));assert.equal(resolved.defaultUnit,'burger');assert.equal(resolved.lockedServingUnit,'burger');

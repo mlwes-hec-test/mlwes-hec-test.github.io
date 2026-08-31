@@ -11,6 +11,7 @@
 
   const VERSION='0.6.33';
   const REG=global.HECAustralianEntityRegistry;
+  const SEM=global.HECProductServingSemantics||(typeof require==='function'?require('./product-serving-semantics.js'):null);
   const GUIDELINE_SOURCE='Australian Dietary Guidelines · Eat for Health standard serves';
 
   function norm(v){return String(v||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/&/g,' and ').replace(/[’']/g,'').replace(/[^a-z0-9]+/g,' ').trim();}
@@ -322,6 +323,7 @@
 
   function applyToFood(food,context={}){
     if(!food)return food;
+    if(SEM?.applyToFood)SEM.applyToFood(food);
     const originalDefaultUnit=food.defaultUnit,originalDefaultAmount=Number(food.defaultAmount);
     food.units ||= {}; food.unitLabels ||= {};
     sanitizeUnits(food,context);
@@ -344,11 +346,11 @@
     const chosen=chooseDefault(food,context);if(chosen&&food.units[chosen]!==undefined){food.servingDefaultUnit=chosen;food.defaultUnit=chosen;if(chosen===originalDefaultUnit&&Number.isFinite(originalDefaultAmount)&&originalDefaultAmount>0)food.defaultAmount=originalDefaultAmount;else if(chosen==='g')food.defaultAmount=100;else if(chosen==='mL')food.defaultAmount=100;else food.defaultAmount=1;}
     const fractionCandidates=['bar','bottle','can','tub','pie','slice','regularSlice','thickSlice','serve','portion','chip','cracker','crispbread','item'];food.fractionUnits=fractionCandidates.filter(k=>food.units?.[k]!==undefined);
     food.servingMeasureVersion=VERSION;
-    return food;
+    return SEM?.applyToFood?SEM.applyToFood(food):food;
   }
 
   function diagnostic(food,context={}){
-    const f=applyToFood(clone(food),context);return {defaultUnit:f.servingDefaultUnit||f.defaultUnit,units:Object.entries(f.units||{}).map(([key,multiplier])=>({key,label:f.unitLabels?.[key]||key,multiplier})),source:f.servingFoundationSource||'',hint:f.servingRangeHint||'',category:inferCategory(f,context),packageExplicit:explicitPackageServing(f)};
+    const f=applyToFood(clone(food),context),policy=SEM?.servingPolicy?.(f);return {defaultUnit:f.servingDefaultUnit||f.defaultUnit,units:Object.entries(f.units||{}).map(([key,multiplier])=>({key,label:f.unitLabels?.[key]||key,multiplier})),source:f.servingFoundationSource||'',hint:f.servingRangeHint||'',category:inferCategory(f,context),packageExplicit:explicitPackageServing(f),semanticType:policy?.semanticType||'',nutritionBasis:policy?.nutritionBasis||'',allowedUnitFamily:policy?.allowedUnitFamily||''};
   }
 
   global.HECServingFoundation={version:VERSION,GUIDELINE_SOURCE,norm,basisInfo,isPackageFood,explicitPackageServing,inferCategory,stateInfo,sanitizeUnits,applyToFood,diagnostic};

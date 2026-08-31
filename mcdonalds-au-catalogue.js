@@ -8,6 +8,7 @@
 
   const registry=global.HECFoodSources||(typeof require==='function'?require('./food-sources.js'):null);
   const raw=global.HECMcDonaldsAustraliaRawCatalogueData||(typeof require==='function'?require('./mcdonalds-au-catalogue-data.js'):null);
+  const SEM=global.HECProductServingSemantics||(typeof require==='function'?require('./product-serving-semantics.js'):null);
   if(!registry||!raw)throw new Error("McDonald's Australia catalogue dependencies were not loaded");
 
   const BASE='https://www.mcdonalds.com/au/en-au/menu/';
@@ -34,6 +35,8 @@
   const slug=value=>cleanName(value).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/&/g,' and ').replace(/[’']/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
   const pathSlug=path=>String(path||'').split('/').pop().replace(/\.html$/,'');
   const nutrients=values=>values?Object.fromEntries(NUTRIENTS.map((key,index)=>[key,values[index]])):{};
+  const semanticCount=(family,name)=>{const direct=String(name||'').match(/(?:^|\b)(\d+)\s*(?:pc|piece)/i);if(direct)return Number(direct[1]);const linked=(family.z||[]).find(([,path])=>path===family.u)?.[0]||'';const match=String(linked).match(/(?:^|\b)(\d+)\s*(?:pc|piece)/i);return match?Number(match[1]):0;};
+  const sourceSemantics=(family,name,itemKind='product',extra={})=>SEM?.classify?.({recordType:'food-source',name,itemKind,category:primaryCategory(family),categoryMemberships:family.c.map(cleanName),nutritionStatus:itemKind==='configurable-assembly'?'configurable':'complete',serving:'official menu serving',semanticCount:semanticCount(family,name),...extra})||null;
   const isMcCafe=family=>family.c.includes('McCafé® Drinks');
   const variantsByFamily=new Map();
   for(const variant of raw.variants){const list=variantsByFamily.get(variant.f)||[];list.push(variant);variantsByFamily.set(variant.f,list);}
@@ -97,20 +100,20 @@
     const nuggets=base.match(/^(\d+)pc Chicken McNuggets/i);if(nuggets)out.push(`${nuggets[1]} nuggets`,`${nuggets[1]} mcnuggets`);
     if(/cappuccino/i.test(base))out.push('maccas cappuccino','mcdonalds cappuccino');
     if(variantLabel)out.push(`${variantLabel} ${cleanName(family.n)}`,`${variantLabel} maccas ${cleanName(family.n)}`);
-    return unique(out);
+    return unique([...out,...(SEM?.controlledAliasesFor?.(base)||[]),...(family.c.map(cleanName).includes('Condiments')?(SEM?.relationshipAliasesFor?.(base)||[]):[])]);
   }
   function officialVolume(name){const match=String(name).match(/\b(\d+)\s*m[lL]\b/);return match?Number(match[1]):null;}
   function provenance(path,hasNutrition=true){return {publisher:"McDonald's Australia",url:`${BASE}${path}`,referenceType:hasNutrition?'Official current Australian menu product nutrition table':'Official current Australian menu product page',tableBasis:hasNutrition?'Avg Qty / Serve and Per 100g or 100mL':'Nutrition unavailable/incomplete on the published product page'};}
   function friesVariant(size,path,values){
     const name=`${size} Fries`,serving=naturalServing(name,'Sides',{variantLabel:size});
-    return {id:size.toLowerCase(),variantLabel:size,name,aliases:[name,`${size} Macca's Fries`,`${size} Maccas Fries`,`${size} McDonald's Fries`,`Maccas ${size} Fries`,`McDonald's ${size} Fries`,'Fries'],browseCategory:'Sides & Fries',browseTags:['Sides','Fries',size.toLowerCase()],nutritionStatus:'complete',loggable:true,standardServingLabel:serving.standardServingLabel,serving:{unitKey:serving.unitKey,unitLabel:serving.unitLabel},servingWeightG:null,servingVolumeMl:null,nutritionPer100Unit:'g',nutritionPerServing:nutrients(values),nutritionPer100:nutrients([1270,304,4.8,16,1.3,33.8,0,292]),provenance:{publisher:"McDonald's Australia",url:`${BASE}${path}`,supportingReference:CORE_MENU_PDF,referenceType:'Official current Australian menu size and published January 2026 core nutrition table',tableBasis:'Avg Qty / Serve and Avg Qty / 100g'},sourceLastCheckedDate:raw.checkedDate,lastSeenAt:raw.checkedAt,effectiveDate:'2026-01',sourceAnomalies:[]};
+    return {id:size.toLowerCase(),variantLabel:size,name,productSemantics:{type:'sized-variant',size,confidence:'high'},aliases:[name,`${size} Macca's Fries`,`${size} Maccas Fries`,`${size} McDonald's Fries`,`Maccas ${size} Fries`,`McDonald's ${size} Fries`,'Fries'],browseCategory:'Sides & Fries',browseTags:['Sides','Fries',size.toLowerCase()],nutritionStatus:'complete',loggable:true,standardServingLabel:serving.standardServingLabel,serving:{unitKey:serving.unitKey,unitLabel:serving.unitLabel},servingWeightG:null,servingVolumeMl:null,nutritionPer100Unit:'g',nutritionPerServing:nutrients(values),nutritionPer100:nutrients([1270,304,4.8,16,1.3,33.8,0,292]),provenance:{publisher:"McDonald's Australia",url:`${BASE}${path}`,supportingReference:CORE_MENU_PDF,referenceType:'Official current Australian menu size and published January 2026 core nutrition table',tableBasis:'Avg Qty / Serve and Avg Qty / 100g'},sourceLastCheckedDate:raw.checkedDate,lastSeenAt:raw.checkedAt,effectiveDate:'2026-01',sourceAnomalies:[]};
   }
   function assemblyModel(name){return {type:'configurable-assembly',nutritionAggregation:'sum-selected-components',componentSlots:[{id:'products',label:'Selected products'},{id:'sides',label:'Selected side sizes'},{id:'drinks',label:'Selected drink sizes'}],implementationStatus:'future-configurator',sourceDescription:name};}
   function itemFromFamily(family){
     const id=familyId(family),name=displayName(family),category=primaryCategory(family),configurable=BUNDLES.has(family.n),nutritionStatus=configurable?'configurable':family.v?'complete':'unavailable';
-    const featured=family.c.includes('Featured')||family.n==="Macca's® Mega Meal",limited=LIMITED_PATHS.has(family.u),serving=naturalServing(name,category,{configurable}),menuBrowseCategory=browseCategory(family,name,category);
+    const featured=family.c.includes('Featured')||family.n==="Macca's® Mega Meal",limited=LIMITED_PATHS.has(family.u),serving=naturalServing(name,category,{configurable}),menuBrowseCategory=browseCategory(family,name,category),count=semanticCount(family,name),productSemantics=sourceSemantics(family,name,configurable?'configurable-assembly':'product');
     const item={
-      id,name,officialName:family.n,aliases:aliasesFor(name,family),category,categoryMemberships:family.c.map(cleanName),browseCategory:menuBrowseCategory,browseTags:browseTags(family,name,category),status:'current',itemKind:configurable?'configurable-assembly':isMcCafe(family)?'beverage-family':'product',
+      id,name,officialName:family.n,aliases:aliasesFor(name,family),category,categoryMemberships:family.c.map(cleanName),browseCategory:menuBrowseCategory,browseTags:browseTags(family,name,category),status:'current',itemKind:configurable?'configurable-assembly':isMcCafe(family)?'beverage-family':'product',productSemantics,semanticCount:count,
       nutritionStatus,loggable:nutritionStatus==='complete',standardServingLabel:serving.standardServingLabel,serving:{unitKey:serving.unitKey,unitLabel:serving.unitLabel},servingWeightG:null,servingVolumeMl:officialVolume(family.n),nutritionPer100Unit:family.b||'',
       nutritionPerServing:nutrients(family.v?.[0]),nutritionPer100:nutrients(family.v?.[1]),provenance:provenance(family.u,!!family.v),sourceLastCheckedDate:raw.checkedDate,lastSeenAt:raw.checkedAt,effectiveDate:raw.checkedDate,
       officialSizeLinks:(family.z||[]).map(([label,path])=>({label,url:`${BASE}${path}`})),sourceAnomalies:PUBLISHED_ANOMALIES[family.u]||[],promotional:featured,promotionalStatus:limited?'limited-time':featured?'featured':'standard',limitedTime:limited,promotionExpiry:'',assemblyModel:configurable?assemblyModel(name):null,variants:[]
@@ -120,7 +123,7 @@
     if(family.v){
       item.variants=(variantsByFamily.get(family.u)||[]).map(variant=>{
         const variantName=`${variant.l} ${cleanName(family.n)}`,variantServing=naturalServing(variantName,category,{variantLabel:variant.l});
-        return {id:slug(variant.l),variantLabel:variant.l,name:variantName,aliases:aliasesFor(variantName,family,variant.l),browseCategory:browseCategory(family,variantName,category),browseTags:browseTags(family,variantName,category),nutritionStatus:'complete',loggable:true,standardServingLabel:variantServing.standardServingLabel,serving:{unitKey:variantServing.unitKey,unitLabel:variantServing.unitLabel},servingWeightG:null,servingVolumeMl:null,nutritionPer100Unit:variant.b||'',nutritionPerServing:nutrients(variant.v[0]),nutritionPer100:nutrients(variant.v[1]),provenance:provenance(variant.u,true),sourceLastCheckedDate:raw.checkedDate,lastSeenAt:raw.checkedAt,effectiveDate:raw.checkedDate,sourceAnomalies:PUBLISHED_ANOMALIES[variant.u]||[]};
+        return {id:slug(variant.l),variantLabel:variant.l,name:variantName,productSemantics:sourceSemantics(family,variantName,'product',{variantLabel:variant.l}),semanticCount:semanticCount(family,variantName),aliases:aliasesFor(variantName,family,variant.l),browseCategory:browseCategory(family,variantName,category),browseTags:browseTags(family,variantName,category),nutritionStatus:'complete',loggable:true,standardServingLabel:variantServing.standardServingLabel,serving:{unitKey:variantServing.unitKey,unitLabel:variantServing.unitLabel},servingWeightG:null,servingVolumeMl:null,nutritionPer100Unit:variant.b||'',nutritionPerServing:nutrients(variant.v[0]),nutritionPer100:nutrients(variant.v[1]),provenance:provenance(variant.u,true),sourceLastCheckedDate:raw.checkedDate,lastSeenAt:raw.checkedAt,effectiveDate:raw.checkedDate,sourceAnomalies:PUBLISHED_ANOMALIES[variant.u]||[]};
       });
     }
     if(family.u==='sides/small-fries.html'){

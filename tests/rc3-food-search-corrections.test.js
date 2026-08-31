@@ -74,13 +74,13 @@ test('natural serving safeguards distinguish normal fractions from implausible w
   assert.equal(quarterPounder.defaultAmount,1);assert.equal(quarterPounder.defaultUnit,'burger');
   assert.equal(mcmuffin.defaultAmount,1);assert.equal(mcmuffin.defaultUnit,'muffin');
   assert.equal(mcwrap.defaultAmount,1);assert.equal(mcwrap.defaultUnit,'wrap');
-  assert.equal(nuggets.defaultUnit,'portion');assert.match(nuggets.unitLabels.portion,/10-Piece Portion/);
+  assert.equal(nuggets.defaultAmount,10);assert.equal(nuggets.defaultUnit,'piece');assert.equal(nuggets.units.piece,.1);assert.match(nuggets.unitLabels.portion,/10-Piece Portion/);
   assert.equal(fries.defaultUnit,'portion');assert.match(fries.unitLabels.portion,/Small Fries Portion/);
   assert.equal(quarterPounder.nutrients.calories*.5,272.5);assert.equal(quarterPounder.nutrients.energyKj*.5,1140);
   assert.equal(catalogue.naturalQuantityWarning(bigMac,.5,'burger').requiresConfirmation,false);
   assert.equal(catalogue.naturalQuantityWarning(bigMac,1,'burger').requiresConfirmation,false);
   assert.equal(catalogue.naturalQuantityWarning(bigMac,250,'burger').requiresConfirmation,true);
-  assert.equal(catalogue.naturalQuantityWarning(nuggets,250,'portion').requiresConfirmation,true);
+  assert.equal(catalogue.naturalQuantityWarning(nuggets,250,'piece').requiresConfirmation,true);
 });
 
 test('official provenance and canonical IDs survive saving without creating a manual duplicate',()=>{

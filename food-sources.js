@@ -6,6 +6,7 @@
   'use strict';
 
   const VERSION='0.6.33';
+  const SEM=global.HECProductServingSemantics||(typeof require==='function'?require('./product-serving-semantics.js'):null);
   const ITEM_STATUSES=Object.freeze({CURRENT:'current',RETIRED:'retired'});
   const NUTRITION_STATUSES=Object.freeze({COMPLETE:'complete',UNAVAILABLE:'unavailable',CONFIGURABLE:'configurable'});
   const NUTRIENT_KEYS=Object.freeze(['energyKj','calories','protein','fat','satFat','carbs','sugar','sodium','fibre']);
@@ -99,19 +100,19 @@
     if(!item||!source)return null;
     const entity=variant||item,unitKey=entity.serving.unitKey,unitLabel=entity.serving.unitLabel,sourceItemKey=`${source.id}:${item.id}${variant?`:${variant.id}`:''}`;
     const per100=clone(entity.nutritionPer100||entity.nutritionPer100g||{}),licensing={usageScope:source.usageScope,licenceStatus:source.licenceStatus,productionApproved:source.productionApproved,inheritedFromSource:true};
-    return {
+    const record={
       id:`food-source:${sourceItemKey}`,canonicalId:`food-source:${sourceItemKey}`,recordType:'food-source',foodSourceId:source.id,sourceItemId:item.id,sourceVariantId:variant?.id||'',sourceId:sourceItemKey,
       familyId:item.id,familyName:variant?(item.familyDisplayName||item.name):item.name,variantLabel:variant?.variantLabel||'',name:entity.name,brand:source.displayName,category:item.category,categoryMemberships:clone(item.categoryMemberships),browseCategory:entity.browseCategory||item.browseCategory||'Other',browseTags:unique([...(item.browseTags||[]),...(entity.browseTags||[])]),country:source.country,market:source.market,
       aliases:unique([...(variant&&item.variantAliasIsolation==='size'?(item.aliases||[]).filter(alias=>!/\b(?:small|medium|large)\b/i.test(alias)):(item.aliases||[])),...(entity.aliases||[])]),sourceAliases:clone(source.aliases),sourceDisplayName:source.displayName,sourceType:source.sourceType,
       itemStatus:item.status,current:item.status===ITEM_STATUSES.CURRENT,retiredAt:item.retiredAt||'',nutritionStatus:entity.nutritionStatus,loggable:!!entity.loggable,entryBlockedReason:entity.entryBlockedReason||blockedReason(entity.nutritionStatus),
-      itemKind:item.itemKind||'product',assemblyModel:clone(item.assemblyModel||null),promotionalStatus:item.promotionalStatus||'standard',promotional:!!item.promotional,limitedTime:!!item.limitedTime,promotionExpiry:item.promotionExpiry||'',
+      itemKind:item.itemKind||'product',productSemantics:clone(entity.productSemantics||item.productSemantics||null),semanticCount:entity.semanticCount||item.semanticCount||0,assemblyModel:clone(item.assemblyModel||null),promotionalStatus:item.promotionalStatus||'standard',promotional:!!item.promotional,limitedTime:!!item.limitedTime,promotionExpiry:item.promotionExpiry||'',
       defaultAmount:1,defaultUnit:unitKey,servingDefaultUnit:unitKey,lockedServingUnit:unitKey,fractionUnits:[unitKey],units:{[unitKey]:1},unitLabels:{[unitKey]:unitLabel},serving:entity.standardServingLabel,
       servingWeightG:entity.servingWeightG,servingVolumeMl:entity.servingVolumeMl,nutritionPer100Unit:entity.nutritionPer100Unit||item.nutritionPer100Unit||'',nutrients:clone(entity.nutritionPerServing),nutritionPer100:per100,nutritionPer100g:per100,
       nutritionBasis:{perServing:clone(entity.nutritionPerServing),per100,servingAmount:entity.servingWeightG??entity.servingVolumeMl,servingUnit:entity.servingWeightG!==null?'g':entity.servingVolumeMl!==null?'mL':'',servingText:entity.standardServingLabel,manufacturerServing:false},
       score:6,source:`Official ${source.displayName} menu nutrition · checked ${entity.sourceLastCheckedDate||source.lastCheckedDate}`,sourceUrl:entity.provenance.url,officialSourceUrl:source.officialUrl,provenance:clone(entity.provenance),sourceAnomalies:unique([...(item.sourceAnomalies||[]),...(entity.sourceAnomalies||[])]),
       sourceLastCheckedDate:entity.sourceLastCheckedDate||source.lastCheckedDate,lastSeenAt:entity.lastSeenAt||item.lastSeenAt||source.catalogueCheckedAt,catalogueVersion:source.catalogueVersion,catalogueCheckedAt:source.catalogueCheckedAt,effectiveDate:entity.effectiveDate||source.effectiveDate||'',
       usageScope:licensing.usageScope,licenceStatus:licensing.licenceStatus,productionApproved:licensing.productionApproved,licensing,verificationStatus:'official-source',verified:true,ingredients:'',allergens:[],waterMl:0,hydrationType:item.category.includes('Drink')?'drink':'food',foodGroups:{}
-    };
+    };return SEM?.applyToFood?SEM.applyToFood(record):record;
   }
   function foodRecords({sourceId='',includeRetired=false}={}){const sources=sourceId?[catalogues.get(sourceId)].filter(Boolean):[...catalogues.values()],records=[];for(const catalogue of sources)for(const item of catalogue.items){if(!includeRetired&&item.status!==ITEM_STATUSES.CURRENT)continue;if(item.variants.length){if(item.includeBaseRecord)records.push(toFoodRecord(item,catalogue.source));for(const variant of item.variants)records.push(toFoodRecord(item,catalogue.source,variant));}else records.push(toFoodRecord(item,catalogue.source));}return records;}
   function nutritionSnapshot(item){return {nutritionStatus:item?.nutritionStatus,nutritionPerServing:item?.nutritionPerServing,nutritionPer100:item?.nutritionPer100,variants:(item?.variants||[]).map(v=>({id:v.id,nutritionStatus:v.nutritionStatus,nutritionPerServing:v.nutritionPerServing,nutritionPer100:v.nutritionPer100}))};}

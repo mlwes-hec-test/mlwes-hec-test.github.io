@@ -7,6 +7,7 @@
   'use strict';
 
   const VERSION='0.6.33';
+  const SEM=global.HECProductServingSemantics||(typeof require==='function'?require('./product-serving-semantics.js'):null);
   const RECORD_TYPES=Object.freeze({
     AFCD:'afcd',FOOD_SOURCE:'food-source',PACKAGED:'packaged',PRIVATE:'private',RECIPE:'recipe',ONLINE:'online-candidate',LOCAL:'local'
   });
@@ -149,9 +150,10 @@
       if(baseMatch){const type=recordType(food),australian=marketFor(food)==='AU',generic=type===RECORD_TYPES.AFCD||(!food?.brand&&!food?.foodSourceId);score=Math.max(score,generic&&australian?1800:australian?1350:760);tier=generic&&australian?'generic-au-fries':australian?'australian-fries':'generic-fries';}
     }
     if(!score)return {score:0,tier};
+    const relationship=SEM?.rankAdjustment?.(food,q)||{adjustment:0,intent:'neutral'};score=Math.max(1,score+Number(relationship.adjustment||0));
     const type=recordType(food);if(saved)score+=120;if(locallyVerified||food?.verified)score+=70;if(marketFor(food)==='AU')score+=35;if(type===RECORD_TYPES.AFCD)score+=25;
     if(fries.generic&&!explicitSource&&marketFor(food)!=='AU'&&(food?.brand||[RECORD_TYPES.FOOD_SOURCE,RECORD_TYPES.ONLINE,RECORD_TYPES.PACKAGED].includes(type)))score=Math.min(score,780);
-    return {score,tier,query:q};
+    return {score,tier,query:q,relationshipIntent:relationship.intent};
   }
   function toksafe(value){return Math.min(20,tokens(value).length);}
   function quality(food){let score=0;if(food?.verified)score+=100;if(marketFor(food)==='AU')score+=25;if(hasEnergy(food))score+=20;const type=recordType(food);if(type===RECORD_TYPES.FOOD_SOURCE)score+=20;if(type===RECORD_TYPES.AFCD)score+=15;if(type===RECORD_TYPES.LOCAL||type===RECORD_TYPES.PRIVATE)score+=8;return score;}
@@ -210,13 +212,13 @@
     if(type===RECORD_TYPES.PACKAGED)return {label:verified?'Verified Packaged Food':'Packaged Food',detail:food?.source||'Check the current package',verified:!!verified};
     return {label:verified?'Verified Food':'Food Record',detail:food?.source||'Source not supplied',verified:!!verified};
   }
-  function canLog(food){return food?.loggable!==false&&food?.nutritionStatus!=='unavailable'&&food?.nutritionStatus!=='configurable'&&hasEnergy(food)&&food?.verificationStatus!=='recognised-only'&&food?.recognisedOnly!==true;}
+  function canLog(food){const policy=SEM?.servingPolicy?.(food);return policy?.loggable!==false&&food?.loggable!==false&&food?.nutritionStatus!=='unavailable'&&food?.nutritionStatus!=='configurable'&&hasEnergy(food)&&food?.verificationStatus!=='recognised-only'&&food?.recognisedOnly!==true;}
   function quickAddPolicy(food,{date='',meal='',sourceTrusted=false,safetyBlocked=false}={}){
-    const unit=String(food?.defaultUnit||''),amount=Number(food?.defaultAmount),units=food?.units||{},natural=!!unit&&Number.isFinite(amount)&&amount>0&&units[unit]!==undefined&&!['g','mL'].includes(unit);let reason='';
+    const policy=SEM?.servingPolicy?.(food),unit=String(policy?.defaultUnit||food?.defaultUnit||''),amount=Number(policy?.defaultAmount??food?.defaultAmount),units=policy?.units||food?.units||{},natural=!!unit&&Number.isFinite(amount)&&amount>0&&units[unit]!==undefined&&!['g','mL'].includes(unit);let reason='';
     if(!food)reason='identity';else if(!date||!meal)reason='destination';else if(!canLog(food))reason='nutrition';else if(!natural)reason='serving';else if(!sourceTrusted)reason='source';else if(safetyBlocked)reason='safety';return {ready:!reason,reason,amount,unit,date,meal};
   }
   function fullReviewPolicy(food,{safetyBlocked=false}={}){
-    const rawAmount=Number(food?.defaultAmount),amount=Number.isFinite(rawAmount)&&rawAmount>0?rawAmount:1,unit=String(food?.defaultUnit||'');let reason='';
+    const policy=SEM?.servingPolicy?.(food),rawAmount=Number(policy?.defaultAmount??food?.defaultAmount),amount=Number.isFinite(rawAmount)&&rawAmount>0?rawAmount:1,unit=String(policy?.defaultUnit||food?.defaultUnit||'');let reason='';
     if(!food)reason='identity';else if(!canLog(food))reason='nutrition';else if(safetyBlocked)reason='safety';else if(!unit||(food?.units||{})[unit]===undefined)reason='unit';return {ready:!reason,reason,amount,unit};
   }
   function newSearchState(){return {query:'',tab:'all',revision:0,snapshot:null};}
