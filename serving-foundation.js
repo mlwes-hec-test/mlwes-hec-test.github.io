@@ -88,6 +88,24 @@
     };
   }
 
+  function singular(value){return String(value||'').replace(/ies$/,'y').replace(/sses$/,'ss').replace(/([a-z]{4,})s$/,'$1');}
+  function categoryConcepts(food){
+    const source=[...(food?.categories||[]),...(food?.categoryMemberships||[]),food?.genericName||'',food?.category||''],out=new Set();
+    for(const value of source){const label=norm(value);if(!label)continue;const parts=label.split(' '),head=singular(parts[parts.length-1]);out.add(singular(label));if(head)out.add(head);}
+    return out;
+  }
+  function physicalForm(food){
+    const concepts=categoryConcepts(food),serving=norm(`${food?.servingSize||''} ${food?.packageServingText||''} ${food?.serving||''}`),units=food?.units||{};
+    const hasConcept=pattern=>[...concepts].some(value=>pattern.test(value));
+    if(['liquid','spread','countable','sliced','packaged-item','weight'].includes(food?.physicalForm))return {form:food.physicalForm,confidence:'catalogue-physical-form',primaryUnit:food.physicalForm==='liquid'?'mL':food.physicalForm==='spread'||food.physicalForm==='weight'?'g':food.defaultUnit||'serve'};
+    if(hasConcept(/^(?:spread|margarine|nut butter|seed butter|butter)$/))return {form:'spread',confidence:'category-form',primaryUnit:'g'};
+    if(Number(units.mL)>0||food?.nutritionPer100Unit==='mL'||hasConcept(/^(?:beverage|drink|milk|juice|water|soft drink|liquid)$/))return {form:'liquid',confidence:'category-or-source-volume',primaryUnit:'mL'};
+    if(/\b\d+(?:\.\d+)?\s*(?:pieces?|biscuits?|crackers?|bars?|sachets?|packets?|rolls?|burgers?)\b/.test(serving))return {form:'countable',confidence:'explicit-package-count',primaryUnit:'serve'};
+    if(/\b\d+(?:\.\d+)?\s*slices?\b/.test(serving)||hasConcept(/^(?:sliced food|slice)$/))return {form:'sliced',confidence:'explicit-slice',primaryUnit:'slice'};
+    if(explicitPackageServing(food))return {form:'packaged-item',confidence:'explicit-package-serving',primaryUnit:'serve'};
+    return {form:'weight',confidence:'conservative-solid-fallback',primaryUnit:'g'};
+  }
+
   function setUnit(food,key,label,multiplier,{replace=false,origin='',confidence='high'}={}){
     const m=finite(multiplier);if(!food||!key||m<=0)return false;
     food.units ||= {}; food.unitLabels ||= {}; food.unitOrigins ||= {};
@@ -109,7 +127,7 @@
     const b=basisInfo(food);if(!b.mlScale)return food;
     const category=inferCategory(food,context),s=stateInfo(food,context),name=norm(`${food?.name||''} ${food?.category||''}`);
     const metric={origin:'Metric household volume measure',confidence:'high'};
-    if(category==='drink'||s.milk)addMlMeasure(food,'cup','Cup (250 mL)',250,metric);
+    if(category==='drink'||s.milk||physicalForm(food).form==='liquid')addMlMeasure(food,'cup','Cup (250 mL)',250,metric);
     if(category==='egg'&&s.eggWhite){addMlMeasure(food,'tsp','Teaspoon Egg White (5 mL)',5,metric);addMlMeasure(food,'tbsp','Tablespoon Egg White (15 mL)',15,{...metric,replace:false});return food;}
     if(/\b(oil|dressing|sauce|gravy|syrup|vinegar|pouring cream|liquid seasoning)\b/.test(name)){
       addMlMeasure(food,'tsp','Teaspoon (5 mL)',5,metric);
@@ -351,10 +369,18 @@
     return SEM?.applyToFood?SEM.applyToFood(food):food;
   }
 
+  function servingMeasureProfile(food,context={}){
+    if(!food)return null;const resolved=applyToFood(clone(food),context),form=physicalForm(resolved),units=resolved.units||{},labels=resolved.unitLabels||{},origins=resolved.unitOrigins||{},measures=[];
+    for(const [key,value] of Object.entries(units)){const multiplier=finite(value);if(multiplier<=0)continue;measures.push({key,label:String(labels[key]||key),multiplier,source:String(origins[key]?.origin||((food.units||{})[key]!==undefined?'source-product-metadata':'central-serving-profile')),confidence:String(origins[key]?.confidence||'')});}
+    const safe=measures.filter(measure=>form.form==='liquid'?!['g','kg','slice'].includes(measure.key):form.form==='spread'?!['mL','L','cup'].includes(measure.key):true);
+    const preferred=safe.some(measure=>measure.key===form.primaryUnit)?form.primaryUnit:safe.some(measure=>measure.key===resolved.defaultUnit)?resolved.defaultUnit:safe[0]?.key||'';
+    return {physicalForm:form.form,formConfidence:form.confidence,measures:safe,preferredMeasure:preferred,resolvedFood:resolved};
+  }
+
   function diagnostic(food,context={}){
     const f=applyToFood(clone(food),context),policy=SEM?.servingPolicy?.(f);return {defaultUnit:f.servingDefaultUnit||f.defaultUnit,units:Object.entries(f.units||{}).map(([key,multiplier])=>({key,label:f.unitLabels?.[key]||key,multiplier})),source:f.servingFoundationSource||'',hint:f.servingRangeHint||'',category:inferCategory(f,context),packageExplicit:explicitPackageServing(f),semanticType:policy?.semanticType||'',nutritionBasis:policy?.nutritionBasis||'',allowedUnitFamily:policy?.allowedUnitFamily||'',foodGroupUnitEligibility:policy?.foodGroupUnitEligibility||null};
   }
 
-  const api={version:VERSION,GUIDELINE_SOURCE,norm,basisInfo,isPackageFood,explicitPackageServing,inferCategory,stateInfo,sanitizeUnits,applyToFood,diagnostic};
+  const api={version:VERSION,GUIDELINE_SOURCE,norm,basisInfo,isPackageFood,explicitPackageServing,inferCategory,stateInfo,categoryConcepts,physicalForm,sanitizeUnits,applyToFood,servingMeasureProfile,diagnostic};
   global.HECServingFoundation=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);

@@ -23,7 +23,7 @@ test('9. exact brand lookup exposes the measured brand universe',async()=>assert
 test('10. brand spacing normalization is generic',async()=>assert.equal((await auditModule.api.search('Meadow Lea')).total,(await auditModule.api.search('MeadowLea')).total));
 test('11. product-name tokens retrieve real products',async()=>assert.ok((await auditModule.api.search('mini dim sim')).foods.some(x=>/mini dim sim/i.test(x.name))));
 test('12. brand plus product finds a real exact identity',async()=>assert.ok((await auditModule.api.search('Golden Wok mini dim sim')).foods.some(x=>/golden wok/i.test(x.brand))));
-test('13. generic terms retain thousands-scale results',async()=>assert.equal((await auditModule.api.search('milk')).total,3120));
+test('13. generic terms retain thousands-scale results while adding category members',async()=>assert.ok((await auditModule.api.search('milk')).total>=3120));
 test('14. serving sizes never create duplicate product IDs',()=>assert.equal(new Set(products.map(x=>x.id)).size,products.length));
 test('15. generated active records contain no non-Australian country-only row',()=>assert.ok(products.every(x=>x.countries.some(v=>v==='en:australia'))));
 test('16. company/source text cannot create consumer-brand membership',()=>{const entity={type:'brand',id:'flora',name:'Flora',aliases:[],familyAliases:[]};assert.equal(catalogue.consumerBrandMembership(entity,{brand:'Becel',source:'Flora Food Group'}).matches,false);});

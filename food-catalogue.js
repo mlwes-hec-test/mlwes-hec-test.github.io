@@ -12,6 +12,8 @@
   const RECORD_TYPES=Object.freeze({
     AFCD:'afcd',FOOD_SOURCE:'food-source',PACKAGED:'packaged',EXTERNAL:'external-catalogue',PRIVATE:'private',RECIPE:'recipe',ONLINE:'online-candidate',LOCAL:'local'
   });
+  const SOURCE_TIERS=Object.freeze({AUTHORITATIVE_LOCAL:1,AUSTRALIAN_CATALOGUE:2,SAVED_EXACT:3,BROADER_ONLINE:4,FOREIGN_FALLBACK:5});
+  const PRODUCT_QUALITY=Object.freeze({HIGH:'high-quality-exact-product',INCOMPLETE:'exact-but-incomplete',WEAK:'weak-name',BRAND_REFERENCE:'brand-reference',BARCODE_ONLY:'barcode-only',FOREIGN:'foreign-low-local-relevance'});
   const CONTROLLED_TYPOS=Object.freeze({
     capuccino:'cappuccino',cappucino:'cappuccino',cappacino:'cappuccino',
     sausuage:'sausage',sausge:'sausage',potatoe:'potato',chicko:'chiko',chico:'chiko',chicco:'chiko',cheeko:'chiko',
@@ -112,6 +114,47 @@
     if(market==='AU')score+=500;if(food?.verified||food?.verificationStatus==='verified')score+=300;if(food?.current!==false&&food?.itemStatus!=='retired')score+=120;
     if(type===RECORD_TYPES.FOOD_SOURCE)score+=220;else if(type===RECORD_TYPES.PACKAGED)score+=180;else if(type===RECORD_TYPES.EXTERNAL)score+=165;else if(type===RECORD_TYPES.AFCD)score+=150;else if(type===RECORD_TYPES.LOCAL)score+=120;else if(type===RECORD_TYPES.PRIVATE)score+=100;else if(type===RECORD_TYPES.ONLINE)score-=160;
     if(hasEnergy(food))score+=40;score+=Math.max(0,Math.min(25,Number(food?.score)||0));return score;
+  }
+  function sourceTier(food){
+    const type=recordType(food),market=marketFor(food),saved=food?.saved===true||food?.isSaved===true||food?.private===true;
+    if(market!=='AU'&&market!=='Australia')return SOURCE_TIERS.FOREIGN_FALLBACK;
+    if(type===RECORD_TYPES.ONLINE)return SOURCE_TIERS.BROADER_ONLINE;
+    if(saved||[RECORD_TYPES.PRIVATE,RECORD_TYPES.RECIPE].includes(type))return SOURCE_TIERS.SAVED_EXACT;
+    if(type===RECORD_TYPES.EXTERNAL||food?.provenanceClass==='australian-external-catalogue')return SOURCE_TIERS.AUSTRALIAN_CATALOGUE;
+    return SOURCE_TIERS.AUTHORITATIVE_LOCAL;
+  }
+  function meaningfulProductName(food){
+    const name=norm(food?.name),brand=norm(food?.brand),barcode=String(food?.barcode||'').replace(/\D/g,'');
+    return !!name&&name!==brand&&name!==norm(`barcode ${barcode}`)&&!/^(?:product|food|unknown|unnamed)$/.test(name);
+  }
+  function productIdentityQuality(food){
+    const name=norm(food?.name),brand=norm(food?.brand),meaningful=meaningfulProductName(food),tier=sourceTier(food),nutrition=norm(food?.nutritionStatus||food?.nutritionCompleteness||'');let classification=PRODUCT_QUALITY.HIGH,score=1000,reason='specific-consumer-product';
+    if(!name||/^barcode \d+$/.test(name)){classification=PRODUCT_QUALITY.BARCODE_ONLY;score=100;reason='unnamed-barcode-identity';}
+    else if(brand&&name===brand){classification=PRODUCT_QUALITY.BRAND_REFERENCE;score=0;reason='navigation-only-brand-reference';}
+    else if(!meaningful||tokens(name).length===1&&!food?.genericName&&!food?.quantity&&!food?.packSize){classification=PRODUCT_QUALITY.WEAK;score=350;reason='ambiguous-or-weak-name';}
+    else if(tier===SOURCE_TIERS.FOREIGN_FALLBACK){classification=PRODUCT_QUALITY.FOREIGN;score=300;reason='low-local-relevance';}
+    else if(!hasEnergy(food)||['identity only','identity-only','partial','suspect','conflicting'].includes(nutrition)){classification=PRODUCT_QUALITY.INCOMPLETE;score=760;reason='specific-identity-incomplete-nutrition';}
+    if(food?.genericName&&norm(food.genericName)!==name)score+=20;if(food?.quantity||food?.packSize||food?.packageSize)score+=15;if(food?.barcode)score+=10;
+    return {classification,score,reason,consumable:![PRODUCT_QUALITY.BRAND_REFERENCE,PRODUCT_QUALITY.BARCODE_ONLY].includes(classification),exactEligible:[PRODUCT_QUALITY.HIGH,PRODUCT_QUALITY.INCOMPLETE].includes(classification),sourceTier:tier};
+  }
+  function consumerDisplayName(food){
+    const original=String(food?.name||'').trim(),fallback=String(food?.genericName||'').trim(),chosen=meaningfulProductName(food)?original:fallback||original||`Barcode ${String(food?.barcode||'').trim()}`;
+    if(!chosen)return 'Unnamed product';if(/[a-z]/.test(chosen)&&/[A-Z]/.test(chosen))return chosen;
+    return chosen.toLowerCase().replace(/\b[a-z]/g,letter=>letter.toUpperCase());
+  }
+  function fieldSpecificRank(food,query,{consumerBrand='',conceptMatch=false}={}){
+    const q=norm(query),qt=tokens(q),name=norm(food?.name),brand=norm(food?.brand),generic=norm(food?.genericName),categories=(food?.categories||food?.categoryMemberships||[]).map(norm),barcode=String(food?.barcode||'').replace(/\D/g,''),identity=productIdentityQuality(food);let score=0,field='none';
+    if(barcode&&String(query||'').replace(/\D/g,'')===barcode){score=100000;field='barcode';}
+    else if(name===q||norm(`${brand} ${name}`)===q){score=8000;field='exact-product-name';}
+    else if(consumerBrand&&brand===norm(consumerBrand)&&qt.every(token=>tokens(`${brand} ${name}`).includes(token))){score=7000+qt.length*20;field='brand-product';}
+    else if(brand===q){score=6500;field='consumer-brand';}
+    else if(conceptMatch){score=6000+qt.length*20;field='category-concept';}
+    else if(qt.length&&qt.every(token=>tokens(name).includes(token))){score=5000+qt.length*20;field='product-name-tokens';}
+    else if(generic===q||categories.includes(q)){score=4600;field='generic-or-category';}
+    else if(qt.length&&qt.every(token=>tokens(`${name} ${generic}`).includes(token))){score=4000+qt.length*10;field='weak-identity-text';}
+    if(!score)return {score:0,field,identity};
+    score+=Math.max(0,600-sourceTier(food)*100)+identity.score;
+    return {score,field,identity};
   }
   function brandFamilyResults(records,query){
     const intent=queryIntent(query);if(!['brand-family','source'].includes(intent.kind)||!intent.entity)return null;
@@ -307,6 +350,6 @@
     const label=food?.unitLabels?.[natural]||natural||'servings';return {level:'implausible',requiresConfirmation:true,message:`${quantity} ${label} is much larger than a usual logging amount. Check whether you meant the natural serving, grams or millilitres before continuing.`};
   }
 
-  const api={version:VERSION,recordTypes:RECORD_TYPES,controlledTypos:CONTROLLED_TYPOS,australianAliases:AUSTRALIAN_ALIASES,norm,tokens,corrected,queryIntent,brandProductQuality,consumerBrandMembership,consumerProductSpecificity,brandFamilyResults,australianAlternates,recordType,marketFor,sourceIdFor,canonicalKey,normaliseRecord,friesIntent,genericFriesCandidates,displayQuantity,rank,dedupe,dedupeRanked,duplicateIdentityEvidence,duplicateIdentity,duplicateAudit,resolve,partitionSearchRecords,provenance,hasEnergy,canLog,quickAddPolicy,fullReviewPolicy,newSearchState,beginSearch,rememberSearch,restoreSearch,transitionSearch,naturalQuantityWarning};
+  const api={version:VERSION,recordTypes:RECORD_TYPES,sourceTiers:SOURCE_TIERS,productQualityTypes:PRODUCT_QUALITY,controlledTypos:CONTROLLED_TYPOS,australianAliases:AUSTRALIAN_ALIASES,norm,tokens,corrected,queryIntent,brandProductQuality,sourceTier,meaningfulProductName,productIdentityQuality,consumerDisplayName,fieldSpecificRank,consumerBrandMembership,consumerProductSpecificity,brandFamilyResults,australianAlternates,recordType,marketFor,sourceIdFor,canonicalKey,normaliseRecord,friesIntent,genericFriesCandidates,displayQuantity,rank,dedupe,dedupeRanked,duplicateIdentityEvidence,duplicateIdentity,duplicateAudit,resolve,partitionSearchRecords,provenance,hasEnergy,canLog,quickAddPolicy,fullReviewPolicy,newSearchState,beginSearch,rememberSearch,restoreSearch,transitionSearch,naturalQuantityWarning};
   global.HECFoodCatalogue=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);
