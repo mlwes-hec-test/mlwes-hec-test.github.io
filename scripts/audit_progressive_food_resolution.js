@@ -1,0 +1,28 @@
+'use strict';
+
+const {performance}=require('node:perf_hooks');
+const afcd=require('../afcd-release-3.json').foods;
+const guided=require('../guided-product-resolution.js');
+const serving=require('../serving-foundation.js');
+const catalogueAudit=require('./audit_open_food_facts_au.js');
+
+function afcdFood(raw){const gravity=Number(raw.specificGravity)||0,liquid=gravity>0&&/milk|drink|beverage|juice|water/i.test(raw.name);return {id:raw.id,afcdKey:raw.afcdKey,afcd:true,recordType:'afcd',market:'AU',verified:true,verificationStatus:'verified',name:raw.name,description:raw.description,ingredients:raw.description,brand:'Australian Food Composition Database',source:'Food Standards Australia New Zealand · AFCD Release 3',defaultAmount:100,defaultUnit:liquid?'mL':'g',units:liquid?{mL:gravity/100}:{g:.01},unitLabels:liquid?{mL:'mL'}:{g:'g'},serving:'Reference Values per 100 g',nutrients:raw.nutrients,categories:[/margarine/i.test(raw.name)?'Margarines':/^milk/i.test(raw.name)?'Milks':/^bread/i.test(raw.name)?'Bread':'AFCD reference']};}
+
+const afcdFoods=afcd.map(afcdFood);
+function percentile(values,p){const sorted=[...values].sort((a,b)=>a-b);return sorted[Math.min(sorted.length-1,Math.floor(sorted.length*p))]||0;}
+function genericAudit(count=50){const seeds=Object.values(guided.genericSchemas).map(schema=>afcd.find(raw=>schema.match.test(raw.name)&&(!schema.exclude||!schema.exclude.test(raw.name)))).filter(Boolean),chosen=seeds.map(afcdFood),chosenIds=new Set(chosen.map(food=>food.id)),classifications=new Set();for(const raw of afcd){const key=String(raw.classification||'').slice(0,3);if(chosenIds.has(raw.id)||classifications.has(key))continue;classifications.add(key);chosen.push(afcdFood(raw));if(chosen.length===count)break;}const rows=chosen.slice(0,count).map(food=>{const schema=guided.genericSchemaForFood(food),pool=schema?guided.genericReferenceCandidates(afcdFoods,schema):[food],session=guided.createSession(pool,schema?.name||food.name,{intent:schema?{kind:'generic-category'}:{kind:'exact-product'}}),profile=guided.servingProfile(food);return {id:food.id,name:food.name,concept:schema?.name||food.name.split(',')[0],progressiveNeeded:!!schema&&pool.length>1,meaningfulAttributes:schema?Object.keys(guided.schemaAttributeValues(food,schema)):[],exactReachable:session.stage!==guided.stages.IDENTITY||!!session.nextQuestion,measureProfile:profile.measures.map(item=>item.key),stuck:session.stage===guided.stages.IDENTITY&&!session.nextQuestion&&session.resolutionState!==guided.states.INCOMPLETE};});return {sampled:rows.length,progressiveNeeded:rows.filter(row=>row.progressiveNeeded).length,exactReachable:rows.filter(row=>row.exactReachable).length,stuck:rows.filter(row=>row.stuck).length,rows};}
+
+function brandInheritanceAudit(count=100){const manifest=catalogueAudit.read('manifest.json'),products=catalogueAudit.allProducts(manifest),sample=catalogueAudit.sampleEvenly(products.filter(item=>item.brand&&item.name&&!/^barcode\b/i.test(item.name)),count),foods=sample.map(catalogueAudit.api.toFood),rows=foods.map(food=>{const session=guided.createSession([food],food.name,{intent:{kind:'exact-product'}}),profile=guided.servingProfile(food);return {id:food.id,name:food.name,brand:food.brand,physicalForm:profile.physicalForm,knownAttributes:Object.keys(guided.productAttributes(food)).filter(key=>guided.productAttributes(food)[key]),unnecessaryQuestions:session.stage===guided.stages.IDENTITY&&!!session.nextQuestion?1:0,directToServing:session.stage!==guided.stages.IDENTITY};});const avoided=rows.reduce((sum,row)=>sum+(row.unnecessaryQuestions?0:1),0);return {sampled:rows.length,unnecessaryQuestionsAvoided:avoided,avoidedPercent:rows.length?Number((avoided*100/rows.length).toFixed(1)):0,rows};}
+
+function portionAudit(){const references=[
+  afcdFoods.find(food=>/^Margarine spread/i.test(food.name)),afcdFoods.find(food=>/^Milk, cow, fluid, regular fat/i.test(food.name)),afcdFoods.find(food=>/^Bread, from wholemeal flour$/i.test(food.name)),
+  {id:'countable',name:'Reviewed Countable Item',physicalForm:'countable',recordType:'packaged',manufacturerServing:{amount:1,unit:'item'},defaultUnit:'item',defaultAmount:1,units:{item:1},unitLabels:{item:'Item'},nutrients:{calories:50}},
+  afcdFoods.find(food=>/^Rice, white, boiled/i.test(food.name))||afcdFoods.find(food=>food.units.g),
+  afcdFoods.find(food=>/^Milk, cow, fluid, skim/i.test(food.name))
+].filter(Boolean);return {sampled:references.length,forms:references.map(food=>serving.portionPresetAudit(food)),spreadEvidenceGap:serving.PORTION_PRESET_POLICY.evidenceGaps.spreadThickness};}
+
+function resolutionPerformance(iterations=500){const inputs=['margarine','milk','bread'],times=[];for(let index=0;index<iterations;index++){const query=inputs[index%inputs.length],start=performance.now(),session=guided.createSession(afcdFoods,query);if(session.nextQuestion)guided.answerDistinction(session,session.nextQuestion.key,session.nextQuestion.options[0].value);times.push(performance.now()-start);}return {iterations,medianMs:Number(percentile(times,.5).toFixed(3)),p95Ms:Number(percentile(times,.95).toFixed(3)),maxMs:Number(Math.max(...times).toFixed(3))};}
+
+async function run(){const manifest=catalogueAudit.read('manifest.json');return {generic:genericAudit(50),brands:brandInheritanceAudit(100),portions:portionAudit(),performance:{search:await catalogueAudit.performanceAudit(catalogueAudit.allProducts(manifest),500),resolution:resolutionPerformance(500)}};}
+if(require.main===module)run().then(report=>process.stdout.write(`${JSON.stringify(report,null,2)}\n`)).catch(error=>{console.error(error);process.exitCode=1;});
+module.exports={afcdFood,afcdFoods,genericAudit,brandInheritanceAudit,portionAudit,resolutionPerformance,run};

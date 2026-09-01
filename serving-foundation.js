@@ -13,6 +13,11 @@
   const REG=global.HECAustralianEntityRegistry;
   const SEM=global.HECProductServingSemantics||(typeof require==='function'?require('./product-serving-semantics.js'):null);
   const GUIDELINE_SOURCE='Australian Dietary Guidelines · Eat for Health standard serves';
+  const PORTION_PRESET_POLICY=Object.freeze({
+    version:'1',principle:'A preset needs an explicit source conversion or a reviewed form-level conversion. Metric entry remains available without pretending to be a preset.',
+    trustedConfidence:Object.freeze(['high','package-explicit','authoritative-standard-serve','guideline-derived','reviewed-generic-form']),
+    evidenceGaps:Object.freeze({spreadThickness:Object.freeze({keys:['thinSpread','regularSpread','thickSpread'],status:'unavailable',reason:'No validated repository source for thin, regular or thick spread weights.'})})
+  });
 
   function norm(v){return String(v||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/&/g,' and ').replace(/[’']/g,'').replace(/[^a-z0-9]+/g,' ').trim();}
   function finite(v){const x=Number(v);return Number.isFinite(x)?x:0;}
@@ -95,11 +100,12 @@
     return out;
   }
   function physicalForm(food){
-    const concepts=categoryConcepts(food),serving=norm(`${food?.servingSize||''} ${food?.packageServingText||''} ${food?.serving||''}`),units=food?.units||{};
+    const concepts=categoryConcepts(food),name=norm(food?.name),serving=norm(`${food?.servingSize||''} ${food?.packageServingText||''} ${food?.serving||''}`),units=food?.units||{};
     const hasConcept=pattern=>[...concepts].some(value=>pattern.test(value));
     if(['liquid','spread','countable','sliced','packaged-item','weight'].includes(food?.physicalForm))return {form:food.physicalForm,confidence:'catalogue-physical-form',primaryUnit:food.physicalForm==='liquid'?'mL':food.physicalForm==='spread'||food.physicalForm==='weight'?'g':food.defaultUnit||'serve'};
-    if(hasConcept(/^(?:spread|margarine|nut butter|seed butter|butter)$/))return {form:'spread',confidence:'category-form',primaryUnit:'g'};
+    if(hasConcept(/^(?:spread|margarine|nut butter|seed butter|butter)$/)||/^margarine spread\b/.test(name))return {form:'spread',confidence:hasConcept(/^(?:spread|margarine|nut butter|seed butter|butter)$/)?'category-form':'data-schema-name-form',primaryUnit:'g'};
     if(Number(units.mL)>0||food?.nutritionPer100Unit==='mL'||hasConcept(/^(?:beverage|drink|milk|juice|water|soft drink|liquid)$/))return {form:'liquid',confidence:'category-or-source-volume',primaryUnit:'mL'};
+    if(/^bread\b/.test(name))return {form:'sliced',confidence:'data-schema-name-form',primaryUnit:units.regularSlice!==undefined?'regularSlice':'g'};
     if(/\b\d+(?:\.\d+)?\s*(?:pieces?|biscuits?|crackers?|bars?|sachets?|packets?|rolls?|burgers?)\b/.test(serving))return {form:'countable',confidence:'explicit-package-count',primaryUnit:'serve'};
     if(/\b\d+(?:\.\d+)?\s*slices?\b/.test(serving)||hasConcept(/^(?:sliced food|slice)$/))return {form:'sliced',confidence:'explicit-slice',primaryUnit:'slice'};
     if(explicitPackageServing(food))return {form:'packaged-item',confidence:'explicit-package-serving',primaryUnit:'serve'};
@@ -382,16 +388,25 @@
 
   function servingMeasureProfile(food,context={}){
     if(!food)return null;const resolved=applyToFood(clone(food),context),form=physicalForm(resolved),units=resolved.units||{},labels=resolved.unitLabels||{},origins=resolved.unitOrigins||{},measures=[];
-    for(const [key,value] of Object.entries(units)){const multiplier=finite(value);if(multiplier<=0)continue;measures.push({key,label:String(labels[key]||key),multiplier,source:String(origins[key]?.origin||((food.units||{})[key]!==undefined?'source-product-metadata':'central-serving-profile')),confidence:String(origins[key]?.confidence||'')});}
+    for(const [key,value] of Object.entries(units)){const multiplier=finite(value);if(multiplier<=0)continue;const manufacturer=!!food.manufacturerServing&&['serve',food.defaultUnit,food.manufacturerServing.unit].filter(Boolean).includes(key),source=String(manufacturer?'Explicit manufacturer serving':origins[key]?.origin||((food.units||{})[key]!==undefined?'source-product-metadata':'central-serving-profile')),confidence=String(manufacturer?'package-explicit':origins[key]?.confidence||((food.units||{})[key]!==undefined?'source-product-metadata':'')),sourceType=/manufacturer|package|source-product-metadata/i.test(source)?'product-metadata':/dietary guidelines|eat for health/i.test(source)?'guideline':/metric/i.test(source)?'metric-conversion':/existing hec generic/i.test(source)?'reviewed-form-conversion':'central-profile',portionPreset=!['g','kg','mL','L'].includes(key)&&PORTION_PRESET_POLICY.trustedConfidence.includes(confidence);measures.push({key,label:String(labels[key]||key),multiplier,source,sourceType,confidence,portionPreset});}
+    const originalBasis=basisInfo(food),hasMeasure=key=>measures.some(item=>item.key===key),pushMeasure=(key,label,multiplier,source,sourceType,confidence,portionPreset=false)=>{if(multiplier>0&&!hasMeasure(key))measures.push({key,label,multiplier,source,sourceType,confidence,portionPreset});};
+    // Reference-only semantic policy protects arbitrary food-group units, but the
+    // progressive resolver may restore these three specifically reviewed form
+    // conversions from the original metric nutrition basis.
+    if(form.form==='spread'&&originalBasis.gScale){pushMeasure('g','g',originalBasis.gScale,'source-product-metadata','product-metadata','source-product-metadata');pushMeasure('tsp','Teaspoon (5 g)',originalBasis.gScale*5,'Existing HEC generic Australian margarine measure','reviewed-form-conversion','reviewed-generic-form',true);}
+    if(form.form==='liquid'&&originalBasis.mlScale){pushMeasure('mL','mL',originalBasis.mlScale,'source-product-metadata','product-metadata','source-product-metadata');pushMeasure('cup','Cup (250 mL)',originalBasis.mlScale*250,'Metric household volume measure','metric-conversion','high',true);}
     const safe=measures.filter(measure=>form.form==='liquid'?!['g','kg','slice'].includes(measure.key):form.form==='spread'?!['mL','L','cup'].includes(measure.key):true);
     const preferred=safe.some(measure=>measure.key===form.primaryUnit)?form.primaryUnit:safe.some(measure=>measure.key===resolved.defaultUnit)?resolved.defaultUnit:safe[0]?.key||'';
-    return {physicalForm:form.form,formConfidence:form.confidence,measures:safe,preferredMeasure:preferred,resolvedFood:resolved};
+    const unavailablePresets=form.form==='spread'?[{...PORTION_PRESET_POLICY.evidenceGaps.spreadThickness}]:[];
+    return {physicalForm:form.form,formConfidence:form.confidence,measures:safe,portionPresets:safe.filter(measure=>measure.portionPreset),unavailablePresets,preferredMeasure:preferred,resolvedFood:resolved};
   }
+
+  function portionPresetAudit(food,context={}){const profile=servingMeasureProfile(food,context);return {physicalForm:profile?.physicalForm||'',available:(profile?.portionPresets||[]).map(item=>({key:item.key,source:item.source,sourceType:item.sourceType,confidence:item.confidence})),unavailable:clone(profile?.unavailablePresets||[]),metricEntry:(profile?.measures||[]).filter(item=>['g','kg','mL','L'].includes(item.key)).map(item=>item.key)};}
 
   function diagnostic(food,context={}){
     const f=applyToFood(clone(food),context),policy=SEM?.servingPolicy?.(f);return {defaultUnit:f.servingDefaultUnit||f.defaultUnit,units:Object.entries(f.units||{}).map(([key,multiplier])=>({key,label:f.unitLabels?.[key]||key,multiplier})),source:f.servingFoundationSource||'',hint:f.servingRangeHint||'',category:inferCategory(f,context),packageExplicit:explicitPackageServing(f),semanticType:policy?.semanticType||'',nutritionBasis:policy?.nutritionBasis||'',allowedUnitFamily:policy?.allowedUnitFamily||'',foodGroupUnitEligibility:policy?.foodGroupUnitEligibility||null};
   }
 
-  const api={version:VERSION,GUIDELINE_SOURCE,norm,basisInfo,isPackageFood,explicitPackageServing,inferCategory,stateInfo,categoryConcepts,physicalForm,addTrustedSpreadMeasures,sanitizeUnits,applyToFood,servingMeasureProfile,diagnostic};
+  const api={version:VERSION,GUIDELINE_SOURCE,PORTION_PRESET_POLICY,norm,basisInfo,isPackageFood,explicitPackageServing,inferCategory,stateInfo,categoryConcepts,physicalForm,addTrustedSpreadMeasures,sanitizeUnits,applyToFood,servingMeasureProfile,portionPresetAudit,diagnostic};
   global.HECServingFoundation=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);
