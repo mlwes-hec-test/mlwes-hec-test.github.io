@@ -138,6 +138,16 @@
     return food;
   }
 
+  function addTrustedSpreadMeasures(food){
+    if(physicalForm(food).form!=='spread')return food;
+    // Reuse the existing HEC generic Australian margarine conversion. The
+    // repository has no validated tablespoon or thin/regular/thick spread
+    // weights, so those measures remain unavailable unless product metadata
+    // supplies them explicitly.
+    addGramMeasure(food,'tsp','Teaspoon (5 g)',5,{origin:'Existing HEC generic Australian margarine measure',confidence:'reviewed-generic-form'});
+    return food;
+  }
+
   function addGuidelineMeasures(food,context={}){
     const category=inferCategory(food,context),s=stateInfo(food,context),name=norm(`${food?.name||''} ${context.query||''}`);
     const meta={origin:GUIDELINE_SOURCE,confidence:'authoritative-standard-serve'};
@@ -255,7 +265,7 @@
   function chooseDefault(food,context={}){
     const units=food?.units||{},category=inferCategory(food,context),s=stateInfo(food,context);
     if(explicitPackageServing(food)){
-      const preferred=['bar','sachet','biscuit','cracker','crispbread','slice','chip','piece','nugget','stick','wafer','roll','cake','tsp','tbsp','serve'].find(k=>units[k]!==undefined);
+      const preferred=['bar','sachet','biscuit','cracker','crispbread','slice','chip','piece','nugget','stick','wafer','roll','cake','tsp','tbsp','serve'].find(k=>units[k]!==undefined&&food.unitOrigins?.[k]?.confidence!=='reviewed-generic-form');
       return preferred||food.defaultUnit||Object.keys(units)[0]||'g';
     }
     if(category==='fruit'){if(units.item!==undefined)return 'item';if(units.standardServe!==undefined)return 'standardServe';}
@@ -357,6 +367,7 @@
       food.servingFoundationSource=explicitPackageServing(food)?'Explicit package serving data':'Package/product data · no invented household conversion';
     }else addGuidelineMeasures(food,context);
     addMetricVolumeMeasures(food,context);
+    addTrustedSpreadMeasures(food);
     if(Number(food.units.g)>0&&food.units.kg===undefined)setUnit(food,'kg','kg',Number(food.units.g)*1000,{origin:'Exact metric conversion',confidence:'high'});
     if(Number(food.units.mL)>0&&food.units.L===undefined)setUnit(food,'L','L',Number(food.units.mL)*1000,{origin:'Exact metric conversion',confidence:'high'});
     // A second sanitation pass is deliberate: category measures are added above,
@@ -381,6 +392,6 @@
     const f=applyToFood(clone(food),context),policy=SEM?.servingPolicy?.(f);return {defaultUnit:f.servingDefaultUnit||f.defaultUnit,units:Object.entries(f.units||{}).map(([key,multiplier])=>({key,label:f.unitLabels?.[key]||key,multiplier})),source:f.servingFoundationSource||'',hint:f.servingRangeHint||'',category:inferCategory(f,context),packageExplicit:explicitPackageServing(f),semanticType:policy?.semanticType||'',nutritionBasis:policy?.nutritionBasis||'',allowedUnitFamily:policy?.allowedUnitFamily||'',foodGroupUnitEligibility:policy?.foodGroupUnitEligibility||null};
   }
 
-  const api={version:VERSION,GUIDELINE_SOURCE,norm,basisInfo,isPackageFood,explicitPackageServing,inferCategory,stateInfo,categoryConcepts,physicalForm,sanitizeUnits,applyToFood,servingMeasureProfile,diagnostic};
+  const api={version:VERSION,GUIDELINE_SOURCE,norm,basisInfo,isPackageFood,explicitPackageServing,inferCategory,stateInfo,categoryConcepts,physicalForm,addTrustedSpreadMeasures,sanitizeUnits,applyToFood,servingMeasureProfile,diagnostic};
   global.HECServingFoundation=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);

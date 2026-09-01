@@ -41,10 +41,10 @@ const genericFries={id:'afcd-fries',canonicalId:'afcd:fries',recordType:'afcd',a
 
 test('1. brand-family query is not an exact product',()=>{const s=guided.createSession(flora,'Flora');assert.equal(s.resolutionState,guided.states.BRAND_FAMILY);assert.equal(s.exactProduct,null);});
 test('2. exact product query resolves one canonical identity',()=>{const s=guided.createSession(flora,'Flora ProActiv Light');assert.equal(s.resolutionState,guided.states.EXACT);assert.equal(s.exactProduct,floraPro);});
-test('3. candidate set narrows after an answer',()=>{const s=guided.createSession(meadow,'MeadowLea');guided.answerDistinction(s,'family','Pro Range');assert.equal(s.candidates.length,2);});
-test('4. already-known attributes are skipped',()=>{const s=guided.createSession(meadow,'MeadowLea Pro Range');assert.equal(s.nextQuestion.key,'variant');});
-test('5. engine stops when one canonical product remains',()=>{const s=guided.createSession(meadow,'MeadowLea');guided.answerDistinction(s,'family','Pro Range');guided.answerDistinction(s,'variant','Light');assert.equal(s.exactProduct.id,'meadow-pro-light');assert.equal(s.stage,guided.stages.MEASURE);});
-test('6. back and change recompute downstream answers',()=>{let s=guided.createSession(meadow,'MeadowLea');guided.answerDistinction(s,'family','Pro Range');guided.answerDistinction(s,'variant','Light');s=guided.back(s);assert.equal(s.nextQuestion.key,'variant');s=guided.changeAnswer(s,'family','Core Range');assert.deepEqual(s.nextQuestion.options.map(x=>x.label),['Original','Light']);});
+test('3. manageable candidate sets present concrete products',()=>{const s=guided.createSession(meadow,'MeadowLea');assert.equal(s.nextQuestion.key,'product');assert.equal(guided.presentationForSession(s),'direct-products');});
+test('4. known family words narrow the direct product list',()=>{const s=guided.createSession(meadow,'MeadowLea Pro Range');assert.equal(s.nextQuestion.key,'product');assert.deepEqual(s.nextQuestion.options.map(x=>x.label),['MeadowLea Pro Range Light','MeadowLea Pro Range Buttery']);});
+test('5. choosing one canonical product reaches serving measure',()=>{const s=guided.createSession(meadow,'MeadowLea');guided.answerDistinction(s,'product','meadow-pro-light');assert.equal(s.exactProduct.id,'meadow-pro-light');assert.equal(s.stage,guided.stages.MEASURE);});
+test('6. back recomputes and permits a different concrete product',()=>{let s=guided.createSession(meadow,'MeadowLea');guided.answerDistinction(s,'product','meadow-pro-light');s=guided.back(s);assert.equal(s.nextQuestion.key,'product');guided.answerDistinction(s,'product','meadow-original');assert.equal(s.exactProduct.id,'meadow-original');});
 
 test('7. Flora enters family resolution',()=>assert.equal(guided.createSession(flora,'Flora').stage,guided.stages.IDENTITY));
 test('8. Flora does not preselect 10 g',()=>{const s=guided.createSession(flora,'Flora');assert.equal(s.amount,null);assert.equal(s.selectedMeasure,null);});
@@ -64,15 +64,15 @@ test('20. conflicting source nutrition stays attached for review without duplica
 
 test('21. Big Mac exact product bypasses grocery narrowing',()=>{const s=guided.createSession([bigMac],'Big Mac');assert.equal(s.exactProduct,bigMac);assert.equal(s.nextQuestion,null);});
 test('22. two Big Macs preserves quantity two',()=>{const s=guided.resolveRequest([bigMac],'two Big Macs');assert.equal(s.stage,guided.stages.CONFIRMATION);assert.equal(s.amount,2);assert.equal(s.selectedMeasure.key,'burger');});
-test('23. McDonald’s fries without size asks a size distinction',()=>{const s=guided.createSession(fries,"McDonald's fries");assert.equal(s.nextQuestion.key,'size');assert.deepEqual(s.nextQuestion.options.map(x=>x.label),['Small','Medium','Large']);});
+test('23. McDonald’s fries presents the concrete size products directly',()=>{const s=guided.createSession(fries,"McDonald's fries");assert.equal(s.nextQuestion.key,'product');assert.deepEqual(s.nextQuestion.options.map(x=>x.label),['Small Fries','Medium Fries','Large Fries']);});
 test('24. Large Macca’s Fries does not ask size again',()=>{const s=guided.resolveRequest(fries,'two Large Maccas Fries');assert.equal(s.exactProduct.name,'Large Fries');assert.equal(s.amount,2);});
 
-test('25. MeadowLea-like family narrows generically',()=>{const s=guided.createSession(meadow,'MeadowLea');assert.equal(s.nextQuestion.key,'family');});
-test('26. milk-like family narrows fat type then serving',()=>{const s=guided.createSession(milk,'Dairy Co Milk');assert.equal(s.nextQuestion.key,'fatLevel');guided.answerDistinction(s,'fatLevel','Skim');assert.equal(s.stage,guided.stages.MEASURE);});
-test('27. cereal-like family narrows variant then serving',()=>{const s=guided.createSession(cereal,'Grain Co Cereal');assert.equal(s.nextQuestion.key,'variant');guided.answerDistinction(s,'variant','Honey');assert.equal(s.stage,guided.stages.MEASURE);});
-test('28. peanut-butter-like family narrows texture then serving',()=>assert.equal(guided.createSession(peanut,'Nut Co Peanut Butter').nextQuestion.key,'texture'));
-test('29. bread resolves grain identity before slice amount',()=>{const s=guided.createSession(bread,'Baker Bread');assert.equal(s.nextQuestion.key,'grain');assert.equal(s.amount,null);});
-test('30. yoghurt resolves format before tub or grams',()=>{const s=guided.createSession(yoghurt,'Yogo Yoghurt');assert.equal(s.nextQuestion.key,'format');assert.equal(s.servingProfile,null);});
+test('25. MeadowLea-like family presents real products first',()=>{const s=guided.createSession(meadow,'MeadowLea');assert.equal(s.nextQuestion.key,'product');});
+test('26. milk-like family selects a named product before serving',()=>{const s=guided.createSession(milk,'Dairy Co Milk');assert.equal(s.nextQuestion.key,'product');guided.answerDistinction(s,'product','milk-skim');assert.equal(s.stage,guided.stages.MEASURE);});
+test('27. cereal-like family selects a named product before serving',()=>{const s=guided.createSession(cereal,'Grain Co Cereal');assert.equal(s.nextQuestion.key,'product');guided.answerDistinction(s,'product','cereal-honey');assert.equal(s.stage,guided.stages.MEASURE);});
+test('28. peanut-butter-like family presents named products',()=>assert.equal(guided.createSession(peanut,'Nut Co Peanut Butter').nextQuestion.key,'product'));
+test('29. bread resolves a named identity before slice amount',()=>{const s=guided.createSession(bread,'Baker Bread');assert.equal(s.nextQuestion.key,'product');assert.equal(s.amount,null);});
+test('30. yoghurt resolves a named identity before tub or grams',()=>{const s=guided.createSession(yoghurt,'Yogo Yoghurt');assert.equal(s.nextQuestion.key,'product');assert.equal(s.servingProfile,null);});
 
 test('31. pack size is identity metadata and never automatic consumption',()=>{const s=guided.createSession([cereal[0]],'Grain Co Original Cereal 500 g');assert.equal(s.servingProfile.packageSize,'500 g');assert.equal(s.amount,null);});
 test('32. nutrition reference serving is not automatic user amount',()=>{const s=guided.createSession([floraPro],'Flora ProActiv Light');assert.deepEqual(s.servingProfile.referenceServing,{amount:10,unit:'g'});assert.equal(s.amount,null);});
