@@ -51,7 +51,7 @@ test("4. release assertion blocks runtime loading when an old config is served",
 });
 
 test("5. cache-busting for dynamically loaded runtime files derives from HEC_APP.version",()=>{
-  assert.equal(runtimeFiles.length,28);assert.ok(runtimeFiles.includes('food-groups-foundation.js'));assert.ok(runtimeFiles.includes('product-serving-semantics.js'));assert.ok(runtimeFiles.includes('off-catalogue.js'));assert.ok(runtimeFiles.includes('guided-product-resolution.js'));assert.match(html,/script\.src=`\$\{file\}\?v=\$\{encodeURIComponent\(actual\)\}`/);
+  assert.equal(runtimeFiles.length,30);assert.ok(runtimeFiles.includes('food-groups-foundation.js'));assert.ok(runtimeFiles.includes('product-serving-semantics.js'));assert.ok(runtimeFiles.includes('off-catalogue.js'));assert.ok(runtimeFiles.includes('guided-product-resolution.js'));assert.ok(runtimeFiles.includes('kfc-au-catalogue-data.js'));assert.ok(runtimeFiles.includes('kfc-au-catalogue.js'));assert.match(html,/script\.src=`\$\{file\}\?v=\$\{encodeURIComponent\(actual\)\}`/);
   assert.equal(runtimeFiles[0],"installation-foundation.js");
   assert.ok(runtimeFiles.indexOf("migrations.js")<runtimeFiles.indexOf("app.js"));
   assert.ok(runtimeFiles.indexOf("companion-voice-metadata.js")<runtimeFiles.indexOf("companion-voices.js"));
@@ -59,6 +59,8 @@ test("5. cache-busting for dynamically loaded runtime files derives from HEC_APP
   assert.ok(runtimeFiles.indexOf("product-serving-semantics.js")<runtimeFiles.indexOf("food-sources.js"));
   assert.ok(runtimeFiles.indexOf("food-sources.js")<runtimeFiles.indexOf("mcdonalds-au-catalogue-data.js"));
   assert.ok(runtimeFiles.indexOf("mcdonalds-au-catalogue-data.js")<runtimeFiles.indexOf("mcdonalds-au-catalogue.js"));
+  assert.ok(runtimeFiles.indexOf("mcdonalds-au-catalogue.js")<runtimeFiles.indexOf("kfc-au-catalogue-data.js"));
+  assert.ok(runtimeFiles.indexOf("kfc-au-catalogue-data.js")<runtimeFiles.indexOf("kfc-au-catalogue.js"));
   assert.ok(runtimeFiles.indexOf("conversation-foundation.js")<runtimeFiles.indexOf("alpha06.js"));
   assert.ok(runtimeFiles.indexOf("mcdonalds-au-catalogue.js")<runtimeFiles.indexOf("food-catalogue.js"));
   assert.ok(runtimeFiles.indexOf("food-catalogue.js")<runtimeFiles.indexOf("off-catalogue.js"));

@@ -1,0 +1,51 @@
+'use strict';
+
+const test=require('node:test');
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+const guided=require('../guided-product-resolution.js');
+const serving=require('../serving-foundation.js');
+const packaged=require('../packaged-foods.js');
+const audit=require('../scripts/audit_progressive_food_resolution.js');
+
+const ROOT=path.resolve(__dirname,'..');
+const runtime=fs.readFileSync(path.join(ROOT,'alpha06.js'),'utf8');
+const answer=(session,label)=>{const option=session.nextQuestion?.options.find(item=>item.label===label);assert.ok(option,`${label} is offered`);guided.answerDistinction(session,session.nextQuestion.key,option.value);return session;};
+const margarine=()=>answer(answer(answer(guided.createSession(audit.afcdFoods,'margarine'),'Monounsaturated'),'Reduced fat'),'Regular salt');
+const milk=()=>answer(answer(answer(guided.createSession(audit.afcdFoods,'milk'),'Regular fat'),'Standard lactose'),'Standard');
+const bread=()=>answer(guided.createSession(audit.afcdFoods,'bread'),'Wholemeal');
+const flora={id:'flora-light-au-official',canonicalId:'packaged:flora-light-au',recordType:'packaged',name:'Flora Light',brand:'Flora',category:'Spreads',categories:['Spreads'],market:'AU',country:'Australia',verified:true,verificationStatus:'verified',defaultAmount:1,defaultUnit:'serve',units:{serve:1,g:.1},unitLabels:{serve:'10 g Serve',g:'g'},serving:'1 serve (10 g)',manufacturerServing:{amount:10,unit:'g'},nutritionBasis:{perServing:{calories:43,energyKj:178},per100:{calories:425,energyKj:1780},manufacturerServing:true},nutrients:{calories:43,energyKj:178},ingredients:'Vegetable oils, water and salt',source:'Official Flora Australia Product Page'};
+const biscuit={id:'oat-biscuit',canonicalId:'packaged:oat-biscuit',recordType:'packaged',name:'Example Oat Biscuit',brand:'Example',category:'Biscuits',market:'AU',country:'Australia',verified:true,verificationStatus:'verified',physicalForm:'countable',defaultAmount:1,defaultUnit:'biscuit',units:{biscuit:1,g:1/15},unitLabels:{biscuit:'Biscuit (15 g)',g:'g'},serving:'1 biscuit (15 g)',nutrients:{calories:60,energyKj:251}};
+
+function exactSession(food){return guided.createSession([food],food.name,{intent:{kind:'exact-product'},destination:{date:'2026-09-02',meal:'Breakfast'}});}
+function complete(session,measureId,amount){guided.selectMeasure(session,measureId);guided.selectAmount(session,amount);assert.equal(session.stage,guided.stages.CONFIRMATION);const consumed=structuredClone(session.consumedPortion),reviewFood=guided.reviewFood(session),editorMeasure=session.servingProfile.measures.find(item=>item.key===measureId),edited=serving.consumedPortionState({measure:editorMeasure,amount,sourceServing:consumed.sourceServing,nutritionBasis:consumed.nutritionBasis}),snapshot=packaged.diarySnapshot(reviewFood,{amount,unit:measureId,unitLabel:editorMeasure.displayLabel,nutrients:session.nutrition,consumedPortion:edited,loggedAt:'2026-09-02T00:00:00.000Z'});return {session,consumed,reviewFood,edited,snapshot};}
+function assertPortion(result,{measureId,amount,baseQuantity,baseUnit}){assert.equal(result.consumed.measureId,measureId);assert.equal(result.consumed.amount,amount);assert.equal(result.consumed.baseQuantity,baseQuantity);assert.equal(result.consumed.baseUnit,baseUnit);assert.equal(result.reviewFood.units[measureId],result.consumed.conversion.nutritionMultiplier);assert.deepEqual(result.edited,result.consumed);assert.deepEqual(result.snapshot.consumedPortion,result.consumed);assert.equal(result.snapshot.selection.amount,amount);assert.equal(result.snapshot.selection.unit,measureId);}
+function assertEnergyCoherent(nutrients){if(nutrients.calories===null||nutrients.energyKj===null)return;assert.ok(Math.abs(nutrients.energyKj-nutrients.calories*4.184)<2,`${nutrients.calories} kcal and ${nutrients.energyKj} kJ remain coherent`);}
+
+test('A. generic Margarine persists one teaspoon as exactly 5 g',()=>{const result=complete(margarine(),'tsp',1);assertPortion(result,{measureId:'tsp',amount:1,baseQuantity:5,baseUnit:'g'});assertEnergyCoherent(result.session.nutrition);});
+test('B. generic Margarine persists an arbitrary 7 g amount',()=>assertPortion(complete(margarine(),'g',7),{measureId:'g',amount:7,baseQuantity:7,baseUnit:'g'}));
+test('C. Flora spread persists one teaspoon without reverting to its 10 g serve',()=>assertPortion(complete(exactSession(flora),'tsp',1),{measureId:'tsp',amount:1,baseQuantity:5,baseUnit:'g'}));
+test('D. explicit manufacturer serve persists one by 10 g',()=>assertPortion(complete(exactSession(flora),'serve',1),{measureId:'serve',amount:1,baseQuantity:10,baseUnit:'g'}));
+test('E. generic milk persists 250 mL',()=>assertPortion(complete(milk(),'mL',250),{measureId:'mL',amount:250,baseQuantity:250,baseUnit:'mL'}));
+test('F. generic milk persists one metric cup as 250 mL',()=>assertPortion(complete(milk(),'cup',1),{measureId:'cup',amount:1,baseQuantity:250,baseUnit:'mL'}));
+test('G. wholemeal bread persists one regular slice as 40 g',()=>assertPortion(complete(bread(),'regularSlice',1),{measureId:'regularSlice',amount:1,baseQuantity:40,baseUnit:'g'}));
+test('H. countable food persists two biscuits as 30 g',()=>assertPortion(complete(exactSession(biscuit),'biscuit',2),{measureId:'biscuit',amount:2,baseQuantity:30,baseUnit:'g'}));
+
+test('final Review amount edits update the same consumed-portion contract',()=>{const result=complete(margarine(),'tsp',1),measure=result.session.servingProfile.measures.find(item=>item.key==='tsp'),edited=serving.consumedPortionState({measure,amount:1.5,sourceServing:result.consumed.sourceServing,nutritionBasis:result.consumed.nutritionBasis});assert.equal(edited.measureId,'tsp');assert.equal(edited.amount,1.5);assert.equal(edited.baseQuantity,7.5);assert.deepEqual(edited.nutritionBasis,result.consumed.nutritionBasis);});
+test('final Review measure edits update the contract without selecting a reference-basis default',()=>{const session=margarine(),initial=complete(session,'tsp',1),grams=session.servingProfile.measures.find(item=>item.key==='g'),edited=serving.consumedPortionState({measure:grams,amount:7,sourceServing:initial.consumed.sourceServing,nutritionBasis:initial.consumed.nutritionBasis});assert.equal(edited.measureId,'g');assert.equal(edited.amount,7);assert.equal(edited.baseQuantity,7);assert.notEqual(edited.baseQuantity,100);});
+test('production editor scales Review nutrition from the consumed contract and persists it twice',()=>{assert.match(runtime,/scaledNutrientsForConsumedPortion\(food,consumedPortion,amount,unit\)/);assert.match(runtime,/consumedPortion:clone\(consumedPortion\|\|null\)/);assert.match(runtime,/diarySnapshot\?\.\(food,\{amount,unit,[^\n]*consumedPortion\}/);assert.match(runtime,/GUIDED_PRODUCTS\.reviewFood\?\.\(ps34GuidedSession\)/);});
+
+const per100Spread=values=>({id:values.id,canonicalId:`spread:${values.id}`,recordType:'external-catalogue',name:values.name,brand:values.brand||'',category:'Spreads',categories:values.categories||['Spreads'],market:'AU',country:'Australia',verified:true,verificationStatus:'verified',physicalForm:'spread',defaultAmount:100,defaultUnit:'g',units:{g:.01,...(values.units||{})},unitLabels:{g:'g',...(values.unitLabels||{})},serving:'Reference quantity: 100 g',nutrients:{calories:500,energyKj:2092},ingredients:values.ingredients||''});
+const measures=food=>Object.fromEntries(serving.servingMeasureProfile(food).measures.map(item=>[item.key,item]));
+const spreadCases=[
+  ['generic margarine',per100Spread({id:'generic-margarine',name:'Margarine spread, regular fat',ingredients:'Vegetable oils'}),'tableSpread',{tsp:[5,'reviewed-form-conversion'],tbsp:[19,'official-reference']}],
+  ['Flora',per100Spread({id:'flora',name:'Flora Light',brand:'Flora',ingredients:'Vegetable oils'}),'tableSpread',{tsp:[5,'reviewed-form-conversion'],tbsp:[19,'official-reference']}],
+  ['Meadow Lea',per100Spread({id:'meadow-lea',name:'Meadow Lea Original',brand:'Meadow Lea',ingredients:'Vegetable oils'}),'tableSpread',{tsp:[5,'reviewed-form-conversion'],tbsp:[19,'official-reference']}],
+  ['Bega almond',per100Spread({id:'bega-almond',name:'Bega Almond Spread Crunchy',brand:'Bega'}),'nutSpread',{tbsp:[24,'official-reference']}],
+  ['peanut butter',per100Spread({id:'peanut',name:'Smooth Peanut Butter'}),'nutSpread',{tbsp:[24,'official-reference']}],
+  ['yeast spread',per100Spread({id:'yeast',name:'Vegemite Yeast Extract Spread'}),'yeastSpread',{tsp:[6,'official-reference'],tbsp:[24,'official-reference']}]
+];
+for(const [label,food,family,expected] of spreadCases)test(`AUSNUT spread profile: ${label}`,()=>{const profile=serving.servingMeasureProfile(food),found=measures(food);assert.equal(profile.spreadMeasureFamily,family);for(const [key,[grams,sourceType]] of Object.entries(expected)){assert.equal(found[key].conversionToBase.baseQuantity,grams);assert.equal(found[key].sourceType,sourceType);if(sourceType==='official-reference'){assert.match(found[key].sourceUrl,/foodstandards\.gov\.au/);assert.equal(found[key].retrievedDate,'2026-09-02');assert.ok(found[key].derivation);}}for(const key of ['thinSpread','regularSpread','thickSpread'])assert.equal(found[key],undefined);});
+test('spread packet weights remain product-specific',()=>{const packet=per100Spread({id:'packet',name:'Example Margarine Packet',ingredients:'Vegetable oils',units:{packet:.084},unitLabels:{packet:'Packet (8.4 g)'}}),plain=per100Spread({id:'plain',name:'Example Margarine',ingredients:'Vegetable oils'});assert.equal(measures(packet).packet.conversionToBase.baseQuantity,8.4);assert.equal(measures(plain).packet,undefined);});
+test('AUSNUT source metadata and disabled thickness gap are machine-auditable',()=>{assert.equal(serving.AUSNUT_SPREAD_SOURCE.workbookSha256,'58BEE1204610EFB72BB831DC7FB65ACC23DB540B51D056F83C6AC0CE84590475');assert.match(serving.AUSNUT_SPREAD_SOURCE.licence,/CC BY 4\.0 Australia/);assert.equal(serving.PORTION_PRESET_POLICY.evidenceGaps.spreadThickness.status,'unavailable');assert.match(serving.PORTION_PRESET_POLICY.evidenceGaps.spreadThickness.reason,/NOT YET VALIDATED/);});

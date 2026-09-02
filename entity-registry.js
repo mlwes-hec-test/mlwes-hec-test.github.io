@@ -48,7 +48,7 @@
     // Australian restaurant / takeaway vocabulary. Existing menu tables still
     // provide the actual foods; registry recognition only supplies intent/context.
     {id:'mcdonalds',type:'restaurant',name:"McDonald's",aliases:['mcdonalds',"mcdonald's",'maccas',"macca's",'macca'],sourceMode:'restaurant',route:'restaurant'},
-    {id:'kfc',type:'restaurant',name:'KFC',aliases:['kfc','kentucky fried chicken'],sourceMode:'restaurant',route:'restaurant'},
+    {id:'kfc',type:'restaurant',name:'KFC',aliases:['kfc','kentucky fried chicken','kentucky'],sourceMode:'restaurant',route:'restaurant'},
     {id:'hungry-jacks',type:'restaurant',name:"Hungry Jack's",aliases:['hungry jacks',"hungry jack's",'hjs',"hj's"],sourceMode:'restaurant',route:'restaurant'},
     {id:'subway',type:'restaurant',name:'Subway',aliases:['subway'],sourceMode:'restaurant',route:'restaurant'},
     {id:'dominos',type:'restaurant',name:"Domino's",aliases:['dominos',"domino's"],sourceMode:'restaurant',route:'restaurant'},

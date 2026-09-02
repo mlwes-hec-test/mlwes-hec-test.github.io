@@ -15,6 +15,8 @@ The order is fixed:
 3. enter the consumed amount;
 4. calculate nutrition and review the Diary destination.
 
+Once amount is selected, HEC creates one explicit `consumedPortion` contract containing the measure ID/label, amount, canonical base quantity/unit, nutrition conversion, conversion provenance, source serving and nutrition basis. That object—not the source food's default or per-100 reference—is handed to final Review, updated if Review changes measure/amount, stored on the Diary record and copied into the immutable food snapshot. Review nutrition scales from its captured nutrition multiplier. The reference basis remains separate metadata.
+
 Questions come from declarative attribute schemas and candidate metadata. HEC pre-fills attributes stated in the query or shared by every remaining candidate, asks only a useful unresolved distinction, and recomputes downstream state after Back or Change. Product metadata can therefore skip generic questions without creating a separate branded workflow.
 
 The interface shows exactly one active question. A choice advances immediately; one-value and already-answered distinctions are skipped. Earlier answers remain in a compact, horizontally bounded summary. Back edits the preceding decision, the review screen offers separate food/measure/amount edits, and Cancel discards the active session. Card positioning happens only after a real stage transition so focus, caret and the visual viewport are not continuously disturbed.
@@ -71,11 +73,13 @@ Household measures are withheld when none of those sources supplies a defensible
 
 Current reviewed examples:
 
-- spreads: arbitrary grams and the existing reviewed `1 teaspoon = 5 g`; explicit manufacturer serve where supplied;
+- margarine/table spreads: arbitrary grams, the existing reviewed `1 teaspoon = 5 g`, and the AUSNUT 2023 `1 tablespoon = 19 g`; explicit manufacturer serve where supplied;
+- nut spreads: arbitrary grams and the AUSNUT 2023 `1 tablespoon = 24 g`;
+- yeast-extract spreads: arbitrary grams and the AUSNUT 2023 `1 teaspoon = 6 g` / `1 tablespoon = 24 g`;
 - liquid milk: arbitrary mL, 250 mL metric cup, litres, and explicit manufacturer serve where supplied;
 - AFCD bread: grams and the Australian 40 g regular-slice standard serve; product slice/count only when backed by product or guideline metadata.
 
-The repository contains no validated source for generic thin, regular and thick spread weights. **NOT YET VALIDATED:** the proposed 2.5 g / 5 g / 7 g thickness presets therefore remain unavailable. Their evidence gap is represented explicitly in the central portion-preset policy so values can be added later once, for the spread form, only with documented provenance.
+The official AUSNUT 2023 Food Measures workbook and existing repository evidence contain no validated thin, regular or thick measures for the relevant spread foods. **NOT YET VALIDATED:** the proposed 2.5 g / 5 g / 7 g thickness presets therefore remain unavailable. Their evidence gap is represented explicitly in the central portion-preset policy so values can be added later once, for the spread form, only with documented provenance. AUSNUT packet/single-serve weights vary by food/product, so packets and sachets remain product-specific rather than becoming a global spread preset. The reproducible audit and source details are recorded in `AUSNUT_2023_SPREAD_MEASURE_RESEARCH.md`.
 
 Approximate practical measures may remain visible where older HEC serving policy already identifies them as approximate, but they are not classified as trusted Portion Presets.
 

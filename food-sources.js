@@ -8,7 +8,8 @@
   const VERSION='0.6.33';
   const SEM=global.HECProductServingSemantics||(typeof require==='function'?require('./product-serving-semantics.js'):null);
   const ITEM_STATUSES=Object.freeze({CURRENT:'current',RETIRED:'retired'});
-  const NUTRITION_STATUSES=Object.freeze({COMPLETE:'complete',UNAVAILABLE:'unavailable',CONFIGURABLE:'configurable'});
+  const NUTRITION_STATUSES=Object.freeze({COMPLETE:'complete',ENERGY_ONLY:'energy-only',PARTIAL:'partial',IDENTITY_ONLY:'identity-only',CONFLICT:'conflict',UNAVAILABLE:'unavailable',CONFIGURABLE:'configurable'});
+  const FIXED_NUTRITION_STATUSES=Object.freeze([NUTRITION_STATUSES.COMPLETE,NUTRITION_STATUSES.ENERGY_ONLY,NUTRITION_STATUSES.PARTIAL]);
   const NUTRIENT_KEYS=Object.freeze(['energyKj','calories','protein','fat','satFat','carbs','sugar','sodium','fibre']);
   const catalogues=new Map();
 
@@ -39,8 +40,8 @@
     if(!String(item.standardServingLabel||'').trim())errors.push(`${label}.standardServingLabel`);
     if(!String(item.serving?.unitKey||'').trim()||!String(item.serving?.unitLabel||'').trim())errors.push(`${label}.serving`);
     if(!Object.values(NUTRITION_STATUSES).includes(item.nutritionStatus))errors.push(`${label}.nutritionStatus`);
-    if(item.loggable&&item.nutritionStatus!==NUTRITION_STATUSES.COMPLETE)errors.push(`${label}.loggable`);
-    if(item.nutritionStatus===NUTRITION_STATUSES.COMPLETE){
+    if(item.loggable&&!FIXED_NUTRITION_STATUSES.includes(item.nutritionStatus))errors.push(`${label}.loggable`);
+    if(FIXED_NUTRITION_STATUSES.includes(item.nutritionStatus)){
       if(finiteOrNull(item.nutritionPerServing?.calories)===null)errors.push(`${label}.nutritionPerServing.calories`);
       if(finiteOrNull(item.nutritionPerServing?.energyKj)===null)errors.push(`${label}.nutritionPerServing.energyKj`);
     }
@@ -52,7 +53,7 @@
     const entity={...clone(fallback),...clone(raw)};
     entity.aliases=unique([entity.name,...(entity.aliases||[])]);
     entity.nutritionStatus=entity.nutritionStatus||NUTRITION_STATUSES.COMPLETE;
-    entity.loggable=entity.loggable===undefined?entity.nutritionStatus===NUTRITION_STATUSES.COMPLETE:!!entity.loggable;
+    entity.loggable=entity.loggable===undefined?FIXED_NUTRITION_STATUSES.includes(entity.nutritionStatus):!!entity.loggable;
     entity.nutritionPerServing=normaliseNutrients(entity.nutritionPerServing);
     entity.nutritionPer100=normaliseNutrients(entity.nutritionPer100||entity.nutritionPer100g);
     entity.nutritionPer100g=clone(entity.nutritionPer100);
@@ -91,9 +92,10 @@
   function allCatalogues(){return [...catalogues.values()].map(clone);}
   function sourceForAlias(value){const q=norm(value);if(!q)return null;for(const catalogue of catalogues.values())if(catalogue.source.aliases.some(alias=>norm(alias)===q))return clone(catalogue.source);return null;}
   function itemById(itemId,{sourceId='',includeRetired=true}={}){const sources=sourceId?[catalogues.get(sourceId)].filter(Boolean):[...catalogues.values()];for(const catalogue of sources){const item=catalogue.items.find(candidate=>candidate.id===itemId&&(includeRetired||candidate.status===ITEM_STATUSES.CURRENT));if(item)return clone(item);}return null;}
-  function blockedReason(status){
+  function blockedReason(status,source={}){
     if(status===NUTRITION_STATUSES.CONFIGURABLE)return 'This meal contains configurable product and size choices, so one fixed nutrition value would be unsafe. Choose components in a future configurator.';
-    if(status===NUTRITION_STATUSES.UNAVAILABLE)return "McDonald's Australia does not currently publish a complete fixed nutrition table for this product. No estimate has been used.";
+    if(status===NUTRITION_STATUSES.CONFLICT)return `${source.displayName||'The official source'} publishes conflicting fixed nutrition values for this product. Nothing has been inferred.`;
+    if(status===NUTRITION_STATUSES.IDENTITY_ONLY||status===NUTRITION_STATUSES.UNAVAILABLE)return `${source.displayName||'The official source'} does not currently provide a usable fixed energy value for this product. No estimate has been used.`;
     return '';
   }
   function toFoodRecord(item,source,variant=null){
@@ -104,12 +106,12 @@
       id:`food-source:${sourceItemKey}`,canonicalId:`food-source:${sourceItemKey}`,recordType:'food-source',foodSourceId:source.id,sourceItemId:item.id,sourceVariantId:variant?.id||'',sourceId:sourceItemKey,
       familyId:item.id,familyName:variant?(item.familyDisplayName||item.name):item.name,variantLabel:variant?.variantLabel||'',name:entity.name,brand:source.displayName,category:item.category,categoryMemberships:clone(item.categoryMemberships),browseCategory:entity.browseCategory||item.browseCategory||'Other',browseTags:unique([...(item.browseTags||[]),...(entity.browseTags||[])]),country:source.country,market:source.market,
       aliases:unique([...(variant&&item.variantAliasIsolation==='size'?(item.aliases||[]).filter(alias=>!/\b(?:small|medium|large)\b/i.test(alias)):(item.aliases||[])),...(entity.aliases||[])]),sourceAliases:clone(source.aliases),sourceDisplayName:source.displayName,sourceType:source.sourceType,
-      itemStatus:item.status,current:item.status===ITEM_STATUSES.CURRENT,retiredAt:item.retiredAt||'',nutritionStatus:entity.nutritionStatus,loggable:!!entity.loggable,entryBlockedReason:entity.entryBlockedReason||blockedReason(entity.nutritionStatus),
-      itemKind:item.itemKind||'product',productSemantics:clone(entity.productSemantics||item.productSemantics||null),semanticCount:entity.semanticCount||item.semanticCount||0,assemblyModel:clone(item.assemblyModel||null),promotionalStatus:item.promotionalStatus||'standard',promotional:!!item.promotional,limitedTime:!!item.limitedTime,promotionExpiry:item.promotionExpiry||'',
+      itemStatus:item.status,current:item.status===ITEM_STATUSES.CURRENT,retiredAt:item.retiredAt||'',nutritionStatus:entity.nutritionStatus,loggable:!!entity.loggable,entryBlockedReason:entity.entryBlockedReason||blockedReason(entity.nutritionStatus,source),
+      itemKind:item.itemKind||'product',productSemantics:clone(entity.productSemantics||item.productSemantics||null),semanticCount:entity.semanticCount||item.semanticCount||0,choiceFamily:entity.choiceFamily||item.choiceFamily||'',choiceOrder:finiteOrNull(entity.choiceOrder??item.choiceOrder),optionalExtras:clone(entity.optionalExtras||item.optionalExtras||[]),assemblyModel:clone(item.assemblyModel||null),promotionalStatus:item.promotionalStatus||'standard',promotional:!!item.promotional,limitedTime:!!item.limitedTime,promotionExpiry:item.promotionExpiry||'',
       defaultAmount:1,defaultUnit:unitKey,servingDefaultUnit:unitKey,lockedServingUnit:unitKey,fractionUnits:[unitKey],units:{[unitKey]:1},unitLabels:{[unitKey]:unitLabel},serving:entity.standardServingLabel,
       servingWeightG:entity.servingWeightG,servingVolumeMl:entity.servingVolumeMl,nutritionPer100Unit:entity.nutritionPer100Unit||item.nutritionPer100Unit||'',nutrients:clone(entity.nutritionPerServing),nutritionPer100:per100,nutritionPer100g:per100,
       nutritionBasis:{perServing:clone(entity.nutritionPerServing),per100,servingAmount:entity.servingWeightG??entity.servingVolumeMl,servingUnit:entity.servingWeightG!==null?'g':entity.servingVolumeMl!==null?'mL':'',servingText:entity.standardServingLabel,manufacturerServing:false},
-      score:6,source:`Official ${source.displayName} menu nutrition · checked ${entity.sourceLastCheckedDate||source.lastCheckedDate}`,sourceUrl:entity.provenance.url,officialSourceUrl:source.officialUrl,provenance:clone(entity.provenance),sourceAnomalies:unique([...(item.sourceAnomalies||[]),...(entity.sourceAnomalies||[])]),
+      score:6,source:`Official ${source.displayName} menu nutrition · checked ${entity.sourceLastCheckedDate||source.lastCheckedDate}`,sourceUrl:entity.provenance.url,officialSourceUrl:source.officialUrl,provenance:clone(entity.provenance),energySource:clone(entity.energySource||item.energySource||null),calorieSource:clone(entity.calorieSource||item.calorieSource||null),nutritionFreshness:clone(entity.nutritionFreshness||item.nutritionFreshness||null),sourceConflict:clone(entity.sourceConflict||item.sourceConflict||null),officialCurrentIdentity:entity.officialCurrentIdentity??item.officialCurrentIdentity??true,sourceAnomalies:unique([...(item.sourceAnomalies||[]),...(entity.sourceAnomalies||[])]),
       sourceLastCheckedDate:entity.sourceLastCheckedDate||source.lastCheckedDate,lastSeenAt:entity.lastSeenAt||item.lastSeenAt||source.catalogueCheckedAt,catalogueVersion:source.catalogueVersion,catalogueCheckedAt:source.catalogueCheckedAt,effectiveDate:entity.effectiveDate||source.effectiveDate||'',
       usageScope:licensing.usageScope,licenceStatus:licensing.licenceStatus,productionApproved:licensing.productionApproved,licensing,verificationStatus:'official-source',verified:true,ingredients:'',allergens:[],waterMl:0,hydrationType:item.category.includes('Drink')?'drink':'food',foodGroups:{}
     };return SEM?.applyToFood?SEM.applyToFood(record):record;

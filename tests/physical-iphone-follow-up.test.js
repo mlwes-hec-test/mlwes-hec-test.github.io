@@ -64,9 +64,9 @@ test('verified Flora ProActiv confines a conflicting cached record to legacy rev
   const result=catalogue.partitionSearchRecords([legacy,ordinary,official]);assert.ok(result.primary.includes(official));assert.ok(result.primary.includes(ordinary));assert.equal(result.legacy[0].food,legacy);assert.doesNotMatch(productionFunction('legacyFoodRow'),/data-food-add|data-food-save/);
 });
 
-test('Flora ProActiv exposes manufacturer serve, grams and the trusted 5 g teaspoon',()=>{
+test('Flora ProActiv exposes manufacturer serve, grams and the validated central spread measures',()=>{
   const foundation=servingFoundation(),food={id:'flora',recordType:'packaged',name:'Flora ProActiv Light',brand:'Flora',market:'AU',verified:true,category:'Spreads',ingredients:'Vegetable oils',defaultAmount:1,defaultUnit:'serve',units:{serve:1,g:.1},unitLabels:{serve:'Serve (10 g)',g:'g'},serving:'1 serve (10 g)',manufacturerServing:{amount:10,unit:'g'},nutrients:{calories:37}};
-  const applied=foundation.applyToFood(JSON.parse(JSON.stringify(food)));assert.deepEqual(Object.keys(applied.units).sort(),['g','serve','tsp']);assert.equal(applied.defaultUnit,'serve');assert.equal(applied.defaultAmount,1);assert.equal(applied.nutrients.calories*applied.units.serve,37);assert.equal(applied.nutrients.calories*10*applied.units.g,37);assert.equal(applied.nutrients.calories*applied.units.tsp,18.5);assert.doesNotMatch(JSON.stringify(applied),/vegetable serve|standard vegetable|tablespoon|thin spread|thick spread|"kg"/i);
+  const applied=foundation.applyToFood(JSON.parse(JSON.stringify(food)));assert.deepEqual(Object.keys(applied.units).sort(),['g','serve','tbsp','tsp']);assert.equal(applied.defaultUnit,'serve');assert.equal(applied.defaultAmount,1);assert.equal(applied.nutrients.calories*applied.units.serve,37);assert.equal(applied.nutrients.calories*10*applied.units.g,37);assert.equal(applied.nutrients.calories*applied.units.tsp,18.5);assert.equal(applied.units.tbsp/applied.units.g,19);assert.doesNotMatch(JSON.stringify(applied),/vegetable serve|standard vegetable|thin spread|thick spread|"kg"/i);
 });
 
 test('generic fries use six defensible AFCD variants and exclude crisps and straws',()=>{
