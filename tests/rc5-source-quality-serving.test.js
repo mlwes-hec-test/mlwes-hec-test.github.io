@@ -21,6 +21,7 @@ function decisionHarness(){const foods=[community,...official],context={foods,fo
   ${productionFunction('rc5PackagedBrand')}
   ${productionFunction('rc5SearchContext')}
   ${productionFunction('rc5ExactCandidates')}
+  ${productionFunction('rc5SourceCountedExact')}
   ${productionFunction('rc5ExactDecision')}
   window.decide=value=>{const d=rc5ExactDecision(value);return{kind:d.kind,primary:d.primary?.name||'',choices:d.choices.map(food=>[food.name,food.sourceDisplayName||food.brand,C8.recordType(food)]),context:{mcdonalds:d.context.mcdonalds,packaged:d.context.packaged?.food?.brand||'',product:d.context.product}};};
   window.natural=${productionFunction('alpha0615NaturalUnits')};

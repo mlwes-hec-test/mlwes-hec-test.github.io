@@ -33,6 +33,7 @@ function decisionHarness(){
     ${productionFunction('rc5SearchContext')}
     ${productionFunction('rc5ExactCandidates')}
     ${productionFunction('rc5SourceFamilyChoice')}
+    ${productionFunction('rc5SourceCountedExact')}
     ${productionFunction('rc5ExactDecision')}
     window.decide=value=>{const result=rc5ExactDecision(value);return{kind:result.kind,primary:result.primary?.name||'',choices:result.choices.map(food=>food.name),sourceId:result.context.source?.id||'',product:result.context.product};};
   `,context);return context;
