@@ -30,7 +30,7 @@ function productionFunction(name){
 }
 
 function decisionHarness(){
-  const foods=[genericChips,...mcd,...kfc],context={foods,catalogue,search,sources,entities,console,window:null,globalThis:null};context.window=context;context.globalThis=context;context.HECFoodSources=sources;vm.createContext(context);
+  const foods=[genericChips,...mcd,...kfc],context={foods,catalogue,search,sources,entities,console,window:null,globalThis:null};context.window=context;context.globalThis=context;context.HECFoodSources=sources;context.HECGuidedProductResolution=guided;vm.createContext(context);
   vm.runInContext(`
     const C8=catalogue,REG29=entities;function normalise(value){return C8.norm(value);}function allFoods(){return foods;}function s23ProductLike(){return true;}function searchRank(food,query){return C8.rank(food,query).score;}function s23Parsed(value){return search.parseQuery(value);}
     function rc4SourceFoods(id){return foods.filter(food=>food.foodSourceId===id&&food.itemStatus!=='retired');}

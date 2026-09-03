@@ -106,8 +106,8 @@ test('clearing only the source product filter opens an honest progressive 211-en
   assert.equal(names.length,211);for(const item of representatives)assert.ok(names.includes(item.name),`${item.category}: ${item.name}`);assert.doesNotMatch(ui.results.innerHTML,/Show More/);
 });
 
-test('source-only spellings intentionally open the broad McDonald’s browse',()=>{
-  const ui=createHarness();for(const query of ["McDonald's",'McDonalds','Maccas',"Macca's"]){const view=ui.api.direct(query);assert.equal(ui.api.sourceOnly(query),true,query);assert.match(view.results,/McDonald&#39;s Australia/);assert.match(view.results,/Showing 20 of 211 loaded/);}
+test('source-only spellings wait for an explicit source-card action',()=>{
+  for(const query of ["McDonald's",'McDonalds','Maccas',"Macca's"]){const ui=createHarness(),view=ui.api.direct(query);assert.equal(ui.api.sourceOnly(query),true,query);assert.match(view.results,/General search/);assert.equal(ui.api.state().foodSourceBrowse,undefined);ui.click('source',{rc4SourceBrowse:'mcdonalds-au',rc4SourceLabel:"McDonald's Australia",rc4SourceQuery:query});assert.match(ui.results.innerHTML,/McDonald&#39;s Australia/);assert.match(ui.results.innerHTML,/Showing 20 of 211 loaded/);}
 });
 
 test('source ranking retains exact identity and the complete loaded scope',()=>{

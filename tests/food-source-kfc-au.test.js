@@ -12,6 +12,7 @@ const sources=require('../food-sources.js');
 require('../mcdonalds-au-catalogue.js');
 const registered=require('../kfc-au-catalogue.js');
 const catalogue=require('../food-catalogue.js');
+const guided=require('../guided-product-resolution.js');
 const packaged=require('../packaged-foods.js');
 const entities=require('../entity-registry.js');
 const conversation=require('../conversation-foundation.js');
@@ -23,7 +24,7 @@ function productionFunction(name){const start=runtime.indexOf(`function ${name}(
 function decisionHarness(){
   const generic={id:'afcd-hot-chips',recordType:'afcd',afcd:true,name:'Potato chips, regular, takeaway',brand:'Australian Food Composition Database',aliases:['chips','hot chips'],category:'Takeaway',country:'Australia',market:'AU',defaultAmount:100,defaultUnit:'g',units:{g:.01},unitLabels:{g:'g'},serving:'100 g reference',nutrients:{energyKj:1000,calories:239},verified:true};
   const community={id:'off-kfc-shell',recordType:'online-candidate',name:'KFC Style Zinger Burger',brand:'Community Brand',aliases:['zinger burger'],category:'Online Product',country:'International',market:'international',defaultAmount:100,defaultUnit:'g',units:{g:.01},unitLabels:{g:'g'},serving:'100 g',nutrients:{calories:300},verified:false};
-  const foods=[generic,community,...sources.foodRecords()],context={foods,catalogue,sources,entities,console,window:null,globalThis:null};context.window=context;context.globalThis=context;context.HECFoodSources=sources;vm.createContext(context);
+  const foods=[generic,community,...sources.foodRecords()],context={foods,catalogue,sources,entities,console,window:null,globalThis:null};context.window=context;context.globalThis=context;context.HECFoodSources=sources;context.HECGuidedProductResolution=guided;vm.createContext(context);
   vm.runInContext(`
     const C8=catalogue,REG29=entities;function normalise(value){return C8.norm(value);}function allFoods(){return foods;}function s23ProductLike(){return true;}function searchRank(food,query){return C8.rank(food,query).score;}function s23Parsed(value){return{food:C8.norm(value)}}
     function rc4SourceFoods(id){return foods.filter(food=>food.foodSourceId===id&&food.itemStatus!=='retired');}
@@ -94,7 +95,7 @@ test('source-only aliases, exact KFC intent and data-driven family choices use t
   for(const query of ['Zinger','Zinger Burger','KFC Zinger','KFC Zinger Burger'])assert.equal(decide(query).primary,'Zinger Burger',query);
   assert.deepEqual(Array.from(decide('KFC Wicked Wings').choices),['3 Wicked Wings','6 Wicked Wings','10 Wicked Wings']);assert.equal(decide('KFC 6 Wicked Wings').primary,'6 Wicked Wings');
   assert.deepEqual(Array.from(decide('KFC Popcorn Chicken').choices),['Snack Popcorn Chicken','Regular Popcorn Chicken','Maxi Popcorn Chicken']);assert.equal(decide('KFC Regular Popcorn Chicken').primary,'Regular Popcorn Chicken');
-  assert.deepEqual(Array.from(decide('KFC chips').choices),['Regular Chips','Large Chips']);assert.notEqual(decide('chips').sourceId,'kfc-au');assert.equal(decide('chips').primary,'Potato chips, regular, takeaway');
+  assert.deepEqual(Array.from(decide('KFC chips').choices),['Regular Chips','Large Chips']);assert.notEqual(decide('chips').sourceId,'kfc-au');assert.equal(guided.genericSchemaForQuery('chips').key,'chips');
   assert.equal(decide("McDonald's Big Mac").primary,'Big Mac');
 });
 

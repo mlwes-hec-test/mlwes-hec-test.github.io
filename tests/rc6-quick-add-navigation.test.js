@@ -35,9 +35,9 @@ test('row or name opens full review while nutrition details and plus remain sepa
   assert.match(runtime,/class="rc6-live-food-review"/);assert.match(runtime,/reviewAttr=review\.ready\?`data-food-review/);assert.match(runtime,/class="rc6-live-food-info"[^`]*data-food-details/);assert.match(runtime,/function rc6OpenFullReview\(food\)/);assert.match(runtime,/rc6-live-food-add/);assert.match(styles,/rc6-live-food-row\{display:grid/);assert.match(styles,/resource-details/);assert.match(styles,/#food-entry-editor .*position:sticky/);
 });
 
-test('pure McDonald’s source aliases activate the category hub and suppress preview rows',()=>{
+test('pure McDonald’s source aliases preview the hub and require an explicit action',()=>{
   for(const alias of ["McDonald's",'McDonalds','Maccas',"Macca's"])assert.equal(catalogue.norm(alias).length>0,true);
-  assert.match(runtime,/if\(rc4SourceOnly\(raw\)\)[\s\S]*?rc5RenderSourceSurface/);assert.match(runtime,/live\.innerHTML='';live\.classList\.add\('hidden'\)/);assert.match(runtime,/input\?\.blur\?\.\(\)/);
+  const automatic=runtime.slice(runtime.indexOf("renderLibrary=function(){rc6RenderLibraryBase"),runtime.indexOf("by('food-search')?.addEventListener('focus'"));assert.match(runtime,/function ps33PreviewSource/);assert.match(runtime,/data-rc4-source-browse/);assert.doesNotMatch(automatic,/foodSourceBrowse=|\.blur/);assert.match(runtime,/ss633Commit\('source-tap'/);
 });
 
 test('source plus product and exact Big Mac retain product-first decisions',()=>{
