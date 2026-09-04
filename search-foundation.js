@@ -13,7 +13,7 @@
 
   const VERSION='0.6.33';
   const REG=global.HECAustralianEntityRegistry;
-  const WORD_NUMBERS={one:1,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8,nine:9,ten:10,half:.5,a:1,an:1};
+  const WORD_NUMBERS={zero:0,one:1,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8,nine:9,ten:10,eleven:11,twelve:12,dozen:12,half:.5,quarter:.25,a:1,an:1};
   const IRREGULAR={bananas:'banana',oranges:'orange',apples:'apple',potatoes:'potato',tomatoes:'tomato',berries:'berry',cherries:'cherry',loaves:'loaf',leaves:'leaf',fries:'fries',fish:'fish',cheese:'cheese',rice:'rice',pasta:'pasta',couscous:'couscous',eggs:'egg',sausages:'sausage'};
   const UNIT_WORDS={
     g:['g','gram','grams'],ml:['ml','millilitre','millilitres','milliliter','milliliters'],kg:['kg','kilogram','kilograms'],L:['l','litre','litres','liter','liters'],
@@ -93,11 +93,12 @@
     {key:'tea',label:'Tea',aliases:['tea'],category:'drink',sourcePolicy:'contextual',facetOrder:['type','milk','size','source'],natural:{unit:'serve',label:'Serve',grams:1}},
     {key:'juice',label:'Juice',aliases:['juice'],category:'drink',sourcePolicy:'early',facetOrder:['type','source','size'],natural:{unit:'mL',label:'mL',grams:1}},
     {key:'soft-drink',label:'Soft Drink',aliases:['soft drink','softdrink'],category:'drink',sourcePolicy:'early',facetOrder:['type','source','size'],natural:{unit:'mL',label:'mL',grams:1}},
-    {key:'burger',label:'Burger',aliases:['burger','hamburger'],category:'prepared',sourcePolicy:'early',facetOrder:['protein','type','source','size'],natural:{unit:'serve',label:'Burger',grams:1}},
+    {key:'burger',label:'Burger',aliases:['burger','hamburger'],category:'prepared',sourcePolicy:'early',composition:'composite',physicalForm:'solid-countable',facetOrder:['protein','type','source','size'],natural:{unit:'serve',label:'Burger',grams:1}},
     {key:'wrap',label:'Wrap',aliases:['wrap'],category:'prepared',sourcePolicy:'early',facetOrder:['kind','protein','source','size'],natural:{unit:'serve',label:'Wrap',grams:1}},
     {key:'muffin',label:'Muffin',aliases:['muffin','english muffin'],category:'prepared',sourcePolicy:'early',facetOrder:['kind','flavour','source','size'],natural:{unit:'serve',label:'Muffin',grams:1},supplemental:{kind:['Sweet','Savoury'],flavour:['Blueberry','Chocolate Chip','Banana','Apple','Plain']}},
-    {key:'fries',label:'Hot Chips / Fries',aliases:['fries','french fries','hot chips'],category:'snack',sourcePolicy:'contextual',facetOrder:['source','prep'],natural:{unit:'g',label:'Reference quantity: 100 g',grams:100}},
-    {key:'chips',label:'Chips',aliases:['chips'],category:'snack',sourcePolicy:'early',facetOrder:['type','flavour','source','size'],natural:{unit:'g',label:'g',grams:1}},
+    {key:'fries',label:'Hot Chips / Fries',aliases:['fries','french fries','hot chips'],category:'snack',sourcePolicy:'contextual',composition:'composite',physicalForm:'solid-weight',facetOrder:['source','prep'],natural:{unit:'g',label:'Reference quantity: 100 g',grams:100}},
+    {key:'chips',label:'Chips',aliases:['chips'],category:'snack',sourcePolicy:'early',composition:'composite',physicalForm:'solid-weight',facetOrder:['type','flavour','source','size'],natural:{unit:'g',label:'g',grams:1}},
+    {key:'hash-brown',label:'Hash Brown',aliases:['hash brown','hashbrown'],category:'prepared',sourcePolicy:'early',composition:'composite',physicalForm:'solid-countable',facetOrder:['source','prep','size'],natural:{unit:'item',label:'Hash Brown',grams:null}},
     {key:'sandwich',label:'Sandwich',aliases:['sandwich','toastie'],category:'prepared',sourcePolicy:'early',facetOrder:['type','protein','source','size'],natural:{unit:'serve',label:'Sandwich',grams:1}},
     {key:'pizza',label:'Pizza',aliases:['pizza'],category:'prepared',sourcePolicy:'early',facetOrder:['type','topping','source','size'],natural:{unit:'slice',label:'Slice',grams:1}},
     {key:'curry',label:'Curry',aliases:['curry'],category:'prepared',sourcePolicy:'early',facetOrder:['protein','type','source','size'],natural:{unit:'g',label:'g',grams:1}},
@@ -131,22 +132,48 @@
     milk:[['No Milk',/\bblack\b|\bno milk\b/],['Full Cream Milk',/\bfull cream\b|\bwhole milk\b/],['Light Milk',/\blight milk\b|\breduced fat milk\b/],['Skim Milk',/\bskim\b/],['Plant Milk',/\bsoy\b|\balmond\b|\boat milk\b/]]
   };
 
-  function parseQuery(raw){
-    let rawText=String(raw||''),explicitFraction=null;
-    const fm=rawText.match(/^\s*(\d+)\s*\/\s*(\d+)(?=\s|$)/);
-    if(fm&&Number(fm[2])){explicitFraction=Number(fm[1])/Number(fm[2]);rawText=rawText.slice(fm[0].length).trim();}
-    const n=normaliseIntent(rawText),ws=n.split(' ').filter(Boolean);let quantity=explicitFraction,unit='',keep=[];
-    for(let i=0;i<ws.length;i++){
-      const w=ws[i];
-      if(quantity===null&&(Number.isFinite(Number(w))||WORD_NUMBERS[w]!==undefined)){quantity=Number.isFinite(Number(w))?Number(w):WORD_NUMBERS[w];continue;}
-      if(!unit&&UNIT_LOOKUP[w]){unit=UNIT_LOOKUP[w];if(['item','piece','slice','serve','pie','sausage','egg','biscuit','cracker','bar','sachet','packet','can','bottle'].includes(unit))keep.push(singularWord(w));continue;}
-      keep.push(w);
-    }
-    const food=singular(keep.join(' ')),entities=REG?.identify?REG.identify(raw):[];return {raw:String(raw||''),normalised:n,food,quantityExplicit:quantity!==null,quantity:quantity===null?1:quantity,unit,tokens:tokens(food),entities,entityResidual:REG?.stripRecognisedEntities?REG.stripRecognisedEntities(food):food};
+  const QUANTITY_FILLER=/^(?:add|log|record|plan|please|for|to|today|tomorrow|breakfast|lunch|dinner|snack|snacks|other)$/;
+  const COUNT_QUALIFIER=/^(?:piece|pieces|pack|packs|count|serve|serves|serving|servings)$/;
+  function numericPhraseAt(words,index){
+    const word=words[index]||'';
+    if(/^\d+(?:\.\d+)?$/.test(word))return {value:Number(word),length:1,text:word};
+    const fraction=word.match(/^(\d+)\/(\d+)$/);if(fraction&&Number(fraction[2]))return {value:Number(fraction[1])/Number(fraction[2]),length:1,text:word};
+    if(WORD_NUMBERS[word]===undefined)return null;
+    if(word==='a'&&words[index+1]!=='half')return null;
+    if(WORD_NUMBERS[word]>=1&&words[index+1]==='and'&&(words[index+2]==='a'||words[index+2]==='one')&&words[index+3]==='half')return {value:WORD_NUMBERS[word]+.5,length:4,text:words.slice(index,index+4).join(' ')};
+    if(WORD_NUMBERS[word]>=1&&/^quarters?$/.test(words[index+1]||'')&&WORD_NUMBERS[word]<=4)return {value:WORD_NUMBERS[word]*.25,length:2,text:`${word} ${words[index+1]}`};
+    if(WORD_NUMBERS[word]>=1&&/^halves$/.test(words[index+1]||'')&&WORD_NUMBERS[word]<=2)return {value:WORD_NUMBERS[word]*.5,length:2,text:`${word} halves`};
+    if((word==='a'||word==='one')&&words[index+1]==='half')return {value:.5,length:2,text:`${word} half`};
+    return {value:WORD_NUMBERS[word],length:1,text:word};
+  }
+  function candidateVariantCounts(candidates=[]){
+    const values=new Set();
+    for(const food of candidates||[]){const semantic=Number(food?.productSemantics?.count),name=normaliseIntent(food?.name||''),match=name.match(/^(\d+)\b/);if(semantic>0)values.add(semantic);if(match)values.add(Number(match[1]));}
+    return values;
+  }
+  function parseQuantityLanguage(raw,{candidates=[]}={}){
+    const original=String(raw||''),encoded=original.replace(/(\d)\s*\/\s*(\d)/g,'$1fraction$2').replace(/(\d)\.(\d)/g,'$1decimal$2'),normal=normaliseIntent(encoded).replace(/(\d+)fraction(\d+)/g,'$1/$2').replace(/(\d+)decimal(\d+)/g,'$1.$2'),words=normal.split(' ').filter(Boolean),numbers=[];
+    for(let index=0;index<words.length;){const parsed=numericPhraseAt(words,index);if(!parsed){index+=1;continue;}numbers.push({...parsed,index,end:index+parsed.length});index+=parsed.length;}
+    const variantCounts=candidateVariantCounts(candidates);let variant=null,packageName=null,identityNumber=null;
+    for(const item of numbers){const qualifier=words[item.end]||'',hyphenated=new RegExp(`\\b${String(item.text).replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}-(?:piece|pack|count)\\b`,'i').test(original);if(COUNT_QUALIFIER.test(qualifier)&&/^(?:piece|pieces|pack|packs|count)$/.test(qualifier)&&(variantCounts.has(item.value)||hyphenated)){variant=item;break;}}
+    if(!variant&&numbers.length){variant=numbers.find(item=>{if(!variantCounts.has(item.value))return false;const queryTail=words.slice(item.end).join(' ');return (candidates||[]).some(food=>{const candidate=normaliseIntent(food?.name||'').replace(/^\d+\s*/, '').trim();return candidate&&queryTail.includes(candidate);});})||null;}
+    if(!variant){const exact=(candidates||[]).find(food=>[food?.name,`${food?.brand||''} ${food?.name||''}`].some(value=>normaliseIntent(value)===normal));if(exact){const candidateNumbers=new Set((normaliseIntent(exact.name).match(/\b\d+(?:\.\d+)?\b/g)||[]).map(Number));packageName=numbers.find(item=>candidateNumbers.has(item.value))||null;identityNumber=packageName?null:numbers[0]||null;}}
+    const consumed=numbers.find(item=>item!==variant&&item!==packageName&&item!==identityNumber)||null;let consumedUnit='',remove=new Set(),replace=new Map();
+    if(variant){replace.set(variant.index,Number.isInteger(variant.value)?String(variant.value):String(variant.value));for(let i=variant.index+1;i<variant.end;i++)remove.add(i);if(COUNT_QUALIFIER.test(words[variant.end]||''))remove.add(variant.end);}
+    if(consumed&&/^(?:half|quarter|three quarters)$/.test(consumed.text)&&words[consumed.end]==='a')remove.add(consumed.end);
+    if(consumed){for(let i=consumed.index;i<consumed.end;i++)remove.add(i);const after=words[consumed.end]||'',before=words[consumed.index-1]||'',identityUnits=new Set(['pie','sausage','egg','biscuit','cracker','bar']);if(UNIT_LOOKUP[after]){consumedUnit=UNIT_LOOKUP[after];if(!identityUnits.has(consumedUnit))remove.add(consumed.end);}else if(UNIT_LOOKUP[before]){consumedUnit=UNIT_LOOKUP[before];if(!identityUnits.has(consumedUnit))remove.add(consumed.index-1);}else{const unitIndex=words.findIndex((word,index)=>!remove.has(index)&&!!UNIT_LOOKUP[word]);if(unitIndex>=0){consumedUnit=UNIT_LOOKUP[words[unitIndex]];if(!identityUnits.has(consumedUnit))remove.add(unitIndex);}}}
+    let identityWords=words.map((word,index)=>replace.get(index)||word).filter((_,index)=>!remove.has(index)&&!QUANTITY_FILLER.test(words[index]));
+    const identityQuery=normaliseIntent(identityWords.join(' '))||normaliseIntent(normal),consumedQuantity=consumed?consumed.value:1;
+    return {raw:original,normalised:normal,identityQuery,consumedQuantity,consumedUnit,quantityExplicit:!!consumed,productVariantCount:variant?.value||null,packageNameCount:packageName?.value||variant?.value||null,variantExplicit:!!variant,amount:consumed?consumed.value:null,measure:consumedUnit,explicit:!!consumed,phrase:consumed?`${consumed.text}${consumedUnit?` ${consumedUnit}`:''}`:''};
+  }
+
+  function parseQuery(raw,options={}){
+    const parsedQuantity=parseQuantityLanguage(raw,options),n=parsedQuantity.normalised,food=singular(parsedQuantity.identityQuery),entities=REG?.identify?REG.identify(raw):[];
+    return {raw:String(raw||''),normalised:n,food,quantityExplicit:parsedQuantity.quantityExplicit,quantity:parsedQuantity.consumedQuantity,unit:parsedQuantity.consumedUnit,tokens:tokens(food),entities,entityResidual:REG?.stripRecognisedEntities?REG.stripRecognisedEntities(food):food,productVariantCount:parsedQuantity.productVariantCount,packageNameCount:parsedQuantity.packageNameCount};
   }
 
   function conceptFromQuery(raw){
-    const p=typeof raw==='object'&&raw.food!==undefined?raw:parseQuery(raw),q=` ${p.food} `;let hits=[];
+    const p=typeof raw==='object'&&raw.food!==undefined?raw:parseQuery(raw),q=` ${singular(p.food)} `;let hits=[];
     CONCEPTS.forEach(c=>(c.aliases||[]).forEach(a=>{const an=singular(a);if(q.includes(` ${an} `))hits.push({c,a:an,len:an.split(' ').length,pos:p.food.lastIndexOf(an)});}));
     if(!hits.length){const registryConcept=REG?.foodConcept?REG.foodConcept(p.raw||p.food):'';if(registryConcept)return CONCEPTS.find(c=>c.key===registryConcept)||null;return null;}hits.sort((a,b)=>b.len-a.len||b.pos-a.pos);return hits[0].c;
   }
@@ -240,26 +267,20 @@
 
   function sourceModeFromQuery(raw){const text=typeof raw==='object'?(raw.raw||raw.food):raw;const registered=REG?.sourceMode?REG.sourceMode(text):'';if(registered)return registered;const x=classifyText(typeof raw==='object'?raw.food:parseQuery(raw).food).source||'';if(/home made|grown/i.test(x))return 'home';if(/takeaway|restaurant/i.test(x))return 'restaurant';if(/bakery|fresh/i.test(x))return 'bakery';if(/commercial|packaged|frozen|canned|bought|store|supermarket/i.test(x))return 'commercial';return '';}
   function shouldOfferSourceFirst(concept,parsedOrRaw){if(!concept||concept.sourcePolicy!=='early')return false;const parsed=typeof parsedOrRaw==='object'?parsedOrRaw:parseQuery(parsedOrRaw);if(sourceModeFromQuery(parsed))return false;if(likelyBrandPrefix(parsed,concept))return false;return true;}
-  function sourceChoices(concept){
-    if(!concept||concept.sourcePolicy==='skip')return[];
-    if(concept.key==='bread')return ['Homemade','Commercial / Bought','Not Sure / Typical'];
-    if(concept.key==='corn-chip')return ['Homemade','Commercial / Packaged','Takeaway / Restaurant','Not Sure / Typical'];
-    if(concept.key==='chips')return ['Hot Chips / Fries','Packet Chips / Crisps','Homemade','Takeaway / Restaurant','Brand / Store Product'];
-    if(['fruit','vegetable'].includes(concept.category))return ['Home Grown','Commercial / Bought','Not Sure / Typical'];
-    const choices=['Homemade','Commercial / Bought'];
-    if(['prepared','pie','meat','drink','snack'].includes(concept.category))choices.push('Takeaway / Restaurant');
-    choices.push('Not Sure / Typical');return choices;
+  const SOURCE_CONTEXT_CHOICES=Object.freeze([
+    Object.freeze({key:'home-prepared',label:'Home-Prepared',source:'home',route:'recipe-or-generic'}),
+    Object.freeze({key:'ready-to-eat',label:'Restaurant / Ready-to-Eat',source:'restaurant',route:'verified-restaurant'}),
+    Object.freeze({key:'packaged-frozen',label:'Purchased Packaged / Frozen',source:'commercial',route:'brand-barcode-panel'}),
+    Object.freeze({key:'typical',label:'Not Sure / Typical',source:'unsure',route:'safe-generic'})
+  ]);
+  function sourceContextPlan(conceptOrRaw,raw=''){
+    const concept=typeof conceptOrRaw==='object'&&conceptOrRaw?.key?conceptOrRaw:conceptFromQuery(conceptOrRaw||raw),query=String(raw||conceptOrRaw||'');
+    if(!concept||concept.sourcePolicy==='skip')return {concept:concept?.key||'',query,required:false,choices:[]};
+    const explicit=sourceModeFromQuery(query),choices=SOURCE_CONTEXT_CHOICES.map(choice=>({...choice}));
+    return {concept:concept.key,query,required:!explicit,explicitSource:explicit||'',choices};
   }
-  function clarificationChoices(raw,concept=conceptFromQuery(raw)){
-    if(concept?.key==='chips')return [
-      {label:'Hot Chips / Fries',query:'hot chips',source:'restaurant'},
-      {label:'Packet Chips / Crisps',query:'potato chips',source:'commercial'},
-      {label:'Homemade',query:'homemade chips',source:'home'},
-      {label:'Takeaway / Restaurant',query:'takeaway hot chips',source:'restaurant'},
-      {label:'Brand / Store Product',query:'commercial potato chips',source:'commercial'}
-    ];
-    return sourceChoices(concept).map(label=>({label,query:String(raw||''),source:/home/i.test(label)?'home':/takeaway|restaurant/i.test(label)?'restaurant':/commercial|bought|brand|store/i.test(label)?'commercial':'unsure'}));
-  }
+  function sourceChoices(concept){return sourceContextPlan(concept).choices.map(choice=>choice.label);}
+  function clarificationChoices(raw,concept=conceptFromQuery(raw)){return sourceContextPlan(concept,raw).choices.map(choice=>({label:choice.label,query:String(raw||''),source:choice.source,key:choice.key,route:choice.route}));}
 
   function splitCompoundQuery(raw){
     const text=String(raw||'').trim();if(!text)return[];
@@ -268,6 +289,6 @@
     return [];
   }
 
-  const api={version:VERSION,norm,singular,title,tokens,normaliseIntent,queryIntent,stripVoiceWake,parseQuery,conceptFromQuery,predictConcepts,labelFor,likelyBrandPrefix,knownFacetToken,classifyText,descriptorFeatures,queryFacetSeeds,sourceModeFromQuery,shouldOfferSourceFirst,sourceChoices,clarificationChoices,splitCompoundQuery,registry:REG,concepts:CONCEPTS,patterns:PATTERNS,modifierWords:MODIFIER_WORDS};
+  const api={version:VERSION,norm,singular,title,tokens,normaliseIntent,queryIntent,stripVoiceWake,parseQuantityLanguage,parseQuery,conceptFromQuery,predictConcepts,labelFor,likelyBrandPrefix,knownFacetToken,classifyText,descriptorFeatures,queryFacetSeeds,sourceModeFromQuery,shouldOfferSourceFirst,sourceContextPlan,sourceChoices,clarificationChoices,splitCompoundQuery,registry:REG,concepts:CONCEPTS,patterns:PATTERNS,modifierWords:MODIFIER_WORDS,sourceContextChoices:SOURCE_CONTEXT_CHOICES};
   global.HECSearchFoundation=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);

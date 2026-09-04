@@ -30,9 +30,9 @@ test('generic size words do not become product or brand intent',()=>{
   for(const query of ['small fries','medium fries','large fries']){const intent=search.queryIntent(query);assert.equal(intent.generic,true);assert.equal(intent.genericFries,true);assert.equal(intent.source,'');}
 });
 
-test('Australian chips keeps the existing hot-versus-packet clarification',()=>{
+test('Australian chips uses separate canonical source branches',()=>{
   const concept=search.conceptFromQuery('chips'),choices=search.clarificationChoices('chips',concept);
-  assert.equal(concept.key,'chips');assert.deepEqual(choices.slice(0,2).map(choice=>choice.label),['Hot Chips / Fries','Packet Chips / Crisps']);assert.equal(catalogue.friesIntent('chips').generic,false);
+  assert.equal(concept.key,'chips');assert.deepEqual(choices.map(choice=>choice.label),['Home-Prepared','Restaurant / Ready-to-Eat','Purchased Packaged / Frozen','Not Sure / Typical']);assert.equal(catalogue.friesIntent('chips').generic,false);
 });
 
 test('explicit McDonald’s and Maccas fries keep official source intent',()=>{

@@ -389,7 +389,7 @@
     <main class="page resource-page">
       <div id="library-entry-context" class="entry-context-banner hidden"></div>
       <div class="resource-search-shell">
-        <label class="resource-search"><span>⌕</span><input id="food-search" type="search" placeholder="Search foods, meals and recipes"><button id="clear-food-search" type="button" aria-label="Clear search">×</button></label>
+        <form id="food-search-form" role="search" class="resource-search" novalidate><span aria-hidden="true">⌕</span><label class="sr-only" for="food-search">Search foods, meals and recipes</label><input id="food-search" type="search" enterkeyhint="search" autocomplete="off" placeholder="Search foods, meals and recipes"><button id="clear-food-search" type="button" aria-label="Clear search">×</button><button id="submit-food-search" type="submit" aria-label="Search foods"><span aria-hidden="true">⌕</span> Search</button></form>
         <div id="food-live-results" class="food-live-results hidden" aria-live="polite"></div>
         <div class="library-scan-shortcuts compact-scan-shortcuts" aria-label="Food scanning shortcuts">
           <button type="button" class="secondary" data-open-scan-mode="barcode">▦ Scan Barcode</button>
@@ -430,7 +430,7 @@
         <div id="entry-variant-options" class="variant-options hidden"></div>
         <div class="form-grid quantity-first-grid">
           <label>Unit<select id="entry-unit"></select></label>
-          <label>Amount<input id="entry-amount" type="number" min="0.01" step="0.01"></label>
+          <label>Amount<input id="entry-amount" type="number" inputmode="decimal" enterkeyhint="done" min="0.01" step="0.01"></label>
         </div>
         <div id="entry-fraction-choices" class="entry-fraction-choices hidden"></div>
         <div id="entry-selection-summary" class="status-box compact-entry-summary"></div>

@@ -45,12 +45,12 @@ test('Australian McDonald’s speech and spelling variants resolve through the c
   assert.ok(ranked('Mc muffin').slice(0,8).every(item=>/McMuffin/i.test(item.food.name)));
 });
 
-test('generic food terms stay generic and chips receives an explicit Australian clarification',()=>{
+test('generic food terms stay generic and chips receives the canonical source clarification',()=>{
   for(const [query,key] of [['burger','burger'],['wrap','wrap'],['muffin','muffin'],['chips','chips'],['soft drink','soft-drink']]){
     assert.equal(search.conceptFromQuery(query).key,key);assert.equal(search.queryIntent(query).generic,true,query);
   }
   const choices=search.clarificationChoices('chips');
-  assert.deepEqual(Array.from(choices,label=>label.label),['Hot Chips / Fries','Packet Chips / Crisps','Homemade','Takeaway / Restaurant','Brand / Store Product']);
+  assert.deepEqual(Array.from(choices,label=>label.label),['Home-Prepared','Restaurant / Ready-to-Eat','Purchased Packaged / Frozen','Not Sure / Typical']);
   const muffin=search.queryFacetSeeds(search.parseQuery('blueberry muffin'),search.conceptFromQuery('blueberry muffin'));
   assert.equal(muffin.kind,'Sweet');assert.equal(muffin.flavour,'Blueberry');
 });
