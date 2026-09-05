@@ -383,7 +383,7 @@ fieldset>legend,.section-heading h3,.card>h3,.card>h4{font-size:clamp(1.18rem,3.
 
 
 /* Alpha 0.6.13 — usability and Companion polish */
-.visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.sr-only,.visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
 .scan-photo-action-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0 16px}.scan-photo-capture-card h3{margin-bottom:6px}.scan-photo-capture-card .scan-preview{min-height:220px}.planner-other-optin small{display:block;font-weight:400;color:var(--muted);font-size:.76rem;margin-left:28px}
 .redesigned-diary-list .redesigned-meal-section+ .redesigned-meal-section{border-top:4px solid color-mix(in srgb,var(--ink) 60%,var(--line))!important}.redesigned-meal-section{border-color:color-mix(in srgb,var(--ink) 22%,var(--line))!important}
 .history-bars .weight-line-chart{width:100%;max-width:none}.history-bars .weight-line-chart svg{display:block;width:100%;height:auto;min-height:300px}.history-bars .weight-chart-summary{display:grid!important;grid-template-columns:auto 1fr;gap:4px 16px;margin-top:8px;padding:10px 4px}.history-bars .weight-chart-summary strong{font-size:1.45rem}.weight-axis-label,.weight-date-label{font-size:14px!important}.weight-point-label{font-size:15px!important;font-weight:700}
@@ -837,3 +837,13 @@ html[data-hec-installation-role="test"] body{padding-top:var(--hec-installation-
 @media(max-width:390px){.first-home-welcome{padding:10px}.first-home-welcome-card{padding:22px 18px}.eight-room-circle .room{width:82px!important}.eight-room-circle .r3{left:88.5%!important}.eight-room-circle .r7{left:11.5%!important}}
 .off-catalogue-results{display:grid;gap:.65rem;margin-top:.85rem}.off-catalogue-results [data-off-rows]{display:grid;gap:.55rem}.off-load-more{min-height:48px}.off-catalogue-results .resource-row{content-visibility:auto;contain-intrinsic-size:76px}
 .resource-search #submit-food-search span{font-size:1rem}
+
+/* Alpha 0.6.33 post-deployment iPhone integration. */
+:root{--hec-entry-footer-height:112px}
+#food-library:has(.universal-search-submitted) #resource-add-button,#food-library:has(.universal-source-branch) #resource-add-button,#food-library:has(.universal-source-results) #resource-add-button,#food-library:has(.guided-resolution-card) #resource-add-button{display:none!important}
+@media(max-width:700px){
+  #food-entry-editor.active .page{padding-bottom:calc(var(--hec-entry-footer-height,112px) + 16px)}
+  #food-entry-editor.active .quick-action-row:has(#save-food-entry){display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;max-width:calc(100vw - 24px);box-sizing:border-box}
+  #food-entry-editor.active .quick-action-row:has(#save-food-entry) button{width:100%;min-width:0;min-height:44px;padding-inline:8px;white-space:normal}
+}
+@media(max-width:520px){.resource-search{grid-template-columns:minmax(0,1fr) 44px auto}.resource-search>span{display:none}.resource-search #clear-food-search{display:grid;place-items:center;min-width:44px;min-height:44px;padding:0}.resource-search #submit-food-search{min-height:44px;padding-inline:9px}.resource-search input{padding-inline:3px}}

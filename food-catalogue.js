@@ -38,7 +38,7 @@
 
   function norm(value){return String(value||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/&/g,' and ').replace(/[’']/g,'').replace(/[^a-z0-9]+/g,' ').replace(/\s+/g,' ').trim();}
   function tokens(value){return norm(value).split(' ').filter(Boolean);}
-  function corrected(value){return tokens(value).map(token=>CONTROLLED_TYPOS[token]||token).join(' ');}
+  function corrected(value){const normal=SEARCH?.normaliseIntent?SEARCH.normaliseIntent(value):norm(value);return tokens(normal).map(token=>CONTROLLED_TYPOS[token]||token).join(' ');}
   function phrasePresent(hay,phrase){return !!phrase&&` ${norm(hay)} `.includes(` ${norm(phrase)} `);}
   function hasEnergy(food){const value=food?.nutrients?.calories;return value!==null&&value!==undefined&&value!==''&&Number.isFinite(Number(value));}
   function sourceText(food){return norm(`${food?.source||''} ${food?.category||''}`);}
@@ -336,7 +336,18 @@
     if(type===RECORD_TYPES.PACKAGED)return {label:verified?'Verified Packaged Food':'Packaged Food',detail:food?.source||'Check the current package',verified:!!verified};
     return {label:verified?'Verified Food':'Food Record',detail:food?.source||'Source not supplied',verified:!!verified};
   }
-  function canLog(food){const policy=SEM?.servingPolicy?.(food);return policy?.loggable!==false&&food?.loggable!==false&&food?.nutritionStatus!=='unavailable'&&food?.nutritionStatus!=='configurable'&&hasEnergy(food)&&food?.verificationStatus!=='recognised-only'&&food?.recognisedOnly!==true;}
+  function provenanceParts(food,extras=[]){const source=provenance(food),values=[food?.brand,food?.sourceDisplayName,source.label,...extras],seen=new Set(),out=[];for(const value of values){const text=String(value||'').trim(),key=norm(text);if(text&&!seen.has(key)){seen.add(key);out.push(text);}}return out;}
+  function servingFoundation(){return global.HECServingFoundation||(typeof require==='function'?require('./serving-foundation.js'):null);}
+  function addability(food){const central=servingFoundation();if(central?.evaluateAddability)return central.evaluateAddability(food);const ready=food&&food?.loggable!==false&&food?.nutritionStatus!=='unavailable'&&food?.nutritionStatus!=='configurable'&&hasEnergy(food)&&food?.verificationStatus!=='recognised-only'&&food?.recognisedOnly!==true;return {status:ready?'loggable-now':'details-only',label:ready?'Loggable now':'Details only',reasonCode:ready?'legacy-ready':'legacy-blocked',actions:[],normalLoggingAllowed:!!ready};}
+  function canLog(food){
+    const decision=addability(food);if(decision.normalLoggingAllowed===true)return true;
+    // Preserve the catalogue API's historical nutrition-eligibility answer for
+    // abstract records that do not yet carry serving metadata. Actual result,
+    // Quick Add and editor routes still require the central addability decision
+    // or their own explicit serving/unit guard before a Diary write can occur.
+    const noServingMetadata=!Object.keys(food?.units||{}).length&&!food?.manufacturerServing&&!food?.defaultUnit;
+    return !!food&&noServingMetadata&&food?.loggable!==false&&food?.nutritionStatus!=='unavailable'&&food?.nutritionStatus!=='configurable'&&hasEnergy(food)&&food?.verificationStatus!=='recognised-only'&&food?.recognisedOnly!==true;
+  }
   function quickAddPolicy(food,{date='',meal='',sourceTrusted=false,safetyBlocked=false}={}){
     const policy=SEM?.servingPolicy?.(food),unit=String(policy?.defaultUnit||food?.defaultUnit||''),amount=Number(policy?.defaultAmount??food?.defaultAmount),units=policy?.units||food?.units||{},natural=!!unit&&Number.isFinite(amount)&&amount>0&&units[unit]!==undefined&&!['g','mL'].includes(unit);let reason='';
     if(!food)reason='identity';else if(!date||!meal)reason='destination';else if(!canLog(food))reason='nutrition';else if(!natural)reason='serving';else if(!sourceTrusted)reason='source';else if(safetyBlocked)reason='safety';return {ready:!reason,reason,amount,unit,date,meal};
@@ -348,20 +359,77 @@
   function deepFreeze(value){if(!value||typeof value!=='object'||Object.isFrozen(value))return value;Object.freeze(value);for(const child of Object.values(value))deepFreeze(child);return value;}
   function snapshotRecord(food){try{return JSON.parse(JSON.stringify(food));}catch{return {...food};}}
   function genericSubmittedItem(concept,raw,parsed){return {id:`generic:${concept.key}`,kind:'generic-concept',conceptKey:concept.key,name:`${concept.label} — Generic`,sourcePlan:SEARCH.sourceContextPlan?.(concept,raw)||null,physicalForm:concept.physicalForm||'',quantity:parsed.consumedQuantity||1};}
+  function restaurantProductQuery(food,query){
+    let productQuery=norm(query);
+    const sourceNames=[food.brand,food.sourceDisplayName,...(food.sourceAliases||[])].map(norm).filter(Boolean).sort((a,b)=>b.length-a.length);
+    for(const name of sourceNames)productQuery=(` ${productQuery} `).replace(` ${name} `,' ').trim();
+    return productQuery;
+  }
+  function restaurantFamilyKey(food){
+    if(food.choiceFamily)return norm(food.choiceFamily);
+    const semantics=food.productSemantics||{};let family=norm(food.familyName||food.productFamily);
+    // Some source family fields still include their declared size/count.
+    // Strip only that semantic modifier; never infer a family from display names.
+    const modifier=semantics.type==='sized-variant'?norm(semantics.size||food.semanticSize):semantics.type==='counted-item'?String(Number(semantics.count||food.semanticCount)||''):'';
+    if(modifier&&family.startsWith(`${modifier} `))family=family.slice(modifier.length+1);
+    else if(modifier&&family.endsWith(` ${modifier}`))family=family.slice(0,-modifier.length-1);
+    return family;
+  }
+  function restaurantSearchQuantity(records,raw){
+    const parsed=SEARCH?.parseQuantityLanguage?.(raw,{candidates:records})||{identityQuery:corrected(raw)};
+    // A source-declared size can also be a meal word. Preserve a fully named
+    // family/size identity before generic quantity parsing removes that word.
+    for(const food of records){
+      const semantics=food.productSemantics||{},size=norm(semantics.size||food.semanticSize),family=restaurantFamilyKey(food);
+      if(!food.foodSourceId||!family||semantics.type!=='sized-variant'||!size)continue;
+      const productQuery=restaurantProductQuery(food,raw);
+      if(productQuery===`${size} ${family}`||productQuery===`${family} ${size}`)return {...parsed,identityQuery:corrected(raw),variantExplicit:true,productVariantSize:size};
+    }
+    return parsed;
+  }
+  function unresolvedRestaurantFamilies(records,query,parsed){
+    // A score resolves relevance, not which size/order the person consumed.
+    // Only explicit source family metadata and distinct semantic portions qualify.
+    if(parsed?.variantExplicit)return [];
+    const families=new Map();
+    for(const food of records){
+      const semantics=food.productSemantics||{},family=restaurantFamilyKey(food),source=food.foodSourceId;
+      const singlePiece=semantics.type==='single-item'&&food.defaultUnit==='piece'&&Number(food.defaultAmount)===1&&Number(food.units?.piece)===1;
+      const count=Number(semantics.count||food.semanticCount)||(singlePiece?1:0),size=norm(semantics.size||food.semanticSize);
+      const portion=(semantics.type==='counted-item'||singlePiece)&&count>0?`count:${count}`:semantics.type==='sized-variant'&&size?`size:${size}`:'';
+      if(!source||!family||!portion||food.verified===false||food.itemStatus==='retired')continue;
+      const productQuery=restaurantProductQuery(food,query);
+      // Exact family intent leaves count, size, flavour and meal modifiers intact.
+      if(productQuery!==family)continue;
+      const key=`${source}:${family}`,group=families.get(key)||{key,family,sourceId:source,members:[]};
+      group.members.push({food,portion,count,size});families.set(key,group);
+    }
+    return [...families.values()].filter(group=>group.members.length>1&&new Set(group.members.map(member=>member.portion)).size===group.members.length).map(group=>{
+      const sourceOrdered=new Set(group.members.map(member=>member.food.choiceOrder)).size>1;
+      const order=member=>sourceOrdered?Number(member.food.choiceOrder)||0:member.count>0?member.count:['extra small','small','medium','regular','large','extra large'].indexOf(member.size);
+      group.members.sort((a,b)=>order(a)-order(b)||a.size.localeCompare(b.size));
+      return {...group,label:group.family.replace(/\b\w/g,char=>char.toUpperCase()),recordIds:group.members.map(member=>String(member.food.id))};
+    });
+  }
   function submittedResultModel(records,query,{savedIds=[],online=[]}={}){
-    const raw=String(query||'').trim(),parsed=SEARCH?.parseQuantityLanguage?.(raw,{candidates:records})||{identityQuery:corrected(raw)},identity=parsed.identityQuery||corrected(raw),concept=SEARCH?.conceptFromQuery?.(identity)||null,intent=queryIntent(identity),saved=new Set(savedIds||[]),ranked=dedupeRanked([...(records||[]),...(online||[])].map(food=>({food,rank:rank(food,identity,{saved:saved.has(food?.id)}).score})).filter(item=>item.rank>0)).sort((a,b)=>b.rank-a.rank||quality(b.food)-quality(a.food)||norm(a.food?.name).localeCompare(norm(b.food?.name))).map(item=>item.food),groups=[];
+    const raw=String(query||'').trim(),parsed=restaurantSearchQuantity(records||[],raw),identity=parsed.identityQuery||corrected(raw),concept=SEARCH?.conceptFromQuery?.(identity)||null,intent=queryIntent(identity),saved=new Set(savedIds||[]),ranked=dedupeRanked([...(records||[]),...(online||[])].map(food=>({food,rank:rank(food,identity,{saved:saved.has(food?.id)}).score})).filter(item=>item.rank>0)).sort((a,b)=>b.rank-a.rank||quality(b.food)-quality(a.food)||norm(a.food?.name).localeCompare(norm(b.food?.name))).map(item=>item.food),groups=[];
     const genericConcept=!!concept&&!SEARCH?.likelyBrandPrefix?.(SEARCH.parseQuery(raw),concept)&&intent.kind==='product';
     if(genericConcept)groups.push({key:'generic',label:'Generic Food',items:[genericSubmittedItem(concept,raw,parsed)]});
-    const buckets={best:[],restaurant:[],packaged:[],saved:[],broader:[]};
-    for(const food of ranked){const item={id:canonicalKey(food),recordId:String(food?.id||canonicalKey(food)),kind:'exact-product',name:consumerDisplayName(food),food:snapshotRecord(food),recordType:recordType(food),provenance:provenance(food)};if(saved.has(food?.id)||[RECORD_TYPES.PRIVATE,RECORD_TYPES.RECIPE].includes(item.recordType))buckets.saved.push(item);else if(item.recordType===RECORD_TYPES.FOOD_SOURCE)buckets.restaurant.push(item);else if(item.recordType===RECORD_TYPES.PACKAGED)buckets.packaged.push(item);else if([RECORD_TYPES.ONLINE,RECORD_TYPES.EXTERNAL].includes(item.recordType))buckets.broader.push(item);else buckets.best.push(item);}
-    const topRank=ranked.length?rank(ranked[0],identity):{score:0,tier:'none'},strongProduct=!genericConcept&&(intent.kind==='product'||intent.kind==='source')&&['exact-name','exact-alias','exact-source-alias','exact-brand','all-tokens'].includes(topRank.tier)&&topRank.score>=1200;if(strongProduct){const firstGroup=Object.entries(buckets).find(([,items])=>items.length);if(firstGroup){const [key,items]=firstGroup;groups.push({key:'best',label:'Best match',items:items.splice(0,1),origin:key});}}
-    for(const [key,label] of [['best','Australian Generic Records'],['restaurant','Restaurant / Ready-to-Eat'],['packaged','Packaged / Frozen / Supermarket Products'],['saved','Saved or User-Created Results'],['broader','Broader / Incomplete Results']])if(buckets[key].length)groups.push({key,label,items:buckets[key]});
+    const buckets={best:[],restaurant:[],packaged:[],saved:[],broader:[],completion:[],details:[]},decisions=new Map();
+    for(const food of ranked){const baseDecision=addability(food),identityQuality=exactProductQuality(food,{candidates:ranked}),decision=baseDecision.status==='loggable-now'&&!identityQuality.exactEligible?{status:'details-only',label:'Details only',reasonCode:`identity-${identityQuality.reason}`,message:'This record does not identify a specific product reliably enough for ordinary logging.',actions:[{id:'details',label:'View Details'}],normalLoggingAllowed:false}:baseDecision;decisions.set(food,decision);const item={id:canonicalKey(food),recordId:String(food?.id||canonicalKey(food)),kind:'exact-product',name:consumerDisplayName(food),food:snapshotRecord(food),recordType:recordType(food),provenance:provenance(food),addability:snapshotRecord(decision)};if(decision.status==='needs-nutrition-completion')buckets.completion.push(item);else if(decision.status==='details-only')buckets.details.push(item);else if(saved.has(food?.id)||[RECORD_TYPES.PRIVATE,RECORD_TYPES.RECIPE].includes(item.recordType))buckets.saved.push(item);else if(item.recordType===RECORD_TYPES.FOOD_SOURCE)buckets.restaurant.push(item);else if(item.recordType===RECORD_TYPES.PACKAGED)buckets.packaged.push(item);else if([RECORD_TYPES.ONLINE,RECORD_TYPES.EXTERNAL].includes(item.recordType))buckets.broader.push(item);else buckets.best.push(item);}
+    const families=genericConcept?[]:unresolvedRestaurantFamilies(ranked,identity,parsed),unresolvedIds=new Set(families.flatMap(family=>family.recordIds));
+    const loggableRanked=ranked.filter(food=>decisions.get(food)?.normalLoggingAllowed),topFood=loggableRanked[0],topRank=topFood?rank(topFood,identity):{score:0,tier:'none'},strongProduct=!genericConcept&&topFood&&!unresolvedIds.has(String(topFood.id))&&(intent.kind==='product'||intent.kind==='source')&&['exact-name','exact-alias','exact-source-alias','exact-brand','all-tokens'].includes(topRank.tier)&&topRank.score>=1200;if(strongProduct){const firstGroup=Object.entries(buckets).find(([key,items])=>!['completion','details'].includes(key)&&items.some(item=>item.recordId===String(topFood.id)));if(firstGroup){const [key,items]=firstGroup,index=items.findIndex(item=>item.recordId===String(topFood.id));groups.push({key:'best',label:'Best match',items:items.splice(index,1),origin:key});}}
+    for(const family of families){
+      const items=family.recordIds.flatMap(id=>Object.values(buckets).flatMap(bucket=>{const index=bucket.findIndex(item=>item.recordId===id);return index<0?[]:bucket.splice(index,1);}));
+      groups.push({key:'restaurant-family',label:`Which ${family.label} order did you have?`,familyKey:family.key,sourceId:family.sourceId,unresolved:'size-or-count',items});
+    }
+    for(const [key,label] of [['best','Australian Generic Records'],['restaurant','Restaurant / Ready-to-Eat'],['packaged','Packaged / Frozen / Supermarket Products'],['saved','Saved or User-Created Results'],['broader','Broader Australian Results'],['completion','Needs Nutrition Completion'],['details','Details Only']])if(buckets[key].length)groups.push({key,label,items:buckets[key]});
     if(!groups.length&&concept)groups.push({key:'generic',label:'Generic Food',items:[genericSubmittedItem(concept,raw,parsed)]});
     return deepFreeze({version:VERSION,rawQuery:raw,normalisedQuery:corrected(raw),identityQuery:identity,quantity:parsed,concept:concept?{key:concept.key,label:concept.label}:null,submissionMode:'deliberate',groups,total:groups.reduce((sum,group)=>sum+group.items.length,0)});
   }
   function appendSubmittedOnline(model,records=[]){
     if(!model||!Array.isArray(model.groups)||!records.length)return model;
-    const existingIds=new Set(model.groups.flatMap(group=>group.items||[]).map(item=>String(item.recordId||item.id||''))),incoming=submittedResultModel(records,model.rawQuery).groups.flatMap(group=>group.items||[]).filter(item=>item.kind==='exact-product'&&!existingIds.has(String(item.recordId||item.id||'')));
+    const existingIds=new Set(model.groups.flatMap(group=>group.items||[]).flatMap(item=>[String(item.id||''),String(item.recordId||'')])),incoming=submittedResultModel(records,model.rawQuery).groups.flatMap(group=>group.items||[]).filter(item=>item.kind==='exact-product'&&!existingIds.has(String(item.id||''))&&!existingIds.has(String(item.recordId||'')));
     if(!incoming.length)return model;
     const retained=model.groups.filter(group=>group.key!=='online'),previous=model.groups.find(group=>group.key==='online')?.items||[],online=deepFreeze({key:'online',label:'Online packaged results',items:[...previous,...incoming]});
     return deepFreeze({...model,groups:[...retained,online],total:retained.reduce((sum,group)=>sum+(group.items?.length||0),0)+online.items.length});
@@ -402,6 +470,6 @@
     const label=food?.unitLabels?.[natural]||natural||'servings';return {level:'implausible',requiresConfirmation:true,message:`${quantity} ${label} is much larger than a usual logging amount. Check whether you meant the natural serving, grams or millilitres before continuing.`};
   }
 
-  const api={version:VERSION,recordTypes:RECORD_TYPES,sourceTiers:SOURCE_TIERS,productQualityTypes:PRODUCT_QUALITY,controlledTypos:CONTROLLED_TYPOS,australianAliases:AUSTRALIAN_ALIASES,norm,tokens,corrected,queryIntent,brandProductQuality,sourceTier,meaningfulProductName,productIdentityQuality,exactProductQuality,consumerDisplayName,fieldSpecificRank,consumerBrandMembership,consumerProductSpecificity,brandFamilyResults,australianAlternates,recordType,marketFor,sourceIdFor,canonicalKey,normaliseRecord,friesIntent,genericFriesCandidates,displayQuantity,rank,dedupe,dedupeRanked,duplicateIdentityEvidence,duplicateIdentity,duplicateAudit,resolve,partitionSearchRecords,provenance,hasEnergy,canLog,quickAddPolicy,fullReviewPolicy,submittedResultModel,appendSubmittedOnline,newUniversalSearchSession,previewUniversalSearch,commitUniversalSearch,ownsUniversalAsync,newSearchState,beginSearch,rememberSearch,restoreSearch,transitionSearch,newFederatedSearchState,beginQueryRevision,revisionMatches,commitLocalSnapshot,appendLocalSnapshot,appendOnlineSnapshot,naturalQuantityWarning};
+  const api={version:VERSION,recordTypes:RECORD_TYPES,sourceTiers:SOURCE_TIERS,productQualityTypes:PRODUCT_QUALITY,controlledTypos:CONTROLLED_TYPOS,australianAliases:AUSTRALIAN_ALIASES,norm,tokens,corrected,queryIntent,brandProductQuality,sourceTier,meaningfulProductName,productIdentityQuality,exactProductQuality,consumerDisplayName,fieldSpecificRank,consumerBrandMembership,consumerProductSpecificity,brandFamilyResults,australianAlternates,recordType,marketFor,sourceIdFor,canonicalKey,normaliseRecord,friesIntent,genericFriesCandidates,displayQuantity,rank,dedupe,dedupeRanked,duplicateIdentityEvidence,duplicateIdentity,duplicateAudit,resolve,partitionSearchRecords,provenance,provenanceParts,hasEnergy,addability,canLog,quickAddPolicy,fullReviewPolicy,submittedResultModel,appendSubmittedOnline,newUniversalSearchSession,previewUniversalSearch,commitUniversalSearch,ownsUniversalAsync,newSearchState,beginSearch,rememberSearch,restoreSearch,transitionSearch,newFederatedSearchState,beginQueryRevision,revisionMatches,commitLocalSnapshot,appendLocalSnapshot,appendOnlineSnapshot,naturalQuantityWarning};
   global.HECFoodCatalogue=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);

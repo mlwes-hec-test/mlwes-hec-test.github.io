@@ -25,12 +25,18 @@
   const UNIT_LOOKUP={};Object.entries(UNIT_WORDS).forEach(([u,words])=>words.forEach(w=>UNIT_LOOKUP[w]=u));
 
   function norm(v){return String(v||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/&/g,' and ').replace(/[’']/g,'').replace(/[^a-z0-9]+/g,' ').trim();}
+  const COMPOUND_VARIANTS=Object.freeze([
+    Object.freeze({pattern:/\bwhole\s+meal\b/g,replacement:'wholemeal'}),
+    Object.freeze({pattern:/\bwhole\s+grain\b/g,replacement:'wholegrain'}),
+    Object.freeze({pattern:/\bhash\s+brown\b/g,replacement:'hash brown'})
+  ]);
+  function normaliseCompounds(value){let result=norm(value);for(const item of COMPOUND_VARIANTS)result=result.replace(item.pattern,item.replacement);return result.replace(/\s+/g,' ').trim();}
   function singularWord(w){if(IRREGULAR[w])return IRREGULAR[w];if(/ies$/.test(w)&&w.length>4)return w.slice(0,-3)+'y';if(/(ches|shes|xes|zes)$/.test(w))return w.slice(0,-2);if(/s$/.test(w)&&!/(ss|us|is)$/.test(w)&&w.length>3)return w.slice(0,-1);return w;}
   function singular(v){return norm(v).split(' ').filter(Boolean).map(singularWord).join(' ');}
   function title(v){return String(v||'').replace(/\b\w/g,c=>c.toUpperCase()).replace(/\bAnd\b/g,'&');}
   function tokens(v){return singular(v).split(' ').filter(Boolean);}
   function normaliseIntent(v){
-    return norm(v)
+    return normaliseCompounds(v)
       .replace(/\bbreak(?:y|ie)\b/g,'brekkie')
       .replace(/\bmegga\b/g,'mega')
       .replace(/\bmc\s+wrap\b/g,'mcwrap')
@@ -72,7 +78,7 @@
     {key:'cauliflower',label:'Cauliflower',aliases:['cauliflower'],category:'vegetable',sourcePolicy:'skip',facetOrder:['form','prep'],natural:{unit:'g',label:'g',grams:1}},
     {key:'onion',label:'Onion',aliases:['onion'],category:'vegetable',sourcePolicy:'skip',facetOrder:['variety','form','prep'],natural:{unit:'g',label:'g',grams:1}},
     {key:'cheese',label:'Cheese',aliases:['cheese'],category:'dairy',sourcePolicy:'early',facetOrder:['type','fat','style','form','source'],natural:{unit:'g',label:'g',grams:1}},
-    {key:'milk',label:'Milk',aliases:['milk'],category:'dairy',sourcePolicy:'early',facetOrder:['type','fat','source'],natural:{unit:'mL',label:'mL',grams:1}},
+    {key:'milk',label:'Milk',aliases:['milk'],category:'dairy',sourcePolicy:'skip',facetOrder:['type','fat'],natural:{unit:'mL',label:'mL',grams:1}},
     {key:'yoghurt',label:'Yoghurt',aliases:['yoghurt','yogurt'],category:'dairy',sourcePolicy:'early',facetOrder:['type','fat','flavour','source'],natural:{unit:'g',label:'g',grams:1}},
     {key:'egg',label:'Egg',aliases:['egg'],category:'egg',sourcePolicy:'skip',facetOrder:['species','part','size','prep','addedFat'],natural:{unit:'egg',label:'Egg',grams:52},supplemental:{species:['Chicken','Duck','Quail'],part:['Whole','Yolk','White'],prep:['Raw','Boiled','Poached','Microwave Poached','Fried','Baked / Oven','Air Fried'],size:['Small','Medium','Large','X-Large','Jumbo','King-Size'],addedFat:['No added fat/oil']}},
     {key:'bread',label:'Bread',aliases:['bread','toast','toasted bread'],category:'grain',sourcePolicy:'early',facetOrder:['type','grain','source','prep','size'],natural:{unit:'slice',label:'Slice',grams:40}},
@@ -289,6 +295,6 @@
     return [];
   }
 
-  const api={version:VERSION,norm,singular,title,tokens,normaliseIntent,queryIntent,stripVoiceWake,parseQuantityLanguage,parseQuery,conceptFromQuery,predictConcepts,labelFor,likelyBrandPrefix,knownFacetToken,classifyText,descriptorFeatures,queryFacetSeeds,sourceModeFromQuery,shouldOfferSourceFirst,sourceContextPlan,sourceChoices,clarificationChoices,splitCompoundQuery,registry:REG,concepts:CONCEPTS,patterns:PATTERNS,modifierWords:MODIFIER_WORDS,sourceContextChoices:SOURCE_CONTEXT_CHOICES};
+  const api={version:VERSION,norm,compoundVariants:COMPOUND_VARIANTS,normaliseCompounds,singular,title,tokens,normaliseIntent,queryIntent,stripVoiceWake,parseQuantityLanguage,parseQuery,conceptFromQuery,predictConcepts,labelFor,likelyBrandPrefix,knownFacetToken,classifyText,descriptorFeatures,queryFacetSeeds,sourceModeFromQuery,shouldOfferSourceFirst,sourceContextPlan,sourceChoices,clarificationChoices,splitCompoundQuery,registry:REG,concepts:CONCEPTS,patterns:PATTERNS,modifierWords:MODIFIER_WORDS,sourceContextChoices:SOURCE_CONTEXT_CHOICES};
   global.HECSearchFoundation=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);

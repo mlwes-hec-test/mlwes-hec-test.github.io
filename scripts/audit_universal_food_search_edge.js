@@ -49,8 +49,8 @@ async function amountScenario(page,url){
   const livePreview=(await page.locator('[data-gpr-amount-preview]:visible').innerText()).trim();
   if(!livePreview.includes('Nutrition preview'))throw new Error(`live nutrition preview missing: ${JSON.stringify(livePreview)}`);
   await amount.press('Enter');
-  await page.waitForFunction(()=>document.body.innerText.includes('Ready for review'));
-  const review=await page.locator('#food-results').innerText();
+  await page.locator('#food-entry-editor.active').waitFor({state:'visible'});
+  const review=await page.locator('#food-entry-editor').innerText();
   if(!review.includes('1.75'))throw new Error(`decimal amount missing from Review: ${JSON.stringify(review.slice(0,1200))}`);
   return {measureLabel,quickAmounts:quick,focus,livePreview,review:true};
 }

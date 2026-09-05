@@ -92,8 +92,8 @@ test('11. unfinished prefixes cannot claim the best-match slot',()=>{
   assert.notEqual(model.groups[0]?.key,'best');
 });
 
-test('12. a strong exact product submission leads with Best match',()=>{
-  const model=catalogue.submittedResultModel([{id:'p',name:'McCain Hash Browns',brand:'McCain',recordType:'packaged',market:'AU',verified:true,nutrients:{calories:130}}],'McCain Hash Browns');
+test('12. a strong complete exact product submission leads with Best match',()=>{
+  const model=catalogue.submittedResultModel([{id:'p',name:'McCain Hash Browns',brand:'McCain',recordType:'packaged',market:'AU',verified:true,physicalForm:'solid-weight',units:{serve:1},unitLabels:{serve:'Manufacturer serve'},nutrients:{calories:130}}],'McCain Hash Browns');
   assert.equal(model.groups[0].key,'best');
   assert.equal(model.groups[0].items[0].recordId,'p');
 });
@@ -250,9 +250,10 @@ test('34. simple whole foods bypass source branching instead of opening an empty
   assert.match(runtime,/direct=!choices\.length\?'typical'/);
 });
 
-test('35. exact result rows expose usable versus incomplete nutrition status',()=>{
-  assert.match(runtime,/Nutrition available · choose an amount/);
-  assert.match(runtime,/Incomplete or identity-only · review before Diary/);
+test('35. exact result rows expose central addability status',()=>{
+  assert.match(runtime,/Loggable now · choose an amount/);
+  assert.match(runtime,/decision\.status==='needs-nutrition-completion'/);
+  assert.match(runtime,/Details only/);
 });
 
 test('36. fraction words in an exact product name remain identity language',()=>{
