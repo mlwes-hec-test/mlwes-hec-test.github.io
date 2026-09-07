@@ -98,7 +98,7 @@ test('19. generic chips duplicate rendering is reduced to one owner',()=>{const 
 
 const answer=(session,label)=>{const option=session.nextQuestion.options.find(item=>item.label===label);assert.ok(option,label);guided.answerDistinction(session,session.nextQuestion.key,option.value);return session;};
 const margarine=()=>answer(answer(answer(guided.createSession(portionAudit.afcdFoods,'margarine'),'Monounsaturated'),'Reduced fat'),'Regular salt');
-const milk=()=>answer(answer(answer(guided.createSession(portionAudit.afcdFoods,'milk'),'Regular fat'),'Standard lactose'),'Standard');
+const milk=()=>answer(answer(answer(answer(guided.createSession(portionAudit.afcdFoods,'milk'),'Cow'),'Regular fat'),'Standard lactose'),'Standard');
 const biscuit={id:'countable-biscuit',canonicalId:'packaged:countable-biscuit',recordType:'packaged',name:'Countable Biscuit',brand:'Example',market:'AU',country:'Australia',verified:true,verificationStatus:'verified',physicalForm:'countable',defaultAmount:1,defaultUnit:'biscuit',units:{biscuit:1,g:1/15},unitLabels:{biscuit:'Biscuit (15 g)',g:'g'},serving:'1 biscuit (15 g)',nutrients:{calories:60,energyKj:251}};
 function consumed(session,measure,amount){guided.selectMeasure(session,measure);guided.selectAmount(session,amount);assert.equal(session.stage,guided.stages.CONFIRMATION);guided.reviewFood(session);return session.consumedPortion;}
 test('20. final Margarine Review preserves one teaspoon as 5 g',()=>{const value=consumed(margarine(),'tsp',1);assert.equal(value.amount,1);assert.equal(value.baseQuantity,5);assert.equal(value.baseUnit,'g');});

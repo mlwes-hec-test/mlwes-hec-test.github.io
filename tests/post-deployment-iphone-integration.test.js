@@ -84,7 +84,7 @@ test('M03 genuinely different counted units and whole orders remain distinct',()
 test('M04 one meaningful measure auto-selects and opens amount; multiple measures still ask',()=>{
   const bigMac=sources.foodRecords({sourceId:'mcdonalds-au'}).find(food=>food.name==='Big Mac');
   const single=guided.createSession([bigMac],'Big Mac',{intent:{kind:'exact-product'}});
-  assert.equal(single.stage,guided.stages.AMOUNT);
+  assert.equal(single.stage,guided.stages.CUSTOMISATION);guided.chooseCustomisation(single,'standard');assert.equal(single.stage,guided.stages.AMOUNT);
   assert.equal(single.selectedMeasure.key,'burger');
   assert.equal(single.measureAutoSelected,true);
   const wings=sources.foodRecords({sourceId:'kfc-au'}).find(food=>food.name==='10 Wicked Wings');

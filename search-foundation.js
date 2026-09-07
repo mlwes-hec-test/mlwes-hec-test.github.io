@@ -160,9 +160,11 @@
   function parseQuantityLanguage(raw,{candidates=[]}={}){
     const original=String(raw||''),encoded=original.replace(/(\d)\s*\/\s*(\d)/g,'$1fraction$2').replace(/(\d)\.(\d)/g,'$1decimal$2'),normal=normaliseIntent(encoded).replace(/(\d+)fraction(\d+)/g,'$1/$2').replace(/(\d+)decimal(\d+)/g,'$1.$2'),words=normal.split(' ').filter(Boolean),numbers=[];
     for(let index=0;index<words.length;){const parsed=numericPhraseAt(words,index);if(!parsed){index+=1;continue;}numbers.push({...parsed,index,end:index+parsed.length});index+=parsed.length;}
-    const variantCounts=candidateVariantCounts(candidates);let variant=null,packageName=null,identityNumber=null;
+    // A count from an unrelated loaded product cannot turn consumption into a variant.
+    const variantCandidates=(candidates||[]).filter(food=>{const identity=normaliseIntent(food?.name||'').replace(/^\d+\s*/, '').trim();return identity&&normal.includes(identity);});
+    const variantCounts=candidateVariantCounts(variantCandidates);let variant=null,packageName=null,identityNumber=null;
     for(const item of numbers){const qualifier=words[item.end]||'',hyphenated=new RegExp(`\\b${String(item.text).replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}-(?:piece|pack|count)\\b`,'i').test(original);if(COUNT_QUALIFIER.test(qualifier)&&/^(?:piece|pieces|pack|packs|count)$/.test(qualifier)&&(variantCounts.has(item.value)||hyphenated)){variant=item;break;}}
-    if(!variant&&numbers.length){variant=numbers.find(item=>{if(!variantCounts.has(item.value))return false;const queryTail=words.slice(item.end).join(' ');return (candidates||[]).some(food=>{const candidate=normaliseIntent(food?.name||'').replace(/^\d+\s*/, '').trim();return candidate&&queryTail.includes(candidate);});})||null;}
+    if(!variant&&numbers.length){variant=numbers.find(item=>{if(!variantCounts.has(item.value))return false;const queryTail=words.slice(item.end).join(' ');return variantCandidates.some(food=>{const name=normaliseIntent(food?.name||''),count=Number(food?.productSemantics?.count)||Number(name.match(/^(\d+)\b/)?.[1]),candidate=name.replace(/^\d+\s*/, '').trim();return count===item.value&&candidate&&queryTail.includes(candidate);});})||null;}
     if(!variant){const exact=(candidates||[]).find(food=>[food?.name,`${food?.brand||''} ${food?.name||''}`].some(value=>normaliseIntent(value)===normal));if(exact){const candidateNumbers=new Set((normaliseIntent(exact.name).match(/\b\d+(?:\.\d+)?\b/g)||[]).map(Number));packageName=numbers.find(item=>candidateNumbers.has(item.value))||null;identityNumber=packageName?null:numbers[0]||null;}}
     const consumed=numbers.find(item=>item!==variant&&item!==packageName&&item!==identityNumber)||null;let consumedUnit='',remove=new Set(),replace=new Map();
     if(variant){replace.set(variant.index,Number.isInteger(variant.value)?String(variant.value):String(variant.value));for(let i=variant.index+1;i<variant.end;i++)remove.add(i);if(COUNT_QUALIFIER.test(words[variant.end]||''))remove.add(variant.end);}
@@ -295,6 +297,183 @@
     return [];
   }
 
-  const api={version:VERSION,norm,compoundVariants:COMPOUND_VARIANTS,normaliseCompounds,singular,title,tokens,normaliseIntent,queryIntent,stripVoiceWake,parseQuantityLanguage,parseQuery,conceptFromQuery,predictConcepts,labelFor,likelyBrandPrefix,knownFacetToken,classifyText,descriptorFeatures,queryFacetSeeds,sourceModeFromQuery,shouldOfferSourceFirst,sourceContextPlan,sourceChoices,clarificationChoices,splitCompoundQuery,registry:REG,concepts:CONCEPTS,patterns:PATTERNS,modifierWords:MODIFIER_WORDS,sourceContextChoices:SOURCE_CONTEXT_CHOICES};
+  /* FOOD CONCEPT FIRST. These declarations describe food identities, not the
+     products used in regression tests. A compound's head and composition have
+     authority over a word shared with another food. Source payloads stay intact. */
+  const CONCEPT_FACETS=Object.freeze({
+    breadType:{question:'What type of bread?',other:true,rules:[
+      ['Gluten-free',/\bgluten free\b/],['Sourdough',/\bsour ?dough\b/],['Rye',/\brye\b/],
+      ['Multigrain / seeded',/\b(?:multi ?grain|mixed grain|seeded|seeds)\b/],
+      ['Low-GI / high-fibre / speciality',/\blow gi\b|\b(?:high|added) fib(?:re|er)\b|\bjackaroo\b/],
+      ['Wholemeal',/\bwholemeal\b/],['White',/\bwhite\b/]]},
+    milkSource:{question:'What type of milk?',other:true,rules:[
+      ['Goat',/\bgoats?\b/],['Oat',/\boats?\b/],['Almond',/\balmond\b/],['Rice',/\brice\b/],
+      ['Soy',/\b(?:soy|soya)\b/],['Coconut',/\bcoconut\b/],['Macadamia',/\bmacadamia\b/],
+      ['Cow',/\bcows?\b/]]},
+    fatLevel:{question:'What fat level?',applies:{milkSource:['Cow']},rules:[
+      ['Skim',/\bskim(?:med)?\b/],['Reduced fat',/\b(?:reduced|low|lite|light) fat\b/],
+      ['Regular fat',/\b(?:regular|full|whole) (?:fat|milk)\b/]]},
+    lactose:{question:'What lactose option?',applies:{milkSource:['Cow']},rules:[
+      ['Lactose free',/\blactose free\b/]],referenceDefault:'Standard lactose'},
+    functionalStyle:{question:'Any added ingredient style?',applies:{milkSource:['Cow']},rules:[
+      ['Added omega-3',/\b(?:added )?omega 3\b/],['Flavoured',/\bflavou?red\b/]],referenceDefault:'Standard'},
+    fortification:{question:'Any added calcium or vitamins?',applies:{milkSource:['Oat','Almond','Rice','Soy','Coconut','Goat','Macadamia']},rules:[
+      ['Calcium and vitamins',/\b(?:calcium|ca)\b.*\bvitamins?\b|\bvitamins?\b.*\b(?:calcium|ca)\b/],
+      ['Added calcium',/\b(?:added )?(?:calcium|ca)\b/],['Unfortified',/\bunfortified\b/]]},
+    cheeseType:{question:'What type of cheese?',rules:[
+      ['Cheddar / tasty',/\b(?:cheddar|tasty)\b/],['Cottage',/\bcottage\b/],['Cream cheese',/\bcream\b/],
+      ['Mozzarella',/\bmozzarella\b/],['Parmesan',/\bparmesan\b/],['Feta',/\bfett?a\b/],
+      ['Ricotta',/\bricotta\b/],['Brie / camembert',/\b(?:brie|camembert)\b/],['Halloumi',/\bhal[lo]*umi\b/],['Other cheese',/\bcheese\b/]]},
+    yoghurtType:{question:'What kind of yoghurt?',rules:[['Plant-based',/\b(?:soy|almond|coconut|plant based)\b/],['Plain / natural',/\b(?:natural|plain|greek)\b/],['Flavoured',/\b(?:flavou?red|vanilla|strawberry|apricot|berry)\b/]]},
+    cerealType:{question:'What kind of breakfast cereal?',rules:[['Muesli / granola',/\b(?:muesli|granola)\b/],['Wheat biscuits',/\b(?:biscuit|weet bix|weetbix|weetabix)\b/],['Flakes',/\b(?:flakes?|cornflakes)\b/],['Puffed cereal',/\b(?:puffed|popped|bubble|pops)\b/],['Other cereal',/\b(?:cereal|bran)\b/]]},
+    meatType:{question:'What meat or type?',rules:[['Beef',/\bbeef\b/],['Pork',/\bpork\b/],['Chicken',/\bchicken\b/],['Lamb',/\blamb\b/],['Plant-based',/\b(?:vegetarian|vegan|plant based)\b/],['Mixed meat',/\bmixed meat\b/]]},
+    chipType:{question:'What kind of chips?',rules:[['Thin fries',/\b(?:fries|french fries)\b/],['Hot chips',/^potato chips|\bhot chips\b/],['Packet potato chips / crisps',/\b(?:potato crisps|crisps|packet)\b/],['Corn chips',/\bcorn chips\b/],['Vegetable crisps',/\bvegetable (?:chips|crisps)\b/]]},
+    chickenCut:{question:'Which part of the chicken?',rules:[['Breast',/\bbreast\b/],['Thigh',/\bthigh\b/],['Drumstick',/\bdrumstick\b/],['Wing',/\bwing\b/],['Whole / mixed',/\b(?:whole|mixed|unspecified)\b/]]},
+    riceType:{question:'What type of rice?',rules:[['Brown',/\bbrown\b/],['White',/\b(?:white|basmati|jasmine)\b/],['Wild',/\bwild\b/]]},
+    preparation:{question:'How was it prepared?',rules:[['Microwave poached',/\bmicrowave poached\b/],['Poached',/\bpoached\b/],['Boiled',/\b(?:hard )?boiled\b|\brice cooker\b/],['Air fried',/\bair fried\b/],['Fried',/\bfried\b/],['Scrambled',/\bscrambled\b/],['Omelette',/\bomelett?e\b/],['Baked / roasted',/\b(?:baked|roasted|oven)\b/],['Grilled',/\bgrilled\b/],['Raw / uncooked',/\b(?:raw|uncooked)\b/],['Toasted',/\btoasted\b/],['Cooked',/\bcooked\b/]]},
+    eggPart:{question:'Whole egg, white or yolk?',rules:[['Whole',/\bwhole\b/],['Yolk',/\byolk\b/],['White',/\b(?:white|albumen)\b/]]},
+    crackerType:{question:'What kind of crackers?',rules:[['Rice crackers',/\brice\b/],['Corn crackers',/\bcorn\b/],['Seeded / wholegrain',/\b(?:seed|seeded|wholegrain|wholemeal|grain)\b/],['Plain / savoury',/\b(?:plain|savoury|water|cream)\b/]]},
+    oilType:{question:'What type of oil?',rules:[['Monounsaturated',/\bmonounsaturated\b/],['Polyunsaturated',/\bpolyunsaturated\b/]]},
+    spreadFat:{question:'What fat level?',rules:[['Reduced fat',/\breduced fat\b/],['Regular fat',/\bregular fat\b/]],referenceDefault:'Regular fat'},
+    saltLevel:{question:'What salt level?',rules:[['Reduced salt',/\breduced salt\b|\breduced fat .*\band salt\b/]],referenceDefault:'Regular salt'},
+    spreadType:{question:'What kind of spread?',rules:[['Margarine / table spread',/\b(?:margarine|table spread|vegetable oil spread)\b/],['Nut / seed spread',/\b(?:nut|seed|peanut|almond|cashew|tahini)\b/],['Yeast spread',/\byeast\b/],['Butter',/\bbutter\b/]]}
+  });
+  const FOOD_CONCEPT_REGISTRY=Object.freeze({
+    bread:{label:'Bread',aliases:['bread','toast'],form:'sliced',facets:['breadOrigin','breadSource','breadType'],shortlist:{direct:['bread-crumbs','bread-roll'],related:['bread-pudding','french-toast','corn-bread'],relatedQueries:['bread and butter pudding','french toast','corn bread']},match:/\bbread\b|\bloaf\b/},
+    milk:{label:'Milk',aliases:['milk'],form:'liquid',facets:['milkSource','fatLevel','lactose','functionalStyle','fortification','identitySource'],match:/\bmilk\b|^(?:oat|almond|soy|soya|rice|coconut|macadamia) beverage\b/},
+    'hash-brown':{label:'Hash Brown',aliases:['hash brown','hashbrown'],form:'solid-countable',facets:['sourceContext'],match:/\bhash ?brown\b/},
+    cheese:{label:'Cheese',aliases:['cheese'],form:'solid-weight',facets:['cheeseType','identitySource'],match:/\bcheese\b/},
+    yoghurt:{label:'Yoghurt',aliases:['yoghurt','yogurt'],form:'semisolid',facets:['yoghurtType','identitySource'],match:/\byog(?:h)?urt\b/},
+    cereal:{label:'Breakfast cereal',aliases:['breakfast cereal','cereal'],form:'solid-weight',facets:['cerealType','identitySource'],match:/\b(?:breakfast cereal|cereal|muesli|granola|cornflakes|weet bix)\b/},
+    sausage:{label:'Sausage',aliases:['sausage','snag'],form:'solid-countable',facets:['meatType','identitySource','preparation'],match:/\bsausage\b/},
+    chips:{label:'Chips',aliases:['chips'],form:'solid-weight',facets:['chipType','identitySource','preparation'],match:/\b(?:chips?|crisps?)\b/},
+    fries:{label:'Hot chips / fries',aliases:['hot chips','french fries','fries'],form:'solid-weight',facets:['identitySource','preparation'],match:/\bfries\b|\bhot chips\b|^potato chips\b/},
+    chicken:{label:'Chicken',aliases:['chicken'],form:'solid-weight',facets:['chickenCut','preparation','identitySource'],match:/\bchicken\b/},
+    apple:{label:'Apple',aliases:['apple'],form:'solid-countable',facets:[],match:/\bapple\b/},
+    cracker:{label:'Crackers',aliases:['cracker','crackers'],form:'solid-countable',facets:['crackerType','identitySource'],match:/\bcracker\b|^biscuit savoury\b/},
+    spread:{label:'Spread',aliases:['spread'],form:'spread',facets:['spreadType','identitySource'],match:/\bspread\b|\b(?:nut|peanut|almond) butter\b|\btahini\b/},
+    margarine:{label:'Margarine',parent:'spread',aliases:['margarine','margarine spread'],form:'spread',facets:['oilType','spreadFat','saltLevel','identitySource'],match:/\bmargarine\b|\btable spread\b/},
+    burger:{label:'Burger',aliases:['burger','hamburger'],form:'solid-countable',facets:['sourceContext'],match:/\b(?:burger|hamburger|cheeseburger)\b/},
+    rice:{label:'Rice',aliases:['rice'],form:'solid-weight',facets:['riceType','preparation','identitySource'],match:/\brice\b/},
+    egg:{label:'Eggs',aliases:['egg'],form:'solid-countable',facets:['preparation','eggPart','identitySource'],match:/\begg\b/}
+  });
+  const COMPOUND_CONCEPTS=Object.freeze([
+    {id:'bread-crumbs',parent:'bread-family',related:['bread'],match:/\bbread ?crumb\b/},
+    {id:'bread-pudding',parent:'dessert',related:['bread'],match:/\bbread (?:and butter )?pudding\b|^pudding bread\b/},
+    {id:'french-toast',parent:'prepared-bread',related:['bread'],match:/\bfrench toast\b/},
+    {id:'corn-bread',parent:'bread-family',related:['bread'],match:/\bcorn ?bread\b|^bread (?:from )?maize\b/},
+    {id:'dried-fruit',parent:'fruit',related:['apple','banana','pear'],match:/\bdried (?:apple|banana|pear)\b|^(?:apple|banana|pear) (?:dried|dehydrated)\b/},
+    {id:'prepared-fruit',parent:'fruit',related:['apple','banana','pear'],match:/^(?:apple|banana|pear) (?:canned|stewed|baked|puree)\b/},
+    {id:'human-milk',parent:'milk',excluded:true,match:/\b(?:human|breast) milk\b|^milk human breast\b/},
+    {id:'infant-formula',parent:'milk',match:/\b(?:infant|toddler|formula|stage [123])\b/},
+    {id:'milk-powder',parent:'milk',match:/\b(?:milk powder|powdered milk)\b|^milk (?:cow )?powder\b/},
+    {id:'concentrated-milk',parent:'milk',match:/\b(?:condensed|evaporated) milk\b|^milk cow canned\b/},
+    {id:'milkshake',parent:'milk',match:/\bmilk ?shake\b/},
+    {id:'milk-chocolate',parent:'chocolate',related:['milk'],match:/\bmilk chocolate\b|^chocolate (?:milk|bar)\b/},
+    {id:'banana-bread',parent:'cake',related:['bread'],match:/\bbanana bread\b|^bread banana\b/},
+    {id:'garlic-bread',parent:'prepared-bread',related:['bread'],match:/\b(?:garlic|herb) bread\b|^bread (?:garlic|herb)\b/},
+    {id:'crispbread',parent:'cracker',related:['bread'],match:/\bcrisp ?bread\b/},
+    {id:'bread-roll',parent:'bread-family',related:['bread'],match:/\b(?:bread roll|bread bun|roll|bun|bagel)\b/},
+    {id:'flatbread',parent:'bread-family',related:['bread'],match:/\b(?:flat ?bread|pita|naan|tortilla|wrap)\b|^bread (?:flat|wrap|pizza base)\b/},
+    {id:'composed-bread',parent:'meal',related:['bread','sausage'],match:/\b(?:in|on) bread\b|\bbread (?:with|and) (?:sausage|bacon|egg|chicken)\b/},
+    {id:'sandwich',parent:'meal',related:['bread'],match:/\b(?:sandwich|toastie)\b/},
+    {id:'cereal-bar',parent:'snack-bar',related:['cereal'],match:/\b(?:cereal|muesli|granola|breakfast) bar\b/},
+    {id:'cereal-drink',parent:'drink',related:['cereal'],match:/^breakfast cereal beverage\b/},
+    {id:'sausage-roll',parent:'pastry',related:['sausage'],match:/\bsausage roll\b/},
+    {id:'apple-juice',parent:'juice',related:['apple'],match:/\bapple juice\b|^juice apple\b/},
+    {id:'apple-dessert',parent:'dessert',related:['apple'],match:/\bapple (?:pie|crumble|cake|turnover|sauce|puree)\b/},
+    {id:'composed-hash-brown',parent:'meal',related:['hash-brown'],match:/\bhash ?brown\b.*\b(?:quiche|meal|burger|muffin|wrap|breakfast|bowl)\b|\b(?:quiche|meal|burger|muffin|wrap|breakfast|bowl)\b.*\bhash ?brown\b/},
+    {id:'composed-rice',parent:'meal',related:['rice'],match:/\b(?:fried rice|rice pudding|rice cake|risotto|sushi)\b|^rice .*\bwith\b/},
+    {id:'composed-chicken',parent:'meal',related:['chicken'],match:/\bchicken\b.*\b(?:pie|burger|nugget|soup|curry|pizza|wrap|salad|sandwich|flavoured|flavored|noodle|tender|popcorn)\b|\b(?:pie|soup|curry|pizza|salad)\b.*\bchicken\b/},
+    {id:'yoghurt-containing-food',parent:'meal',related:['yoghurt'],match:/\b(?:yoghurt|yogurt)\b.*\b(?:coated|dressing|bar|cake|raisin)\b|\b(?:dressing|cake|raisin)\b.*\byog(?:h)?urt\b/}
+  ]);
+  const SEMANTIC_HEADS=Object.freeze([
+    {id:'confectionery',categories:/^(?:chocolate(?: candy| bar| egg)?|confectionery|confectionerie|candy|bonbon|sweet)$/,name:/\bchocolate\b.*\begg\b|\b(?:easter|creme) egg\b|\begg\b.*\bchocolate\b/},
+    {id:'frozen-dessert',categories:/^(?:ice cream|ice cream tub|frozen dessert)$/,name:/\bice ?cream\b/},
+    {id:'sauce-condiment',categories:/^(?:sauce|condiment|mayonnaise|vinegar)$/,name:/\b(?:mayonnaise|vinegar|dressing)\b/},
+    {id:'dessert',categories:/^(?:cake|cake mix|jelly dessert|custard|dessert mix)$/,name:/\b(?:loaf cake|custard|jelly crystal)\b/},
+    {id:'fruit-drink',categories:/^(?:fruit juice|apple juice|cider)$/,name:/\bapple\b.*\b(?:juice|cider|drink)\b|\b(?:juice|cider|drink)\b.*\bapple\b/},
+    {id:'dry-powder',categories:/^(?:protein powder|milk powder)$/,name:/\b(?:protein|isolate|whey|milk) powder\b/},
+    {id:'noodle',categories:/^(?:noodle|egg noodle)$/,name:/\begg\b.*\bnoodle\b/},
+    {id:'composed-egg',categories:/^(?:breakfast sandwich|egg sandwich)$/,name:/\begg\b.*\b(?:muffin|sandwich|wrap|pie|tart|quiche)\b/}
+  ]);
+  function conceptNorm(value){return singular(normaliseCompounds(value)).replace(/\bmaccas?\b|\bmc ?donalds?\b/g,'mcdonalds').replace(/\bhashbrown\b/g,'hash brown');}
+  function conceptReference(food){return food?.afcd===true||food?.recordType==='afcd';}
+  const conceptEvidenceCache=new WeakMap(),conceptAttributeCache=new WeakMap();
+  function classifyFoodConcept(food){
+    const name=conceptNorm(food?.name||food?.genericName),categories=conceptNorm([food?.genericName,...(food?.categories||[]),...(food?.categoryMemberships||[])].filter(Boolean).join(' '));
+    for(const compound of COMPOUND_CONCEPTS)if(compound.match.test(name))return {conceptId:compound.id,parentId:compound.parent,related:compound.related||[compound.parent],excluded:!!compound.excluded,confidence:'high',evidence:'compound-identity'};
+    if(!conceptReference(food))for(const head of SEMANTIC_HEADS)if(head.name.test(name)||(food?.categories||[]).some(category=>head.categories.test(conceptNorm(category))))return {conceptId:head.id,parentId:'prepared-food',related:[],confidence:'high',evidence:'specific-semantic-head'};
+    // In a composed dish, the ingredient word cannot redefine the dish's head.
+    const head=name.split(/\b(?:with|containing|in|on)\b/)[0].trim();
+    if(conceptReference(food)&&String(food?.name||'').includes(',')){
+      const sourceHead=conceptNorm(food.name.split(',')[0]);
+      if(sourceHead==='potato'&&/^potato (?:chip|fries)\b/.test(name))return {conceptId:'fries',parentId:'chips',related:[],form:'solid-weight',confidence:'high',evidence:'source-head-and-food-form'};
+      const primary=Object.entries(FOOD_CONCEPT_REGISTRY).find(([,concept])=>concept.aliases.some(alias=>conceptNorm(alias)===sourceHead));
+      if(primary){const [key,concept]=primary;return {conceptId:key,parentId:concept.parent||'',related:[],form:concept.form,confidence:'high',evidence:'source-head-concept'};}
+      if(!/^(?:oat|almond|soy|soya|rice|coconut|macadamia) beverage$/.test(sourceHead)&&!/^breakfast cereal$/.test(sourceHead)&&!/^biscuit savoury$/.test(sourceHead)&&!/^(?:potato (?:chip|fries|crisps? or chips?)|corn chip|vegetable crisps? or chips?)$/.test(sourceHead))return {conceptId:'unknown',parentId:'',related:[],confidence:'unknown',evidence:'different-source-head'};
+    }
+    const order=['burger','cracker','fries','chips','yoghurt','cheese','margarine','spread','cereal','bread','milk','hash-brown','sausage','chicken','apple','egg','rice'];
+    for(const key of order){const concept=FOOD_CONCEPT_REGISTRY[key];if(concept.match.test(head))return {conceptId:key,parentId:concept.parent||'',related:[],form:concept.form,confidence:'high',evidence:'food-identity'};}
+    const categoryValues=[food?.genericName,food?.category,...(food?.categories||[]),...(food?.categoryMemberships||[])].filter(Boolean).map(conceptNorm);
+    if(food?.foodSourceId&&food?.defaultUnit==='burger')categoryValues.push('burger');
+    for(const key of order){const concept=FOOD_CONCEPT_REGISTRY[key];if((concept.aliases||[]).some(alias=>categoryValues.includes(conceptNorm(alias))))return {conceptId:key,parentId:concept.parent||'',related:[],form:concept.form,confidence:'medium',evidence:'specific-category'};}
+    return {conceptId:'unknown',parentId:'',related:[],confidence:'unknown',evidence:'no-supported-identity'};
+  }
+  function conceptEvidenceSignature(food){return [food.name,food.genericName,food.recordType,food.afcd,food.category,food.foodSourceId,food.defaultUnit,...(food.categories||[]),...(food.categoryMemberships||[])].join('\u0000');}
+  function foodConceptEvidence(food){if(!food||typeof food!=='object')return classifyFoodConcept(food);const signature=conceptEvidenceSignature(food),cached=conceptEvidenceCache.get(food);if(cached?.signature===signature)return cached.value;const value=Object.freeze(classifyFoodConcept(food));conceptEvidenceCache.set(food,{signature,value});conceptAttributeCache.delete(food);return value;}
+  function conceptAttributes(food,conceptId=foodConceptEvidence(food).conceptId){
+    if(!food||typeof food!=='object')return {};
+    const signature=`${food?.name}\u0000${conceptReference(food)}`,cached=conceptAttributeCache.get(food);if(cached?.signature===signature&&cached?.[conceptId])return cached[conceptId];
+    const value=normaliseCompounds(food?.name),attrs={},reference=conceptReference(food);
+    for(const key of FOOD_CONCEPT_REGISTRY[conceptId]?.facets||[]){const definition=CONCEPT_FACETS[key];if(!definition)continue;const match=definition.rules.find(([,pattern])=>pattern.test(value));if(match)attrs[key]=match[0];else if(reference&&definition.referenceDefault)attrs[key]=definition.referenceDefault;}
+    conceptAttributeCache.set(food,{...(cached?.signature===signature?cached:{}),signature,[conceptId]:Object.freeze(attrs)});return attrs;
+  }
+  function conceptCompatibility(food,intent){
+    const candidate=foodConceptEvidence(food),requested=typeof intent==='string'?intent:intent?.conceptId,known=typeof intent==='object'?intent.known||{}:{};
+    const equivalent=candidate.conceptId===requested||(requested==='spread'&&candidate.parentId==='spread')||(requested==='chips'&&candidate.conceptId==='fries');
+    if(candidate.excluded||!equivalent)return {candidateConceptId:candidate.conceptId,compatible:false,relationship:candidate.excluded?'excluded':(candidate.related||[]).includes(requested)?'related':'different-concept',evidence:candidate.evidence,confidence:candidate.confidence,conflicts:[]};
+    const attrs=conceptAttributes(food,requested),conflicts=Object.entries(known).filter(([key,value])=>{const facet=CONCEPT_FACETS[key];if(!facet||value==='__unsure__')return false;const rule=facet.rules.find(([label])=>label===value);return attrs[key]!==value&&!rule?.[1].test(normaliseCompounds(food?.name));}).map(([key])=>key);
+    return {candidateConceptId:candidate.conceptId,compatible:!candidate.excluded&&equivalent&&!conflicts.length,relationship:candidate.excluded?'excluded':equivalent?(conflicts.length?'different-facet':'equivalent'):(candidate.related||[]).includes(requested)?'related':'different-concept',evidence:candidate.evidence,confidence:candidate.confidence,conflicts};
+  }
+  function semanticProductExactness(food,query){
+    const raw=conceptNorm(query),name=conceptNorm(food?.name),brand=conceptNorm(food?.brand),sourceNames=[brand,food?.sourceDisplayName,...(food?.sourceAliases||[])].map(conceptNorm).filter(Boolean).sort((a,b)=>b.length-a.length);
+    let identity=raw;for(const source of sourceNames)identity=(` ${identity} `).replace(` ${source} `,' ').trim();
+    if(raw===name||raw===`${brand} ${name}`||identity===name)return {class:'exact-identity',priority:5,identity};
+    if((food?.aliases||[]).map(conceptNorm).includes(raw)||(food?.aliases||[]).map(conceptNorm).includes(identity))return {class:'alias-exact-identity',priority:4,identity};
+    if(identity&&name.includes(identity)&&name!==identity)return {class:'variant-superset',priority:2,identity};
+    if([food?.familyName,food?.productFamily,food?.choiceFamily].map(conceptNorm).includes(identity))return {class:'family-identity',priority:1,identity};
+    return {class:'lexical',priority:0,identity};
+  }
+  function interpretFoodIntent(query,{records=[],sourceIntent=null,restaurantFamilies=[]}={}){
+    const quantity=parseQuantityLanguage(query,{candidates:records}),identity=conceptNorm(quantity.identityQuery||query),matches=Object.entries(FOOD_CONCEPT_REGISTRY).flatMap(([id,concept])=>concept.aliases.map(alias=>({id,alias:conceptNorm(alias)}))).filter(item=>` ${identity} `.includes(` ${item.alias} `)).sort((a,b)=>b.alias.length-a.alias.length),match=matches[0],known={};let conceptId=match?.id||'';
+    if(!conceptId){
+      const suppliedBrand=sourceIntent?.entity?.type==='brand'?[sourceIntent.entity.name,...(sourceIntent.entity.aliases||[])].map(conceptNorm):[],detectedBrands=suppliedBrand.length?suppliedBrand:[...new Set(records.map(food=>conceptNorm(food.brand)).filter(brand=>brand&&identity.startsWith(brand+' ')))].sort((a,b)=>b.length-a.length),brand=detectedBrands[0];
+      if(brand){const productTokens=identity.replace(brand,' ').trim().split(' ').filter(Boolean),members=records.filter(food=>detectedBrands.includes(conceptNorm(food.brand))&&productTokens.every(token=>conceptNorm(food.name).includes(token))),ids=new Set(members.map(food=>foodConceptEvidence(food).conceptId).filter(id=>FOOD_CONCEPT_REGISTRY[id]));if(ids.size===1)conceptId=[...ids][0];}
+    }
+    let residual=identity;if(match)residual=(` ${identity} `).replace(` ${match.alias} `,' ').trim();
+    for(const key of FOOD_CONCEPT_REGISTRY[conceptId]?.facets||[]){const facet=CONCEPT_FACETS[key];if(!facet)continue;for(const [label,pattern] of facet.rules){if(pattern.test(residual)){known[key]=label;residual=residual.replace(pattern,' ').trim();break;}}}
+    residual=residual.replace(/\b(?:fat|milk|bread|type|regular|standard|fresh|fluid|loaf|sliced|australian|generic|free|lactose|and|or)\b/g,' ').replace(/\s+/g,' ').trim();
+    const compound=COMPOUND_CONCEPTS.find(item=>item.match.test(identity)),generic=!!conceptId&&!compound&&!residual&&!['source','brand-family'].includes(sourceIntent?.kind),exact=!generic&&records.find(food=>semanticProductExactness(food,identity).priority===5&&!conceptReference(food));
+    let kind=generic?(Object.keys(known).length?'concept-with-facets':'generic-concept'):exact?'exact-product':sourceIntent?.kind==='source'?'source-intent':sourceIntent?.kind==='brand-family'?'brand-intent':conceptId?'brand-product':'ambiguous';
+    if(restaurantFamilies.length&&!generic)kind='restaurant-family';else if(quantity.variantExplicit&&!generic)kind='restaurant-explicit-size';
+    return {rawQuery:String(query||''),identityQuery:identity,conceptId:generic||conceptId?conceptId:'',kind,generic,known,quantity,confidence:generic||exact?'high':conceptId?'medium':'unknown',evidence:generic?'concept-alias-and-supplied-facets':exact?'committed-product-identity':compound?'compound-identity':'residual-product-or-unknown',residual,compoundId:compound?.id||''};
+  }
+  function conceptSearchQueries(intent){const concept=FOOD_CONCEPT_REGISTRY[intent?.conceptId];if(!concept)return [intent?.identityQuery||''].filter(Boolean);return [...new Set([intent.identityQuery,...(concept.shortlist?.relatedQueries||[]),...concept.aliases.flatMap(alias=>[alias,...(/s$/.test(alias)?[]:[alias+'s'])])].map(value=>String(value||'').trim()).filter(Boolean))];}
+  function nextConceptQuestion(intent,candidates){
+    const concept=FOOD_CONCEPT_REGISTRY[intent.conceptId];if(!concept)return null;
+    for(const key of concept.facets){if(intent.known?.[key])continue;
+      if(key==='breadOrigin')return {key,question:'Home Made or Commercial?',options:[{value:'home',label:'Home Made'},{value:'commercial',label:'Commercial'}],reason:'bread-origin-policy'};
+      if(key==='breadSource'){if(intent.known?.breadOrigin!=='commercial')continue;return {key,question:'Where did you buy the bread?',options:[{value:'bakery',label:'Bakery'},{value:'restaurant',label:'Restaurant / Food Outlet'},{value:'brand',label:'Name Brand'},{value:'supermarket',label:'Supermarket Chain'}],reason:'bread-commercial-source-policy'};}
+      if(key==='sourceContext')return {key,question:'Where did it come from?',options:SOURCE_CONTEXT_CHOICES.map(c=>({value:c.key,label:c.label})),reason:'family-source-policy'};
+      if(key==='identitySource'){const generic=candidates.filter(conceptReference),products=candidates.filter(food=>!conceptReference(food)),options=[];if(generic.length)options.push({value:'generic',label:`Generic Australian ${concept.label.toLowerCase()}`});if(products.length)options.push({value:'products',label:'Choose a brand/product'});if(options.length>1)return {key,question:'Which food did you have?',options,reason:'available-reference-and-products'};continue;}
+      const definition=CONCEPT_FACETS[key];if(!definition)continue;
+      if(definition.applies&&!Object.entries(definition.applies).every(([facet,values])=>values.includes(intent.known?.[facet])))continue;
+      const values=new Set(candidates.map(food=>conceptAttributes(food,intent.conceptId)[key]).filter(Boolean)),options=definition.rules.filter(([label,pattern])=>values.has(label)||candidates.some(food=>pattern.test(normaliseCompounds(food.name)))).map(([label])=>label);if(definition.referenceDefault&&values.has(definition.referenceDefault))options.push(definition.referenceDefault);
+      if(options.length>1){const choices=options.map(value=>({value,label:value}));if(definition.other)choices.push({value:'__unsure__',label:'Other / Not sure'});return {key,question:definition.question,options:choices,reason:'first-unresolved-supported-family-facet'};}
+    }
+    return null;
+  }
+  const api={version:VERSION,norm,compoundVariants:COMPOUND_VARIANTS,normaliseCompounds,singular,title,tokens,normaliseIntent,queryIntent,stripVoiceWake,parseQuantityLanguage,parseQuery,conceptFromQuery,predictConcepts,labelFor,likelyBrandPrefix,knownFacetToken,classifyText,descriptorFeatures,queryFacetSeeds,sourceModeFromQuery,shouldOfferSourceFirst,sourceContextPlan,sourceChoices,clarificationChoices,splitCompoundQuery,registry:REG,concepts:CONCEPTS,patterns:PATTERNS,modifierWords:MODIFIER_WORDS,sourceContextChoices:SOURCE_CONTEXT_CHOICES,foodConceptRegistry:FOOD_CONCEPT_REGISTRY,conceptFacets:CONCEPT_FACETS,compoundConcepts:COMPOUND_CONCEPTS,conceptNorm,foodConceptEvidence,conceptAttributes,conceptCompatibility,semanticProductExactness,interpretFoodIntent,conceptSearchQueries,nextConceptQuestion};
   global.HECSearchFoundation=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);

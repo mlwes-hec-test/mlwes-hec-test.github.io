@@ -14,14 +14,14 @@ const packaged=(values={})=>({id:'product',canonicalId:`packaged:${values.id||'p
 const floraLight=packaged({id:'flora-light',name:'Flora Light',brand:'Flora',aliases:['flora light'],fatLevel:'Light',productFamily:'Margarine'}),floraPro=packaged({id:'flora-pro',name:'Flora ProActiv Light',brand:'Flora',aliases:['flora proactiv light'],fatLevel:'Light',productLine:'ProActiv',productFamily:'Margarine',nutrients:{calories:37,energyKj:154}}),flora=[floraLight,floraPro];
 function answerLabel(session,label){const choice=session.nextQuestion?.options.find(item=>item.label===label);assert.ok(choice,`${label} offered for ${session.nextQuestion?.key}`);guided.answerDistinction(session,session.nextQuestion.key,choice.value);return session;}
 function margarine(){const session=guided.createSession(audit.afcdFoods,'margarine');answerLabel(session,'Monounsaturated');answerLabel(session,'Reduced fat');answerLabel(session,'Regular salt');return session;}
-function milk(){const session=guided.createSession(audit.afcdFoods,'milk');answerLabel(session,'Regular fat');answerLabel(session,'Standard lactose');answerLabel(session,'Standard');return session;}
+function milk(){const session=guided.createSession(audit.afcdFoods,'milk');answerLabel(session,'Cow');answerLabel(session,'Regular fat');answerLabel(session,'Standard lactose');answerLabel(session,'Standard');return session;}
 function bread(){const session=guided.createSession(audit.afcdFoods,'bread');answerLabel(session,'Wholemeal');return session;}
 
 test('1. generic concept initialized',()=>assert.equal(guided.createSession(audit.afcdFoods,'margarine').genericConcept.name,'Margarine'));
 test('2. brand product initialized',()=>assert.equal(guided.createSession(flora,'Flora',{intent:{kind:'consumer-brand'}}).consumerBrand.name,'Flora'));
 test('3. known attributes populated',()=>assert.equal(guided.createSession(audit.afcdFoods,'reduced fat monounsaturated margarine').knownAttributes.fatLevel,'Reduced fat'));
 test('4. unresolved attributes identified',()=>assert.ok(guided.createSession(audit.afcdFoods,'margarine').unresolvedAttributes.includes('oilType')));
-test('5. one-value attributes auto-inherited',()=>assert.equal(guided.createSession(audit.afcdFoods,'milk').knownAttributes.milkSource,'Dairy'));
+test('5. milk source remains unresolved across supported source types',()=>{const session=guided.createSession(audit.afcdFoods,'milk');assert.equal(session.knownAttributes.milkSource,undefined);assert.equal(session.nextQuestion.key,'milkSource');assert(session.nextQuestion.options.some(option=>option.value==='Cow'));assert(session.nextQuestion.options.some(option=>option.value==='Oat'));});
 test('6. best next question selected',()=>assert.equal(guided.createSession(audit.afcdFoods,'margarine').nextQuestion.key,'oilType'));
 test('7. answer narrows state',()=>{const session=guided.createSession(audit.afcdFoods,'margarine'),before=session.candidates.length;answerLabel(session,'Polyunsaturated');assert.ok(session.candidates.length<before);});
 test('8. exact generic identity reached',()=>assert.equal(margarine().identityKind,'generic-reference'));
@@ -51,7 +51,7 @@ test('28. fractional household amount is supported',()=>{const session=margarine
 test('29. package size is not consumption',()=>assert.equal(guided.createSession([packaged({packSize:'500 g'})],'Example Product 500 g').amount,null));
 test('30. nutrition basis is not consumption',()=>assert.equal(guided.createSession([floraPro],'Flora ProActiv Light').amount,null));
 
-test('31. generic milk uses progressive resolution',()=>assert.equal(guided.createSession(audit.afcdFoods,'milk').nextQuestion.key,'fatLevel'));
+test('31. generic milk uses progressive resolution',()=>assert.equal(guided.createSession(audit.afcdFoods,'milk').nextQuestion.key,'milkSource'));
 test('32. exact generic milk identity is reached',()=>assert.match(milk().exactProduct.name,/regular fat/));
 test('33. generic milk offers mL',()=>assert.ok(milk().servingProfile.measures.some(item=>item.key==='mL')));
 test('34. generic milk offers a 250 mL cup',()=>{const profile=milk().servingProfile,cup=profile.measures.find(item=>item.key==='cup'),ml=profile.measures.find(item=>item.key==='mL');assert.equal(cup.multiplier/ml.multiplier,250);});
