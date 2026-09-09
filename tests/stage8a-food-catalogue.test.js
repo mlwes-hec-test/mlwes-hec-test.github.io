@@ -43,5 +43,61 @@ test("26. herb and garlic sausage detail is preserved as an answered flavour fac
 test("27. hyphen and space variations normalise to the same exact identity",()=>{const hyphen=catalogue.rank(food("Front-of-Pack Crackers"),"front of pack crackers"),spaces=catalogue.rank(food("Front of Pack Crackers"),"front-of-pack crackers");assert.equal(hyphen.tier,"exact-name");assert.equal(spaces.tier,"exact-name");});
 test("28. brand, retailer, food-service context and serving descriptions are searchable fields",()=>{assert.equal(catalogue.rank(food("Cereal",{brand:"Kellogg's"}),"Kellogg's").tier,"exact-brand");assert.ok(catalogue.rank(food("Beef Sausage",{retailer:"Woolworths"}),"Woolworths sausage").score>0);assert.ok(catalogue.rank(food("Potato Scallop",{sourceContext:"Queensland takeaway"}),"Queensland takeaway").score>0);assert.ok(catalogue.rank(food("Pekish Crackers",{serving:"3 crackers (15 g)",packageServingText:"3 crackers (15 g)"}),"3 crackers").score>0);});
 test("29. generic sausage branching remains useful while supplied details skip redundant source questions",()=>{const generic=search.conceptFromQuery("sausage"),specified=search.parseQuery("Woolworths beef sausage"),seeds=search.queryFacetSeeds(specified,generic);assert.deepEqual(Array.from(generic.facetOrder.slice(0,3)),["protein","flavour","source"]);assert.equal(search.shouldOfferSourceFirst(generic,"sausage"),true);assert.equal(seeds.protein,"Beef");assert.equal(search.shouldOfferSourceFirst(generic,specified),false);});
-test("30. stale online work is invalidated and only the active query can update results",()=>{assert.match(runtime,/alpha0630CancelFoodSearchWork\(\{invalidateOnline:true\}\)/);assert.match(runtime,/onlineSearchToken\+\+/);assert.match(runtime,/token!==onlineSearchToken\|\|signal\.aborted/);assert.match(runtime,/\(by\("food-search"\)\?\.value\.trim\(\)\|\|""\)!==query/);});
+function productionBlock(start,end){const from=runtime.indexOf(start),to=runtime.indexOf(end,from+start.length);assert(from>=0&&to>from);return runtime.slice(from,to);}
+function onlineHarness(raw){
+  const input={value:raw},pending=[],renders=[],cached=[food('Milk',{id:'cached-milk'})],status={textContent:''},button={disabled:false};
+  const request=(source,query,signal)=>new Promise(resolve=>pending.push({source,query,signal,resolve}));
+  const app={C8:catalogue,REG29:registry,AbortController,clearTimeout,s23Singular:text=>text,
+    by:id=>id==='food-search'?input:id==='search-online-foods'?button:status,q:()=>true,activeLibraryTab:()=> 'online',
+    searchOpenFoodFacts:(query,signal)=>request('OFF',query,signal),searchUsda:(query,signal)=>request('USDA',query,signal),
+    upsertOnlineFoods:foods=>{for(const record of foods)if(!cached.some(item=>item.id===record.id))cached.push(record);},
+    renderOnlineLibrary:query=>renders.push({query,ids:Array.from(app.federated.online,item=>item.id)}),showActionToast:()=>{}};
+  vm.createContext(app);vm.runInContext(`let onlineSearchToken=0,onlineAbortController=null,alpha0630FoodSearchTimer=null,allResourcesOnlineTimer=null,alpha0630FoodSearchUiToken=0,psLargeSearchToken=0,psLargeState=null;const psFederatedSearchState=C8.newFederatedSearchState();
+    ${productionBlock('function alpha0630CancelFoodSearchWork(', '\nwindow.HECBeforeScreenShow')}
+    ${productionBlock('function alpha0631ExternalSearchQuery(', '\nfunction renderAllResourcesOnlineAppendOnly')}
+    ${productionBlock('function alpha0631RenderOnlineProgress(', '\nfunction scheduleAllResourcesOnlineSearch')}
+    ${productionBlock('function psSearchBeginRevision(', '\nfunction psLargeRows')}
+    globalThis.federated=psFederatedSearchState;`,app);
+  return {app,input,pending,renders,cached,status,button};
+}
+for(const [a,b]of [['milk','milk '],['milk ','milk'],['Cote','Côte'],['Burgen','Bürgen'],[' Häagen-Dazs','Häagen-Dazs']]){
+  test(`30. production online ownership rejects late OFF arrival across ${JSON.stringify(a)} → ${JSON.stringify(b)}`,async()=>{
+    const {app,input,pending,renders,cached,status}=onlineHarness(a),cacheRecord=cached[0];
+    const work=app.runOnlineFoodSearch(),old=app.federated.revision;
+    assert.equal(app.federated.query,a);assert(app.psSearchRevisionCurrent(old,a));assert.equal(app.psSearchRevisionFor(a),old);
+    input.value=b;assert(!app.psSearchRevisionCurrent(old,a),'raw input edit rejects old work before a new request');
+    const fresh=app.psSearchBeginRevision(b);assert.equal(fresh,old+1);assert(!app.psSearchRevisionCurrent(fresh,a));assert(app.psSearchRevisionCurrent(fresh,b));
+    const copy=status.textContent;app.alpha0631RenderOnlineProgress(a,1,false,old,[food('Late',{id:'late'})]);
+    assert.equal(status.textContent,copy);assert.equal(renders.length,0);
+    for(const request of pending)request.resolve([food('Late',{id:'late-'+request.source})]);
+    assert.equal((await work).length,0);assert.equal(app.federated.online.length,0);assert.equal(renders.length,0);assert.equal(cached.length,1);assert.equal(cached[0],cacheRecord);
+    assert.equal(app.psCommitLocalResult({query:a,foods:cached},old,{ownerQuery:a}),null,'old candidate snapshot rejected');
+    assert(app.psCommitLocalResult({query:b.trim(),foods:cached},fresh,{ownerQuery:b}),'cached data can acquire a fresh owner');assert.equal(app.federated.local[0],cacheRecord);
+    if(a.trim()===b.trim()){
+      assert.equal(app.alpha0631ExternalSearchQuery(a),app.alpha0631ExternalSearchQuery(b));
+      assert.equal(catalogue.rank(cacheRecord,'milk ').score,catalogue.rank(cacheRecord,'milk').score);assert(catalogue.rank(cacheRecord,'milk ').score>0);
+    }
+    const previousRequestCount=pending.length,currentWork=app.runOnlineFoodSearch(),newRequests=pending.slice(previousRequestCount);
+    for(const request of newRequests)request.resolve([cacheRecord]);await currentWork;
+    assert(renders.length>0);assert(renders.every(render=>render.query===b));assert.equal(app.federated.online[0],cacheRecord);assert.equal(cached[0],cacheRecord);
+    input.value=a;const returned=app.psSearchBeginRevision(a);assert(returned>fresh);assert(!app.psSearchRevisionCurrent(old,a));assert.equal(app.federated.online.length,0);assert.equal(app.federated.local.length,0);assert.equal(cached[0],cacheRecord);
+  });
+}
+for(const [a,b]of [['milk','milk '],['milk ','milk']])test(`30. accepted OFF cache survives ${JSON.stringify(a)} → ${JSON.stringify(b)} while late USDA cannot render`,async()=>{
+  const {app,input,pending,renders,cached}=onlineHarness(a),work=app.runOnlineFoodSearch(),record=food('Milk candidate',{id:'accepted-off'});
+  // The production async function runs in a VM realm. Await its actual render
+  // callback, rather than guessing how many host microtasks adopt the OFF promise.
+  const render=app.renderOnlineLibrary;
+  const offRendered=new Promise(resolve=>{app.renderOnlineLibrary=query=>{render(query);resolve();};});
+  pending.find(request=>request.source==='OFF').resolve([record]);await offRendered;
+  assert.equal(renders.length,1);assert.equal(app.federated.online[0],record);assert(cached.includes(record));
+  const old=app.federated.revision;input.value=b;assert.equal(app.psSearchBeginRevision(b),old+1);
+  pending.find(request=>request.source==='USDA').resolve([food('Late USDA',{id:'late-usda'})]);await work;
+  assert.equal(renders.length,1);assert.equal(app.federated.online.length,0);assert(cached.includes(record));assert(!cached.some(item=>item.id==='late-usda'));
+});
+test('30. production cancellation aborts in-flight work and rejects its later completion',async()=>{
+  const {app,pending,renders,cached}=onlineHarness('milk'),work=app.runOnlineFoodSearch();
+  app.alpha0630CancelFoodSearchWork({invalidateOnline:true});assert(pending.every(request=>request.signal.aborted));
+  for(const request of pending)request.resolve([food('Cancelled',{id:'cancelled'})]);await work;assert.equal(renders.length,0);assert.equal(cached.length,1);
+});
 test("31. My Foods, My Recipes and Recent stay on their established stores and render paths",()=>{assert.match(runtime,/ext\.savedFoodIds/);assert.match(runtime,/function renderRecipeLibrary\(query=""\)/);assert.match(runtime,/function renderRecentLibrary\(query=""\)/);assert.match(runtime,/function recentGroups\(days=14\)/);});

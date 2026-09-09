@@ -9,13 +9,26 @@
   const packaged=()=>global.HECPackagedFoods||(typeof require==='function'?require('./packaged-foods.js'):null);
   const serving=()=>global.HECServingFoundation||(typeof require==='function'?require('./serving-foundation.js'):null);
   const norm=value=>String(value||'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/&/g,' and ').replace(/[’']/g,'').replace(/[^a-z0-9]+/g,' ').trim().replace(/\s+/g,' ');
-  const brandKey=value=>norm(value).replace(/\s/g,'');
+  const registry=global.HECAustralianEntityRegistry||(typeof require==='function'?require('./entity-registry.js'):null);
+  const brandKey=value=>registry.brandSearchKey(value);
   const tokens=value=>norm(value).split(' ').filter(token=>token.length>1&&!STOP.has(token));
   const prefix=value=>(String(value||'').slice(0,2)+'__').slice(0,2);
   const singular=value=>String(value||'').replace(/ies$/,'y').replace(/sses$/,'ss').replace(/([a-z]{4,})s$/,'$1');
   async function load(path){if(cache.has(path))return cache.get(path);const promise=fetch(`${BASE}${path}`).then(response=>{if(!response.ok)throw new Error(`OFF catalogue ${response.status}: ${path}`);return response.json();});cache.set(path,promise);try{return await promise;}catch(error){cache.delete(path);throw error;}}
   const manifest=()=>load('manifest.json');
-  const intelligence=key=>load(`intelligence/${prefix(key)}.json`).catch(()=>({brands:{},concepts:{}}));
+  // Brand identity is accent preserving. Storage addresses follow the protected
+  // import's ASCII token contract and never define query or family equivalence.
+  const historicalBrandIndexKey=value=>(String(value||'').toLowerCase().replace(/&/g,' and ').match(/[a-z0-9]+/g)||[]).join('');
+  const intelligencePath=key=>key&&/^[a-z0-9 ]+$/.test(key)?`intelligence/${prefix(key)}.json`:null;
+  let intelligencePaths=null;
+  async function intelligence(key){
+    const relative=intelligencePath(key);if(!relative)return {brands:{},concepts:{}};
+    if(!intelligencePaths){const data=await manifest();if(!Array.isArray(data.intelligenceShards))throw new Error('Missing intelligence shard inventory');intelligencePaths ||= new Set(data.intelligenceShards.map(shard=>shard.path));}
+    // An unlisted prefix is an empty index lookup. A listed shard is required:
+    // its load/parse error must propagate, rather than masquerading as no matches.
+    if(!intelligencePaths.has(relative))return {brands:{},concepts:{}};
+    return load(relative);
+  }
   function servingAmount(value){const match=String(value||'').match(/(?:^|[^a-z0-9])(\d+(?:[.,]\d+)?)\s*(g|ml)\b/i);return match?{amount:Number(match[1].replace(',','.')),unit:match[2].toLowerCase()==='ml'?'mL':'g'}:null;}
   function recordConcepts(record){return serving()?.categoryConcepts?.(record)||new Set();}
   function recordPhysicalForm(record){return serving()?.physicalForm?.(record)?.form||'unknown';}
@@ -36,9 +49,44 @@
     const grouped=new Map();for(const ref of refs){const [shard,index]=String(ref).split(':');if(!grouped.has(shard))grouped.set(shard,[]);grouped.get(shard).push([ref,Number(index)]);}
     const result=new Map();await Promise.all([...grouped].map(async([shard,items])=>{const data=await load(`products/${shard}.json`);for(const [ref,index] of items){const record=data.products[index];if(record)result.set(ref,toFood(record));}}));return refs.map(ref=>result.get(ref)).filter(Boolean);
   }
-  async function brandEntry(key){if(!key)return null;const data=await intelligence(key),entry=data.brands?.[key];return entry?{key,...entry}:null;}
+  let brandIndexKeys=null;
+  const brandEntries=new Map();
+  function indexedBrandKeys(key){
+    if(!brandIndexKeys){
+      brandIndexKeys=new Map();
+      const directory=global.HECAustralianCatalogueData||(typeof require==='function'?require('./australian-catalogue-data.js'):null);
+      // The protected Python import split accented letters instead of folding them.
+      // Reproduce its address only for index lookup; display and product IDs stay intact.
+      for(const entry of directory?.brands||[]){
+        const family=brandKey(entry.name),indexed=historicalBrandIndexKey(entry.name);
+        if(!family||!indexed)continue;
+        if(!brandIndexKeys.has(family))brandIndexKeys.set(family,new Set());
+        brandIndexKeys.get(family).add(indexed);
+      }
+    }
+    return [...(brandIndexKeys.get(key)||new Set([historicalBrandIndexKey(key)]))].filter(Boolean);
+  }
+  async function brandEntry(key){
+    if(!key)return null;
+    if(!brandEntries.has(key))brandEntries.set(key,readBrandEntry(key));
+    return brandEntries.get(key);
+  }
+  async function readBrandEntry(key){
+    const entries=(await Promise.all(indexedBrandKeys(key).map(async indexed=>{
+      const data=await intelligence(indexed),entry=data.brands?.[indexed];
+      return entry&&brandKey(entry.name)===key?entry:null;
+    }))).filter(Boolean);
+    if(!entries.length)return null;
+    const refs=[],seen=new Set(),names={},facets=new Map();
+    for(const entry of entries){
+      for(const ref of entry.refs||[])if(!seen.has(ref)){seen.add(ref);refs.push(ref);}
+      for(const [name,items] of Object.entries(entry.names||{}))names[name]=orderedUnion(names[name],items);
+      for(const facet of entry.facets||[]){const previous=facets.get(facet.key);facets.set(facet.key,{...facet,count:(previous?.count||0)+(facet.count||0)});}
+    }
+    return {key,name:entries[0].name,refs,names,facets:[...facets.values()]};
+  }
   async function exactBrandRefs(query){return brandEntry(brandKey(query));}
-  async function recogniseBrand(query){const words=norm(query).split(' ').filter(Boolean),candidates=[];for(let length=words.length;length>0;length--){const key=brandKey(words.slice(0,length).join(' ')),entry=await brandEntry(key);if(!entry)continue;const residual=words.slice(length).join(' '),exactNameRefs=entry.names?.[residual]||[];candidates.push({...entry,words:length,residual,exactNameRefs});}return candidates.find(candidate=>candidate.residual&&candidate.exactNameRefs.length)||candidates.find(candidate=>(candidate.refs?.length||0)>=2||!candidate.residual)||null;}
+  async function recogniseBrand(query){const words=registry.brandSearchText(query).split(' ').filter(Boolean),candidates=[];for(let length=words.length;length>0;length--){const key=brandKey(words.slice(0,length).join(' ')),entry=await brandEntry(key);if(!entry)continue;const residual=norm(words.slice(length).join(' ')),exactNameRefs=entry.names?.[residual]||[];candidates.push({...entry,words:length,residual,exactNameRefs});}return candidates.find(candidate=>candidate.residual&&candidate.exactNameRefs.length)||candidates.find(candidate=>(candidate.refs?.length||0)>=2||!candidate.residual)||null;}
   async function conceptEntry(query){const key=singular(norm(query));if(!key)return null;const data=await intelligence(key),entry=data.concepts?.[key];return entry?{key,...entry}:null;}
   async function postingRefs(query){
     const queryTokens=[...new Set(tokens(query))];if(!queryTokens.length)return {refs:[],scores:new Map()};
@@ -62,6 +110,6 @@
   async function lookupBarcode(value){const code=String(value||'').replace(/\D/g,'');if(!code)return null;const data=await load(`barcodes/${prefix(code)}.json`).catch(()=>null),ref=data?.barcodes?.[code];if(!ref)return null;return (await hydrate([ref]))[0]||null;}
   function federate(curated,external){const C=catalogue(),ranked=[...(curated||[]),...(external||[])].map(food=>({food,rank:C?.fieldSpecificRank?.(food,food.name)?.score||C?.rank?.(food,food.name)?.score||0}));return C?.dedupeRanked?C.dedupeRanked(ranked).map(item=>item.food):[...new Map(ranked.map(item=>[item.food.barcode?`barcode:${item.food.barcode}`:item.food.id,item.food])).values()];}
   function queryProgression(previous,next){const before=tokens(previous),after=tokens(next),refines=norm(next).startsWith(norm(previous))||before.every(token=>after.some(value=>value.startsWith(token)));return {previous:norm(previous),next:norm(next),refines,obsolete:!refines};}
-  const api={version:VERSION,base:BASE,pageSize:PAGE_SIZE,norm,brandKey,tokens,manifest,search,lookupBarcode,hydrate,toFood,federate,exactBrandRefs,recogniseBrand,conceptEntry,postingRefs,recordConcepts,recordPhysicalForm,queryProgression,loadedFoods,getLoaded:id=>loadedFoods.get(id)||null,cacheState:()=>({files:cache.size,products:loadedFoods.size})};
+  const api={version:VERSION,base:BASE,pageSize:PAGE_SIZE,norm,brandKey,historicalBrandIndexKey,intelligencePath,tokens,manifest,search,lookupBarcode,hydrate,toFood,federate,exactBrandRefs,recogniseBrand,conceptEntry,postingRefs,recordConcepts,recordPhysicalForm,queryProgression,loadedFoods,getLoaded:id=>loadedFoods.get(id)||null,cacheState:()=>({files:cache.size,products:loadedFoods.size})};
   global.HECOpenFoodFactsAU=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);

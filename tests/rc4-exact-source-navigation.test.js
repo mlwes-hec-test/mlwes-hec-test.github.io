@@ -42,6 +42,8 @@ function createHarness(){
     const REG29=window.HECAustralianEntityRegistry,S23=window.HECSearchFoundation,C8=catalogue;
     const ext={ui:{foodSearch:'',libraryTab:'all'}};
     function allFoods(){return foods;}
+    const canonicalCatalogueRecords=new Map();
+    ${productionFunction('rememberCanonicalFoods')}
     function by(id){return {'food-search':input,'food-live-results':live,'food-results':results,'online-search-actions':onlineActions,'online-food-status':onlineStatus}[id]||null;}
     function normalise(value){return C8.norm(value);}
     function esc(value){return String(value??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}

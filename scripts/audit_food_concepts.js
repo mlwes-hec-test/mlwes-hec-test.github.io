@@ -1,7 +1,7 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),os=require('node:os'),assert=require('node:assert/strict'),crypto=require('node:crypto'),{performance}=require('node:perf_hooks');
 const search=require('../search-foundation.js'),catalogue=require('../food-catalogue.js'),off=require('./audit_open_food_facts_au.js'),{afcdFoods}=require('./audit_progressive_food_resolution.js');
-const sources=require('../food-sources.js');require('../mcdonalds-au-catalogue.js');require('../kfc-au-catalogue.js');
+const sources=require('../food-sources.js');require('../mcdonalds-au-catalogue.js');require('../kfc-au-catalogue.js');const supplemental=require('../australian-catalogue-data');
 const hash=value=>crypto.createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const collisionChecks=[
   {concept:'bread',pattern:/\b(?:banana bread|garlic bread|crispbread|sausage in bread)\b|^bread, (?:banana|garlic)/i},
@@ -25,7 +25,7 @@ function run(output=path.join(os.tmpdir(),'hec-food-concept-catalogue.json')){
   for(const food of records){const evidence=search.foodConceptEvidence(food);counts[evidence.conceptId]=(counts[evidence.conceptId]||0)+1;
     for(const check of collisionChecks)if(check.pattern.test(food.name)){probes[check.concept]++;if(search.conceptCompatibility(food,check.concept).compatible)violations.push({id:food.id,name:food.name,expectedExclusion:check.concept,evidence});}
   }
-  const restaurant=sources.foodRecords(),exactVariants=[];
+  const restaurant=[...sources.foodRecords(),...supplemental.packagedProducts],exactVariants=[];
   for(const base of restaurant)for(const variant of restaurant){if(base.id===variant.id||base.foodSourceId!==variant.foodSourceId)continue;const exact=search.semanticProductExactness(base,base.name),related=search.semanticProductExactness(variant,base.name);if(related.class!=='variant-superset')continue;exactVariants.push({base:base.name,variant:variant.name,source:base.foodSourceId});if(exact.priority<=related.priority)violations.push({base:base.name,variant:variant.name,reason:'exact-identity-not-prioritised'});}
   assert.equal(hash(raw),before,'Source catalogue mutated');const report={pass:violations.length===0,productsAudited:raw.length,source:{date:manifest.sourceSnapshotDate,hash:manifest.sourceSha256,imported:manifest.importedProducts,searchable:manifest.searchableProducts,brands:manifest.uniqueBrands,validGtins:manifest.validGtins},counts,collisionProbeCounts:probes,violations,exactVariants,coverage:coverage([...afcdFoods,...restaurant,...records]),durationMs:performance.now()-start};
   fs.writeFileSync(output,JSON.stringify(report,null,2));return {...report,output};

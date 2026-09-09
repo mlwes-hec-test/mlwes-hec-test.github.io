@@ -44,6 +44,20 @@ function decisionHarness(){
   `,context);return context.decide;
 }
 const decide=decisionHarness();
+test('source metadata lookup retains registry order and detached values',()=>{
+  const expected=sources.allCatalogues().map(catalogue=>catalogue.source),actual=sources.allSources();
+  assert.deepEqual(actual,expected);
+  actual[0].displayName='';actual[0].aliases.length=0;
+  assert.deepEqual(sources.allSources(),expected);
+});
+test('restaurant recognition retains prefix results without reading catalogue items',()=>{
+  const legacyRegistry={sourceForAlias:sources.sourceForAlias,allCatalogues:sources.allCatalogues},currentRegistry={...legacyRegistry,allSources:sources.allSources,allCatalogues(){throw new Error('Recognition must not copy product records');}};
+  const recognise=registry=>{const context={window:{HECFoodSources:registry},C8:catalogue,normalise:catalogue.norm};vm.runInNewContext(`${productionFunction('rc4NamedRestaurantSource')}\nresult=rc4NamedRestaurantSource;`,context);return context.result;};
+  const before=recognise(legacyRegistry),after=recognise(currentRegistry);
+  for(const phrase of ['KFC','KFC 6 Wicked Wings',"McDonald's Big Mac",'Flora ProActiv Light']){
+    let prefix='';for(const character of phrase){prefix+=character;assert.deepEqual(after(prefix),before(prefix),prefix);}
+  }
+});
 const answer=(session,label)=>{const choice=session.nextQuestion?.options.find(item=>item.label===label);assert.ok(choice,`${label} offered by ${session.nextQuestion?.key}`);guided.answerDistinction(session,session.nextQuestion.key,choice.value);return session;};
 const chipsHot=()=>answer(answer(answer(guided.createSession(progressiveAudit.afcdFoods,'chips'),'Hot Chips'),'Fast-Food Outlet'),'Monounsaturated Oil');
 const exactSession=food=>guided.createSession([food],`KFC ${food.name}`,{intent:{kind:'exact-product'}});
@@ -58,7 +72,7 @@ function sourceInputHarness(){
     rc5SearchContext(value){return String(value).toLowerCase().startsWith('kfc')?{source:{id:'kfc-au',displayName:'KFC Australia'}}:{source:null};},rc4SourceOnly:value=>String(value).toLowerCase()==='kfc',
     by:id=>id==='food-search'?input:null,q:()=>null,normalise:catalogue.norm,clearTimeout(){},setTimeout(callback,delay){timers.push({callback,delay});return timers.length;},openModal(){},console
   };
-  vm.runInNewContext(`${controller}\n${statement}\nwindow.api={state:()=>({...searchSession633}),intent:ss633Intent};`,context);document.activeElement=input;
+  vm.runInNewContext(`let psLargeSearchToken=0,psLargeState=null,psFederatedSearchState=C8.newFederatedSearchState();\n${productionFunction('psSearchBeginRevision')}\n${controller}\n${statement}\nwindow.api={state:()=>({...searchSession633}),intent:ss633Intent};`,context);document.activeElement=input;
   return {input,document,ext:context.ext,api:context.window.api,type(value){input.value=value;input.selectionStart=input.selectionEnd=value.length;listeners.input({target:input});},settle(delay){for(const timer of timers.splice(0))if(timer.delay<=delay)timer.callback();}};
 }
 
@@ -66,6 +80,9 @@ test('recognising KFC does not call application blur',()=>{const app=sourceInput
 test('KFC remains focused so typing can continue',()=>{const app=sourceInputHarness();app.type('KFC');assert.equal(app.document.activeElement,app.input);});
 test('recognition does not commit restaurant browse state',()=>{const app=sourceInputHarness();app.type('KFC');assert.equal(app.ext.ui.foodSourceBrowse,undefined);assert.equal(app.api.state().mode,'typing-preview');});
 test('one central search-session controller owns typing state',()=>assert.match(runtime,/HEC_SEARCH_SESSION_TEST/));
+for(const [from,to] of [['Cote','Côte'],['resume','résumé'],['Burgen','Bürgen'],['Häagen-Dazs','Haagen-Dazs'],['Milk','milk ']])test(`production typing controller advances exact ownership for ${from} → ${to}`,()=>{
+  const app=sourceInputHarness();app.type(from);const before=app.api.state();app.type(to);const after=app.api.state();assert.equal(after.revision,before.revision+1);assert.equal(after.previewRevision,before.previewRevision+1);assert.equal(after.rawQuery,to);assert.equal(after.submittedModel,null);assert.equal(after.ownedAsync,null);assert.equal(after.sourceContext,null);app.settle(180);assert.equal(app.api.state().rawQuery,to);app.type(to);assert.equal(app.api.state().revision,after.revision);
+});
 for(const delay of [0,250,750,1500])test(`KFC retains focus through a ${delay} ms result delay`,()=>{const app=sourceInputHarness();let query='';for(const char of 'KFC'){query+=char;app.type(query);}app.settle(delay);assert.equal(app.document.activeElement,app.input);assert.equal(app.input.value,'KFC');assert.equal(app.input.selectionStart,3);assert.equal(app.input.selectionEnd,3);assert.equal(app.input.blurCount,0);});
 test('the same input DOM node survives character-by-character updates',()=>{const app=sourceInputHarness(),node=app.input;let query='';for(const char of 'KFC 6 Wicked Wings'){query+=char;app.type(query);assert.equal(app.input,node);}assert.equal(app.input.value,'KFC 6 Wicked Wings');assert.equal(app.input.selectionEnd,query.length);});
 test('McDonald’s and Flora ProActiv Light remain continuously typeable',()=>{for(const phrase of ["McDonald's",'Flora ProActiv Light']){const app=sourceInputHarness();let value='';for(const char of phrase){value+=char;app.type(value);assert.equal(app.document.activeElement,app.input);}assert.equal(app.input.value,phrase);assert.equal(app.input.blurCount,0);}});

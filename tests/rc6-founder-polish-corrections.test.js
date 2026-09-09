@@ -40,9 +40,9 @@ test('display-only quantity formatting removes floating artefacts and preserves 
 });
 
 test('Flora ProActiv Light and ordinary Flora Light are separate verified Australian products',()=>{
-  assert.match(runtime,/id:'flora-proactiv-light-au-official'[\s\S]*?name:'Flora ProActiv Light'[\s\S]*?serving:'1 serve \(10 g\)'[\s\S]*?energyKj:154/);
-  assert.match(runtime,/id:'flora-light-au-official'[\s\S]*?name:'Flora Light'[\s\S]*?energyKj:178/);
-  assert.match(runtime,/https:\/\/www\.pro-activ\.com\/en-au\/products\/flora-proactiv-light/);assert.match(runtime,/https:\/\/www\.floraspread\.com\.au\/products\/flora-spreads\/flora-light/);
+  const migrated=require('../data/australian-catalogue/curated-products.json').find(food=>food.id==='flora-proactiv-light-au-official');assert.equal(migrated.name,'Flora ProActiv Light');assert.equal(migrated.serving,'1 serve (10 g)');assert.equal(migrated.nutrients.energyKj,154);assert.match(runtime,/HECAustralianCatalogueData\?\.packagedProducts/);
+  const ordinary=require('../data/australian-catalogue/curated-products.json').find(food=>food.id==='flora-light-au-official');assert.equal(ordinary.name,'Flora Light');assert.equal(ordinary.nutrients.energyKj,178);
+  assert.equal(migrated.sourceUrl,'https://www.pro-activ.com/en-au/products/flora-proactiv-light');assert.equal(ordinary.sourceUrl,'https://www.floraspread.com.au/products/flora-spreads/flora-light');
   const official={id:'official',recordType:'packaged',name:'Flora ProActiv Light',brand:'Flora',aliases:['proactiv light'],market:'AU',country:'Australia',verified:true,nutrients:{calories:37}},community={id:'community',recordType:'online-candidate',name:'Light',brand:'Flora',aliases:['proactiv light'],market:'unknown',nutrients:{calories:252}};
   assert.equal(catalogue.recordType(official),'packaged');assert.equal(catalogue.recordType(community),'online-candidate');
   assert.ok(catalogue.rank(official,'proactiv light').score>catalogue.rank(community,'proactiv light').score);

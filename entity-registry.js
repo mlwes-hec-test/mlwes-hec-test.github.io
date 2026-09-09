@@ -37,7 +37,7 @@
     {id:'nescafe',type:'brand',name:'Nescafé',aliases:['nescafe','nescafé'],sourceMode:'commercial',foodConcept:'coffee',foodFamily:'Coffee'},
     {id:'sanitarium',type:'brand',name:'Sanitarium',aliases:['sanitarium'],sourceMode:'commercial',foodConcept:'cereal',foodFamily:'Breakfast Cereal'},
     {id:'san-remo',type:'brand',name:'San Remo',aliases:['san remo','sanremo'],sourceMode:'commercial',foodConcept:'pasta',foodFamily:'Pasta'},
-    {id:'flora',type:'brand',name:'Flora',aliases:['flora','flora proactiv','proactiv'],familyAliases:['flora','flora proactiv','proactiv'],sourceMode:'commercial'},
+    {id:'flora',foodForm:'spread',type:'brand',name:'Flora',aliases:['flora','flora proactiv','proactiv'],familyAliases:['flora','flora proactiv','proactiv'],sourceMode:'commercial'},
     {id:'chiko',type:'brand',name:'Chiko',aliases:['chiko','chiko roll'],familyAliases:['chiko'],sourceMode:'commercial'},
     {id:'pepsi',type:'brand',name:'Pepsi',aliases:['pepsi','pepsi max'],sourceMode:'commercial'},
     {id:'black-gold',type:'brand',name:'Black & Gold',aliases:['black and gold','black gold'],sourceMode:'commercial'},
@@ -93,6 +93,23 @@
   function entityMatchesHay(entity,hay){const h=` ${norm(hay)} `;return entity.aliases.some(a=>h.includes(` ${norm(a)} `));}
   function canonicalSearchText(text){let out=norm(text);for(const m of identify(text)){const canonical=norm(m.entity.name);if(canonical!==m.matchedNorm){const re=new RegExp(`(?:^|\\s)${m.matchedNorm.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}(?=\\s|$)`,'g');out=out.replace(re,` ${canonical}`);}}return out.replace(/\s+/g,' ').trim();}
 
-  const api={version:VERSION,entries:ENTRIES,norm,identify,primary,exactEntity,predict,sourceMode,foodConcept,stripRecognisedEntities,entityMatchesHay,canonicalSearchText};
+  // Search-family evidence is separate from generic food-language normalization.
+  // These records never rewrite a product's display text, source ID or GTIN.
+  const brandSearchEquivalences=Object.freeze([
+    Object.freeze({id:'burgen',type:'verified-brand-alias',spellings:Object.freeze(['Burgen','Bürgen']),evidence:Object.freeze({authority:'Myron product decision',sourceUrl:'https://www.burgen.com.au/',basis:'Official Australian site uses Burgen naming and Bürgen consumer branding; Australian Woolworths and Coles evidence independently reviewed by Myron.'})}),
+    Object.freeze({id:'haagendazs',type:'historical-index-compatibility',spellings:Object.freeze(['Häagen-Dazs','Haagen-Dazs']),evidence:Object.freeze({authority:'Approved local index compatibility diagnosis',source:'scripts/import_open_food_facts_au.py',basis:'Protected source brand Häagen-Dazs generates hagendazs historically; modern folded lookup generates haagendazs. Equivalent queries explicitly retained by the product decision.'})})
+  ]);
+  function brandSearchText(value){return String(value||'').normalize('NFC').toLowerCase().replace(/&/g,' and ').replace(/[’']/g,'').replace(/[^\p{L}\p{N}\p{M}]+/gu,' ').trim().replace(/\s+/g,' ');}
+  const brandSpellingKey=value=>brandSearchText(value).replace(/\s/g,'');
+  const approvedBrandSpellings=new Map();
+  for(const record of brandSearchEquivalences)for(const spelling of record.spellings)approvedBrandSpellings.set(brandSpellingKey(spelling),record);
+  const brandSearchEvidence=value=>approvedBrandSpellings.get(brandSpellingKey(value))||null;
+  const brandSearchKey=value=>brandSearchEvidence(value)?.id||brandSpellingKey(value);
+  function preserveSearchSpelling(raw,identity){
+    const spellings=new Map();
+    for(const word of brandSearchText(raw).split(' ')){const folded=norm(word);if(!spellings.has(folded))spellings.set(folded,word);else if(spellings.get(folded)!==word)spellings.set(folded,null);}
+    return String(identity||'').split(' ').map(word=>{const source=spellings.get(norm(word));return source&&/[^\x00-\x7f]/.test(source)?source:word;}).join(' ');
+  }
+  const api={version:VERSION,entries:ENTRIES,norm,identify,primary,exactEntity,predict,sourceMode,foodConcept,stripRecognisedEntities,entityMatchesHay,canonicalSearchText,brandSearchEquivalences,brandSearchText,brandSearchKey,brandSearchEvidence,preserveSearchSpelling};
   global.HECAustralianEntityRegistry=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);

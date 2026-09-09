@@ -292,7 +292,7 @@
 
   function splitCompoundQuery(raw){
     const text=String(raw||'').trim();if(!text)return[];
-    const supported=(left,right,connector)=>{const a=conceptFromQuery(left),b=conceptFromQuery(right),ak=a?.key,bk=b?.key,brand=REG?.primary?REG.primary(right,['brand']):null;if(connector==='on')return ak==='egg'&&bk==='bread';if(connector==='and')return (ak==='egg'&&bk==='bread')||(ak==='banana'&&bk==='yoghurt')||(ak==='cereal'&&bk==='milk');if(connector==='with')return (ak==='cereal'&&bk==='milk')||(ak==='bread'&&(bk==='spread'||brand?.entity?.id==='flora'));return false;};
+    const supported=(left,right,connector)=>{const a=conceptFromQuery(left),b=conceptFromQuery(right),ak=a?.key,bk=b?.key,brand=REG?.primary?REG.primary(right,['brand']):null;if(connector==='on')return ak==='egg'&&bk==='bread';if(connector==='and')return (ak==='egg'&&bk==='bread')||(ak==='banana'&&bk==='yoghurt')||(ak==='cereal'&&bk==='milk');if(connector==='with')return (ak==='cereal'&&bk==='milk')||(ak==='bread'&&(bk==='spread'||brand?.entity?.foodForm==='spread'));return false;};
     for(const connector of ['on','and','with']){const parts=text.split(new RegExp(`\\s+${connector}\\s+`,'i'));if(parts.length===2&&parts.every(Boolean)&&supported(parts[0],parts[1],connector))return parts.map(x=>x.trim());}
     return [];
   }

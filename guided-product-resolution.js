@@ -130,15 +130,11 @@
     return candidates.length>1?productQuestion(candidates):null;
   }
   function canonicalProductKey(food={}){
-    if(food.canonicalId)return String(food.canonicalId);
-    if(food.barcode)return `barcode:${String(food.barcode).replace(/\D/g,'')}`;
-    if(food.foodSourceId&&food.sourceItemId)return `food-source:${food.foodSourceId}:${food.sourceItemId}${food.sourceVariantId?`:${food.sourceVariantId}`:''}`;
-    const attrs=productAttributes(food);return `product:${norm(food.brand)}:${norm(food.name)}:${norm(attrs.packSize)}`;
+    return CATALOGUE.canonicalKey(food);
   }
   function candidateQuality(food){return Number(CATALOGUE?.brandProductQuality?.(food)||0)+(food?.verified?100:0)+(finite(food?.nutrients?.calories)!==null?20:0);}
   function canonicalizeCandidates(records=[]){
-    const groups=new Map();for(const food of records||[]){if(!food)continue;const key=canonicalProductKey(food),group=groups.get(key)||[];group.push(food);groups.set(key,group);}
-    return [...groups.entries()].map(([key,group])=>{const ordered=[...group].sort((a,b)=>candidateQuality(b)-candidateQuality(a)),chosen=ordered[0],signatures=new Set(group.map(nutrientSignature).filter(signature=>signature.replace(/\|/g,'')));if(group.length===1)return chosen;return {...chosen,canonicalId:chosen.canonicalId||key,resolutionAlternates:group.map(item=>({id:item.id||'',source:item.source||'',nutritionBasis:clone(item.nutritionBasis||null),nutrients:clone(item.nutrients||{})})),identityReviewRequired:signatures.size>1};});
+    return CATALOGUE.canonicaliseRecords(records).map(food=>food.canonicalEvidence?.length?{...food,resolutionAlternates:food.canonicalEvidence.map(item=>({id:item.recordId,source:item.source,nutrients:clone(item.nutrients||{})})),identityReviewRequired:(food.evidenceConflicts||[]).some(item=>item.severity==='material'&&(!item.resolution||item.resolution==='unresolved'))}:food);
   }
   function isNonSpecificBrandRecord(food){const brand=norm(food?.brand),name=norm(food?.name);return !!brand&&name===brand||food?.recognisedOnly===true||food?.verificationStatus==='recognised-only';}
   function phrasePresent(query,value){const q=` ${norm(query)} `,v=norm(value);return !!v&&q.includes(` ${v} `);}
@@ -190,7 +186,7 @@
       session.exactProductQuality=quality;
       if(!quality.exactEligible){session.exactProduct=null;session.resolutionState=STATES.INCOMPLETE;session.nextQuestion=null;session.identityIssue=quality.reason;session.stage=STAGES.IDENTITY;return session;}
       const metadata=productAttributes(food);for(const [key,value] of Object.entries(metadata))if(value&&!session.knownAttributes[key]){session.knownAttributes[key]=value;session.attributeProvenance[key]='selected-product-metadata';}
-      session.exactProduct=food;session.exactNutritionalIdentity={canonicalId:canonicalProductKey(food),name:food.name,recordType:food.recordType||'',source:food.source||'',generic:genericReference};session.unresolvedAttributes=[];session.resolutionState=type===SEMANTICS?.types?.CONFIGURABLE?STATES.CONFIGURABLE:STATES.EXACT;session.nextQuestion=null;session.servingProfile=servingProfile(food);session.portionProfile=session.servingProfile;session.addability=SERVING?.evaluateAddability?.(food,{profile:session.servingProfile})||{status:session.servingProfile.measures.length?'loggable-now':'needs-nutrition-completion',normalLoggingAllowed:!!session.servingProfile.measures.length};
+      session.exactProduct=food;session.exactNutritionalIdentity={canonicalId:canonicalProductKey(food),name:food.name,recordType:food.recordType||'',source:food.source||'',generic:genericReference};session.unresolvedAttributes=[];session.resolutionState=type===SEMANTICS?.types?.CONFIGURABLE?STATES.CONFIGURABLE:STATES.EXACT;session.nextQuestion=null;session.servingProfile=servingProfile(food);session.portionProfile=session.servingProfile;session.addability=CATALOGUE?.productEligibility?.(food,{candidates:session.allCandidates,profile:session.servingProfile})?.addability||SERVING?.evaluateAddability?.(food,{profile:session.servingProfile})||{status:session.servingProfile.measures.length?'loggable-now':'needs-nutrition-completion',normalLoggingAllowed:!!session.servingProfile.measures.length};
       session.sourceProvenance={identity:genericReference?'AFCD generic reference':'canonical product',source:food.source||food.brand||'',recordType:food.recordType||''};session.nutritionConfidence=genericReference?'authoritative-reference-average':food.nutritionCompleteness||food.verificationStatus||(food.verified?'verified':'source-record');session.searchLock={locked:true,reason:'exact-nutritional-identity',query:session.originalQuery};
       if(!session.addability.normalLoggingAllowed){if(session.resolutionState!==STATES.CONFIGURABLE)session.resolutionState=STATES.INCOMPLETE;session.identityIssue=session.addability.message||session.servingProfile.resolvedFood.entryBlockedReason||'Complete this food before logging.';session.stage=STAGES.IDENTITY;return session;}
       session.customisationProfile=customisationProfile(food);if(session.customisationProfile&&session.customisationChoice!=='standard'){session.stage=STAGES.CUSTOMISATION;return session;}

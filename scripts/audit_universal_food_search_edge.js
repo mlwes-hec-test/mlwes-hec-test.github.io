@@ -27,7 +27,7 @@ async function sourceScenarios(page,url){const rows=[];await openLibrary(page,ur
   const restored=await page.locator('[data-fc-answer="sourceContext"]').count();if(restored!==4)throw new Error(`source Back restored ${restored} choices`);return {keys,backRestored:restored,rows};}
 async function physicalFormScenario(page){return page.evaluate(()=>{
   const profile=food=>window.HECServingFoundation.servingMeasureProfile(food),keys=value=>value.measures.map(item=>item.key);
-  const spread=profile({id:'edge-spread',name:'Reviewed spread',physicalForm:'spread',units:{tsp:.05,g:.01},unitLabels:{tsp:'Teaspoon',g:'g'},nutrients:{calories:100}});
+  const spread=profile({id:'edge-spread',name:'Reviewed spread',physicalForm:'spread',units:{tsp:.05,g:.01},unitLabels:{tsp:'Teaspoon',g:'g'},unitOrigins:{tsp:{origin:'Reviewed fixture measure',confidence:'reviewed-generic-form',sourceType:'reviewed-form-conversion'}},nutrients:{calories:100}});
   const sliced=profile({id:'edge-sliced',name:'Reviewed bread',physicalForm:'sliced',units:{regularSlice:1,g:.01},unitLabels:{regularSlice:'Regular slice',g:'g'},nutrients:{calories:100}});
   const restaurantFood=window.HECFoodSources.foodRecords({sourceId:'kfc-au'}).find(food=>food.name==='Regular Chips'),restaurant=profile(restaurantFood);
   const result={spread:keys(spread),sliced:keys(sliced),restaurant:{name:restaurantFood?.name||'',measures:keys(restaurant)}};

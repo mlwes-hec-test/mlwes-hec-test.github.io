@@ -4,6 +4,7 @@ const test=require('node:test');
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const path=require('node:path');
+const vm=require('node:vm');
 const search=require('../search-foundation.js');
 const catalogue=require('../food-catalogue.js');
 const serving=require('../serving-foundation.js');
@@ -209,7 +210,70 @@ test('U04 responsive acceptance matrix names 320, 375, 390, 430 and a wider cont
 });
 
 test('U05 an already loaded catalogue snapshot joins Search and remains selectable',()=>{
-  assert.match(runtime,/const loadedCatalogue=psLargeState&&C8\?\.corrected\?\.\(psLargeState\.query\)===C8\?\.corrected\?\.\(raw\)/);
-  assert.match(runtime,/getFood\(control\.dataset\.universalResult\)\|\|window\.HECOpenFoodFactsAU\?\.getLoaded/);
+  // Execute the actual snapshot admission expression and its actual currentness
+  // guard. Cached records remain reusable; a retired result owner does not.
+  const declaration=runtime.match(/const loadedCatalogue=psLargeState[^;]+;/)?.[0],guard=runtime.split(/\r?\n/).find(line=>line.startsWith('function psSearchRevisionCurrent('));
+  assert.equal(typeof declaration,'string');assert.equal(typeof guard,'string');
+  for(const [before,after]of [['Cote','Côte'],['resume','résumé'],['Burgen','Bürgen'],['Häagen-Dazs','Haagen-Dazs']]){
+    const input={value:before},state=catalogue.newFederatedSearchState(),revision=catalogue.beginQueryRevision(state,before),record=Object.freeze(complete({id:'cached',name:'Cached Catalogue Product'})),data=Object.freeze([record]);
+    const context={C8:catalogue,by:()=>input,psFederatedSearchState:state,psLargeState:{query:before,ownerQuery:before,revision,foods:data},raw:before};
+    vm.runInNewContext(`${guard}\nglobalThis.admitted=()=>{${declaration}return submittedExternal;};`,context);
+    assert.equal(context.admitted()[0],record);assert.equal(catalogue.beginQueryRevision(state,before),revision);
+    input.value=context.raw=after;assert.deepEqual(Array.from(context.admitted()),[]);
+    assert.equal(catalogue.beginQueryRevision(state,after),revision+1);assert.deepEqual(Array.from(context.admitted()),[]);assert.equal(context.psLargeState.foods,data);assert.equal(data[0],record);
+    input.value=context.raw=before;const fresh=catalogue.beginQueryRevision(state,before);assert.equal(fresh,revision+2);assert.deepEqual(Array.from(context.admitted()),[]);
+    context.psLargeState={query:before,ownerQuery:before,revision:fresh,foods:data};assert.equal(context.admitted()[0],record);
+  }
+  const snapshot=Object.freeze(complete({id:'chosen',canonicalId:'canonical-chosen',name:'Canonical Choice'})),loaded=complete({id:'chosen',name:'Older Loaded Choice',nutrients:{calories:999}});
+  const result=selectResult({recordId:'chosen',submitted:[snapshot],loaded:[loaded]});
+  assert.equal(result.calls[0].food,snapshot);
+  assert.equal(result.calls[0].session.exactProduct.id,snapshot.id);
+  assert.equal(result.calls[0].session.exactNutritionalIdentity.canonicalId,snapshot.canonicalId);
+  assert.equal(result.state.selectedResult.recordId,snapshot.id);
+  assert.equal(result.calls[0].session.exactProduct.nutrients.calories,200);
   assert.match(runtime,/data-gpr-catalogue-product/);
+});
+
+// Execute the production selection handler; doubles supply only its UI/data
+// boundaries. The selected record enters the real guided resolution engine.
+function selectResult({recordId,submitted=[],loaded=[],offLoaded=[],preview=[],brandRecords=[],brandCurrent=false,mode='explicit-committed',isConnected=true}={}){
+  const start=runtime.indexOf('function us633ActivateControl('),end=runtime.indexOf('\nlet us633PendingPointer',start);
+  assert(start>=0&&end>start,'Production selection handler must be available');
+  const model=foods=>({groups:[{items:foods.map(food=>({recordId:food.id,food}))}]}),calls=[],state={rawQuery:'Example Canonical Choice',mode,selectedResult:null,submittedModel:model(submitted)};
+  const context={searchSession633:state,au633BrandState:preview.length||brandRecords.length?{previewModel:model(preview),records:brandRecords}:null,au633BrandQueryCurrent:()=>brandCurrent,
+    getFood:id=>loaded.find(food=>food.id===id),window:{HECOpenFoodFactsAU:{getLoaded:id=>offLoaded.find(food=>food.id===id)}},
+    ps34StartCatalogueGuide(query,records,intent){calls.push({query,food:records[0],session:guided.createSession(records,query,{intent})});}};
+  vm.runInNewContext(runtime.slice(start,end),context);
+  const activated=context.us633ActivateControl({isConnected,dataset:{universalResult:recordId},hasAttribute:name=>name==='data-universal-result'});
+  return {activated,calls,state};
+}
+
+test('U06 current brand preview snapshot wins over stale submitted and loaded copies',()=>{
+  const snapshot=Object.freeze(complete({id:'chosen',canonicalId:'canonical-chosen',name:'Canonical Choice'})),old=complete({id:'chosen',name:'Old Choice'});
+  const result=selectResult({recordId:'chosen',preview:[snapshot],submitted:[old],loaded:[old],brandRecords:[old],brandCurrent:true,mode:'typing-preview'});
+  assert.equal(result.calls[0].food,snapshot);assert.equal(result.state.selectedResult.recordId,'chosen');
+});
+
+test('U07 missing matching snapshot preserves both loaded-record fallback routes',()=>{
+  const fallback=complete({id:'chosen',canonicalId:'canonical-chosen',name:'Canonical Choice'}),wrong=complete({id:'different',name:'Unrelated Snapshot'});
+  for(const options of [{loaded:[fallback]},{offLoaded:[fallback]}]){
+    const result=selectResult({recordId:'chosen',submitted:[wrong],...options});
+    assert.equal(result.activated,true);assert.equal(result.calls.length,1);assert.equal(result.calls[0].food,fallback);
+    assert.equal(result.calls[0].session.exactNutritionalIdentity.canonicalId,fallback.canonicalId);assert.equal(result.state.selectedResult.recordId,'chosen');
+  }
+});
+
+test('U08 stale preview and unrelated records cannot replace the requested current identity',()=>{
+  const current=complete({id:'chosen',canonicalId:'canonical-chosen',name:'Canonical Choice'}),stale=complete({id:'chosen',name:'Old Preview'}),unrelated=complete({id:'different'});
+  const result=selectResult({recordId:'chosen',preview:[stale],brandRecords:[unrelated],submitted:[current],brandCurrent:false,mode:'typing-preview'});
+  assert.equal(result.calls[0].food,current);
+  const missing=selectResult({recordId:'missing',submitted:[current],loaded:[unrelated],offLoaded:[stale]});
+  assert.equal(missing.activated,false);assert.equal(missing.calls.length,0);assert.equal(missing.state.selectedResult,null);
+});
+
+test('U09 detached result rows cannot select even a currently valid cached identity',()=>{
+  const record=complete({id:'chosen',canonicalId:'canonical-chosen',name:'Canonical Choice'});
+  for(const options of [{submitted:[record]},{preview:[record],brandRecords:[record],brandCurrent:true,mode:'typing-preview'},{loaded:[record]},{offLoaded:[record]}]){
+    const result=selectResult({recordId:'chosen',isConnected:false,...options});assert.equal(result.activated,false);assert.equal(result.calls.length,0);assert.equal(result.state.selectedResult,null);
+  }
 });

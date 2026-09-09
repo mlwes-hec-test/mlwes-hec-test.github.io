@@ -1,0 +1,164 @@
+[
+  {
+    "id": "flora-proactiv-light-au-official",
+    "canonicalId": "packaged:flora-proactiv-light-au",
+    "sourceId": "flora-proactiv-light-au",
+    "recordType": "packaged",
+    "name": "Flora ProActiv Light",
+    "brand": "Flora",
+    "category": "Spreads",
+    "country": "Australia",
+    "market": "AU",
+    "aliases": [
+      "flora proactiv light",
+      "flora proactive light",
+      "flora pro activ light",
+      "flora pro-active light",
+      "proactiv light",
+      "proactive light",
+      "pro activ light",
+      "pro-active light"
+    ],
+    "defaultAmount": 1,
+    "defaultUnit": "serve",
+    "units": {
+      "serve": 1,
+      "g": 0.1
+    },
+    "unitLabels": {
+      "serve": "Serve (10 g)",
+      "g": "g"
+    },
+    "serving": "1 serve (10 g)",
+    "manufacturerServing": {
+      "amount": 10,
+      "unit": "g"
+    },
+    "nutrients": {
+      "calories": 37,
+      "protein": null,
+      "carbs": null,
+      "fat": 4.1,
+      "satFat": 0.9,
+      "fibre": null,
+      "sugar": null,
+      "sodium": 36,
+      "energyKj": 154,
+      "plantSterols": 0.8
+    },
+    "nutritionPer100": {
+      "calories": 368,
+      "protein": null,
+      "carbs": 1.9,
+      "fat": 40.5,
+      "satFat": 9,
+      "fibre": null,
+      "sugar": 0.1,
+      "sodium": 360,
+      "energyKj": 1540,
+      "plantSterols": 8
+    },
+    "score": 7,
+    "source": "Official Flora ProActiv Australia Product Page · checked 2026-08-29",
+    "sourceUrl": "https://www.pro-activ.com/en-au/products/flora-proactiv-light",
+    "verified": true,
+    "verificationStatus": "verified",
+    "ingredients": "Water, vegetable oils, phytosterol esters (8% plant sterols), salt, potato starch, emulsifiers (471, soy lecithin), milk solids, lactic acid, preservative (202), natural flavours, vitamins A and D, beta-carotene",
+    "allergens": [
+      "soy",
+      "milk"
+    ],
+    "sourceAnomalies": [
+      "Fibre is not published, and protein, carbohydrate and sugars below 0.1 g per serve remain unavailable rather than being converted to exact zero values."
+    ],
+    "foodGroups": {},
+    "waterMl": 5,
+    "sourceProvenance": {
+      "sourceId": "flora-proactiv-light-au",
+      "recordId": "flora-proactiv-light-au",
+      "url": "https://www.pro-activ.com/en-au/products/flora-proactiv-light",
+      "trustClass": "official-au-manufacturer",
+      "verifiedAt": "2026-08-29",
+      "retrievedAt": null
+    },
+    "currentState": "unknown",
+    "measureProfile": "tableSpread"
+  },
+  {
+    "id": "flora-light-au-official",
+    "canonicalId": "packaged:flora-light-au",
+    "sourceId": "flora-light-au",
+    "recordType": "packaged",
+    "name": "Flora Light",
+    "brand": "Flora",
+    "category": "Spreads",
+    "country": "Australia",
+    "market": "AU",
+    "aliases": [
+      "flora light",
+      "light"
+    ],
+    "defaultAmount": 1,
+    "defaultUnit": "serve",
+    "units": {
+      "serve": 1,
+      "g": 0.1
+    },
+    "unitLabels": {
+      "serve": "10 g Serve",
+      "g": "g"
+    },
+    "serving": "1 serve (10 g)",
+    "manufacturerServing": {
+      "amount": 10,
+      "unit": "g"
+    },
+    "nutrients": {
+      "calories": 43,
+      "protein": null,
+      "carbs": null,
+      "fat": 4.7,
+      "satFat": 1.2,
+      "fibre": null,
+      "sugar": null,
+      "sodium": 35,
+      "energyKj": 178
+    },
+    "nutritionPer100": {
+      "calories": 425,
+      "protein": null,
+      "carbs": null,
+      "fat": 47,
+      "satFat": 12,
+      "fibre": null,
+      "sugar": null,
+      "sodium": 350,
+      "energyKj": 1780
+    },
+    "score": 6,
+    "source": "Official Flora Australia Product Page · checked 2026-08-29",
+    "sourceUrl": "https://www.floraspread.com.au/products/flora-spreads/flora-light",
+    "verified": true,
+    "verificationStatus": "verified",
+    "ingredients": "Vegetable oils (including sunflower oil), water, salt, potato starch, emulsifiers (471, soy lecithin), milk solids, preservative (202), citric acid, natural flavours, vitamins A and D, beta-carotene",
+    "allergens": [
+      "soy",
+      "milk"
+    ],
+    "sourceAnomalies": [
+      "Fibre is not published, and protein, carbohydrate and sugars below 1 g remain unavailable rather than being converted to exact zero values."
+    ],
+    "foodGroups": {},
+    "waterMl": 5,
+    "sourceProvenance": {
+      "sourceId": "flora-light-au",
+      "recordId": "flora-light-au",
+      "url": "https://www.floraspread.com.au/products/flora-spreads/flora-light",
+      "trustClass": "official-au-manufacturer",
+      "verifiedAt": "2026-08-29",
+      "retrievedAt": null
+    },
+    "currentState": "unknown",
+    "measureProfile": "tableSpread"
+  }
+]

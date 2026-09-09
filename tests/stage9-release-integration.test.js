@@ -51,12 +51,18 @@ test("4. release assertion blocks runtime loading when an old config is served",
 });
 
 test("5. cache-busting for dynamically loaded runtime files derives from HEC_APP.version",()=>{
-  assert.equal(runtimeFiles.length,30);assert.ok(runtimeFiles.includes('food-groups-foundation.js'));assert.ok(runtimeFiles.includes('product-serving-semantics.js'));assert.ok(runtimeFiles.includes('off-catalogue.js'));assert.ok(runtimeFiles.includes('guided-product-resolution.js'));assert.ok(runtimeFiles.includes('kfc-au-catalogue-data.js'));assert.ok(runtimeFiles.includes('kfc-au-catalogue.js'));assert.match(html,/script\.src=`\$\{file\}\?v=\$\{encodeURIComponent\(actual\)\}`/);
+  const required=['installation-foundation.js','migrations.js','companions.js','companion-artwork.js','companion-voice-metadata.js','companion-voices.js','stage4-foundation.js','weight-progress-foundation.js','nutrition-trends-foundation.js','app.js','entity-registry.js','search-foundation.js','product-serving-semantics.js','food-sources.js','australian-catalogue-data.js','mcdonalds-au-catalogue-data.js','mcdonalds-au-catalogue.js','kfc-au-catalogue-data.js','kfc-au-catalogue.js','food-catalogue.js','off-catalogue.js','guided-branching.js','packaged-foods.js','capture-foundation.js','serving-foundation.js','guided-product-resolution.js','activity-foundation.js','food-groups-foundation.js','conversation-foundation.js','alpha06.js','alpha064.js'];
+  for(const file of required){assert.ok(runtimeFiles.includes(file),`Required runtime asset: ${file}`);assert.ok(exists(file),file);assert.ok(coreFiles.includes(`./${file}?v=${RELEASE}`),`Versioned worker asset: ${file}`);}
+  assert.equal(new Set(runtimeFiles).size,runtimeFiles.length,'Runtime assets must be unique');
+  assert.match(html,/script\.src=`\$\{file\}\?v=\$\{encodeURIComponent\(actual\)\}`/);
   assert.equal(runtimeFiles[0],"installation-foundation.js");
   assert.ok(runtimeFiles.indexOf("migrations.js")<runtimeFiles.indexOf("app.js"));
   assert.ok(runtimeFiles.indexOf("companion-voice-metadata.js")<runtimeFiles.indexOf("companion-voices.js"));
   assert.ok(runtimeFiles.indexOf("entity-registry.js")<runtimeFiles.indexOf("search-foundation.js"));
   assert.ok(runtimeFiles.indexOf("product-serving-semantics.js")<runtimeFiles.indexOf("food-sources.js"));
+  assert.ok(runtimeFiles.indexOf('food-sources.js')<runtimeFiles.indexOf('australian-catalogue-data.js'));
+  assert.ok(runtimeFiles.indexOf('australian-catalogue-data.js')<runtimeFiles.indexOf('food-catalogue.js'));
+  assert.ok(runtimeFiles.indexOf('australian-catalogue-data.js')<runtimeFiles.indexOf('alpha06.js'));
   assert.ok(runtimeFiles.indexOf("food-sources.js")<runtimeFiles.indexOf("mcdonalds-au-catalogue-data.js"));
   assert.ok(runtimeFiles.indexOf("mcdonalds-au-catalogue-data.js")<runtimeFiles.indexOf("mcdonalds-au-catalogue.js"));
   assert.ok(runtimeFiles.indexOf("mcdonalds-au-catalogue.js")<runtimeFiles.indexOf("kfc-au-catalogue-data.js"));

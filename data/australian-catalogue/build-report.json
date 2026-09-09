@@ -1,0 +1,26 @@
+{
+  "rawRows": 454,
+  "canonicalSupplementalProducts": 326,
+  "curatedProducts": 2,
+  "mergedRows": 128,
+  "brands": 12239,
+  "sourceCounts": {
+    "goodman-fielder-au": {
+      "raw": 8,
+      "canonical": 8,
+      "loggable": 7
+    },
+    "mccain-au": {
+      "raw": 28,
+      "canonical": 27,
+      "loggable": 25
+    },
+    "hungry-jacks-au": {
+      "raw": 418,
+      "canonical": 291,
+      "loggable": 187
+    }
+  },
+  "sourceConflicts": 98,
+  "gaps": []
+}

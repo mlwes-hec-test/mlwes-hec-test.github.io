@@ -231,7 +231,7 @@ test('31. pointer activation survives a legacy focus render without making scrol
 });
 
 test('32. valid custom decimal amounts stay exact in the review label',()=>{
-  const profile=serving.servingMeasureProfile({id:'spread',name:'Reviewed spread',physicalForm:'spread',units:{tsp:.05,g:.01},unitLabels:{tsp:'Teaspoon',g:'g'},nutrients:{calories:100}});
+  const profile=serving.servingMeasureProfile({id:'spread',name:'Reviewed spread',physicalForm:'spread',units:{tsp:.05,g:.01},unitLabels:{tsp:'Teaspoon',g:'g'},unitOrigins:{tsp:{origin:'Reviewed fixture measure',confidence:'reviewed-generic-form',sourceType:'reviewed-form-conversion'}},nutrients:{calories:100}});
   const teaspoon=profile.measures.find(item=>item.key==='tsp');
   assert.match(serving.formatPortionAmount(teaspoon,1.75),/^1\.75 teaspoons/);
 });

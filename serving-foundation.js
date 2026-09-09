@@ -207,7 +207,7 @@
     if(['packaged-item','packaged-single'].includes(form.form))return 'packaged-single-serving';if(form.form==='restaurant-serving')return 'restaurant-serving';return 'weight-only';
   }
   function spreadMeasureFamily(food){
-    if(physicalForm(food).form!=='spread')return '';const categories=norm([...(food?.categories||[]),...(food?.categoryMemberships||[]),food?.category||'',food?.genericName||'',food?.productFamily||''].join(' ')),identity=norm(food?.name||''),ingredients=norm(food?.ingredients||'');
+    if(physicalForm(food).form!=='spread')return '';if(Object.hasOwn(SPREAD_MEASURE_STANDARDS,food?.measureProfile||''))return food.measureProfile;const categories=norm([...(food?.categories||[]),...(food?.categoryMemberships||[]),food?.category||'',food?.genericName||'',food?.productFamily||''].join(' ')),identity=norm(food?.name||''),ingredients=norm(food?.ingredients||'');
     if(/yeast extract spread|vegetable and yeast extract|\bvegemite\b|\bmarmite\b|\bpromite\b|\bmightymite\b/.test(`${categories} ${identity}`))return 'yeastSpread';
     if(/nut butter|\bnut spreads?\b|peanut butter|peanut spread|legume butter|oilseed puree|almond spread|cashew spread|mixed nut/.test(`${categories} ${identity}`))return 'nutSpread';
     if(/\bmargarine\b|table spread|edible oil spread|spreadable fat|vegetable fat|plant based spread/.test(`${categories} ${identity}`)||/\bvegetable oils?\b/.test(ingredients))return 'tableSpread';
@@ -328,9 +328,9 @@
     if(physicalForm(food).form!=='spread')return food;
     const family=spreadMeasureFamily(food),standard=SPREAD_MEASURE_STANDARDS[family];
     // Retain HEC's reviewed 5 g teaspoon anchor for margarine/table spreads and
-    // otherwise-unclassified spread records. More specific Australian evidence
+    // proven table-spread records. More specific Australian evidence
     // overrides it only for a distinct physical family such as yeast extract.
-    if(['tableSpread','generalSpread'].includes(family))addGramMeasure(food,'tsp','Teaspoon (5 g)',5,{origin:'Existing HEC generic Australian margarine measure',confidence:'reviewed-generic-form',applicability:'Margarine/table spread or otherwise-unclassified spread'});
+    if(family==='tableSpread'&&food.measureEvidencePolicy!=='source-and-published-standard-only')addGramMeasure(food,'tsp','Teaspoon (5 g)',5,{origin:'Existing HEC generic Australian margarine measure',confidence:'reviewed-generic-form',applicability:'Margarine/table spread with family evidence'});
     for(const [key,item] of Object.entries(standard?.measures||{}))addGramMeasure(food,key,`${key==='tsp'?'Teaspoon':'Tablespoon'} (${item.grams} g)`,item.grams,ausnutMeasureMeta(item,standard.applicability));
     return food;
   }
@@ -589,7 +589,7 @@
     // Reference-only semantic policy protects arbitrary food-group units, but the
     // progressive resolver may restore these three specifically reviewed form
     // conversions from the original metric nutrition basis.
-    if(form.form==='spread'&&originalBasis.gScale){const family=spreadMeasureFamily(food),standard=SPREAD_MEASURE_STANDARDS[family];pushMeasure('g','g',originalBasis.gScale,'source-product-metadata','product-metadata','source-product-metadata');if(['tableSpread','generalSpread'].includes(family))pushMeasure('tsp','Teaspoon (5 g)',originalBasis.gScale*5,'Existing HEC generic Australian margarine measure','reviewed-form-conversion','reviewed-generic-form',true,{applicability:'Margarine/table spread or otherwise-unclassified spread'});for(const [key,item] of Object.entries(standard?.measures||{})){const evidence=ausnutMeasureMeta(item,standard.applicability);pushMeasure(key,`${key==='tsp'?'Teaspoon':'Tablespoon'} (${item.grams} g)`,originalBasis.gScale*item.grams,evidence.origin,evidence.sourceType,evidence.confidence,true,evidence);}}
+    if(form.form==='spread'&&originalBasis.gScale){const family=spreadMeasureFamily(food),standard=SPREAD_MEASURE_STANDARDS[family];pushMeasure('g','g',originalBasis.gScale,'source-product-metadata','product-metadata','source-product-metadata');if(family==='tableSpread'&&food.measureEvidencePolicy!=='source-and-published-standard-only')pushMeasure('tsp','Teaspoon (5 g)',originalBasis.gScale*5,'Existing HEC generic Australian margarine measure','reviewed-form-conversion','reviewed-generic-form',true,{applicability:'Margarine/table spread with family evidence'});for(const [key,item] of Object.entries(standard?.measures||{})){const evidence=ausnutMeasureMeta(item,standard.applicability);pushMeasure(key,`${key==='tsp'?'Teaspoon':'Tablespoon'} (${item.grams} g)`,originalBasis.gScale*item.grams,evidence.origin,evidence.sourceType,evidence.confidence,true,evidence);}}
     if(form.form==='liquid'&&originalBasis.mlScale){pushMeasure('mL','mL',originalBasis.mlScale,'source-product-metadata','product-metadata','source-product-metadata',false,{canonicalBaseUnit:'mL',canonicalBaseQuantity:1});pushMeasure('cup','Cup (250 mL)',originalBasis.mlScale*250,'Metric household volume measure','metric-conversion','high',true,{canonicalBaseUnit:'mL',canonicalBaseQuantity:250});}
     const foodKey=String(food.afcdKey||food.id||'').toUpperCase().replace(/^AFCD-/,'').replace(/^AFCD_/,'');const chipStandard=CHIP_MEASURE_STANDARDS[foodKey];if(originalBasis.gScale&&chipStandard)for(const [key,item] of Object.entries(chipStandard.measures)){const evidence=ausnutChipMeasureMeta(foodKey,item,chipStandard.applicability);pushMeasure(key,item.label,originalBasis.gScale*item.grams,evidence.origin,evidence.sourceType,evidence.confidence,true,evidence);}
     for(const item of context.candidateMeasures||[]){if(!hasMeasure(item.key))measures.push({...item});}

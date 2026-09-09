@@ -59,9 +59,9 @@ test('typed and dictated product variants resolve through the shared conservativ
   assert.match(runtime,/const shared=C8\?\.resolve\?\.\(allFoods\(\),query\)/);assert.match(runtime,/shared=C8\?\.resolve\?\.\(diaryRecords\.map/);
 });
 
-test('verified Flora ProActiv confines a conflicting cached record to legacy review',()=>{
+test('a similar named candidate is retained when cross-source identity is unproven',()=>{
   const official={id:'official',canonicalId:'packaged:flora-proactiv-light-au',recordType:'packaged',name:'Flora ProActiv Light',brand:'Flora',market:'AU',verified:true,verificationStatus:'verified',aliases:['flora proactiv light'],nutrients:{calories:37}},legacy={id:'legacy',recordType:'online-candidate',name:'Flora ProActiv Light',brand:'Flora',market:'unknown',nutrients:{calories:252}},ordinary={id:'ordinary',recordType:'packaged',name:'Flora Light',brand:'Flora',market:'AU',verified:true,verificationStatus:'verified',nutrients:{calories:43}};
-  const result=catalogue.partitionSearchRecords([legacy,ordinary,official]);assert.ok(result.primary.includes(official));assert.ok(result.primary.includes(ordinary));assert.equal(result.legacy[0].food,legacy);assert.doesNotMatch(productionFunction('legacyFoodRow'),/data-food-add|data-food-save/);
+  const result=catalogue.partitionSearchRecords([legacy,ordinary,official]);assert.ok(result.primary.includes(official));assert.ok(result.primary.includes(ordinary));assert.ok(result.primary.includes(legacy));assert.equal(result.legacy.length,0);assert.doesNotMatch(productionFunction('legacyFoodRow'),/data-food-add|data-food-save/);
 });
 
 test('Flora ProActiv exposes manufacturer serve, grams and the validated central spread measures',()=>{

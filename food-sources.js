@@ -87,9 +87,18 @@
     const sourceErrors=validateSource(source);if(sourceErrors.length)throw new Error(`Invalid food source ${source.id||'(missing id)'}: ${sourceErrors.join(', ')}`);
     return {schemaVersion:2,source,items};
   }
-  function registerCatalogue(input){const catalogue=normaliseCatalogue(input);catalogues.set(catalogue.source.id,catalogue);return clone(catalogue);}
+  const declaredQueryFamilies=new Set();let queryIdentityRevision=0;
+  function registerCatalogue(input){const catalogue=normaliseCatalogue(input);catalogues.set(catalogue.source.id,catalogue);declaredQueryFamilies.clear();for(const value of catalogues.values())for(const item of value.items)if(item.choiceFamily)declaredQueryFamilies.add(norm(item.choiceFamily));queryIdentityRevision++;return clone(catalogue);}
+  let normalisedFamilyRevision=-1,normalisedFamilySearch=null,normalisedQueryFamilies=new Set();
+  function hasQueryFamily(query){
+    const search=global.HECSearchFoundation;
+    if(normalisedFamilyRevision!==queryIdentityRevision||normalisedFamilySearch!==search){normalisedQueryFamilies=new Set([...declaredQueryFamilies].map(value=>search?.conceptNorm?.(value)||norm(value)));normalisedFamilyRevision=queryIdentityRevision;normalisedFamilySearch=search;}
+    return declaredQueryFamilies.has(norm(query))||normalisedQueryFamilies.has(search?.conceptNorm?.(query)||norm(query));
+  }
   function getCatalogue(sourceId){return clone(catalogues.get(String(sourceId||''))||null);}
   function allCatalogues(){return [...catalogues.values()].map(clone);}
+  // Recognition needs source metadata, without copying every product record.
+  function allSources(){return [...catalogues.values()].map(catalogue=>clone(catalogue.source));}
   function sourceForAlias(value){const q=norm(value);if(!q)return null;for(const catalogue of catalogues.values())if(catalogue.source.aliases.some(alias=>norm(alias)===q))return clone(catalogue.source);return null;}
   function itemById(itemId,{sourceId='',includeRetired=true}={}){const sources=sourceId?[catalogues.get(sourceId)].filter(Boolean):[...catalogues.values()];for(const catalogue of sources){const item=catalogue.items.find(candidate=>candidate.id===itemId&&(includeRetired||candidate.status===ITEM_STATUSES.CURRENT));if(item)return clone(item);}return null;}
   function blockedReason(status,source={}){
@@ -100,6 +109,9 @@
   }
   function toFoodRecord(item,source,variant=null){
     if(!item||!source)return null;
+    // Supplemental adapters use the same source registry and canonical records
+    // as Search. Keep their conflict/qualification evidence during conversion.
+    if(item.canonicalRecord&&!variant){const record=clone(item.canonicalRecord);record.itemStatus=item.status;return SEM?.applyToFood?SEM.applyToFood(record):record;}
     const entity=variant||item,unitKey=entity.serving.unitKey,unitLabel=entity.serving.unitLabel,sourceItemKey=`${source.id}:${item.id}${variant?`:${variant.id}`:''}`;
     const per100=clone(entity.nutritionPer100||entity.nutritionPer100g||{}),licensing={usageScope:source.usageScope,licenceStatus:source.licenceStatus,productionApproved:source.productionApproved,inheritedFromSource:true};
     const record={
@@ -134,5 +146,6 @@
   }
 
   const api={version:VERSION,itemStatuses:ITEM_STATUSES,nutritionStatuses:NUTRITION_STATUSES,nutrientKeys:NUTRIENT_KEYS,norm,finiteOrNull,normaliseNutrients,validateSource,validateItem,normaliseCatalogue,registerCatalogue,getCatalogue,allCatalogues,sourceForAlias,itemById,toFoodRecord,foodRecords,diffCatalogues,reconcileCatalogues};
+  Object.assign(api,{allSources,hasQueryFamily,queryIdentityRevision:()=>queryIdentityRevision});
   global.HECFoodSources=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);
