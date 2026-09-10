@@ -29,11 +29,12 @@ function fakeElement(value=''){
 }
 
 function createFoodLibraryHarness(){
+  const pending=new Map();let nextTimer=0;
   const input=fakeElement(),live=fakeElement(),results=fakeElement();
   const elements={'food-search':input,'food-live-results':live,'food-results':results};
   const context={
     console,foods,catalogue,conversation,input,live,results,
-    setTimeout,clearTimeout,requestAnimationFrame:callback=>setTimeout(callback,0),
+    setTimeout:callback=>{const id=++nextTimer;pending.set(id,callback);return id;},clearTimeout:id=>pending.delete(id),requestAnimationFrame:callback=>{const id=++nextTimer;pending.set(id,callback);return id;},
     AbortController,
     document:{activeElement:input},
     window:null,globalThis:null
@@ -48,7 +49,7 @@ function createFoodLibraryHarness(){
   ].map(productionFunction).join('\n');
   const integrated=[
     's23ProductLike','alpha0630InvalidateFoodSearchCaches','s23BrandIndex','s23BrandMatch',
-    's23LikelyProduct','s23ProductMatches','s23EnergyMeta','s23ProductRow',
+    's23LikelyProduct','s23ProductScorer','s23CacheProductMatches','s23ProductMatches','s23EnergyMeta','s23ProductRow',
     'alpha0627StableProductMatches','s23RenderLive','alpha0630HandleFoodSearchInput','rc3NeutralSearch'
   ].map(productionFunction).join('\n');
   const rankAssignment=productionAssignment('searchRank');
@@ -59,6 +60,10 @@ function createFoodLibraryHarness(){
     const alpha0630QueryContextCache=new Map(),alpha0630ProductMatchCache=new Map(),alpha0630ProductIntentCache=new Map(),alpha0627StableSearchCache=new Map();
     let alpha0630FoodSearchRevision=0,alpha0630BrandIndexRevision=-1,alpha0630BrandIndexValues=[];
     let alpha0630FoodSearchUiToken=0,alpha0630FoodSearchTimer=null,allResourcesOnlineTimer=null,onlineSearchToken=0,onlineAbortController=null;
+    const searchSession633={revision:0,committedRevision:0},au633BrandState=null;
+    function ss633Current(revision,raw){return revision===searchSession633.revision&&input.value===raw;}
+    function rc5SearchContext(){return {source:{id:'mcdonalds-au'}};}
+    function psLargeSchedule(){}
     function allFoods(){return foods;}
     function getFood(id){return foods.find(food=>String(food.id)===String(id));}
     function by(id){return ${JSON.stringify(Object.keys(elements))}.includes(id)?({
@@ -101,9 +106,9 @@ function createFoodLibraryHarness(){
   async function dispatch(value,{typed=false}={}){
     input.value='';
     const values=typed?[...value].map((_,index)=>value.slice(0,index+1)):[value];
-    for(const next of values){input.value=next;context.alpha0630HandleFoodSearchInput();await new Promise(resolve=>setTimeout(resolve,typed?1:0));}
+    for(const next of values){input.value=next;context.alpha0630HandleFoodSearchInput();}
     if(!value){context.rc3NeutralSearch();}
-    await new Promise(resolve=>setTimeout(resolve,90));
+    while(pending.size){const [id,callback]=pending.entries().next().value;pending.delete(id);await callback();}
     return{live:live.innerHTML,results:results.innerHTML,hidden:live.classList.contains('hidden')};
   }
   function voiceRequest(text){

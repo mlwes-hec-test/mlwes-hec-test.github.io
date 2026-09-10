@@ -14,7 +14,7 @@ function fixture(){
   }
   files['manifest.json']={intelligenceShards:Object.keys(files).filter(file=>file.startsWith('intelligence/')).map(path=>({path}))};
   const directory={get brands(){directoryReads++;return names.map(name=>({name,count:2}));}};
-  const context={HECAustralianEntityRegistry:registry,HECAustralianCatalogueData:directory,fetch:async url=>{const file=String(url).replace('./data/open-food-facts-au/','');requests.push(file);return {ok:!!files[file],status:files[file]?200:404,json:async()=>files[file]};}};
+  const context={HECFoodCatalogue:C,HECAustralianEntityRegistry:registry,HECAustralianCatalogueData:directory,fetch:async url=>{const file=String(url).replace('./data/open-food-facts-au/','');requests.push(file);return {ok:!!files[file],status:files[file]?200:404,json:async()=>files[file]};}};
   vm.runInNewContext(source,context);return {api:context.HECOpenFoodFactsAU,records,requests,directoryReads:()=>directoryReads};
 }
 test('approved historical compatibility preserves NFC/NFD, unaccented and hyphen queries',async()=>{

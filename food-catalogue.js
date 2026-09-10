@@ -165,15 +165,35 @@
       return {...winner,...(unresolved?{loggable:false,nutritionStatus:'needs-review',entryBlockedReason:'Sources disagree about this product. Nutrition needs review before logging.'}:{}),canonicalEvidence:[...(winner.canonicalEvidence||[]),...evidence],evidenceConflicts:[...new Map(conflicts.map(value=>[JSON.stringify(value),value])).values()],mergedRecordIds:[...new Set(group.flatMap(food=>[food.id,...(food.mergedRecordIds||[])]))]};
     });
   }
-  function sourceQuality(food){const evidence=sourceEvidence(food),decision=addability(food),foreign=/\b(?:beurre|lait|fromage|yaourt|biscottes|portionen|stuck|stueck|unite|unites)\b/.test(norm(`${food?.name||''} ${food?.servingSize||''} ${food?.packageServingText||''}`));return {trust:evidence.trustRank,complete:decision.normalLoggingAllowed,foreignFacing:foreign,current:food?.currentState==='listed-at-retrieval'||food?.itemStatus==='current',au:marketFor(food)==='AU'};}
+  function sourceQuality(food,decision=addability(food)){const evidence=sourceEvidence(food),foreign=/\b(?:beurre|lait|fromage|yaourt|biscottes|portionen|stuck|stueck|unite|unites)\b/.test(norm(`${food?.name||''} ${food?.servingSize||''} ${food?.packageServingText||''}`));return {trust:evidence.trustRank,complete:decision.normalLoggingAllowed,foreignFacing:foreign,current:food?.currentState==='listed-at-retrieval'||food?.itemStatus==='current',au:marketFor(food)==='AU'};}
   function compareAustralianProducts(a,b){const x=sourceQuality(a),y=sourceQuality(b);return Number(y.au)-Number(x.au)||Number(y.complete)-Number(x.complete)||x.trust-y.trust||Number(x.foreignFacing)-Number(y.foreignFacing)||Number(y.current)-Number(x.current)||norm(a.name).localeCompare(norm(b.name))||canonicalKey(a).localeCompare(canonicalKey(b));}
   const brandProductCache=new WeakMap();
+  async function forEachSearchChunk(records,visit,isCurrent=()=>true){
+    const now=()=>global.performance?.now?.()??Date.now();let start=now();
+    for(const record of records){
+      if(!isCurrent())return false;visit(record);
+      if(now()-start>=8){await new Promise(resolve=>setTimeout(resolve,0));start=now();}
+    }
+    return isCurrent();
+  }
+  function brandModelCandidates(records,entity){return canonicaliseRecords(records||[]).filter(food=>consumerBrandMembership(entity,food).matches&&!food.legacyPreviewOnly&&food.itemStatus!=='retired');}
+  function cacheBrandModel(records,entity,candidates,decisions){
+    const qualityMap=new Map(candidates.map(food=>[food,sourceQuality(food,decisions.get(food))]));
+    candidates.sort((a,b)=>{const x=qualityMap.get(a),y=qualityMap.get(b);return Number(y.au)-Number(x.au)||Number(y.complete)-Number(x.complete)||x.trust-y.trust||Number(x.foreignFacing)-Number(y.foreignFacing)||Number(y.current)-Number(x.current)||norm(a.name).localeCompare(norm(b.name))||canonicalKey(a).localeCompare(canonicalKey(b));});
+    const cached={brand:brandKey(entity.name),products:candidates,decisions};if(records)brandProductCache.set(records,cached);return cached;
+  }
+  async function prepareBrandResultModel(records,query,{isCurrent=()=>true}={}){
+    const intent=queryIntent(query),entity=intent.entity;if(intent.kind!=='brand-family'||!entity||!isCurrent())return false;
+    if(brandProductCache.get(records)?.brand===brandKey(entity.name))return true;
+    const candidates=brandModelCandidates(records,entity),decisions=new Map();
+    if(!await forEachSearchChunk(candidates,food=>decisions.set(food,productEligibility(food,{candidates}).addability),isCurrent))return false;
+    cacheBrandModel(records,entity,candidates,decisions);return true;
+  }
   function brandResultModel(records,query,{limit=20,offset=0,total=null}={}){
     const intent=queryIntent(query),entity=intent.entity;if(intent.kind!=='brand-family'||!entity)return null;
     let cached=brandProductCache.get(records);if(!cached||cached.brand!==brandKey(entity.name)){
-      const candidates=canonicaliseRecords(records||[]).filter(food=>consumerBrandMembership(entity,food).matches&&productEligibility(food).searchEligible),decisions=new Map(candidates.map(food=>[food,productEligibility(food,{candidates}).addability])),qualityMap=new Map(candidates.map(food=>[food,{...sourceQuality(food),complete:decisions.get(food).normalLoggingAllowed}]));
-      candidates.sort((a,b)=>{const x=qualityMap.get(a),y=qualityMap.get(b);return Number(y.au)-Number(x.au)||Number(y.complete)-Number(x.complete)||x.trust-y.trust||Number(x.foreignFacing)-Number(y.foreignFacing)||Number(y.current)-Number(x.current)||norm(a.name).localeCompare(norm(b.name))||canonicalKey(a).localeCompare(canonicalKey(b));});
-      cached={brand:brandKey(entity.name),products:candidates,decisions};if(records)brandProductCache.set(records,cached);
+      const candidates=brandModelCandidates(records,entity),decisions=new Map(candidates.map(food=>[food,productEligibility(food,{candidates}).addability]));
+      cached=cacheBrandModel(records,entity,candidates,decisions);
     }
     const products=cached.products,start=Math.max(0,offset),selected=products.slice(start,start+limit);
     const items=selected.map(food=>({id:canonicalKey(food),recordId:food.id,kind:'exact-product',name:consumerDisplayName(food),food:eligibilitySnapshot(food,cached.decisions.get(food)),recordType:recordType(food),provenance:provenance(food),addability:cached.decisions.get(food)}));
@@ -355,8 +375,11 @@
   function genericFriesCandidates(records){
     return dedupe((records||[]).filter(food=>recordType(food)===RECORD_TYPES.AFCD&&marketFor(food)==='AU'&&/^potato (?:chips regular|fries)\b/.test(norm(food?.name||''))));
   }
-  function rank(food,query,{saved=false,locallyVerified=false}={}){
+  function rank(food,query,{saved=false,locallyVerified=false,exactOnly=false}={}){
     const raw=norm(query);if(!raw)return {score:100,tier:'browse'};
+    // Exact-preview callers discard every other tier. Avoid calculating fuzzy,
+    // category and prefix scores for records that cannot enter that shortlist.
+    if(exactOnly&&(corrected(raw)!==raw||![food?.name,`${food?.brand||''} ${food?.name||''}`,...(food?.aliases||[])].some(value=>norm(value)===raw)))return {score:0,tier:'none'};
     const q=corrected(raw),values=fields(food),name=norm(food?.name),brand=norm(food?.brand),aliases=(food?.aliases||[]).map(norm),sourceAliases=[food?.sourceDisplayName,...(food?.sourceAliases||[])].map(norm).filter(Boolean),combined=norm(`${food?.brand||''} ${food?.name||''}`),qt=tokens(q);
     const typoCorrected=q!==raw;let score=0,tier='none';
     if(!typoCorrected&&(name===q||combined===q)){score=1600;tier='exact-name';}
@@ -419,9 +442,20 @@
     return candidateNames.some(value=>authorityNames.has(value))&&strongDuplicateEvidence(authority,candidate).duplicate;
   }
   function partitionSearchRecords(records){
-    const list=dedupe(records||[]),authorities=list.filter(authoritativePackagedRecord),legacy=[],legacyKeys=new Set();
+    const list=dedupe(records||[]),authorities=list.filter(authoritativePackagedRecord),legacy=[],legacyKeys=new Set(),byName=new Map();
+    // Only shared names can pass sameNamedProduct. Index them once instead of
+    // normalising every authority's aliases for every unrelated catalogue row.
+    authorities.forEach((food,index)=>{
+      for(const name of new Set([food.name,`${food.brand||''} ${food.name||''}`,...(food.aliases||[])].map(norm).filter(Boolean))){
+        if(!byName.has(name))byName.set(name,[]);byName.get(name).push(index);
+      }
+    });
     for(const food of list){
-      if(authoritativePackagedRecord(food))continue;const authority=authorities.find(item=>sameNamedProduct(item,food));if(!authority)continue;
+      if(authoritativePackagedRecord(food))continue;
+      const matches=new Set();for(const name of [food.name,`${food.brand||''} ${food.name||''}`,...(food.aliases||[])].map(norm))for(const index of byName.get(name)||[])matches.add(index);
+      // Preserve the first authority in input order and the existing strong
+      // identity evidence check; a shared display name alone never merges rows.
+      const authority=[...matches].sort((a,b)=>a-b).map(index=>authorities[index]).find(item=>sameNamedProduct(item,food));if(!authority)continue;
       legacy.push({food,authority,reason:'A verified Australian product record supersedes this cached or legacy match.'});legacyKeys.add(canonicalKey(food));
     }
     return {primary:list.filter(food=>!legacyKeys.has(canonicalKey(food))),legacy};
@@ -682,7 +716,7 @@
   }
 
   const api={version:VERSION,recordTypes:RECORD_TYPES,sourceTiers:SOURCE_TIERS,productQualityTypes:PRODUCT_QUALITY,controlledTypos:CONTROLLED_TYPOS,australianAliases:AUSTRALIAN_ALIASES,norm,tokens,corrected,queryIntent,brandProductQuality,sourceTier,meaningfulProductName,productIdentityQuality,exactProductQuality,consumerDisplayName,fieldSpecificRank,consumerBrandMembership,consumerProductSpecificity,brandFamilyResults,australianAlternates,recordType,marketFor,sourceIdFor,canonicalKey,normaliseRecord,friesIntent,genericFriesCandidates,displayQuantity,rank,dedupe,dedupeRanked,duplicateIdentityEvidence,duplicateIdentity,duplicateAudit,resolve,partitionSearchRecords,provenance,provenanceParts,hasEnergy,addability,canLog,quickAddPolicy,fullReviewPolicy,commercialSourceClass,conceptShortlist,isExplicitProductRequest,explicitIdentityMatch,submittedResultModel,appendSubmittedOnline,newUniversalSearchSession,previewUniversalSearch,commitUniversalSearch,ownsUniversalAsync,newSearchState,beginSearch,rememberSearch,restoreSearch,transitionSearch,newFederatedSearchState,beginQueryRevision,revisionMatches,commitLocalSnapshot,appendLocalSnapshot,appendOnlineSnapshot,naturalQuantityWarning};
-  Object.assign(api,{TRUST_CLASSES,brandKey,registerBrandDirectory,brandIdentity,brandPrefix,sourceEvidence,metricEvidence,sourceConflicts,productEligibility,canonicalProduct,canonicalName,strongDuplicateEvidence,canonicaliseRecords,sourceQuality,compareAustralianProducts,brandResultModel});
+  Object.assign(api,{TRUST_CLASSES,brandKey,registerBrandDirectory,brandIdentity,brandPrefix,sourceEvidence,metricEvidence,sourceConflicts,productEligibility,canonicalProduct,canonicalName,strongDuplicateEvidence,canonicaliseRecords,sourceQuality,compareAustralianProducts,brandResultModel,prepareBrandResultModel,forEachSearchChunk});
   registerBrandDirectory(global.HECAustralianCatalogueData?.brands||[]);
   global.HECFoodCatalogue=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);

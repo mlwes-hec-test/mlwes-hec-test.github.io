@@ -96,7 +96,7 @@ test('Diary count wording reports live total mass without changing stored nutrit
 });
 
 test('mobile search never smooth-scrolls on each keystroke and uses the visual viewport',()=>{
-  const keep=productionFunction('keepLiveFoodResultsVisible'),input=productionFunction('alpha0630HandleFoodSearchInput');assert.doesNotMatch(keep,/scrollBy|behavior:\s*["']smooth/);assert.match(keep,/--hec-keyboard-top/);assert.match(input,/requestAnimationFrame/);assert.match(runtime,/visualViewport\?\.addEventListener\('resize'/);assert.match(styles,/--hec-visual-viewport-height/);assert.match(styles,/max\(150px,calc\(var\(--hec-visual-viewport-height/);assert.match(styles,/entry-context-banner/);
+  const keep=productionFunction('keepLiveFoodResultsVisible'),input=productionFunction('alpha0630HandleFoodSearchInput');assert.doesNotMatch(keep,/scrollBy|behavior:\s*["']smooth/);assert.match(keep,/--hec-keyboard-top/);assert.match(input,/setTimeout/);assert.doesNotMatch(input,/requestAnimationFrame|setSelectionRange/);assert.match(runtime,/visualViewport\?\.addEventListener\('resize'/);assert.match(styles,/--hec-visual-viewport-height/);assert.match(styles,/max\(150px,calc\(var\(--hec-visual-viewport-height/);assert.match(styles,/entry-context-banner/);
 });
 
 test('release identity, cache role isolation and line endings remain intact',async()=>{

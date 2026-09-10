@@ -67,7 +67,7 @@ test('55. Bunnings natural item remains present',()=>assert.match(read('alpha06.
 test('56. Chiko canonical dedup remains one display row',()=>assert.equal(catalogue.dedupe([{id:'a',canonicalId:'local:chiko-roll',name:'Chiko Roll'},{id:'b',canonicalId:'local:chiko-roll',name:'Chiko Roll'}]).length,1));
 test('57. generic Fries routing remains preserved',()=>assert.match(read('food-catalogue.js'),/generic-au-fries/));
 test('58. Weight foundation remains loaded',()=>assert.match(read('index.html'),/weight-progress-foundation\.js/));
-test('59. focused keyboard handler preserves the caret',()=>assert.match(read('alpha06.js'),/setSelectionRange\(caret,caret\)/));
+test('59. focused keyboard handler preserves the caret',()=>{assert.doesNotMatch(read('alpha06.js'),/setSelectionRange\(caret,caret\)/);assert.match(read('alpha06.js'),/if\(document\.activeElement!==by\(\x22food-search\x22\)\)by\(\x22food-search\x22\)\.value/);});
 test('60. all 73,300 committed products remain indexed',()=>assert.equal(manifest.importedProducts,73300));
 test('61. product shards remain lazy rather than startup-preloaded',()=>assert.doesNotMatch(read('service-worker.js'),/products\/.*\.json/));
 test('62. broader online remains a weaker source tier',()=>assert.equal(catalogue.sourceTier({market:'international',recordType:'online-candidate'}),catalogue.sourceTiers.FOREIGN_FALLBACK));

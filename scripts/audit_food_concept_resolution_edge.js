@@ -46,7 +46,7 @@ async function capture(page){await page.evaluate(()=>new Promise(resolve=>reques
   guide:window.HEC_GUIDED_PRODUCT_TEST.ui(),
   overflow:document.documentElement.scrollWidth>innerWidth+1
 }));}
-async function settled(page){await page.waitForFunction(()=>!window.HEC_FOOD_CONCEPT_TEST?.state?.()?.loading,{},{timeout:60000});}
+async function settled(page){await page.waitForFunction(()=>!window.HEC_FOOD_CONCEPT_TEST?.state?.()?.loading&&!window.HEC_AU_CATALOGUE_TEST?.brandState?.()?.loading&&document.querySelector('#food-results')?.textContent.trim()!=='Checking the Australian catalogue…',{},{timeout:60000});}
 async function chooseIdentity(page,{preferences={},exactName=''}={}){
   await settled(page);const steps=[],defaults={breadOrigin:'home',breadType:'Wholemeal',milkSource:'Cow',fatLevel:'Regular fat',lactose:'Standard lactose',functionalStyle:'Standard',fortification:'Unfortified',identitySource:'generic',sourceContext:'ready-to-eat',preparation:'Boiled',eggPart:'Whole',cheeseType:'Cheddar / tasty',chickenCut:'Breast',grain:'Wholemeal',...preferences};
   for(let count=0;count<18;count++){

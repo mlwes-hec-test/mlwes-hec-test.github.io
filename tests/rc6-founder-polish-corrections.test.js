@@ -63,7 +63,7 @@ test('single Diary delete is immediate, guarded and restores the exact snapshot 
 });
 
 test('live food search debounces full ranking, preserves the caret and hides raw prefix walls',()=>{
-  assert.match(runtime,/setTimeout\(\(\)=>\{if\(token!==alpha0630FoodSearchUiToken[\s\S]*?\},160\)/);assert.match(runtime,/input\.setSelectionRange\(caret,caret\)/);
+  assert.match(runtime,/setTimeout\(async\(\)=>\{[\s\S]*?token===alpha0630FoodSearchUiToken[\s\S]*?\},120\)/);assert.doesNotMatch(runtime,/input\.setSelectionRange\(caret,caret\)/);
   const prediction=runtime.slice(runtime.indexOf('const predictions=alpha0627ConceptSuggestions(raw,6)'),runtime.indexOf('\n  if(product)',runtime.indexOf('const predictions=alpha0627ConceptSuggestions(raw,6)')));assert.doesNotMatch(prediction,/alpha0623-show-raw/);
   assert.match(styles,/body\.food-search-focused #food-library \.library-scan-shortcuts/);assert.match(runtime,/visualViewport\?\.addEventListener\('resize'/);
 });

@@ -45,9 +45,14 @@
     if(explicit&&explicit.unit!==metric)food.quarantinedMeasures=[{key:'serve',label:`Manufacturer serving (${record.servingSize})`,multiplier:explicit.amount/100,source:record.sourceUrl||'Open Food Facts',sourceType:'product-metadata',confidence:'source-product-metadata',sourceServing:explicit,rejectionReason:'source-serving-unit-conflicts-with-nutrition-basis'}];
     serving()?.applyToFood?.(food);loadedFoods.set(food.id,food);return food;
   }
-  async function hydrate(refs){
+  async function hydrate(refs,{isCurrent=()=>true}={}){
     const grouped=new Map();for(const ref of refs){const [shard,index]=String(ref).split(':');if(!grouped.has(shard))grouped.set(shard,[]);grouped.get(shard).push([ref,Number(index)]);}
-    const result=new Map();await Promise.all([...grouped].map(async([shard,items])=>{const data=await load(`products/${shard}.json`);for(const [ref,index] of items){const record=data.products[index];if(record)result.set(ref,toFood(record));}}));return refs.map(ref=>result.get(ref)).filter(Boolean);
+    const pages=await Promise.all([...grouped].map(async([shard,items])=>({data:await load(`products/${shard}.json`),items}))),result=new Map();
+    // Shards are immutable for this build. Keep hydrated records and yield
+    // between small conversion batches so another query can take ownership.
+    const work=pages.flatMap(({data,items})=>items.map(([ref,index])=>({ref,record:data.products[index]})));
+    if(!await catalogue().forEachSearchChunk(work,({ref,record})=>{if(record)result.set(ref,loadedFoods.get(record.id)||toFood(record));},isCurrent))return [];
+    return refs.map(ref=>result.get(ref)).filter(Boolean);
   }
   let brandIndexKeys=null;
   const brandEntries=new Map();
@@ -96,14 +101,15 @@
   }
   function orderedUnion(primary,secondary){const seen=new Set(),out=[];for(const ref of [...(primary||[]),...(secondary||[])])if(!seen.has(ref)){seen.add(ref);out.push(ref);}return out;}
   function intent(kind,query,extra={}){return {kind,query:String(query||''),normalised:norm(query),...extra};}
-  async function search(query,{offset=0,limit=PAGE_SIZE}={}){
+  async function search(query,{offset=0,limit=PAGE_SIZE,isCurrent=()=>true}={}){
     const raw=String(query||'').trim(),digits=raw.replace(/\D/g,''),start=Math.max(0,Number(offset)||0),size=Math.min(500,Math.max(1,Number(limit)||PAGE_SIZE));
     if(/^\d{8,14}$/.test(digits)&&digits===raw.replace(/\s/g,'')){const food=await lookupBarcode(digits),foods=food?[food]:[];return {query:raw,total:foods.length,offset:0,limit:size,hasMore:false,foods,refs:[],intent:intent(food?'barcode':'no-confident-match',raw,{exact:!!food}),groups:{primary:foods.length,broader:0},source:'Open Food Facts Australia'};}
     let brand=await recogniseBrand(raw);if(brand&&!brand.residual&&(brand.refs?.length||0)<2)brand=null;const posting=await postingRefs(brand?.residual||raw);let route,refs=[],primaryRefs=[],facets=[];
     if(brand&&!brand.residual){primaryRefs=brand.refs||[];refs=[...primaryRefs];facets=brand.facets||[];route=intent('consumer-brand',raw,{brand:{key:brand.key,name:brand.name,count:refs.length}});}
     else if(brand){const members=new Set(brand.refs||[]),exactNameRefs=brand.names?.[norm(brand.residual)]||[];primaryRefs=orderedUnion(exactNameRefs,posting.refs.filter(ref=>members.has(ref)));if(primaryRefs.length){refs=[...primaryRefs];facets=brand.facets||[];route=intent('brand-product',raw,{brand:{key:brand.key,name:brand.name,count:brand.refs?.length||0},productQuery:brand.residual,exact:exactNameRefs.length===1,productId:exactNameRefs.length===1?exactNameRefs[0]:null});}else{const concept=await conceptEntry(raw);if((concept?.refs?.length||0)>=2){primaryRefs=concept.refs||[];const fullPosting=await postingRefs(raw);refs=orderedUnion(primaryRefs,fullPosting.refs);route=intent('generic-category',raw,{concept:{key:concept.key,name:concept.name||raw,count:primaryRefs.length}});}else{const fullPosting=await postingRefs(raw);refs=fullPosting.refs;route=intent(refs.length?'broad-text':'no-confident-match',raw);}}}
     else {const concept=await conceptEntry(raw);if((concept?.refs?.length||0)>=2){primaryRefs=concept.refs||[];refs=orderedUnion(primaryRefs,posting.refs);route=intent('generic-category',raw,{concept:{key:concept.key,name:concept.name||raw,count:primaryRefs.length}});}else{refs=posting.refs;route=intent(refs.length?'broad-text':'no-confident-match',raw);}}
-    const pageRefs=refs.slice(start,start+size),foods=await hydrate(pageRefs),primarySet=new Set(primaryRefs);for(let index=0;index<foods.length;index++)foods[index].searchGroup=primarySet.has(pageRefs[index])?'primary':'broader';
+    // Group placement belongs to this search, not the reusable hydrated record.
+    const pageRefs=refs.slice(start,start+size),hydrated=await hydrate(pageRefs,{isCurrent}),primarySet=new Set(primaryRefs),foods=hydrated.map((food,index)=>({...food,searchGroup:primarySet.has(pageRefs[index])?'primary':'broader'}));
     if(route.kind==='broad-text'){const exact=foods.filter(food=>catalogue()?.productIdentityQuality?.(food)?.exactEligible&&(norm(food.name)===norm(raw)||norm(`${food.brand} ${food.name}`)===norm(raw)));if(exact.length===1)route=intent('exact-product',raw,{exact:true,productId:exact[0].id});}
     return {query:raw,total:refs.length,offset:start,limit:size,hasMore:start+pageRefs.length<refs.length,foods,refs:pageRefs,intent:route,brand:route.brand||null,concept:route.concept||null,facets,groups:{primary:primaryRefs.length,broader:Math.max(0,refs.length-primaryRefs.length)},source:'Open Food Facts Australia'};
   }
