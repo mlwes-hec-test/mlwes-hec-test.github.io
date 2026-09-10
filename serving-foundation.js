@@ -270,7 +270,10 @@
     if(nutritionBasisConflict||!merged.length){food.loggable=false;food.nutritionStatus=nutritionBasisConflict?'basis-conflict':food.nutritionStatus||'needs-review';food.entryBlockedReason=nutritionBasisConflict?'This product’s nutrition uses a volume basis that cannot be converted safely to its solid portion. Read the Nutrition Panel, update its barcode, or enter nutrition manually.':'This product needs a supported portion conversion. Read the Nutrition Panel, update its barcode, or enter nutrition manually.';}
     return {measures:merged,rejectedMeasures:rejected,nutritionBasisConflict};
   }
-  function resolveMeasureRequest(food,unit,amount){const profile=servingMeasureProfile(food),key=normalizeMeasure(unit),measure=profile?.measures.find(item=>normalizeMeasure(item.key)===key),value=validateAmount(amount);return {ok:!!measure&&value!==null&&!profile.nutritionBasisConflict,measure:measure||null,amount:value,reason:measure?'':'Choose a supported measure for this food.',profile};}
+  // Historical kg quantities use the same exact mass as grams, independently
+  // of which practical measures the current Diary offers. No density is inferred.
+  function normalizeMassAmount(unit,amount){const key=normalizeMeasure(unit),value=validateAmount(amount),mass=key==='kg'||key==='g',scaled=value===null?null:value*(key==='kg'?1000:1);return {unit:mass?'g':unit,amount:Number.isFinite(scaled)&&scaled>0?scaled:null};}
+  function resolveMeasureRequest(food,unit,amount){const profile=servingMeasureProfile(food),normalized=normalizeMassAmount(unit,amount),key=normalizeMeasure(normalized.unit),measure=profile?.measures.find(item=>normalizeMeasure(item.key)===key),value=normalized.amount;return {ok:!!measure&&value!==null&&!profile.nutritionBasisConflict,measure:measure||null,amount:value,reason:measure?'':'Choose a supported measure for this food.',profile};}
   function amountNoun(food,measure){const family=String(food?.choiceFamily||'').trim().replace(/-/g,' '),name=norm(food?.name||''),base=(family||name.replace(/^\d+\s+/,'')).split(' ').filter(Boolean).pop()||measure?.singularLabel||'items';return base.endsWith('s')?base:`${base}s`;}
   function amountPrompt(measure,food=null){
     if(measure?.key==='piece'&&Number(food?.productSemantics?.count||food?.semanticCount)>1)return `How many individual ${amountNoun(food,measure)}?`;
@@ -542,6 +545,11 @@
 
   function mergeCandidateMeasures(food,context={}){
     if(!food)return food;
+    // Preserve a supplied kg-only mass basis before semantic/UI eligibility can
+    // remove it. Existing gram conversions remain authoritative.
+    const legacyKg=Number(food.units?.kg);
+    if(!(Number(food.units?.g)>0)&&Number.isFinite(legacyKg)&&legacyKg>0){food.units.g=legacyKg/1000;food.unitLabels={...food.unitLabels,g:'g'};food.unitOrigins={...food.unitOrigins,g:{...food.unitOrigins?.kg,origin:'Exact metric conversion from stored kg',confidence:'high',sourceType:'metric-conversion'}};}
+    if(normalizeMeasure(food.defaultUnit)==='kg'&&Number(food.units?.g)>0){const normalized=normalizeMassAmount(food.defaultUnit,food.defaultAmount);if(normalized.amount!==null){food.defaultUnit=normalized.unit;food.defaultAmount=normalized.amount;}}
     if(food.nutritionBasis&&!food.sourceNutritionBasis)food.sourceNutritionBasis=clone(food.nutritionBasis);
     if(typeof food.nutritionBasis==='string')food.nutritionBasis={sourceBasis:food.nutritionBasis,...(food.nutritionPer100Unit?{per100Unit:food.nutritionPer100Unit}:{})};
     if(!Object.keys(food.units||{}).length&&(food.nutritionPer100g||food.nutritionPer100||/per\s*100\s*g\b/i.test(food.serving||''))&&food.nutritionPer100Unit!=='mL'){food.units={g:.01};food.unitLabels={g:'g'};}
@@ -627,6 +635,6 @@
     const f=applyToFood(clone(food),context),policy=SEM?.servingPolicy?.(f);return {defaultUnit:f.servingDefaultUnit||f.defaultUnit,units:Object.entries(f.units||{}).map(([key,multiplier])=>({key,label:f.unitLabels?.[key]||key,multiplier})),source:f.servingFoundationSource||'',hint:f.servingRangeHint||'',category:inferCategory(f,context),packageExplicit:explicitPackageServing(f),semanticType:policy?.semanticType||'',nutritionBasis:policy?.nutritionBasis||'',allowedUnitFamily:policy?.allowedUnitFamily||'',foodGroupUnitEligibility:policy?.foodGroupUnitEligibility||null};
   }
 
-  const api={version:VERSION,GUIDELINE_SOURCE,AUSNUT_SPREAD_SOURCE,AUSNUT_CHIP_SOURCE,SPREAD_MEASURE_STANDARDS,CHIP_MEASURE_STANDARDS,PORTION_PRESET_POLICY,PORTION_VOCABULARY,FORM_PROFILES,addabilityStatuses:ADDABILITY_STATUSES,norm,basisInfo,isPackageFood,explicitPackageServing,inferCategory,stateInfo,categoryConcepts,physicalForm,spreadMeasureFamily,portionKind,normalizeMeasure,vocabularyEntry,amountPrompt,validateAmount,formatPortionAmount,consumedPortionState,resolveMeasureRequest,finalCompatibilityFirewall,addTrustedSpreadMeasures,sanitizeUnits,applyToFood,servingMeasureProfile,evaluateAddability,portionPresetAudit,diagnostic};
+  const api={version:VERSION,GUIDELINE_SOURCE,AUSNUT_SPREAD_SOURCE,AUSNUT_CHIP_SOURCE,SPREAD_MEASURE_STANDARDS,CHIP_MEASURE_STANDARDS,PORTION_PRESET_POLICY,PORTION_VOCABULARY,FORM_PROFILES,addabilityStatuses:ADDABILITY_STATUSES,norm,basisInfo,isPackageFood,explicitPackageServing,inferCategory,stateInfo,categoryConcepts,physicalForm,spreadMeasureFamily,portionKind,normalizeMeasure,normalizeMassAmount,vocabularyEntry,amountPrompt,validateAmount,formatPortionAmount,consumedPortionState,resolveMeasureRequest,finalCompatibilityFirewall,addTrustedSpreadMeasures,sanitizeUnits,applyToFood,servingMeasureProfile,evaluateAddability,portionPresetAudit,diagnostic};
   global.HECServingFoundation=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);
