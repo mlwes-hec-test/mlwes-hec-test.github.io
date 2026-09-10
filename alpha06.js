@@ -1125,6 +1125,7 @@ function renderOnlineLibrary(query=""){
 }
 let onlineSearchToken=0,allResourcesOnlineTimer=null,lastAutoOnlineQuery="",onlineAbortController=null;
 let alpha0630FoodSearchTimer=null,alpha0630FoodSearchUiToken=0;
+let ss633SearchCleanup=null; // Registered only after the query-owned state exists.
 function alpha0630CancelFoodSearchWork({invalidateOnline=false}={}){
   clearTimeout(alpha0630FoodSearchTimer);alpha0630FoodSearchTimer=null;clearTimeout(allResourcesOnlineTimer);allResourcesOnlineTimer=null;alpha0630FoodSearchUiToken++;
   if(invalidateOnline){onlineSearchToken++;try{onlineAbortController?.abort();}catch{}onlineAbortController=null;}
@@ -1132,7 +1133,7 @@ function alpha0630CancelFoodSearchWork({invalidateOnline=false}={}){
 window.HECBeforeScreenShow=function(id){
   if(id!=="food-library"){
     alpha0630CancelFoodSearchWork({invalidateOnline:true});
-    ss633LeaveSearch();
+    ss633SearchCleanup?.();
     const search=by("food-search");if(search&&document.activeElement===search)search.blur();
     by("food-live-results")?.classList.add("hidden");
     by("resource-add-menu")?.classList.add("hidden");
@@ -4052,6 +4053,7 @@ window.HEC_FOOD_CONCEPT_TEST={state:fc633Snapshot,candidates:()=>fc633Candidates
 // stay cached, but a previous concept, source branch or candidate list cannot
 // supply a new brand's intent or pretend to be its whole catalogue.
 let au633BrandState=null;
+ss633SearchCleanup=ss633LeaveSearch;
 function au633BrandQueryCurrent(state){return au633BrandState===state&&ss633Current(state.revision,state.ownerQuery);}
 function au633BrandModel(state,{preview=false}={}){return C8.brandResultModel(state.records,state.query,{limit:preview?6:20,offset:preview?0:state.offset});}
 function au633RenderBrand(state){
