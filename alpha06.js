@@ -3156,15 +3156,25 @@ function alpha0627GenericHeadSuggestions(raw,limit=8){
     let score=0;if(head===q)score=2000;else if(head.startsWith(q))score=1400-Math.min(300,head.length-q.length);else if(q.length>=4&&head.split(' ').some(word=>word.startsWith(q)))score=700;
     if(!score)continue;const old=seen.get(head);if(!old||score>old.score)seen.set(head,{head,score,food});
   }
+  if(limit===Infinity)return [...seen.values()]; // Live ordering needs every matching, deduplicated head before its display limit.
   return [...seen.values()].sort((a,b)=>b.score-a.score||a.head.length-b.head.length||a.head.localeCompare(b.head)).slice(0,limit);
 }
-function alpha0627ConceptSuggestions(raw,limit=7){
+const alpha0627LiveAlphabet=new Intl.Collator('en-AU',{sensitivity:'base',numeric:true});
+function alpha0627ConceptSuggestions(raw,limit=7,{liveAlphabetical=false}={}){
   const q=s23Parsed(raw).food;if(q.length<2)return[];const out=[],seen=new Set();
   for(const hit of (REG29?.predict?.(raw,limit)||[])){
     const e=hit.entity,key=`entity:${e.id}`;if(seen.has(key))continue;seen.add(key);out.push({label:e.name,query:e.name,kind:'entity',meta:e.type==='retailer'?'Australian supermarket / retailer':e.type==='restaurant'?'Australian restaurant / takeaway':'Recognised food brand'});
   }
-  for(const c of (S23?.predictConcepts?.(raw,limit)||[])){const label=c.label,key=s23Norm(label);if(!seen.has(key)){seen.add(key);out.push({label,query:c.aliases?.[0]||label,kind:'concept'});}}
-  for(const x of alpha0627GenericHeadSuggestions(raw,limit)){const key=s23Norm(x.head);if(!seen.has(key)){seen.add(key);out.push({label:s23Title(x.head),query:x.head,kind:'dynamic'});}}
+  const candidateLimit=liveAlphabetical?Infinity:limit;
+  for(const c of (S23?.predictConcepts?.(raw,candidateLimit)||[])){const label=c.label,key=s23Norm(label);if(!seen.has(key)){seen.add(key);out.push({label,query:c.aliases?.[0]||label,kind:'concept'});}}
+  for(const x of alpha0627GenericHeadSuggestions(raw,candidateLimit)){const key=s23Norm(x.head);if(!seen.has(key)){seen.add(key);out.push({label:s23Title(x.head),query:x.head,kind:'dynamic'});}}
+  if(liveAlphabetical){
+    // Dedicated entity suggestions retain their treatment. Only ordinary live
+    // suggestions use name order, after matching/deduplication and before slicing.
+    const ordinary=out.filter(x=>x.kind!=='entity');
+    ordinary.sort((a,b)=>alpha0627LiveAlphabet.compare(s23Norm(a.label),s23Norm(b.label))||(a.label<b.label?-1:a.label>b.label?1:0));
+    return [...out.filter(x=>x.kind==='entity'),...ordinary].slice(0,limit);
+  }
   return out.slice(0,limit);
 }
 function alpha0627SourceModeFromQuery(raw,concept){
@@ -3392,7 +3402,7 @@ function s23RenderLive(raw){
   if(concept&&!product){const source=alpha0627SourceRows(term,concept);box.innerHTML=`<div class="live-match-heading"><strong>${esc(s23GuideLabel(term,concept))}</strong><small>HEC Food Intelligence · Alpha ${ACTIVE_VERSION}</small></div>${source||s23GuideButton(term,true)}`;box.classList.remove('hidden');return;}
   // Predict likely complete foods from partial text before creating a generic
   // "App", "Banan" or "Che" food. Product matches remain secondary.
-  const predictions=alpha0627ConceptSuggestions(term,7);if(predictions.length&&!REG29?.primary?.(term,['brand','retailer','restaurant'])){const products=alpha0627StableProductMatches(term,4);box.innerHTML=`<div class="live-match-heading"><strong>HEC Thinks You May Mean</strong><small>Suggestions narrow as you type</small></div>${predictions.map(x=>`<button type="button" class="live-match-row" data-alpha0627-prediction="${esc(x.query)}"><span><strong>${esc(x.label)}</strong><small>${esc(x.meta||'Food suggestion')}</small></span><b>›</b></button>`).join('')}${products.length?`<div class="live-match-heading alpha0627-secondary-heading"><strong>Product Matches</strong><small>Secondary while HEC is predicting the food</small></div>${products.map(s23ProductRow).join('')}`:''}`;box.classList.remove('hidden');return;}
+  const predictions=alpha0627ConceptSuggestions(term,7,{liveAlphabetical:true});if(predictions.length&&!REG29?.primary?.(term,['brand','retailer','restaurant'])){const products=alpha0627StableProductMatches(term,4);box.innerHTML=`<div class="live-match-heading"><strong>HEC Thinks You May Mean</strong><small>Suggestions narrow as you type</small></div>${predictions.map(x=>`<button type="button" class="live-match-row" data-alpha0627-prediction="${esc(x.query)}"><span><strong>${esc(x.label)}</strong><small>${esc(x.meta||'Food suggestion')}</small></span><b>›</b></button>`).join('')}${products.length?`<div class="live-match-heading alpha0627-secondary-heading"><strong>Product Matches</strong><small>Secondary while HEC is predicting the food</small></div>${products.map(s23ProductRow).join('')}`:''}`;box.classList.remove('hidden');return;}
   if(product){const matches=alpha0627StableProductMatches(term,7),entity=REG29?.primary?.(term,['brand','retailer','restaurant']);const heading=entity?.entity?.name||'Product Matches',meta=entity?(entity.entity.type==='retailer'?'Recognised Australian supermarket / retailer':entity.entity.type==='restaurant'?'Recognised Australian restaurant source':'Recognised food brand · source already known'):'Stable ranking · every word narrows the result';box.innerHTML=`<div class="live-match-heading"><strong>${esc(heading)}</strong><small>${esc(meta)}</small></div>${matches.length?matches.map(s23ProductRow).join(''):'<div class="alpha0623-search-status"><strong>Brand/source recognised.</strong><small>Keep typing the product or flavour, refresh online results, scan the barcode, or read the Nutrition Panel. HEC will not ask whether a recognised brand is homemade.</small></div>'}`;box.classList.remove('hidden');return;}
   box.innerHTML='<div class="live-match-heading"><strong>Keep Typing</strong><small>HEC is predicting the food, not treating the unfinished letters as a food</small></div><div class="alpha0623-search-status"><strong>No confident food yet.</strong><small>Add another letter or identifying word, or use barcode/nutrition-panel capture.</small></div>';box.classList.remove('hidden');
 }
