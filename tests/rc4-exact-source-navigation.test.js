@@ -55,6 +55,10 @@ function createHarness(){
     function renderLibrary(){results.innerHTML='<section data-general-results>General search</section>';}
     function rc3ClearSearchContext(){input.value='';ext.ui.foodSearch='';live.innerHTML='';live.classList.add('hidden');}
     function saveExt(){}
+    const searchSession633={rawQuery:''};
+    function ss633BeginTyping(input){searchSession633.rawQuery=input.value;delete ext.ui.foodSourceBrowse;}
+    function ss633Commit(reason,intent){searchSession633.reason=reason;searchSession633.intent=intent;}
+    ${productionFunction('rc4SetSourceFilter')}
     ${functions}
     const rc4RenderLiveBase=s23RenderLive;s23RenderLive=rc4RenderLive;renderFoodLiveMatches=rc4RenderLive;
     const rc4RenderLibraryBase=renderLibrary;renderLibrary=function(){rc4RenderLibraryBase();rc4ApplySearchSurface();};

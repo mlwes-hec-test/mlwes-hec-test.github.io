@@ -9,7 +9,7 @@ const cases=[
   ...[3,6,10].flatMap(count=>[{query:`KFC ${count} Wicked Wings`,exact:`${count} Wicked Wings`},{query:`${count} Wicked Wings`,exact:`${count} Wicked Wings`}]),
   {query:'KFC Popcorn Chicken',family:['Snack Popcorn Chicken','Regular Popcorn Chicken','Maxi Popcorn Chicken'],label:'Popcorn Chicken'},
   ...['Snack','Regular','Maxi'].map(size=>({query:`KFC ${size} Popcorn Chicken`,exact:`${size} Popcorn Chicken`})),
-  {query:'KFC Nuggets',family:['3 Nuggets','6 Nuggets','10 Nuggets'],label:'Nuggets'},
+  {query:'KFC Nuggets',family:['3 Nuggets','6 Nuggets','10 Nuggets'],label:'Nuggets',completion:['6 Nuggets']},
   {query:'KFC Chicken Pieces',family:['1 Piece of Chicken','3 Pieces of Chicken','6 Pieces of Chicken','21 Pieces of Chicken'],label:'Chicken Pieces'},
   {query:"McDonald's Fries",family:['Small Fries','Medium Fries','Large Fries'],label:'Fries'},
   ...['Small','Medium','Large'].map(size=>({query:`McDonald's ${size} Fries`,exact:`${size} Fries`}))
@@ -49,7 +49,7 @@ async function run({outputDirectory=fs.mkdtempSync(path.join(os.tmpdir(),'hec-fa
   try{for(const viewport of viewports){const diagnostic=qa.evidence(),context=await qa.contextFor(browser,viewport,diagnostic),result={viewport,diagnostic,scenarios:[]};report.contexts.push(result);page=await context.newPage();await qa.openLibrary(page);
     for(const [index,item] of cases.entries()){
       await submit(page,item.query,index%2===0);const state=await rendered(page);assert(!state.overflow);
-      if(item.family){const group=state.groups.find(g=>g.key==='restaurant-family');assert(group,`${item.query}: neutral family group missing; ${state.text}`);assert.deepEqual(group.items.map(i=>i.name),item.family);assert.equal(group.label.toLowerCase(),`Which ${item.label} order did you have?`.toLowerCase());assert(!state.groups.some(g=>g.key==='best'&&g.items.some(i=>item.family.includes(i.name))));assert.equal(state.groups[0],group);assert(group.items.every(i=>i.action==='Choose'));if(['Wicked Wings','Popcorn Chicken'].includes(item.label))assert(state.groups.some(g=>g.key==='details'&&g.items.some(i=>/Combo/.test(i.name))),'Combos remain visible after direct choices');}
+      if(item.family){const group=state.groups.find(g=>g.key==='restaurant-family');assert(group,`${item.query}: neutral family group missing; ${state.text}`);assert.deepEqual(group.items.map(i=>i.name),item.family);assert.equal(group.label.toLowerCase(),`Which ${item.label} order did you have?`.toLowerCase());assert(!state.groups.some(g=>g.key==='best'&&g.items.some(i=>item.family.includes(i.name))));assert.equal(state.groups[0],group);assert(group.items.every(i=>i.action===((item.completion||[]).includes(i.name)?'Complete':'Choose')));if(['Wicked Wings','Popcorn Chicken'].includes(item.label))assert(state.groups.some(g=>g.key==='details'&&g.items.some(i=>/Combo/.test(i.name))),'Combos remain visible after direct choices');}
       else{assert.equal(state.groups[0].key,'best',item.query);assert.deepEqual(state.groups[0].items.map(i=>i.name),[item.exact]);}
       result.scenarios.push({query:item.query,...state,search:await accessibility.audit(page,item.query)});
       if(index===0||item.label==='Popcorn Chicken')await page.screenshot({path:path.join(outputDirectory,`${viewport.width}x${viewport.height}-${item.label.replaceAll(' ','-')}.png`),fullPage:true});

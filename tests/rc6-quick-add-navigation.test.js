@@ -4,9 +4,14 @@ const test=require('node:test');
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const path=require('node:path');
+const vm=require('node:vm');
 const catalogue=require('../food-catalogue.js');
 const ROOT=path.join(__dirname,'..'),runtime=fs.readFileSync(path.join(ROOT,'alpha06.js'),'utf8'),html=fs.readFileSync(path.join(ROOT,'index.html'),'utf8'),styles=fs.readFileSync(path.join(ROOT,'styles.css'),'utf8');
 const known={id:'big-mac',name:'Big Mac',defaultAmount:1,defaultUnit:'burger',units:{burger:1},nutritionStatus:'complete',verificationStatus:'verified',nutrients:{calories:621}};
+function sourceTransition(handler){
+  const input={value:'Mcdonalds',focused:true,blur(){this.focused=false;},focus(){throw new Error('Source navigation must not autofocus');}},ext={ui:{pendingMeal:'Breakfast',foodSourceBrowse:{sourceId:'mcdonalds-au',category:'Burgers'}}},session={rawQuery:'Mcdonalds'},context={by:()=>input,ext,searchSession633:session,ss633BeginTyping(node){session.rawQuery=node.value;delete ext.ui.foodSourceBrowse;},ss633Commit(reason){session.reason=reason;},saveExt(){},renderLibrary(){}};
+  const helper=runtime.slice(runtime.indexOf('function rc4SetSourceFilter('),runtime.indexOf('\nconst rc4ClearSearchContextBase'));vm.runInNewContext(`${helper}\nclick=event=>{${handler}};`,context);return {input,ext,session,click:context.click};
+}
 
 test('quick-add policy accepts one trusted natural serving with an active destination',()=>{
   assert.deepEqual(catalogue.quickAddPolicy(known,{date:'2026-08-28',meal:'Snacks',sourceTrusted:true,safetyBlocked:false}),{ready:true,reason:'',amount:1,unit:'burger',date:'2026-08-28',meal:'Snacks'});
@@ -37,7 +42,8 @@ test('row or name opens full review while nutrition details and plus remain sepa
 
 test('pure McDonald’s source aliases preview the hub and require an explicit action',()=>{
   for(const alias of ["McDonald's",'McDonalds','Maccas',"Macca's"])assert.equal(catalogue.norm(alias).length>0,true);
-  const automatic=runtime.slice(runtime.indexOf("renderLibrary=function(){rc6RenderLibraryBase"),runtime.indexOf("by('food-search')?.addEventListener('focus'"));assert.match(runtime,/function ps33PreviewSource/);assert.match(runtime,/data-rc4-source-browse/);assert.doesNotMatch(automatic,/foodSourceBrowse=|\.blur/);assert.match(runtime,/ss633Commit\('source-tap'/);
+  const automatic=runtime.slice(runtime.indexOf("renderLibrary=function(){rc6RenderLibraryBase"),runtime.indexOf("by('food-search')?.addEventListener('focus'"));assert.match(runtime,/function ps33PreviewSource/);assert.match(runtime,/data-rc4-source-browse/);assert.doesNotMatch(automatic,/foodSourceBrowse=|\.blur/);
+  const handler=runtime.split(/\r?\n/).find(line=>line.includes("const source=event.target.closest?.('[data-rc4-source-browse]')")),app=sourceTransition(handler);assert(app.input.focused);app.click({target:{closest:()=>({dataset:{rc4SourceQuery:'Maccas',rc4SourceBrowse:'mcdonalds-au'}})},preventDefault(){},stopImmediatePropagation(){}});assert.equal(app.session.reason,'source-tap');assert.equal(app.input.focused,false);assert.equal(app.session.rawQuery,'Maccas');assert.equal(app.ext.ui.foodSourceBrowse.sourceId,'mcdonalds-au');
 });
 
 test('source plus product and exact Big Mac retain product-first decisions',()=>{
@@ -46,7 +52,8 @@ test('source plus product and exact Big Mac retain product-first decisions',()=>
 
 test('Back to Categories and Back to All close the keyboard without autofocus',()=>{
   const backCategories=runtime.slice(runtime.indexOf("if(event.target.closest?.('[data-rc5-back-categories]'))"),runtime.indexOf("if(event.target.closest?.('[data-rc5-source-more]'))")),backAll=runtime.slice(runtime.indexOf("if(event.target.closest?.('[data-rc4-leave-source]'))"),runtime.indexOf("if(event.target.closest?.('[data-rc4-source-more]'))"));
-  assert.match(backCategories,/\.blur\?\.\(\)/);assert.match(backAll,/\.blur\?\.\(\)/);assert.doesNotMatch(backCategories+backAll,/food-search'\)\?\.focus\(\)/);assert.match(backAll,/delete ext\.ui\.foodSourceBrowse/);
+  const app=sourceTransition(backCategories);app.click({target:{closest:()=>true},preventDefault(){},stopImmediatePropagation(){}});assert.equal(app.input.focused,false);assert.equal(app.input.value,'');assert.equal(app.session.reason,'source-categories');assert.equal(app.ext.ui.foodSourceBrowse.category,undefined);assert.equal(app.ext.ui.foodSourceBrowse.sourceId,'mcdonalds-au');assert.equal(app.ext.ui.pendingMeal,'Breakfast');
+  assert.match(backAll,/\.blur\?\.\(\)/);assert.doesNotMatch(backCategories+backAll,/food-search'\)\?\.focus\(\)/);assert.match(backAll,/delete ext\.ui\.foodSourceBrowse/);
 });
 
 test('Weight voice affordance and quick actions fit the existing responsive surfaces',()=>{

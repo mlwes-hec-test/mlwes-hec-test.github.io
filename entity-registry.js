@@ -35,6 +35,7 @@
     {id:'country-bake',type:'brand',name:'Country Bake',aliases:['country bake'],sourceMode:'commercial',foodConcept:'bread',foodFamily:'Bread'},
     {id:'arnotts',type:'brand',name:"Arnott's",aliases:['arnotts',"arnott's",'arnott'],sourceMode:'commercial'},
     {id:'nescafe',type:'brand',name:'Nescafé',aliases:['nescafe','nescafé'],sourceMode:'commercial',foodConcept:'coffee',foodFamily:'Coffee'},
+    {id:'weet-bix',type:'brand',name:'Weet-Bix',aliases:['weet-bix','weet bix','weetbix'],sourceMode:'commercial',foodConcept:'cereal',foodFamily:'Breakfast Cereal'},
     {id:'sanitarium',type:'brand',name:'Sanitarium',aliases:['sanitarium'],sourceMode:'commercial',foodConcept:'cereal',foodFamily:'Breakfast Cereal'},
     {id:'san-remo',type:'brand',name:'San Remo',aliases:['san remo','sanremo'],sourceMode:'commercial',foodConcept:'pasta',foodFamily:'Pasta'},
     {id:'flora',foodForm:'spread',type:'brand',name:'Flora',aliases:['flora','flora proactiv','proactiv'],familyAliases:['flora','flora proactiv','proactiv'],sourceMode:'commercial'},
@@ -96,6 +97,7 @@
   // Search-family evidence is separate from generic food-language normalization.
   // These records never rewrite a product's display text, source ID or GTIN.
   const brandSearchEquivalences=Object.freeze([
+    Object.freeze({id:'nescafe',type:'registered-brand-alias',spellings:Object.freeze(['Nescafé','Nescafe']),evidence:Object.freeze({authority:'Existing Australian entity registry',source:'entity-registry.js: nescafe',basis:'Both spellings are explicitly registered aliases of the same consumer brand; this does not authorize other accent-folded brand families.'})}),
     Object.freeze({id:'burgen',type:'verified-brand-alias',spellings:Object.freeze(['Burgen','Bürgen']),evidence:Object.freeze({authority:'Myron product decision',sourceUrl:'https://www.burgen.com.au/',basis:'Official Australian site uses Burgen naming and Bürgen consumer branding; Australian Woolworths and Coles evidence independently reviewed by Myron.'})}),
     Object.freeze({id:'haagendazs',type:'historical-index-compatibility',spellings:Object.freeze(['Häagen-Dazs','Haagen-Dazs']),evidence:Object.freeze({authority:'Approved local index compatibility diagnosis',source:'scripts/import_open_food_facts_au.py',basis:'Protected source brand Häagen-Dazs generates hagendazs historically; modern folded lookup generates haagendazs. Equivalent queries explicitly retained by the product decision.'})})
   ]);

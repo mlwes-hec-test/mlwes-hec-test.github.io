@@ -178,6 +178,9 @@
     if(hasConcept(/^(?:bread|sliced bread|slice|sliced food)$/)||/^bread\b/.test(name)||/\b\d+(?:\.\d+)?\s*slices?\b/.test(serving))return result('sliced','identity-or-source-slice');
     const categories=(food?.categories||[]).map(norm),powdered=categories.some(value=>/\bpowder(?:ed|s)?\b/.test(value));
     if(powdered)return result('weight','specific-powder-category');
+    // Instant coffee preparations describe the dry product, even when broad
+    // beverage categories also describe the drink made from it.
+    if(categories.some(value=>/^(?:instant coffees?|instant cappuccino|instant coffee with milk and sugar)$/.test(value)))return result('weight','specific-instant-preparation-category');
     if(categories.some(value=>/\b(?:flours?|rice|pasta|cereals?|chocolates?|confectioner(?:y|ies)|crisps?|potato preparations?|frozen meals?)$/.test(value)))return result('weight','specific-solid-category');
     if(categories.some(value=>! /\bwith\b/.test(value)&&/\b(?:milks?|juices?|soft drinks?|mineral waters?)$/.test(value)))return result('liquid','specific-liquid-category');
     if(hasConcept(/^(?:powder|flour|rice|pasta|cereal|chocolate|confectionery|snack|crisp|potato preparation|frozen meal)$/))return result('weight','specific-solid-category');
@@ -224,6 +227,7 @@
     if(/metric/.test(text))return 'metric conversion';return 'source conversion';
   }
   function conversionFor(measure,resolved,form){
+    if(resolved?.productSemantics?.individualScaling===false&&measure.key==='portion')return {baseUnit:'order',baseQuantity:1,basis:'defined order including its published components'};
     const basis=basisInfo(resolved),definition=vocabularyEntry(measure.key,measure.label),semanticCount=Number(resolved?.productSemantics?.count||resolved?.semanticCount)||0;if(measure.canonicalBaseUnit&&finite(measure.canonicalBaseQuantity)>0)return {baseUnit:measure.canonicalBaseUnit,baseQuantity:finite(measure.canonicalBaseQuantity),basis:'physical measure conversion'};if(semanticCount>1&&measure.key==='portion')return {baseUnit:'piece',baseQuantity:semanticCount,basis:'counted product identity'};if(semanticCount>1&&measure.key==='piece')return {baseUnit:'piece',baseQuantity:1,basis:'counted product identity'};const baseUnit=form.form==='liquid'&&basis.mlScale?'mL':basis.gScale?'g':basis.mlScale?'mL':['countable','manufacturer'].includes(definition.family)?'count':'',scale=baseUnit==='g'?basis.gScale:baseUnit==='mL'?basis.mlScale:0;
     const baseQuantity=scale>0?measure.multiplier/scale:definition.family==='countable'||definition.family==='manufacturer'?1:null;
     return {baseUnit,baseQuantity:Number.isFinite(baseQuantity)?Number(baseQuantity.toFixed(4)):null,basis:scale>0?'nutrition-base conversion':'source count conversion'};
@@ -235,6 +239,7 @@
     return conversion.baseQuantity>0&&conversion.baseUnit&&conversion.baseUnit!=='count'?`${name} (${fmt(conversion.baseQuantity)} ${conversion.baseUnit})`:name;
   }
   function enrichChoice(measure,resolved,form){
+    if(resolved?.productSemantics?.individualScaling===false&&measure.key==='portion'){const label=resolved.productSemantics.standardOrderLabel||measure.label;return {...measure,sourceLabel:label,id:measure.key,displayLabel:label,label,singularLabel:`order (${label})`,pluralLabel:`orders (${label})`,physicalFamily:'countable',conversionToBase:conversionFor(measure,resolved,form),conversionBasis:'defined order including its published components',provenance:provenanceClass(measure.source,measure.sourceType,measure.confidence),displayPriority:35,quickAmounts:[1,2]};}
     const definition=vocabularyEntry(measure.key,measure.label),conversion=conversionFor(measure,resolved,form),manufacturer=measure.key==='serve'&&/product-metadata|manufacturer|package/i.test(`${measure.sourceType||''} ${measure.source||''}`),countedPortion=measure.key==='portion'&&/\d+\s*[- ]?piece/i.test(String(measure.label||'')),naturalLabel=countedPortion?String(measure.label).trim():'',provenance=provenanceClass(measure.source,measure.sourceType,measure.confidence),label=(naturalLabel||choiceLabel(definition,conversion,{manufacturer})).replace(/\((?=\d)/,measure.confidence==='approximate'?'(about ':'('),singular=naturalLabel?naturalLabel.toLowerCase():manufacturer?'manufacturer serve':definition.singularLabel,plural=naturalLabel?`${naturalLabel.toLowerCase()}s`:manufacturer?'manufacturer serves':definition.pluralLabel;
     return {...measure,sourceLabel:measure.sourceLabel||measure.label,id:measure.key,displayLabel:label,label,singularLabel:singular,pluralLabel:plural,physicalFamily:definition.family,conversionToBase:conversion,conversionBasis:conversion.basis,applicability:measure.applicability||FORM_PROFILES[form.form]?.family||form.form,provenance,displayPriority:definition.priority+(manufacturer?0:0),quickAmounts:definition.fractions?[.25,.5,.75,1]:[]};
   }
@@ -276,6 +281,7 @@
   function resolveMeasureRequest(food,unit,amount){const profile=servingMeasureProfile(food),normalized=normalizeMassAmount(unit,amount),key=normalizeMeasure(normalized.unit),measure=profile?.measures.find(item=>normalizeMeasure(item.key)===key),value=normalized.amount;return {ok:!!measure&&value!==null&&!profile.nutritionBasisConflict,measure:measure||null,amount:value,reason:measure?'':'Choose a supported measure for this food.',profile};}
   function amountNoun(food,measure){const family=String(food?.choiceFamily||'').trim().replace(/-/g,' '),name=norm(food?.name||''),base=(family||name.replace(/^\d+\s+/,'')).split(' ').filter(Boolean).pop()||measure?.singularLabel||'items';return base.endsWith('s')?base:`${base}s`;}
   function amountPrompt(measure,food=null){
+    if(measure?.key==='portion'&&food?.productSemantics?.individualScaling===false)return `How many orders (${food.productSemantics.standardOrderLabel||food.name})?`;
     if(measure?.key==='piece'&&Number(food?.productSemantics?.count||food?.semanticCount)>1)return `How many individual ${amountNoun(food,measure)}?`;
     if(measure?.key==='portion'&&Number(food?.productSemantics?.count||food?.semanticCount)>1){const count=Number(food.productSemantics?.count||food.semanticCount),plural=amountNoun(food,measure),singular=plural.replace(/s$/,'');return `How many ${count}-${singular} orders?`;}
     return ['countable','sliced','manufacturer'].includes(measure?.physicalFamily)?'How many?':'How much?';

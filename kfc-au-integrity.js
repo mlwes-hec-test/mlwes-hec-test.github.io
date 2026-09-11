@@ -4,6 +4,7 @@
 
 const sources=require('./food-sources.js');
 const semantics=require('./product-serving-semantics.js');
+const canonical=require('./food-catalogue.js');
 const raw=require('./kfc-au-catalogue-data.js');
 require('./kfc-au-catalogue.js');
 
@@ -14,9 +15,9 @@ function buildIntegrityReport(){
   const errors=[...duplicateItemIds.map(id=>`duplicate item id: ${id}`),...duplicateRecordIds.map(id=>`duplicate record id: ${id}`),...missingNames.map(id=>`missing name: ${id}`),...oneGramDefaults.map(id=>`1 g default: ${id}`),...loggableMissingEnergy.map(id=>`loggable record missing fixed energy: ${id}`),...inventedMacros.map(id=>`energy-only record contains macro data: ${id}`),...identityOnlyLoggable.map(id=>`identity-only record is loggable: ${id}`),...configurableLoggable.map(id=>`configurable record is loggable: ${id}`),...semanticAudit.unresolved.map(item=>`semantic conflict: ${item.id}: ${item.issues.join(',')}`)];
   return {
     checkedDate:catalogue.source.lastCheckedDate,catalogueVersion:catalogue.source.catalogueVersion,normalisedSnapshotSha256:catalogue.source.referenceMetadata.normalisedSnapshotSha256,
-    menuRows:catalogue.source.inventory.menuRows,totalEntities:items.length,totalRuntimeRecords:records.length,duplicateSourceRows:catalogue.source.inventory.menuRows-items.length,categoryRows,uniqueCategoryItems,
+    menuRows:catalogue.source.inventory.menuRows,protectedEntities:catalogue.source.inventory.protectedUniqueProducts,supplementalEntities:catalogue.source.inventory.supplementalProducts,totalEntities:items.length,totalRuntimeRecords:records.length,duplicateSourceRows:catalogue.source.inventory.duplicateMenuAppearances,categoryRows,uniqueCategoryItems,
     nutritionQuality:Object.fromEntries(['complete','energy-only','partial','identity-only','conflict','configurable'].map(status=>[status,items.filter(item=>item.nutritionStatus===status).length])),
-    semanticTypes:semanticAudit.categoryCounts,limitedTimeEntities:items.filter(item=>item.limitedTime).length,sourceConflictEntities:items.filter(item=>item.sourceConflict).length,loggableRecords:records.filter(record=>record.loggable).length,detailsOnlyRecords:records.filter(record=>!record.loggable).length,
+    semanticTypes:semanticAudit.categoryCounts,limitedTimeEntities:items.filter(item=>item.limitedTime).length,sourceConflictEntities:items.filter(item=>item.sourceConflict).length,unresolvedConflictEntities:records.filter(record=>canonical.sourceConflicts(record).some(conflict=>conflict.resolution==='unresolved')).length,loggableRecords:records.filter(record=>canonical.productEligibility(record).addability.status==='loggable-now').length,needsNutritionCompletionRecords:records.filter(record=>canonical.productEligibility(record).addability.status==='needs-nutrition-completion').length,detailsOnlyRecords:records.filter(record=>canonical.productEligibility(record).addability.status==='details-only').length,
     officialCurrentIdentityRecords:records.filter(record=>record.officialCurrentIdentity).length,sourceCaptureHashesAvailable:catalogue.source.referenceMetadata.sourceCaptures.filter(capture=>capture.contentHash).length,errorCount:errors.length,errors
   };
 }

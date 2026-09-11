@@ -67,6 +67,8 @@ test("5. cache-busting for dynamically loaded runtime files derives from HEC_APP
   assert.ok(runtimeFiles.indexOf("mcdonalds-au-catalogue-data.js")<runtimeFiles.indexOf("mcdonalds-au-catalogue.js"));
   assert.ok(runtimeFiles.indexOf("mcdonalds-au-catalogue.js")<runtimeFiles.indexOf("kfc-au-catalogue-data.js"));
   assert.ok(runtimeFiles.indexOf("kfc-au-catalogue-data.js")<runtimeFiles.indexOf("kfc-au-catalogue.js"));
+  assert.ok(runtimeFiles.indexOf('kfc-au-supplement-data.js')>runtimeFiles.indexOf('kfc-au-catalogue-data.js'));
+  assert.ok(runtimeFiles.indexOf('kfc-au-supplement-data.js')<runtimeFiles.indexOf('kfc-au-catalogue.js'));
   assert.ok(runtimeFiles.indexOf("conversation-foundation.js")<runtimeFiles.indexOf("alpha06.js"));
   assert.ok(runtimeFiles.indexOf("mcdonalds-au-catalogue.js")<runtimeFiles.indexOf("food-catalogue.js"));
   assert.ok(runtimeFiles.indexOf("food-catalogue.js")<runtimeFiles.indexOf("off-catalogue.js"));

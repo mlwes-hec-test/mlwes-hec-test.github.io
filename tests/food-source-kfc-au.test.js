@@ -41,21 +41,21 @@ function decisionHarness(){
 }
 
 test('current official snapshot has explicit source authority, freshness and reproducible hash',()=>{
-  assert.equal(registered.schemaVersion,2);assert.equal(data.source.id,'kfc-au');assert.equal(data.source.displayName,'KFC Australia');assert.equal(data.source.lastCheckedDate,'2026-09-02');assert.match(data.source.catalogueCheckedAt,/^2026-09-02T/);
+  assert.equal(registered.schemaVersion,2);assert.equal(data.source.id,'kfc-au');assert.equal(data.source.displayName,'KFC Australia');assert.equal(data.source.lastCheckedDate,'2026-09-11');assert.match(data.source.catalogueCheckedAt,/^2026-09-11T/);assert.equal(require('../kfc-au-catalogue-data.js').checkedDate,'2026-09-02');
   assert.equal(data.source.referenceMetadata.nutritionBasis.includes('September 2023'),true);assert.equal(data.source.referenceMetadata.normalisedSnapshotSha256,'e5304c7ae295577e809099a1e52b7a6fd4c8d147d5a86c846bc0068d88d359c2');assert.equal(audit.manifest().hashMatches,true);
   assert.equal(data.source.productionApproved,false);assert.match(data.source.licenceStatus,/no-affirmative-production/);assert.ok(data.source.referenceUrls.every(url=>url.startsWith('https://www.kfc.com.au/')));
 });
 
-test('144 live-menu rows deduplicate to 126 canonical current identities across 12 categories',()=>{
-  assert.equal(data.source.inventory.menuRows,144);assert.equal(data.items.length,126);assert.equal(records.length,126);assert.equal(data.source.inventory.browseCategories.length,12);assert.equal(new Set(data.items.map(item=>item.id)).size,126);
+test('protected 144 rows retain 126 identities and the reviewed supplement adds 22 across the same categories',()=>{
+  assert.equal(data.source.inventory.menuRows,144);assert.equal(data.source.inventory.protectedUniqueProducts,126);assert.equal(data.source.inventory.supplementalProducts,22);assert.equal(data.items.length,148);assert.equal(records.length,148);assert.equal(data.source.inventory.browseCategories.length,12);assert.equal(new Set(data.items.map(item=>item.id)).size,148);
   assert.deepEqual(data.source.inventory.categorySurfaces.map(surface=>surface.count),[4,16,13,31,20,4,8,10,8,2,15,13]);
   const chips=data.items.find(item=>item.name==='Regular Chips');assert.deepEqual(chips.categoryMemberships,['Snack Hacks','Sides & Desserts']);assert.equal(chips.sourceOccurrences.length,3);
   assert.ok(records.every(record=>record.current&&record.officialCurrentIdentity));assert.ok(records.every(record=>data.source.inventory.browseCategories.includes(record.browseCategory)));
 });
 
 test('quality states are conservative and every active identity is reachable without duplicate results',()=>{
-  assert.deepEqual(data.source.inventory.energyOnlyProducts,57);assert.equal(data.source.inventory.identityOnlyProducts,8);assert.equal(data.source.inventory.configurableProducts,61);assert.equal(data.source.inventory.limitedTimeProducts,4);assert.equal(data.source.inventory.sourceConflicts,2);
-  assert.equal(records.filter(record=>record.loggable).length,57);assert.equal(records.filter(record=>!record.loggable).length,69);
+  assert.deepEqual(data.source.inventory.energyOnlyProducts,55);assert.equal(data.source.inventory.completeProducts,19);assert.equal(data.source.inventory.partialProducts,4);assert.equal(data.source.inventory.conflictProducts,1);assert.equal(data.source.inventory.identityOnlyProducts,8);assert.equal(data.source.inventory.configurableProducts,61);assert.equal(data.source.inventory.limitedTimeProducts,11);assert.equal(data.source.inventory.sourceConflicts,2);
+  assert.equal(records.filter(record=>record.loggable).length,78);assert.equal(records.filter(record=>!record.loggable).length,70);
   assert.ok(records.filter(record=>record.nutritionStatus==='energy-only').every(record=>!['protein','fat','satFat','carbs','sugar','sodium','fibre'].some(key=>Object.hasOwn(record.nutrients,key))));
   assert.ok(records.filter(record=>record.nutritionStatus==='identity-only').every(record=>!record.loggable&&!Object.keys(record.nutrients).length));
 });
@@ -78,11 +78,12 @@ test('shared editor variants add known official extras and block unknown-extra e
     window.apply=values=>resolveVariantFood(food,values);
   `,context);
   const bacon=JSON.parse(JSON.stringify(context.apply({sourceExtra0:'added'})));assert.equal(bacon.name,'Zinger Burger + Bacon Slice');assert.equal(bacon.nutrients.energyKj,2105);assert.equal(bacon.nutrients.calories,503.1);assert.equal(Object.hasOwn(bacon.nutrients,'fat'),false);
+  assert.equal(bacon.nutritionStatus,'energy-only');assert.deepEqual(bacon.nutritionPer100,{});assert.deepEqual(bacon.nutritionBasis.per100,{});assert.equal(bacon.servingWeightG,null);assert.equal(context.apply({}).nutrients.protein,26.2);
   const unsupported=JSON.parse(JSON.stringify(context.apply({sourceExtra3:'added'})));assert.equal(unsupported.loggable,false);assert.match(unsupported.entryBlockedReason,/no published fixed energy/i);
 });
 
 test('central semantics preserve burger, count, size, component and configurable identities',()=>{
-  const expected=[['Zinger Burger','single-item',1,'burger'],['6 Wicked Wings','counted-item',6,'piece'],['10 Nuggets','counted-item',10,'piece'],['Regular Popcorn Chicken','sized-variant',1,'portion'],['Large Chips','sized-variant',1,'portion'],['Regular Gravy','component',1,'serve'],['Zinger Burger Combo','configurable-bundle',1,'bundle'],['Zinger Burger Box','configurable-bundle',1,'bundle'],['Go Bucket Wicked Boneless','configurable-bundle',1,'bundle'],['Family Feast','configurable-bundle',1,'bundle']];
+  const expected=[['Zinger Burger','single-item',1,'burger'],['6 Wicked Wings','counted-item',6,'piece'],['10 Nuggets','counted-item',1,'portion'],['Regular Popcorn Chicken','sized-variant',1,'portion'],['Large Chips','sized-variant',1,'portion'],['Regular Gravy','component',1,'serve'],['Zinger Burger Combo','configurable-bundle',1,'bundle'],['Zinger Burger Box','configurable-bundle',1,'bundle'],['Go Bucket Wicked Boneless','configurable-bundle',1,'bundle'],['Family Feast','configurable-bundle',1,'bundle']];
   for(const [name,type,amount,unit] of expected){const food=byName(name);assert.ok(food,name);assert.equal(food.semanticType,type,name);assert.equal(food.defaultAmount,amount,name);assert.equal(food.defaultUnit,unit,name);assert.notEqual(food.defaultUnit,'g',name);}
   for(const name of ['Zinger Burger Combo','Zinger Burger Box','Family Feast']){const food=byName(name);assert.equal(catalogue.canLog(food),false);assert.match(food.entryBlockedReason,/choices|configurator/i);assert.equal(Object.keys(food.nutrients).length,0);}
   assert.equal(semantics.audit(records).unresolvedCount,0);
@@ -112,7 +113,7 @@ test('Diary snapshot keeps KFC identity, source priority and nutrition derivatio
 });
 
 test('integrity, offline loading, legacy removal, responsive hub and refresh tooling contracts are present',()=>{
-  const report=integrity.buildIntegrityReport(),html=read('index.html'),worker=read('service-worker.js'),styles=read('styles.css');assert.equal(report.errorCount,0);assert.equal(report.totalEntities,126);assert.equal(report.menuRows,144);assert.equal(report.semanticTypes['counted-item'],13);assert.equal(report.semanticTypes['sized-variant'],13);
+  const report=integrity.buildIntegrityReport(),html=read('index.html'),worker=read('service-worker.js'),styles=read('styles.css');assert.equal(report.errorCount,0);assert.equal(report.totalEntities,148);assert.equal(report.protectedEntities,126);assert.equal(report.duplicateSourceRows,18);assert.equal(report.menuRows,144);assert.equal(report.semanticTypes['counted-item'],13);assert.equal(report.semanticTypes['sized-variant'],19);
   assert.ok(html.indexOf('mcdonalds-au-catalogue.js')<html.indexOf('kfc-au-catalogue-data.js'));assert.ok(html.indexOf('kfc-au-catalogue-data.js')<html.indexOf('kfc-au-catalogue.js'));assert.ok(html.indexOf('kfc-au-catalogue.js')<html.indexOf('alpha06.js'));assert.match(worker,/kfc-au-catalogue-data\.js/);assert.match(worker,/kfc-au-catalogue\.js/);
   assert.doesNotMatch(runtime,/kfc:\{label:'KFC Australia'/);assert.match(runtime,/inventory\?\.browseCategories/);assert.match(runtime,/slice\(0,shown\)/);assert.match(styles,/\.rc5-category-grid\{display:grid/);assert.match(styles,/@media\(max-width:520px\)[\s\S]*\.rc5-category-grid\{grid-template-columns:1fr\}/);assert.match(read('scripts/audit_kfc_au.js'),/--compare/);assert.match(read('KFC_AU_FOOD_SOURCE.md'),/last approved catalogue untouched/i);
 });

@@ -207,6 +207,10 @@
     if(!normal)return {kind:'none',query:raw,normalised:'',entity:null,productQuery:''};
     const exact=REG?.exactEntity?.(raw,types)||null,brandFamilyAlias=exact?.type==='brand'&&[exact.name,...(exact.familyAliases||[])].some(alias=>norm(alias)===normal);
     if(exact&&(exact.type!=='brand'||brandFamilyAlias))return {kind:exact.type==='restaurant'?'source':'brand-family',query:raw,normalised:normal,entity:exact,productQuery:'',reason:exact.type==='restaurant'?'recognised-source-only':'recognised-brand-only'};
+    // A beverage/component brand inside a named restaurant order belongs to
+    // the product identity. Remove only the restaurant alias from that query.
+    const restaurant=REG?.primary?.(raw,['restaurant']);
+    if(restaurant)return {kind:'product',query:raw,normalised:normal,entity:restaurant.entity,productQuery:(` ${normal} `).replace(` ${norm(restaurant.matchedAlias)} `,' ').trim(),reason:'restaurant-plus-product'};
     if(global.HECFoodSources?.hasQueryFamily?.(raw)||global.HECFoodSources?.hasQueryFamily?.(SEARCH.parseQuery(raw).food)||SEARCH?.interpretFoodIntent?.(raw)?.generic)return {kind:'product',query:raw,normalised:normal,entity:null,productQuery:raw,reason:'declared-food-identity'};
     const indexed=brandIdentity(raw);
     if(indexed)return {kind:'brand-family',query:raw,normalised:normal,entity:indexed,productQuery:'',reason:'indexed-brand-only'};
@@ -218,6 +222,7 @@
   function consumerBrandMembership(entity,food){
     if(!entity||entity.type!=='brand'||!food)return {matches:false,reason:'not-a-brand-candidate'};
     const mapped=norm(food.consumerBrandId||food.brandEntityId||''),entityIds=new Set([norm(entity.id),norm(entity.name)]);
+    if((food.consumerFamilyIds||[]).some(id=>entityIds.has(norm(id))))return {matches:true,reason:'declared-consumer-family'};
     if(mapped)return {matches:entityIds.has(mapped),reason:entityIds.has(mapped)?'trusted-brand-registry-id':'different-brand-registry-id'};
     const aliases=new Set([entity.name,...(entity.aliases||[]),...(entity.familyAliases||[])].map(brandKey).filter(Boolean)),raw=String(food.brand||'').trim(),normal=brandKey(raw);
     if(!normal)return {matches:false,reason:'missing-explicit-brand'};
@@ -552,7 +557,7 @@
       if(!source||!family||!portion||food.verified===false||food.itemStatus==='retired')continue;
       const productQuery=restaurantProductQuery(food,query);
       // Exact family intent leaves count, size, flavour and meal modifiers intact.
-      if(productQuery!==family)continue;
+      if(productQuery!==family&&!(food.choiceFamilyAliases||[]).some(alias=>norm(alias)===productQuery))continue;
       const key=`${source}:${family}`,group=families.get(key)||{key,family,sourceId:source,members:[]};
       group.members.push({food,portion,count,size});families.set(key,group);
     }
@@ -657,18 +662,19 @@
   function submittedResultModel(records,query,{savedIds=[],online=[]}={}){
     if(queryIntent(query).kind==='brand-family')return brandResultModel([...(records||[]),...(online||[])],query);
     const raw=String(query||'').trim(),parsed=restaurantSearchQuantity(records||[],raw),identity=REG.preserveSearchSpelling(raw,parsed.identityQuery||corrected(raw)),concept=SEARCH?.conceptFromQuery?.(identity)||null,intent=queryIntent(identity),restaurantFamilies=unresolvedRestaurantFamilies(records||[],identity,parsed),conceptIntent=SEARCH?.interpretFoodIntent?.(raw,{records,sourceIntent:intent,restaurantFamilies}),saved=new Set(savedIds||[]),ranked=dedupeRanked(canonicaliseRecords([...(records||[]),...(online||[])]).filter(food=>!food.legacyPreviewOnly&&food.itemStatus!=='retired').map(food=>({food,rank:rank(food,identity,{saved:saved.has(food?.id)}).score})).filter(item=>item.rank>0||SEARCH.semanticProductExactness(item.food,identity).priority>=4)).sort((a,b)=>(conceptIntent?.generic?0:(SEARCH?.semanticProductExactness?.(b.food,identity)?.priority||0)-(SEARCH?.semanticProductExactness?.(a.food,identity)?.priority||0))||b.rank-a.rank||quality(b.food)-quality(a.food)||norm(a.food?.name).localeCompare(norm(b.food?.name))).map(item=>item.food),groups=[];
-    const genericConcept=!!concept&&!SEARCH?.likelyBrandPrefix?.(SEARCH.parseQuery(raw),concept)&&intent.kind==='product';
+    const restaurantRequest=intent.entity?.type==='restaurant',genericConcept=!!concept&&!restaurantRequest&&!SEARCH?.likelyBrandPrefix?.(SEARCH.parseQuery(raw),concept)&&intent.kind==='product';
+    if(restaurantRequest)for(let index=ranked.length-1;index>=0;index--){const food=ranked[index];if(!food.foodSourceId||!REG.entityMatchesHay(intent.entity,[food.brand,food.sourceDisplayName,...(food.sourceAliases||[])].filter(Boolean).join(' ')))ranked.splice(index,1);}
     if(genericConcept)groups.push({key:'generic',label:'Generic Food',items:[genericSubmittedItem(concept,raw,parsed)]});
     const buckets={best:[],restaurant:[],packaged:[],saved:[],broader:[],completion:[],details:[],related:[]},decisions=new Map();
     for(const food of ranked){const compatibility=conceptIntent?.conceptId&&(conceptIntent.generic||Object.keys(conceptIntent.known||{}).length)&&!conceptIntent.compoundId?SEARCH.conceptCompatibility(food,conceptIntent):null,exactness=SEARCH?.semanticProductExactness?.(food,identity);const decision=productEligibility(food,{candidates:ranked}).addability;decisions.set(food,decision);const item={id:canonicalKey(food),recordId:String(food?.id||canonicalKey(food)),kind:'exact-product',name:consumerDisplayName(food),food:eligibilitySnapshot(food,decision),recordType:recordType(food),provenance:provenance(food),addability:snapshotRecord(decision),decisionTrace:{concept:SEARCH?.foodConceptEvidence?.(food),compatibility,exactness,sourceTrust:sourceTier(food),completeness:decision.status,rank:rank(food,identity)}};if(compatibility&&!compatibility.compatible)buckets.related.push(item);else if(decision.status==='needs-nutrition-completion')buckets.completion.push(item);else if(decision.status==='details-only')buckets.details.push(item);else if(saved.has(food?.id)||[RECORD_TYPES.PRIVATE,RECORD_TYPES.RECIPE].includes(item.recordType))buckets.saved.push(item);else if(item.recordType===RECORD_TYPES.FOOD_SOURCE)buckets.restaurant.push(item);else if(item.recordType===RECORD_TYPES.PACKAGED)buckets.packaged.push(item);else if([RECORD_TYPES.ONLINE,RECORD_TYPES.EXTERNAL].includes(item.recordType))buckets.broader.push(item);else buckets.best.push(item);}
     const families=genericConcept?[]:restaurantFamilies,unresolvedIds=new Set(families.flatMap(family=>family.recordIds));
-    const loggableRanked=ranked.filter(food=>decisions.get(food)?.normalLoggingAllowed&&!buckets.related.some(item=>item.recordId===String(food.id))),topFood=loggableRanked[0],topRank=topFood?rank(topFood,identity):{score:0,tier:'none'},strongProduct=!genericConcept&&topFood&&!unresolvedIds.has(String(topFood.id))&&(intent.kind==='product'||intent.kind==='source')&&(SEARCH.semanticProductExactness(topFood,identity).priority>=4||['exact-name','exact-alias','exact-source-alias','exact-brand','all-tokens'].includes(topRank.tier)&&topRank.score>=1200);if(strongProduct){const firstGroup=Object.entries(buckets).find(([key,items])=>!['completion','details','related'].includes(key)&&items.some(item=>item.recordId===String(topFood.id)));if(firstGroup){const [key,items]=firstGroup,index=items.findIndex(item=>item.recordId===String(topFood.id));groups.push({key:'best',label:'Best match',items:items.splice(index,1),origin:key});}}
+    const loggableRanked=ranked.filter(food=>decisions.get(food)?.normalLoggingAllowed&&!buckets.related.some(item=>item.recordId===String(food.id))),topFood=loggableRanked[0],topRank=topFood?rank(topFood,identity):{score:0,tier:'none'},strongProduct=!genericConcept&&topFood&&!unresolvedIds.has(String(topFood.id))&&(intent.kind==='product'||intent.kind==='source')&&(SEARCH.semanticProductExactness(topFood,identity).priority>=4||(intent.entity?.type!=='brand'&&['exact-name','exact-alias','exact-source-alias','exact-brand','all-tokens'].includes(topRank.tier)&&topRank.score>=1200));if(strongProduct){const firstGroup=Object.entries(buckets).find(([key,items])=>!['completion','details','related'].includes(key)&&items.some(item=>item.recordId===String(topFood.id)));if(firstGroup){const [key,items]=firstGroup,index=items.findIndex(item=>item.recordId===String(topFood.id));groups.push({key:'best',label:'Best match',items:items.splice(index,1),origin:key});}}
     for(const family of families){
       const items=family.recordIds.flatMap(id=>Object.values(buckets).flatMap(bucket=>{const index=bucket.findIndex(item=>item.recordId===id);return index<0?[]:bucket.splice(index,1);}));
       groups.push({key:'restaurant-family',label:`Which ${family.label} order did you have?`,familyKey:family.key,sourceId:family.sourceId,unresolved:'size-or-count',items});
     }
     for(const [key,label] of [['best','Australian Generic Records'],['restaurant','Restaurant / Ready-to-Eat'],['packaged','Packaged / Frozen / Supermarket Products'],['saved','Saved or User-Created Results'],['broader','Broader Australian Results'],['completion','Needs Nutrition Completion'],['details','Details Only'],['related','Related foods']])if(buckets[key].length)groups.push({key,label,items:buckets[key]});
-    if(!groups.length&&concept)groups.push({key:'generic',label:'Generic Food',items:[genericSubmittedItem(concept,raw,parsed)]});
+    if(!groups.length&&concept&&!restaurantRequest)groups.push({key:'generic',label:'Generic Food',items:[genericSubmittedItem(concept,raw,parsed)]});
     return deepFreeze({version:VERSION,rawQuery:raw,normalisedQuery:corrected(raw),identityQuery:identity,quantity:parsed,conceptIntent,concept:concept?{key:concept.key,label:concept.label}:null,submissionMode:'deliberate',groups,total:groups.reduce((sum,group)=>sum+group.items.length,0)});
   }
   function appendSubmittedOnline(model,records=[]){

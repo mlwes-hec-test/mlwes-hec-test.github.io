@@ -4,6 +4,7 @@ const test=require('node:test');
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const path=require('node:path');
+const vm=require('node:vm');
 const ROOT=path.join(__dirname,'..');
 const runtime=fs.readFileSync(path.join(ROOT,'alpha06.js'),'utf8');
 const styles=fs.readFileSync(path.join(ROOT,'styles.css'),'utf8');
@@ -62,7 +63,10 @@ test('category product views preserve progressive loading and explicit navigatio
 
 test('source navigation clears duplicate live results and cannot immediately reopen stale source state',()=>{
   assert.match(runtime,/if\(state\)\{const live=by\('food-live-results'\);if\(live\)\{live\.innerHTML='';live\.classList\.add\('hidden'\);\}/);
-  assert.match(runtime,/data-rc5-source-category[\s\S]{0,420}by\('food-search'\)\.value=''/);
+  const handler=runtime.split(/\r?\n/).find(line=>line.includes("const category=event.target.closest?.('[data-rc5-source-category]')")),helper=runtime.slice(runtime.indexOf('function rc4SetSourceFilter('),runtime.indexOf('\nconst rc4ClearSearchContextBase'));
+  const input={value:'Mcdonalds',blur(){}},ext={ui:{pendingMeal:'Breakfast',foodSourceBrowse:{sourceId:'mcdonalds-au',label:"McDonald's Australia"}}},session={rawQuery:'Mcdonalds',revision:1},context={by:()=>input,ext,searchSession633:session,ss633BeginTyping(node){session.rawQuery=node.value;session.revision++;delete ext.ui.foodSourceBrowse;},ss633Commit(reason){session.reason=reason;},saveExt(){},renderLibrary(){}};
+  vm.runInNewContext(`${helper}\nclick=event=>{${handler}};`,context);context.click({target:{closest:()=>({dataset:{rc5SourceCategory:'Burgers'}})},preventDefault(){},stopImmediatePropagation(){}});
+  assert.equal(input.value,'');assert.equal(session.rawQuery,'');assert.equal(session.revision,2);assert.equal(session.reason,'source-category');assert.equal(ext.ui.foodSourceBrowse.sourceId,'mcdonalds-au');assert.equal(ext.ui.foodSourceBrowse.category,'Burgers');assert.equal(ext.ui.pendingMeal,'Breakfast');
   assert.match(runtime,/data-rc4-leave-source[\s\S]{0,260}by\('food-search'\)\.value=''/);
 });
 

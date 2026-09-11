@@ -8,7 +8,8 @@
 
   const registry=global.HECFoodSources||(typeof require==='function'?require('./food-sources.js'):null);
   const raw=global.HECKFCAustraliaRawCatalogueData||(typeof require==='function'?require('./kfc-au-catalogue-data.js'):null);
-  if(!registry||!raw)throw new Error('KFC Australia catalogue dependencies were not loaded');
+  const supplement=global.HECKFCAustraliaSupplement||(typeof require==='function'?require('./kfc-au-supplement-data.js'):null);
+  if(!registry||!raw||!supplement)throw new Error('KFC Australia catalogue dependencies were not loaded');
 
   const unique=values=>[...new Set((values||[]).map(value=>String(value||'').trim()).filter(Boolean))];
   const cleanName=value=>String(value||'').replace(/[®™]/g,'').replace(/[’]/g,"'").replace(/\s+/g,' ').trim();
@@ -92,6 +93,54 @@
     return item;
   });
 
+  // Supplement the same identities/registry. Never rewrite the protected raw
+  // snapshot or merge a named order with an individual piece or chosen dip.
+  const nutrientKeys=['energyKj','protein','fat','satFat','carbs','sugar','sodium'];
+  const nutrients=values=>Object.fromEntries(values.flatMap((value,index)=>value===null||value===undefined?[]:[[nutrientKeys[index],Number(value)]]));
+  const fact=(url,recordId,publishedDate=null)=>({sourceId:'kfc-au',recordId,url,trustClass:'official-au-restaurant',retrievedAt:supplement.checkedAt,verifiedAt:supplement.checkedDate,publishedDate,sourceType:'restaurant/fast food',market:'AU'});
+  const evidenceFor=(item,url,publishedDate=null)=>{
+    item.canonicalEvidence=[...(item.canonicalEvidence||[]),{source:{...fact(item.provenance.url,item.id),retrievedAt:item.lastSeenAt||raw.checkedAt,verifiedAt:item.sourceLastCheckedDate||raw.checkedDate},nutrients:{...item.nutritionPerServing},categoryMemberships:[...item.categoryMemberships],sourceOccurrences:item.sourceOccurrences}];
+    item.sourceProvenance=fact(url,item.id,publishedDate);item.sourceLastCheckedDate=supplement.checkedDate;item.lastSeenAt=supplement.checkedAt;
+    item.currentState='listed-at-retrieval';item.provenance={...item.provenance,url,publisher:'KFC Australia',tableBasis:'Published named serving; Calories derived from official kJ / 4.184. Unknown fields remain absent.'};
+    item.nutritionFreshness={identityCheckedAt:supplement.checkedAt,nutritionPublishedLabel:publishedDate||supplement.guidePublishedLabel,classification:'reviewed-official-supplement'};
+  };
+  const addItem=(name,categories,unit,url,{size='',family='',component=false,promotional=false}={})=>{
+    if(items.some(item=>item.id===slug(name)))throw new Error('Duplicate supplemental KFC identity '+name);
+    const item={id:slug(name),name,officialName:name,aliases:aliasesFor(name,name),category:categories[0],categoryMemberships:categories,browseCategory:categories[0],browseTags:unique([...categories,name]),status:'current',currentState:'listed-at-retrieval',itemKind:component?'component':'product',productSemantics:{type:component?'component':size?'sized-variant':'single-item',...(size?{size}:{}),confidence:'high'},semanticCount:0,choiceFamily:family,choiceOrder:size==='Large'?3:0,nutritionStatus:'identity-only',loggable:false,standardServingLabel:`1 ${size?size.toLowerCase()+' ':''}${unit}`,serving:{unitKey:unit,unitLabel:size?`${size} ${unit}`:unit[0].toUpperCase()+unit.slice(1)},servingWeightG:null,servingVolumeMl:null,nutritionPer100Unit:'',nutritionPerServing:{},nutritionPer100:{},provenance:{publisher:'KFC Australia',url},officialCurrentIdentity:true,sourceOccurrences:categories.map(category=>({category,officialName:name,sourceUrl:url})),promotional,limitedTime:promotional,promotionalStatus:promotional?'limited-time':'standard',optionalExtras:[],sourceAnomalies:[]};
+    evidenceFor(item,url);items.push(item);return item;
+  };
+  for(const [name,categories,unit] of supplement.newMenuRows)addItem(name,categories,unit,supplement.menuUrl,{component:/Sauce$/.test(name),promotional:true});
+  for(const row of supplement.newComponents){
+    const item=addItem(row.name,[row.category],row.unit,row.url,{size:row.size,family:row.family,component:row.unit==='serve'});
+    item.nutritionPerServing={energyKj:row.energyKj,calories:calorieFromKj(row.energyKj)};item.nutritionStatus='energy-only';item.loggable=true;item.energySource={publishedEnergyKj:row.energyKj,url:row.url,basis:'current-product-component'};item.calorieSource={method:'derived',formula:'published kJ / 4.184'};
+    if(row.family){const regular=items.find(value=>value.name===row.name.replace(/^Large /,'Regular '));if(regular){regular.choiceFamily=row.family;regular.choiceOrder=2;}}
+  }
+  for(const [name,serve,per100] of supplement.nutritionRows){
+    const item=items.find(value=>value.name===name);if(!item)throw new Error('Unknown KFC nutrition identity '+name);
+    if(item.nutritionPerServing.energyKj!==undefined&&item.nutritionPerServing.energyKj!==serve[1])throw new Error('Unreviewed KFC energy conflict '+name);
+    evidenceFor(item,supplement.guide);item.nutritionPerServing={...nutrients(serve.slice(1)),calories:calorieFromKj(serve[1])};item.nutritionPer100=nutrients(per100);item.servingWeightG=serve[0];item.nutritionPer100Unit='g';item.nutritionStatus='complete';item.loggable=true;
+    item.energySource={publisher:'KFC Australia',publishedEnergyKj:serve[1],url:supplement.guide,basis:'named-serving-in-reviewed-official-nutrition-dialog'};item.calorieSource={method:'derived',formula:'published kJ / 4.184',precision:'one decimal place'};
+  }
+  for(const [name,weight,serve,per100,ambiguousSodium,unit] of supplement.individualRows){
+    const item=addItem(name,['Chicken'],unit,supplement.individual);evidenceFor(item,supplement.individual,supplement.individualPublishedDate);
+    item.nutritionPerServing={...nutrients(serve),calories:calorieFromKj(serve[0])};item.nutritionPer100=nutrients(per100);item.servingWeightG=weight;item.nutritionPer100Unit='g';item.nutritionStatus='partial';item.loggable=true;
+    item.standardServingLabel=`1 ${unit} (${weight} g), plain`;item.serving.unitLabel=`${unit[0].toUpperCase()+unit.slice(1)} (${weight} g)`;
+    item.sourceAnomalies=['Individual table sodium header says g/serve and g/100g. Sodium is excluded pending unit clarification.'];
+    item.canonicalEvidence.push({source:fact(supplement.individual,item.id,supplement.individualPublishedDate),unresolvedSodium:{header:['g/serve','g/100g'],values:ambiguousSodium}});
+    item.energySource={publishedEnergyKj:serve[0],url:supplement.individual,basis:'published-individual-piece'};item.calorieSource={method:'derived',formula:'published kJ / 4.184'};
+  }
+  for(const [name,order] of Object.entries(supplement.standardOrders)){
+    if(items.find(value=>value.name===name)?.nutritionPerServing.energyKj!==order.energyKj)throw new Error('Unreviewed KFC standard-order energy '+name);
+    const item=items.find(value=>value.name===name);evidenceFor(item,order.url);item.productSemantics={...item.productSemantics,individualScaling:false,standardOrderLabel:order.label};item.standardServingLabel=`1 order: ${order.label}`;item.provenance.tableBasis=`Published standard order only: ${order.label}. Do not divide into plain pieces or substitute dips.`;
+  }
+  for(const row of supplement.findings.blockedOrders){
+    const item=items.find(value=>value.name===row.name);evidenceFor(item,row.url);item.loggable=false;item.nutritionStatus='conflict';item.productSemantics={...item.productSemantics,individualScaling:false};item.entryBlockedReason=row.reason+' Choose a plain nugget and log the selected dip separately.';
+    item.evidenceConflicts=[{code:'order-dip-configuration-conflict',field:'nutrition',severity:'material',resolution:'unresolved',evidence:row}];
+  }
+  for(const item of items){
+    if(supplement.uncertainPromotions.includes(item.name)){item.currentState='uncertain';item.nutritionFreshness={...item.nutritionFreshness,menuFreshness:'Conflicting official menu surfaces; retained without asserting discontinuation.'};}
+    if(/^(?:1 Piece|\d+ Pieces) of Chicken$/.test(item.name)){item.choiceFamilyAliases=['original recipe','original recipe chicken'];item.aliases=unique([...item.aliases,`KFC ${item.name.replace(/of Chicken/,'Original Recipe Chicken')}`,'KFC Original Recipe Chicken','KFC Original Recipe']);}
+  }
   const categorySurfaces=raw.categories.map(category=>({name:category.name,url:raw.menuUrl,count:category.items.length}));
   const catalogue={
     source:{
@@ -102,6 +151,10 @@
       refreshPolicy:{cadence:'proposed-weekly-manual-review',schedulerIncluded:false,retainLastApprovedOnFailure:true,humanApprovalRequired:true,retireMissingItems:true,neverInferMissingNutrition:true,auditFields:['retrievedAt','sourceUrls','normalisedSnapshotSha256','diff','validation','humanApproval']}
     },items
   };
+  catalogue.source.lastCheckedDate=supplement.checkedDate;catalogue.source.catalogueCheckedAt=supplement.checkedAt;catalogue.source.catalogueVersion='kfc-au-2026-09-11-founder-trial.2';
+  catalogue.source.referenceUrls=unique([...catalogue.source.referenceUrls,supplement.guide,supplement.individual,supplement.menuUrl,...supplement.newComponents.map(row=>row.url),...Object.values(supplement.standardOrders).map(row=>row.url)]);
+  catalogue.source.referenceMetadata.supplement={checkedAt:supplement.checkedAt,guidePublishedLabel:supplement.guidePublishedLabel,individualPublishedDate:supplement.individualPublishedDate,recordCounts:{nutritionDialogs:supplement.nutritionRows.length,individualRows:supplement.individualRows.length,components:supplement.newComponents.length},findings:supplement.findings};
+  Object.assign(catalogue.source.inventory,{protectedUniqueProducts:126,duplicateMenuAppearances:18,completeProducts:items.filter(item=>item.nutritionStatus==='complete').length,partialProducts:items.filter(item=>item.nutritionStatus==='partial').length,conflictProducts:items.filter(item=>item.nutritionStatus==='conflict').length,supplementalProducts:items.length-126});
   const registered=registry.registerCatalogue(catalogue);
   global.HECKFCAustraliaCatalogue=registered;if(typeof module!=='undefined'&&module.exports)module.exports=registered;
 })(typeof window!=='undefined'?window:globalThis);

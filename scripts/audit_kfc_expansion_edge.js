@@ -1,0 +1,34 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),os=require('node:os'),assert=require('node:assert/strict');
+const qa=require('./audit_physical_form_measures_edge.js');
+const flows=[
+  ['KFC Pickle Burger','Pickle Burger','burger',2,4576],
+  ['KFC Original Recipe','1 Piece of Chicken','piece',2,1968],
+  ['KFC 6 Wicked Wings','6 Wicked Wings','portion',1,3259],
+  ['KFC Chicken Nugget plain','Chicken Nugget (plain)','nugget',6,1050],
+  ['KFC chips','Regular Chips','portion',1.5,1779],
+  ['KFC Popcorn Chicken','Regular Popcorn Chicken','portion',1,1644],
+  ['KFC 10 Nuggets','10 Nuggets','portion',1,2298],
+  ['KFC 3 Original Tenders','3 Original Tenders','portion',1,1803],
+  ['KFC Large Pepsi Max','Large Pepsi Max','drink',1,10],
+  ['KFC Aioli Dip','Aioli Dip','serve',1,567]
+];
+async function submit(page,query){await page.evaluate(()=>window.openAlpha05Feature('food-library',{freshSearch:true}));const input=page.locator('#food-search');await input.fill(query);await page.locator('#submit-food-search').click();await page.locator('#food-results .universal-search-submitted,#food-results .universal-search-empty,#food-results .rc5-category-hub').first().waitFor();}
+async function state(page){return page.evaluate(()=>({text:document.querySelector('#food-results').innerText,groups:[...document.querySelectorAll('[data-universal-group]')].map(g=>({key:g.dataset.universalGroup,names:[...g.querySelectorAll('[data-universal-result] strong')].map(n=>n.innerText)})),overflow:document.documentElement.scrollWidth>innerWidth+1}));}
+async function run({outputDirectory=fs.mkdtempSync(path.join(os.tmpdir(),'hec-kfc-expansion-'))}={}){
+  fs.mkdirSync(outputDirectory,{recursive:true});const {chromium,edge}=qa.browserTools(),browser=await chromium.launch({headless:true,executablePath:edge}),diagnostic=qa.evidence(),report={pass:false,browser:browser.version(),viewport:{width:390,height:844},diagnostic,scenarios:[]};let page;
+  try{const context=await qa.contextFor(browser,report.viewport,diagnostic);page=await context.newPage();await qa.openLibrary(page);
+    const diaryBefore=await page.evaluate(()=>{if(window.HEC_INSTALLATION.role!=='test')throw Error('Disposable TEST context required');return JSON.stringify(JSON.parse(localStorage.getItem(window.HEC_INSTALLATION.functionalStorageKey)||'{}').diary||{});});
+    await submit(page,'KFC');assert.equal(await page.locator('[data-rc5-source-category]').count(),13);assert.equal(await page.locator('[data-universal-result]').count(),0);report.scenarios.push({query:'KFC',...(await state(page))});await page.screenshot({path:path.join(outputDirectory,'kfc-categories.png'),fullPage:true});
+    await submit(page,'KFC Wicked Wings');let result=await state(page);assert.deepEqual(result.groups[0],{key:'restaurant-family',names:['3 Wicked Wings','6 Wicked Wings','10 Wicked Wings']});assert(!result.groups.some(g=>g.key==='best'));report.scenarios.push({query:'KFC Wicked Wings',...result});
+    for(const [query,name,unit,amount,energy] of flows){await submit(page,query);const result=await state(page);assert(!result.overflow);const row=page.locator('[data-universal-result]').filter({has:page.locator('strong',{hasText:new RegExp('^'+name.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'$')})});assert.equal(await row.count(),1,name);await row.click();
+      const controls=page.locator('[data-gpr-measure]:visible');if(await controls.count())await page.locator(`[data-gpr-measure="${unit}"]:visible`).click();const input=page.locator('[data-gpr-amount]:visible');await input.waitFor();assert.equal(await input.inputValue(),'');const profile=await page.evaluate(()=>window.HEC_GUIDED_PRODUCT_TEST.profile());assert.equal(await page.evaluate(()=>window.HEC_GUIDED_PRODUCT_TEST.ui().selectedMeasure),unit);if(profile.physicalForm!=='liquid')assert(!profile.measures.some(m=>['mL','L','cup'].includes(m.key)),name);
+      await input.fill(String(amount));await input.press('Enter');await page.locator('#food-entry-editor.active').waitFor();assert.equal(await page.locator('.screen.active').count(),1);assert.equal(await page.locator('[data-gpr-amount]:visible').count(),0);assert.equal(await page.locator('#entry-unit').inputValue(),unit);assert.equal(Number(await page.locator('#entry-amount').inputValue()),amount);const nutrition=await page.locator('#entry-nutrition-preview').innerText();assert(nutrition.replaceAll(',','').includes(String(energy)+' kJ'),`${name}: ${nutrition}`);report.scenarios.push({query,name,unit,amount,energy,nutrition,measures:profile.measures.map(m=>({key:m.key,label:m.label})),oneReview:true});if(name==='10 Nuggets')await page.screenshot({path:path.join(outputDirectory,'defined-order-review.png'),fullPage:true});await page.locator('#food-entry-editor').getByRole('button',{name:'← Back',exact:true}).click();assert.equal(await page.locator('#food-entry-editor.active').count(),0);
+    }
+    for(const [query,name,label] of [['KFC Zinger Burger Combo','Zinger Burger Combo','Details'],['KFC 6 Nuggets','6 Nuggets','Complete'],['KFC Giant Liquid Gold Sauce','Giant Liquid Gold Sauce','Complete']]){await submit(page,query);const row=page.locator('[data-universal-result]').filter({has:page.locator('strong',{hasText:new RegExp('^'+name+'$')})});assert.equal(await row.locator('b').innerText(),label);await row.click();assert.equal(await page.locator('[data-gpr-amount]:visible,[data-gpr-measure]:visible').count(),0);assert.equal(await page.locator('#food-entry-editor.active').count(),0);report.scenarios.push({query,blockedBeforeMeasure:true,...(await state(page))});const cancel=page.locator('[data-gpr-cancel]:visible');if(await cancel.count())await cancel.click();}
+    await submit(page,'KFC hash brown');result=await state(page);assert.equal(await page.locator('[data-universal-result],[data-universal-generic]').count(),0);assert.match(result.text,/isn.t currently|No reliable match/i);report.scenarios.push({query:'KFC hash brown',...result});
+    const diaryAfter=await page.evaluate(()=>JSON.stringify(JSON.parse(localStorage.getItem(window.HEC_INSTALLATION.functionalStorageKey)||'{}').diary||{}));assert.equal(diaryAfter,diaryBefore);report.diaryUnchanged=true;qa.requireEvidence(diagnostic);await context.close();report.pass=true;return report;
+  }catch(error){report.error={message:error.message,stack:error.stack};if(page)await page.screenshot({path:path.join(outputDirectory,'failure.png'),fullPage:true}).catch(()=>{});throw error;}finally{await browser.close();fs.writeFileSync(path.join(outputDirectory,'kfc-expansion.json'),JSON.stringify(report,null,2));}
+}
+if(require.main===module)run({outputDirectory:process.argv[2]}).then(r=>console.log(JSON.stringify({pass:r.pass,scenarios:r.scenarios.length,diaryUnchanged:r.diaryUnchanged}))).catch(e=>{console.error(e);process.exitCode=1;});
+module.exports={run};
