@@ -165,7 +165,7 @@
     const variantCounts=candidateVariantCounts(variantCandidates);let variant=null,packageName=null,identityNumber=null;
     for(const item of numbers){const qualifier=words[item.end]||'',hyphenated=new RegExp(`\\b${String(item.text).replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}-(?:piece|pack|count)\\b`,'i').test(original);if(COUNT_QUALIFIER.test(qualifier)&&/^(?:piece|pieces|pack|packs|count)$/.test(qualifier)&&(variantCounts.has(item.value)||hyphenated)){variant=item;break;}}
     if(!variant&&numbers.length){variant=numbers.find(item=>{if(!variantCounts.has(item.value))return false;const queryTail=words.slice(item.end).join(' ');return variantCandidates.some(food=>{const name=normaliseIntent(food?.name||''),count=Number(food?.productSemantics?.count)||Number(name.match(/^(\d+)\b/)?.[1]),candidate=name.replace(/^\d+\s*/, '').trim();return count===item.value&&candidate&&queryTail.includes(candidate);});})||null;}
-    if(!variant){const exact=(candidates||[]).find(food=>[food?.name,`${food?.brand||''} ${food?.name||''}`].some(value=>normaliseIntent(value)===normal));if(exact){const candidateNumbers=new Set((normaliseIntent(exact.name).match(/\b\d+(?:\.\d+)?\b/g)||[]).map(Number));packageName=numbers.find(item=>candidateNumbers.has(item.value))||null;identityNumber=packageName?null:numbers[0]||null;}}
+    if(!variant){const exact=(candidates||[]).find(food=>[food?.name,`${food?.brand||''} ${food?.name||''}`,...(food?.sourceAliases||[]).map(alias=>`${alias} ${food.name}`)].some(value=>normaliseIntent(value)===normal));if(exact){const candidateNumbers=new Set((normaliseIntent(exact.name).match(/\b\d+(?:\.\d+)?\b/g)||[]).map(Number));packageName=numbers.find(item=>candidateNumbers.has(item.value))||null;identityNumber=packageName?null:numbers[0]||null;}}
     const consumed=numbers.find(item=>item!==variant&&item!==packageName&&item!==identityNumber)||null;let consumedUnit='',remove=new Set(),replace=new Map();
     if(variant){replace.set(variant.index,Number.isInteger(variant.value)?String(variant.value):String(variant.value));for(let i=variant.index+1;i<variant.end;i++)remove.add(i);if(COUNT_QUALIFIER.test(words[variant.end]||''))remove.add(variant.end);}
     if(consumed&&/^(?:half|quarter|three quarters)$/.test(consumed.text)&&words[consumed.end]==='a')remove.add(consumed.end);
@@ -402,6 +402,10 @@
   const conceptEvidenceCache=new WeakMap(),conceptAttributeCache=new WeakMap();
   function classifyFoodConcept(food){
     const name=conceptNorm(food?.name||food?.genericName),categories=conceptNorm([food?.genericName,...(food?.categories||[]),...(food?.categoryMemberships||[])].filter(Boolean).join(' '));
+    // An adapter can declare a whole product's concept from an official menu
+    // category. Ingredient words in a proprietary name must not redefine it.
+    const declared=food?.foodSourceId&&food?.sourceProvenance?.trustClass==='official-au-restaurant'&&food?.productSemantics?.type!=='configurable-bundle'&&FOOD_CONCEPT_REGISTRY[food?.sourceConceptId];
+    if(declared)return {conceptId:food.sourceConceptId,parentId:declared.parent||'',related:[],form:declared.form,confidence:'high',evidence:'official-source-product-category'};
     for(const compound of COMPOUND_CONCEPTS)if(compound.match.test(name))return {conceptId:compound.id,parentId:compound.parent,related:compound.related||[compound.parent],excluded:!!compound.excluded,confidence:'high',evidence:'compound-identity'};
     if(!conceptReference(food))for(const head of SEMANTIC_HEADS)if(head.name.test(name)||(food?.categories||[]).some(category=>head.categories.test(conceptNorm(category))))return {conceptId:head.id,parentId:'prepared-food',related:[],confidence:'high',evidence:'specific-semantic-head'};
     // In a composed dish, the ingredient word cannot redefine the dish's head.
@@ -420,7 +424,7 @@
     for(const key of order){const concept=FOOD_CONCEPT_REGISTRY[key];if((concept.aliases||[]).some(alias=>categoryValues.includes(conceptNorm(alias))))return {conceptId:key,parentId:concept.parent||'',related:[],form:concept.form,confidence:'medium',evidence:'specific-category'};}
     return {conceptId:'unknown',parentId:'',related:[],confidence:'unknown',evidence:'no-supported-identity'};
   }
-  function conceptEvidenceSignature(food){return [food.name,food.genericName,food.recordType,food.afcd,food.category,food.foodSourceId,food.defaultUnit,...(food.categories||[]),...(food.categoryMemberships||[])].join('\u0000');}
+  function conceptEvidenceSignature(food){return [food.name,food.genericName,food.recordType,food.afcd,food.category,food.foodSourceId,food.defaultUnit,food.sourceConceptId,food.sourceProvenance?.trustClass,food.productSemantics?.type,...(food.categories||[]),...(food.categoryMemberships||[])].join('\u0000');}
   function foodConceptEvidence(food){if(!food||typeof food!=='object')return classifyFoodConcept(food);const signature=conceptEvidenceSignature(food),cached=conceptEvidenceCache.get(food);if(cached?.signature===signature)return cached.value;const value=Object.freeze(classifyFoodConcept(food));conceptEvidenceCache.set(food,{signature,value});conceptAttributeCache.delete(food);return value;}
   function conceptAttributes(food,conceptId=foodConceptEvidence(food).conceptId){
     if(!food||typeof food!=='object')return {};

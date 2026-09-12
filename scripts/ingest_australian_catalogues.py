@@ -201,24 +201,42 @@ def restaurant_pdf(data, url, evidence):
                         break
                     except ValueError:
                         pass
-            for table in page.extract_tables():
+            for table_number, geometry in enumerate(page.find_tables(), 1):
+                table = geometry.extract()
                 header = [text(value) for value in table[0]]
                 if len(header) not in (19, 20) or header[0] != 'Description' or not any('Serving Size' in value for value in header):
                     continue
                 shift = 1 if len(header) == 20 else 0
-                for cells in table:
+                for row_number, cells in enumerate(table):
                     if len(cells) != len(header) or not cells[2 + shift] or cells[0] == 'Description':
                         continue
-                    # Some reports put component rows in the same table cell.
-                    # The first line is the menu product; components are not a
-                    # licence to reconstruct a missing menu serving.
-                    cells = [(value or '').split('\n')[0] for value in cells]
+                    original_cells = list(cells)
+                    if shift and '\n' in (cells[1] or ''):
+                        # Composition reports place multiple products/components
+                        # inside one PDF cell. Preserve vertical alignment: the
+                        # first nonblank numeric value may belong to a component.
+                        status_box = geometry.rows[row_number].cells[1]
+                        statuses = page.crop(status_box).extract_words()
+                        if not statuses or statuses[0]['text'] != 'None':
+                            continue  # continuation/component, not a menu identity
+                        top = statuses[0]['top'] - .5
+                        bottom = statuses[1]['top'] - .5 if len(statuses) > 1 else status_box[3]
+                        cells = [' '.join(w['text'] for w in page.crop(box).extract_words()
+                                          if top <= w['top'] < bottom) if box else ''
+                                 for box in geometry.rows[row_number].cells]
+                    else:
+                        # A wrapped description is one identity, including its
+                        # flavour and count. Do not truncate it at the first line.
+                        cells = [text(value) for value in cells]
                     name = text(cells[0])
                     if not name:
                         continue
                     row = base_record('hungry-jacks-au', url, {**evidence, 'page': page_number, 'publishedDate': published}, name, 'Restaurant menu')
                     row['brand'] = "Hungry Jack's Australia"
                     row['sourceRecordId'] = name
+                    row['sourceTable'] = {'table': table_number, 'row': row_number,
+                                          'header': header, 'cells': original_cells,
+                                          'productCells': cells}
                     serving = number(cells[4 + shift])
                     row['manufacturerServing'] = {'amount': serving, 'unit': 'g', 'text': text(cells[4 + shift]) + ' g'} if serving else None
                     row['storeStatus'] = text(cells[1 + shift])
@@ -231,7 +249,7 @@ def restaurant_pdf(data, url, evidence):
                         row['nutritionPerServing'][key] = number(b)
                         row['nutrientEvidence'].setdefault('per100', {})[key] = a
                         row['nutrientEvidence'].setdefault('perServing', {})[key] = b
-                    if '\ufffd' in name:
+                    if '\ufffd' in name or '(cid:' in name:
                         row['flags'].append({'code': 'source-text-encoding-uncertain'})
                     if not serving:
                         row['flags'].append({'code': 'source-menu-serving-unavailable'})
@@ -266,19 +284,41 @@ def discover(source, data, directory):
 def run(args):
     capture = Capture(args.capture_directory, args.refresh)
     result = {'schemaVersion': 1, 'builder': 'scripts/ingest_australian_catalogues.py', 'sources': [], 'records': [], 'gaps': []}
+    if args.source:
+        result = json.loads(pathlib.Path(args.output).read_text(encoding='utf-8'))
+        result['sources'] = [s for s in result['sources'] if s['id'] != args.source]
+        result['records'] = [r for r in result['records'] if r['sourceId'] != args.source]
+        result['gaps'] = [g for g in result['gaps'] if g['source'] != args.source]
     for source, directory in DIRECTORIES.items():
+        if args.source and source != args.source:
+            continue
         data, directory_evidence = capture.get(directory)
         urls = discover(source, data, directory)
-        result['sources'].append({'id': source, 'directory': directory, 'sourceType': 'official-au-restaurant' if source == 'hungry-jacks-au' else 'official-au-manufacturer', 'market': 'AU', 'discovery': directory_evidence, 'discoveredPages': len(urls)})
+        source_metadata = {'id': source, 'directory': directory, 'sourceType': 'official-au-restaurant' if source == 'hungry-jacks-au' else 'official-au-manufacturer', 'market': 'AU', 'discovery': directory_evidence, 'discoveredPages': len(urls)}
+        result['sources'].append(source_metadata)
+        source_rows = []
         for url in urls:
             try:
                 data, evidence = capture.get(url)
                 rows = ADAPTERS[source](data, url, evidence)
-                result['records'].extend(rows)
+                source_rows.extend(rows)
                 print(json.dumps({'source': source, 'url': url, 'rows': len(rows)}), flush=True)
             except (ValueError, KeyError, OSError) as error:
                 result['gaps'].append({'source': source, 'url': url, 'reason': str(error)})
                 print(json.dumps({'gap': url, 'reason': str(error)}), flush=True)
+        if source == 'hungry-jacks-au':
+            from hungry_jacks_source import menu_snapshot, publication_categories, enrich
+            directory_data, _ = capture.get(directory)
+            categories = publication_categories(directory_data, directory)
+            snapshot = menu_snapshot(capture)
+            history = json.loads((ROOT / 'data/australian-catalogue/hungry-jacks-20260908-history.json').read_text(encoding='utf-8'))
+            source_rows = enrich(source_rows, snapshot, categories, history['records'])
+            source_metadata['browseCategories'] = list(dict.fromkeys(categories.values()))
+            source_metadata['menuCoverage'] = {'categories': len(snapshot['categories']), 'pages': len(snapshot['pages']),
+                                              'matchedPages': snapshot['matchedProductPages']}
+            pathlib.Path(args.output).with_name('hungry-jacks-menu-evidence.json').write_text(
+                json.dumps(snapshot, indent=2, ensure_ascii=False, sort_keys=True) + '\n', encoding='utf-8')
+        result['records'].extend(source_rows)
     output = pathlib.Path(args.output)
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True) + '\n', encoding='utf-8')
@@ -290,4 +330,5 @@ if __name__ == '__main__':
     parser.add_argument('--capture-directory', required=True)
     parser.add_argument('--refresh', action='store_true')
     parser.add_argument('--output', default=str(ROOT / 'data/australian-catalogue/supplemental.json'))
+    parser.add_argument('--source', choices=DIRECTORIES)
     run(parser.parse_args())
