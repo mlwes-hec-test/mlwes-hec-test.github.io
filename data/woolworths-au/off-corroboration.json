@@ -1,0 +1,1438 @@
+{
+  "protectedSnapshot": {
+    "records": 73300,
+    "shards": 588,
+    "sourceSha256": "F72687EE8BC6522054FE69DBFDA6B91902C16AF1EC2E043CDE27BC6C29AD8176"
+  },
+  "matches": [
+    {
+      "shard": "products/ar-00.json",
+      "index": 175,
+      "sha256": "72ea038f861e324b904d451cc7d42982c334034087dcaaf6855c0b5da13f6415",
+      "record": {
+        "barcode": "9310072000954",
+        "brand": "Arnott's",
+        "brandKey": "arnotts",
+        "categories": [
+          "Snacks",
+          "Sweet snacks",
+          "Biscuits and cakes",
+          "Biscuits"
+        ],
+        "countries": [
+          "en:australia",
+          "en:france",
+          "en:new-zealand"
+        ],
+        "genericName": "",
+        "id": "off:9310072000954",
+        "lastModified": "2026-03-16T20:46:27Z",
+        "market": "AU",
+        "name": "Biscuits Milk Arrowroot",
+        "nutrients": {
+          "calories": 442.603215,
+          "carbs": 80.658436,
+          "energyKj": 1910.288066,
+          "fat": 11.111111,
+          "fibre": 2.880658,
+          "protein": 6.17284,
+          "salt": 0.6893,
+          "saturatedFat": 5.349794,
+          "sodium": 0.27572,
+          "sugars": 22.633745
+        },
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "complete",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "250 g",
+        "recordType": "external-catalogue",
+        "servingQuantity": 24.3,
+        "servingSize": "3 biscuits (24.3 g)",
+        "source": "Open Food Facts",
+        "sourceId": "off:9310072000954",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/9310072000954/biscuits-milk-arrowroot-arnott-s"
+      }
+    },
+    {
+      "shard": "products/au-00.json",
+      "index": 82,
+      "sha256": "f0bb4256e3f3aafbccebcc722693666dd846fd25752a3c911c73173b0078b926",
+      "record": {
+        "barcode": "9300633231781",
+        "brand": "",
+        "brandKey": "",
+        "categories": [],
+        "countries": [
+          "en:australia"
+        ],
+        "genericName": "",
+        "id": "off:9300633231781",
+        "lastModified": "2023-06-15T08:47:09Z",
+        "market": "AU",
+        "name": "Australian Lite milk",
+        "nutrients": {},
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "identity-only",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "",
+        "recordType": "external-catalogue",
+        "servingQuantity": null,
+        "servingSize": "",
+        "source": "Open Food Facts",
+        "sourceId": "off:9300633231781",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/9300633231781/australian-lite-milk"
+      }
+    },
+    {
+      "shard": "products/au-00.json",
+      "index": 312,
+      "sha256": "f0bb4256e3f3aafbccebcc722693666dd846fd25752a3c911c73173b0078b926",
+      "record": {
+        "barcode": "9339687391479",
+        "brand": "Australian Potatoes",
+        "brandKey": "australianpotatoes",
+        "categories": [],
+        "countries": [
+          "en:australia"
+        ],
+        "genericName": "",
+        "id": "off:9339687391479",
+        "lastModified": "2026-01-19T00:11:43Z",
+        "market": "AU",
+        "name": "Hash Browns",
+        "nutrients": {},
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "identity-only",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "",
+        "recordType": "external-catalogue",
+        "servingQuantity": 75,
+        "servingSize": "1 portion (75 g)",
+        "source": "Open Food Facts",
+        "sourceId": "off:9339687391479",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/9339687391479/hash-browns-australian-potatoes"
+      }
+    },
+    {
+      "shard": "products/ba-00.json",
+      "index": 790,
+      "sha256": "9646b7acc33cc7233437f28e747b924aaa00c7ede96e9c37ad396dde0abe62ec",
+      "record": {
+        "barcode": "8076800195057",
+        "brand": "Barilla",
+        "brandKey": "barilla",
+        "categories": [
+          "Plant-based foods and beverages",
+          "Plant-based foods",
+          "Cereals and potatoes",
+          "Cereals and their products",
+          "Pastas",
+          "Cereal pastas",
+          "Dry pastas",
+          "Durum wheat pasta",
+          "Spaghetti",
+          "Dry durum wheat pasta",
+          "Durum wheat spaghetti"
+        ],
+        "countries": [
+          "en:australia",
+          "en:austria",
+          "en:belgium",
+          "en:bulgaria",
+          "en:croatia",
+          "en:france",
+          "en:germany",
+          "en:greece",
+          "en:ireland",
+          "en:italy",
+          "en:liechtenstein",
+          "en:luxembourg",
+          "en:mexico",
+          "en:morocco",
+          "en:romania",
+          "en:russia",
+          "en:serbia",
+          "en:spain",
+          "en:sweden",
+          "en:switzerland",
+          "en:thailand",
+          "en:united-kingdom",
+          "en:united-states"
+        ],
+        "genericName": "Spaghetti",
+        "id": "off:8076800195057",
+        "lastModified": "2026-05-25T09:23:04Z",
+        "market": "AU",
+        "name": "Spaghetti N°5",
+        "nutrients": {
+          "calories": 359,
+          "carbs": 71,
+          "energyKj": 1521,
+          "fat": 2,
+          "fibre": 3,
+          "protein": 13,
+          "salt": 0.01,
+          "saturatedFat": 0.5,
+          "sodium": 0.004,
+          "sugars": 3.5
+        },
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "complete",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "500 g",
+        "recordType": "external-catalogue",
+        "servingQuantity": 85,
+        "servingSize": "1 serving (85 g)",
+        "source": "Open Food Facts",
+        "sourceId": "off:8076800195057",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/8076800195057/spaghetti-n-5-barilla"
+      }
+    },
+    {
+      "shard": "products/bi-00.json",
+      "index": 513,
+      "sha256": "b5e0253418ebf0ea4973973577ecbae5cda8b6425ea0f1325f7cce786a4e5ab0",
+      "record": {
+        "barcode": "9310081407126",
+        "brand": "Birds Eye",
+        "brandKey": "birdseye",
+        "categories": [
+          "Plant-based foods and beverages",
+          "Plant-based foods",
+          "Cereals and potatoes",
+          "Potato preparations",
+          "Hash Browns"
+        ],
+        "countries": [
+          "en:australia"
+        ],
+        "genericName": "",
+        "id": "off:9310081407126",
+        "lastModified": "2025-05-30T22:11:05Z",
+        "market": "AU",
+        "name": "Hash Browns",
+        "nutrients": {},
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "identity-only",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "",
+        "recordType": "external-catalogue",
+        "servingQuantity": null,
+        "servingSize": "",
+        "source": "Open Food Facts",
+        "sourceId": "off:9310081407126",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/9310081407126/hash-browns-birds-eye"
+      }
+    },
+    {
+      "shard": "products/es-00.json",
+      "index": 59,
+      "sha256": "dba1b5e10d4803e10ee2be6aa4d01d1a3f786a4f5c6747a30808ebaa533329a6",
+      "record": {
+        "barcode": "9300633350079",
+        "brand": "essentials",
+        "brandKey": "essentials",
+        "categories": [
+          "Plant-based foods and beverages",
+          "Plant-based foods",
+          "Cereals and potatoes",
+          "Seeds",
+          "Cereals and their products",
+          "Cereal grains",
+          "Rices",
+          "Long grain rices"
+        ],
+        "countries": [
+          "en:australia",
+          "en:new-zealand"
+        ],
+        "genericName": "",
+        "id": "off:9300633350079",
+        "lastModified": "2026-02-19T23:31:16Z",
+        "market": "AU",
+        "name": "long grain white rice",
+        "nutrients": {
+          "calories": 338.571429,
+          "carbs": 78,
+          "energyKj": 1487.75,
+          "fat": 0.91,
+          "fibre": 1.05,
+          "protein": 7.04,
+          "salt": 0.0061,
+          "saturatedFat": 0.204286,
+          "sodium": 0.00228,
+          "sugars": 0.16
+        },
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "complete",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "1 kg",
+        "recordType": "external-catalogue",
+        "servingQuantity": 70,
+        "servingSize": "1 serving (70 g)",
+        "source": "Open Food Facts",
+        "sourceId": "off:9300633350079",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/9300633350079/long-grain-white-rice-essentials"
+      }
+    },
+    {
+      "shard": "products/ke-00.json",
+      "index": 175,
+      "sha256": "07e8866cd339a188c6e270bfa1b41a90dbcf932c89885c0d2904355e1c92968e",
+      "record": {
+        "barcode": "9310055537224",
+        "brand": "Kellogg's",
+        "brandKey": "kelloggs",
+        "categories": [
+          "Plant-based foods and beverages",
+          "Plant-based foods",
+          "Breakfasts",
+          "Cereals and potatoes",
+          "Cereals and their products",
+          "Breakfast cereals",
+          "Flakes",
+          "Cereal flakes",
+          "Extruded cereals",
+          "Extruded flakes",
+          "Corn flakes"
+        ],
+        "countries": [
+          "en:australia",
+          "en:new-zealand"
+        ],
+        "genericName": "",
+        "id": "off:9310055537224",
+        "lastModified": "2026-02-16T20:26:00Z",
+        "market": "AU",
+        "name": "Cornflakes",
+        "nutrients": {},
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "identity-only",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "380g",
+        "recordType": "external-catalogue",
+        "servingQuantity": 35,
+        "servingSize": "1 metric cup (35 g)",
+        "source": "Open Food Facts",
+        "sourceId": "off:9310055537224",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/9310055537224/cornflakes-kellogg-s"
+      }
+    },
+    {
+      "shard": "products/kr-00.json",
+      "index": 55,
+      "sha256": "3e1f4536099d995d814e5cc27476c549ad61da9953f5dc396ff6d4049ac24513",
+      "record": {
+        "barcode": "9300650664012",
+        "brand": "Kraft",
+        "brandKey": "kraft",
+        "categories": [
+          "Plant-based foods and beverages",
+          "Plant-based foods",
+          "Legumes and their products",
+          "Spreads",
+          "Nuts and their products",
+          "Plant-based spreads",
+          "Oilseed purees",
+          "Legume butters",
+          "Nut butters",
+          "Peanut butters"
+        ],
+        "countries": [
+          "en:australia",
+          "en:france"
+        ],
+        "genericName": "",
+        "id": "off:9300650664012",
+        "lastModified": "2026-03-19T20:14:31Z",
+        "market": "AU",
+        "name": "Smooth Peanut Butter 500G",
+        "nutrients": {
+          "calories": 619,
+          "carbs": 13.2,
+          "energyKj": 2534.5,
+          "fat": 51.5,
+          "protein": 23.8,
+          "saturatedFat": 10.3,
+          "sugars": 8.5
+        },
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "complete",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "",
+        "recordType": "external-catalogue",
+        "servingQuantity": null,
+        "servingSize": "",
+        "source": "Open Food Facts",
+        "sourceId": "off:9300650664012",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/9300650664012/smooth-peanut-butter-500g-kraft"
+      }
+    },
+    {
+      "shard": "products/la-00.json",
+      "index": 211,
+      "sha256": "b8f600556e9d7c0a77bcb76a1b74d893e8ed30b8d0ffa9659b23f6b3ff5cefa1",
+      "record": {
+        "barcode": "9339687257034",
+        "brand": "LaGina",
+        "brandKey": "lagina",
+        "categories": [
+          "Plant-based foods and beverages",
+          "Plant-based foods",
+          "Prepared vegetables",
+          "Baked beans in tomato sauce"
+        ],
+        "countries": [
+          "en:australia"
+        ],
+        "genericName": "",
+        "id": "off:9339687257034",
+        "lastModified": "2023-02-10T09:13:04Z",
+        "market": "AU",
+        "name": "Baked Beans",
+        "nutrients": {},
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "identity-only",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "420g",
+        "recordType": "external-catalogue",
+        "servingQuantity": null,
+        "servingSize": "",
+        "source": "Open Food Facts",
+        "sourceId": "off:9339687257034",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/9339687257034/baked-beans-lagina"
+      }
+    },
+    {
+      "shard": "products/ma-00.json",
+      "index": 394,
+      "sha256": "8c2f122cd83808eca732e77234d324d8fb57acce86a86f51f77c2f89eb6eed06",
+      "record": {
+        "barcode": "9300633227197",
+        "brand": "Macro",
+        "brandKey": "macro",
+        "categories": [
+          "Plant-based foods and beverages",
+          "Plant-based foods",
+          "Prepared vegetables",
+          "Baked beans in tomato sauce"
+        ],
+        "countries": [
+          "en:australia",
+          "en:new-zealand"
+        ],
+        "genericName": "",
+        "id": "off:9300633227197",
+        "lastModified": "2024-04-16T10:10:39Z",
+        "market": "AU",
+        "name": "Baked Beans in Tomato Sauce",
+        "nutrients": {},
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "identity-only",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "",
+        "recordType": "external-catalogue",
+        "servingQuantity": null,
+        "servingSize": "",
+        "source": "Open Food Facts",
+        "sourceId": "off:9300633227197",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/9300633227197/baked-beans-in-tomato-sauce-macro"
+      }
+    },
+    {
+      "shard": "products/mc-00.json",
+      "index": 53,
+      "sha256": "dbcbdc367309499e924abf0f3bfdb1bc103bbc53c21e0344b644fa0f20e42139",
+      "record": {
+        "barcode": "9310174025084",
+        "brand": "McCain",
+        "brandKey": "mccain",
+        "categories": [
+          "Plant-based foods and beverages",
+          "Plant-based foods",
+          "Cereals and potatoes",
+          "Potato preparations",
+          "Hash Browns"
+        ],
+        "countries": [
+          "en:australia",
+          "en:new-zealand"
+        ],
+        "genericName": "",
+        "id": "off:9310174025084",
+        "lastModified": "2026-04-27T09:30:41Z",
+        "market": "AU",
+        "name": "Hash Browns",
+        "nutrients": {
+          "calories": 162.523901,
+          "carbs": 16.4,
+          "energyKj": 658.4,
+          "fat": 8.666667,
+          "fibre": 0,
+          "protein": 3.466667,
+          "salt": 0.94,
+          "saturatedFat": 1.333333,
+          "sodium": 0.376,
+          "sugars": 1.333333
+        },
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "complete",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "750 g",
+        "recordType": "external-catalogue",
+        "servingQuantity": 75,
+        "servingSize": "1 hash brown (75 g)",
+        "source": "Open Food Facts",
+        "sourceId": "off:9310174025084",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/9310174025084/hash-browns-mccain"
+      }
+    },
+    {
+      "shard": "products/th-01.json",
+      "index": 20,
+      "sha256": "5956fb110e1bb138b038905fa111cfb78935dcfe9d433177ccbabcf2a2221882",
+      "record": {
+        "barcode": "9310988012720",
+        "brand": "The Natural Chip Co.",
+        "brandKey": "thenaturalchipco",
+        "categories": [
+          "Plant-based foods and beverages",
+          "Plant-based foods",
+          "Snacks",
+          "Cereals and potatoes",
+          "Salty snacks",
+          "Appetizers",
+          "Chips and fries",
+          "Crisps",
+          "Potato crisps"
+        ],
+        "countries": [
+          "en:australia"
+        ],
+        "genericName": "",
+        "id": "off:9310988012720",
+        "lastModified": "2026-05-25T16:14:33Z",
+        "market": "AU",
+        "name": "Lightly Salted Potato Chips",
+        "nutrients": {
+          "calories": 250.956023,
+          "carbs": 52,
+          "energyKj": 2067.6,
+          "fat": 28,
+          "fibre": 4,
+          "protein": 6.8,
+          "salt": 0.92,
+          "saturatedFat": 2.4,
+          "sodium": 0.368,
+          "sugars": 0.4
+        },
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "complete",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "175 g",
+        "recordType": "external-catalogue",
+        "servingQuantity": 25,
+        "servingSize": "1 serving (25 g)",
+        "source": "Open Food Facts",
+        "sourceId": "off:9310988012720",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/9310988012720/lightly-salted-potato-chips-the-natural-chip-co"
+      }
+    },
+    {
+      "shard": "products/th-01.json",
+      "index": 418,
+      "sha256": "5956fb110e1bb138b038905fa111cfb78935dcfe9d433177ccbabcf2a2221882",
+      "record": {
+        "barcode": "9339687345977",
+        "brand": "Thomas Dux",
+        "brandKey": "thomasdux",
+        "categories": [],
+        "countries": [
+          "en:australia"
+        ],
+        "genericName": "",
+        "id": "off:9339687345977",
+        "lastModified": "2024-07-16T06:33:16Z",
+        "market": "AU",
+        "name": "Brie Cheese",
+        "nutrients": {},
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "identity-only",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "",
+        "recordType": "external-catalogue",
+        "servingQuantity": 25,
+        "servingSize": "1 portion (25 g)",
+        "source": "Open Food Facts",
+        "sourceId": "off:9339687345977",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/9339687345977/brie-cheese-thomas-dux"
+      }
+    },
+    {
+      "shard": "products/un-02.json",
+      "index": 248,
+      "sha256": "e4e810ac4c1f51e18203f509a9e2e40b5946034f835e53e073ec36ced5b0972e",
+      "record": {
+        "barcode": "9310060406942",
+        "brand": "Uncle Tobys",
+        "brandKey": "uncletobys",
+        "categories": [
+          "Snacks",
+          "Sweet snacks",
+          "Bars",
+          "Cereal bars"
+        ],
+        "countries": [
+          "en:australia"
+        ],
+        "genericName": "",
+        "id": "off:9310060406942",
+        "lastModified": "2025-05-02T01:19:21Z",
+        "market": "AU",
+        "name": "Chewy Choc Chip",
+        "nutrients": {},
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "identity-only",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "185 g",
+        "recordType": "external-catalogue",
+        "servingQuantity": 31.3,
+        "servingSize": "31.3g",
+        "source": "Open Food Facts",
+        "sourceId": "off:9310060406942",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/9310060406942/chewy-choc-chip-uncle-tobys"
+      }
+    },
+    {
+      "shard": "products/wo-00.json",
+      "index": 182,
+      "sha256": "1502037259a246c86ca2254ab2e22edb7334f103428bdd3a8a405208edc560f2",
+      "record": {
+        "barcode": "9300633988098",
+        "brand": "Woolworth",
+        "brandKey": "woolworth",
+        "categories": [
+          "Dairies",
+          "Fermented foods",
+          "Fermented milk products",
+          "Cheeses"
+        ],
+        "countries": [
+          "en:australia"
+        ],
+        "genericName": "",
+        "id": "off:9300633988098",
+        "lastModified": "2023-05-27T23:50:09Z",
+        "market": "AU",
+        "name": "Tasty cheese",
+        "nutrients": {},
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "identity-only",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "",
+        "recordType": "external-catalogue",
+        "servingQuantity": 25,
+        "servingSize": "25.0g",
+        "source": "Open Food Facts",
+        "sourceId": "off:9300633988098",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/9300633988098/tasty-cheese-woolworth"
+      }
+    },
+    {
+      "shard": "products/wo-00.json",
+      "index": 390,
+      "sha256": "1502037259a246c86ca2254ab2e22edb7334f103428bdd3a8a405208edc560f2",
+      "record": {
+        "barcode": "9300633415266",
+        "brand": "Woolworths",
+        "brandKey": "woolworths",
+        "categories": [
+          "Plant-based foods and beverages",
+          "Plant-based foods",
+          "Fruits and vegetables based foods",
+          "Legumes and their products",
+          "Legumes",
+          "Vegetables based foods",
+          "Frozen foods",
+          "Vegetables",
+          "Frozen plant-based foods",
+          "Frozen legumes",
+          "Frozen vegetables",
+          "Green peas"
+        ],
+        "countries": [
+          "en:australia"
+        ],
+        "genericName": "",
+        "id": "off:9300633415266",
+        "lastModified": "2025-05-28T02:41:25Z",
+        "market": "AU",
+        "name": "Australian peas",
+        "nutrients": {},
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "identity-only",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "",
+        "recordType": "external-catalogue",
+        "servingQuantity": 75,
+        "servingSize": "1 serving (75 g)",
+        "source": "Open Food Facts",
+        "sourceId": "off:9300633415266",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/9300633415266/australian-peas-woolworths"
+      }
+    },
+    {
+      "shard": "products/wo-00.json",
+      "index": 401,
+      "sha256": "1502037259a246c86ca2254ab2e22edb7334f103428bdd3a8a405208edc560f2",
+      "record": {
+        "barcode": "9300633989934",
+        "brand": "Woolworths",
+        "brandKey": "woolworths",
+        "categories": [
+          "Plant-based foods and beverages",
+          "Plant-based foods",
+          "Breakfasts",
+          "Cereals and potatoes",
+          "Cereals and their products",
+          "Breakfast cereals",
+          "Flakes",
+          "Cereal flakes",
+          "Rolled flakes",
+          "Rolled oats"
+        ],
+        "countries": [
+          "en:australia",
+          "en:new-zealand"
+        ],
+        "genericName": "",
+        "id": "off:9300633989934",
+        "lastModified": "2026-05-10T15:03:25Z",
+        "market": "AU",
+        "name": "Australian Rolled Oats",
+        "nutrients": {
+          "calories": 380,
+          "carbs": 55.666667,
+          "energyKj": 1585.666667,
+          "fat": 9,
+          "fibre": 10.666667,
+          "protein": 13,
+          "salt": 0.008333,
+          "saturatedFat": 1.5,
+          "sodium": 0.001667,
+          "sugars": 1
+        },
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "complete",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "750 g",
+        "recordType": "external-catalogue",
+        "servingQuantity": 30,
+        "servingSize": "1 tbsp (30 g)",
+        "source": "Open Food Facts",
+        "sourceId": "off:9300633989934",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/9300633989934/australian-rolled-oats-woolworths"
+      }
+    },
+    {
+      "shard": "products/wo-00.json",
+      "index": 428,
+      "sha256": "1502037259a246c86ca2254ab2e22edb7334f103428bdd3a8a405208edc560f2",
+      "record": {
+        "barcode": "9300633476823",
+        "brand": "Woolworths",
+        "brandKey": "woolworths",
+        "categories": [
+          "Plant-based foods and beverages",
+          "Plant-based foods",
+          "Canned foods",
+          "Meals",
+          "Prepared vegetables",
+          "Baked beans in tomato sauce"
+        ],
+        "countries": [
+          "en:australia",
+          "en:new-zealand"
+        ],
+        "genericName": "",
+        "id": "off:9300633476823",
+        "lastModified": "2026-04-13T00:24:09Z",
+        "market": "AU",
+        "name": "Baked Beans in Tomato Sauce",
+        "nutrients": {
+          "calories": 76,
+          "carbs": 12,
+          "energyKj": 317,
+          "fat": 0.3,
+          "fibre": 3,
+          "protein": 4.6,
+          "salt": 0.6425,
+          "saturatedFat": 0.1,
+          "sodium": 0.257,
+          "sugars": 3.9
+        },
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "complete",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "420 g",
+        "recordType": "external-catalogue",
+        "servingQuantity": 140,
+        "servingSize": "140 g",
+        "source": "Open Food Facts",
+        "sourceId": "off:9300633476823",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/9300633476823/baked-beans-in-tomato-sauce-woolworths"
+      }
+    },
+    {
+      "shard": "products/wo-01.json",
+      "index": 261,
+      "sha256": "50b6ce1f04f1a161a0a3ee009e63a057c5d29d7ce42241186873d6061d8163c4",
+      "record": {
+        "barcode": "9339687386291",
+        "brand": "Woolworths",
+        "brandKey": "woolworths",
+        "categories": [],
+        "countries": [
+          "en:australia"
+        ],
+        "genericName": "",
+        "id": "off:9339687386291",
+        "lastModified": "2026-03-14T05:59:14Z",
+        "market": "AU",
+        "name": "Free From Gluten Penne",
+        "nutrients": {
+          "calories": 363.288719,
+          "carbs": 78.2,
+          "energyKj": 1517.6,
+          "fat": 1.5,
+          "fibre": 1.5,
+          "protein": 7.1,
+          "salt": 0.02,
+          "saturatedFat": 0,
+          "sodium": 0.008,
+          "sugars": 1
+        },
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "complete",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "",
+        "recordType": "external-catalogue",
+        "servingQuantity": 100,
+        "servingSize": "1 portion (100 g)",
+        "source": "Open Food Facts",
+        "sourceId": "off:9339687386291",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/9339687386291/free-from-gluten-penne-woolworths"
+      }
+    },
+    {
+      "shard": "products/wo-01.json",
+      "index": 320,
+      "sha256": "50b6ce1f04f1a161a0a3ee009e63a057c5d29d7ce42241186873d6061d8163c4",
+      "record": {
+        "barcode": "9339687253517",
+        "brand": "Woolworths",
+        "brandKey": "woolworths",
+        "categories": [
+          "Dairies",
+          "Milks (liquid and powder)",
+          "Milks"
+        ],
+        "countries": [
+          "en:australia"
+        ],
+        "genericName": "",
+        "id": "off:9339687253517",
+        "lastModified": "2025-07-28T11:17:31Z",
+        "market": "AU",
+        "name": "Full cream milk",
+        "nutrients": {},
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "identity-only",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "",
+        "recordType": "external-catalogue",
+        "servingQuantity": null,
+        "servingSize": "",
+        "source": "Open Food Facts",
+        "sourceId": "off:9339687253517",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/9339687253517/full-cream-milk-woolworths"
+      }
+    },
+    {
+      "shard": "products/wo-01.json",
+      "index": 671,
+      "sha256": "50b6ce1f04f1a161a0a3ee009e63a057c5d29d7ce42241186873d6061d8163c4",
+      "record": {
+        "barcode": "9300633777364",
+        "brand": "Wool worths",
+        "brandKey": "woolworths",
+        "categories": [],
+        "countries": [
+          "en:australia"
+        ],
+        "genericName": "",
+        "id": "off:9300633777364",
+        "lastModified": "2023-02-02T23:42:25Z",
+        "market": "AU",
+        "name": "Milk arrowroot biscuit",
+        "nutrients": {},
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "identity-only",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "",
+        "recordType": "external-catalogue",
+        "servingQuantity": 17,
+        "servingSize": "17.0g",
+        "source": "Open Food Facts",
+        "sourceId": "off:9300633777364",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/9300633777364/milk-arrowroot-biscuit-wool-worths"
+      }
+    },
+    {
+      "shard": "products/wo-01.json",
+      "index": 753,
+      "sha256": "50b6ce1f04f1a161a0a3ee009e63a057c5d29d7ce42241186873d6061d8163c4",
+      "record": {
+        "barcode": "9300633631536",
+        "brand": "Woolworths",
+        "brandKey": "woolworths",
+        "categories": [
+          "Dairies",
+          "Fermented foods",
+          "Fermented milk products",
+          "Desserts",
+          "Dairy desserts",
+          "Fermented dairy desserts",
+          "Yogurts",
+          "Greek-style yogurts"
+        ],
+        "countries": [
+          "en:australia"
+        ],
+        "genericName": "",
+        "id": "off:9300633631536",
+        "lastModified": "2026-03-03T21:37:57Z",
+        "market": "AU",
+        "name": "Natural Greek Style Yoghurt",
+        "nutrients": {
+          "calories": 117,
+          "carbs": 7.2,
+          "energyKj": 488.6,
+          "fat": 7.6,
+          "protein": 5,
+          "salt": 0.1425,
+          "saturatedFat": 5.3,
+          "sodium": 0.057,
+          "sugars": 5.5
+        },
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "complete",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "1 kg",
+        "recordType": "external-catalogue",
+        "servingQuantity": 200,
+        "servingSize": "200 g",
+        "source": "Open Food Facts",
+        "sourceId": "off:9300633631536",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/9300633631536/natural-greek-style-yoghurt-woolworths"
+      }
+    },
+    {
+      "shard": "products/wo-01.json",
+      "index": 783,
+      "sha256": "50b6ce1f04f1a161a0a3ee009e63a057c5d29d7ce42241186873d6061d8163c4",
+      "record": {
+        "barcode": "9300633701291",
+        "brand": "Woolworths",
+        "brandKey": "woolworths",
+        "categories": [
+          "Juice",
+          "Juices"
+        ],
+        "countries": [
+          "en:australia"
+        ],
+        "genericName": "",
+        "id": "off:9300633701291",
+        "lastModified": "2023-01-03T18:38:28Z",
+        "market": "AU",
+        "name": "Orange juice",
+        "nutrients": {},
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "identity-only",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "",
+        "recordType": "external-catalogue",
+        "servingQuantity": null,
+        "servingSize": "",
+        "source": "Open Food Facts",
+        "sourceId": "off:9300633701291",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/9300633701291/orange-juice-woolworths"
+      }
+    },
+    {
+      "shard": "products/wo-01.json",
+      "index": 899,
+      "sha256": "50b6ce1f04f1a161a0a3ee009e63a057c5d29d7ce42241186873d6061d8163c4",
+      "record": {
+        "barcode": "9300633777401",
+        "brand": "Woolworths",
+        "brandKey": "woolworths",
+        "categories": [
+          "Snacks",
+          "Salty snacks",
+          "Appetizers",
+          "Biscuits and crackers",
+          "Crackers (Appetizers)"
+        ],
+        "countries": [
+          "en:australia",
+          "en:new-zealand"
+        ],
+        "genericName": "",
+        "id": "off:9300633777401",
+        "lastModified": "2025-05-26T23:45:28Z",
+        "market": "AU",
+        "name": "Plain Water Crackers",
+        "nutrients": {},
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "identity-only",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "125 g",
+        "recordType": "external-catalogue",
+        "servingQuantity": 12,
+        "servingSize": "12g",
+        "source": "Open Food Facts",
+        "sourceId": "off:9300633777401",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/9300633777401/plain-water-crackers-woolworths"
+      }
+    },
+    {
+      "shard": "products/wo-02.json",
+      "index": 175,
+      "sha256": "f7a195c26d0fd422ed6a4803b5370ac717b5d40a3fc446cb2bd5b17ced4a761a",
+      "record": {
+        "barcode": "9339687357994",
+        "brand": "Woolworths",
+        "brandKey": "woolworths",
+        "categories": [],
+        "countries": [
+          "en:australia"
+        ],
+        "genericName": "",
+        "id": "off:9339687357994",
+        "lastModified": "2024-09-03T11:39:40Z",
+        "market": "AU",
+        "name": "Sea Salt Deli Style Chips",
+        "nutrients": {},
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "identity-only",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "",
+        "recordType": "external-catalogue",
+        "servingQuantity": 25,
+        "servingSize": "1 portion (25 g)",
+        "source": "Open Food Facts",
+        "sourceId": "off:9339687357994",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/9339687357994/sea-salt-deli-style-chips-woolworths"
+      }
+    },
+    {
+      "shard": "products/wo-02.json",
+      "index": 266,
+      "sha256": "f7a195c26d0fd422ed6a4803b5370ac717b5d40a3fc446cb2bd5b17ced4a761a",
+      "record": {
+        "barcode": "9300633919054",
+        "brand": "Woolworths",
+        "brandKey": "woolworths",
+        "categories": [
+          "Plant-based foods and beverages",
+          "Plant-based foods",
+          "Legumes and their products",
+          "Spreads",
+          "Nuts and their products",
+          "Plant-based spreads",
+          "Oilseed purees",
+          "Legume butters",
+          "Nut butters",
+          "Peanut butters"
+        ],
+        "countries": [
+          "en:australia"
+        ],
+        "genericName": "",
+        "id": "off:9300633919054",
+        "lastModified": "2026-04-17T23:50:38Z",
+        "market": "AU",
+        "name": "Smooth Peanut Butter",
+        "nutrients": {
+          "calories": 605,
+          "carbs": 21.5,
+          "energyKj": 2535,
+          "fat": 47,
+          "fibre": 6,
+          "protein": 22.5,
+          "salt": 1.2375,
+          "saturatedFat": 7.5,
+          "sodium": 0.495,
+          "sugars": 6.5
+        },
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "complete",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "1",
+        "recordType": "external-catalogue",
+        "servingQuantity": 20,
+        "servingSize": "1 tbsp (20 g)",
+        "source": "Open Food Facts",
+        "sourceId": "off:9300633919054",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/9300633919054/smooth-peanut-butter-woolworths"
+      }
+    },
+    {
+      "shard": "products/wo-02.json",
+      "index": 434,
+      "sha256": "f7a195c26d0fd422ed6a4803b5370ac717b5d40a3fc446cb2bd5b17ced4a761a",
+      "record": {
+        "barcode": "9300633935306",
+        "brand": "woolworths",
+        "brandKey": "woolworths",
+        "categories": [
+          "Plant-based foods and beverages",
+          "Plant-based foods",
+          "Fats",
+          "Spreads",
+          "Plant-based spreads",
+          "Spreadable fats",
+          "Vegetable fats",
+          "Margarines"
+        ],
+        "countries": [
+          "en:australia",
+          "en:new-zealand"
+        ],
+        "genericName": "",
+        "id": "off:9300633935306",
+        "lastModified": "2026-04-16T05:44:05Z",
+        "market": "AU",
+        "name": "table spread",
+        "nutrients": {
+          "calories": 460,
+          "carbs": 1,
+          "energyKj": 1958,
+          "fat": 52,
+          "protein": 1,
+          "salt": 0.875,
+          "saturatedFat": 11.9,
+          "sodium": 0.35,
+          "sugars": 1
+        },
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "complete",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "500g",
+        "recordType": "external-catalogue",
+        "servingQuantity": 100,
+        "servingSize": "1 serving (100 g)",
+        "source": "Open Food Facts",
+        "sourceId": "off:9300633935306",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/9300633935306/table-spread-woolworths"
+      }
+    },
+    {
+      "shard": "products/wo-02.json",
+      "index": 456,
+      "sha256": "f7a195c26d0fd422ed6a4803b5370ac717b5d40a3fc446cb2bd5b17ced4a761a",
+      "record": {
+        "barcode": "9300633906603",
+        "brand": "Woolworths",
+        "brandKey": "woolworths",
+        "categories": [],
+        "countries": [
+          "en:australia"
+        ],
+        "genericName": "",
+        "id": "off:9300633906603",
+        "lastModified": "2026-05-22T13:54:47Z",
+        "market": "AU",
+        "name": "Tasty Slices",
+        "nutrients": {
+          "calories": 395.238095,
+          "carbs": 0.1,
+          "energyKj": 348.8,
+          "fat": 6.9,
+          "fibre": 0,
+          "protein": 5.4,
+          "salt": 0.3425,
+          "saturatedFat": 4.6,
+          "sodium": 0.137,
+          "sugars": 0.1
+        },
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "complete",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "24 Slice 500g",
+        "recordType": "external-catalogue",
+        "servingQuantity": 21,
+        "servingSize": "1 serving (21 g)",
+        "source": "Open Food Facts",
+        "sourceId": "off:9300633906603",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/9300633906603/tasty-slices-woolworths"
+      }
+    },
+    {
+      "shard": "products/wo-02.json",
+      "index": 499,
+      "sha256": "f7a195c26d0fd422ed6a4803b5370ac717b5d40a3fc446cb2bd5b17ced4a761a",
+      "record": {
+        "barcode": "9300633910198",
+        "brand": "Woolworths",
+        "brandKey": "woolworths",
+        "categories": [
+          "Condiments",
+          "Sauces",
+          "Tomato sauces",
+          "Ketchup",
+          "Tomato Ketchup"
+        ],
+        "countries": [
+          "en:australia",
+          "en:new-zealand"
+        ],
+        "genericName": "",
+        "id": "off:9300633910198",
+        "lastModified": "2026-04-06T00:39:51Z",
+        "market": "AU",
+        "name": "Tomato Sauce",
+        "nutrients": {
+          "calories": 107,
+          "carbs": 25,
+          "energyKj": 446,
+          "fat": 1,
+          "fibre": 1,
+          "protein": 1,
+          "salt": 1.6925,
+          "saturatedFat": 1,
+          "sodium": 0.677,
+          "sugars": 20.4
+        },
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "complete",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "500 ml",
+        "recordType": "external-catalogue",
+        "servingQuantity": 15,
+        "servingSize": "15 ml",
+        "source": "Open Food Facts",
+        "sourceId": "off:9300633910198",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/9300633910198/tomato-sauce-woolworths"
+      }
+    },
+    {
+      "shard": "products/wo-02.json",
+      "index": 572,
+      "sha256": "f7a195c26d0fd422ed6a4803b5370ac717b5d40a3fc446cb2bd5b17ced4a761a",
+      "record": {
+        "barcode": "9339687307210",
+        "brand": "Woolworths",
+        "brandKey": "woolworths",
+        "categories": [],
+        "countries": [
+          "en:australia"
+        ],
+        "genericName": "",
+        "id": "off:9339687307210",
+        "lastModified": "2024-05-31T23:00:31Z",
+        "market": "AU",
+        "name": "Vanilla Bean Ice-cream",
+        "nutrients": {},
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "identity-only",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "",
+        "recordType": "external-catalogue",
+        "servingQuantity": 61,
+        "servingSize": "1 serve (61 g)",
+        "source": "Open Food Facts",
+        "sourceId": "off:9339687307210",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/9339687307210/vanilla-bean-ice-cream-woolworths"
+      }
+    },
+    {
+      "shard": "products/wo-02.json",
+      "index": 576,
+      "sha256": "f7a195c26d0fd422ed6a4803b5370ac717b5d40a3fc446cb2bd5b17ced4a761a",
+      "record": {
+        "barcode": "9300633744182",
+        "brand": "Woolworths",
+        "brandKey": "woolworths",
+        "categories": [
+          "Desserts",
+          "Frozen foods",
+          "Frozen desserts",
+          "Ice creams and sorbets",
+          "Ice creams"
+        ],
+        "countries": [
+          "en:australia"
+        ],
+        "genericName": "",
+        "id": "off:9300633744182",
+        "lastModified": "2022-10-25T14:47:40Z",
+        "market": "AU",
+        "name": "Vanilla classic ice cream sandwhiches",
+        "nutrients": {},
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "identity-only",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "",
+        "recordType": "external-catalogue",
+        "servingQuantity": null,
+        "servingSize": "",
+        "source": "Open Food Facts",
+        "sourceId": "off:9300633744182",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/9300633744182/vanilla-classic-ice-cream-sandwhiches-woolworths"
+      }
+    },
+    {
+      "shard": "products/wo-02.json",
+      "index": 649,
+      "sha256": "f7a195c26d0fd422ed6a4803b5370ac717b5d40a3fc446cb2bd5b17ced4a761a",
+      "record": {
+        "barcode": "9300633167424",
+        "brand": "Woolworths",
+        "brandKey": "woolworths",
+        "categories": [
+          "Plant-based foods and beverages",
+          "Plant-based foods",
+          "Cereals and potatoes",
+          "Breads"
+        ],
+        "countries": [
+          "en:australia"
+        ],
+        "genericName": "",
+        "id": "off:9300633167424",
+        "lastModified": "2024-09-17T13:23:45Z",
+        "market": "AU",
+        "name": "Wholemeal Sandwich Slice Bread",
+        "nutrients": {},
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "identity-only",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "",
+        "recordType": "external-catalogue",
+        "servingQuantity": 59,
+        "servingSize": "2 slices (59 g)",
+        "source": "Open Food Facts",
+        "sourceId": "off:9300633167424",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/9300633167424/wholemeal-sandwich-slice-bread-woolworths"
+      }
+    },
+    {
+      "shard": "products/wo-02.json",
+      "index": 839,
+      "sha256": "f7a195c26d0fd422ed6a4803b5370ac717b5d40a3fc446cb2bd5b17ced4a761a",
+      "record": {
+        "barcode": "9339687336258",
+        "brand": "Woolworths Bakery",
+        "brandKey": "woolworthsbakery",
+        "categories": [],
+        "countries": [
+          "en:australia"
+        ],
+        "genericName": "",
+        "id": "off:9339687336258",
+        "lastModified": "2026-04-15T02:11:36Z",
+        "market": "AU",
+        "name": "White Sandwich Bread",
+        "nutrients": {
+          "calories": 260.73353,
+          "carbs": 48.030303,
+          "energyKj": 1088.181818,
+          "fat": 2.727273,
+          "fibre": 3.636364,
+          "protein": 8.333333,
+          "salt": 0.950758,
+          "saturatedFat": 1,
+          "sodium": 0.380303,
+          "sugars": 3.636364
+        },
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "complete",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "",
+        "recordType": "external-catalogue",
+        "servingQuantity": 66,
+        "servingSize": "2 slices (66 g)",
+        "source": "Open Food Facts",
+        "sourceId": "off:9339687336258",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/9339687336258/white-sandwich-bread-woolworths-bakery"
+      }
+    },
+    {
+      "shard": "products/ww-00.json",
+      "index": 11,
+      "sha256": "ded06d6bbf516d3193cc93413edcfd3f58656f9f65ae9ff4642e5e30a8e5a556",
+      "record": {
+        "barcode": "9339687428700",
+        "brand": "WW",
+        "brandKey": "ww",
+        "categories": [],
+        "countries": [
+          "en:australia"
+        ],
+        "genericName": "",
+        "id": "off:9339687428700",
+        "lastModified": "2025-12-03T01:34:50Z",
+        "market": "AU",
+        "name": "Orange Juice",
+        "nutrients": {},
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "identity-only",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "",
+        "recordType": "external-catalogue",
+        "servingQuantity": 250,
+        "servingSize": "1 portion (250 ml)",
+        "source": "Open Food Facts",
+        "sourceId": "off:9339687428700",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/9339687428700/orange-juice-ww"
+      }
+    }
+  ]
+}

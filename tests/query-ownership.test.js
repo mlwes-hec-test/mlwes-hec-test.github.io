@@ -21,8 +21,8 @@ test('approved retrieval equivalence never defines input identity',()=>{
 function block(start,end){const from=runtime.indexOf(start),to=runtime.indexOf(end,from+start.length);assert(from>=0&&to>from);return runtime.slice(from,to);}
 function brandHarness(){
   const input={value:'Cote'},pending=[],renders=[],state={revision:1,rawQuery:'Cote'};
-  const context={C8:C,searchSession633:state,by:()=>input,allFoods:()=>[],window:{HECOpenFoodFactsAU:{search:query=>new Promise((resolve,reject)=>pending.push({query,resolve,reject}))}},au633RenderBrand:owner=>renders.push({query:owner.query,revision:owner.revision,ids:owner.records.map(r=>r.id)})};
-  vm.createContext(context);vm.runInContext(`let au633BrandState=null;${block('function ss633Current(', '\nfunction rc6GroupGenericFries')}${block('function au633BrandQueryCurrent(', '\nfunction au633BrandModel')}${block('function au633LoadBrand(', '\nfunction au633SubmitBrand')}globalThis.load=au633LoadBrand;`,context);
+  const context={C8:C,searchSession633:state,by:()=>input,allFoods:()=>[],rememberCanonicalFoods:foods=>foods,window:{HECOpenFoodFactsAU:{search:query=>new Promise((resolve,reject)=>pending.push({query,resolve,reject}))},HECRetailerCatalogue:{search:async()=>({foods:[],total:0,hasMore:false})}},au633RenderBrand:owner=>renders.push({query:owner.query,revision:owner.revision,ids:owner.records.map(r=>r.id)})};
+  vm.createContext(context);vm.runInContext(`let au633BrandState=null;${block('async function catalogueSearch633(', '\nasync function catalogueBarcode633')}${block('function ss633Current(', '\nfunction rc6GroupGenericFries')}${block('function au633BrandQueryCurrent(', '\nfunction au633BrandModel')}${block('function au633LoadBrand(', '\nfunction au633SubmitBrand')}globalThis.load=au633LoadBrand;`,context);
   C.registerBrandDirectory(['Cote','Côte','resume','résumé'].map(name=>({name,count:2})));
   return {context,input,state,pending,renders};
 }

@@ -52,11 +52,20 @@ test('exact-name matching preserves retired, legacy and nutrition eligibility re
   const incomplete=food({nutrients:{}});assert(C.explicitIdentityMatch(incomplete,incomplete.name));assert.equal(C.productEligibility(incomplete).addability.normalLoggingAllowed,false);
 });
 test('explicit runtime lookup preserves possessive brand spelling after quantity removal',async()=>{
-  const runtime=fs.readFileSync(path.join(__dirname,'../alpha06.js'),'utf8'),start=runtime.indexOf('async function fc633StartExplicit('),end=runtime.indexOf('\nfunction fc633Candidates(',start);
-  assert(start>=0&&end>start);const record=food(),raw="two Miller's Bakery Cedar Seeds & Grains",intent=S.interpretFoodIntent(raw,{records:[record],sourceIntent:C.queryIntent(raw)}),requests=[],results={innerHTML:''};
-  assert.notEqual(intent.identityQuery,intent.quantity.identityQuery);
-  const context={C8:C,REG29:require('../entity-registry'),fc633Revision:0,searchSession633:{rawQuery:raw,revision:1},ss633Current:(revision,query)=>revision===1&&query===raw,ext:{ui:{}},allFoods:()=>[],ps34SyncGuidedUiState(){},ss633Commit(){},saveExt(){},us633RenderSubmitted(){},by:id=>id==='food-search'?{blur(){}}:results,window:{HECOpenFoodFactsAU:{async search(query){requests.push(query);return {foods:[record]};}}}};
-  vm.runInNewContext(runtime.slice(start,end),context);assert.equal(await context.fc633StartExplicit(raw,intent,'enter'),true);
-  assert.equal(requests[0],intent.quantity.identityQuery);assert.equal(C.queryIntent(requests[0]).entity.name,"Miller's Bakery");
-  const selected=context.searchSession633.submittedModel.groups.flatMap(group=>group.items).find(item=>item.recordId===record.id);assert(selected);assert.equal(selected.addability.status,'loggable-now');
+  const record=food(),raw="two Miller's Bakery Cedar Seeds & Grains",result=await require('./fixtures/product-name-runtime-harness').lookup(raw,[record]);
+  assert.notEqual(result.intent.identityQuery,result.intent.quantity.identityQuery);assert.equal(result.handled,true);
+  const query=result.requests.find(request=>request.provider==='OFF').query;assert.equal(query,result.intent.quantity.identityQuery);assert.equal(C.queryIntent(query).entity.name,"Miller's Bakery");
+  const selected=result.model.groups.flatMap(group=>group.items);assert.equal(selected.length,1);assert.equal(selected[0].recordId,record.id);assert.equal(selected[0].food.brand,record.brand);assert.equal(selected[0].addability.status,'loggable-now');assert.equal(result.model.quantity.consumedQuantity,2);assert.equal(result.rawAfter,raw);
+});
+
+test('real Arnott’s and Kellogg’s products retain possessive identity and separate quantity through the complete controller',async()=>{
+  const {index}=require('../woolworths-au-catalogue'),records=index.files.flatMap(file=>require('../data/woolworths-au/'+file.path).records),lookup=require('./fixtures/product-name-runtime-harness').lookup;
+  for(const id of ['woolworths-au:36009','woolworths-au:702098']){const record=records.find(food=>food.id===id);assert(record);
+    for(const spelling of [record.brand,record.brand.replace("'",'’'),record.brand.replace("'",'')]){
+      const productName=id==='woolworths-au:702098'?'Corn Flakes':record.name.replace(new RegExp('^'+record.brand.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'\\s*','i'),''),raw='two '+spelling+' '+productName,result=await lookup(raw,records.filter(food=>food.id===id||food.id==='woolworths-au:233922'));
+      assert.equal(result.handled,true);assert.equal(result.intent.quantity.consumedQuantity,2);assert.equal(result.model.quantity.consumedQuantity,2);assert.equal(result.rawAfter,raw);
+      const query=result.requests.find(request=>request.provider==='OFF').query;assert.equal(C.norm(query),C.norm(record.brand+' '+productName));assert(!/^two\b/.test(query));
+      const selected=result.model.groups.flatMap(group=>group.items);assert.equal(selected.length,1,raw);assert.equal(selected[0].recordId,id);assert.equal(selected[0].food.brand,record.brand);assert.equal(selected[0].addability.normalLoggingAllowed,id==='woolworths-au:36009');
+    }
+  }
 });

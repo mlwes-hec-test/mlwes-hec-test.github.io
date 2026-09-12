@@ -86,7 +86,7 @@ async function run({quick=false,viewports=null,outputDirectory=fs.mkdtempSync(pa
     for(const query of ['McCain','Meadow Lea','Flora','McCain hash brown','McCain','Hash Brown']){await page.locator('#food-search').fill(query);await page.waitForTimeout(60);}await page.locator('#submit-food-search').click();await concept.settled(page);assert.equal((await page.evaluate(()=>HEC_FOOD_CONCEPT_TEST.state())).conceptId,'hash-brown');
     row.customisation=await concept.previewCustomisation(page);
     row.flows.push(await loggedFlow(page,{query:'Flora ProActiv Light',measure:'tsp',amount:2,calories:37,kj:154,id:'flora-proactiv-light-au-official'}));
-    row.flows.push(await loggedFlow(page,{query:'McCain hash brown',measure:'serve',amount:1,calories:122,kj:510,id:'off:9310174025084'}));
+    row.flows.push(await loggedFlow(page,{query:'McCain hash brown',measure:'serve',amount:1,calories:130,kj:543,id:'woolworths-au:98299'}));
     row.flows.push(await loggedFlow(page,{query:'Big Mac',measure:'burger',amount:2,calories:1242,kj:5200,id:'food-source:mcdonalds-au:big-mac'}));
     await concept.submit(page,'KFC Wicked Wings');await ready(page);for(const count of [3,6,10])assert.equal(await page.locator('[data-universal-result]').filter({has:page.locator('strong',{hasText:new RegExp('^'+count+' Wicked Wings$')})}).count(),1);
     await page.screenshot({path:path.join(outputDirectory,viewport.width+'-result.png'),fullPage:true});qa.requireEvidence(diagnostic);await context.close();fs.writeFileSync(path.join(outputDirectory,'report.json'),JSON.stringify(report,null,2));

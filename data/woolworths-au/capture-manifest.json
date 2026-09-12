@@ -1,0 +1,506 @@
+[
+  {
+    "url": "https://www.woolworths.com.au/shop/about/our-brands",
+    "retrievedAt": "2026-09-12T12:23:09.166Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/about/our-brands",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 666037,
+    "sha256": "bd75137cb6412fd8df6166a13de96aefbe094015563ffa4a039e9ff6cbf63b7c"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/browse/pantry",
+    "retrievedAt": "2026-09-12T12:23:09.629Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/browse/pantry",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 663089,
+    "sha256": "cf30b6d0aadb7c6a413ff71d772cb28c22a4923e65cb4c97fb426fdeb73a51a0"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/158188",
+    "retrievedAt": "2026-09-12T12:23:09.780Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/158188",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 702493,
+    "sha256": "4fa5179f726d27c5baf97689744f8f3fd2106bc982dc60b6724ca3cfe3b3b16b"
+  },
+  {
+    "url": "https://www.woolworthsgroup.com.au/au/en/our-impact/sustainability/health-and-nutrition/Making-our-own-brands-healthier.html",
+    "retrievedAt": "2026-09-12T12:23:09.965Z",
+    "finalUrl": "https://www.woolworthsgroup.com.au/au/en/our-impact/sustainability/health-and-nutrition/Making-our-own-brands-healthier.html",
+    "status": 200,
+    "contentType": "text/html;charset=utf-8",
+    "bytes": 152823,
+    "sha256": "800e20dbd497f80941e51816932d8ccafdaa91cdd90b171b4ec4acd914767ab6"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/277727",
+    "retrievedAt": "2026-09-12T12:26:33.871Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/277727",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 697044,
+    "sha256": "662501287179d4193d9cea62a8f279ea6b033bc5539e81ed2043198f7cb5beaf"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/151547",
+    "retrievedAt": "2026-09-12T12:26:34.288Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/151547",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 697170,
+    "sha256": "da224e365cb668fd5e412b02927087aa021d5f9327ce34436c0bb2a772707fcd"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/702098",
+    "retrievedAt": "2026-09-12T12:26:34.501Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/702098",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 702241,
+    "sha256": "a582896b3d370db192644b68e6f455606ece08f304b008d40f7cef06742fe7f4"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/321220",
+    "retrievedAt": "2026-09-12T12:26:35.536Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/321220",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 740945,
+    "sha256": "3c6ba0006fa51e624db6221fd7ae750acc05e3814e4387f335d402ea3e82e31a"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/571487",
+    "retrievedAt": "2026-09-12T12:26:35.824Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/571487",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 741439,
+    "sha256": "1d772de0a77bf314d41bffebcf3bfa65be7b59810d92a045752e84eb3999cd0f"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/310237",
+    "retrievedAt": "2026-09-12T12:26:35.970Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/310237",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 742165,
+    "sha256": "d46913816624987162d28e524724328709711b9500595faf936077feb4eeb654"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/224941",
+    "retrievedAt": "2026-09-12T12:26:36.702Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/224941",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 742559,
+    "sha256": "448cb87eb3232d6ec21e7c7210865e29d2857c01e39e1f593f0bde60962f6002"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/93530",
+    "retrievedAt": "2026-09-12T12:26:37.168Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/93530",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 701284,
+    "sha256": "ffa1873a5dc67b0db1ab63abbc4fc6625252ea7b397fb2d5662f16b06a5ef42b"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/824365",
+    "retrievedAt": "2026-09-12T12:26:38.239Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/824365",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 739615,
+    "sha256": "f5bd452b8e66509d521cf9b227aa719c31a43ce19eb82acdfaf5e7552c4f9506"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/355265",
+    "retrievedAt": "2026-09-12T12:26:39.018Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/355265",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 707981,
+    "sha256": "9011eca4f6ee4aebf0f6d8cd035f15dce528572bf0fac7f6d21b0e614667c7dc"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/924103",
+    "retrievedAt": "2026-09-12T12:26:39.987Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/924103",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 737288,
+    "sha256": "7f60e85892b573daadfd95fcd8dc20271263495d1699f9bfa68502cf79d2cfc3"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/98299",
+    "retrievedAt": "2026-09-12T12:26:40.949Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/98299",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 741895,
+    "sha256": "d910e38ab48ed09327f476d234da51ab01d5fe09ea833c2ffc964be79b41e04f"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/425758",
+    "retrievedAt": "2026-09-12T12:26:41.624Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/425758",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 700074,
+    "sha256": "d8f448cb97617aa94b0deaa598439b0b9d4d10f7650b43a1236f57a247edf391"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/35007",
+    "retrievedAt": "2026-09-12T12:26:42.553Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/35007",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 736146,
+    "sha256": "cb3730569dc1aaddd9809efe28648706ebe8e005ef96ffe3e7b46ff8cc52bda8"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/about/our-brands/woolworths-range",
+    "retrievedAt": "2026-09-12T12:26:43.240Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/about/our-brands/woolworths-range",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 981693,
+    "sha256": "102e71f3bb26a7b99dce73b0db2ca9155d50764a9345c40a18e04b674790972e"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/about/our-brands/macro",
+    "retrievedAt": "2026-09-12T12:26:43.656Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/about/our-brands/macro",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 710355,
+    "sha256": "e168e74de0509baddadec2af940036338742a47a5776bf91655cec594410cc92"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/about/our-brands/thomas-dux",
+    "retrievedAt": "2026-09-12T12:26:43.817Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/about/our-brands/thomas-dux",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 774667,
+    "sha256": "5a57590face33cf8b8805a9e66a3bc5fc5c97df9a65659165ad5ba1e20032017"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/about/our-brands/essentials",
+    "retrievedAt": "2026-09-12T12:26:44.055Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/about/our-brands/essentials",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 769445,
+    "sha256": "91cba991e20d52b1f22540e6a38515dd36c52aa76f27d6d3bc9a5bbaf8bef124"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/353871",
+    "retrievedAt": "2026-09-12T12:31:17.359Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/353871",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 700531,
+    "sha256": "4e5e17b3a3e5449ee4b74be1f4ec9b1aa07d8e57cb1dcfb7ff0141b817a892de"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/382738",
+    "retrievedAt": "2026-09-12T12:31:18.798Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/382738",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 742467,
+    "sha256": "36d704e199b3ed91c32a28600661b462e108a9057a86d83493e08474f7586355"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/571488",
+    "retrievedAt": "2026-09-12T12:31:19.841Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/571488",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 696285,
+    "sha256": "7362921424eca948ac7ba0b5dd18f0ecd720df86b1ff9eaa04681610cfd25aa5"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/311844",
+    "retrievedAt": "2026-09-12T12:31:20.628Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/311844",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 736227,
+    "sha256": "fa30e09ba4015aeadc0516a993e838ea7579980c7b08728933037779c579d347"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/346830",
+    "retrievedAt": "2026-09-12T12:31:21.250Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/346830",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 738335,
+    "sha256": "b6d73149a96c8d797273f5ad928d35899093e98bfa3fa24a28ce1b7b5df17d8f"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/83763",
+    "retrievedAt": "2026-09-12T12:31:21.940Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/83763",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 709375,
+    "sha256": "ca11f25ec3b7648d015ea81f8ec31bfb066e9df028cd940a0cadf617e5f7edc4"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/233922",
+    "retrievedAt": "2026-09-12T12:31:22.549Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/233922",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 745634,
+    "sha256": "f3650ceb51609c2dcc0878f0e7bd7f615575b81bde27f67c8d8a85e512aec3a5"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/69286",
+    "retrievedAt": "2026-09-12T12:31:22.726Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/69286",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 703712,
+    "sha256": "f9bcff979aa04ecc5713b78129b1296b82902ba6934a05096de94d34d3695f71"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/230519",
+    "retrievedAt": "2026-09-12T12:31:23.598Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/230519",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 737657,
+    "sha256": "21ec1397ad11124a13b946e6d3b8a61968dd415315593c4b10695b7898fa2f33"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/665356",
+    "retrievedAt": "2026-09-12T12:31:24.429Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/665356",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 698107,
+    "sha256": "6f7c01bdd75bbc6e60f93dae6d83a82410e7348c25e169b272a9d4de159d9bd4"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/228345",
+    "retrievedAt": "2026-09-12T12:31:25.786Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/228345",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 739402,
+    "sha256": "2604636c676702bac503746b02108cb6901cea5128af2ffaaf61b2415e1a1cc9"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/830211",
+    "retrievedAt": "2026-09-12T12:31:26.721Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/830211",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 740083,
+    "sha256": "4034308b75e65bd35aab3f3ae07769a51033f33adaa719eaf70b5736aee3a0bf"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/905257",
+    "retrievedAt": "2026-09-12T12:31:27.675Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/905257",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 696998,
+    "sha256": "8c95e009b6d8c1858df780b553aeeecb26b1645e77defac0b75f356ce802db65"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/902837",
+    "retrievedAt": "2026-09-12T12:31:28.631Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/902837",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 694474,
+    "sha256": "7113c526cbe5ec2dad4aec4f4dadf558c15ba113981c4cc6a86db7b545c433b5"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/396254",
+    "retrievedAt": "2026-09-12T12:31:29.265Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/396254",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 722353,
+    "sha256": "2f90675c418193eb776d229f690b580cd723be88a125cd75c1fb34e405e111e9"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/756826",
+    "retrievedAt": "2026-09-12T12:31:29.960Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/756826",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 700533,
+    "sha256": "6b0d7a398c9c1ceda7ff2550be3a5f56d5df1d9d8fd95c21dc1ec1710d5c1c03"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/756086",
+    "retrievedAt": "2026-09-12T12:31:30.899Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/756086",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 687253,
+    "sha256": "fee6a1b47343e08f7e2f51580636a246924e6ea50e5c226ee5d347bd1d54bb0e"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/6033180",
+    "retrievedAt": "2026-09-12T12:31:32.244Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/6033180",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 735549,
+    "sha256": "10352baad76ee583ef8079f1bb2fa579e723651ee95826900d3e58ae4873423d"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/288440",
+    "retrievedAt": "2026-09-12T12:31:32.991Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/288440",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 684252,
+    "sha256": "b886771ab4fb048cd5eee076a2eef563ffa723961bb8697e48ce3384c4a00731"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/208679",
+    "retrievedAt": "2026-09-12T12:31:33.744Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/208679",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 697943,
+    "sha256": "8937ca961ba06edc2f7d020b583423970210221602f0f58d18ef3df77f4660ae"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/536231",
+    "retrievedAt": "2026-09-12T12:31:34.884Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/536231",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 740297,
+    "sha256": "a84a099f509f046a7d18968e0597583823c209cf21dc94ea4673a32914815e48"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/38939",
+    "retrievedAt": "2026-09-12T12:31:35.841Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/38939",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 746232,
+    "sha256": "a4aa94f0df39e4dfc26780a062b9980ff6f74cd805b9794dbdcfd3606a67ee84"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/904775",
+    "retrievedAt": "2026-09-12T12:31:36.629Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/904775",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 735793,
+    "sha256": "476cab255f3a90683555dfdaddbb8e843d7c7ec855b7995afc4d6e15664d0d5e"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/about/our-brands/free-from-gluten",
+    "retrievedAt": "2026-09-12T12:31:37.146Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/about/our-brands/free-from-gluten",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 752813,
+    "sha256": "ff38198885c89220f5df6c3c97ad606d5dcdf1c77e6e16e4e7808b7f9c715a76"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/814281",
+    "retrievedAt": "2026-09-12T12:33:08.416Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/814281",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 702182,
+    "sha256": "35d2bf5eb357193f8dc44e739b8af8ae9fe3e84c690a3188406c63c1984251a2"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/47682",
+    "retrievedAt": "2026-09-12T12:33:10.243Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/47682",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 743333,
+    "sha256": "d37502be14f873e8eecbb44a60ec346304afc31483455d9561954549530821b8"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/700589",
+    "retrievedAt": "2026-09-12T12:33:10.986Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/700589",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 739606,
+    "sha256": "4fdf6a4a883dcfa18b024ce7e7195969a6b0661ce09391a2f3bb83fea3045693"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/824442",
+    "retrievedAt": "2026-09-12T12:33:11.309Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/824442",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 740903,
+    "sha256": "6082cf3af2ac97dc801c3f6c96ece3022031c6e49a882fc65ce451abb7bd4f80"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/36009",
+    "retrievedAt": "2026-09-12T12:33:11.944Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/36009",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 708489,
+    "sha256": "1451970c8569c2e8628fa3a8497dc3b5b8eedc7814f2357b5aa082f629534b9b"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/754170",
+    "retrievedAt": "2026-09-12T12:33:12.122Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/754170",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 734018,
+    "sha256": "0d670ded9c69da9e2d09e7c91d4d9d7891cf2b6d190ce80d1acb56ec71ec42a2"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/749947",
+    "retrievedAt": "2026-09-12T12:42:55.869Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/749947",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 740150,
+    "sha256": "acc0da054a3853e3227ed36a74ccefcf482978200efcb22603e2d5f4a2d75b85"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/825528",
+    "retrievedAt": "2026-09-12T12:42:57.404Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/825528",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 736159,
+    "sha256": "9e7abad4e779cb7e5dc7a3c7af40b20b1c029107c055a85ff257158b19b67650"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/97191",
+    "retrievedAt": "2026-09-12T12:42:58.416Z",
+    "finalUrl": "https://www.woolworths.com.au/",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 787629,
+    "sha256": "82ee073bcddc73de381a890f063b2e2d12240dd1289abc012350eacd4fc4dd98"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/248249",
+    "retrievedAt": "2026-09-12T12:43:31.810Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/248249",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 744747,
+    "sha256": "6da6c9372f32aa85774ba03237cb1c89ae8580c84f7b1c97934fc9a7f8bea11f"
+  }
+]

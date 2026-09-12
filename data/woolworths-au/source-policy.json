@@ -1,0 +1,594 @@
+{
+  "schemaVersion": 1,
+  "retailer": {
+    "id": "woolworths",
+    "name": "Woolworths",
+    "market": "AU",
+    "aliases": [
+      "Woolies"
+    ]
+  },
+  "protectedOFF": {
+    "records": 73300,
+    "shards": 588,
+    "sourceSha256": "F72687EE8BC6522054FE69DBFDA6B91902C16AF1EC2E043CDE27BC6C29AD8176"
+  },
+  "categories": [
+    {
+      "id": "bread",
+      "label": "Bread & Bakery",
+      "scope": "food"
+    },
+    {
+      "id": "milk",
+      "label": "Milk",
+      "scope": "food"
+    },
+    {
+      "id": "yoghurt",
+      "label": "Yoghurt",
+      "scope": "food"
+    },
+    {
+      "id": "cheese",
+      "label": "Cheese",
+      "scope": "food"
+    },
+    {
+      "id": "cereal",
+      "label": "Breakfast Cereal",
+      "scope": "food"
+    },
+    {
+      "id": "canned",
+      "label": "Baked Beans & Canned Food",
+      "scope": "food"
+    },
+    {
+      "id": "grains",
+      "label": "Rice, Pasta & Grains",
+      "scope": "food"
+    },
+    {
+      "id": "spreads",
+      "label": "Spreads & Margarine",
+      "scope": "food"
+    },
+    {
+      "id": "biscuits",
+      "label": "Crackers & Biscuits",
+      "scope": "food"
+    },
+    {
+      "id": "snacks",
+      "label": "Snack Foods",
+      "scope": "food"
+    },
+    {
+      "id": "frozen-vegetables",
+      "label": "Frozen Vegetables",
+      "scope": "food"
+    },
+    {
+      "id": "frozen-potato",
+      "label": "Frozen Potato Products",
+      "scope": "food"
+    },
+    {
+      "id": "sauces",
+      "label": "Sauces & Condiments",
+      "scope": "food"
+    },
+    {
+      "id": "drinks",
+      "label": "Non-alcoholic Drinks",
+      "scope": "food"
+    },
+    {
+      "id": "desserts",
+      "label": "Desserts & Ice Cream",
+      "scope": "food"
+    },
+    {
+      "id": "produce",
+      "label": "Packaged Fruit & Vegetables",
+      "scope": "food"
+    },
+    {
+      "id": "protein",
+      "label": "Meat & Protein",
+      "scope": "food"
+    }
+  ],
+  "privateLabels": [
+    {
+      "consumerBrand": "Woolworths",
+      "directoryLabel": "Woolworths Range",
+      "relationship": "own-label",
+      "evidence": {
+        "sourceId": "woolworths-au-public",
+        "recordId": "/shop/about/our-brands",
+        "trustClass": "official-au-retailer",
+        "url": "https://www.woolworths.com.au/shop/about/our-brands",
+        "retrievedAt": "2026-09-12T12:23:09.166Z",
+        "sha256": "bd75137cb6412fd8df6166a13de96aefbe094015563ffa4a039e9ff6cbf63b7c"
+      },
+      "productFamilyEvidence": {
+        "sourceId": "woolworths-au-public",
+        "recordId": "/shop/about/our-brands/woolworths-range",
+        "trustClass": "official-au-retailer",
+        "url": "https://www.woolworths.com.au/shop/about/our-brands/woolworths-range",
+        "retrievedAt": "2026-09-12T12:26:43.240Z",
+        "sha256": "102e71f3bb26a7b99dce73b0db2ca9155d50764a9345c40a18e04b674790972e"
+      },
+      "basis": "Official Our Brands directory relationship, applied only to the exact displayed brand on each captured product page."
+    },
+    {
+      "consumerBrand": "Woolworths Essentials",
+      "directoryLabel": "Essentials",
+      "relationship": "private-label",
+      "evidence": {
+        "sourceId": "woolworths-au-public",
+        "recordId": "/shop/about/our-brands",
+        "trustClass": "official-au-retailer",
+        "url": "https://www.woolworths.com.au/shop/about/our-brands",
+        "retrievedAt": "2026-09-12T12:23:09.166Z",
+        "sha256": "bd75137cb6412fd8df6166a13de96aefbe094015563ffa4a039e9ff6cbf63b7c"
+      },
+      "productFamilyEvidence": {
+        "sourceId": "woolworths-au-public",
+        "recordId": "/shop/about/our-brands/essentials",
+        "trustClass": "official-au-retailer",
+        "url": "https://www.woolworths.com.au/shop/about/our-brands/essentials",
+        "retrievedAt": "2026-09-12T12:26:44.055Z",
+        "sha256": "91cba991e20d52b1f22540e6a38515dd36c52aa76f27d6d3bc9a5bbaf8bef124"
+      },
+      "basis": "Official Our Brands directory relationship, applied only to the exact displayed brand on each captured product page."
+    },
+    {
+      "consumerBrand": "Macro",
+      "directoryLabel": "Macro",
+      "relationship": "private-label",
+      "evidence": {
+        "sourceId": "woolworths-au-public",
+        "recordId": "/shop/about/our-brands",
+        "trustClass": "official-au-retailer",
+        "url": "https://www.woolworths.com.au/shop/about/our-brands",
+        "retrievedAt": "2026-09-12T12:23:09.166Z",
+        "sha256": "bd75137cb6412fd8df6166a13de96aefbe094015563ffa4a039e9ff6cbf63b7c"
+      },
+      "productFamilyEvidence": {
+        "sourceId": "woolworths-au-public",
+        "recordId": "/shop/about/our-brands/macro",
+        "trustClass": "official-au-retailer",
+        "url": "https://www.woolworths.com.au/shop/about/our-brands/macro",
+        "retrievedAt": "2026-09-12T12:26:43.656Z",
+        "sha256": "e168e74de0509baddadec2af940036338742a47a5776bf91655cec594410cc92"
+      },
+      "basis": "Official Our Brands directory relationship, applied only to the exact displayed brand on each captured product page."
+    },
+    {
+      "consumerBrand": "Thomas Dux",
+      "directoryLabel": "Thomas Dux",
+      "relationship": "private-label",
+      "evidence": {
+        "sourceId": "woolworths-au-public",
+        "recordId": "/shop/about/our-brands",
+        "trustClass": "official-au-retailer",
+        "url": "https://www.woolworths.com.au/shop/about/our-brands",
+        "retrievedAt": "2026-09-12T12:23:09.166Z",
+        "sha256": "bd75137cb6412fd8df6166a13de96aefbe094015563ffa4a039e9ff6cbf63b7c"
+      },
+      "productFamilyEvidence": {
+        "sourceId": "woolworths-au-public",
+        "recordId": "/shop/about/our-brands/thomas-dux",
+        "trustClass": "official-au-retailer",
+        "url": "https://www.woolworths.com.au/shop/about/our-brands/thomas-dux",
+        "retrievedAt": "2026-09-12T12:26:43.817Z",
+        "sha256": "5a57590face33cf8b8805a9e66a3bc5fc5c97df9a65659165ad5ba1e20032017"
+      },
+      "basis": "Official Our Brands directory relationship, applied only to the exact displayed brand on each captured product page."
+    },
+    {
+      "consumerBrand": "Free From Gluten",
+      "directoryLabel": "Free from gluten",
+      "relationship": "private-label",
+      "evidence": {
+        "sourceId": "woolworths-au-public",
+        "recordId": "/shop/about/our-brands",
+        "trustClass": "official-au-retailer",
+        "url": "https://www.woolworths.com.au/shop/about/our-brands",
+        "retrievedAt": "2026-09-12T12:23:09.166Z",
+        "sha256": "bd75137cb6412fd8df6166a13de96aefbe094015563ffa4a039e9ff6cbf63b7c"
+      },
+      "productFamilyEvidence": {
+        "sourceId": "woolworths-au-public",
+        "recordId": "/shop/about/our-brands/free-from-gluten",
+        "trustClass": "official-au-retailer",
+        "url": "https://www.woolworths.com.au/shop/about/our-brands/free-from-gluten",
+        "retrievedAt": "2026-09-12T12:31:37.146Z",
+        "sha256": "ff38198885c89220f5df6c3c97ad606d5dcdf1c77e6e16e4e7808b7f9c715a76"
+      },
+      "basis": "Official Our Brands directory relationship, applied only to the exact displayed brand on each captured product page."
+    },
+    {
+      "consumerBrand": "The Odd Bunch",
+      "relationship": "private-label",
+      "evidence": {
+        "sourceId": "woolworths-au-public",
+        "recordId": "/au/en/our-impact/sustainability/health-and-nutrition/Making-our-own-brands-healthier.html",
+        "trustClass": "official-au-retailer",
+        "url": "https://www.woolworthsgroup.com.au/au/en/our-impact/sustainability/health-and-nutrition/Making-our-own-brands-healthier.html",
+        "retrievedAt": "2026-09-12T12:23:09.965Z",
+        "sha256": "800e20dbd497f80941e51816932d8ccafdaa91cdd90b171b4ec4acd914767ab6"
+      },
+      "basis": "Woolworths Group own-brand information identifies The Odd Bunch fruit and vegetable range; exact displayed product brands are independently captured."
+    }
+  ],
+  "products": [
+    {
+      "sourceRecordId": "277727",
+      "categoryId": "bread",
+      "physicalForm": "sliced",
+      "conceptIds": [
+        "bread"
+      ],
+      "nutritionState": "as published for this product"
+    },
+    {
+      "sourceRecordId": "353871",
+      "categoryId": "bread",
+      "physicalForm": "sliced",
+      "conceptIds": [
+        "bread"
+      ],
+      "nutritionState": "as published for this product"
+    },
+    {
+      "sourceRecordId": "814281",
+      "categoryId": "bread",
+      "physicalForm": "sliced",
+      "conceptIds": [
+        "bread"
+      ],
+      "nutritionState": "as published for this product"
+    },
+    {
+      "sourceRecordId": "151547",
+      "categoryId": "milk",
+      "physicalForm": "liquid",
+      "conceptIds": [
+        "milk"
+      ],
+      "nutritionState": "as published for this product"
+    },
+    {
+      "sourceRecordId": "382738",
+      "categoryId": "milk",
+      "physicalForm": "liquid",
+      "conceptIds": [
+        "milk"
+      ],
+      "nutritionState": "as published for this product"
+    },
+    {
+      "sourceRecordId": "571487",
+      "categoryId": "yoghurt",
+      "physicalForm": "weight",
+      "conceptIds": [
+        "yoghurt"
+      ],
+      "nutritionState": "as published for this product"
+    },
+    {
+      "sourceRecordId": "310237",
+      "categoryId": "cheese",
+      "physicalForm": "weight",
+      "conceptIds": [
+        "cheese"
+      ],
+      "nutritionState": "as published for this product"
+    },
+    {
+      "sourceRecordId": "224941",
+      "categoryId": "cheese",
+      "physicalForm": "sliced",
+      "conceptIds": [
+        "cheese"
+      ],
+      "nutritionState": "as published for this product"
+    },
+    {
+      "sourceRecordId": "311844",
+      "categoryId": "cheese",
+      "physicalForm": "weight",
+      "conceptIds": [
+        "cheese"
+      ],
+      "nutritionState": "as published for this product"
+    },
+    {
+      "sourceRecordId": "702098",
+      "categoryId": "cereal",
+      "physicalForm": "weight",
+      "conceptIds": [
+        "cereal"
+      ],
+      "nutritionState": "as published for this product"
+    },
+    {
+      "sourceRecordId": "321220",
+      "categoryId": "cereal",
+      "physicalForm": "weight",
+      "conceptIds": [
+        "cereal"
+      ],
+      "nutritionState": "as-sold dry product"
+    },
+    {
+      "sourceRecordId": "158188",
+      "categoryId": "canned",
+      "physicalForm": "weight",
+      "conceptIds": [
+        "baked-beans"
+      ],
+      "nutritionState": "as published for this product"
+    },
+    {
+      "sourceRecordId": "47682",
+      "categoryId": "canned",
+      "physicalForm": "weight",
+      "conceptIds": [
+        "baked-beans"
+      ],
+      "nutritionState": "as published for this product"
+    },
+    {
+      "sourceRecordId": "700589",
+      "categoryId": "canned",
+      "physicalForm": "weight",
+      "conceptIds": [
+        "baked-beans"
+      ],
+      "nutritionState": "as published for this product"
+    },
+    {
+      "sourceRecordId": "35007",
+      "categoryId": "grains",
+      "physicalForm": "weight",
+      "conceptIds": [],
+      "nutritionState": "as-sold dry product"
+    },
+    {
+      "sourceRecordId": "346830",
+      "categoryId": "grains",
+      "physicalForm": "weight",
+      "conceptIds": [],
+      "nutritionState": "as-sold dry product"
+    },
+    {
+      "sourceRecordId": "83763",
+      "categoryId": "grains",
+      "physicalForm": "weight",
+      "conceptIds": [],
+      "nutritionState": "as-sold dry product"
+    },
+    {
+      "sourceRecordId": "904775",
+      "categoryId": "grains",
+      "physicalForm": "weight",
+      "conceptIds": [],
+      "nutritionState": "as-sold dry product"
+    },
+    {
+      "sourceRecordId": "93530",
+      "categoryId": "spreads",
+      "physicalForm": "spread",
+      "conceptIds": [],
+      "nutritionState": "as published for this product"
+    },
+    {
+      "sourceRecordId": "233922",
+      "categoryId": "spreads",
+      "physicalForm": "spread",
+      "conceptIds": [],
+      "nutritionState": "as published for this product"
+    },
+    {
+      "sourceRecordId": "69286",
+      "categoryId": "spreads",
+      "physicalForm": "spread",
+      "conceptIds": [],
+      "nutritionState": "as published for this product"
+    },
+    {
+      "sourceRecordId": "824365",
+      "categoryId": "biscuits",
+      "physicalForm": "countable",
+      "conceptIds": [],
+      "nutritionState": "as published for this product"
+    },
+    {
+      "sourceRecordId": "355265",
+      "categoryId": "biscuits",
+      "physicalForm": "countable",
+      "conceptIds": [],
+      "nutritionState": "as published for this product"
+    },
+    {
+      "sourceRecordId": "824442",
+      "categoryId": "biscuits",
+      "physicalForm": "countable",
+      "conceptIds": [],
+      "nutritionState": "as published for this product"
+    },
+    {
+      "sourceRecordId": "36009",
+      "categoryId": "biscuits",
+      "physicalForm": "countable",
+      "conceptIds": [],
+      "nutritionState": "as published for this product"
+    },
+    {
+      "sourceRecordId": "396254",
+      "categoryId": "snacks",
+      "physicalForm": "weight",
+      "conceptIds": [],
+      "nutritionState": "as published for this product"
+    },
+    {
+      "sourceRecordId": "756826",
+      "categoryId": "snacks",
+      "physicalForm": "weight",
+      "conceptIds": [],
+      "nutritionState": "as published for this product"
+    },
+    {
+      "sourceRecordId": "248249",
+      "categoryId": "snacks",
+      "physicalForm": "countable",
+      "conceptIds": [],
+      "nutritionState": "as published for this product"
+    },
+    {
+      "sourceRecordId": "754170",
+      "categoryId": "frozen-vegetables",
+      "physicalForm": "weight",
+      "conceptIds": [],
+      "nutritionState": "as published for this product"
+    },
+    {
+      "sourceRecordId": "924103",
+      "categoryId": "frozen-potato",
+      "physicalForm": "solid-countable",
+      "conceptIds": [
+        "hash-brown"
+      ],
+      "nutritionState": "as published for this product"
+    },
+    {
+      "sourceRecordId": "98299",
+      "categoryId": "frozen-potato",
+      "physicalForm": "solid-countable",
+      "conceptIds": [
+        "hash-brown"
+      ],
+      "nutritionState": "as published for this product"
+    },
+    {
+      "sourceRecordId": "38939",
+      "categoryId": "frozen-potato",
+      "physicalForm": "solid-countable",
+      "conceptIds": [
+        "hash-brown"
+      ],
+      "nutritionState": "as published for this product"
+    },
+    {
+      "sourceRecordId": "230519",
+      "categoryId": "sauces",
+      "physicalForm": "liquid",
+      "conceptIds": [],
+      "nutritionState": "as published for this product"
+    },
+    {
+      "sourceRecordId": "665356",
+      "categoryId": "sauces",
+      "physicalForm": "weight",
+      "conceptIds": [],
+      "nutritionState": "as published for this product"
+    },
+    {
+      "sourceRecordId": "756086",
+      "categoryId": "drinks",
+      "physicalForm": "liquid",
+      "conceptIds": [],
+      "nutritionState": "as published for this product"
+    },
+    {
+      "sourceRecordId": "6033180",
+      "categoryId": "drinks",
+      "physicalForm": "liquid",
+      "conceptIds": [],
+      "nutritionState": "as published for this product"
+    },
+    {
+      "sourceRecordId": "825528",
+      "categoryId": "drinks",
+      "physicalForm": "liquid",
+      "conceptIds": [],
+      "nutritionState": "as published for this product"
+    },
+    {
+      "sourceRecordId": "228345",
+      "categoryId": "desserts",
+      "physicalForm": "weight",
+      "conceptIds": [],
+      "nutritionState": "as published for this product"
+    },
+    {
+      "sourceRecordId": "830211",
+      "categoryId": "desserts",
+      "physicalForm": "countable",
+      "conceptIds": [],
+      "nutritionState": "as published for this product"
+    },
+    {
+      "sourceRecordId": "288440",
+      "categoryId": "produce",
+      "physicalForm": "weight",
+      "conceptIds": [],
+      "nutritionState": "as published for this product"
+    },
+    {
+      "sourceRecordId": "208679",
+      "categoryId": "produce",
+      "physicalForm": "weight",
+      "conceptIds": [],
+      "nutritionState": "as published for this product"
+    },
+    {
+      "sourceRecordId": "905257",
+      "categoryId": "protein",
+      "physicalForm": "weight",
+      "conceptIds": [
+        "chicken"
+      ],
+      "nutritionState": "as-sold uncooked product"
+    },
+    {
+      "sourceRecordId": "902837",
+      "categoryId": "protein",
+      "physicalForm": "weight",
+      "conceptIds": [
+        "chicken"
+      ],
+      "nutritionState": "as-sold uncooked product"
+    }
+  ],
+  "excluded": [
+    {
+      "sourceRecordId": "749947",
+      "reason": "Additional bread candidate has a published pack/serving-count discrepancy; defer this variant in the bounded first wave."
+    },
+    {
+      "sourceRecordId": "97191",
+      "reason": "Public URL redirects to the home page and supplies no product facts."
+    },
+    {
+      "sourceRecordId": "425758",
+      "reason": "Current captured product identity, displayed brand and pack are absent; nutrition rows also disagree on serving basis."
+    },
+    {
+      "sourceRecordId": "571488",
+      "reason": "Current captured product identity, displayed brand and pack are absent."
+    },
+    {
+      "sourceRecordId": "536231",
+      "reason": "Bell Farms private-label ownership is not established by the captured official brand sources; defer classification. Published serving count also disagrees with pack mass."
+    }
+  ],
+  "taxonomyMethod": "Map the captured official product department/category/subcategory fields into 17 bounded HEC retailer food categories. Product facts retain all original category labels. No new global food ontology is inferred.",
+  "captureMethod": "Ordinary unauthenticated HTTPS GET of public HTML; no private API, account, cookies, store selection or access-control bypass. Raw response SHA-256 is verified before extraction. Availability remains context-limited.",
+  "scope": "First bounded food wave; no alcohol, non-food, loose generic produce or historic name-only promotion."
+}

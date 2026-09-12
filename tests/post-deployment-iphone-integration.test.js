@@ -164,9 +164,11 @@ test('R04 identity-weak shells cannot outrank a specific loggable product',()=>{
   assert.equal(model.groups.find(group=>group.key==='details').items[0].recordId,'weak-shell');
 });
 
-test('O01 exact GTIN duplicates retain the strongest complete Australian representative',()=>{
+test('O01 cached-online matching and rendering retain one enriched strong Australian canonical product',()=>{
   const weak=incomplete({id:'weak',barcode:'9300000000999',name:'Duplicate Product',market:'international'}),strong=complete({id:'strong',barcode:'9300000000999',name:'Duplicate Product',verified:true});
-  assert.equal(catalogue.dedupe([weak,strong])[0],strong);
+  const before=JSON.stringify([weak,strong]),app=require('./fixtures/canonical-consumer-harness').harness({online:[weak,strong]}),matches=app.cachedOnlineMatches('Duplicate Product');
+  assert.equal(matches.length,1);const food=matches[0];assert.notEqual(food,strong);assert.equal(food.id,'strong');assert.equal(food.name,strong.name);assert.equal(food.brand,strong.brand);assert.equal(food.barcode,'9300000000999');assert.equal(catalogue.canonicalKey(food),catalogue.canonicalKey(strong));assert.equal(food.nutrients.calories,200);assert.equal(catalogue.productEligibility(food).addability.normalLoggingAllowed,true);assert.deepEqual(food.units,strong.units);assert.deepEqual(food.manufacturerServing,strong.manufacturerServing);assert.deepEqual(new Set(food.canonicalEvidence.map(item=>item.recordId)),new Set(['weak','strong']));
+  app.renderOnlineLibrary('Duplicate Product');assert.equal(app.rows.length,1);assert.equal(app.rows[0].id,'strong');assert.equal(app.rows[0].canonicalEvidence.length,2);assert.equal(app.legacyRows.length,0);assert.equal(app.getFood('weak'),app.rows[0]);assert.equal(app.getFood('strong'),app.rows[0]);assert.equal(JSON.stringify([weak,strong]),before);
 });
 
 test('O02 an online append cannot duplicate an existing canonical product',()=>{

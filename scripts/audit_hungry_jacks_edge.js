@@ -12,7 +12,7 @@ async function run({outputDirectory=fs.mkdtempSync(path.join(os.tmpdir(),'hec-hj
     const foods=await page.evaluate(()=>HECFoodSources.foodRecords({sourceId:'hungry-jacks-au'}));
     for(const query of ["Hungry Jack's",'Hungry Jacks']){await submit(page,query);assert(await page.locator('[data-rc5-source-category]').count()>10);assert.equal(await page.locator('[data-universal-result]').count(),0);assert.equal(await page.locator('#food-search').inputValue(),query);result.scenarios.push({query,categories:await page.locator('[data-rc5-source-category]').allTextContents()});}
     await page.screenshot({path:path.join(outputDirectory,`${viewport.width}-categories.png`),fullPage:true});
-    const subset=viewport.width===390?flows:['Whopper','Nugget 6 Pack','Biscoff Shake Small'];
+    const subset=viewport.width===390?flows:['Whopper','Nugget 6 Pack','Biscoff Shake Small','Chips Small','Chips Medium','Chips Large'];
     for(const name of subset){
       const food=foods.find(f=>f.name===name);assert(food,name);const query="Hungry Jack's "+name;
       // The same exact identity is actionable in the typed, submitted and
@@ -32,11 +32,21 @@ async function run({outputDirectory=fs.mkdtempSync(path.join(os.tmpdir(),'hec-hj
       const saved=await page.evaluate(id=>Object.values(JSON.parse(localStorage.getItem(HEC_INSTALLATION.functionalStorageKey)).diary).flat().find(f=>f.foodId===id),food.id);assert.equal(saved.consumedPortion.amount,2);assert.equal(saved.consumedPortion.measureId,food.defaultUnit);result.scenarios.push({name,id:food.id,preview:true,search:true,browse:true,unit:food.defaultUnit,amount:2,nutrition,oneReview:true,syntheticDiary:true});
     }
     for(const name of ['BBQ Cheeseburger','Coke No Sugar POM Large','Whopper Triple','Family Bundle Large']){await submit(page,"Hungry Jack's "+name);const food=foods.find(f=>f.name===name),row=page.locator(`[data-universal-result="${food.id}"]`);assert.equal(await row.count(),1);await row.click();assert.equal(await page.locator('[data-gpr-measure]:visible,[data-gpr-amount]:visible,#food-entry-editor.active').count(),0);result.scenarios.push({name,blockedBeforeMeasure:true});}
-    if(viewport.width===390)for(const [query,name] of [['Hash Brown','Hash Brown'],['Burger','Whopper'],['Chicken burger','Grilled Chicken Saucy Burger Korean BBQ'],['Chips','Chips Medium'],['Nuggets','Nugget 6 Pack']]){
+    for(const [query,name] of [['Hash Brown','Hash Brown'],['Burger','Whopper'],['Chicken burger','Grilled Chicken Saucy Burger Korean BBQ'],['Chips','Chips Medium'],['Nuggets','Nugget 6 Pack']]){
       await submit(page,query);
       // Hash Brown and Burger offer a source chooser. Chips, chicken burgers
       // and nuggets expose the restaurant identity in submitted result groups.
       if(['Hash Brown','Burger'].includes(query)){await page.locator('[data-fc-base]').click();const expand=page.locator('[data-fc-narrow]');if(await expand.count())await expand.click();await page.locator('[data-fc-answer="sourceContext"][data-fc-value="ready-to-eat"]').click();await settled(page);}
+      if(query==='Chips'){
+        // Generic Chips has a bounded, diverse shortlist, not a promised size.
+        // The 703f230 baseline placed Medium fifth; verified retailer evidence
+        // moves it sixth under the same five-item branded limit. Protect all
+        // size identities through their actual explicit family/category paths.
+        const expected=['Chips Small','Chips Medium','Chips Large'].map(name=>foods.find(food=>food.name===name).id),generic=await page.evaluate(()=>({search:HEC_SEARCH_SESSION_TEST.state(),concept:HEC_FOOD_CONCEPT_TEST.state(),candidateIds:HEC_FOOD_CONCEPT_TEST.candidates().map(food=>food.id),baseCount:document.querySelectorAll('[data-fc-base]').length,visibleCount:document.querySelectorAll('[data-fc-base],[data-universal-result]').length,brandedCount:document.querySelectorAll('[data-universal-group="branded"] [data-universal-result]').length}));
+        assert.equal(generic.search.rawQuery,'Chips');assert.equal(generic.search.mode,'explicit-committed');assert.equal(generic.concept.conceptId,'chips');assert.equal(generic.concept.loading,false);assert.equal(generic.concept.catalogueError,'');assert.equal(generic.baseCount,1);assert(generic.visibleCount>1&&generic.visibleCount<=20);assert(generic.brandedCount<=5);assert(expected.every(id=>generic.candidateIds.includes(id)),'All verified HJ chip sizes remain available before shortlist truncation');
+        await submit(page,'Hungry Jacks Chips');const family=await page.locator('[data-universal-group="restaurant-family"] [data-universal-result]').evaluateAll(nodes=>nodes.map(node=>node.dataset.universalResult));assert.deepEqual(family,expected);assert.equal(await page.locator('[data-gpr-amount]:visible,#food-entry-editor.active').count(),0,'A generic family does not silently select a size');const owner=await page.evaluate(()=>HEC_SEARCH_SESSION_TEST.state());assert.equal(owner.rawQuery,'Hungry Jacks Chips');assert(owner.revision>generic.search.revision);
+        result.scenarios.push({query,generic,explicitFamily:family,queryOwnership:true});continue;
+      }
       const food=foods.find(f=>f.name===name),row=page.locator(`[data-universal-result="${food.id}"]`);
       // Explicit submitted searches can finish their asynchronous catalogue
       // render after the concept/brand loading flags have cleared.

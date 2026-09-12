@@ -48,7 +48,7 @@ function createFoodLibraryHarness(){
     's23Norm','s23Singular','s23Parsed','alpha0630QueryContext','alpha0629EntityMatch',
   ].map(productionFunction).join('\n');
   const integrated=[
-    's23ProductLike','alpha0630InvalidateFoodSearchCaches','s23BrandIndex','s23BrandMatch',
+    'rememberCanonicalFoods','s23ProductLike','alpha0630InvalidateFoodSearchCaches','s23BrandIndex','s23BrandMatch',
     's23LikelyProduct','s23ProductScorer','s23CacheProductMatches','s23ProductMatches','s23EnergyMeta','s23ProductRow',
     'alpha0627StableProductMatches','s23RenderLive','alpha0630HandleFoodSearchInput','rc3NeutralSearch'
   ].map(productionFunction).join('\n');
@@ -57,7 +57,7 @@ function createFoodLibraryHarness(){
     const REG29=window.HECAustralianEntityRegistry,S23=window.HECSearchFoundation,C8=window.HECFoodCatalogue,CONVERSATION=conversation;
     const ACTIVE_VERSION='0.6.33',alpha0623LegacyRank=()=>0;
     const ext={ui:{foodSearch:'',libraryTab:'all'},savedFoodIds:[],foodVerification:{}};
-    const alpha0630QueryContextCache=new Map(),alpha0630ProductMatchCache=new Map(),alpha0630ProductIntentCache=new Map(),alpha0627StableSearchCache=new Map();
+    const canonicalCatalogueRecords=new Map(),alpha0630QueryContextCache=new Map(),alpha0630ProductMatchCache=new Map(),alpha0630ProductIntentCache=new Map(),alpha0627StableSearchCache=new Map();
     let alpha0630FoodSearchRevision=0,alpha0630BrandIndexRevision=-1,alpha0630BrandIndexValues=[];
     let alpha0630FoodSearchUiToken=0,alpha0630FoodSearchTimer=null,allResourcesOnlineTimer=null,onlineSearchToken=0,onlineAbortController=null;
     const searchSession633={revision:0,committedRevision:0},au633BrandState=null;

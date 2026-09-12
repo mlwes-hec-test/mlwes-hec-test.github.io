@@ -1,0 +1,1249 @@
+{
+  "officialEvidenceRows": 43,
+  "rawEvidenceRows": 77,
+  "canonicalIdentities": 43,
+  "retailerProducts": 43,
+  "verifiedGTINs": 43,
+  "categories": 17,
+  "privateLabel": 32,
+  "nationalBrand": 11,
+  "eligibility": {
+    "loggable-now": 23,
+    "needs-nutrition-completion": 20,
+    "details-only": 0
+  },
+  "conflictBlocked": 17,
+  "listingEvidenced": 43,
+  "uncertainAvailability": 43,
+  "exactOFFCorroborations": 34,
+  "identitiesStrengthened": 34,
+  "unsafeMergesPrevented": 11,
+  "invalidGTINQuarantine": [],
+  "rawRowsCollapsed": 34,
+  "excluded": [
+    {
+      "sourceRecordId": "749947",
+      "reason": "Additional bread candidate has a published pack/serving-count discrepancy; defer this variant in the bounded first wave."
+    },
+    {
+      "sourceRecordId": "97191",
+      "reason": "Public URL redirects to the home page and supplies no product facts."
+    },
+    {
+      "sourceRecordId": "425758",
+      "reason": "Current captured product identity, displayed brand and pack are absent; nutrition rows also disagree on serving basis."
+    },
+    {
+      "sourceRecordId": "571488",
+      "reason": "Current captured product identity, displayed brand and pack are absent."
+    },
+    {
+      "sourceRecordId": "536231",
+      "reason": "Bell Farms private-label ownership is not established by the captured official brand sources; defer classification. Published serving count also disagrees with pack mass."
+    }
+  ],
+  "products": [
+    {
+      "id": "woolworths-au:277727",
+      "name": "Woolworths White Sandwich Bread Loaf 700g",
+      "brand": "Woolworths",
+      "gtin": "9339687336258",
+      "category": "Bread & Bakery",
+      "status": {
+        "status": "needs-nutrition-completion",
+        "label": "Product Identity Conflict",
+        "reasonCode": "identity-conflict",
+        "message": "Sources disagree about this product identity or pack. Review the evidence before logging.",
+        "actions": [
+          {
+            "id": "details",
+            "label": "View Details"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "conflicts": [
+        {
+          "code": "same-gtin-identity-conflict",
+          "fields": [
+            "brand"
+          ],
+          "resolution": "unresolved"
+        }
+      ],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:353871",
+      "name": "Woolworths Bread Wholemeal 650g",
+      "brand": "Woolworths",
+      "gtin": "9300633167424",
+      "category": "Bread & Bakery",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "conflicts": [],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:814281",
+      "name": "Homestyle Bake Country Cafe Sandwich Wholemeal Sliced Bread 850g",
+      "brand": "Homestyle Bake",
+      "gtin": "9313968201152",
+      "category": "Bread & Bakery",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "conflicts": [],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:151547",
+      "name": "Woolworths Full Cream Milk 2L",
+      "brand": "Woolworths",
+      "gtin": "9339687253517",
+      "category": "Milk",
+      "status": {
+        "status": "needs-nutrition-completion",
+        "label": "Product Identity Conflict",
+        "reasonCode": "identity-conflict",
+        "message": "Sources disagree about this product identity or pack. Review the evidence before logging.",
+        "actions": [
+          {
+            "id": "details",
+            "label": "View Details"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "conflicts": [
+        {
+          "code": "same-gtin-identity-conflict",
+          "fields": [
+            "physical-form"
+          ],
+          "resolution": "unresolved"
+        }
+      ],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:382738",
+      "name": "Woolworths Lite Milk 2L",
+      "brand": "Woolworths",
+      "gtin": "9300633231781",
+      "category": "Milk",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "conflicts": [],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:571487",
+      "name": "Woolworths Natural Greek Style Yoghurt 1kg",
+      "brand": "Woolworths",
+      "gtin": "9300633631536",
+      "category": "Yoghurt",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "conflicts": [],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:310237",
+      "name": "Woolworths Tasty Cheese Block 500g",
+      "brand": "Woolworths",
+      "gtin": "9300633988098",
+      "category": "Cheese",
+      "status": {
+        "status": "needs-nutrition-completion",
+        "label": "Product Identity Conflict",
+        "reasonCode": "identity-conflict",
+        "message": "Sources disagree about this product identity or pack. Review the evidence before logging.",
+        "actions": [
+          {
+            "id": "details",
+            "label": "View Details"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "conflicts": [
+        {
+          "code": "same-gtin-identity-conflict",
+          "fields": [
+            "brand"
+          ],
+          "resolution": "unresolved"
+        }
+      ],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:224941",
+      "name": "Woolworths Tasty Cheese Slices 500g",
+      "brand": "Woolworths",
+      "gtin": "9300633906603",
+      "category": "Cheese",
+      "status": {
+        "status": "needs-nutrition-completion",
+        "label": "Needs Nutrition Completion",
+        "reasonCode": "source-conflict",
+        "message": "Published serving or nutrition evidence disagrees. Review the source evidence before logging.",
+        "actions": [
+          {
+            "id": "complete",
+            "label": "Complete Nutrition"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "conflicts": [
+        {
+          "code": "pack-serving-count-conflict"
+        },
+        {
+          "code": "cross-source-serving-conflict",
+          "resolution": "higher-trust-source"
+        },
+        {
+          "code": "cross-source-nutrition-conflict",
+          "fields": [
+            "protein",
+            "fat",
+            "satFat",
+            "carbs",
+            "sugar",
+            "sodium"
+          ],
+          "resolution": "higher-trust-source"
+        }
+      ],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:311844",
+      "name": "Thomas Dux Brie Cheese 125g",
+      "brand": "Thomas Dux",
+      "gtin": "9339687345977",
+      "category": "Cheese",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "conflicts": [],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:702098",
+      "name": "Kellogg's Corn Flakes Breakfast Cereal 380g",
+      "brand": "Kellogg's",
+      "gtin": "9310055537224",
+      "category": "Breakfast Cereal",
+      "status": {
+        "status": "needs-nutrition-completion",
+        "label": "Needs Nutrition Completion",
+        "reasonCode": "source-conflict",
+        "message": "Published serving or nutrition evidence disagrees. Review the source evidence before logging.",
+        "actions": [
+          {
+            "id": "complete",
+            "label": "Complete Nutrition"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "conflicts": [
+        {
+          "code": "pack-serving-count-conflict"
+        }
+      ],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:321220",
+      "name": "Woolworths Rolled Traditional Oats 750g",
+      "brand": "Woolworths",
+      "gtin": "9300633989934",
+      "category": "Breakfast Cereal",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "conflicts": [],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:158188",
+      "name": "La Gina Baked Beans In Rich Tomato Sauce 420g",
+      "brand": "La Gina",
+      "gtin": "9339687257034",
+      "category": "Baked Beans & Canned Food",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "conflicts": [],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:47682",
+      "name": "Woolworths Baked Beans In Tomato Sauce 420g",
+      "brand": "Woolworths",
+      "gtin": "9300633476823",
+      "category": "Baked Beans & Canned Food",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "conflicts": [
+        {
+          "code": "cross-source-nutrition-conflict",
+          "fields": [
+            "energyKj",
+            "protein",
+            "carbs",
+            "sugar"
+          ],
+          "resolution": "higher-trust-source"
+        }
+      ],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:700589",
+      "name": "Macro Organic Baked Beans 420g",
+      "brand": "Macro",
+      "gtin": "9300633227197",
+      "category": "Baked Beans & Canned Food",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "conflicts": [],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:35007",
+      "name": "Woolworths Essentials Long Grain Rice 1kg",
+      "brand": "Woolworths Essentials",
+      "gtin": "9300633350079",
+      "category": "Rice, Pasta & Grains",
+      "status": {
+        "status": "needs-nutrition-completion",
+        "label": "Product Identity Conflict",
+        "reasonCode": "identity-conflict",
+        "message": "Sources disagree about this product identity or pack. Review the evidence before logging.",
+        "actions": [
+          {
+            "id": "details",
+            "label": "View Details"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "conflicts": [
+        {
+          "code": "same-gtin-identity-conflict",
+          "fields": [
+            "brand"
+          ],
+          "resolution": "unresolved"
+        },
+        {
+          "code": "cross-source-nutrition-conflict",
+          "fields": [
+            "satFat",
+            "carbs",
+            "sugar"
+          ],
+          "resolution": "higher-trust-source"
+        }
+      ],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:346830",
+      "name": "Woolworths Pasta Spaghetti 500g",
+      "brand": "Woolworths",
+      "gtin": "9339687320141",
+      "category": "Rice, Pasta & Grains",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "conflicts": [],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:83763",
+      "name": "Barilla Pasta Spaghetti 500g",
+      "brand": "Barilla",
+      "gtin": "8076800195057",
+      "category": "Rice, Pasta & Grains",
+      "status": {
+        "status": "needs-nutrition-completion",
+        "label": "Needs Nutrition Completion",
+        "reasonCode": "source-conflict",
+        "message": "Published serving or nutrition evidence disagrees. Review the source evidence before logging.",
+        "actions": [
+          {
+            "id": "complete",
+            "label": "Complete Nutrition"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "conflicts": [
+        {
+          "code": "pack-serving-count-conflict"
+        },
+        {
+          "code": "cross-source-serving-conflict",
+          "resolution": "higher-trust-source"
+        }
+      ],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:904775",
+      "name": "Free From Gluten Penne Pasta 500g",
+      "brand": "Free From Gluten",
+      "gtin": "9339687386291",
+      "category": "Rice, Pasta & Grains",
+      "status": {
+        "status": "needs-nutrition-completion",
+        "label": "Product Identity Conflict",
+        "reasonCode": "identity-conflict",
+        "message": "Sources disagree about this product identity or pack. Review the evidence before logging.",
+        "actions": [
+          {
+            "id": "details",
+            "label": "View Details"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "conflicts": [
+        {
+          "code": "same-gtin-identity-conflict",
+          "fields": [
+            "brand"
+          ],
+          "resolution": "unresolved"
+        },
+        {
+          "code": "cross-source-nutrition-conflict",
+          "fields": [
+            "satFat",
+            "sugar"
+          ],
+          "resolution": "higher-trust-source"
+        }
+      ],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:93530",
+      "name": "Woolworths Essentials Table Spread Soft And Spreadable 500g",
+      "brand": "Woolworths Essentials",
+      "gtin": "9300633935306",
+      "category": "Spreads & Margarine",
+      "status": {
+        "status": "needs-nutrition-completion",
+        "label": "Product Identity Conflict",
+        "reasonCode": "identity-conflict",
+        "message": "Sources disagree about this product identity or pack. Review the evidence before logging.",
+        "actions": [
+          {
+            "id": "details",
+            "label": "View Details"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "conflicts": [
+        {
+          "code": "same-gtin-identity-conflict",
+          "fields": [
+            "brand"
+          ],
+          "resolution": "unresolved"
+        },
+        {
+          "code": "cross-source-serving-conflict",
+          "resolution": "higher-trust-source"
+        }
+      ],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:233922",
+      "name": "Woolworths Smooth Peanut Butter 500g",
+      "brand": "Woolworths",
+      "gtin": "9300633919054",
+      "category": "Spreads & Margarine",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "conflicts": [
+        {
+          "code": "cross-source-nutrition-conflict",
+          "fields": [
+            "fat",
+            "satFat",
+            "carbs",
+            "sugar",
+            "sodium"
+          ],
+          "resolution": "higher-trust-source"
+        }
+      ],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:69286",
+      "name": "Bega Peanut Butter Smooth 500g",
+      "brand": "Bega",
+      "gtin": "9300650664012",
+      "category": "Spreads & Margarine",
+      "status": {
+        "status": "needs-nutrition-completion",
+        "label": "Product Identity Conflict",
+        "reasonCode": "identity-conflict",
+        "message": "Sources disagree about this product identity or pack. Review the evidence before logging.",
+        "actions": [
+          {
+            "id": "details",
+            "label": "View Details"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "conflicts": [
+        {
+          "code": "same-gtin-identity-conflict",
+          "fields": [
+            "brand"
+          ],
+          "resolution": "unresolved"
+        }
+      ],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:824365",
+      "name": "Woolworths Plain Water Crackers 125g",
+      "brand": "Woolworths",
+      "gtin": "9300633777401",
+      "category": "Crackers & Biscuits",
+      "status": {
+        "status": "needs-nutrition-completion",
+        "label": "Needs Nutrition Completion",
+        "reasonCode": "source-conflict",
+        "message": "Published serving or nutrition evidence disagrees. Review the source evidence before logging.",
+        "actions": [
+          {
+            "id": "complete",
+            "label": "Complete Nutrition"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "conflicts": [
+        {
+          "code": "pack-serving-count-conflict"
+        },
+        {
+          "code": "nutrition-serving-basis-conflict"
+        }
+      ],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:355265",
+      "name": "Woolworths Cracker Selection 250g",
+      "brand": "Woolworths",
+      "gtin": "9300633209339",
+      "category": "Crackers & Biscuits",
+      "status": {
+        "status": "needs-nutrition-completion",
+        "label": "Needs Nutrition Completion",
+        "reasonCode": "source-conflict",
+        "message": "Published serving or nutrition evidence disagrees. Review the source evidence before logging.",
+        "actions": [
+          {
+            "id": "complete",
+            "label": "Complete Nutrition"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "conflicts": [
+        {
+          "code": "pack-serving-count-conflict"
+        }
+      ],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:824442",
+      "name": "Woolworths Arrowroot Milk Biscuits 250g",
+      "brand": "Woolworths",
+      "gtin": "9300633777364",
+      "category": "Crackers & Biscuits",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "conflicts": [],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:36009",
+      "name": "Arnott's Milk Arrowroot Biscuits 250g",
+      "brand": "Arnott's",
+      "gtin": "9310072000954",
+      "category": "Crackers & Biscuits",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "conflicts": [
+        {
+          "code": "cross-source-nutrition-conflict",
+          "fields": [
+            "carbs"
+          ],
+          "resolution": "higher-trust-source"
+        }
+      ],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:396254",
+      "name": "Woolworths Sea Salt Deli Style Potato Chips 175g",
+      "brand": "Woolworths",
+      "gtin": "9339687357994",
+      "category": "Snack Foods",
+      "status": {
+        "status": "needs-nutrition-completion",
+        "label": "Needs Nutrition Completion",
+        "reasonCode": "energy-missing",
+        "message": "Complete this food’s nutrition and serving evidence before adding it to Diary.",
+        "actions": [
+          {
+            "id": "nutrition-panel",
+            "label": "Read Nutrition Panel"
+          },
+          {
+            "id": "barcode",
+            "label": "Scan Barcode"
+          },
+          {
+            "id": "manual-nutrition",
+            "label": "Enter Nutrition Manually"
+          },
+          {
+            "id": "generic-alternative",
+            "label": "Use a Generic Alternative"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "conflicts": [],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:756826",
+      "name": "The Natural Chip Co Sea Salt 175g",
+      "brand": "The Natural Chip Co",
+      "gtin": "9310988012720",
+      "category": "Snack Foods",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "conflicts": [
+        {
+          "code": "cross-source-nutrition-conflict",
+          "fields": [
+            "energyKj"
+          ],
+          "resolution": "higher-trust-source"
+        }
+      ],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:248249",
+      "name": "Uncle Tobys Muesli Bars Chewy Choc Chip 6 pack",
+      "brand": "Uncle Tobys",
+      "gtin": "9310060406942",
+      "category": "Snack Foods",
+      "status": {
+        "status": "needs-nutrition-completion",
+        "label": "Product Identity Conflict",
+        "reasonCode": "identity-conflict",
+        "message": "Sources disagree about this product identity or pack. Review the evidence before logging.",
+        "actions": [
+          {
+            "id": "details",
+            "label": "View Details"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "conflicts": [
+        {
+          "code": "same-gtin-identity-conflict",
+          "fields": [
+            "title-family",
+            "productFamily"
+          ],
+          "resolution": "unresolved"
+        }
+      ],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:754170",
+      "name": "Woolworths Peas 500g",
+      "brand": "Woolworths",
+      "gtin": "9300633415266",
+      "category": "Frozen Vegetables",
+      "status": {
+        "status": "needs-nutrition-completion",
+        "label": "Needs Nutrition Completion",
+        "reasonCode": "source-conflict",
+        "message": "Published serving or nutrition evidence disagrees. Review the source evidence before logging.",
+        "actions": [
+          {
+            "id": "complete",
+            "label": "Complete Nutrition"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "conflicts": [
+        {
+          "code": "pack-serving-count-conflict"
+        }
+      ],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:924103",
+      "name": "Woolworths Australian Hash Browns 750g",
+      "brand": "Woolworths",
+      "gtin": "9339687391479",
+      "category": "Frozen Potato Products",
+      "status": {
+        "status": "needs-nutrition-completion",
+        "label": "Product Identity Conflict",
+        "reasonCode": "identity-conflict",
+        "message": "Sources disagree about this product identity or pack. Review the evidence before logging.",
+        "actions": [
+          {
+            "id": "details",
+            "label": "View Details"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "conflicts": [
+        {
+          "code": "same-gtin-identity-conflict",
+          "fields": [
+            "brand"
+          ],
+          "resolution": "unresolved"
+        }
+      ],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:98299",
+      "name": "McCain Hash Browns Shredded 750g",
+      "brand": "McCain",
+      "gtin": "9310174025084",
+      "category": "Frozen Potato Products",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "conflicts": [
+        {
+          "code": "cross-source-nutrition-conflict",
+          "fields": [
+            "energyKj",
+            "fat",
+            "satFat",
+            "carbs",
+            "sodium"
+          ],
+          "resolution": "higher-trust-source"
+        }
+      ],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:38939",
+      "name": "Birds Eye Hash Browns 375g",
+      "brand": "Birds Eye",
+      "gtin": "9310081407126",
+      "category": "Frozen Potato Products",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "conflicts": [],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:230519",
+      "name": "Woolworths Tomato Sauce Squeeze 500mL",
+      "brand": "Woolworths",
+      "gtin": "9300633910198",
+      "category": "Sauces & Condiments",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "conflicts": [
+        {
+          "code": "cross-source-nutrition-conflict",
+          "fields": [
+            "energyKj",
+            "carbs",
+            "sugar",
+            "sodium"
+          ],
+          "resolution": "higher-trust-source"
+        }
+      ],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:665356",
+      "name": "Woolworths Essentials Tomato Passata Cooking Sauce 500g",
+      "brand": "Woolworths Essentials",
+      "gtin": "9339687018918",
+      "category": "Sauces & Condiments",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "conflicts": [],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:756086",
+      "name": "Woolworths Lightly Sparkling Spring Water 1.25L",
+      "brand": "Woolworths",
+      "gtin": "9300633417895",
+      "category": "Non-alcoholic Drinks",
+      "status": {
+        "status": "needs-nutrition-completion",
+        "label": "Needs Nutrition Completion",
+        "reasonCode": "energy-missing",
+        "message": "Complete this food’s nutrition and serving evidence before adding it to Diary.",
+        "actions": [
+          {
+            "id": "nutrition-panel",
+            "label": "Read Nutrition Panel"
+          },
+          {
+            "id": "barcode",
+            "label": "Scan Barcode"
+          },
+          {
+            "id": "manual-nutrition",
+            "label": "Enter Nutrition Manually"
+          },
+          {
+            "id": "generic-alternative",
+            "label": "Use a Generic Alternative"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "conflicts": [],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:6033180",
+      "name": "Woolworths Orange Juice 2L",
+      "brand": "Woolworths",
+      "gtin": "9339687428700",
+      "category": "Non-alcoholic Drinks",
+      "status": {
+        "status": "needs-nutrition-completion",
+        "label": "Product Identity Conflict",
+        "reasonCode": "identity-conflict",
+        "message": "Sources disagree about this product identity or pack. Review the evidence before logging.",
+        "actions": [
+          {
+            "id": "details",
+            "label": "View Details"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "conflicts": [
+        {
+          "code": "same-gtin-identity-conflict",
+          "fields": [
+            "brand"
+          ],
+          "resolution": "unresolved"
+        }
+      ],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:825528",
+      "name": "Woolworths Orange Juice 2L",
+      "brand": "Woolworths",
+      "gtin": "9300633701291",
+      "category": "Non-alcoholic Drinks",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "conflicts": [],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:228345",
+      "name": "Woolworths Ice Cream Vanilla Bean 1L",
+      "brand": "Woolworths",
+      "gtin": "9339687307210",
+      "category": "Desserts & Ice Cream",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "conflicts": [],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:830211",
+      "name": "Woolworths Vanilla Ice Cream Sandwich 4 pack",
+      "brand": "Woolworths",
+      "gtin": "9300633744182",
+      "category": "Desserts & Ice Cream",
+      "status": {
+        "status": "needs-nutrition-completion",
+        "label": "Product Identity Conflict",
+        "reasonCode": "identity-conflict",
+        "message": "Sources disagree about this product identity or pack. Review the evidence before logging.",
+        "actions": [
+          {
+            "id": "details",
+            "label": "View Details"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "conflicts": [
+        {
+          "code": "same-gtin-identity-conflict",
+          "fields": [
+            "title-family",
+            "productFamily"
+          ],
+          "resolution": "unresolved"
+        }
+      ],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:288440",
+      "name": "The Odd Bunch Carrots 1.5kg",
+      "brand": "The Odd Bunch",
+      "gtin": "9339687341580",
+      "category": "Packaged Fruit & Vegetables",
+      "status": {
+        "status": "needs-nutrition-completion",
+        "label": "Needs Nutrition Completion",
+        "reasonCode": "energy-missing",
+        "message": "Complete this food’s nutrition and serving evidence before adding it to Diary.",
+        "actions": [
+          {
+            "id": "nutrition-panel",
+            "label": "Read Nutrition Panel"
+          },
+          {
+            "id": "barcode",
+            "label": "Scan Barcode"
+          },
+          {
+            "id": "manual-nutrition",
+            "label": "Enter Nutrition Manually"
+          },
+          {
+            "id": "generic-alternative",
+            "label": "Use a Generic Alternative"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "conflicts": [],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:208679",
+      "name": "The Odd Bunch Apple Prepacked 2kg",
+      "brand": "The Odd Bunch",
+      "gtin": "9300633011031",
+      "category": "Packaged Fruit & Vegetables",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "conflicts": [],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:905257",
+      "name": "Woolworths Peri Peri Chicken Breast Fillets 500g",
+      "brand": "Woolworths",
+      "gtin": "9339687386499",
+      "category": "Meat & Protein",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "conflicts": [],
+      "officialDisplayMatches": true
+    },
+    {
+      "id": "woolworths-au:902837",
+      "name": "The Bare Bird Free Range Chicken Breast Fillets 600g",
+      "brand": "The Bare Bird",
+      "gtin": "9311883022586",
+      "category": "Meat & Protein",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "conflicts": [],
+      "officialDisplayMatches": true
+    }
+  ]
+}

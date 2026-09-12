@@ -1,7 +1,7 @@
 const WORKER_URL = new URL(self.location.href);
 const INSTALLATION_ROLE = WORKER_URL.searchParams.get("role") === "test" ? "test" : "my-data";
 const CACHE_PREFIX = INSTALLATION_ROLE === "test" ? "healthy-eating-companion-test" : "healthy-eating-companion-my-data";
-const CACHE_NAME = `${CACHE_PREFIX}-alpha-0-6-33-v35`;
+const CACHE_NAME = `${CACHE_PREFIX}-alpha-0-6-33-v36`;
 const VERSION = "0.6.33";
 const CORE_FILES = [
   `./index.html`,
@@ -29,6 +29,9 @@ const CORE_FILES = [
   `./kfc-au-supplement-data.js?v=${VERSION}`,
   `./kfc-au-catalogue.js?v=${VERSION}`,
   `./food-catalogue.js?v=${VERSION}`,
+  `./retailer-catalogue.js?v=${VERSION}`,
+  `./retailer-source.js?v=${VERSION}`,
+  `./woolworths-au-catalogue.js?v=${VERSION}`,
   `./off-catalogue.js?v=${VERSION}`,
   `./guided-branching.js?v=${VERSION}`,
   `./packaged-foods.js?v=${VERSION}`,
