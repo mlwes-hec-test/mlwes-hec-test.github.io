@@ -1016,9 +1016,9 @@ function renderLibrary(){
 
 function foodResultSourceMeta(food){const value=window.HECFoodCatalogue?.provenance?.(food)?.label||'',brand=normalise(food?.brand||''),label=normalise(value);return !label||label===brand||['verified food','packaged food','food record'].includes(label)?'':value;}
 function resourceFoodRow(food){
-  const saved=ext.savedFoodIds.includes(food.id),safety=foodSafety(food),loggable=window.HECFoodCatalogue?.canLog?window.HECFoodCatalogue.canLog(food):hasEnergyValue(food?.nutrients?.calories);
+  const saved=ext.savedFoodIds.includes(food.id)||(ext.customFoods||[]).some(item=>item.id===food.id),safety=foodSafety(food),loggable=window.HECFoodCatalogue?.canLog?window.HECFoodCatalogue.canLog(food):hasEnergyValue(food?.nutrients?.calories);
   const blocked=food.entryBlockedReason||'A complete fixed nutrition value is not available for this item.';
-  return `<article class="resource-row ${food.afcd?"afcd-row":""} ${safety.blocked||!loggable?"food-warning":""}"><button class="resource-main" data-food-details="${esc(food.id)}"><strong>${esc(food.name)}${food.afcd?'<span class="afcd-badge">AFCD</span>':""}</strong><small>${esc(loggable?[food.brand,foodResultSourceMeta(food),cleanMeasureText(food.serving),energyText(food.nutrients?.calories,food.nutrients?.energyKj)].filter(Boolean).join(" · "):[food.brand,foodResultSourceMeta(food),food.nutritionStatus==='configurable'?'Configurable meal':'Nutrition unavailable'].filter(Boolean).join(' · '))}</small></button><button class="resource-save ${saved?"saved":""}" data-food-save="${esc(food.id)}" aria-label="${saved?"Remove from":"Save to"} Favourite Foods">${saved?"✓":"☆"}</button><button class="resource-add" data-food-add="${esc(food.id)}" aria-label="${loggable?"Review and add":"Cannot add"} ${esc(food.name)}" ${loggable?'':`disabled title="Complete the nutrition information before adding to Diary" data-blocked-reason="${esc(blocked)}"`}>＋</button></article>`;
+  return `<article class="resource-row ${food.afcd?"afcd-row":""} ${safety.blocked||!loggable?"food-warning":""}"><button class="resource-main" data-food-details="${esc(food.id)}"><strong>${esc(food.name)}${food.afcd?'<span class="afcd-badge">AFCD</span>':""}</strong><small>${esc(loggable?[food.brand,foodResultSourceMeta(food),cleanMeasureText(food.serving),energyText(food.nutrients?.calories,food.nutrients?.energyKj)].filter(Boolean).join(" · "):[food.brand,foodResultSourceMeta(food),food.nutritionStatus==='configurable'?'Configurable meal':'Nutrition unavailable'].filter(Boolean).join(' · '))}</small></button><button class="resource-save ${saved?"saved":""}" data-food-save="${esc(food.id)}" aria-label="${saved?"Remove from":"Save to"} My Foods: ${esc(food.name)}" title="${saved?"Remove from":"Save to"} My Foods">${saved?"✓":"☆"}</button><button class="resource-add" data-food-add="${esc(food.id)}" aria-label="${loggable?"Review and add":"Cannot add"} ${esc(food.name)}" ${loggable?'':`disabled title="Complete the nutrition information before adding to Diary" data-blocked-reason="${esc(blocked)}"`}>＋</button></article>`;
 }
 function foodCard(food){return resourceFoodRow(food);}
 document.addEventListener("click",event=>{
@@ -2295,7 +2295,27 @@ setTimeout(()=>{if(mainData().completed)maybePromptFoodReview();if(document.quer
     },0);
   });
   const oldToggleSaved0614=toggleSavedFood;
-  toggleSavedFood=function(id){oldToggleSaved0614(id);saveProtectedLibrary();};
+  toggleSavedFood=function(id){
+    const customIndex=(ext.customFoods||[]).findIndex(food=>food.id===id);
+    const persist=()=>{saveExt();saveProtectedLibrary();mirrorWrite();};
+    if(customIndex<0){
+      oldToggleSaved0614(id);
+      const undo=toastUndo;if(undo)toastUndo=()=>{undo();persist();};
+      persist();return;
+    }
+    // Custom foods are members of My Foods even without a savedFoodIds bookmark.
+    // Remove the stored object by identity, and update the reset-protection copy
+    // before a reopen can restore it. Diary snapshots and recipes are untouched.
+    const food=ext.customFoods[customIndex],savedIndex=ext.savedFoodIds.indexOf(id);
+    ext.customFoods=ext.customFoods.filter(item=>item.id!==id);
+    ext.savedFoodIds=ext.savedFoodIds.filter(savedId=>savedId!==id);
+    persist();alpha0630InvalidateFoodSearchCaches();renderLibrary();
+    showActionToast(`${food.name} removed from My Foods.`,()=>{
+      if(!ext.customFoods.some(item=>item.id===id))ext.customFoods.splice(Math.min(customIndex,ext.customFoods.length),0,food);
+      if(savedIndex>=0&&!ext.savedFoodIds.includes(id))ext.savedFoodIds.splice(Math.min(savedIndex,ext.savedFoodIds.length),0,id);
+      persist();alpha0630InvalidateFoodSearchCaches();renderLibrary();
+    },8000);
+  };
 
   // Stage 8 keeps one authoritative parser. Legacy UI integrations delegate to
   // the capture foundation and must never synthesise a missing printed column.
