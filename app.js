@@ -1293,13 +1293,15 @@ function renderHome(){
   $("home-summary").classList.add("hidden");
 
   const enabled = data.companion.enabled;
+  $("home-central-logo").classList.toggle("hidden", enabled);
+  $("home-corner-logo").classList.toggle("hidden", !enabled);
   const avatar = enabled ? data.companion.character : "🥗";
   const companionDefinition = selectedCompanionDefinition();
   const portrait = $("home-avatar-image");
   const avatarFallback=$("home-avatar");
   avatarFallback.textContent = avatar;
   if(enabled&&companionDefinition)setCompanionArtworkImage(portrait,companionDefinition,"hero",avatarFallback);
-  else{if(portrait){portrait.alt="";portrait.classList.add("hidden");portrait.removeAttribute("srcset");portrait.removeAttribute("src");}avatarFallback.classList.remove("hidden");}
+  else{if(portrait){portrait.alt="";portrait.classList.add("hidden");portrait.removeAttribute("srcset");portrait.removeAttribute("src");}avatarFallback.classList.toggle("hidden", !enabled);}
   if($("message-avatar")) $("message-avatar").textContent = avatar;
   $("home-companion-name").textContent = enabled ? companionDisplayName() : "Healthy Eating Companion";
   if($("message-name")) $("message-name").textContent = enabled ? `${companionDisplayName()} Says` : "Healthy Eating Companion";

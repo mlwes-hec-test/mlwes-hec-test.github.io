@@ -847,3 +847,17 @@ html[data-hec-installation-role="test"] body{padding-top:var(--hec-installation-
   #food-entry-editor.active .quick-action-row:has(#save-food-entry) button{width:100%;min-width:0;min-height:44px;padding-inline:8px;white-space:normal}
 }
 @media(max-width:520px){.resource-search{grid-template-columns:minmax(0,1fr) 44px auto}.resource-search>span{display:none}.resource-search #clear-food-search{display:grid;place-items:center;min-width:44px;min-height:44px;padding:0}.resource-search #submit-food-search{min-height:44px;padding-inline:9px}.resource-search input{padding-inline:3px}}
+
+/* Shared Home branding consumes the existing companion selection. */
+#home .home-header{position:relative;padding-top:max(20px,env(safe-area-inset-top));padding-right:max(clamp(18px,4vw,38px),env(safe-area-inset-right));padding-left:max(clamp(18px,4vw,38px),env(safe-area-inset-left))}
+#home .home-header>div{width:100%;min-width:0}
+#home:has(#home-corner-logo:not(.hidden)) #home-greeting{padding-right:52px}
+.home-brand-logo{display:block;object-fit:contain;aspect-ratio:1}
+#home .home-corner-logo{position:absolute;right:max(clamp(18px,4vw,38px),env(safe-area-inset-right));bottom:4px;width:40px;height:40px;border-radius:22%;pointer-events:none}
+#home .eight-room-circle .companion-centre.no-companion{width:44%!important;height:auto!important;aspect-ratio:auto!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;grid-template-rows:minmax(0,1fr) auto auto;gap:5px}
+#home .home-central-logo{grid-row:1;width:100%;height:auto;min-height:0;align-self:center;border-radius:22%}
+
+@media(max-width:360px){#home .eight-room-circle .companion-centre.no-companion{width:34%!important}}
+@media(min-width:701px){#home .eight-room-circle .companion-centre.no-companion{width:36%!important}}
+
+@media(max-width:700px){#home .home-header{padding-top:max(8px,env(safe-area-inset-top));padding-right:max(14px,env(safe-area-inset-right));padding-left:max(14px,env(safe-area-inset-left))}#home .home-corner-logo{right:max(14px,env(safe-area-inset-right))}}

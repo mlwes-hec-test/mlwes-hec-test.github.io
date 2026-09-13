@@ -1,5 +1,5 @@
 {
-  "generation": "9117ffe5f2fce9b9df760fb5",
+  "generation": "d5c59b9e8a1e3f707fd5412b",
   "version": "0.6.33",
   "runtime": [
     "installation-config.js",
@@ -41,7 +41,7 @@
     "alpha064.js"
   ],
   "files": {
-    "index.html": "7ac7c4bce9a11266df038e598f1ffa4ab145f01bdf5f8669179754bcb26e0058",
+    "index.html": "e65d7da10787588cea0ab1557e7811000011403e3e3f15c6119d2a1bed30e74f",
     "installation-config.js": "e04cd8e2625d202b3833aa4f15077489128c1b50780aebf866890baf2b29a9f7",
     "config.js": "5917c660ff0a2bca08efe8029a74ea7a566e34719c27e09fc143390549a26895",
     "installation-foundation.js": "dc71c1e21e8971a650e1f287cb9e9dcf634592586836a4e7dfd688c74d28fb7f",
@@ -53,7 +53,7 @@
     "stage4-foundation.js": "3c1616b011cf13a6c5c16d925a04a20e8197cef9734c0a1b1a83b2c86b7f9287",
     "weight-progress-foundation.js": "9de92080229267a133e14d1d052a1a3bb445565c307f17855d73baf76e94831b",
     "nutrition-trends-foundation.js": "1c0a338f04fff58d9ea85dd0cac03bb057bb355194bf20f6905be1fe4549e2b1",
-    "app.js": "ce2186e4d24af5dd2aa6d05684a88d4732f392f339679bb1ea0c0d519f47184b",
+    "app.js": "8fc4061605e14c014c456274cd9b50f393be7eb3768f0a3ca715e69bf22c2196",
     "entity-registry.js": "eec3b44c9f4a35bf1dc8b415412223fcd641614d8de8da1fbf731113d5f6bddb",
     "search-foundation.js": "a533da50830cd296122d7aad9685e77d74e4d60fcf71d7e83b05742ae8d351b3",
     "product-serving-semantics.js": "53d88842a03d73e76be3979abc66cd63655f9ce9653e875993b3bb108029c3bb",
@@ -79,7 +79,7 @@
     "conversation-foundation.js": "c313b738df302742261e2fd2ea06c58fcc72e38292f856a3da6df5596f799d26",
     "alpha06.js": "1889a3d576d4865ce858092aad332746b38533dc8cebff435510052105d4a74e",
     "alpha064.js": "e62d1f3a73c71ae5adea9ec1be76ee778ac6b00c1741553d8ce27bcb1b02a9d0",
-    "styles.css": "2631ae46e5a7655ec7cfe3b0e482dfef3b09e311f4eaf1b740f7c11aed8230ad",
+    "styles.css": "97eaa038b89915fbebf4a11ae1be7da702a6ae0b9c0cc9edd5c23a54e73c2652",
     "manifest.webmanifest": "20e91f54038b7ff6863544d11579b3ee3cbdb6001e25d92bafc03c3977e749ed",
     "data/open-food-facts-au/manifest.json": "b1e5d58b660cb4d36192ec898bef95f1cfcdbaed9d374be4cc10820450981e42",
     "afcd-release-3.json": "d729c6ea5bf1014724bde5d4038e995cd79059824cebab9f32b52ed4671560dd"
