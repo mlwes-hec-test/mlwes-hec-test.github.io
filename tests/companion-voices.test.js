@@ -345,8 +345,8 @@ test("voice module is loaded and precached before app startup",()=>{
   assert.ok(html.indexOf('"companion-voice-metadata.js"')>html.indexOf('"companion-artwork.js"'));
   assert.ok(html.indexOf('"companion-voice-metadata.js"')<html.indexOf('"companion-voices.js"'));
   assert.ok(html.indexOf('"companion-voices.js"')<html.indexOf('"app.js"'));
-  assert.match(worker,/`\.\/companion-voice-metadata\.js\?v=\$\{VERSION\}`/);
-  assert.match(worker,/`\.\/companion-voices\.js\?v=\$\{VERSION\}`/);
+  const core=require('../release-manifest.json').files;
+  assert(core['companion-voice-metadata.js']);assert(core['companion-voices.js']);
 });
 
 test("Stage 3A artwork roster remains identical to the voice roster",()=>{

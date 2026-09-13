@@ -1698,11 +1698,7 @@ save();
 if(data.completed) show("home", {speak:false}); // alpha06.js immediately opens Daily Progress once functional data is ready.
 else show("welcome", {speak:false});
 
-if("serviceWorker" in navigator && location.protocol.startsWith("http")){
-  let refreshingForNewWorker=false;
-  navigator.serviceWorker.addEventListener("controllerchange",()=>{if(refreshingForNewWorker)return;refreshingForNewWorker=true;location.reload();});
-  if(window.HECInstallation?.isOriginSafe(APP,location.origin))navigator.serviceWorker.register(`service-worker.js?v=${encodeURIComponent(VERSION)}&role=${encodeURIComponent(APP.installationRole)}`,{scope:APP.serviceWorkerScope,updateViaCache:"none"}).then(reg=>reg.update()).catch(() => {});
-}
+// Release registration, readiness and controlled refresh belong to release-bootstrap.js.
 
 /* Alpha 0.6.23 — compact companion message card below the Home circle. */
 (function alpha0622CompanionMessageCard(){

@@ -14,6 +14,15 @@ TEST uses the identical application files. Before publishing the TEST copy, over
 
 The TEST configuration is hard-bound to `https://mlwes-hec-test.github.io`. At another origin it stops before runtime startup or service-worker registration.
 
+Release-coherent builds also require the generated shell, worker and
+`release-manifest.json` from the same canonical build. Run
+`node scripts/build_release.js --check` before copying it. Apply the two role
+overlays after building; both variant hashes are already in the shared release
+manifest. Do not manually revise worker cache strings: the internal generation
+and existing role prefix now identify the application cache. See
+[PWA release coherence](PWA_RELEASE_COHERENCE.md) for the protocol and acceptance
+regression. These instructions do not authorise a deployment.
+
 ## Historical-data-preserving first deployment
 
 1. Open the currently installed HEC Home Screen app that holds the historical data.

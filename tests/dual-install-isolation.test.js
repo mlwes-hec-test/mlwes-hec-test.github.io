@@ -72,9 +72,9 @@ test("6. IndexedDB mirror deletion is role-specific",async()=>{
 });
 
 async function activatedCaches(role,keys){
-  const handlers={},deleted=[];let claimed=false;
-  const context={URL,Promise,Error,setTimeout:()=>0,caches:{open:async()=>({}),keys:async()=>keys,delete:async key=>{deleted.push(key);return true;}},fetch:async()=>({ok:true,clone(){return this;}}),self:{location:{href:`https://example.test/service-worker.js?v=0.6.33&role=${role}`,origin:"https://example.test"},clients:{claim:async()=>{claimed=true;}},skipWaiting:()=>{},addEventListener:(type,handler)=>{handlers[type]=handler;}}};
-  vm.runInNewContext(worker,context);let promise;handlers.activate({waitUntil:value=>{promise=value;}});await promise;return{deleted,claimed};
+  const w=require('./release-worker-context').workerContext({role});await w.run('install');
+  for(const key of keys)await w.cache.open(key);await w.run('activate');await w.message('HEC_RELEASE_CLIENT_READY');
+  return {deleted:w.events.deleted,claimed:w.events.claimed===1};
 }
 
 test("7. cache deletion is limited to the active role prefix, including legacy My Data shells",async()=>{
@@ -102,7 +102,7 @@ test("9. My Data and TEST manifests have distinct stable identities",()=>{
   assert.equal(myManifest.id,MY_DATA.manifestId);assert.equal(testManifest.id,TEST.manifestId);assert.notEqual(myManifest.id,testManifest.id);
   assert.equal(myManifest.id,"/Lifestyle-Companion/index.html");assert.equal(myManifest.start_url,"./index.html");assert.equal(myManifest.scope,"./");assert.equal(MY_DATA.serviceWorkerScope,"./");
   assert.equal(testManifest.id,"/hec-test");assert.equal(testManifest.start_url,"./index.html");assert.equal(testManifest.scope,"./");assert.equal(TEST.serviceWorkerScope,"./");
-  assert.match(html,/<meta name="apple-mobile-web-app-title" content="HEC My Data">/);assert.match(html,/<link rel="manifest" href="manifest\.webmanifest\?v=0\.6\.33">/);
+  assert.match(html,/<meta name="apple-mobile-web-app-title" content="HEC My Data">/);assert.match(html,/manifest\.href=assetURL\('manifest.webmanifest'\)/);
   assert.match(myManifest.name,/HEC — My Data/);assert.match(testManifest.name,/HEC — TEST/);assert.notEqual(myManifest.short_name,testManifest.short_name);
 });
 
@@ -117,13 +117,13 @@ test("10. TEST has a distinct manifest icon and permanent in-app banner",()=>{
 test("11. TEST origin safety assertion rejects any non-approved origin",()=>{
   assert.equal(installation.isOriginSafe(TEST,TEST.expectedOrigin),true);assert.equal(installation.isOriginSafe(TEST,"https://my-data.example"),false);
   assert.throws(()=>installation.assertDestructiveOrigin(TEST,"https://my-data.example"),error=>error.code==="HEC_TEST_ORIGIN_MISMATCH");
-  assert.match(html,/HEC TEST Safety Lock/);assert.ok(html.indexOf("roleOriginSafe")<html.indexOf("window.HEC_RELEASE_READY=runtimeFiles.reduce"));
+  assert.match(html,/HEC TEST Safety Lock/);assert.ok(html.indexOf("roleOriginSafe")<html.indexOf("started=true"));
 });
 
 test("12. installation role is explicit in runtime and founder diagnostics",()=>{
   assert.equal(MY_DATA.installationRole,"my-data");assert.equal(TEST.installationRole,"test");
   assert.match(html,/id="installation-diagnostics"/);assert.match(read("installation-foundation.js"),/Origin safety/);
-  assert.match(polish,/installationRole:APP\.installationRole/);assert.match(read("app.js"),/role=\$\{encodeURIComponent\(APP\.installationRole\)\}/);
+  assert.match(polish,/installationRole:APP\.installationRole/);assert.match(read("release-bootstrap.js"),/role=\$\{encodeURIComponent\(role\)\}/);
 });
 
 test("13. existing My Data historical migration remains active and lossless",()=>{

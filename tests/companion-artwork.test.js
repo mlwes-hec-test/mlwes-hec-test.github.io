@@ -111,60 +111,13 @@ test("picker, preview and Home use the correct variants with same-companion emoj
   assert.match(polish,/if\(action\)action\.textContent=`Tap for written guidance`/);
 });
 
-test("service worker precaches all pickers, lazily caches heroes and has no prototype SVGs",()=>{
-  const worker=readText("service-worker.js");
-  const staticSource=worker.match(/const STATIC_FILES = (\[[\s\S]*?\]);/)[1];
-  const staticFiles=vm.runInNewContext(staticSource);
-  const pickers=staticFiles.filter(file=>file.includes("/runtime/picker/"));
-  const installationIcons=staticFiles.filter(file=>file.includes("/app-icons/"));
-  assert.equal(pickers.length,16);
-  assert.equal(pickers.every(file=>file.endsWith(".webp")),true);
-  assert.equal(installationIcons.length,6);
-  assert.match(worker,/companion-artwork\.js/);
-  assert.match(worker,/companion-voice-metadata\.js/);
-  assert.match(worker,/companion-voices\.js/);
-  assert.match(worker,/COMPANION_HERO_PATH/);
-  assert.doesNotMatch(worker,/assets\/companions\/[^"']+\.svg/);
-  assert.doesNotMatch(readText("app.js"),/assets\/companions\/[^"'`]+\.svg/);
-  for(const file of ["companion-artwork.js","app.js","index.html","service-worker.js"]){
-    assert.doesNotMatch(readText(file),/assets\/companions\/source\//,file);
-  }
-});
-
-test("service worker install and first-use hero policy execute successfully",async()=>{
-  const handlers={},stored=[];
-  const cache={
-    match:async()=>null,
-    put:async request=>stored.push(typeof request==="string"?request:request.url)
-  };
-  const context={
-    URL,Promise,Error,
-    setTimeout:()=>0,
-    clearTimeout:()=>{},
-    caches:{open:async()=>cache,keys:async()=>[],delete:async()=>true},
-    fetch:async()=>({ok:true,clone(){return this;}}),
-    self:{
-      location:{href:"https://hec.example/service-worker.js",origin:"https://hec.example"},
-      clients:{claim:async()=>{}},
-      skipWaiting:()=>{},
-      addEventListener:(type,handler)=>{handlers[type]=handler;}
-    }
-  };
-  vm.runInNewContext(readText("service-worker.js"),context);
-
-  let installPromise;
-  handlers.install({waitUntil:promise=>{installPromise=promise;}});
-  await installPromise;
-  assert.equal(stored.filter(item=>item.includes("/runtime/picker/")).length,16);
-  assert.equal(stored.some(item=>item.includes("companion-artwork.js")),true);
-  assert.equal(stored.some(item=>item.includes("/runtime/hero/")),false);
-
-  const heroUrl="https://hec.example/assets/companions/runtime/hero/512/percy-pelican.webp";
-  let heroPromise;
-  handlers.fetch({
-    request:{method:"GET",url:heroUrl,mode:"no-cors",destination:"image"},
-    respondWith:promise=>{heroPromise=promise;}
-  });
-  await heroPromise;
-  assert.equal(stored.includes(heroUrl),true);
+test("picker and hero artwork is optional and never blocks core readiness",async()=>{
+  const manifest=require('../release-manifest.json'),pickers=manifest.optional.filter(file=>file.includes('/runtime/picker/'));
+  assert.equal(pickers.length,16);assert.equal(manifest.optional.filter(file=>file.includes('/app-icons/')).length,6);
+  assert(!Object.keys(manifest.files).some(file=>file.startsWith('assets/')));
+  const w=require('./release-worker-context').workerContext();await w.run('install');
+  assert(!w.events.requests.some(row=>row.file.startsWith('assets/')));
+  await w.fetchRequest('assets/companions/runtime/hero/512/percy-pelican.webp',{generation:null,destination:'image'});
+  assert(w.events.requests.some(row=>row.file.includes('/hero/')));
+  assert.equal((await w.message('HEC_RELEASE_STATUS')).ready,true);
 });

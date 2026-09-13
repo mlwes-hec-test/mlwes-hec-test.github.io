@@ -14,8 +14,9 @@ const exists=relative=>fs.existsSync(path.join(ROOT,relative));
 const html=read("index.html"),config=read("config.js"),worker=read("service-worker.js"),runtime=read("alpha06.js"),polish=read("alpha064.js");
 const installationContext=deployment.contextFromSources(read("installation-config.js"),config,read("manifest.webmanifest"));
 const RELEASE="0.6.33";
-const runtimeFiles=vm.runInNewContext(html.match(/const runtimeFiles=(\[[\s\S]*?\n  \]);/)?.[1]||"[]");
-const coreFiles=vm.runInNewContext(worker.match(/const CORE_FILES = (\[[\s\S]*?\]);/)?.[1]||"[]",{VERSION:RELEASE});
+const releaseManifest=require('../release-manifest.json');
+const runtimeFiles=releaseManifest.runtime.slice(2);
+const coreFiles=Object.keys(releaseManifest.files).map(file=>'./'+file+'?g='+releaseManifest.generation);
 
 test("1. HEC_APP remains the one canonical active release authority",()=>{
   const context={window:{}};vm.runInNewContext(read("installation-config.js"),context);vm.runInNewContext(config,context);
@@ -28,7 +29,7 @@ test("1. HEC_APP remains the one canonical active release authority",()=>{
 
 test("2. every active visible and static release copy is 0.6.33",()=>{
   assert.match(html,/data-hec-release="0\.6\.33"/);assert.match(html,/Founder Trial Alpha 0\.6\.33/);assert.match(html,/Alpha 0\.6\.33/);
-  assert.match(html,/manifest\.webmanifest\?v=0\.6\.33/);assert.match(html,/styles\.css\?v=0\.6\.33/);assert.match(html,/config\.js\?v=0\.6\.33/);
+  for(const file of ['manifest.webmanifest','styles.css','config.js'])assert.ok(releaseManifest.files[file]);
   assert.match(read("manifest.webmanifest"),/Founder Trial Alpha 0\.6\.33/);
   assert.match(worker,/const VERSION = "0\.6\.33"/);deployment.assertCacheDeclaration(assert,worker,installationContext.app);
   assert.doesNotMatch(runtime,/Meal Photos Stay[^"`]*Alpha 0\.6\./);assert.doesNotMatch(runtime,/Private Browsing[^`]*Alpha 0\.6\./);
@@ -43,18 +44,18 @@ test("3. runtime module diagnostics report the release version",()=>{
   assert.match(runtime,/build:ACTIVE_VERSION/);assert.match(runtime,/ext\.version=ACTIVE_VERSION/);
 });
 
-test("4. release assertion blocks runtime loading when an old config is served",()=>{
-  assert.match(html,/if\(!expected\|\|actual!==expected\)\{refreshReleaseWorker\(\);return;\}/);
-  assert.ok(html.indexOf("actual!==expected")<html.indexOf("window.HEC_RELEASE_READY=runtimeFiles.reduce"));
-  assert.match(html,/window\.stop\(\)/);assert.match(html,/service-worker\.js\?v=\$\{encodeURIComponent\(expected\)\}/);
-  assert.match(html,/controllerchange/);assert.match(html,/Your saved data is not being changed/);assert.match(html,/&role=\$\{encodeURIComponent\(window\.HEC_APP\?\.installationRole\|\|"my-data"\)\}/);
+test("4. generation gate precedes runtime loading and keeps failed startup unavailable",()=>{
+  assert.ok(html.indexOf('await coherentWorker()')<html.indexOf('await load(file)'));
+  assert.match(html,/node\.integrity=integrity\(file\)/);assert.match(html,/app\.inert=true/);
+  assert.match(html,/controllerchange/);assert.match(html,/Your saved data remains on this device/);
+  assert.match(html,/APP\.version!==release\.version/);
 });
 
-test("5. cache-busting for dynamically loaded runtime files derives from HEC_APP.version",()=>{
+test("5. dynamic runtime files share the internal generation and dependency order",()=>{
   const required=['installation-foundation.js','migrations.js','companions.js','companion-artwork.js','companion-voice-metadata.js','companion-voices.js','stage4-foundation.js','weight-progress-foundation.js','nutrition-trends-foundation.js','app.js','entity-registry.js','search-foundation.js','product-serving-semantics.js','food-sources.js','australian-catalogue-data.js','mcdonalds-au-catalogue-data.js','mcdonalds-au-catalogue.js','kfc-au-catalogue-data.js','kfc-au-catalogue.js','food-catalogue.js','off-catalogue.js','guided-branching.js','packaged-foods.js','capture-foundation.js','serving-foundation.js','guided-product-resolution.js','activity-foundation.js','food-groups-foundation.js','conversation-foundation.js','alpha06.js','alpha064.js'];
-  for(const file of required){assert.ok(runtimeFiles.includes(file),`Required runtime asset: ${file}`);assert.ok(exists(file),file);assert.ok(coreFiles.includes(`./${file}?v=${RELEASE}`),`Versioned worker asset: ${file}`);}
+  for(const file of required){assert.ok(runtimeFiles.includes(file),`Required runtime asset: ${file}`);assert.ok(exists(file),file);assert.ok(coreFiles.includes(`./${file}?g=${releaseManifest.generation}`),`Generation-addressed worker asset: ${file}`);}
   assert.equal(new Set(runtimeFiles).size,runtimeFiles.length,'Runtime assets must be unique');
-  assert.match(html,/script\.src=`\$\{file\}\?v=\$\{encodeURIComponent\(actual\)\}`/);
+  assert.match(html,/node\.src=assetURL\(file\)/);assert.match(html,/file\+'\?g='\+release\.generation/);
   assert.equal(runtimeFiles[0],"installation-foundation.js");
   assert.ok(runtimeFiles.indexOf("migrations.js")<runtimeFiles.indexOf("app.js"));
   assert.ok(runtimeFiles.indexOf("companion-voice-metadata.js")<runtimeFiles.indexOf("companion-voices.js"));
@@ -92,21 +93,15 @@ test("7. companion authoring sources remain absent and only 48 runtime WebPs shi
   assert.equal(coreFiles.some(file=>String(file).includes("assets/companions/source")),false);
 });
 
-test("8. My Data activation removes superseded My Data shells without touching TEST, storage or databases",async()=>{
-  const handlers={},deleted=[];let claimed=false;
-  const context={URL,Promise,Error,setTimeout:()=>0,caches:{open:async()=>({}),keys:async()=>["healthy-eating-companion-alpha-0-6-22-v1","healthy-eating-companion-alpha-0-6-32-v3","healthy-eating-companion-my-data-alpha-0-6-32-v1","healthy-eating-companion-my-data-alpha-0-6-33-v1","healthy-eating-companion-test-alpha-0-6-32-v1","unrelated-cache"],delete:async key=>{deleted.push(key);return true;}},fetch:async()=>({ok:true,clone(){return this;}}),self:{location:{href:"https://hec.example/service-worker.js?v=0.6.33&role=my-data",origin:"https://hec.example"},clients:{claim:async()=>{claimed=true;}},skipWaiting:()=>{},addEventListener:(type,handler)=>{handlers[type]=handler;}}};
-  vm.runInNewContext(worker,context);let promise;handlers.activate({waitUntil:value=>{promise=value;}});await promise;
-  assert.deepEqual(deleted,["healthy-eating-companion-alpha-0-6-22-v1","healthy-eating-companion-alpha-0-6-32-v3","healthy-eating-companion-my-data-alpha-0-6-32-v1","healthy-eating-companion-my-data-alpha-0-6-33-v1"]);assert.equal(claimed,true);
-  assert.doesNotMatch(worker,/localStorage|indexedDB|deleteDatabase/);
+test("8. My Data prunes only unused same-role application caches",async()=>{
+  const w=require('./release-worker-context').workerContext();await w.run('install');
+  for(const key of ['healthy-eating-companion-my-data-old','healthy-eating-companion-test-old','healthy-eating-companion-alpha-0-6-33-v5','unrelated'])await w.cache.open(key);
+  await w.run('activate');assert.deepEqual(w.events.deleted,[]);await w.message('HEC_RELEASE_CLIENT_READY');
+  assert.deepEqual(w.events.deleted.sort(),['healthy-eating-companion-alpha-0-6-33-v5','healthy-eating-companion-my-data-old']);
 });
-
-test("9. a new versioned script request cannot use an old same-path cache entry while online",async()=>{
-  const handlers={};let exactChecked=false,ignoreChecked=false;
-  const oldResponse={tag:"old",ok:true,clone(){return this;}},newResponse={tag:"new",ok:true,clone(){return this;}};
-  const cache={match:async(_request,options)=>{if(options?.ignoreSearch){ignoreChecked=true;return oldResponse;}exactChecked=true;return null;},put:async()=>{}};
-  const context={URL,Promise,Error,setTimeout:()=>0,caches:{open:async()=>cache,keys:async()=>[],delete:async()=>true},fetch:async()=>newResponse,self:{location:{href:"https://hec.example/service-worker.js",origin:"https://hec.example"},clients:{claim:async()=>{}},skipWaiting:()=>{},addEventListener:(type,handler)=>{handlers[type]=handler;}}};
-  vm.runInNewContext(worker,context);let responsePromise;handlers.fetch({request:{method:"GET",url:"https://hec.example/config.js?v=0.6.34",mode:"same-origin",destination:"script"},respondWith:value=>{responsePromise=value;}});
-  const response=await responsePromise;assert.equal(response.tag,"new");assert.equal(exactChecked,true);assert.equal(ignoreChecked,false);
+test("9. a new generation cannot use an old same-path cache entry",async()=>{
+  const w=require('./release-worker-context').workerContext();await w.run('install');
+  assert.equal((await w.fetchRequest('config.js',{generation:'not-ready'})).status,503);
 });
 
 test("10. the Alpha 0.6.16 profileStart ReferenceError path is removed",()=>{

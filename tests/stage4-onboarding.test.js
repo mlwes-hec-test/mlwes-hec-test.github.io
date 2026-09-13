@@ -148,7 +148,7 @@ test("responsive rules cover phone, iPad portrait, iPad landscape and keyboard-h
 test("Stage 3 artwork and voice assets remain loaded before Stage 4 and app startup",()=>{
   const ordered=["companion-artwork.js","companion-voice-metadata.js","companion-voices.js","stage4-foundation.js","app.js"];
   ordered.reduce((position,item)=>{const next=html.indexOf(item);assert.ok(next>position,item);return next;},-1);
-  assert.match(worker,/`\.\/stage4-foundation\.js\?v=\$\{VERSION\}`/);
+  assert(require('../release-manifest.json').files['stage4-foundation.js']);
   assert.doesNotMatch(html,/id="companion-voice-styles"|id="voice-style-options"/);
   assert.match(html,/id="speech-enabled"/);
   assert.match(html,/id="preview-voice"/);

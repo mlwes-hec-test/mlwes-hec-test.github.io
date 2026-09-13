@@ -53,34 +53,21 @@ function assertInstallationContext(assert,context){
 }
 
 function cacheDeclaration(worker){
-  const version=worker.match(/const VERSION = "(\d+\.\d+\.\d+)";/)?.[1];
-  const match=worker.match(/const CACHE_NAME = `\$\{CACHE_PREFIX\}-alpha-(\d+)-(\d+)-(\d+)-(v\d+)`;/);
-  if(!version||!match)throw new Error("Service-worker versioned cache declaration is missing");
-  return Object.freeze({version,releaseSlug:`${match[1]}-${match[2]}-${match[3]}`,revision:match[4]});
+  const manifest=require('../release-manifest.json');
+  if(!worker.includes(manifest.generation))throw Error('Worker generation mismatch');
+  return {version:manifest.version,releaseSlug:manifest.version.replaceAll('.','-'),generation:manifest.generation,revision:'core-'+manifest.generation};
 }
-
 function assertCacheDeclaration(assert,worker,app){
-  const details=cacheDeclaration(worker),requestedRevision=process.env.HEC_EXPECTED_CACHE_REVISION||"";
-  assert.equal(details.releaseSlug,details.version.replaceAll(".","-"),"cache release matches the runtime version");
-  assert.equal(details.version,app.version,"cache and application versions match");
-  assert.equal(app.cachePrefix,INSTALLATIONS[app.installationRole].cachePrefix,"cache prefix belongs to the active installation role");
-  assert.match(worker,/const CACHE_PREFIX = INSTALLATION_ROLE === "test" \? "healthy-eating-companion-test" : "healthy-eating-companion-my-data";/);
-  if(requestedRevision){assert.match(requestedRevision,/^v\d+$/);assert.equal(details.revision,requestedRevision,"cache revision matches the deployment candidate expectation");}
-  return details;
+  const details=cacheDeclaration(worker);assert.equal(details.version,app.version);
+  assert.equal(app.cachePrefix,INSTALLATIONS[app.installationRole].cachePrefix);
+  assert(worker.includes('CACHE_PREFIX}-core-'));return details;
 }
-
 async function assertCacheActivation(assert,worker,app){
-  const details=assertCacheDeclaration(assert,worker,app),current=`${app.cachePrefix}-alpha-${details.releaseSlug}-${details.revision}`;
-  const obsolete=`${app.cachePrefix}-alpha-${details.releaseSlug}-v0`,oppositePrefix=app.installationRole==="test"?INSTALLATIONS["my-data"].cachePrefix:INSTALLATIONS.test.cachePrefix;
-  const opposite=`${oppositePrefix}-alpha-${details.releaseSlug}-v999`,legacy="healthy-eating-companion-alpha-0-6-32-v3",unrelated="unrelated-cache";
-  const keys=[current,obsolete,opposite,legacy,unrelated],deleted=[],handlers={};let claimed=false;
-  const context={URL,Promise,Error,setTimeout:()=>0,caches:{open:async()=>({}),keys:async()=>keys,delete:async key=>{deleted.push(key);return true;}},fetch:async()=>({ok:true,clone(){return this;}}),self:{location:{href:`https://example.test/service-worker.js?role=${app.installationRole}`,origin:"https://example.test"},clients:{claim:async()=>{claimed=true;}},skipWaiting:()=>{},addEventListener:(type,handler)=>{handlers[type]=handler;}}};
-  vm.runInNewContext(worker,context);let activation;handlers.activate({waitUntil:value=>{activation=value;}});await activation;
-  assert.deepEqual(deleted,[obsolete,...(app.installationRole==="my-data"?[legacy]:[])],"only obsolete same-role caches are removed");
-  assert.equal(deleted.includes(current),false,"current cache is retained");
-  assert.equal(deleted.includes(opposite),false,"opposite-role cache is retained");
-  assert.equal(deleted.includes(unrelated),false,"unrelated cache is retained");
-  assert.equal(claimed,true);
+  assertCacheDeclaration(assert,worker,app);const w=require('./release-worker-context').workerContext({role:app.installationRole});await w.run('install');
+  const obsolete=app.cachePrefix+'-old',opposite=(app.installationRole==='test'?INSTALLATIONS['my-data']:INSTALLATIONS.test).cachePrefix+'-old';
+  for(const key of [obsolete,opposite,'unrelated-cache'])await w.cache.open(key);
+  await w.run('activate');assert.deepEqual(w.events.deleted,[]);await w.message('HEC_RELEASE_CLIENT_READY');
+  assert.deepEqual(w.events.deleted,[obsolete]);assert.equal(w.events.claimed,1);
 }
 
 module.exports=Object.freeze({contextFromSources,assertInstallationContext,assertCacheDeclaration,assertCacheActivation});

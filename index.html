@@ -7,12 +7,14 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="HEC My Data">
   <title>HEC — My Data — Founder Trial Alpha 0.6.33</title>
+  <style>html:not([data-hec-ready]) body > :not(#hec-release-status):not(script){display:none!important}</style>
   <link rel="apple-touch-icon" sizes="180x180" href="assets/app-icons/hec-my-data-180.png">
-  <link rel="manifest" href="manifest.webmanifest?v=0.6.33">
-  <link rel="stylesheet" href="styles.css?v=0.6.33">
+
+
 </head>
 <body data-theme="garden">
-<div id="app">
+<main id="hec-release-status" role="status" aria-live="polite" style="max-width:32rem;margin:8vh auto;padding:1.5rem;font:1rem/1.5 system-ui"><p>Opening HEC…</p></main>
+<div id="app" hidden inert>
   <section id="welcome" class="screen active welcome-screen">
     <div class="welcome-card">
       <div class="badge">Founder Trial · Alpha 0.6.33</div>
@@ -803,51 +805,124 @@
 
   <div id="toast" role="status" aria-live="polite"></div>
 </div>
-<script src="installation-config.js?v=0.6.33"></script>
-<script src="config.js?v=0.6.33"></script>
+<!-- HEC RELEASE BOOTSTRAP START -->
 <script>
+window.HEC_RELEASE={"generation":"9117ffe5f2fce9b9df760fb5","version":"0.6.33","runtime":["installation-config.js","config.js","installation-foundation.js","migrations.js","companions.js","companion-artwork.js","companion-voice-metadata.js","companion-voices.js","stage4-foundation.js","weight-progress-foundation.js","nutrition-trends-foundation.js","app.js","entity-registry.js","search-foundation.js","product-serving-semantics.js","food-sources.js","australian-catalogue-data.js","mcdonalds-au-catalogue-data.js","mcdonalds-au-catalogue.js","kfc-au-catalogue-data.js","kfc-au-supplement-data.js","kfc-au-catalogue.js","food-catalogue.js","retailer-catalogue.js","retailer-source.js","woolworths-au-catalogue.js","off-catalogue.js","guided-branching.js","packaged-foods.js","capture-foundation.js","serving-foundation.js","guided-product-resolution.js","activity-foundation.js","food-groups-foundation.js","conversation-foundation.js","alpha06.js","alpha064.js"],"files":{"installation-config.js":"e04cd8e2625d202b3833aa4f15077489128c1b50780aebf866890baf2b29a9f7","config.js":"5917c660ff0a2bca08efe8029a74ea7a566e34719c27e09fc143390549a26895","installation-foundation.js":"dc71c1e21e8971a650e1f287cb9e9dcf634592586836a4e7dfd688c74d28fb7f","migrations.js":"eb8433966b7e505147561ca0876585047ce90675817c63cc639469443aad188c","companions.js":"68a968795334573fee49f8aebcbfb863bcb09963c2b24eb541c394e1fc299fc0","companion-artwork.js":"34b293d84189769df566e668fc7c73039524cb6ffffc99dd5e7fdf8f21e4fb90","companion-voice-metadata.js":"27140423757ed50ef25852371ae27bb73d4d2ace86b93fc00d0bc8fd14c38ac2","companion-voices.js":"1d8ad4bb334c931d66c407e6b573e35e08bf526d4786440c9cd06d4d602ede64","stage4-foundation.js":"3c1616b011cf13a6c5c16d925a04a20e8197cef9734c0a1b1a83b2c86b7f9287","weight-progress-foundation.js":"9de92080229267a133e14d1d052a1a3bb445565c307f17855d73baf76e94831b","nutrition-trends-foundation.js":"1c0a338f04fff58d9ea85dd0cac03bb057bb355194bf20f6905be1fe4549e2b1","app.js":"ce2186e4d24af5dd2aa6d05684a88d4732f392f339679bb1ea0c0d519f47184b","entity-registry.js":"eec3b44c9f4a35bf1dc8b415412223fcd641614d8de8da1fbf731113d5f6bddb","search-foundation.js":"a533da50830cd296122d7aad9685e77d74e4d60fcf71d7e83b05742ae8d351b3","product-serving-semantics.js":"53d88842a03d73e76be3979abc66cd63655f9ce9653e875993b3bb108029c3bb","food-sources.js":"ce47dfe59913769db42d0ea7b1f551bbac1e832f9ac18f9c1f57ef0790d4b4e5","australian-catalogue-data.js":"05ab1f75ed98a2c6bdafeff48d51f68b8f57124502d9d4f10846c448d92f3d68","mcdonalds-au-catalogue-data.js":"8390eac90e11a94ecf436412dbe6cea328ab4e40844a43d9e2c0c1beebf70c50","mcdonalds-au-catalogue.js":"88b5f4e2c2e2d7affea39e5d370fb9a635704005ff810df05b2de927c83a6f3e","kfc-au-catalogue-data.js":"473e071cf68b18fd75481ea4def01166ee7b1237eecc0e56fa5a408e79305201","kfc-au-supplement-data.js":"af33ffc60656c8cd391c35251c88e8c372188fd641a1e9636baeef3a1b64d595","kfc-au-catalogue.js":"ea0f01eb3e5e8c609168b14bdb2eec4e05dd03d9ff41c29e12848baf10b7c905","food-catalogue.js":"e2ee26a1e9501bb94e1f323a0b41c814207538f555e6463496fa9ae4e0eb4df8","retailer-catalogue.js":"07eaed57fa89821f5b1cfc4cac9c8d3e863818f936a3a68cbb4f54738a370a10","retailer-source.js":"297366d9150070d80a89b5f175e681ad3e6647b9f81c3797dae2f1cb1c1ea000","woolworths-au-catalogue.js":"0dec705b82495259f6254ac79f9d76694cef69fdc7d10bc70efb71927ccae3b2","off-catalogue.js":"2cc88fbc05ee810a903ce6e0e17daf820a5b1a7ad55d7f80eb9437496816c37d","guided-branching.js":"fc6883c9a34fd19dda80b3f3c2289f01f092a4c6456f196bf2b85c256669eeb0","packaged-foods.js":"98a5d2da46c319391f5b114f9502aa6c28a2610ea3f2d96a3fbdf2172595c629","capture-foundation.js":"fb511df79da233ec7738d1dcdb0b3a26acb3393bf2fc924bd64d00cbfc7205d2","serving-foundation.js":"38a08d6059b7bea4ce9bdf5108004f4e685e44244aa8beec2d89d38952e59489","guided-product-resolution.js":"6f941507e4937b23599530099b7988ad40af4b54d70c9d224830a4c952b77d68","activity-foundation.js":"68f2e923769697bb90b0d0e13193533ebff5fa9b29846c0d05e5ced28fb83557","food-groups-foundation.js":"2919670d100bb6de8794bed8a3bcbb7b18dec2d5f4a3a95912ddbd23268526b6","conversation-foundation.js":"c313b738df302742261e2fd2ea06c58fcc72e38292f856a3da6df5596f799d26","alpha06.js":"1889a3d576d4865ce858092aad332746b38533dc8cebff435510052105d4a74e","alpha064.js":"e62d1f3a73c71ae5adea9ec1be76ee778ac6b00c1741553d8ce27bcb1b02a9d0","styles.css":"2631ae46e5a7655ec7cfe3b0e482dfef3b09e311f4eaf1b740f7c11aed8230ad","manifest.webmanifest":"20e91f54038b7ff6863544d11579b3ee3cbdb6001e25d92bafc03c3977e749ed","data/open-food-facts-au/manifest.json":"b1e5d58b660cb4d36192ec898bef95f1cfcdbaed9d374be4cc10820450981e42","afcd-release-3.json":"d729c6ea5bf1014724bde5d4038e995cd79059824cebab9f32b52ed4671560dd"},"roles":{"my-data":{"installation-config.js":"e04cd8e2625d202b3833aa4f15077489128c1b50780aebf866890baf2b29a9f7","manifest.webmanifest":"20e91f54038b7ff6863544d11579b3ee3cbdb6001e25d92bafc03c3977e749ed"},"test":{"installation-config.js":"51eda2ef257743377cbcaa00eb8af0db7bcfee5601d2f58f53d1f8ec36f5f721","manifest.webmanifest":"4a520e29476ad7e525265096dd35d105f87844c0efddde44f2f47d950fc74652"}},"optional":["assets/app-icons/hec-my-data-180.png","assets/app-icons/hec-my-data-192.png","assets/app-icons/hec-my-data-512.png","assets/app-icons/hec-test-180.png","assets/app-icons/hec-test-192.png","assets/app-icons/hec-test-512.png","assets/companions/runtime/picker/percy-pelican.webp","assets/companions/runtime/picker/wally-wombat.webp","assets/companions/runtime/picker/anna-goanna.webp","assets/companions/runtime/picker/shelly-turtle.webp","assets/companions/runtime/picker/ruby-ringneck.webp","assets/companions/runtime/picker/bonnie-bilby.webp","assets/companions/runtime/picker/skip-kangaroo.webp","assets/companions/runtime/picker/rusty-dingo.webp","assets/companions/runtime/picker/gary-galah.webp","assets/companions/runtime/picker/monty-python.webp","assets/companions/runtime/picker/chuckles-kookaburra.webp","assets/companions/runtime/picker/ernie-echidna.webp","assets/companions/runtime/picker/spike-thorny-devil.webp","assets/companions/runtime/picker/cassie-cassowary.webp","assets/companions/runtime/picker/salty-crocodile.webp","assets/companions/runtime/picker/bushy-koala.webp"]};
+/* Embedded by build_release.js so a legacy worker cannot substitute a stale
+ * bootstrap before the release gate exists. This file contains no user data. */
 (() => {
-  "use strict";
-  const expected=document.documentElement.dataset.hecRelease;
-  const actual=window.HEC_APP?.version||"";
-  const runtimeFiles=[
-    "installation-foundation.js",
-    "migrations.js","companions.js","companion-artwork.js","companion-voice-metadata.js","companion-voices.js",
-    "stage4-foundation.js","weight-progress-foundation.js","nutrition-trends-foundation.js","app.js","entity-registry.js","search-foundation.js",
-    "product-serving-semantics.js","food-sources.js","australian-catalogue-data.js","mcdonalds-au-catalogue-data.js","mcdonalds-au-catalogue.js","kfc-au-catalogue-data.js","kfc-au-supplement-data.js","kfc-au-catalogue.js","food-catalogue.js","retailer-catalogue.js","retailer-source.js","woolworths-au-catalogue.js","off-catalogue.js","guided-branching.js","packaged-foods.js","capture-foundation.js","serving-foundation.js","guided-product-resolution.js",
-    "activity-foundation.js","food-groups-foundation.js","conversation-foundation.js","alpha06.js","alpha064.js"
-  ];
-  function releaseNotice(title,copy){
-    document.title=`Healthy Eating Companion — ${title}`;
-    document.getElementById("app")?.setAttribute("hidden","");
-    let notice=document.getElementById("hec-release-status");
-    if(!notice){notice=document.createElement("main");notice.id="hec-release-status";notice.setAttribute("role","status");notice.style.cssText="max-width:36rem;margin:12vh auto;padding:2rem;font:1rem/1.5 system-ui;text-align:center";document.body.appendChild(notice);}
-    notice.innerHTML=`<h1>${title}</h1><p>${copy}</p>`;
+  'use strict';
+  const release=window.HEC_RELEASE,app=document.getElementById('app'),notice=document.getElementById('hec-release-status');
+  const role=location.origin==='https://mlwes-hec-test.github.io'?'test':'my-data';
+  const diagnostics={pageGeneration:release.generation,requiredCoreGeneration:null,workerGeneration:null,cacheGeneration:null,role,state:'updating',executed:[],reloads:0,checks:0};
+  const coreHash=file=>release.roles[role][file]||release.files[file];
+  const assetURL=file=>new URL(file+'?g='+release.generation,location.href).href;
+  const integrity=file=>'sha256-'+btoa(coreHash(file).match(/../g).map(byte=>String.fromCharCode(parseInt(byte,16))).join(''));
+  const delay=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+  let registration=null,started=false,starting=null,reloading=false,lastCheck=0,checking=null,installFailed=false;
+  const watchedRegistrations=new WeakSet();
+  function status(message,blocked=true,retry=false){
+    if(blocked){document.documentElement.removeAttribute('data-hec-ready');app.inert=true;app.hidden=true;diagnostics.state='updating';}
+    notice.hidden=false;notice.dataset.blocking=String(blocked);notice.replaceChildren();
+    const text=document.createElement('p');text.textContent=message;notice.append(text);
+    if(retry){const button=document.createElement('button');button.textContent='Retry update';button.onclick=async()=>{if(!started)return begin();if(app.hidden)await onControllerChange();return checkUpdate(true);};notice.append(button);}
   }
-  function refreshReleaseWorker(){
-    releaseNotice("Updating Healthy Eating Companion","A new app version is being prepared. Your saved data is not being changed.");
-    window.stop();
-    if(!("serviceWorker" in navigator)||!location.protocol.startsWith("http")){
-      releaseNotice("Update Needed","Reload this page while online to finish updating Healthy Eating Companion.");
-      return;
+  function paused(){const blocked=!started||app.hidden;status(blocked?'The update could not finish. Connect to the internet and try again. Your saved data remains on this device.':'The update is paused. You can keep using HEC.',blocked,true);if(blocked)diagnostics.state='paused';}
+  function workerStatus(worker=navigator.serviceWorker?.controller){
+    if(!worker)return Promise.resolve(null);
+    return new Promise(resolve=>{const channel=new MessageChannel(),timer=setTimeout(()=>done(null),1500);function done(value){clearTimeout(timer);channel.port1.close();resolve(value);}channel.port1.onmessage=event=>done(event.data);try{worker.postMessage({type:'HEC_RELEASE_STATUS'},[channel.port2]);}catch{done(null);}});
+  }
+  function remember(value){if(value?.ready){diagnostics.workerGeneration=value.generation;diagnostics.cacheGeneration=value.cache;}}
+  async function onControllerChange(){
+    if(started)status('Updating HEC…');
+    const value=await workerStatus();remember(value);
+    if(!value?.ready||value.role!==role){if(started)paused();return;}
+    if(value.generation===release.generation){if(started){app.hidden=false;app.inert=false;document.documentElement.setAttribute('data-hec-ready','');notice.hidden=true;diagnostics.state='ready';}return;}
+    if(!reloading){reloading=true;diagnostics.reloads++;status('Updating HEC…');location.reload();}
+  }
+  function watchRegistration(reg){
+    registration=reg;
+    if(watchedRegistrations.has(reg))return;watchedRegistrations.add(reg);
+    const watch=()=>{const worker=reg.installing;if(!worker)return;
+      if(started)status('An update is being prepared. You can keep using HEC.',false);
+      worker.addEventListener('statechange',()=>{if(worker.state==='redundant'){installFailed=true;if(started)paused();}});
+    };
+    reg.addEventListener('updatefound',watch);watch();
+  }
+  async function checkUpdate(force=false){
+    if(checking||!navigator.onLine||!registration||!force&&Date.now()-lastCheck<60000)return checking;
+    lastCheck=Date.now();diagnostics.checks++;
+    checking=registration.update().then(()=>true).catch(()=>{if(started)paused();return false;}).finally(()=>{checking=null;});return checking;
+  }
+  async function coherentWorker(){
+    installFailed=false;
+    if(!('serviceWorker' in navigator)||!location.protocol.startsWith('http'))return false;
+    const current=await workerStatus();remember(current);
+    if(current?.ready&&current.role===role&&current.generation===release.generation){
+      const reg=await navigator.serviceWorker.getRegistration();if(reg){watchRegistration(reg);void checkUpdate();}return true;
     }
-    let reloading=false;
-    const reload=()=>{if(reloading)return;reloading=true;location.reload();};
-    const hadController=!!navigator.serviceWorker.controller;
-    navigator.serviceWorker.addEventListener("controllerchange",reload,{once:true});
-    navigator.serviceWorker.register(`service-worker.js?v=${encodeURIComponent(expected)}&role=${encodeURIComponent(window.HEC_APP?.installationRole||"my-data")}`,{updateViaCache:"none"})
-      .then(registration=>registration.update())
-      .then(()=>{if(!hadController)navigator.serviceWorker.ready.then(reload);})
-      .catch(()=>releaseNotice("Update Paused","Healthy Eating Companion could not finish updating. Check your connection, then reload this page."));
+    try{
+      const reg=await navigator.serviceWorker.register(`service-worker.js?v=${encodeURIComponent(release.version)}&role=${encodeURIComponent(role)}`,{scope:'./',updateViaCache:'none'});
+      watchRegistration(reg);const updated=await checkUpdate(true);if(updated===false&&!reg.installing)throw Error('Update check unavailable');
+      const deadline=Date.now()+20000;
+      while(Date.now()<deadline){const value=await workerStatus();remember(value);if(value?.ready&&value.role===role){if(value.generation!==release.generation){await onControllerChange();throw Error('Changing page generation');}return true;}if(installFailed||!reg.installing&&!reg.waiting&&reg.active?.state==='redundant')break;await delay(150);}
+      throw Error('Core readiness not reached');
+    }catch(error){
+      // A browser that cannot register a worker may still run a fully verified
+      // online document. An existing installed client must keep its gate.
+      if(navigator.serviceWorker.controller)throw error;
+      return false;
+    }
   }
-  const role=window.HEC_APP?.installationRole||"";
-  const roleOriginSafe=role!=="test"||(window.HEC_APP?.expectedOrigin&&window.HEC_APP.expectedOrigin===location.origin&&location.protocol==="https:");
-  if(!roleOriginSafe){releaseNotice("HEC TEST Safety Lock","This TEST build is not running at its approved isolated origin. No HEC runtime or destructive TEST operation has been started.");window.stop();return;}
-  if(!expected||actual!==expected){refreshReleaseWorker();return;}
-  window.HEC_RELEASE_READY=runtimeFiles.reduce((chain,file)=>chain.then(()=>new Promise((resolve,reject)=>{
-    const script=document.createElement("script");script.src=`${file}?v=${encodeURIComponent(actual)}`;script.onload=resolve;script.onerror=()=>reject(new Error(`${file} failed to load`));document.body.appendChild(script);
-  })),Promise.resolve()).catch(()=>releaseNotice("App Could Not Start","Reload while online. Your saved data remains on this device."));
+  async function verifyOnlineCore(){
+    await Promise.all(Object.keys(release.files).map(async file=>{
+      const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),15000);
+      try{const response=await fetch(assetURL(file),{cache:'no-store',signal:controller.signal});if(!response.ok)throw Error('Core unavailable');const digest=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',await response.arrayBuffer()))).map(n=>n.toString(16).padStart(2,'0')).join('');if(digest!==coreHash(file))throw Error('Core generation mismatch');}finally{clearTimeout(timer);}
+    }));
+  }
+  function load(file,style=false){return new Promise((resolve,reject)=>{
+    const node=document.createElement(style?'link':'script');node.integrity=integrity(file);node.crossOrigin='anonymous';
+    if(style){node.rel='stylesheet';node.href=assetURL(file);}else node.src=assetURL(file);
+    node.onload=()=>{if(!style)diagnostics.executed.push({file,sha256:coreHash(file),generation:release.generation});resolve();};node.onerror=()=>reject(Error('Core asset unavailable: '+file));
+    (style?document.head:document.body).append(node);
+  });}
+  async function boot(){
+    status('Updating HEC…');
+    if(!await coherentWorker())await verifyOnlineCore();
+    diagnostics.requiredCoreGeneration=release.generation;
+    let runtimeError=null;const onError=event=>{runtimeError=event.error||Error('Runtime startup failed');};window.addEventListener('error',onError);
+    try{
+      await load('styles.css',true);
+      for(const file of release.runtime){await load(file);if(runtimeError)throw runtimeError;
+        if(file==='config.js'){
+          const APP=window.HEC_APP,roleOriginSafe=APP?.installationRole===role&&(role!=='test'||APP.expectedOrigin===location.origin);
+          if(!roleOriginSafe)throw Error('HEC TEST Safety Lock');
+          if(APP.version!==release.version)throw Error('Visible release mismatch');
+        }
+      }
+      if(!window.HECFoodCatalogue?.retailerMembership||!window.HEC_SEARCH_SESSION_TEST||!window.HECRetailerCatalogue?.directory||!window.HECRetailerSource?.register)throw Error('Runtime registrations incomplete');
+    }finally{window.removeEventListener('error',onError);}
+    const manifest=document.createElement('link');manifest.rel='manifest';manifest.href=assetURL('manifest.webmanifest');document.head.append(manifest);
+    started=true;diagnostics.state='ready';app.hidden=false;app.inert=false;document.documentElement.setAttribute('data-hec-ready','');notice.hidden=true;
+    navigator.serviceWorker?.controller?.postMessage({type:'HEC_RELEASE_CLIENT_READY',generation:release.generation});
+  }
+  function begin(){
+    if(starting)return starting;
+    // A failed script execution cannot be safely replayed in the same global
+    // scope. Reload this verified shell on explicit retry, never in a loop.
+    if(diagnostics.executed.length){location.reload();return;}
+    starting=boot().catch(error=>{diagnostics.failure=String(error.message);paused();}).finally(()=>{starting=null;});return starting;
+  }
+  window.HECRelease=Object.freeze({snapshot:()=>JSON.parse(JSON.stringify(diagnostics)),check:()=>checkUpdate(true)});
+  navigator.serviceWorker?.addEventListener('controllerchange',()=>void onControllerChange());
+  function foreground(){if(started){if(app.hidden)void onControllerChange();void checkUpdate();}else if(diagnostics.state==='paused')void begin();}
+  window.addEventListener('pageshow',foreground);
+  document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')foreground();});
+  window.addEventListener('online',foreground);
+  window.HEC_RELEASE_READY=begin();
 })();
+
 </script>
+<!-- HEC RELEASE BOOTSTRAP END -->
 </body>
 </html>
