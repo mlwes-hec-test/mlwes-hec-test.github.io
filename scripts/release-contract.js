@@ -8,7 +8,7 @@ module.exports={version:'0.6.33',runtime:[
   'entity-registry.js','search-foundation.js','product-serving-semantics.js','food-sources.js',
   'australian-catalogue-data.js','mcdonalds-au-catalogue-data.js','mcdonalds-au-catalogue.js',
   'kfc-au-catalogue-data.js','kfc-au-supplement-data.js','kfc-au-catalogue.js','food-catalogue.js',
-  'retailer-catalogue.js','retailer-source.js','woolworths-au-catalogue.js','off-catalogue.js',
+  'retailer-catalogue.js','retailer-source.js','woolworths-au-catalogue.js','off-catalogue.js','coles-au-catalogue.js',
   'guided-branching.js','packaged-foods.js','capture-foundation.js','serving-foundation.js','guided-product-resolution.js',
   'activity-foundation.js','food-groups-foundation.js','conversation-foundation.js','alpha06.js','alpha064.js'
 ],support:['styles.css','manifest.webmanifest','data/open-food-facts-au/manifest.json','afcd-release-3.json'],

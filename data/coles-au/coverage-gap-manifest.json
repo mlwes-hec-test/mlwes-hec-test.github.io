@@ -1,0 +1,2090 @@
+{
+  "schemaVersion": 1,
+  "mode": "private-testing-community-brand-collection",
+  "source": {
+    "directory": "data/open-food-facts-au",
+    "url": "https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv.gz",
+    "snapshotDate": "2026-08-30",
+    "sha256": "F72687EE8BC6522054FE69DBFDA6B91902C16AF1EC2E043CDE27BC6C29AD8176",
+    "manifestSha256": "b1e5d58b660cb4d36192ec898bef95f1cfcdbaed9d374be4cc10820450981e42",
+    "shards": [
+      {
+        "path": "products/co-01.json",
+        "sha256": "e89745b7ce19003d2999997061697f8975928464f184edc76a23a1ed426698a9"
+      },
+      {
+        "path": "products/co-02.json",
+        "sha256": "5d7e80ec976e8f9417593df99a12983a35f04c264ffa43c9ad9a519b9bca8f46"
+      },
+      {
+        "path": "products/co-03.json",
+        "sha256": "00b741b9f4082f5fc7308e0bee69361a053af3e1ec2d64ce940f80129a8f895e"
+      },
+      {
+        "path": "products/co-04.json",
+        "sha256": "88e775068810e45830c257ec54f79cef13bfd828b85b33ef8319e49af912e7c4"
+      }
+    ]
+  },
+  "licence": {
+    "attribution": "Open Food Facts contributors",
+    "contents": "Database Contents License",
+    "database": "Open Database License (ODbL)",
+    "databaseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+    "contentsUrl": "https://opendatacommons.org/licenses/dbcl/1-0/",
+    "projectNotice": "OPEN_FOOD_FACTS_AU_DATA_NOTICE.md",
+    "internalUse": "ODbL 4.5(c); no public use or publication in this job"
+  },
+  "rawEvidenceRows": 34,
+  "canonicalIdentities": 34,
+  "newCanonicalIdentities": 0,
+  "existingOFFIdentitiesEnriched": 34,
+  "verifiedRetailerMemberships": 0,
+  "nationalBrandProducts": 0,
+  "sourceDeclaredColesBrandProducts": 34,
+  "independentlyVerifiedPrivateLabelProducts": 0,
+  "loggableNow": 29,
+  "ordinaryBrowseProducts": 23,
+  "incompleteOrRestricted": 5,
+  "materialEvidenceConflicts": 0,
+  "nutritionReviewRequired": 2,
+  "identityOnly": 3,
+  "reviewDeferredDespiteSharedLoggability": 6,
+  "verifiedGtins": 0,
+  "checksumValidSourceGtins": 34,
+  "crossRetailerCompatibleMerges": 0,
+  "unsafeMergeRejections": 0,
+  "countNotes": "GTIN checksums validate identifier structure, not independent package verification. Loggable Now uses unchanged shared eligibility; ordinary browse additionally requires reviewed identity/basis. Restricted and nutrition-review counts can overlap. No new listing or current stock claim.",
+  "categories": [
+    {
+      "id": "bread",
+      "label": "Bread & Bakery",
+      "scope": "food",
+      "retained": 5,
+      "ordinaryBrowse": 3
+    },
+    {
+      "id": "milk",
+      "label": "Milk Alternatives",
+      "scope": "food",
+      "retained": 3,
+      "ordinaryBrowse": 2
+    },
+    {
+      "id": "yoghurt",
+      "label": "Yoghurt",
+      "scope": "food",
+      "retained": 2,
+      "ordinaryBrowse": 2
+    },
+    {
+      "id": "cheese",
+      "label": "Cheese",
+      "scope": "food",
+      "retained": 2,
+      "ordinaryBrowse": 2
+    },
+    {
+      "id": "cereal",
+      "label": "Breakfast Cereal",
+      "scope": "food",
+      "retained": 3,
+      "ordinaryBrowse": 3
+    },
+    {
+      "id": "spreads",
+      "label": "Spreads",
+      "scope": "food",
+      "retained": 2,
+      "ordinaryBrowse": 2
+    },
+    {
+      "id": "biscuits",
+      "label": "Crackers & Biscuits",
+      "scope": "food",
+      "retained": 3,
+      "ordinaryBrowse": 2
+    },
+    {
+      "id": "snacks",
+      "label": "Snack Foods",
+      "scope": "food",
+      "retained": 1,
+      "ordinaryBrowse": 1
+    },
+    {
+      "id": "sauces",
+      "label": "Sauces & Condiments",
+      "scope": "food",
+      "retained": 1,
+      "ordinaryBrowse": 1
+    },
+    {
+      "id": "protein",
+      "label": "Packaged Protein Snacks",
+      "scope": "food",
+      "retained": 1,
+      "ordinaryBrowse": 1
+    },
+    {
+      "id": "desserts",
+      "label": "Cakes & Desserts",
+      "scope": "food",
+      "retained": 3,
+      "ordinaryBrowse": 3
+    },
+    {
+      "id": "drinks",
+      "label": "Non-alcoholic Drinks",
+      "scope": "food",
+      "retained": 1,
+      "ordinaryBrowse": 1
+    },
+    {
+      "id": "canned",
+      "label": "Canned Food",
+      "scope": "food",
+      "retained": 2,
+      "ordinaryBrowse": 0
+    },
+    {
+      "id": "grains",
+      "label": "Rice & Pasta",
+      "scope": "food",
+      "retained": 3,
+      "ordinaryBrowse": 0
+    },
+    {
+      "id": "frozen-vegetables",
+      "label": "Frozen Vegetables",
+      "scope": "food",
+      "retained": 1,
+      "ordinaryBrowse": 0
+    },
+    {
+      "id": "frozen-potato",
+      "label": "Frozen Potato Products",
+      "scope": "food",
+      "retained": 1,
+      "ordinaryBrowse": 0
+    }
+  ],
+  "coverageGaps": [
+    "No independent current retailer listings or nationwide stock evidence.",
+    "No national brands assigned Coles membership.",
+    "Other private-label families await independently permitted relationship evidence.",
+    "Milk alternatives have explicit mL servings; selected dairy milk has a g/mL ambiguity and is deferred.",
+    "Rice/pasta, canned and frozen candidates retain missing/conflicting or preparation-state evidence; no broad completeness claim.",
+    "Some otherwise loggable records lack retail pack size. Their stable source GTIN identities remain distinct.",
+    "The existing OFF import does not preserve raw panel qualifiers, stores, original per-serve panels or preparation-state fields. Do not reconstruct them or infer a current listing.",
+    "No user package evidence was supplied; generic AFCD/AUSNUT data was not borrowed for packaged products."
+  ],
+  "products": [
+    {
+      "id": "off:9310645290676",
+      "ref": "co-01:491",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9310645290676/bread-brioche-coles",
+      "brand": "Coles",
+      "name": "Bread brioche",
+      "barcode": "9310645290676",
+      "pack": null,
+      "serving": "1 slice (42 g)",
+      "lastModified": "2026-05-17T02:24:51Z",
+      "nutritionBasis": "per-100g-off-csv",
+      "nutritionState": "not separately recorded by the pinned import",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "ordinaryBrowse": true,
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 288.095238,
+          "energyKj": 1204.2,
+          "expectedKj": 1205.390475792,
+          "relativeDifference": 0.0009876266785812417
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 285.40000000000003,
+          "relativeDifference": 0.009355371573340482
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": [],
+      "gaps": [
+        "pack-size-not-recorded",
+        "unsupported-or-equivalent-measures-omitted-by-shared-layer"
+      ],
+      "measures": {
+        "slice": 0.42,
+        "g": 0.01
+      },
+      "categoryId": "bread"
+    },
+    {
+      "id": "off:9300601274482",
+      "ref": "co-02:653",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9300601274482/high-fibre-multigrain-sandwich-loaf-coles",
+      "brand": "Coles",
+      "name": "High Fibre Multigrain Sandwich Loaf",
+      "barcode": "9300601274482",
+      "pack": null,
+      "serving": "1 portion (74 g)",
+      "lastModified": "2026-05-07T05:49:18Z",
+      "nutritionBasis": "per-100g-off-csv",
+      "nutritionState": "not separately recorded by the pinned import",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "ordinaryBrowse": true,
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 261,
+          "energyKj": 1089.1,
+          "expectedKj": 1092.0240000000001,
+          "relativeDifference": 0.0026775968293739016
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 258.3,
+          "relativeDifference": 0.010344827586206853
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": [],
+      "gaps": [
+        "pack-size-not-recorded",
+        "physical-form-not-resolved-use-existing-grams",
+        "unsupported-or-equivalent-measures-omitted-by-shared-layer"
+      ],
+      "measures": {
+        "g": 0.01
+      },
+      "categoryId": "bread"
+    },
+    {
+      "id": "off:9300689874482",
+      "ref": "co-02:654",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9300689874482/high-fibre-multigrain-sandwich-loaf-coles",
+      "brand": "Coles",
+      "name": "High Fibre Multigrain Sandwich Loaf",
+      "barcode": "9300689874482",
+      "pack": null,
+      "serving": "1 portion (39 g)",
+      "lastModified": "2026-05-06T23:03:40Z",
+      "nutritionBasis": "per-100g-off-csv",
+      "nutritionState": "not separately recorded by the pinned import",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "ordinaryBrowse": true,
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 261,
+          "energyKj": 1092.5,
+          "expectedKj": 1092.0240000000001,
+          "relativeDifference": 0.000435887855944453
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 259.09999999999997,
+          "relativeDifference": 0.007279693486590169
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": [],
+      "gaps": [
+        "pack-size-not-recorded",
+        "physical-form-not-resolved-use-existing-grams",
+        "unsupported-or-equivalent-measures-omitted-by-shared-layer"
+      ],
+      "measures": {
+        "g": 0.01
+      },
+      "categoryId": "bread"
+    },
+    {
+      "id": "off:9300601274475",
+      "ref": "co-04:409",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9300601274475/wholemeal-sandwich-loaf-coles",
+      "brand": "Coles",
+      "name": "Wholemeal sandwich loaf",
+      "barcode": "9300601274475",
+      "pack": "700g",
+      "serving": "1 Sandwich (40 g)",
+      "lastModified": "2026-04-07T20:09:20Z",
+      "nutritionBasis": "per-100g-off-csv",
+      "nutritionState": "not separately recorded by the pinned import",
+      "status": {
+        "status": "needs-nutrition-completion",
+        "label": "Needs Nutrition Completion",
+        "reasonCode": "nutrition-review-required",
+        "message": "We found the exact product, but its nutrition is incomplete or needs review. Read the Nutrition Panel, scan/update the barcode, or enter nutrition manually.",
+        "actions": [
+          {
+            "id": "nutrition-panel",
+            "label": "Read Nutrition Panel"
+          },
+          {
+            "id": "barcode",
+            "label": "Scan Barcode"
+          },
+          {
+            "id": "manual-nutrition",
+            "label": "Enter Nutrition Manually"
+          },
+          {
+            "id": "generic-alternative",
+            "label": "Use a Generic Alternative"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "ordinaryBrowse": false,
+      "nutritionIntegrity": {
+        "status": "suspect",
+        "missing": [],
+        "energy": {
+          "status": "conflict",
+          "calories": 245.714286,
+          "energyKj": 1518.75,
+          "expectedKj": 1028.068572624,
+          "relativeDifference": 0.4772847263715153
+        },
+        "macro": {
+          "status": "suspect",
+          "expectedCalories": 358.75,
+          "relativeDifference": 0.4600290680697337
+        },
+        "usable": false,
+        "loggable": false
+      },
+      "conflicts": [],
+      "gaps": [],
+      "measures": {
+        "serve": 0.4,
+        "g": 0.01
+      },
+      "categoryId": "bread"
+    },
+    {
+      "id": "off:9310645254142",
+      "ref": "co-03:819",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9310645254142/soft-wholemeal-sandwich-loaf-coles",
+      "brand": "Coles",
+      "name": "Soft Wholemeal Sandwich Loaf",
+      "barcode": "9310645254142",
+      "pack": "700g",
+      "serving": "66g (2 slices)",
+      "lastModified": "2025-11-07T22:57:16Z",
+      "nutritionBasis": "per-100g-off-csv",
+      "nutritionState": "not separately recorded by the pinned import",
+      "status": {
+        "status": "needs-nutrition-completion",
+        "label": "Needs Nutrition Completion",
+        "reasonCode": "energy-missing",
+        "message": "We found the exact product, but its nutrition is incomplete or needs review. Read the Nutrition Panel, scan/update the barcode, or enter nutrition manually.",
+        "actions": [
+          {
+            "id": "nutrition-panel",
+            "label": "Read Nutrition Panel"
+          },
+          {
+            "id": "barcode",
+            "label": "Scan Barcode"
+          },
+          {
+            "id": "manual-nutrition",
+            "label": "Enter Nutrition Manually"
+          },
+          {
+            "id": "generic-alternative",
+            "label": "Use a Generic Alternative"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "ordinaryBrowse": false,
+      "nutritionIntegrity": {
+        "status": "identity-only",
+        "missing": [
+          "protein",
+          "carbs",
+          "fat"
+        ],
+        "energy": {
+          "status": "missing",
+          "calories": null,
+          "energyKj": null,
+          "expectedKj": null,
+          "relativeDifference": null
+        },
+        "macro": {
+          "status": "not-assessable",
+          "expectedCalories": null,
+          "relativeDifference": null
+        },
+        "usable": false,
+        "loggable": false
+      },
+      "conflicts": [],
+      "gaps": [],
+      "measures": {
+        "serve": 0.66,
+        "g": 0.01
+      },
+      "categoryId": "bread"
+    },
+    {
+      "id": "off:9310645094656",
+      "ref": "co-01:96",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9310645094656/almond-milk-unsweetened-coles",
+      "brand": "coles",
+      "name": "ALMOND MILK UNSWEETENED",
+      "barcode": "9310645094656",
+      "pack": "1L",
+      "serving": "1 servings (250 ml)",
+      "lastModified": "2026-03-24T10:28:15Z",
+      "nutritionBasis": "per-100g-off-csv",
+      "nutritionState": "not separately recorded by the pinned import",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "ordinaryBrowse": true,
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 19.6,
+          "energyKj": 81.64,
+          "expectedKj": 82.00640000000001,
+          "relativeDifference": 0.004467943965349203
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 19.68,
+          "relativeDifference": 0.0019999999999999575
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": [],
+      "gaps": [],
+      "measures": {
+        "cup": 2.5,
+        "serve": 2.5,
+        "L": 10,
+        "mL": 0.01
+      },
+      "categoryId": "milk"
+    },
+    {
+      "id": "off:9300601247028",
+      "ref": "co-03:838",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9300601247028/soy-milk-regular-coles",
+      "brand": "Coles",
+      "name": "Soy Milk Regular",
+      "barcode": "9300601247028",
+      "pack": "1 l",
+      "serving": "0.25 container (250 ml)",
+      "lastModified": "2026-04-19T14:53:03Z",
+      "nutritionBasis": "per-100g-off-csv",
+      "nutritionState": "not separately recorded by the pinned import",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "ordinaryBrowse": true,
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 64.531549,
+          "energyKj": 272.24,
+          "expectedKj": 270.000001016,
+          "relativeDifference": 0.00829629250211473
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 65.08,
+          "relativeDifference": 0.008498959168018731
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": [],
+      "gaps": [],
+      "measures": {
+        "cup": 2.5,
+        "serve": 2.5,
+        "L": 10,
+        "mL": 0.01
+      },
+      "categoryId": "milk"
+    },
+    {
+      "id": "off:9300601186945",
+      "ref": "co-02:535",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9300601186945/full-cream-milk-coles",
+      "brand": "coles",
+      "name": "Full Cream Milk",
+      "barcode": "9300601186945",
+      "pack": "3 l",
+      "serving": "1 serving (250 g)",
+      "lastModified": "2026-04-25T05:58:59Z",
+      "nutritionBasis": "per-100g-off-csv",
+      "nutritionState": "not separately recorded by the pinned import",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "ordinaryBrowse": false,
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 62,
+          "energyKj": 261.6,
+          "expectedKj": 259.408,
+          "relativeDifference": 0.008450009251834974
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 62.599999999999994,
+          "relativeDifference": 0.009677419354838618
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": [],
+      "gaps": [
+        "serving-unit-conflict",
+        "liquid-serving-reported-in-grams-no-mass-volume-conversion-evidenced"
+      ],
+      "measures": {
+        "cup": 2.5,
+        "L": 10,
+        "mL": 0.01
+      },
+      "categoryId": "milk"
+    },
+    {
+      "id": "off:9310645242019",
+      "ref": "co-02:321",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9310645242019/dairy-free-coconut-yoghurt-coles",
+      "brand": "Coles",
+      "name": "Dairy free coconut yoghurt",
+      "barcode": "9310645242019",
+      "pack": "500 g",
+      "serving": null,
+      "lastModified": "2026-03-12T13:28:25Z",
+      "nutritionBasis": "per-100g-off-csv",
+      "nutritionState": "not separately recorded by the pinned import",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "ordinaryBrowse": true,
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 135,
+          "energyKj": 571.9,
+          "expectedKj": 564.84,
+          "relativeDifference": 0.012499114793569762
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 138.3,
+          "relativeDifference": 0.02444444444444453
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": [],
+      "gaps": [
+        "serving-size-not-recorded",
+        "physical-form-not-resolved-use-existing-grams"
+      ],
+      "measures": {
+        "g": 0.01
+      },
+      "categoryId": "yoghurt"
+    },
+    {
+      "id": "off:9310645103358",
+      "ref": "co-02:869",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9310645103358/light-greek-style-natural-yoghurt-coles",
+      "brand": "coles",
+      "name": "Light Greek style natural yoghurt",
+      "barcode": "9310645103358",
+      "pack": "1kg",
+      "serving": "1 serving (125 g)",
+      "lastModified": "2026-04-12T22:03:57Z",
+      "nutritionBasis": "per-100g-off-csv",
+      "nutritionState": "not separately recorded by the pinned import",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "ordinaryBrowse": true,
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 73.6,
+          "energyKj": 309.28,
+          "expectedKj": 307.94239999999996,
+          "relativeDifference": 0.004343669465458505
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 73.36,
+          "relativeDifference": 0.003260869565217322
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": [],
+      "gaps": [
+        "physical-form-not-resolved-use-existing-grams",
+        "unsupported-or-equivalent-measures-omitted-by-shared-layer"
+      ],
+      "measures": {
+        "g": 0.01
+      },
+      "categoryId": "yoghurt"
+    },
+    {
+      "id": "off:9300601204694",
+      "ref": "co-03:14",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9300601204694/low-fat-creamed-cottage-cheese-coles",
+      "brand": "coles",
+      "name": "LOW FAT CREAMED COTTAGE CHEESE",
+      "barcode": "9300601204694",
+      "pack": "500g",
+      "serving": "1 serving (100 g)",
+      "lastModified": "2026-05-18T20:55:27Z",
+      "nutritionBasis": "per-100g-off-csv",
+      "nutritionState": "not separately recorded by the pinned import",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "ordinaryBrowse": true,
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 87,
+          "energyKj": 362.1,
+          "expectedKj": 364.00800000000004,
+          "relativeDifference": 0.005241643040812332
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 85.7,
+          "relativeDifference": 0.01494252873563215
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": [],
+      "gaps": [
+        "physical-form-not-resolved-use-existing-grams",
+        "unsupported-or-equivalent-measures-omitted-by-shared-layer"
+      ],
+      "measures": {
+        "g": 0.01
+      },
+      "categoryId": "cheese"
+    },
+    {
+      "id": "off:9300601010134",
+      "ref": "co-03:455",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9300601010134/pizza-blend-shredded-cheese-coles",
+      "brand": "coles",
+      "name": "Pizza Blend Shredded Cheese",
+      "barcode": "9300601010134",
+      "pack": "700g",
+      "serving": null,
+      "lastModified": "2026-02-21T06:32:17Z",
+      "nutritionBasis": "per-100g-off-csv",
+      "nutritionState": "not separately recorded by the pinned import",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "ordinaryBrowse": true,
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 324,
+          "energyKj": 1428.4,
+          "expectedKj": 1355.616,
+          "relativeDifference": 0.05369072067606174
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 343.79999999999995,
+          "relativeDifference": 0.06111111111111097
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": [],
+      "gaps": [
+        "serving-size-not-recorded",
+        "physical-form-not-resolved-use-existing-grams"
+      ],
+      "measures": {
+        "g": 0.01
+      },
+      "categoryId": "cheese"
+    },
+    {
+      "id": "off:9300601297351",
+      "ref": "co-03:528",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9300601297351/quick-oats-coles",
+      "brand": "coles",
+      "name": "Quick Oats",
+      "barcode": "9300601297351",
+      "pack": "900 g",
+      "serving": "40g",
+      "lastModified": "2026-03-15T23:20:40Z",
+      "nutritionBasis": "per-100g-off-csv",
+      "nutritionState": "not separately recorded by the pinned import",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "ordinaryBrowse": true,
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 380,
+          "energyKj": 1590,
+          "expectedKj": 1589.92,
+          "relativeDifference": 0.000050316997081568403
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 378.4,
+          "relativeDifference": 0.0042105263157895334
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": [],
+      "gaps": [],
+      "measures": {
+        "serve": 0.4,
+        "g": 0.01
+      },
+      "categoryId": "cereal"
+    },
+    {
+      "id": "off:9310645422145",
+      "ref": "co-02:235",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9310645422145/cornflakes-coles",
+      "brand": "Coles",
+      "name": "Cornflakes",
+      "barcode": "9310645422145",
+      "pack": "440g",
+      "serving": "1 serving (30 g)",
+      "lastModified": "2026-05-16T07:55:20Z",
+      "nutritionBasis": "per-100g-off-csv",
+      "nutritionState": "not separately recorded by the pinned import",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "ordinaryBrowse": true,
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 368.068834,
+          "energyKj": 1603.333333,
+          "expectedKj": 1540.000001456,
+          "relativeDifference": 0.04112553992475402
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 383.66666899999996,
+          "relativeDifference": 0.04237749453136251
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": [],
+      "gaps": [],
+      "measures": {
+        "serve": 0.3,
+        "g": 0.01
+      },
+      "categoryId": "cereal"
+    },
+    {
+      "id": "off:9300601395583",
+      "ref": "co-04:350",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9300601395583/wheat-biscuits-coles",
+      "brand": "Coles",
+      "name": "Wheat biscuits",
+      "barcode": "9300601395583",
+      "pack": "1.12 kg",
+      "serving": "1 serving (31 g)",
+      "lastModified": "2026-05-03T22:35:40Z",
+      "nutritionBasis": "per-100g-off-csv",
+      "nutritionState": "not separately recorded by the pinned import",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "ordinaryBrowse": true,
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 350,
+          "energyKj": 1460,
+          "expectedKj": 1464.4,
+          "relativeDifference": 0.003004643540016451
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 345.9,
+          "relativeDifference": 0.01171428571428578
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": [],
+      "gaps": [],
+      "measures": {
+        "serve": 0.31,
+        "g": 0.01
+      },
+      "categoryId": "cereal"
+    },
+    {
+      "id": "off:9310645099859",
+      "ref": "co-03:269",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9310645099859/organic-crunchy-peanut-butter-coles",
+      "brand": "Coles",
+      "name": "Organic Crunchy Peanut Butter",
+      "barcode": "9310645099859",
+      "pack": null,
+      "serving": "1 serving (20 g)",
+      "lastModified": "2026-04-09T08:02:14Z",
+      "nutritionBasis": "per-100g-off-csv",
+      "nutritionState": "not separately recorded by the pinned import",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "ordinaryBrowse": true,
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 583.173996,
+          "energyKj": 2450,
+          "expectedKj": 2439.999999264,
+          "relativeDifference": 0.004098360958613254
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 585.5,
+          "relativeDifference": 0.003988524893006395
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": [],
+      "gaps": [
+        "pack-size-not-recorded"
+      ],
+      "measures": {
+        "tbsp": 0.24,
+        "serve": 0.2,
+        "g": 0.01
+      },
+      "categoryId": "spreads"
+    },
+    {
+      "id": "off:9310645489636",
+      "ref": "co-03:796",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9310645489636/smooth-peanut-butter-coles",
+      "brand": "coles",
+      "name": "SMOOTH PEANUT BUTTER",
+      "barcode": "9310645489636",
+      "pack": null,
+      "serving": "1 portion (20 g)",
+      "lastModified": "2026-04-06T21:04:45Z",
+      "nutritionBasis": "per-100g-off-csv",
+      "nutritionState": "not separately recorded by the pinned import",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "ordinaryBrowse": true,
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 675,
+          "energyKj": 2803,
+          "expectedKj": 2824.2000000000003,
+          "relativeDifference": 0.007506550527583128
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 676.5,
+          "relativeDifference": 0.0022222222222222222
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": [],
+      "gaps": [
+        "pack-size-not-recorded"
+      ],
+      "measures": {
+        "tbsp": 0.24,
+        "serve": 0.2,
+        "g": 0.01
+      },
+      "categoryId": "spreads"
+    },
+    {
+      "id": "off:9310645435329",
+      "ref": "co-02:110",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9310645435329/coles-jam-fancy-biscuits",
+      "brand": "Coles",
+      "name": "Coles Jam Fancy Biscuits",
+      "barcode": "9310645435329",
+      "pack": null,
+      "serving": "2 biscuits (18 g)",
+      "lastModified": "2026-03-15T13:54:11Z",
+      "nutritionBasis": "per-100g-off-csv",
+      "nutritionState": "not separately recorded by the pinned import",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "ordinaryBrowse": true,
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 455.555556,
+          "energyKj": 1915.555556,
+          "expectedKj": 1906.044446304,
+          "relativeDifference": 0.004989972670596894
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 455.00000299999994,
+          "relativeDifference": 0.0012195065841762854
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": [],
+      "gaps": [
+        "pack-size-not-recorded"
+      ],
+      "measures": {
+        "biscuit": 0.09,
+        "serve": 0.18,
+        "g": 0.01
+      },
+      "categoryId": "biscuits"
+    },
+    {
+      "id": "off:9310645273112",
+      "ref": "co-02:723",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9310645273112/i-m-free-from-shortbread-creams-coles",
+      "brand": "Coles",
+      "name": "I'm free from Shortbread creams",
+      "barcode": "9310645273112",
+      "pack": null,
+      "serving": "1 biscuit (18 g)",
+      "lastModified": "2026-03-22T07:20:32Z",
+      "nutritionBasis": "per-100g-off-csv",
+      "nutritionState": "not separately recorded by the pinned import",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "ordinaryBrowse": true,
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 476,
+          "energyKj": 1991.3,
+          "expectedKj": 1991.584,
+          "relativeDifference": 0.0001426000610569805
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 475.7,
+          "relativeDifference": 0.00063025210084036
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": [],
+      "gaps": [
+        "pack-size-not-recorded",
+        "unsupported-or-equivalent-measures-omitted-by-shared-layer"
+      ],
+      "measures": {
+        "biscuit": 0.18,
+        "g": 0.01
+      },
+      "categoryId": "biscuits"
+    },
+    {
+      "id": "off:9300601931316",
+      "ref": "co-03:609",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9300601931316/rosemary-crackers-coles",
+      "brand": "Coles",
+      "name": "Rosemary Crackers",
+      "barcode": "9300601931316",
+      "pack": "170g",
+      "serving": "4.31 crackers (25 g)",
+      "lastModified": "2026-04-09T10:18:25Z",
+      "nutritionBasis": "per-100g-off-csv",
+      "nutritionState": "not separately recorded by the pinned import",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "ordinaryBrowse": false,
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 484,
+          "energyKj": 2007.2,
+          "expectedKj": 2025.056,
+          "relativeDifference": 0.00881753393486402
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 478.4,
+          "relativeDifference": 0.011570247933884344
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": [],
+      "gaps": [
+        "fractional-cracker-count-needs-package-confirmation"
+      ],
+      "measures": {
+        "cracker": 0.0580046403712297,
+        "serve": 0.25,
+        "g": 0.01
+      },
+      "categoryId": "biscuits"
+    },
+    {
+      "id": "off:9300601769315",
+      "ref": "co-03:221",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9300601769315/no-added-sugar-dark-chocolate-coles",
+      "brand": "Coles",
+      "name": "No Added Sugar Dark Chocolate",
+      "barcode": "9300601769315",
+      "pack": "100g",
+      "serving": "1 bar (20 g)",
+      "lastModified": "2026-02-27T09:10:35Z",
+      "nutritionBasis": "per-100g-off-csv",
+      "nutritionState": "not separately recorded by the pinned import",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "ordinaryBrowse": true,
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 420,
+          "energyKj": 1770,
+          "expectedKj": 1757.28,
+          "relativeDifference": 0.0072384594373122255
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 239.7,
+          "relativeDifference": 0.4292857142857143
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": [],
+      "gaps": [
+        "unsupported-or-equivalent-measures-omitted-by-shared-layer"
+      ],
+      "measures": {
+        "bar": 0.2,
+        "g": 0.01
+      },
+      "categoryId": "snacks"
+    },
+    {
+      "id": "off:9310645182636",
+      "ref": "co-04:93",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9310645182636/tartare-sauce-coles",
+      "brand": "Coles",
+      "name": "Tartare sauce",
+      "barcode": "9310645182636",
+      "pack": "230g",
+      "serving": null,
+      "lastModified": "2026-03-25T12:10:38Z",
+      "nutritionBasis": "per-100g-off-csv",
+      "nutritionState": "not separately recorded by the pinned import",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "ordinaryBrowse": true,
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 446.940727,
+          "energyKj": 1880,
+          "expectedKj": 1870.000001768,
+          "relativeDifference": 0.005347592632377277
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 455,
+          "relativeDifference": 0.018032084598994306
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": [],
+      "gaps": [
+        "serving-size-not-recorded",
+        "physical-form-not-resolved-use-existing-grams"
+      ],
+      "measures": {
+        "g": 0.01
+      },
+      "categoryId": "sauces"
+    },
+    {
+      "id": "off:9310645421452",
+      "ref": "co-02:188",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9310645421452/coles-tuna-snacks-crackers-sweetcorn-mayo-112-gram",
+      "brand": "Coles",
+      "name": "Coles Tuna Snacks Crackers Sweetcorn & Mayo 112 gram",
+      "barcode": "9310645421452",
+      "pack": "112 gram",
+      "serving": "1 serving (112 g)",
+      "lastModified": "2026-05-25T01:30:53Z",
+      "nutritionBasis": "per-100g-off-csv",
+      "nutritionState": "not separately recorded by the pinned import",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "ordinaryBrowse": true,
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 172.321429,
+          "energyKj": 719.107143,
+          "expectedKj": 720.9928589360001,
+          "relativeDifference": 0.0026154432913287687
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 170.982143,
+          "relativeDifference": 0.007772022364090233
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": [],
+      "gaps": [],
+      "measures": {
+        "serve": 1.12,
+        "g": 0.01
+      },
+      "categoryId": "protein"
+    },
+    {
+      "id": "off:9310645233796",
+      "ref": "co-01:815",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9310645233796/chocolate-celebration-cake-coles",
+      "brand": "Coles",
+      "name": "Chocolate Celebration Cake",
+      "barcode": "9310645233796",
+      "pack": "1.2kg",
+      "serving": "1 serving (80 g)",
+      "lastModified": "2026-03-15T03:44:54Z",
+      "nutritionBasis": "per-100g-off-csv",
+      "nutritionState": "not separately recorded by the pinned import",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "ordinaryBrowse": true,
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 371.25,
+          "energyKj": 1548.125,
+          "expectedKj": 1553.3100000000002,
+          "relativeDifference": 0.0033380329747443667
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 368.5,
+          "relativeDifference": 0.007407407407407408
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": [],
+      "gaps": [],
+      "measures": {
+        "serve": 0.8,
+        "g": 0.01
+      },
+      "categoryId": "desserts"
+    },
+    {
+      "id": "off:9310645320816",
+      "ref": "co-01:334",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9310645320816/banana-bread-coles",
+      "brand": "Coles",
+      "name": "Banana bread",
+      "barcode": "9310645320816",
+      "pack": null,
+      "serving": "1 portion (100 g)",
+      "lastModified": "2026-04-26T15:55:16Z",
+      "nutritionBasis": "per-100g-off-csv",
+      "nutritionState": "not separately recorded by the pinned import",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "ordinaryBrowse": true,
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 320,
+          "energyKj": 1319.6,
+          "expectedKj": 1338.88,
+          "relativeDifference": 0.014400095602294603
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 322.30000000000007,
+          "relativeDifference": 0.007187500000000213
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": [],
+      "gaps": [
+        "pack-size-not-recorded"
+      ],
+      "measures": {
+        "serve": 1,
+        "g": 0.01
+      },
+      "categoryId": "desserts"
+    },
+    {
+      "id": "off:9310645207544",
+      "ref": "co-01:338",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9310645207544/banana-bread-slice-coles",
+      "brand": "Coles",
+      "name": "Banana bread slice",
+      "barcode": "9310645207544",
+      "pack": null,
+      "serving": "1 serving (100 g)",
+      "lastModified": "2026-04-25T22:53:04Z",
+      "nutritionBasis": "per-100g-off-csv",
+      "nutritionState": "not separately recorded by the pinned import",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "ordinaryBrowse": true,
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 338,
+          "energyKj": 1411.1,
+          "expectedKj": 1414.192,
+          "relativeDifference": 0.002186407503365949
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 336.5,
+          "relativeDifference": 0.004437869822485207
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": [],
+      "gaps": [
+        "pack-size-not-recorded"
+      ],
+      "measures": {
+        "serve": 1,
+        "g": 0.01
+      },
+      "categoryId": "desserts"
+    },
+    {
+      "id": "off:9310645351377",
+      "ref": "co-03:205",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9310645351377/natural-spring-water-coles",
+      "brand": "Coles",
+      "name": "Natural spring water",
+      "barcode": "9310645351377",
+      "pack": "600ml",
+      "serving": null,
+      "lastModified": "2026-04-22T13:23:06Z",
+      "nutritionBasis": "per-100g-off-csv",
+      "nutritionState": "not separately recorded by the pinned import",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "ordinaryBrowse": true,
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 0,
+          "energyKj": 0,
+          "expectedKj": 0,
+          "relativeDifference": 0
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 0,
+          "relativeDifference": 0
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": [],
+      "gaps": [
+        "serving-size-not-recorded"
+      ],
+      "measures": {
+        "cup": 2.5,
+        "L": 10,
+        "mL": 0.01
+      },
+      "categoryId": "drinks"
+    },
+    {
+      "id": "off:9300601416158",
+      "ref": "co-01:322",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9300601416158/baked-beans-in-tomato-sauce-coles",
+      "brand": "Coles",
+      "name": "Baked beans in tomato sauce",
+      "barcode": "9300601416158",
+      "pack": "3 x 425 g",
+      "serving": null,
+      "lastModified": "2022-08-18T06:54:06Z",
+      "nutritionBasis": "per-100g-off-csv",
+      "nutritionState": "not separately recorded by the pinned import",
+      "status": {
+        "status": "needs-nutrition-completion",
+        "label": "Needs Nutrition Completion",
+        "reasonCode": "energy-missing",
+        "message": "We found the exact product, but its nutrition is incomplete or needs review. Read the Nutrition Panel, scan/update the barcode, or enter nutrition manually.",
+        "actions": [
+          {
+            "id": "nutrition-panel",
+            "label": "Read Nutrition Panel"
+          },
+          {
+            "id": "barcode",
+            "label": "Scan Barcode"
+          },
+          {
+            "id": "manual-nutrition",
+            "label": "Enter Nutrition Manually"
+          },
+          {
+            "id": "generic-alternative",
+            "label": "Use a Generic Alternative"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "ordinaryBrowse": false,
+      "nutritionIntegrity": {
+        "status": "identity-only",
+        "missing": [
+          "protein",
+          "carbs",
+          "fat"
+        ],
+        "energy": {
+          "status": "missing",
+          "calories": null,
+          "energyKj": null,
+          "expectedKj": null,
+          "relativeDifference": null
+        },
+        "macro": {
+          "status": "not-assessable",
+          "expectedCalories": null,
+          "relativeDifference": null
+        },
+        "usable": false,
+        "loggable": false
+      },
+      "conflicts": [],
+      "gaps": [
+        "serving-size-not-recorded",
+        "physical-form-not-resolved-use-existing-grams"
+      ],
+      "measures": {
+        "g": 0.01
+      },
+      "categoryId": "canned"
+    },
+    {
+      "id": "off:9300601340828",
+      "ref": "co-02:224",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9300601340828/corn-kernels-coles",
+      "brand": "Coles",
+      "name": "Corn Kernels",
+      "barcode": "9300601340828",
+      "pack": "4 x 125 g",
+      "serving": "81 g",
+      "lastModified": "2026-05-18T02:50:51Z",
+      "nutritionBasis": "per-100g-off-csv",
+      "nutritionState": "not separately recorded by the pinned import",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "ordinaryBrowse": false,
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 64.197531,
+          "energyKj": 259.62963,
+          "expectedKj": 268.602469704,
+          "relativeDifference": 0.03340564855523495
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 61.604940000000006,
+          "relativeDifference": 0.04038459049149401
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": [],
+      "gaps": [
+        "physical-form-not-resolved-use-existing-grams",
+        "unsupported-or-equivalent-measures-omitted-by-shared-layer",
+        "drained-versus-packed-nutrition-basis-unresolved"
+      ],
+      "measures": {
+        "g": 0.01
+      },
+      "categoryId": "canned"
+    },
+    {
+      "id": "off:9300601000562",
+      "ref": "co-04:366",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9300601000562/white-long-grain-rice-coles",
+      "brand": "coles",
+      "name": "White Long Grain Rice",
+      "barcode": "9300601000562",
+      "pack": "1kg",
+      "serving": "50g",
+      "lastModified": "2026-05-25T07:54:11Z",
+      "nutritionBasis": "per-100g-off-csv",
+      "nutritionState": "not separately recorded by the pinned import",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "ordinaryBrowse": false,
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 364,
+          "energyKj": 1528.8,
+          "expectedKj": 1522.976,
+          "relativeDifference": 0.0038240917782025726
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 360.2,
+          "relativeDifference": 0.01043956043956047
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": [],
+      "gaps": [
+        "dry-versus-prepared-nutrition-state-not-preserved"
+      ],
+      "measures": {
+        "serve": 0.5,
+        "g": 0.01
+      },
+      "categoryId": "grains"
+    },
+    {
+      "id": "off:9310645091334",
+      "ref": "co-02:475",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9310645091334/fragrant-jasmine-rice-coles",
+      "brand": "Coles",
+      "name": "Fragrant Jasmine Rice",
+      "barcode": "9310645091334",
+      "pack": "250g",
+      "serving": "1 portion (125 g)",
+      "lastModified": "2026-05-18T08:03:25Z",
+      "nutritionBasis": "per-100g-off-csv",
+      "nutritionState": "not separately recorded by the pinned import",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "ordinaryBrowse": false,
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 150.286807,
+          "energyKj": 630.16,
+          "expectedKj": 628.800000488,
+          "relativeDifference": 0.0021628490950134772
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 148.72,
+          "relativeDifference": 0.01042544606061137
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": [],
+      "gaps": [
+        "dry-versus-prepared-nutrition-state-not-preserved"
+      ],
+      "measures": {
+        "serve": 1.25,
+        "g": 0.01
+      },
+      "categoryId": "grains"
+    },
+    {
+      "id": "off:9310645247205",
+      "ref": "co-03:844",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9310645247205/spaghetti-coles",
+      "brand": "Coles",
+      "name": "Spaghetti",
+      "barcode": "9310645247205",
+      "pack": "500 g",
+      "serving": null,
+      "lastModified": "2023-09-19T06:10:04Z",
+      "nutritionBasis": "per-100g-off-csv",
+      "nutritionState": "not separately recorded by the pinned import",
+      "status": {
+        "status": "needs-nutrition-completion",
+        "label": "Needs Nutrition Completion",
+        "reasonCode": "energy-missing",
+        "message": "We found the exact product, but its nutrition is incomplete or needs review. Read the Nutrition Panel, scan/update the barcode, or enter nutrition manually.",
+        "actions": [
+          {
+            "id": "nutrition-panel",
+            "label": "Read Nutrition Panel"
+          },
+          {
+            "id": "barcode",
+            "label": "Scan Barcode"
+          },
+          {
+            "id": "manual-nutrition",
+            "label": "Enter Nutrition Manually"
+          },
+          {
+            "id": "generic-alternative",
+            "label": "Use a Generic Alternative"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "ordinaryBrowse": false,
+      "nutritionIntegrity": {
+        "status": "identity-only",
+        "missing": [
+          "protein",
+          "carbs",
+          "fat"
+        ],
+        "energy": {
+          "status": "missing",
+          "calories": null,
+          "energyKj": null,
+          "expectedKj": null,
+          "relativeDifference": null
+        },
+        "macro": {
+          "status": "not-assessable",
+          "expectedCalories": null,
+          "relativeDifference": null
+        },
+        "usable": false,
+        "loggable": false
+      },
+      "conflicts": [],
+      "gaps": [
+        "serving-size-not-recorded"
+      ],
+      "measures": {
+        "g": 0.01
+      },
+      "categoryId": "grains"
+    },
+    {
+      "id": "off:9310645442310",
+      "ref": "co-03:724",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9310645442310/simply-steam-frozen-mixed-veg-coles",
+      "brand": "Coles",
+      "name": "Simply Steam Frozen Mixed Veg",
+      "barcode": "9310645442310",
+      "pack": null,
+      "serving": null,
+      "lastModified": "2026-04-09T09:09:19Z",
+      "nutritionBasis": "per-100g-off-csv",
+      "nutritionState": "not separately recorded by the pinned import",
+      "status": {
+        "status": "needs-nutrition-completion",
+        "label": "Needs Nutrition Completion",
+        "reasonCode": "nutrition-review-required",
+        "message": "We found the exact product, but its nutrition is incomplete or needs review. Read the Nutrition Panel, scan/update the barcode, or enter nutrition manually.",
+        "actions": [
+          {
+            "id": "nutrition-panel",
+            "label": "Read Nutrition Panel"
+          },
+          {
+            "id": "barcode",
+            "label": "Scan Barcode"
+          },
+          {
+            "id": "manual-nutrition",
+            "label": "Enter Nutrition Manually"
+          },
+          {
+            "id": "generic-alternative",
+            "label": "Use a Generic Alternative"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "ordinaryBrowse": false,
+      "nutritionIntegrity": {
+        "status": "suspect",
+        "missing": [],
+        "energy": {
+          "status": "conflict",
+          "calories": 20.395156,
+          "energyKj": 172,
+          "expectedKj": 85.333332704,
+          "relativeDifference": 1.0156250148652344
+        },
+        "macro": {
+          "status": "suspect",
+          "expectedCalories": 45.39999999999999,
+          "relativeDifference": 0.6251210999999998
+        },
+        "usable": false,
+        "loggable": false
+      },
+      "conflicts": [],
+      "gaps": [
+        "pack-size-not-recorded",
+        "serving-size-not-recorded",
+        "physical-form-not-resolved-use-existing-grams"
+      ],
+      "measures": {
+        "g": 0.01
+      },
+      "categoryId": "frozen-vegetables"
+    },
+    {
+      "id": "off:9310645357898",
+      "ref": "co-01:284",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9310645357898/australian-sweet-potato-rustic-style-straight-cut-chips-in-a-crispy-batter-coles",
+      "brand": "coles",
+      "name": "Australian Sweet Potato Rustic Style Straight Cut Chips in a Crispy Batter",
+      "barcode": "9310645357898",
+      "pack": "750g",
+      "serving": "1 serving (100 g)",
+      "lastModified": "2026-05-14T07:25:17Z",
+      "nutritionBasis": "per-100g-off-csv",
+      "nutritionState": "not separately recorded by the pinned import",
+      "status": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "ordinaryBrowse": false,
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 156,
+          "energyKj": 631.6,
+          "expectedKj": 652.7040000000001,
+          "relativeDifference": 0.03233318625288038
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 151.5,
+          "relativeDifference": 0.028846153846153848
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": [],
+      "gaps": [
+        "source-category-crisps-versus-apparent-frozen-product-needs-confirmation"
+      ],
+      "measures": {
+        "serve": 1,
+        "g": 0.01
+      },
+      "categoryId": "frozen-potato"
+    }
+  ]
+}

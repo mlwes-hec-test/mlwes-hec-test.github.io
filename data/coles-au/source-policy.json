@@ -1,0 +1,362 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-09-13T08:53:41.785Z",
+  "purpose": "Private HEC testing only; reviewed OFF Coles-brand collection, not an official/current retailer catalogue",
+  "retailer": {
+    "id": "coles",
+    "name": "Coles",
+    "market": "AU",
+    "aliases": [],
+    "collectionMode": "source-declared-brand",
+    "collectionNotice": "Private testing · Coles-brand records from Open Food Facts contributors (30 Aug 2026 snapshot). Community data; current availability is unknown."
+  },
+  "licence": {
+    "attribution": "Open Food Facts contributors",
+    "contents": "Database Contents License",
+    "database": "Open Database License (ODbL)",
+    "databaseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+    "contentsUrl": "https://opendatacommons.org/licenses/dbcl/1-0/",
+    "projectNotice": "OPEN_FOOD_FACTS_AU_DATA_NOTICE.md",
+    "internalUse": "ODbL 4.5(c); no public use or publication in this job"
+  },
+  "source": {
+    "directory": "data/open-food-facts-au",
+    "url": "https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv.gz",
+    "snapshotDate": "2026-08-30",
+    "sha256": "F72687EE8BC6522054FE69DBFDA6B91902C16AF1EC2E043CDE27BC6C29AD8176",
+    "manifestSha256": "b1e5d58b660cb4d36192ec898bef95f1cfcdbaed9d374be4cc10820450981e42",
+    "shards": [
+      {
+        "path": "products/co-01.json",
+        "sha256": "e89745b7ce19003d2999997061697f8975928464f184edc76a23a1ed426698a9"
+      },
+      {
+        "path": "products/co-02.json",
+        "sha256": "5d7e80ec976e8f9417593df99a12983a35f04c264ffa43c9ad9a519b9bca8f46"
+      },
+      {
+        "path": "products/co-03.json",
+        "sha256": "00b741b9f4082f5fc7308e0bee69361a053af3e1ec2d64ce940f80129a8f895e"
+      },
+      {
+        "path": "products/co-04.json",
+        "sha256": "88e775068810e45830c257ec54f79cef13bfd828b85b33ef8319e49af912e7c4"
+      }
+    ]
+  },
+  "selectionPlan": "One finite review of the exact Coles brand bucket across everyday category roles. No other private-label family inferred. Preserve incomplete selected candidates. Missing pack/serving metadata remains unknown; preparation-sensitive records are deferred where the pinned import does not preserve the basis.",
+  "categories": [
+    {
+      "id": "bread",
+      "label": "Bread & Bakery",
+      "scope": "food"
+    },
+    {
+      "id": "milk",
+      "label": "Milk Alternatives",
+      "scope": "food"
+    },
+    {
+      "id": "yoghurt",
+      "label": "Yoghurt",
+      "scope": "food"
+    },
+    {
+      "id": "cheese",
+      "label": "Cheese",
+      "scope": "food"
+    },
+    {
+      "id": "cereal",
+      "label": "Breakfast Cereal",
+      "scope": "food"
+    },
+    {
+      "id": "spreads",
+      "label": "Spreads",
+      "scope": "food"
+    },
+    {
+      "id": "biscuits",
+      "label": "Crackers & Biscuits",
+      "scope": "food"
+    },
+    {
+      "id": "snacks",
+      "label": "Snack Foods",
+      "scope": "food"
+    },
+    {
+      "id": "sauces",
+      "label": "Sauces & Condiments",
+      "scope": "food"
+    },
+    {
+      "id": "protein",
+      "label": "Packaged Protein Snacks",
+      "scope": "food"
+    },
+    {
+      "id": "desserts",
+      "label": "Cakes & Desserts",
+      "scope": "food"
+    },
+    {
+      "id": "drinks",
+      "label": "Non-alcoholic Drinks",
+      "scope": "food"
+    },
+    {
+      "id": "canned",
+      "label": "Canned Food",
+      "scope": "food"
+    },
+    {
+      "id": "grains",
+      "label": "Rice & Pasta",
+      "scope": "food"
+    },
+    {
+      "id": "frozen-vegetables",
+      "label": "Frozen Vegetables",
+      "scope": "food"
+    },
+    {
+      "id": "frozen-potato",
+      "label": "Frozen Potato Products",
+      "scope": "food"
+    }
+  ],
+  "products": [
+    {
+      "ref": "co-01:491",
+      "id": "off:9310645290676",
+      "categoryId": "bread",
+      "conceptIds": [
+        "bread"
+      ]
+    },
+    {
+      "ref": "co-02:653",
+      "id": "off:9300601274482",
+      "categoryId": "bread",
+      "conceptIds": [
+        "bread"
+      ]
+    },
+    {
+      "ref": "co-02:654",
+      "id": "off:9300689874482",
+      "categoryId": "bread",
+      "conceptIds": [
+        "bread"
+      ]
+    },
+    {
+      "ref": "co-04:409",
+      "id": "off:9300601274475",
+      "categoryId": "bread",
+      "conceptIds": [
+        "bread"
+      ]
+    },
+    {
+      "ref": "co-03:819",
+      "id": "off:9310645254142",
+      "categoryId": "bread",
+      "conceptIds": [
+        "bread"
+      ]
+    },
+    {
+      "ref": "co-01:96",
+      "id": "off:9310645094656",
+      "categoryId": "milk",
+      "conceptIds": []
+    },
+    {
+      "ref": "co-03:838",
+      "id": "off:9300601247028",
+      "categoryId": "milk",
+      "conceptIds": []
+    },
+    {
+      "ref": "co-02:535",
+      "id": "off:9300601186945",
+      "categoryId": "milk",
+      "conceptIds": [],
+      "deferReason": "liquid-serving-reported-in-grams-no-mass-volume-conversion-evidenced"
+    },
+    {
+      "ref": "co-02:321",
+      "id": "off:9310645242019",
+      "categoryId": "yoghurt",
+      "conceptIds": []
+    },
+    {
+      "ref": "co-02:869",
+      "id": "off:9310645103358",
+      "categoryId": "yoghurt",
+      "conceptIds": []
+    },
+    {
+      "ref": "co-03:14",
+      "id": "off:9300601204694",
+      "categoryId": "cheese",
+      "conceptIds": []
+    },
+    {
+      "ref": "co-03:455",
+      "id": "off:9300601010134",
+      "categoryId": "cheese",
+      "conceptIds": []
+    },
+    {
+      "ref": "co-03:528",
+      "id": "off:9300601297351",
+      "categoryId": "cereal",
+      "conceptIds": []
+    },
+    {
+      "ref": "co-02:235",
+      "id": "off:9310645422145",
+      "categoryId": "cereal",
+      "conceptIds": []
+    },
+    {
+      "ref": "co-04:350",
+      "id": "off:9300601395583",
+      "categoryId": "cereal",
+      "conceptIds": []
+    },
+    {
+      "ref": "co-03:269",
+      "id": "off:9310645099859",
+      "categoryId": "spreads",
+      "conceptIds": []
+    },
+    {
+      "ref": "co-03:796",
+      "id": "off:9310645489636",
+      "categoryId": "spreads",
+      "conceptIds": []
+    },
+    {
+      "ref": "co-02:110",
+      "id": "off:9310645435329",
+      "categoryId": "biscuits",
+      "conceptIds": []
+    },
+    {
+      "ref": "co-02:723",
+      "id": "off:9310645273112",
+      "categoryId": "biscuits",
+      "conceptIds": []
+    },
+    {
+      "ref": "co-03:609",
+      "id": "off:9300601931316",
+      "categoryId": "biscuits",
+      "conceptIds": [],
+      "deferReason": "fractional-cracker-count-needs-package-confirmation"
+    },
+    {
+      "ref": "co-03:221",
+      "id": "off:9300601769315",
+      "categoryId": "snacks",
+      "conceptIds": []
+    },
+    {
+      "ref": "co-04:93",
+      "id": "off:9310645182636",
+      "categoryId": "sauces",
+      "conceptIds": []
+    },
+    {
+      "ref": "co-02:188",
+      "id": "off:9310645421452",
+      "categoryId": "protein",
+      "conceptIds": []
+    },
+    {
+      "ref": "co-01:815",
+      "id": "off:9310645233796",
+      "categoryId": "desserts",
+      "conceptIds": []
+    },
+    {
+      "ref": "co-01:334",
+      "id": "off:9310645320816",
+      "categoryId": "desserts",
+      "conceptIds": []
+    },
+    {
+      "ref": "co-01:338",
+      "id": "off:9310645207544",
+      "categoryId": "desserts",
+      "conceptIds": []
+    },
+    {
+      "ref": "co-03:205",
+      "id": "off:9310645351377",
+      "categoryId": "drinks",
+      "conceptIds": []
+    },
+    {
+      "ref": "co-01:322",
+      "id": "off:9300601416158",
+      "categoryId": "canned",
+      "conceptIds": []
+    },
+    {
+      "ref": "co-02:224",
+      "id": "off:9300601340828",
+      "categoryId": "canned",
+      "conceptIds": [],
+      "deferReason": "drained-versus-packed-nutrition-basis-unresolved"
+    },
+    {
+      "ref": "co-04:366",
+      "id": "off:9300601000562",
+      "categoryId": "grains",
+      "conceptIds": [],
+      "deferReason": "dry-versus-prepared-nutrition-state-not-preserved"
+    },
+    {
+      "ref": "co-02:475",
+      "id": "off:9310645091334",
+      "categoryId": "grains",
+      "conceptIds": [],
+      "deferReason": "dry-versus-prepared-nutrition-state-not-preserved"
+    },
+    {
+      "ref": "co-03:844",
+      "id": "off:9310645247205",
+      "categoryId": "grains",
+      "conceptIds": []
+    },
+    {
+      "ref": "co-03:724",
+      "id": "off:9310645442310",
+      "categoryId": "frozen-vegetables",
+      "conceptIds": []
+    },
+    {
+      "ref": "co-01:284",
+      "id": "off:9310645357898",
+      "categoryId": "frozen-potato",
+      "conceptIds": [],
+      "deferReason": "source-category-crisps-versus-apparent-frozen-product-needs-confirmation"
+    }
+  ],
+  "coverageGaps": [
+    "No independent current retailer listings or nationwide stock evidence.",
+    "No national brands assigned Coles membership.",
+    "Other private-label families await independently permitted relationship evidence.",
+    "Milk alternatives have explicit mL servings; selected dairy milk has a g/mL ambiguity and is deferred.",
+    "Rice/pasta, canned and frozen candidates retain missing/conflicting or preparation-state evidence; no broad completeness claim.",
+    "Some otherwise loggable records lack retail pack size. Their stable source GTIN identities remain distinct.",
+    "The existing OFF import does not preserve raw panel qualifiers, stores, original per-serve panels or preparation-state fields. Do not reconstruct them or infer a current listing.",
+    "No user package evidence was supplied; generic AFCD/AUSNUT data was not borrowed for packaged products."
+  ]
+}
