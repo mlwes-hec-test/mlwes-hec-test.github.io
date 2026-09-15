@@ -1829,12 +1829,10 @@ document.addEventListener("change",event=>{if(event.target.dataset.connection){e
 
 // Progress history
 function currentPeriod(){return q(".history-period button.active")?.dataset.period||"30";}
-function weightChangeText(value){const amount=round1(value);return `${amount>0?"+":""}${amount.toFixed(1)} kg`;}
-function renderWeightJourney(main,model,period){
+function renderWeightJourney(main,period){
   const today=isoToday(),journey=WEIGHT_PROGRESS.journeySummary(main.weightHistory||[],{today,goalWeight:main.health?.selectedGoalWeight,goal:main.health?.goal,selectedId:ext.ui.selectedWeightPointId||"",period,profileStart:main.profileStartedDate||"",startingWeightDate:main.health?.startingWeightDate||""});
   const start=journey.start,current=journey.current,goal=journey.goalWeight,change=journey.change;
   by("weight-journey-summary").innerHTML=`<div class="stage6-summary-card"><span>Current Weight</span><strong>${current?`${n(current.weightKg).toFixed(1)} kg`:"—"}</strong><small>${current?`Latest: ${formatDate(current.date)}`:"No check-in yet"}</small></div><div class="stage6-summary-card"><span>Goal Weight</span><strong>${goal?`${goal.toFixed(1)} kg`:"—"}</strong><small>${goal?"Your selected goal":"No goal selected"}</small></div><div class="stage6-summary-card"><span>Starting Weight</span><strong>${start?`${n(start.weightKg).toFixed(1)} kg`:"—"}</strong><small>${start?formatDate(start.date):"No check-in yet"}</small></div><div class="stage6-summary-card stage6-change-card"><span>${esc(change.label)}</span><strong>${start&&current?`${change.value>0&&change.label==="Change since start"?"+":""}${n(change.value).toFixed(1)} kg`:"—"}</strong><small>${start&&current?`Since ${formatDate(start.date)}`:"Add a check-in to begin"}</small></div>`;
-  return journey;
 }
 function weightChartMarkup(model){
   if(model.state==="empty")return `<div class="stage6-chart-empty"><span aria-hidden="true">📈</span><h4>Your weight graph will appear here</h4><p>Add a Weight Check-In to begin. The graph only uses dates and weights you deliberately save.</p><button class="primary" data-open-weight-checkin type="button">Add Weight Check-In</button></div>`;
@@ -1847,23 +1845,19 @@ function weightChartMarkup(model){
   const values=layout.labels.map(label=>`<text x="${label.x.toFixed(1)}" y="${label.y.toFixed(1)}" text-anchor="middle" class="stage6-value-label">${label.text}</text>`).join("");
   const dates=layout.dateIndices.map(index=>{const point=layout.points[index],anchor=layout.points.length===1?"middle":index===0?"start":index===layout.points.length-1?"end":"middle";return `<text x="${point.x.toFixed(1)}" y="${H-25}" text-anchor="${anchor}" class="stage6-date-label">${esc(new Intl.DateTimeFormat("en-AU",{day:"numeric",month:"short"}).format(new Date(`${point.record.date}T12:00:00`)))}</text>`;}).join("");
   const first=model.records[0],last=model.records[model.records.length-1],caption=model.state==="single"?"One recorded check-in. Add another to see a trend.":`${formatDate(first.date)} – ${formatDate(last.date)}. Check-ins are evenly spaced; labels are spaced to fit.`;
-  return `<div class="stage6-weight-chart${dense?' stage6-dense-chart':''}" role="group" aria-label="Weight trend. Select any point to review its date and weight. Use left and right arrow keys to move between readings."><svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet" aria-label="Interactive weight trend plot"><text x="12" y="19" class="stage6-axis-title">kg</text>${grid}${polyline}${points}${values}${dates}</svg></div><p class="stage6-chart-caption">${esc(caption)}</p>`;
-}
-function renderSelectedWeightPoint(model,journey){
-  const selected=model.selected,target=by("weight-point-summary");if(!target)return;
-  if(!selected){target.innerHTML=`<strong>No point selected</strong><p>Your saved date and weight will appear here.</p>`;return;}
-  target.innerHTML=`<div><span>Selected Point</span><strong>${n(selected.weightKg).toFixed(1)} kg</strong><small>${esc(formatDate(selected.date))}</small></div><div><span>Change In This Range</span><strong>${model.records.length>1?weightChangeText(model.rangeChange):"First point"}</strong><small>${model.records.length>1?`From ${esc(formatDate(model.records[0].date))}`:"One record in view"}</small></div><button class="secondary" data-edit-weight-date="${esc(selected.date)}" type="button">Edit This Weight</button>`;
+  return `<div class="stage6-weight-chart${dense?' stage6-dense-chart':''}" role="group" aria-label="Weight trend. Select a point to highlight its recorded weight. Each point is labelled with its date and weight. Use left and right arrow keys to move between readings."><svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet" aria-label="Interactive weight trend plot"><text x="12" y="19" class="stage6-axis-title">kg</text>${grid}${polyline}${points}${values}${dates}</svg></div><p class="stage6-chart-caption">${esc(caption)}</p>`;
 }
 function renderHistory(period){
   const today=isoToday();
   qa(".history-period button").forEach(button=>{const active=button.dataset.period===String(period);button.classList.toggle("active",active);button.setAttribute("aria-pressed",String(active));});
   const main=mainData(),model=WEIGHT_PROGRESS.chartModel(main.weightHistory||[],{period,today,selectedId:ext.ui.selectedWeightPointId||"",maxLabels:innerWidth<520?4:6});
-  const journey=renderWeightJourney(main,model,period);if(model.selected)ext.ui.selectedWeightPointId=model.selected.id||model.selected.date;
-  by("history-bars").innerHTML=weightChartMarkup(model);renderSelectedWeightPoint(model,journey);
+  renderWeightJourney(main,period);if(model.selected)ext.ui.selectedWeightPointId=model.selected.id||model.selected.date;
+  by("history-bars").innerHTML=weightChartMarkup(model);
   const history=WEIGHT_PROGRESS.effectiveRecords(main.weightHistory||[],{today}).slice().reverse();if(by('weight-room-history'))by('weight-room-history').innerHTML=history.length?history.map(record=>`<button class="weight-room-history-row" data-edit-weight-date="${esc(record.date)}" type="button" aria-label="${esc(`Edit weight for ${formatDate(record.date)}, ${n(record.weightKg).toFixed(1)} kilograms`)}"><span class="weight-room-history-date"><time datetime="${esc(record.date)}">${esc(formatDate(record.date))}</time>${record.note?`<small>${esc(record.note)}</small>`:''}</span><strong>${n(record.weightKg).toFixed(1)} kg</strong><svg class="weight-room-edit-cue" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m16 3 5 5-12 12-6 1 1-6Z M13 6l5 5"/></svg></button>`).join(''):'<p class="empty-state">No weight check-ins yet.</p>';
   saveExt();
 }
 q(".history-period")?.addEventListener("click",event=>{const button=event.target.closest("[data-period]");if(!button)return;renderHistory(button.dataset.period);});
+// Selection highlights the reading and prioritises its plotted label; saved weights are edited in History.
 document.addEventListener("click",event=>{const point=event.target.closest?.("[data-weight-point-id]");if(!point)return;ext.ui.selectedWeightPointId=point.dataset.weightPointId;renderHistory(currentPeriod());});
 document.addEventListener("keydown",event=>{const point=event.target.closest?.("[data-weight-point-id]");if(!point||!['Enter',' ','ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;event.preventDefault();const points=qa('[data-weight-point-id]'),index=points.indexOf(point),target=event.key==='Home'?points[0]:event.key==='End'?points[points.length-1]:points[Math.max(0,Math.min(points.length-1,index+(event.key==='ArrowLeft'?-1:event.key==='ArrowRight'?1:0)))];ext.ui.selectedWeightPointId=target.dataset.weightPointId;renderHistory(currentPeriod());qa('[data-weight-point-id]').find(item=>item.dataset.weightPointId===ext.ui.selectedWeightPointId)?.focus({preventScroll:true});});
 // Reflow only the plot on resize; no record or persistence updates are needed.

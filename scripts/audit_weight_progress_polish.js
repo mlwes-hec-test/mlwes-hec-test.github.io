@@ -22,13 +22,13 @@ async function interactions(page,result){
   assert.deepEqual((await saved()).weightHistory,original.weightHistory);
   result.interactions.push('All seven ranges retain the exact expected saved records without writes');
   await page.locator('.stage6-weight-point').first().click();
-  assert.match(await page.locator('#weight-point-summary').innerText(),/85.0 kg/);
+  assert.match(await page.locator('.stage6-weight-point[aria-pressed="true"]').getAttribute('aria-label'),/85.0 kilograms/);
   await page.locator('.stage6-weight-point').first().focus();
   await page.keyboard.press('ArrowRight');
-  assert.match(await page.locator('#weight-point-summary').innerText(),/84.7 kg/);
+  assert.match(await page.locator('.stage6-weight-point[aria-pressed="true"]').getAttribute('aria-label'),/84.7 kilograms/);
   assert.equal(await page.evaluate(()=>document.activeElement.dataset.weightPointId),fixtures.normal[1].id);
   await page.keyboard.press('End');
-  assert.match(await page.locator('#weight-point-summary').innerText(),/83.4 kg/);
+  assert.match(await page.locator('.stage6-weight-point[aria-pressed="true"]').getAttribute('aria-label'),/83.4 kilograms/);
   result.interactions.push('Point tap, arrow-key selection, End and keyboard focus');
   await page.setViewportSize({width:320,height:568});
   await page.waitForFunction(()=>document.querySelector('.stage6-weight-chart svg').viewBox.baseVal.width<300);

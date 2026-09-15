@@ -731,9 +731,7 @@ button,input:not([type=checkbox]):not([type=radio]),select{min-height:44px}
 .stage6-dense-chart .stage6-weight-point:not(.selected) .stage6-point-dot{r:1.5px;stroke-width:1}
 .stage6-value-label{fill:var(--ink);font-size:13px;font-weight:800;paint-order:stroke;stroke:#fff;stroke-width:4px;stroke-linejoin:round;pointer-events:none}
 .stage6-chart-caption{margin:8px 2px 0;color:var(--muted);font-size:.78rem;line-height:1.45}
-#progress-history .weight-point-summary{grid-template-columns:repeat(2,minmax(0,1fr)) auto}
-#progress-history .weight-point-summary:has(>p){display:block}#progress-history .weight-point-summary>p{margin:6px 0 0;color:var(--muted)}
-@media(max-width:699px){#progress-history .history-period{grid-template-columns:repeat(4,minmax(0,1fr))}#progress-history .history-period button:last-child{grid-column:span 2}#progress-history .weight-point-summary{grid-template-columns:repeat(2,minmax(0,1fr))}#progress-history .weight-point-summary button{grid-column:1/-1}}
+@media(max-width:699px){#progress-history .history-period{grid-template-columns:repeat(4,minmax(0,1fr))}#progress-history .history-period button:last-child{grid-column:span 2}}
 @media(max-width:359px){#progress-history .history-period{grid-template-columns:repeat(3,minmax(0,1fr))}#progress-history .history-period button:last-child{grid-column:1/-1}}
 
 /* Alpha 0.6.33 RC2 — eight-room Home, reordered Daily Progress and trends. */

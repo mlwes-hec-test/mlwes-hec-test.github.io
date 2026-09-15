@@ -3,12 +3,18 @@
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
 const {fixtures,open:openFixture,audit,ORIGIN}=require('./audit_weight_progress_polish');
 const {browserTools}=require('./audit_physical_form_measures_edge');
+const weight=require('../weight-progress-foundation');
 const ROOT=path.resolve(__dirname,'..');
 const OUT=process.argv[2]||fs.mkdtempSync(path.join(require('node:os').tmpdir(),'hec-weight-history-'));
 const phase=process.argv[3]||'after';
 const cases={single:fixtures.single,two:fixtures.two,several:fixtures.normal,long:fixtures.long};
 // Match the existing baseline-note normalisation from the start, keeping the app and mirror fixture consistent.
-const open=(page,records)=>openFixture(page,records.map((record,index)=>index===0?{...record,note:'Starting Weight',isStartingWeight:true}:{...record}));
+const open=async(page,records)=>{
+  await openFixture(page,records.map((record,index)=>index===0?{...record,note:'Starting Weight',isStartingWeight:true}:{...record}));
+  // Each fixture starts with the same latest selection, independent of earlier keyboard checks.
+  await page.evaluate(id=>window.HECSelectWeightPoint(id),records.at(-1)?.id||'');
+  await page.locator('[data-period="all"]').click();
+};
 const dateLabel=date=>new Intl.DateTimeFormat('en-AU',{weekday:'short',day:'numeric',month:'short',year:'numeric'}).format(new Date(date+'T12:00:00')).replace(',','');
 const saved=page=>page.evaluate(()=>JSON.parse(localStorage.getItem('healthyEatingCompanionAlpha06')));
 const rowFor=(page,record)=>page.locator(`#weight-room-history [data-edit-weight-date="${record.date}"]`);
@@ -29,7 +35,45 @@ async function geometry(page){return page.locator('#weight-room-history .weight-
     clipped:children.some(child=>{const b=child.getBoundingClientRect();return b.left<box.left||b.right>box.right||b.bottom>box.bottom||b.top<box.top;}),
     nested:row.querySelectorAll('button,a,input,[tabindex]').length};
 }));}
+async function noDetailPanel(page){
+  assert.equal(await page.locator('#weight-point-summary').count(),0);
+  assert.equal(await page.locator('.stage6-weight-chart-card .weight-point-summary, .stage6-weight-chart-card [data-edit-weight-date]').count(),0);
+  assert.doesNotMatch(await page.locator('#progress-history').innerText(),/Selected Point|Change In This Range|Edit This Weight/i);
+  const structure=await page.locator('.stage6-weight-chart-card').evaluate(card=>({
+    last:card.lastElementChild.id,next:card.nextElementSibling.className,
+    gap:card.nextElementSibling.getBoundingClientRect().top-card.getBoundingClientRect().bottom,
+    broken:[...card.querySelectorAll('[aria-labelledby],[aria-describedby],[aria-controls]')].flatMap(node=>['aria-labelledby','aria-describedby','aria-controls'].flatMap(attr=>(node.getAttribute(attr)||'').split(/\s+/).filter(id=>id&&!document.getElementById(id))))
+  }));
+  assert.equal(structure.last,'history-bars');assert.match(structure.next,/weight-room-history-card/);
+  assert(structure.gap>=12&&structure.gap<=40,JSON.stringify(structure));assert.deepEqual(structure.broken,[]);
+}
+async function graphSelection(page,records){
+  const before=(await saved(page)).weightHistory;
+  const selected=async index=>{
+    const point=page.locator('.stage6-weight-point[aria-pressed="true"]');
+    assert.equal(await point.count(),1);assert.equal(await point.getAttribute('data-weight-point-id'),records[index].id);
+    assert((await point.getAttribute('aria-label')).includes(records[index].weightKg.toFixed(1)+' kilograms'));
+    assert((await page.locator('.stage6-value-label').allTextContents()).includes(records[index].weightKg.toFixed(1)));
+    await noDetailPanel(page);assert(await page.locator('#progress-history').evaluate(node=>node.classList.contains('active')));
+  };
+  await page.locator('.stage6-weight-point').last().tap();await selected(records.length-1);
+  // Dense hit areas overlap by design; use the topmost last point for pointer activation.
+  const clickIndex=records.length>100?records.length-1:0;
+  await page.locator('.stage6-weight-point').nth(clickIndex).click();await selected(clickIndex);
+  await page.locator('.stage6-weight-point').first().focus();
+  for(const [key,index] of [['ArrowRight',Math.min(1,records.length-1)],['End',records.length-1],['ArrowLeft',Math.max(0,records.length-2)],['Home',0],['Enter',0],['Space',0]]){
+    await page.keyboard.press(key);await selected(index);
+    assert.equal(await page.evaluate(()=>document.activeElement.dataset.weightPointId),records[index].id);
+    assert(await page.locator('.stage6-weight-point:focus .stage6-point-dot').evaluate(node=>parseFloat(getComputedStyle(node).strokeWidth)>=4));
+  }
+  assert.deepEqual((await saved(page)).weightHistory,before);
+}
 async function capture(page,name){
+  if(name.endsWith('several')){
+    await page.locator('.stage6-weight-chart').evaluate(node=>window.scrollTo(0,node.getBoundingClientRect().top+scrollY-8));
+    await page.screenshot({path:path.join(OUT,`${phase}-${name}-graph-history-screen.png`)});
+    await page.locator('#progress-weight-panel').screenshot({path:path.join(OUT,`${phase}-${name}-progress.png`)});
+  }
   await page.locator('.weight-room-history-card').scrollIntoViewIfNeeded();
   await page.screenshot({path:path.join(OUT,`${phase}-${name}-history-screen.png`)});
   if(!name.endsWith('long'))await page.locator('.weight-room-history-card').screenshot({path:path.join(OUT,`${phase}-${name}-history.png`)});
@@ -94,6 +138,13 @@ async function run(){
       page.on('console',message=>{if(message.type()==='error')result.errors.push({type:'console',message:message.text()});});
       await page.clock.setFixedTime(new Date('2026-09-15T06:00:00Z'));
       await page.goto(ORIGIN,{waitUntil:'networkidle'});
+      if(phase!=='before')await check(`${viewport.width}: empty history without a detail panel`,async()=>{
+        await open(page,[]);await noDetailPanel(page);const graph=await audit(page,'empty');
+        assert.equal(graph.points,0);assert(!graph.overflow);assert.match(graph.summary,/75.0 kg/);
+        assert.equal((await page.locator('#weight-journey-summary strong').allTextContents()).filter(text=>text==='—').length,3);
+        assert.equal(await page.locator('.stage6-chart-empty').count(),1);assert.equal(await page.locator('#weight-room-history button').count(),0);
+        await page.locator('#progress-weight-panel').screenshot({path:path.join(OUT,`${phase}-${viewport.width}-empty-progress.png`)});
+      });
       for(const [name,records] of Object.entries(phase==='before'?{several:cases.several}:cases)){
         await check(`${viewport.width}: ${name} history and graph`,async()=>{
           await open(page,records);const graph=await audit(page,name),rows=await geometry(page);
@@ -103,6 +154,12 @@ async function run(){
           await capture(page,`${viewport.width}-${name}`);
           if(phase==='before')return;
           assert.deepEqual(graph.clipped,[]);assert.deepEqual(graph.overlaps,[]);
+          await noDetailPanel(page);
+          assert(graph.rangeControls.every(control=>control.height>=44));
+          const expected=weight.journeySummary(records,{today:'2026-09-15',goal:'lose',goalWeight:75});
+          assert.deepEqual(await page.locator('#weight-journey-summary strong').allTextContents(),[expected.current.weightKg.toFixed(1)+' kg','75.0 kg',expected.start.weightKg.toFixed(1)+' kg',expected.change.value.toFixed(1)+' kg']);
+          const points=await page.locator('.stage6-weight-point').evaluateAll(nodes=>nodes.map(node=>({id:node.dataset.weightPointId,label:node.getAttribute('aria-label')})));
+          points.forEach((point,index)=>{assert.equal(point.id,records[index].id);assert(point.label.includes(records[index].weightKg.toFixed(1)+' kilograms'));});
           assert(rows.every(row=>row.tag==='BUTTON'&&row.height>=48&&!row.clipped&&!row.overflow&&!row.nested));
           assert.equal(await page.locator('#weight-room-history button').count(),records.length);
           const rendered=await page.locator('#weight-room-history button').evaluateAll(nodes=>nodes.map(node=>({date:node.dataset.editWeightDate,text:node.innerText,name:node.getAttribute('aria-label'),cue:node.querySelector('.weight-room-edit-cue')?.getAttribute('aria-hidden')})));
@@ -115,9 +172,19 @@ async function run(){
             const before=JSON.parse(fs.readFileSync(path.join(OUT,'before-report.json'),'utf8')).reports.find(report=>report.viewport.width===viewport.width);
             assert.equal(svg,before.svg,'graph SVG is unchanged for identical synthetic records');
           }
+          await graphSelection(page,records);
         });
       }
       if(phase!=='before'){
+        await check(`${viewport.width}: all seven ranges retain exact records without panel or writes`,async()=>{
+          await open(page,cases.long);const before=(await saved(page)).weightHistory;
+          for(const range of weight.RANGES){
+            await page.locator(`[data-period="${range.id}"]`).click();await noDetailPanel(page);
+            assert.deepEqual(await page.locator('.stage6-weight-point').evaluateAll(nodes=>nodes.map(node=>node.dataset.weightPointId)),weight.recordsInRange(cases.long,range.id,'2026-09-15').map(record=>record.id));
+            assert.equal(await page.locator(`[data-period="${range.id}"]`).getAttribute('aria-pressed'),'true');
+          }
+          assert.deepEqual((await saved(page)).weightHistory,before);
+        });
         await check(`${viewport.width}: long localised date/note wrapping and touch`,async()=>{
           await open(page,cases.several);
           await rowFor(page,cases.several.at(-1)).locator('time').evaluate(node=>{node.textContent='Monday, 14 September 2026 / Montag, 14. September 2026';});
