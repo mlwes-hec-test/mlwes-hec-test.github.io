@@ -717,6 +717,25 @@ button,input:not([type=checkbox]):not([type=radio]),select{min-height:44px}
 @media(min-width:521px) and (max-width:900px){#progress-history .topbar{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center}#progress-history .topbar>.hec-nav-pair{grid-column:1;grid-row:1}#progress-history .topbar>.grow{grid-column:2;grid-row:1;min-width:0}#progress-history .compact-header-actions{grid-column:1/-1;grid-row:2;justify-self:end}}
 @media(max-width:520px){#progress-history .topbar{display:grid;grid-template-columns:minmax(0,1fr);align-items:center}#progress-history .topbar>.hec-nav-pair{grid-column:1;grid-row:1}#progress-history .topbar>.grow{grid-column:1;grid-row:2;min-width:0}#progress-history .topbar>.grow h2{font-size:1.45rem;line-height:1.12}#progress-history .compact-header-actions{grid-column:1;grid-row:3;display:grid;grid-template-columns:minmax(0,1fr) auto;width:100%}#progress-history .compact-header-actions button{width:100%}.stage6-progress-page{gap:12px}.stage6-summary-card{padding:12px}.stage6-summary-card strong{font-size:1.15rem}.stage6-chart-heading{display:grid}.stage6-chart-heading button{width:100%}.history-period button{flex-basis:30%;font-size:.75rem;padding:6px}.stage6-weight-chart-card{padding-left:10px;padding-right:10px}.stage6-axis-label,.stage6-date-label{font-size:22px}.stage6-axis-title{font-size:20px}.weight-point-summary{grid-template-columns:1fr}.weight-point-summary button{grid-column:auto}.checkin-save-actions,.checkin-result-actions{grid-template-columns:1fr}}
 
+/* Weight / Progress polish: plot coordinates follow the available screen width. */
+.stage6-change-card{background:var(--pale);border-color:var(--accent)}
+#progress-history .history-period{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+#progress-history .history-period button{min-width:0;min-height:44px;padding:6px 3px;font-size:.8rem;line-height:1.2}
+#progress-history .history-bars{padding:0!important}
+.stage6-weight-chart .stage6-axis-label,.stage6-weight-chart .stage6-date-label,.stage6-weight-chart .stage6-axis-title{font-size:12px}
+.stage6-weight-chart .stage6-weight-line{stroke-width:3.5;vector-effect:non-scaling-stroke}
+.stage6-weight-chart .stage6-point-dot{stroke-width:2;vector-effect:non-scaling-stroke}
+.stage6-weight-chart .stage6-point-hit{fill:transparent;stroke:none;pointer-events:all}
+.stage6-weight-chart .stage6-weight-point.selected .stage6-point-hit{fill:transparent;stroke:none}
+.stage6-weight-chart .stage6-weight-point:focus .stage6-point-dot{stroke:#173f31;stroke-width:4}
+.stage6-dense-chart .stage6-weight-point:not(.selected) .stage6-point-dot{r:1.5px;stroke-width:1}
+.stage6-value-label{fill:var(--ink);font-size:13px;font-weight:800;paint-order:stroke;stroke:#fff;stroke-width:4px;stroke-linejoin:round;pointer-events:none}
+.stage6-chart-caption{margin:8px 2px 0;color:var(--muted);font-size:.78rem;line-height:1.45}
+#progress-history .weight-point-summary{grid-template-columns:repeat(2,minmax(0,1fr)) auto}
+#progress-history .weight-point-summary:has(>p){display:block}#progress-history .weight-point-summary>p{margin:6px 0 0;color:var(--muted)}
+@media(max-width:699px){#progress-history .history-period{grid-template-columns:repeat(4,minmax(0,1fr))}#progress-history .history-period button:last-child{grid-column:span 2}#progress-history .weight-point-summary{grid-template-columns:repeat(2,minmax(0,1fr))}#progress-history .weight-point-summary button{grid-column:1/-1}}
+@media(max-width:359px){#progress-history .history-period{grid-template-columns:repeat(3,minmax(0,1fr))}#progress-history .history-period button:last-child{grid-column:1/-1}}
+
 /* Alpha 0.6.33 RC2 — eight-room Home, reordered Daily Progress and trends. */
 .home-main-centred{padding-top:0;gap:0}.eight-room-circle{position:relative;width:min(calc(100vw - 24px),760px);height:clamp(480px,calc(100dvh - 150px),650px);aspect-ratio:auto;margin:0 auto}
 .eight-room-circle .orbit{inset:10% 14%;border-radius:48%;border-width:4px;box-shadow:0 0 0 10px color-mix(in srgb,var(--accent) 5%,transparent)}

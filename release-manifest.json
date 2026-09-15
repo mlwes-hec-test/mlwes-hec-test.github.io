@@ -1,5 +1,5 @@
 {
-  "generation": "1d428c1e21af5ed1941f4e04",
+  "generation": "e7c9d24e624b7e9914334a90",
   "version": "0.6.33",
   "runtime": [
     "installation-config.js",
@@ -42,7 +42,7 @@
     "alpha064.js"
   ],
   "files": {
-    "index.html": "812f5c2313c24e66831f64443ab60ee92f6c14f603c5c10735f4a472e39fb543",
+    "index.html": "7a5ea49bf261294df39cd67c426b12c11f18a7e60741f46d4c67b5035509c110",
     "installation-config.js": "e04cd8e2625d202b3833aa4f15077489128c1b50780aebf866890baf2b29a9f7",
     "config.js": "5917c660ff0a2bca08efe8029a74ea7a566e34719c27e09fc143390549a26895",
     "installation-foundation.js": "dc71c1e21e8971a650e1f287cb9e9dcf634592586836a4e7dfd688c74d28fb7f",
@@ -52,7 +52,7 @@
     "companion-voice-metadata.js": "27140423757ed50ef25852371ae27bb73d4d2ace86b93fc00d0bc8fd14c38ac2",
     "companion-voices.js": "1d8ad4bb334c931d66c407e6b573e35e08bf526d4786440c9cd06d4d602ede64",
     "stage4-foundation.js": "3c1616b011cf13a6c5c16d925a04a20e8197cef9734c0a1b1a83b2c86b7f9287",
-    "weight-progress-foundation.js": "9de92080229267a133e14d1d052a1a3bb445565c307f17855d73baf76e94831b",
+    "weight-progress-foundation.js": "5b6b7818bbbc5ac41df685747d6bdcbb46e1ec1e727b6f42109117a5518d7c7f",
     "nutrition-trends-foundation.js": "1c0a338f04fff58d9ea85dd0cac03bb057bb355194bf20f6905be1fe4549e2b1",
     "app.js": "8fc4061605e14c014c456274cd9b50f393be7eb3768f0a3ca715e69bf22c2196",
     "entity-registry.js": "eec3b44c9f4a35bf1dc8b415412223fcd641614d8de8da1fbf731113d5f6bddb",
@@ -79,9 +79,9 @@
     "activity-foundation.js": "68f2e923769697bb90b0d0e13193533ebff5fa9b29846c0d05e5ced28fb83557",
     "food-groups-foundation.js": "2919670d100bb6de8794bed8a3bcbb7b18dec2d5f4a3a95912ddbd23268526b6",
     "conversation-foundation.js": "c313b738df302742261e2fd2ea06c58fcc72e38292f856a3da6df5596f799d26",
-    "alpha06.js": "56490b54aa18d1a75cffdb1050cfd0a2c49ef5e8f9680fbbe727845b13091cbb",
+    "alpha06.js": "a43b89ef821d0edfdf643a8215718cb5da273ad8783dfab3741b2acdc1973813",
     "alpha064.js": "e62d1f3a73c71ae5adea9ec1be76ee778ac6b00c1741553d8ce27bcb1b02a9d0",
-    "styles.css": "97eaa038b89915fbebf4a11ae1be7da702a6ae0b9c0cc9edd5c23a54e73c2652",
+    "styles.css": "a860611faf02f32b4a970e7029a1154c54ae35852e0124621c96aaca0576295a",
     "manifest.webmanifest": "20e91f54038b7ff6863544d11579b3ee3cbdb6001e25d92bafc03c3977e749ed",
     "data/open-food-facts-au/manifest.json": "b1e5d58b660cb4d36192ec898bef95f1cfcdbaed9d374be4cc10820450981e42",
     "afcd-release-3.json": "d729c6ea5bf1014724bde5d4038e995cd79059824cebab9f32b52ed4671560dd"

@@ -41,10 +41,36 @@
   function localDomain(records){
     const values=(Array.isArray(records)?records:[]).filter(validRecord).map(record=>number(record.weightKg));
     if(!values.length)return {min:null,max:null,span:0};
-    const low=Math.min(...values),high=Math.max(...values),spread=high-low,pad=spread?Math.max(.25,spread*.16):.5;
-    let min=Math.floor((low-pad)*10)/10,max=Math.ceil((high+pad)*10)/10;
-    if(max-min<1){const centre=(high+low)/2;min=Math.floor((centre-.5)*10)/10;max=Math.ceil((centre+.5)*10)/10;}
+    const low=Math.min(...values),high=Math.max(...values),spread=high-low,pad=Math.max(.5,spread*.16);
+    const centre=(high+low)/2,span=Math.max(2,spread+pad*2);
+    let min=Math.floor((centre-span/2)*10)/10,max=Math.ceil((centre+span/2)*10)/10;
     return {min,max,span:max-min};
+  }
+  // Screen-sized coordinates keep text and strokes readable on narrow phones.
+  // Only annotations are thinned; every effective saved record remains plotted.
+  function chartLayout(model,{width=360,height=340}={}){
+    const W=Math.max(240,Math.round(width)),H=Math.max(260,Math.round(height)),L=54,R=30,T=36,B=56;
+    const plotW=W-L-R,plotH=H-T-B,points=model.points.map(point=>({...point,x:L+point.x*plotW,y:T+point.y*plotH}));
+    const intersects=(a,b)=>a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top;
+    const labels=[],count=Math.min(10,Math.max(3,Math.floor(plotW/48)*2));
+    const candidates=[points.findIndex(point=>point.selected),0,points.length-1,...labelIndices(points.length,count)];
+    for(const index of new Set(candidates)){
+      const point=points[index];if(!point)continue;
+      const text=number(point.record.weightKg).toFixed(1),width=text.length*8+8;
+      const x=Math.max(L+width/2,Math.min(W-8-width/2,point.x));
+      const neighbours=[points[index-1],points[index+1]].filter(Boolean),above=!neighbours.length||point.y<=neighbours.reduce((sum,item)=>sum+item.y,0)/neighbours.length;
+      const offsets=above?[-22,28,-42,48]:[28,-22,48,-42];
+      for(const offset of offsets){
+        const y=point.y+offset,box={left:x-width/2,right:x+width/2,top:y-14,bottom:y+4};
+        if(box.top<T-22||box.bottom>H-B+20||labels.some(label=>intersects(box,label.box)))continue;
+        if(points.some(other=>intersects(box,{left:other.x-8,right:other.x+8,top:other.y-8,bottom:other.y+8})))continue;
+        // Keep the connecting line out of the text box as well as the dots.
+        if(points.slice(1).some((end,i)=>{const start=points[i],left=Math.max(box.left,start.x),right=Math.min(box.right,end.x);if(left>right)return false;const at=x=>start.y+(end.y-start.y)*(x-start.x)/(end.x-start.x||1),a=at(left),b=at(right);return Math.min(a,b)<box.bottom&&Math.max(a,b)>box.top;}))continue;
+        labels.push({index,text,x,y,box});break;
+      }
+    }
+    const dateIndices=labelIndices(points.length,Math.max(2,Math.floor(plotW/90)));
+    return {width:W,height:H,left:L,right:W-R,top:T,bottom:H-B,points,labels,dateIndices};
   }
   function labelIndices(count,maxLabels=6){
     if(count<=0)return [];
@@ -97,5 +123,5 @@
     return "valid";
   }
 
-  return Object.freeze({RANGES,rangeById,shiftDate,effectiveRecords,recordsInRange,localDomain,labelIndices,chartModel,startingRecord,journeySummary,changeDescription,upsertWeightRecord,latestApplicable,validateDate,roundWeight});
+  return Object.freeze({RANGES,rangeById,shiftDate,effectiveRecords,recordsInRange,localDomain,labelIndices,chartModel,chartLayout,startingRecord,journeySummary,changeDescription,upsertWeightRecord,latestApplicable,validateDate,roundWeight});
 });
