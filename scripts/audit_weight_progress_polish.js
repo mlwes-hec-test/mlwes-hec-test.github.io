@@ -126,4 +126,5 @@ async function run(){
   console.log(JSON.stringify({phase,cases:result.reports.length,interactions:result.interactions,errors:result.errors,external:result.external,output:OUT}));
   assert.deepEqual(result.errors,[]);assert.deepEqual(result.external,[]);
 }
+module.exports={fixtures,open,audit,ORIGIN};
 if(require.main===module)run().catch(e=>{console.error(e);process.exitCode=1;});

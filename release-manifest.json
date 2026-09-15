@@ -1,5 +1,5 @@
 {
-  "generation": "e7c9d24e624b7e9914334a90",
+  "generation": "15880bca1b0dcfd15d3f4028",
   "version": "0.6.33",
   "runtime": [
     "installation-config.js",
@@ -42,7 +42,7 @@
     "alpha064.js"
   ],
   "files": {
-    "index.html": "7a5ea49bf261294df39cd67c426b12c11f18a7e60741f46d4c67b5035509c110",
+    "index.html": "63144c483145344f5fca1b48932eb1fecbb4a9f2035062d46da186a13cc6931a",
     "installation-config.js": "e04cd8e2625d202b3833aa4f15077489128c1b50780aebf866890baf2b29a9f7",
     "config.js": "5917c660ff0a2bca08efe8029a74ea7a566e34719c27e09fc143390549a26895",
     "installation-foundation.js": "dc71c1e21e8971a650e1f287cb9e9dcf634592586836a4e7dfd688c74d28fb7f",
@@ -79,9 +79,9 @@
     "activity-foundation.js": "68f2e923769697bb90b0d0e13193533ebff5fa9b29846c0d05e5ced28fb83557",
     "food-groups-foundation.js": "2919670d100bb6de8794bed8a3bcbb7b18dec2d5f4a3a95912ddbd23268526b6",
     "conversation-foundation.js": "c313b738df302742261e2fd2ea06c58fcc72e38292f856a3da6df5596f799d26",
-    "alpha06.js": "a43b89ef821d0edfdf643a8215718cb5da273ad8783dfab3741b2acdc1973813",
+    "alpha06.js": "b29cb93ff03173655fb88a4240f390d19fee4bc2ba2e2f46056b4c2d5022b947",
     "alpha064.js": "e62d1f3a73c71ae5adea9ec1be76ee778ac6b00c1741553d8ce27bcb1b02a9d0",
-    "styles.css": "a860611faf02f32b4a970e7029a1154c54ae35852e0124621c96aaca0576295a",
+    "styles.css": "b4b4bfa15e4412c1dc5a322189a3be54c6814bccf9abb8e2df1bf2b326eee0bb",
     "manifest.webmanifest": "20e91f54038b7ff6863544d11579b3ee3cbdb6001e25d92bafc03c3977e749ed",
     "data/open-food-facts-au/manifest.json": "b1e5d58b660cb4d36192ec898bef95f1cfcdbaed9d374be4cc10820450981e42",
     "afcd-release-3.json": "d729c6ea5bf1014724bde5d4038e995cd79059824cebab9f32b52ed4671560dd"
