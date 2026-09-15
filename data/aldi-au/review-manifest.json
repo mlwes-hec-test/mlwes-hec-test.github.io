@@ -1,0 +1,1972 @@
+{
+  "admissionPool": 28,
+  "approved": 20,
+  "excluded": 8,
+  "categories": [
+    {
+      "id": "bread",
+      "label": "Bread & Bakery",
+      "scope": "food",
+      "count": 1
+    },
+    {
+      "id": "yoghurt",
+      "label": "Yoghurt",
+      "scope": "food",
+      "count": 5
+    },
+    {
+      "id": "cheese",
+      "label": "Cheese",
+      "scope": "food",
+      "count": 1
+    },
+    {
+      "id": "cereal",
+      "label": "Breakfast Cereal",
+      "scope": "food",
+      "count": 2
+    },
+    {
+      "id": "biscuits",
+      "label": "Crackers & Biscuits",
+      "scope": "food",
+      "count": 1
+    },
+    {
+      "id": "snacks",
+      "label": "Snack Foods",
+      "scope": "food",
+      "count": 4
+    },
+    {
+      "id": "sauces",
+      "label": "Sauces & Condiments",
+      "scope": "food",
+      "count": 1
+    },
+    {
+      "id": "drinks",
+      "label": "Non-alcoholic Drinks",
+      "scope": "food",
+      "count": 2
+    },
+    {
+      "id": "produce",
+      "label": "Packaged Fruit & Vegetables",
+      "scope": "food",
+      "count": 2
+    },
+    {
+      "id": "protein",
+      "label": "Meat & Protein",
+      "scope": "food",
+      "count": 1
+    }
+  ],
+  "allItems": 20,
+  "exclusionReasons": {
+    "preparation-or-drained-basis-unresolved": 4,
+    "energy-pair-needs-review": 3,
+    "identity-category-basis-unresolved": 1
+  },
+  "products": [
+    {
+      "id": "off:26049328",
+      "name": "Lyttos Greek Style Natural Yogurt",
+      "brand": "Lyttos",
+      "gtin": "26049328",
+      "categoryId": "yoghurt",
+      "approved": true,
+      "review": {
+        "status": "approved-first-wave",
+        "reason": null,
+        "note": "Named natural Greek-style yoghurt with coherent per-100g nutrition. Recorded 150g serve retained as evidence; shared unknown-form safeguard offers grams only.",
+        "canonicalEvidenceSha256": "bf949f544f60ed79e83af6531d32a02d734d310a9cfcd44012d5be49796f238e"
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "pack": {
+        "text": "1kg",
+        "quantity": 1000
+      },
+      "serving": {
+        "text": "150g",
+        "quantity": 150,
+        "unit": null
+      },
+      "measures": {
+        "g": 0.01
+      },
+      "measureLabels": {
+        "g": "g"
+      },
+      "quarantinedMeasures": [
+        {
+          "key": "serve",
+          "label": "Manufacturer serving (150g)",
+          "multiplier": 1.5,
+          "source": "Explicit manufacturer serving",
+          "sourceType": "product-metadata",
+          "confidence": "package-explicit",
+          "portionPreset": true,
+          "rejectionReason": "manufacturer-measure-incompatible-with-unknown-form"
+        }
+      ],
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 130,
+          "energyKj": 542.5,
+          "expectedKj": 543.9200000000001,
+          "relativeDifference": 0.002610678040888499
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 130.5,
+          "relativeDifference": 0.0038461538461538464
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": []
+    },
+    {
+      "id": "off:26283517",
+      "name": "Dairy dream greek style yogurt",
+      "brand": "Aldi",
+      "gtin": "26283517",
+      "categoryId": "yoghurt",
+      "approved": true,
+      "review": {
+        "status": "approved-first-wave",
+        "reason": null,
+        "note": "Named Greek-style yoghurt; source brand Aldi retained literally. Pack and serve unknown; grams only.",
+        "canonicalEvidenceSha256": "bf949f544f60ed79e83af6531d32a02d734d310a9cfcd44012d5be49796f238e"
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "pack": {
+        "text": null,
+        "quantity": null
+      },
+      "serving": {
+        "text": null,
+        "quantity": null,
+        "unit": null
+      },
+      "measures": {
+        "g": 0.01
+      },
+      "measureLabels": {
+        "g": "g"
+      },
+      "quarantinedMeasures": [],
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 138,
+          "energyKj": 578.3,
+          "expectedKj": 577.392,
+          "relativeDifference": 0.0015725884667607132
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 138.1,
+          "relativeDifference": 0.0007246376811593791
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": []
+    },
+    {
+      "id": "off:4061459718805",
+      "name": "Farm wood Chicken Breast Tenders (sweet Chilli)",
+      "brand": "Farmwood",
+      "gtin": "4061459718805",
+      "categoryId": "protein",
+      "approved": false,
+      "review": {
+        "status": "excluded",
+        "reason": "preparation-or-drained-basis-unresolved",
+        "note": "Chicken tenders lack an explicit as-sold versus cooked nutrition state; do not infer preparation.",
+        "canonicalEvidenceSha256": "bf949f544f60ed79e83af6531d32a02d734d310a9cfcd44012d5be49796f238e"
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "pack": {
+        "text": "1kg",
+        "quantity": 1000
+      },
+      "serving": {
+        "text": "1 portion (100 g)",
+        "quantity": 100,
+        "unit": null
+      },
+      "measures": {
+        "g": 0.01
+      },
+      "measureLabels": {
+        "g": "g"
+      },
+      "quarantinedMeasures": [
+        {
+          "key": "serve",
+          "label": "Manufacturer serving (1 portion (100 g))",
+          "multiplier": 1,
+          "source": "Explicit manufacturer serving",
+          "sourceType": "product-metadata",
+          "confidence": "package-explicit",
+          "portionPreset": true,
+          "rejectionReason": "manufacturer-measure-incompatible-with-unknown-form"
+        }
+      ],
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 203.87189292543,
+          "energyKj": 853,
+          "expectedKj": 852.9999999999991,
+          "relativeDifference": 1.066230599968264e-15
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 201.89999999999998,
+          "relativeDifference": 0.00967221570926047
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": []
+    },
+    {
+      "id": "off:4061462249464",
+      "name": "White Bakehouse Gluten Free",
+      "brand": "Bakers Life",
+      "gtin": "4061462249464",
+      "categoryId": "bread",
+      "approved": true,
+      "review": {
+        "status": "approved-first-wave",
+        "reason": null,
+        "note": "Source gluten-free sliced-bread tags agree with name. Explicit 75g (2 slices) supports 37.5g per slice; 440g pack stays separate.",
+        "canonicalEvidenceSha256": "bf949f544f60ed79e83af6531d32a02d734d310a9cfcd44012d5be49796f238e"
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "pack": {
+        "text": "440g",
+        "quantity": 440
+      },
+      "serving": {
+        "text": "75g (2 slices)",
+        "quantity": 75,
+        "unit": null
+      },
+      "measures": {
+        "slice": 0.375,
+        "serve": 0.75,
+        "g": 0.01
+      },
+      "measureLabels": {
+        "slice": "Slice (37.5 g each)",
+        "serve": "Manufacturer serving (75g (2 slices))",
+        "g": "g"
+      },
+      "quarantinedMeasures": [],
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 255.895474824729,
+          "energyKj": 1070,
+          "expectedKj": 1070.6666666666663,
+          "relativeDifference": 0.0006226650062262964
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 254.70000000000002,
+          "relativeDifference": 0.0046717310087167774
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": []
+    },
+    {
+      "id": "off:4061462288319",
+      "name": "Salt & Pepper Squid",
+      "brand": "Ocean Royale",
+      "gtin": "4061462288319",
+      "categoryId": "protein",
+      "approved": false,
+      "review": {
+        "status": "excluded",
+        "reason": "preparation-or-drained-basis-unresolved",
+        "note": "Seasoned squid lacks explicit raw/cooked or preparation basis and source serving; defer.",
+        "canonicalEvidenceSha256": "bf949f544f60ed79e83af6531d32a02d734d310a9cfcd44012d5be49796f238e"
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "pack": {
+        "text": "360 g",
+        "quantity": 360
+      },
+      "serving": {
+        "text": null,
+        "quantity": null,
+        "unit": null
+      },
+      "measures": {
+        "g": 0.01
+      },
+      "measureLabels": {
+        "g": "g"
+      },
+      "quarantinedMeasures": [],
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 195.555555555556,
+          "energyKj": 814,
+          "expectedKj": 818.2044444444464,
+          "relativeDifference": 0.005138623326962201
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 194.1,
+          "relativeDifference": 0.007443181818184091
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": []
+    },
+    {
+      "id": "off:4088600187341",
+      "name": "CHICKEN TIKKA MASALA WITH PILAU RICE",
+      "brand": "INSPIRED CUISINE",
+      "gtin": "4088600187341",
+      "categoryId": "protein",
+      "approved": true,
+      "review": {
+        "status": "approved-first-wave",
+        "reason": null,
+        "note": "Named chicken tikka masala with pilau rice and matching prepared-meal categories; source 450g serve supports prepared meal mass. Pack unknown.",
+        "canonicalEvidenceSha256": "bf949f544f60ed79e83af6531d32a02d734d310a9cfcd44012d5be49796f238e"
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "pack": {
+        "text": null,
+        "quantity": null
+      },
+      "serving": {
+        "text": "450 g",
+        "quantity": 450,
+        "unit": null
+      },
+      "measures": {
+        "serve": 4.5,
+        "g": 0.01
+      },
+      "measureLabels": {
+        "serve": "Manufacturer serving (450 g)",
+        "g": "g"
+      },
+      "quarantinedMeasures": [],
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 147.575057736721,
+          "energyKj": 611.933333333333,
+          "expectedKj": 617.4540415704406,
+          "relativeDifference": 0.008941083652260361
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 146.0666666666667,
+          "relativeDifference": 0.010221178925407052
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": []
+    },
+    {
+      "id": "off:4088700009185",
+      "name": "Kids Strawberry Yogurt",
+      "brand": "Brooklea",
+      "gtin": "4088700009185",
+      "categoryId": "yoghurt",
+      "approved": true,
+      "review": {
+        "status": "approved-first-wave",
+        "reason": null,
+        "note": "Named strawberry yoghurt and yoghurt categories agree; pack/serve unknown; grams only.",
+        "canonicalEvidenceSha256": "bf949f544f60ed79e83af6531d32a02d734d310a9cfcd44012d5be49796f238e"
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "pack": {
+        "text": null,
+        "quantity": null
+      },
+      "serving": {
+        "text": null,
+        "quantity": null,
+        "unit": null
+      },
+      "measures": {
+        "g": 0.01
+      },
+      "measureLabels": {
+        "g": "g"
+      },
+      "quarantinedMeasures": [],
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 93,
+          "energyKj": 390,
+          "expectedKj": 389.112,
+          "relativeDifference": 0.0022821192869918604
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 92.60000000000001,
+          "relativeDifference": 0.004301075268817112
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": []
+    },
+    {
+      "id": "off:4088700011638",
+      "name": "Gourmet Pasta Sauce Romana",
+      "brand": "Specially Selected",
+      "gtin": "4088700011638",
+      "categoryId": "sauces",
+      "approved": true,
+      "review": {
+        "status": "approved-first-wave",
+        "reason": null,
+        "note": "Named Romana pasta sauce with matching sauce categories; coherent per-100g nutrition; pack/serve unknown, grams only.",
+        "canonicalEvidenceSha256": "bf949f544f60ed79e83af6531d32a02d734d310a9cfcd44012d5be49796f238e"
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "pack": {
+        "text": null,
+        "quantity": null
+      },
+      "serving": {
+        "text": null,
+        "quantity": null,
+        "unit": null
+      },
+      "measures": {
+        "g": 0.01
+      },
+      "measureLabels": {
+        "g": "g"
+      },
+      "quarantinedMeasures": [],
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 100.8,
+          "energyKj": 408.200010299683,
+          "expectedKj": 421.7472,
+          "relativeDifference": 0.03212158776707232
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 97.9000024795533,
+          "relativeDifference": 0.02876981667109825
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": []
+    },
+    {
+      "id": "off:4088700024621",
+      "name": "Grass fed angus beef gourmet sausage",
+      "brand": "Aldi",
+      "gtin": "4088700024621",
+      "categoryId": "protein",
+      "approved": false,
+      "review": {
+        "status": "excluded",
+        "reason": "preparation-or-drained-basis-unresolved",
+        "note": "Beef sausage has no raw/cooked qualifier. An 84g portion does not establish sausage count or preparation basis.",
+        "canonicalEvidenceSha256": "bf949f544f60ed79e83af6531d32a02d734d310a9cfcd44012d5be49796f238e"
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "pack": {
+        "text": "500 g",
+        "quantity": 500
+      },
+      "serving": {
+        "text": "1 portion (84 g)",
+        "quantity": 84,
+        "unit": null
+      },
+      "measures": {
+        "g": 0.01
+      },
+      "measureLabels": {
+        "g": "g"
+      },
+      "quarantinedMeasures": [
+        {
+          "key": "serve",
+          "label": "Manufacturer serving (1 portion (84 g))",
+          "multiplier": 0.84,
+          "source": "Explicit manufacturer serving",
+          "sourceType": "product-metadata",
+          "confidence": "package-explicit",
+          "portionPreset": true,
+          "rejectionReason": "manufacturer-measure-incompatible-with-unknown-form"
+        }
+      ],
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 335.74615314577,
+          "energyKj": 1406.42857142857,
+          "expectedKj": 1404.7619047619016,
+          "relativeDifference": 0.0011864406779672912
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 339.6428571428567,
+          "relativeDifference": 0.011606101694916207
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": []
+    },
+    {
+      "id": "off:4088700038505",
+      "name": "Natural Australian Spring Water",
+      "brand": "Northbrook",
+      "gtin": "4088700038505",
+      "categoryId": "drinks",
+      "approved": true,
+      "review": {
+        "status": "approved-first-wave",
+        "reason": null,
+        "note": "Spring-water identity and water categories support liquid mL/cup measures; all ten nutrient zeroes are explicitly recorded. 600ml pack is not a serve.",
+        "canonicalEvidenceSha256": "bf949f544f60ed79e83af6531d32a02d734d310a9cfcd44012d5be49796f238e"
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "pack": {
+        "text": "600ml",
+        "quantity": 600
+      },
+      "serving": {
+        "text": null,
+        "quantity": null,
+        "unit": null
+      },
+      "measures": {
+        "cup": 2.5,
+        "L": 10,
+        "mL": 0.01
+      },
+      "measureLabels": {
+        "cup": "Cup (250 mL)",
+        "L": "L",
+        "mL": "mL"
+      },
+      "quarantinedMeasures": [],
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 0,
+          "energyKj": 0,
+          "expectedKj": 0,
+          "relativeDifference": 0
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 0,
+          "relativeDifference": 0
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": []
+    },
+    {
+      "id": "off:4088700063576",
+      "name": "Choceur  milk mini",
+      "brand": "Aldi",
+      "gtin": "4088700063576",
+      "categoryId": "snacks",
+      "approved": true,
+      "review": {
+        "status": "approved-first-wave",
+        "reason": null,
+        "note": "Milk chocolate name agrees with chocolate categories; retain source brand Aldi. 1x40g is pack text only; grams.",
+        "canonicalEvidenceSha256": "bf949f544f60ed79e83af6531d32a02d734d310a9cfcd44012d5be49796f238e"
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "pack": {
+        "text": "1x 40g",
+        "quantity": 40
+      },
+      "serving": {
+        "text": null,
+        "quantity": null,
+        "unit": null
+      },
+      "measures": {
+        "g": 0.01
+      },
+      "measureLabels": {
+        "g": "g"
+      },
+      "quarantinedMeasures": [],
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 562,
+          "energyKj": 2350,
+          "expectedKj": 2351.408,
+          "relativeDifference": 0.0005987901716758223
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 559.5,
+          "relativeDifference": 0.004448398576512456
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": []
+    },
+    {
+      "id": "off:4088700065648",
+      "name": "tuna tomato & basil",
+      "brand": "PORTVIEW",
+      "gtin": "4088700065648",
+      "categoryId": "canned",
+      "approved": false,
+      "review": {
+        "status": "excluded",
+        "reason": "preparation-or-drained-basis-unresolved",
+        "note": "Tuna in tomato/basil sauce: source does not establish drained versus packed nutrition basis; defer without guessing.",
+        "canonicalEvidenceSha256": "bf949f544f60ed79e83af6531d32a02d734d310a9cfcd44012d5be49796f238e"
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "pack": {
+        "text": "95g",
+        "quantity": 95
+      },
+      "serving": {
+        "text": "1 serving (95 g)",
+        "quantity": 95,
+        "unit": null
+      },
+      "measures": {
+        "g": 0.01
+      },
+      "measureLabels": {
+        "g": "g"
+      },
+      "quarantinedMeasures": [
+        {
+          "key": "serve",
+          "label": "Manufacturer serving (1 serving (95 g))",
+          "multiplier": 0.95,
+          "source": "Explicit manufacturer serving",
+          "sourceType": "product-metadata",
+          "confidence": "package-explicit",
+          "portionPreset": true,
+          "rejectionReason": "manufacturer-measure-incompatible-with-unknown-form"
+        }
+      ],
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 112.961658448224,
+          "energyKj": 466.360526315789,
+          "expectedKj": 472.63157894736923,
+          "relativeDifference": 0.013268374164813386
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 112.44310789473671,
+          "relativeDifference": 0.004590500534523979
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": []
+    },
+    {
+      "id": "off:4088700070772",
+      "name": "Snack Stack Sour Cream & Onion Flavour Stackable Chips",
+      "brand": "Sprinters",
+      "gtin": "4088700070772",
+      "categoryId": "snacks",
+      "approved": true,
+      "review": {
+        "status": "approved-first-wave",
+        "reason": null,
+        "note": "Stackable potato crisps agree with source crisps tags; 40g source serving supported; no chip count inferred.",
+        "canonicalEvidenceSha256": "bf949f544f60ed79e83af6531d32a02d734d310a9cfcd44012d5be49796f238e"
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "pack": {
+        "text": "160 g",
+        "quantity": 160
+      },
+      "serving": {
+        "text": "1 serving (40 g)",
+        "quantity": 40,
+        "unit": null
+      },
+      "measures": {
+        "serve": 0.4,
+        "g": 0.01
+      },
+      "measureLabels": {
+        "serve": "Manufacturer serving (1 serving (40 g))",
+        "g": "g"
+      },
+      "quarantinedMeasures": [],
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 510,
+          "energyKj": 2177.25,
+          "expectedKj": 2133.84,
+          "relativeDifference": 0.0203436058936002
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 523.3194222222222,
+          "relativeDifference": 0.02611651416122003
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": []
+    },
+    {
+      "id": "off:4088700091173",
+      "name": "Finest Dark Caramel Sea Salt",
+      "brand": "MOSER ROTH",
+      "gtin": "4088700091173",
+      "categoryId": "snacks",
+      "approved": true,
+      "review": {
+        "status": "approved-first-wave",
+        "reason": null,
+        "note": "Dark caramel/sea-salt chocolate identity and categories agree. Pack text 5, 25g bars alone does not create a bar measure; grams only.",
+        "canonicalEvidenceSha256": "bf949f544f60ed79e83af6531d32a02d734d310a9cfcd44012d5be49796f238e"
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "pack": {
+        "text": "5, 25g bars",
+        "quantity": 25
+      },
+      "serving": {
+        "text": null,
+        "quantity": null,
+        "unit": null
+      },
+      "measures": {
+        "g": 0.01
+      },
+      "measureLabels": {
+        "g": "g"
+      },
+      "quarantinedMeasures": [],
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 530.592734225621,
+          "energyKj": 2185.6,
+          "expectedKj": 2219.9999999999986,
+          "relativeDifference": 0.015495495495494931
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 523.1999999999999,
+          "relativeDifference": 0.013932972972972385
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": []
+    },
+    {
+      "id": "off:4088700091197",
+      "name": "Dark Chocolate 85% Cocoa",
+      "brand": "MOSER ROTH",
+      "gtin": "4088700091197",
+      "categoryId": "snacks",
+      "approved": false,
+      "review": {
+        "status": "excluded",
+        "reason": "energy-pair-needs-review",
+        "note": "Source kcal and kJ differ by 5.18%; individual first-wave energy review excludes it despite the broader shared plausibility gate.",
+        "canonicalEvidenceSha256": "bf949f544f60ed79e83af6531d32a02d734d310a9cfcd44012d5be49796f238e"
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "pack": {
+        "text": "125 g",
+        "quantity": 125
+      },
+      "serving": {
+        "text": "1 bar (25 g)",
+        "quantity": 25,
+        "unit": null
+      },
+      "measures": {
+        "bar": 0.25,
+        "g": 0.01
+      },
+      "measureLabels": {
+        "bar": "Bar (25 g each)",
+        "g": "g"
+      },
+      "quarantinedMeasures": [
+        {
+          "key": "serve",
+          "label": "Manufacturer serve (25 g)",
+          "multiplier": 0.25,
+          "source": "Explicit manufacturer serving",
+          "sourceType": "product-metadata",
+          "confidence": "package-explicit",
+          "portionPreset": true,
+          "sourceLabel": "Manufacturer serving (1 bar (25 g))",
+          "id": "serve",
+          "displayLabel": "Manufacturer serve (25 g)",
+          "singularLabel": "manufacturer serve",
+          "pluralLabel": "manufacturer serves",
+          "physicalFamily": "manufacturer",
+          "conversionToBase": {
+            "baseUnit": "g",
+            "baseQuantity": 25,
+            "basis": "nutrition-base conversion"
+          },
+          "conversionBasis": "nutrition-base conversion",
+          "applicability": "countable",
+          "provenance": "manufacturer",
+          "displayPriority": 30,
+          "quickAmounts": [
+            0.25,
+            0.5,
+            0.75,
+            1
+          ],
+          "rejectionReason": "equivalent-natural-and-manufacturer-measure-merged"
+        }
+      ],
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 600,
+          "energyKj": 2380.4,
+          "expectedKj": 2510.4,
+          "relativeDifference": 0.05178457616316125
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 574.8,
+          "relativeDifference": 0.04200000000000008
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": []
+    },
+    {
+      "id": "off:4088700109267",
+      "name": "Dried Turkish Apricots",
+      "brand": "Sweet Vine",
+      "gtin": "4088700109267",
+      "categoryId": "produce",
+      "approved": true,
+      "review": {
+        "status": "approved-first-wave",
+        "reason": null,
+        "note": "Explicit dried-apricot category resolves dried fruit identity. 30g portion retained but unknown-form serving stays quarantined; grams only.",
+        "canonicalEvidenceSha256": "bf949f544f60ed79e83af6531d32a02d734d310a9cfcd44012d5be49796f238e"
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "pack": {
+        "text": "500gm",
+        "quantity": 500
+      },
+      "serving": {
+        "text": "1 portion (30 g)",
+        "quantity": 30,
+        "unit": null
+      },
+      "measures": {
+        "g": 0.01
+      },
+      "measureLabels": {
+        "g": "g"
+      },
+      "quarantinedMeasures": [
+        {
+          "key": "serve",
+          "label": "Manufacturer serving (1 portion (30 g))",
+          "multiplier": 0.3,
+          "source": "Explicit manufacturer serving",
+          "sourceType": "product-metadata",
+          "confidence": "package-explicit",
+          "portionPreset": true,
+          "rejectionReason": "manufacturer-measure-incompatible-with-unknown-form"
+        }
+      ],
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 216.66667,
+          "energyKj": 907,
+          "expectedKj": 906.53334728,
+          "relativeDifference": 0.0005147661929923708
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 216.00003,
+          "relativeDifference": 0.0030767999526646207
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": []
+    },
+    {
+      "id": "off:4088700157008",
+      "name": "Light Tasty Cheese Shredded",
+      "brand": "Westacre Dairy",
+      "gtin": "4088700157008",
+      "categoryId": "cheese",
+      "approved": true,
+      "review": {
+        "status": "approved-first-wave",
+        "reason": null,
+        "note": "Shredded light tasty cheese agrees with cheddar/packaged-cheese tags. 25g source portion retained; grams, no invented slices.",
+        "canonicalEvidenceSha256": "bf949f544f60ed79e83af6531d32a02d734d310a9cfcd44012d5be49796f238e"
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "pack": {
+        "text": "500 g",
+        "quantity": 500
+      },
+      "serving": {
+        "text": "1 portion (25 g)",
+        "quantity": 25,
+        "unit": null
+      },
+      "measures": {
+        "g": 0.01
+      },
+      "measureLabels": {
+        "g": "g"
+      },
+      "quarantinedMeasures": [
+        {
+          "key": "serve",
+          "label": "Manufacturer serving (1 portion (25 g))",
+          "multiplier": 0.25,
+          "source": "Explicit manufacturer serving",
+          "sourceType": "product-metadata",
+          "confidence": "package-explicit",
+          "portionPreset": true,
+          "rejectionReason": "manufacturer-measure-incompatible-with-unknown-form"
+        }
+      ],
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 336,
+          "energyKj": 1403.6,
+          "expectedKj": 1405.824,
+          "relativeDifference": 0.001581990348720864
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 337.2,
+          "relativeDifference": 0.0035714285714285375
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": []
+    },
+    {
+      "id": "off:4088700160466",
+      "name": "Coconut Rolls",
+      "brand": "Oh So Natural Foods",
+      "gtin": "4088700160466",
+      "categoryId": "snacks",
+      "approved": true,
+      "review": {
+        "status": "approved-first-wave",
+        "reason": null,
+        "note": "Coconut rolls with sweet snack/biscuit-and-cake tags support broad Snack Foods. No individual roll weight is evidenced; grams only.",
+        "canonicalEvidenceSha256": "bf949f544f60ed79e83af6531d32a02d734d310a9cfcd44012d5be49796f238e"
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "pack": {
+        "text": "140 g",
+        "quantity": 140
+      },
+      "serving": {
+        "text": null,
+        "quantity": null,
+        "unit": null
+      },
+      "measures": {
+        "g": 0.01
+      },
+      "measureLabels": {
+        "g": "g"
+      },
+      "quarantinedMeasures": [],
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 510.789401802785,
+          "energyKj": 2133.42857142857,
+          "expectedKj": 2137.1428571428523,
+          "relativeDifference": 0.0017379679144368346
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 513.7432857142848,
+          "relativeDifference": 0.005782978074866652
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": []
+    },
+    {
+      "id": "off:4088700164204",
+      "name": "Greek yoghurt",
+      "brand": "Lyttos",
+      "gtin": "4088700164204",
+      "categoryId": "yoghurt",
+      "approved": true,
+      "review": {
+        "status": "approved-first-wave",
+        "reason": null,
+        "note": "Greek-style yoghurt tags agree with name. Distinct GTIN remains separate from other Lyttos yoghurt. 150g source portion retained; grams only.",
+        "canonicalEvidenceSha256": "bf949f544f60ed79e83af6531d32a02d734d310a9cfcd44012d5be49796f238e"
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "pack": {
+        "text": "1kg",
+        "quantity": 1000
+      },
+      "serving": {
+        "text": "1 portion (150 g)",
+        "quantity": 150,
+        "unit": null
+      },
+      "measures": {
+        "g": 0.01
+      },
+      "measureLabels": {
+        "g": "g"
+      },
+      "quarantinedMeasures": [
+        {
+          "key": "serve",
+          "label": "Manufacturer serving (1 portion (150 g))",
+          "multiplier": 1.5,
+          "source": "Explicit manufacturer serving",
+          "sourceType": "product-metadata",
+          "confidence": "package-explicit",
+          "portionPreset": true,
+          "rejectionReason": "manufacturer-measure-incompatible-with-unknown-form"
+        }
+      ],
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 128,
+          "energyKj": 537.83,
+          "expectedKj": 535.552,
+          "relativeDifference": 0.004253555210325085
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 129.41000000000003,
+          "relativeDifference": 0.011015625000000195
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": []
+    },
+    {
+      "id": "off:4088700194393",
+      "name": "Signature Cookies 40% Chocolate Chip",
+      "brand": "BELMONT",
+      "gtin": "4088700194393",
+      "categoryId": "biscuits",
+      "approved": true,
+      "review": {
+        "status": "approved-first-wave",
+        "reason": null,
+        "note": "Chocolate-chip cookie name and exact cookie tags agree; no pack/serve/count evidence; grams only.",
+        "canonicalEvidenceSha256": "bf949f544f60ed79e83af6531d32a02d734d310a9cfcd44012d5be49796f238e"
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "pack": {
+        "text": null,
+        "quantity": null
+      },
+      "serving": {
+        "text": null,
+        "quantity": null,
+        "unit": null
+      },
+      "measures": {
+        "g": 0.01
+      },
+      "measureLabels": {
+        "g": "g"
+      },
+      "quarantinedMeasures": [],
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 500,
+          "energyKj": 2069.99999999998,
+          "expectedKj": 2092,
+          "relativeDifference": 0.010516252390066925
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 494.5454545454506,
+          "relativeDifference": 0.010909090909098836
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": []
+    },
+    {
+      "id": "off:4088700200278",
+      "name": "HONEY SWEET & RICH",
+      "brand": "BRAMWELLS",
+      "gtin": "4088700200278",
+      "categoryId": "spreads",
+      "approved": false,
+      "review": {
+        "status": "excluded",
+        "reason": "energy-pair-needs-review",
+        "note": "Source kcal and kJ differ by 5.97%; no source explanation establishes a coherent energy pair.",
+        "canonicalEvidenceSha256": "bf949f544f60ed79e83af6531d32a02d734d310a9cfcd44012d5be49796f238e"
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "pack": {
+        "text": "375g",
+        "quantity": 375
+      },
+      "serving": {
+        "text": "25 g",
+        "quantity": 25,
+        "unit": null
+      },
+      "measures": {
+        "serve": 0.25,
+        "g": 0.01
+      },
+      "measureLabels": {
+        "serve": "Manufacturer serving (25 g)",
+        "g": "g"
+      },
+      "quarantinedMeasures": [],
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 320.267686424474,
+          "energyKj": 1420,
+          "expectedKj": 1339.9999999999993,
+          "relativeDifference": 0.05970149253731397
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 334.49999999999994,
+          "relativeDifference": 0.04443880597014971
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": []
+    },
+    {
+      "id": "off:4088700219737",
+      "name": "Original Muesli",
+      "brand": "Oh So Natural",
+      "gtin": "4088700219737",
+      "categoryId": "cereal",
+      "approved": true,
+      "review": {
+        "status": "approved-first-wave",
+        "reason": null,
+        "note": "Original muesli agrees with muesli tags; 45g source serving supported, 400g pack kept separate.",
+        "canonicalEvidenceSha256": "bf949f544f60ed79e83af6531d32a02d734d310a9cfcd44012d5be49796f238e"
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "pack": {
+        "text": "400 g",
+        "quantity": 400
+      },
+      "serving": {
+        "text": "1 serving (45 g)",
+        "quantity": 45,
+        "unit": null
+      },
+      "measures": {
+        "serve": 0.45,
+        "g": 0.01
+      },
+      "measureLabels": {
+        "serve": "Manufacturer serving (1 serving (45 g))",
+        "g": "g"
+      },
+      "quarantinedMeasures": [],
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 462.222222222222,
+          "energyKj": 1927.55555555556,
+          "expectedKj": 1933.937777777777,
+          "relativeDifference": 0.0033001176643597196
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 460.44444444444457,
+          "relativeDifference": 0.0038461538461530965
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": []
+    },
+    {
+      "id": "off:4088700233696",
+      "name": "Coconut Yogurt Vanilla",
+      "brand": "Inner Goodness",
+      "gtin": "4088700233696",
+      "categoryId": "yoghurt",
+      "approved": false,
+      "review": {
+        "status": "excluded",
+        "reason": "identity-category-basis-unresolved",
+        "note": "Coconut yoghurt name and low protein could describe a plant-based product, but source asserts dairy/fermented-milk/fruit yoghurt; identity basis needs confirmation.",
+        "canonicalEvidenceSha256": "bf949f544f60ed79e83af6531d32a02d734d310a9cfcd44012d5be49796f238e"
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "pack": {
+        "text": "500 g",
+        "quantity": 500
+      },
+      "serving": {
+        "text": "1 portion (125 g)",
+        "quantity": 125,
+        "unit": null
+      },
+      "measures": {
+        "g": 0.01
+      },
+      "measureLabels": {
+        "g": "g"
+      },
+      "quarantinedMeasures": [
+        {
+          "key": "serve",
+          "label": "Manufacturer serving (1 portion (125 g))",
+          "multiplier": 1.25,
+          "source": "Explicit manufacturer serving",
+          "sourceType": "product-metadata",
+          "confidence": "package-explicit",
+          "portionPreset": true,
+          "rejectionReason": "manufacturer-measure-incompatible-with-unknown-form"
+        }
+      ],
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 118.5468451056,
+          "energyKj": 498.8,
+          "expectedKj": 495.9999999218304,
+          "relativeDifference": 0.005645161448812264
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 119.67999999999999,
+          "relativeDifference": 0.009558709836525752
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": []
+    },
+    {
+      "id": "off:4088700238455",
+      "name": "Pecan & Maple Muesli Clusters",
+      "brand": "GoldenVale",
+      "gtin": "4088700238455",
+      "categoryId": "cereal",
+      "approved": true,
+      "review": {
+        "status": "approved-first-wave",
+        "reason": null,
+        "note": "Pecan/maple muesli clusters agree with muesli tags; explicit 40g source portion supports serve plus grams.",
+        "canonicalEvidenceSha256": "bf949f544f60ed79e83af6531d32a02d734d310a9cfcd44012d5be49796f238e"
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "pack": {
+        "text": "500 g",
+        "quantity": 500
+      },
+      "serving": {
+        "text": "1 portion (40 g)",
+        "quantity": 40,
+        "unit": null
+      },
+      "measures": {
+        "serve": 0.4,
+        "g": 0.01
+      },
+      "measureLabels": {
+        "serve": "Manufacturer serving (1 portion (40 g))",
+        "g": "g"
+      },
+      "quarantinedMeasures": [],
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 465,
+          "energyKj": 1945,
+          "expectedKj": 1945.5600000000002,
+          "relativeDifference": 0.00028783486502609676
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 460.75,
+          "relativeDifference": 0.00913978494623656
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": []
+    },
+    {
+      "id": "off:4088700354186",
+      "name": "Fine Shredded Slaw",
+      "brand": "The Fresh Salad Co",
+      "gtin": "4088700354186",
+      "categoryId": "produce",
+      "approved": true,
+      "review": {
+        "status": "approved-first-wave",
+        "reason": null,
+        "note": "Fine shredded slaw and prepared-salad/coleslaw tags agree. Low-energy vegetable slaw profile is coherent; 100g source portion supported.",
+        "canonicalEvidenceSha256": "bf949f544f60ed79e83af6531d32a02d734d310a9cfcd44012d5be49796f238e"
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "pack": {
+        "text": "400 grams",
+        "quantity": 400
+      },
+      "serving": {
+        "text": "1 portion (100 g)",
+        "quantity": 100,
+        "unit": null
+      },
+      "measures": {
+        "serve": 1,
+        "g": 0.01
+      },
+      "measureLabels": {
+        "serve": "Manufacturer serving (1 portion (100 g))",
+        "g": "g"
+      },
+      "quarantinedMeasures": [],
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 27,
+          "energyKj": 117.8,
+          "expectedKj": 112.968,
+          "relativeDifference": 0.04277317470434099
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 28.099999999999998,
+          "relativeDifference": 0.027499999999999948
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": []
+    },
+    {
+      "id": "off:9313820016108",
+      "name": "Pepsi Max",
+      "brand": "Pepsi",
+      "gtin": "9313820016108",
+      "categoryId": "drinks",
+      "approved": true,
+      "review": {
+        "status": "approved-first-wave",
+        "reason": null,
+        "note": "Pepsi Max with diet-cola tags and 375ml serving supports liquid mL/Metric Cup/Manufacturer Serve. Source Pepsi brand retained; no ownership inference.",
+        "canonicalEvidenceSha256": "bf949f544f60ed79e83af6531d32a02d734d310a9cfcd44012d5be49796f238e"
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "pack": {
+        "text": "375 ml",
+        "quantity": 375
+      },
+      "serving": {
+        "text": "375ml",
+        "quantity": 375,
+        "unit": null
+      },
+      "measures": {
+        "cup": 2.5,
+        "serve": 3.75,
+        "L": 10,
+        "mL": 0.01
+      },
+      "measureLabels": {
+        "cup": "Cup (250 mL)",
+        "serve": "Manufacturer serving (375ml)",
+        "L": "L",
+        "mL": "mL"
+      },
+      "quarantinedMeasures": [],
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 0.4,
+          "energyKj": 1.6,
+          "expectedKj": 1.6736000000000002,
+          "relativeDifference": 0.0036800000000000053
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 0.4266666666666664,
+          "relativeDifference": 0.0006666666666666598
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": []
+    },
+    {
+      "id": "off:9324956000916",
+      "name": "Sour Bears",
+      "brand": "Double 'D' Smart Sweets",
+      "gtin": "9324956000916",
+      "categoryId": "snacks",
+      "approved": false,
+      "review": {
+        "status": "excluded",
+        "reason": "energy-pair-needs-review",
+        "note": "Source energy pair differs by 14.47%; fibre/polyol explanation cannot be reconstructed safely from this export.",
+        "canonicalEvidenceSha256": "bf949f544f60ed79e83af6531d32a02d734d310a9cfcd44012d5be49796f238e"
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "pack": {
+        "text": "35 g",
+        "quantity": 35
+      },
+      "serving": {
+        "text": "1 bag (35 g)",
+        "quantity": 35,
+        "unit": null
+      },
+      "measures": {
+        "serve": 0.35,
+        "g": 0.01
+      },
+      "measureLabels": {
+        "serve": "Manufacturer serving (1 bag (35 g))",
+        "g": "g"
+      },
+      "quarantinedMeasures": [],
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 146.81780934171,
+          "energyKj": 525.428571428571,
+          "expectedKj": 614.2857142857146,
+          "relativeDifference": 0.14465116279069878
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 129.42857142857147,
+          "relativeDifference": 0.11844093023255828
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": []
+    },
+    {
+      "id": "off:9344962000274",
+      "name": "Ultimate Greek Black Cherry",
+      "brand": "Danone",
+      "gtin": "9344962000274",
+      "categoryId": "yoghurt",
+      "approved": true,
+      "review": {
+        "status": "approved-first-wave",
+        "reason": null,
+        "note": "Greek black-cherry yoghurt identity and cherry-yoghurt tags agree. Source 125g portion retained, shared grams only; 4x125g pack separate.",
+        "canonicalEvidenceSha256": "bf949f544f60ed79e83af6531d32a02d734d310a9cfcd44012d5be49796f238e"
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "pack": {
+        "text": "4x125g",
+        "quantity": 500
+      },
+      "serving": {
+        "text": "125g",
+        "quantity": 125,
+        "unit": null
+      },
+      "measures": {
+        "g": 0.01
+      },
+      "measureLabels": {
+        "g": "g"
+      },
+      "quarantinedMeasures": [
+        {
+          "key": "serve",
+          "label": "Manufacturer serving (125g)",
+          "multiplier": 1.25,
+          "source": "Explicit manufacturer serving",
+          "sourceType": "product-metadata",
+          "confidence": "package-explicit",
+          "portionPreset": true,
+          "rejectionReason": "manufacturer-measure-incompatible-with-unknown-form"
+        }
+      ],
+      "nutritionIntegrity": {
+        "status": "usable",
+        "missing": [],
+        "energy": {
+          "status": "plausible",
+          "calories": 128.7,
+          "energyKj": 540,
+          "expectedKj": 538.4807999999999,
+          "relativeDifference": 0.00282127050769511
+        },
+        "macro": {
+          "status": "plausible",
+          "expectedCalories": 130.38686875000002,
+          "relativeDifference": 0.013106983294483534
+        },
+        "usable": true,
+        "loggable": true
+      },
+      "conflicts": []
+    }
+  ]
+}

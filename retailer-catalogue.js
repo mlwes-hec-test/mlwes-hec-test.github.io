@@ -5,6 +5,7 @@
   'use strict';
   const C=global.HECFoodCatalogue||(typeof require==='function'?require('./food-catalogue.js'):null);
   const REG=global.HECAustralianEntityRegistry||(typeof require==='function'?require('./entity-registry.js'):null);
+  const SEARCH=global.HECSearchFoundation||(typeof require==='function'?require('./search-foundation.js'):null);
   const catalogues=new Map(),PAGE_SIZE=20,MAX_EVIDENCE_ROWS=32,MAX_CATEGORIES=64;
   let revision=0;
   const clone=value=>JSON.parse(JSON.stringify(value));
@@ -12,7 +13,8 @@
   const requireValue=(condition,message)=>{if(!condition)throw new Error(`Retailer catalogue: ${message}`);};
   function entity(id){return catalogues.get(id)?.retailer||REG.entries.find(item=>item.id===id&&item.type==='retailer')||null;}
   function recognise(query){const key=C.norm(query);for(const {retailer} of catalogues.values())if(retailer.aliases.some(alias=>C.norm(alias)===key))return retailer;return REG.exactEntity(query,['retailer']);}
-  function browseMembership(food,source){return source.retailer.collectionMode==='source-declared-brand'?C.privateLabelCollectionMembership(food,source.retailer.id):C.retailerMembership(food,source.retailer.id);}
+  function browseMembership(food,source){return source.retailer.collectionMode==='source-declared-store'?C.sourceDeclaredRetailerMembership(food,source.retailer.id):source.retailer.collectionMode==='source-declared-brand'?C.privateLabelCollectionMembership(food,source.retailer.id):C.retailerMembership(food,source.retailer.id);}
+  function conceptMembership(food,source){return source.retailer.collectionMode==='source-declared-store'?browseMembership(food,source).length>0:C.commercialIdentityMembership(source.retailer,food).matches;}
   function registerCatalogue({retailer,categories=[],entries=[],loadRecords,selectableOnly=false}){
     requireValue(retailer?.id&&retailer.name&&retailer.market==='AU','an Australian retailer identity is required');
     requireValue(typeof loadRecords==='function','a bounded record loader is required');
@@ -27,7 +29,7 @@
       const key=C.canonicalKey(entry),group=groups.get(key)||{key,ids:[],categories:new Set(),commercialConcepts:new Set()};
       group.ids.push(entry.id);
       for(const member of members)for(const id of member.categoryIds||[])if(foodCategories.has(id))group.categories.add(id);
-      if(C.commercialIdentityMembership(registered,entry).matches)for(const id of entry.conceptIds||[])group.commercialConcepts.add(id);
+      if(conceptMembership(entry,{retailer:registered}))for(const id of entry.conceptIds||[])group.commercialConcepts.add(id);
       rows.set(entry.id,entry);groups.set(key,group);
     }
     // A verified listing admits a canonical group, not each evidence source.
@@ -38,13 +40,21 @@
     for(const category of foodCategories.values())postings.set(category.id,all.filter(group=>group.categories.has(category.id)));
     for(const group of all)for(const concept of group.commercialConcepts){const list=commercial.get(concept)||[];list.push(group);commercial.set(concept,list);}
     const searchPostings=new Map();
-    for(const group of all){const searchRows=group.ids.map(id=>rows.get(id));group.privateIdentity=searchRows.some(row=>C.commercialIdentityMembership(registered,row).matches);group.searchNames=searchRows.flatMap(row=>[row.name,...(row.aliases||[])]).filter(Boolean).map(C.norm);const tokens=new Set(searchRows.flatMap(row=>searchTokens([row.name,row.brand,...(row.aliases||[]),row.barcode].join(' '))));for(const token of tokens){const list=searchPostings.get(token)||new Set();list.add(group);searchPostings.set(token,list);}}
-    for(const [key,food] of loadedFoods)if(C.retailerMembership(food,retailer.id).length||C.privateLabelCollectionMembership(food,retailer.id).length)loadedFoods.delete(key);
+    for(const group of all){const searchRows=group.ids.map(id=>rows.get(id));group.privateIdentity=searchRows.some(row=>conceptMembership(row,{retailer:registered}));group.searchNames=searchRows.flatMap(row=>[row.name,...(row.aliases||[])]).filter(Boolean).map(C.norm);const tokens=new Set(searchRows.flatMap(row=>searchTokens([row.name,row.brand,...(row.aliases||[]),row.barcode,...(retailer.collectionMode==='source-declared-store'?[...registered.aliases,...(row.conceptIds||[]).flatMap(id=>SEARCH.foodConceptRegistry[id]?.aliases||[id])]:[])].join(' '))));for(const token of tokens){const list=searchPostings.get(token)||new Set();list.add(group);searchPostings.set(token,list);}}
+    for(const [key,food] of loadedFoods)if(browseMembership(food,{retailer}).length)loadedFoods.delete(key);
     catalogues.set(retailer.id,{retailer:registered,selectableOnly,categories:foodCategories,rows,postings,commercial,searchPostings,loadRecords,cache:new Map()});revision++;
     return {retailerId:retailer.id,products:all.length,evidenceRows:rows.size};
   }
-  function unregisterCatalogue(id){if(catalogues.delete(id)){revision++;for(const [key,food] of loadedFoods)if(C.retailerMembership(food,id).length||C.privateLabelCollectionMembership(food,id).length)loadedFoods.delete(key);}}
+  function unregisterCatalogue(id){if(catalogues.delete(id)){revision++;for(const [key,food] of loadedFoods)if(C.retailerMembership(food,id).length||C.sourceDeclaredRetailerMembership(food,id).length||C.privateLabelCollectionMembership(food,id).length)loadedFoods.delete(key);}}
   function commercialOptions(conceptId){return [...catalogues.values()].filter(value=>value.commercial.get(conceptId)?.length).map(value=>({id:value.retailer.id,label:value.retailer.name,count:value.commercial.get(conceptId).length}));}
+  function conceptSourceQuestion(session){
+    const known=session.known||{},options=commercialOptions(session.conceptId);
+    if(known.breadSource==='supermarket'||known.catalogueSource==='supermarket')return {key:'retailerIdentity',question:'Which supermarket / brand identity?',options:options.map(item=>({value:item.id,label:item.label})),reason:'supported-retailer-concept'};
+    if(session.conceptId==='bread'||!options.length)return null;
+    if(!known.catalogueOrigin)return {key:'catalogueOrigin',question:'Generic or Commercial?',options:[{value:'generic',label:'Generic Australian food'},{value:'commercial',label:'Commercial'}],reason:'registered-retailer-concept-coverage'};
+    if(known.catalogueOrigin==='commercial'&&!known.catalogueSource)return {key:'catalogueSource',question:'How would you like to find it?',options:[{value:'supermarket',label:'Supermarket / Brand Name'},{value:'brand',label:'Choose by product brand'}],reason:'registered-retailer-concept-coverage'};
+    return null;
+  }
   function directory(retailerId,{scope='retailer',conceptId=''}={}){
     const source=catalogues.get(retailerId),retailer=entity(retailerId);if(!retailer)return null;
     const list=scope==='commercial-identity'?source?.commercial.get(conceptId)||[]:source?.postings.get('*')||[];
@@ -74,11 +84,12 @@
       const byId=new Map(records.map(record=>[record.id,record]));requireValue(byId.size===ids.length&&ids.every(id=>byId.has(id)),'loader returned missing, duplicate or unexpected IDs');
       for(const id of ids){const record=byId.get(id),entry=source.rows.get(id);requireValue(C.canonicalKey(record)===C.canonicalKey(entry),'hydrated canonical identity differs from its index');
         requireValue(JSON.stringify(C.retailerMembership(record,retailerId))===JSON.stringify(C.retailerMembership(entry,retailerId)),'hydrated retailer evidence differs from its index');
+        requireValue(JSON.stringify(C.sourceDeclaredRetailerMembership(record,retailerId))===JSON.stringify(C.sourceDeclaredRetailerMembership(entry,retailerId)),'hydrated community store evidence differs from its index');
         requireValue(JSON.stringify(C.privateLabelCollectionMembership(record,retailerId))===JSON.stringify(C.privateLabelCollectionMembership(entry,retailerId)),'hydrated collection evidence differs from its index');
       }
       for(const group of selected){
         const records=group.ids.map(id=>byId.get(id)),canonical=C.canonicaliseRecords(records);requireValue(canonical.length===1,'index group does not resolve to one canonical identity');
-        const food=canonical[0];if(scope==='commercial-identity'&&!C.commercialIdentityMembership(source.retailer,food).matches)throw new Error('Retailer catalogue: hydrated private-label identity differs from its index');
+        const food=canonical[0];if(scope==='commercial-identity'&&!conceptMembership(food,source))throw new Error('Retailer catalogue: hydrated private-label identity differs from its index');
         if(!food.legacyPreviewOnly&&food.itemStatus!=='retired'&&(!source.selectableOnly||C.productEligibility(food).addability.status==='loggable-now')){foods.push(food);loadedFoods.set(C.canonicalKey(food),clone(food));if(loadedFoods.size>200)loadedFoods.delete(loadedFoods.keys().next().value);}
       }
       return foods;
@@ -96,7 +107,7 @@
     for(const {source,group} of selected){const groups=bySource.get(source)||[];groups.push(group);bySource.set(source,groups);}
     for(const [source,groups] of bySource){if(!current())return null;foods.push(...await hydrateGroups(source,groups,{isCurrent:current}));}
     const byKey=new Map(foods.map(food=>[C.canonicalKey(food),food]));
-    return current()?{query,total:matches.length,offset:start,hasMore:start+selected.length<matches.length,foods:selected.map(({group})=>byKey.get(group.key)).filter(food=>food&&(!privateIntent||C.commercialIdentityMembership(privateIntent.retailer,food).matches))}:null;
+    return current()?{query,total:matches.length,offset:start,hasMore:start+selected.length<matches.length,foods:selected.map(({group})=>byKey.get(group.key)).filter(food=>food&&(!privateIntent||conceptMembership(food,privateIntent)))}:null;
   }
   function createSession(retailerId,{ownerQuery,ownerRevision,scope='retailer',conceptId=''}={}){return {retailerId,ownerQuery,ownerRevision,scope,conceptId,categoryId:scope==='commercial-identity'?'*':null,offset:0,request:0,active:true,loading:false,result:null,error:''};}
   function cancel(session){if(session){session.active=false;session.request++;session.result=null;session.loading=false;}}
@@ -106,6 +117,6 @@
     catch(error){if(owns())session.error=String(error.message||error);return null;}
     finally{if(owns())session.loading=false;}
   }
-  const api={version:'0.6.33',pageSize:PAGE_SIZE,maxEvidenceRows:MAX_EVIDENCE_ROWS,entity,recognise,registerCatalogue,unregisterCatalogue,commercialOptions,directory,page,search,loadedFoods,createSession,load,cancel,revision:()=>revision};
+  const api={version:'0.6.33',pageSize:PAGE_SIZE,maxEvidenceRows:MAX_EVIDENCE_ROWS,entity,recognise,registerCatalogue,unregisterCatalogue,commercialOptions,conceptSourceQuestion,directory,page,search,loadedFoods,createSession,load,cancel,revision:()=>revision};
   global.HECRetailerCatalogue=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);

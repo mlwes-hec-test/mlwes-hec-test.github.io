@@ -1,0 +1,6552 @@
+{
+  "canonicalEvidenceSha256": "bf949f544f60ed79e83af6531d32a02d734d310a9cfcd44012d5be49796f238e",
+  "archiveUnchanged": true,
+  "total": 725,
+  "nonBrowsable": 705,
+  "states": {
+    "needs-nutrition-completion": 621,
+    "wider-potentially-loggable": 38,
+    "conservative-multi-country": 32,
+    "first-wave-approved": 20,
+    "details-only": 6,
+    "first-wave-review-excluded": 8
+  },
+  "overlappingAuditFlags": {
+    "conflictBlocked": 34,
+    "manualIdentityHolds": 11,
+    "servingBasisConflicts": 27
+  },
+  "lexicalRejected": {
+    "count": 647,
+    "evidence": "previous-lexical-store-comparison.json",
+    "retainedInFrozenArchive": true,
+    "ordinaryAldiBrowse": false
+  },
+  "records": [
+    {
+      "code": "00000231",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "spreads"
+    },
+    {
+      "code": "0000261536297",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "0013409516003",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "0013409516027",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "0073390000165",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "0084909003904",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "0098444066980",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "0121111777367",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "01624090",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "0700371275624",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "07777288",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "0852052002125",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "10887044",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "11014306",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "11117897",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "11415807",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "11510897",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "12128897",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "14151897",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "14428797",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "spreads"
+    },
+    {
+      "code": "16120867",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "desserts"
+    },
+    {
+      "code": "18712551",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "biscuits"
+    },
+    {
+      "code": "20028787",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "20029081",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "20208897",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "biscuits"
+    },
+    {
+      "code": "20420897",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "milk"
+    },
+    {
+      "code": "2101651009270",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "2104990007310",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "2171544010713",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "2177133011246",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "22000217",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "22000224",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "22000279",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "22000798",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "grains"
+    },
+    {
+      "code": "22001849",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "22002136",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": true,
+      "categoryId": "milk"
+    },
+    {
+      "code": "22002365",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "22004147",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "22005489",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "22005571",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "22005588",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "22005595",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "22005717",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "22006363",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "desserts"
+    },
+    {
+      "code": "22007377",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "grains"
+    },
+    {
+      "code": "22008190",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "22008275",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "22010124",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "desserts"
+    },
+    {
+      "code": "22010827",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "22011350",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "22011374",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "22012401",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "22014122",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "22014146",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "22014153",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "22014160",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "22014214",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "22014245",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "22014276",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "22014290",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "desserts"
+    },
+    {
+      "code": "22014368",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "22014375",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "22014382",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "22014443",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "22014450",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "22014566",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "22014580",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "22014641",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "22014771",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "grains"
+    },
+    {
+      "code": "22014788",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "22014795",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "22014900",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "22014948",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "22014979",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "22015006",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "22015181",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "22015198",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "22015235",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "22015266",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "22145451",
+      "state": "conservative-multi-country",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "22218677",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "23065314",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "24000758",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "24021999",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "24022408",
+      "state": "conservative-multi-country",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "24032407",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "24069335",
+      "state": "conservative-multi-country",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "24531283",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "25018455",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "25089714",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "25183030",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "25203202",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26001029",
+      "state": "conservative-multi-country",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "26001036",
+      "state": "conservative-multi-country",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "26001043",
+      "state": "conservative-multi-country",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "26001074",
+      "state": "conservative-multi-country",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "26001470",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": true,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "grains"
+    },
+    {
+      "code": "26002200",
+      "state": "conservative-multi-country",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "desserts"
+    },
+    {
+      "code": "26004105",
+      "state": "conservative-multi-country",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "26006017",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": true,
+      "categoryId": "milk"
+    },
+    {
+      "code": "26006079",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": true,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "milk"
+    },
+    {
+      "code": "26006109",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": true,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "biscuits"
+    },
+    {
+      "code": "26007106",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": true,
+      "identityHold": false,
+      "servingBasisConflict": true,
+      "categoryId": "produce"
+    },
+    {
+      "code": "26007120",
+      "state": "conservative-multi-country",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "26008701",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26009995",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26011820",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "desserts"
+    },
+    {
+      "code": "26015439",
+      "state": "conservative-multi-country",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "26015545",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26015637",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "desserts"
+    },
+    {
+      "code": "26017662",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "26020075",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26022079",
+      "state": "conservative-multi-country",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "26023526",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "26023533",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "26030500",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "26033297",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26033327",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": true,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26033877",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "26034713",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26034720",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26034744",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26036243",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26038551",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "grains"
+    },
+    {
+      "code": "26039510",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26040806",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26040813",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26041384",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "biscuits"
+    },
+    {
+      "code": "26041445",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "biscuits"
+    },
+    {
+      "code": "26042763",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "biscuits"
+    },
+    {
+      "code": "26042770",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26042794",
+      "state": "conservative-multi-country",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26042824",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "biscuits"
+    },
+    {
+      "code": "26042855",
+      "state": "conservative-multi-country",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "biscuits"
+    },
+    {
+      "code": "26046693",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "26049076",
+      "state": "conservative-multi-country",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26049090",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26049328",
+      "state": "first-wave-approved",
+      "ordinaryAldiBrowse": true,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "yoghurt"
+    },
+    {
+      "code": "26049335",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26050348",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "biscuits"
+    },
+    {
+      "code": "26052311",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26058450",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26058663",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "26062792",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26066288",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "cheese"
+    },
+    {
+      "code": "26067674",
+      "state": "conservative-multi-country",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "biscuits"
+    },
+    {
+      "code": "26069180",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": true,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "26069692",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26069739",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "26069777",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": true,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "26069845",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": true,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "26070100",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": true,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "26073736",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "cheese"
+    },
+    {
+      "code": "26074870",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26078007",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": true,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "26082325",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "26082363",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26082462",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26083520",
+      "state": "conservative-multi-country",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "cereal"
+    },
+    {
+      "code": "26084466",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26089041",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "milk"
+    },
+    {
+      "code": "26089072",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26091419",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26096872",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26098340",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26098593",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "26098845",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "26101514",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "26101934",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "biscuits"
+    },
+    {
+      "code": "26101989",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26102795",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "26103259",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "biscuits"
+    },
+    {
+      "code": "26103921",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "bread"
+    },
+    {
+      "code": "26104201",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "bread"
+    },
+    {
+      "code": "26105147",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "bread"
+    },
+    {
+      "code": "26107851",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "frozen-vegetables"
+    },
+    {
+      "code": "26108155",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "cheese"
+    },
+    {
+      "code": "26108171",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26108360",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "spreads"
+    },
+    {
+      "code": "26108575",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26110240",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26110288",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "bread"
+    },
+    {
+      "code": "26110684",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "26110718",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "26111230",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26113494",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "frozen-vegetables"
+    },
+    {
+      "code": "26113698",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "desserts"
+    },
+    {
+      "code": "26114068",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26114439",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "26115252",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26116167",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "26117430",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "26117553",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "26117744",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26117959",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "cereal"
+    },
+    {
+      "code": "26120430",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26120966",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26121291",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26122038",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26122076",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "spreads"
+    },
+    {
+      "code": "26122106",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26122250",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "grains"
+    },
+    {
+      "code": "26122298",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "cheese"
+    },
+    {
+      "code": "26122687",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26122731",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26122762",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26123165",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26124810",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "26125107",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26125961",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "26126081",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "26129471",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "26130569",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26130934",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "26131627",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "26131825",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26133591",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26134505",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26138374",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "biscuits"
+    },
+    {
+      "code": "26138992",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26144528",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": true,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26145013",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26145716",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26147093",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "26149929",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "frozen-potato"
+    },
+    {
+      "code": "26150215",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "cheese"
+    },
+    {
+      "code": "26150726",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26150796",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26151434",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26151984",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "yoghurt"
+    },
+    {
+      "code": "26152486",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "spreads"
+    },
+    {
+      "code": "26152493",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "spreads"
+    },
+    {
+      "code": "26153689",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "26153728",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "biscuits"
+    },
+    {
+      "code": "26153902",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26153971",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "26154404",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26154527",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26154862",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "frozen-vegetables"
+    },
+    {
+      "code": "26155432",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "frozen-potato"
+    },
+    {
+      "code": "26157009",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26157481",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26157993",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26158006",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26159270",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26159393",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26159812",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26160757",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "26160900",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "cheese"
+    },
+    {
+      "code": "26160962",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26161693",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "26162737",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26164984",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26165516",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "26165523",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "grains"
+    },
+    {
+      "code": "26165677",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26165745",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26166247",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26167336",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26167932",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26168043",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26168913",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "26170480",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "spreads"
+    },
+    {
+      "code": "26171555",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26171852",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "26172316",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26172552",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26173184",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "26173702",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26173719",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "spreads"
+    },
+    {
+      "code": "26174938",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26175027",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26175966",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26176574",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "26177717",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "26178769",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": true,
+      "categoryId": "desserts"
+    },
+    {
+      "code": "26178783",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "biscuits"
+    },
+    {
+      "code": "26179650",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26180168",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26180229",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26182322",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "26182780",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26182889",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "26182933",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "26183176",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "26183268",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "26183381",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "26183411",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "26183473",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "26183534",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "26183770",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26184050",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "26186894",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "cheese"
+    },
+    {
+      "code": "26188780",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "26189154",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "biscuits"
+    },
+    {
+      "code": "26191171",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "grains"
+    },
+    {
+      "code": "26191218",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "26191225",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "26192000",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26192031",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26192734",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26193755",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26194240",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26194684",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26194912",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26194929",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26195070",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "26196022",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "bread"
+    },
+    {
+      "code": "26196756",
+      "state": "conservative-multi-country",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "yoghurt"
+    },
+    {
+      "code": "26197722",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "desserts"
+    },
+    {
+      "code": "26197890",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "26198064",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "26198149",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": true,
+      "categoryId": null
+    },
+    {
+      "code": "26198491",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26198705",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "spreads"
+    },
+    {
+      "code": "26198774",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26200316",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26200376",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26200460",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26201142",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "milk"
+    },
+    {
+      "code": "26201276",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "desserts"
+    },
+    {
+      "code": "26201283",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26201320",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "26201542",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "milk"
+    },
+    {
+      "code": "26202044",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26202167",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26202525",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "yoghurt"
+    },
+    {
+      "code": "26203652",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26203669",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26204178",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "spreads"
+    },
+    {
+      "code": "26204673",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "26205489",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "yoghurt"
+    },
+    {
+      "code": "26206547",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "26206844",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26206851",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26207766",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26208039",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "biscuits"
+    },
+    {
+      "code": "26208367",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "desserts"
+    },
+    {
+      "code": "26208527",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26209142",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26209265",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "spreads"
+    },
+    {
+      "code": "26209272",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "spreads"
+    },
+    {
+      "code": "26209289",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "spreads"
+    },
+    {
+      "code": "26210728",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "milk"
+    },
+    {
+      "code": "26210803",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "grains"
+    },
+    {
+      "code": "26211282",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "desserts"
+    },
+    {
+      "code": "26212630",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26213293",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26214276",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26214436",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "bread"
+    },
+    {
+      "code": "26214610",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "cheese"
+    },
+    {
+      "code": "26214627",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "grains"
+    },
+    {
+      "code": "26214832",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "26215075",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "26215631",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26215679",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "26215723",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "spreads"
+    },
+    {
+      "code": "26216256",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26216614",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26217048",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26217239",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26218533",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26219691",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26220147",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26222011",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "cheese"
+    },
+    {
+      "code": "26222028",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26222035",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26223315",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": true,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26223339",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26223476",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "26223926",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "bread"
+    },
+    {
+      "code": "26225531",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26225784",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "26227979",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "bread"
+    },
+    {
+      "code": "26229386",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26229577",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "biscuits"
+    },
+    {
+      "code": "26229904",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26230917",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "yoghurt"
+    },
+    {
+      "code": "26231013",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "cheese"
+    },
+    {
+      "code": "26232553",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "26232645",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26234748",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "26234793",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26234809",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26235066",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26235721",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "26236049",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "desserts"
+    },
+    {
+      "code": "26237800",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "biscuits"
+    },
+    {
+      "code": "26239361",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "26241081",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26244372",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26247199",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "milk"
+    },
+    {
+      "code": "26248721",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "milk"
+    },
+    {
+      "code": "26249490",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26252315",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "desserts"
+    },
+    {
+      "code": "26254128",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26254685",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26254753",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26255361",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26258669",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26260471",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "cheese"
+    },
+    {
+      "code": "26260945",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "26264455",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "yoghurt"
+    },
+    {
+      "code": "26269580",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "26270333",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26273921",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26278797",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26281186",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26281766",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26283517",
+      "state": "first-wave-approved",
+      "ordinaryAldiBrowse": true,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "yoghurt"
+    },
+    {
+      "code": "26284064",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26288390",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "grains"
+    },
+    {
+      "code": "26289328",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26289748",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26294223",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "26294698",
+      "state": "details-only",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26295121",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "26298962",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "spreads"
+    },
+    {
+      "code": "26299976",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "desserts"
+    },
+    {
+      "code": "26301211",
+      "state": "conservative-multi-country",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "spreads"
+    },
+    {
+      "code": "26304731",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "grains"
+    },
+    {
+      "code": "26308227",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "cereal"
+    },
+    {
+      "code": "26309064",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "cereal"
+    },
+    {
+      "code": "26310411",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "yoghurt"
+    },
+    {
+      "code": "26315492",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "desserts"
+    },
+    {
+      "code": "26315799",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "26317472",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26317533",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": true,
+      "identityHold": true,
+      "servingBasisConflict": false,
+      "categoryId": "bread"
+    },
+    {
+      "code": "26319612",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "26320625",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "26321318",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26326344",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26328973",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26329253",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "26330570",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26331430",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26338811",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "cereal"
+    },
+    {
+      "code": "26340999",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "cereal"
+    },
+    {
+      "code": "26341002",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "cereal"
+    },
+    {
+      "code": "26341170",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "desserts"
+    },
+    {
+      "code": "26341255",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26341514",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "cereal"
+    },
+    {
+      "code": "26342092",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "milk"
+    },
+    {
+      "code": "26342207",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "bread"
+    },
+    {
+      "code": "26343983",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "26601470",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "27022009",
+      "state": "conservative-multi-country",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "2874262009327",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "3073780574242",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "cheese"
+    },
+    {
+      "code": "4000415079604",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "4000415851507",
+      "state": "conservative-multi-country",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "4000607854705",
+      "state": "conservative-multi-country",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "4001686372586",
+      "state": "conservative-multi-country",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "4047247051163",
+      "state": "conservative-multi-country",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "4061459718805",
+      "state": "first-wave-review-excluded",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "4061461158323",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "4061461580698",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "4061461764210",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4061461973742",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "4061462249464",
+      "state": "first-wave-approved",
+      "ordinaryAldiBrowse": true,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "bread"
+    },
+    {
+      "code": "4061462283468",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4061462288319",
+      "state": "first-wave-review-excluded",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "4061463015389",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "4061463838483",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4061463895431",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "biscuits"
+    },
+    {
+      "code": "4061464025202",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": true,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "4061464211520",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": true,
+      "categoryId": null
+    },
+    {
+      "code": "4061464287389",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "4061464629547",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "4061464726628",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "4061464904811",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4069365222331",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "cereal"
+    },
+    {
+      "code": "4082700325269",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "cereal"
+    },
+    {
+      "code": "4088600187341",
+      "state": "first-wave-approved",
+      "ordinaryAldiBrowse": true,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "4088600274898",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "yoghurt"
+    },
+    {
+      "code": "4088600502410",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "4088700000144",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700000465",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": true,
+      "categoryId": null
+    },
+    {
+      "code": "4088700001660",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700004357",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700004364",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700005293",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700006504",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "4088700007181",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "grains"
+    },
+    {
+      "code": "4088700007464",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700009185",
+      "state": "first-wave-approved",
+      "ordinaryAldiBrowse": true,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "yoghurt"
+    },
+    {
+      "code": "4088700009192",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700009659",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": true,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "4088700009666",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "4088700009697",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "4088700009949",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "frozen-vegetables"
+    },
+    {
+      "code": "4088700010754",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "grains"
+    },
+    {
+      "code": "4088700011638",
+      "state": "first-wave-approved",
+      "ordinaryAldiBrowse": true,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "4088700011676",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "4088700012383",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "4088700015599",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": true,
+      "categoryId": null
+    },
+    {
+      "code": "4088700016022",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700016916",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": true,
+      "categoryId": "milk"
+    },
+    {
+      "code": "4088700017302",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "spreads"
+    },
+    {
+      "code": "4088700017326",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "spreads"
+    },
+    {
+      "code": "4088700017333",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": true,
+      "categoryId": "milk"
+    },
+    {
+      "code": "4088700018682",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": true,
+      "categoryId": null
+    },
+    {
+      "code": "4088700019726",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "4088700020302",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "4088700020340",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700020944",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700021866",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "frozen-vegetables"
+    },
+    {
+      "code": "4088700024621",
+      "state": "first-wave-review-excluded",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "4088700026663",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700027271",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700028087",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700028285",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "milk"
+    },
+    {
+      "code": "4088700035399",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700038147",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "4088700038505",
+      "state": "first-wave-approved",
+      "ordinaryAldiBrowse": true,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "4088700038888",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "4088700040959",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700042274",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "4088700042410",
+      "state": "conservative-multi-country",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "grains"
+    },
+    {
+      "code": "4088700044179",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "grains"
+    },
+    {
+      "code": "4088700045657",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "grains"
+    },
+    {
+      "code": "4088700046470",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "desserts"
+    },
+    {
+      "code": "4088700046487",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700048344",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "cheese"
+    },
+    {
+      "code": "4088700048535",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700048863",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "4088700049150",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": true,
+      "categoryId": null
+    },
+    {
+      "code": "4088700049488",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "4088700050088",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700050217",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "4088700050293",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "4088700051856",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700051894",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700051993",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": true,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "4088700052990",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "spreads"
+    },
+    {
+      "code": "4088700054734",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "biscuits"
+    },
+    {
+      "code": "4088700056585",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "4088700056998",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700057292",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "grains"
+    },
+    {
+      "code": "4088700057988",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "4088700060254",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700062326",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700063521",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "desserts"
+    },
+    {
+      "code": "4088700063569",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "4088700063576",
+      "state": "first-wave-approved",
+      "ordinaryAldiBrowse": true,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "4088700063620",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "4088700063699",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": true,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "4088700063729",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "4088700065624",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "4088700065631",
+      "state": "conservative-multi-country",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "4088700065648",
+      "state": "first-wave-review-excluded",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "4088700066911",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "4088700067260",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "4088700067277",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "4088700067420",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "4088700067574",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700067680",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "4088700068809",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700069721",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "4088700069950",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "4088700070376",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "desserts"
+    },
+    {
+      "code": "4088700070666",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700070673",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "biscuits"
+    },
+    {
+      "code": "4088700070765",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "4088700070772",
+      "state": "first-wave-approved",
+      "ordinaryAldiBrowse": true,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "4088700071564",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "4088700071618",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "grains"
+    },
+    {
+      "code": "4088700072639",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700073032",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "milk"
+    },
+    {
+      "code": "4088700075562",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "4088700075579",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "4088700078792",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "desserts"
+    },
+    {
+      "code": "4088700078846",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "4088700080122",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "4088700083338",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700083529",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700084410",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700089750",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700090770",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700091067",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "4088700091074",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "4088700091173",
+      "state": "first-wave-approved",
+      "ordinaryAldiBrowse": true,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "4088700091197",
+      "state": "first-wave-review-excluded",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "4088700091524",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "biscuits"
+    },
+    {
+      "code": "4088700092101",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "4088700092262",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": true,
+      "identityHold": false,
+      "servingBasisConflict": true,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "4088700092514",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700093054",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700093153",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700094723",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "4088700095201",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700097670",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700100189",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "desserts"
+    },
+    {
+      "code": "4088700100967",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "spreads"
+    },
+    {
+      "code": "4088700101292",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "spreads"
+    },
+    {
+      "code": "4088700103401",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "4088700103555",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700104736",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "4088700106389",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "bread"
+    },
+    {
+      "code": "4088700106396",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "bread"
+    },
+    {
+      "code": "4088700106402",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700107812",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "grains"
+    },
+    {
+      "code": "4088700109267",
+      "state": "first-wave-approved",
+      "ordinaryAldiBrowse": true,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "4088700109618",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "bread"
+    },
+    {
+      "code": "4088700109687",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "4088700110911",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700110959",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "4088700112809",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "biscuits"
+    },
+    {
+      "code": "4088700115060",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700115268",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "milk"
+    },
+    {
+      "code": "4088700118665",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700120545",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700123249",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "4088700123256",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "4088700125335",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "milk"
+    },
+    {
+      "code": "4088700126608",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700131084",
+      "state": "conservative-multi-country",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "spreads"
+    },
+    {
+      "code": "4088700131176",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "bread"
+    },
+    {
+      "code": "4088700131183",
+      "state": "details-only",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "bread"
+    },
+    {
+      "code": "4088700132647",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700132692",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": true,
+      "categoryId": null
+    },
+    {
+      "code": "4088700133774",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "4088700137796",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700137802",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "4088700139769",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "milk"
+    },
+    {
+      "code": "4088700141731",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "milk"
+    },
+    {
+      "code": "4088700150511",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "4088700151242",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "4088700154137",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "desserts"
+    },
+    {
+      "code": "4088700154519",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "4088700154878",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": true,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "4088700156728",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "cheese"
+    },
+    {
+      "code": "4088700157008",
+      "state": "first-wave-approved",
+      "ordinaryAldiBrowse": true,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "cheese"
+    },
+    {
+      "code": "4088700157046",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "cheese"
+    },
+    {
+      "code": "4088700157268",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "bread"
+    },
+    {
+      "code": "4088700158104",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "milk"
+    },
+    {
+      "code": "4088700158159",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": true,
+      "categoryId": "milk"
+    },
+    {
+      "code": "4088700159439",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "4088700160466",
+      "state": "first-wave-approved",
+      "ordinaryAldiBrowse": true,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "4088700160923",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "4088700164204",
+      "state": "first-wave-approved",
+      "ordinaryAldiBrowse": true,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "yoghurt"
+    },
+    {
+      "code": "4088700166871",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "4088700167885",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "4088700181393",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "grains"
+    },
+    {
+      "code": "4088700182284",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "4088700190388",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700194393",
+      "state": "first-wave-approved",
+      "ordinaryAldiBrowse": true,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "biscuits"
+    },
+    {
+      "code": "4088700198728",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "4088700200131",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "cereal"
+    },
+    {
+      "code": "4088700200278",
+      "state": "first-wave-review-excluded",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "spreads"
+    },
+    {
+      "code": "4088700201800",
+      "state": "conservative-multi-country",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "spreads"
+    },
+    {
+      "code": "4088700202036",
+      "state": "conservative-multi-country",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "4088700219737",
+      "state": "first-wave-approved",
+      "ordinaryAldiBrowse": true,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "cereal"
+    },
+    {
+      "code": "4088700233696",
+      "state": "first-wave-review-excluded",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "yoghurt"
+    },
+    {
+      "code": "4088700236864",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "bread"
+    },
+    {
+      "code": "4088700237755",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "cereal"
+    },
+    {
+      "code": "4088700238455",
+      "state": "first-wave-approved",
+      "ordinaryAldiBrowse": true,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "cereal"
+    },
+    {
+      "code": "4088700252161",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "4088700252260",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "grains"
+    },
+    {
+      "code": "4088700266649",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "cereal"
+    },
+    {
+      "code": "4088700333136",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "4088700350508",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "4088700354186",
+      "state": "first-wave-approved",
+      "ordinaryAldiBrowse": true,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "41217897",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "42205897",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "5000159509633",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": true,
+      "categoryId": "desserts"
+    },
+    {
+      "code": "5000267099026",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "5010975070095",
+      "state": "details-only",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "biscuits"
+    },
+    {
+      "code": "5011157888101",
+      "state": "conservative-multi-country",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "grains"
+    },
+    {
+      "code": "5201051001076",
+      "state": "details-only",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "5317911009288",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "5391516870016",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "7088240195635",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "7613036839808",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": true,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "7613036840224",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": true,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "8717624533075",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "8719128117249",
+      "state": "conservative-multi-country",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "8886303210504",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": true,
+      "categoryId": null
+    },
+    {
+      "code": "8906001054597",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "8906001056874",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "8906001057949",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "8935239903599",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "90417687",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "9300601774067",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "9300617042310",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "9300650008946",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "spreads"
+    },
+    {
+      "code": "9300650018945",
+      "state": "conservative-multi-country",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "spreads"
+    },
+    {
+      "code": "9300682038164",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "9310072034652",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "9310258511939",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "biscuits"
+    },
+    {
+      "code": "9311594048165",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "9313820016108",
+      "state": "first-wave-approved",
+      "ordinaryAldiBrowse": true,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "9313820016603",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "9315054008263",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "9316401201108",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "9317948000582",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "9317948001862",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "9317948003415",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "9318085022499",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "9318977301008",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "9320000426060",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "9320800000040",
+      "state": "details-only",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "9320800000484",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "9320800000491",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "9324956000916",
+      "state": "first-wave-review-excluded",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "9325763000038",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "9326180000144",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "9326180001509",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "9331725000855",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "9334573000107",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "sauces"
+    },
+    {
+      "code": "9335390000035",
+      "state": "wider-potentially-loggable",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": true,
+      "categoryId": "milk"
+    },
+    {
+      "code": "9342584039450",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "drinks"
+    },
+    {
+      "code": "9343005000554",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "protein"
+    },
+    {
+      "code": "9343317000365",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "9344962000274",
+      "state": "first-wave-approved",
+      "ordinaryAldiBrowse": true,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "yoghurt"
+    },
+    {
+      "code": "9344988000319",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "9350177094021",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "canned"
+    },
+    {
+      "code": "9351585001083",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "snacks"
+    },
+    {
+      "code": "93536240",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "93541114",
+      "state": "details-only",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "93541121",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "93541237",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    },
+    {
+      "code": "9355683001747",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": null
+    },
+    {
+      "code": "93650564",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "spreads"
+    },
+    {
+      "code": "9421012631081",
+      "state": "needs-nutrition-completion",
+      "ordinaryAldiBrowse": false,
+      "conflictBlocked": false,
+      "identityHold": false,
+      "servingBasisConflict": false,
+      "categoryId": "produce"
+    }
+  ]
+}

@@ -472,6 +472,7 @@
       "conflicts": [],
       "gaps": [],
       "measures": {
+        "slice": 0.33,
         "serve": 0.66,
         "g": 0.01
       },

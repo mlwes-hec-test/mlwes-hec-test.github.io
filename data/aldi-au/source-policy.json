@@ -1,0 +1,353 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Private testing; first-wave individually reviewed OFF explicit-store Australia-only records",
+  "retailer": {
+    "id": "aldi",
+    "name": "Aldi",
+    "market": "AU",
+    "aliases": [],
+    "collectionMode": "source-declared-store",
+    "collectionNotice": "Private testing · Selected Aldi store records from Open Food Facts contributors, pinned in the 16 Sep 2026 evidence review. Products retain source-reported brands. Community data; coverage is limited and current availability is unknown. No retailer endorsement."
+  },
+  "licence": {
+    "attribution": "Open Food Facts contributors",
+    "database": "ODbL 1.0",
+    "contents": "DbCL 1.0",
+    "databaseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+    "contentsUrl": "https://opendatacommons.org/licenses/dbcl/1-0/",
+    "projectNotice": "OPEN_FOOD_FACTS_AU_DATA_NOTICE.md"
+  },
+  "source": {
+    "evidenceDirectory": "C:/Users/mlwes/OneDrive/Documents/HEC Development/HEC Catalogue Evidence/ALDI/OFF Explicit Retailer Evidence 2026-09-16",
+    "snapshotDate": "2026-08-30",
+    "evidenceDate": "2026-09-16",
+    "dateNote": "Raw bytes match the existing HEC 30 Aug snapshot; 15 Sep object metadata and 16 Sep evidence review do not establish product freshness.",
+    "pins": [
+      {
+        "path": "raw/off-products-2026-09-15.csv.gz",
+        "sha256": "f72687ee8bc6522054fe69dbfda6b91902c16af1ec2e043cde27bc6c29ad8176"
+      },
+      {
+        "path": "canonical-audit-snapshot.json",
+        "sha256": "bf949f544f60ed79e83af6531d32a02d734d310a9cfcd44012d5be49796f238e"
+      },
+      {
+        "path": "acquisition-metadata.json",
+        "sha256": "41162018ea71ca0c9bd9bf197bbd3a486244207e59a70fb424a5884cb69b1059"
+      }
+    ],
+    "reviewInputSha256": "ed744e733cfe1246e43571099e3a586f1b9caf2f74b9483357ab86463d37b5f7"
+  },
+  "admissionPolicy": {
+    "soleCountry": "en:australia",
+    "conservativePoolOnly": true,
+    "maxEnergyPairRelativeDifference": 0.05,
+    "unknownFormMeasures": "Keep shared gram fallback; retain quarantined source portion evidence without enabling it.",
+    "ownershipEstablished": false
+  },
+  "categories": [
+    {
+      "id": "bread",
+      "label": "Bread & Bakery",
+      "scope": "food"
+    },
+    {
+      "id": "milk",
+      "label": "Milk",
+      "scope": "food"
+    },
+    {
+      "id": "yoghurt",
+      "label": "Yoghurt",
+      "scope": "food"
+    },
+    {
+      "id": "cheese",
+      "label": "Cheese",
+      "scope": "food"
+    },
+    {
+      "id": "cereal",
+      "label": "Breakfast Cereal",
+      "scope": "food"
+    },
+    {
+      "id": "canned",
+      "label": "Baked Beans & Canned Food",
+      "scope": "food"
+    },
+    {
+      "id": "grains",
+      "label": "Rice, Pasta & Grains",
+      "scope": "food"
+    },
+    {
+      "id": "spreads",
+      "label": "Spreads & Margarine",
+      "scope": "food"
+    },
+    {
+      "id": "biscuits",
+      "label": "Crackers & Biscuits",
+      "scope": "food"
+    },
+    {
+      "id": "snacks",
+      "label": "Snack Foods",
+      "scope": "food"
+    },
+    {
+      "id": "frozen-vegetables",
+      "label": "Frozen Vegetables",
+      "scope": "food"
+    },
+    {
+      "id": "frozen-potato",
+      "label": "Frozen Potato Products",
+      "scope": "food"
+    },
+    {
+      "id": "sauces",
+      "label": "Sauces & Condiments",
+      "scope": "food"
+    },
+    {
+      "id": "drinks",
+      "label": "Non-alcoholic Drinks",
+      "scope": "food"
+    },
+    {
+      "id": "desserts",
+      "label": "Desserts & Ice Cream",
+      "scope": "food"
+    },
+    {
+      "id": "produce",
+      "label": "Packaged Fruit & Vegetables",
+      "scope": "food"
+    },
+    {
+      "id": "protein",
+      "label": "Meat & Protein",
+      "scope": "food"
+    }
+  ],
+  "reviews": [
+    {
+      "code": "26049328",
+      "categoryId": "yoghurt",
+      "conceptIds": [
+        "yoghurt"
+      ],
+      "excludeReason": null,
+      "note": "Named natural Greek-style yoghurt with coherent per-100g nutrition. Recorded 150g serve retained as evidence; shared unknown-form safeguard offers grams only."
+    },
+    {
+      "code": "26283517",
+      "categoryId": "yoghurt",
+      "conceptIds": [
+        "yoghurt"
+      ],
+      "excludeReason": null,
+      "note": "Named Greek-style yoghurt; source brand Aldi retained literally. Pack and serve unknown; grams only."
+    },
+    {
+      "code": "4061459718805",
+      "categoryId": "protein",
+      "conceptIds": [],
+      "excludeReason": "preparation-or-drained-basis-unresolved",
+      "note": "Chicken tenders lack an explicit as-sold versus cooked nutrition state; do not infer preparation."
+    },
+    {
+      "code": "4061462249464",
+      "categoryId": "bread",
+      "conceptIds": [
+        "bread"
+      ],
+      "excludeReason": null,
+      "note": "Source gluten-free sliced-bread tags agree with name. Explicit 75g (2 slices) supports 37.5g per slice; 440g pack stays separate."
+    },
+    {
+      "code": "4061462288319",
+      "categoryId": "protein",
+      "conceptIds": [],
+      "excludeReason": "preparation-or-drained-basis-unresolved",
+      "note": "Seasoned squid lacks explicit raw/cooked or preparation basis and source serving; defer."
+    },
+    {
+      "code": "4088600187341",
+      "categoryId": "protein",
+      "conceptIds": [],
+      "excludeReason": null,
+      "note": "Named chicken tikka masala with pilau rice and matching prepared-meal categories; source 450g serve supports prepared meal mass. Pack unknown."
+    },
+    {
+      "code": "4088700009185",
+      "categoryId": "yoghurt",
+      "conceptIds": [
+        "yoghurt"
+      ],
+      "excludeReason": null,
+      "note": "Named strawberry yoghurt and yoghurt categories agree; pack/serve unknown; grams only."
+    },
+    {
+      "code": "4088700011638",
+      "categoryId": "sauces",
+      "conceptIds": [],
+      "excludeReason": null,
+      "note": "Named Romana pasta sauce with matching sauce categories; coherent per-100g nutrition; pack/serve unknown, grams only."
+    },
+    {
+      "code": "4088700024621",
+      "categoryId": "protein",
+      "conceptIds": [],
+      "excludeReason": "preparation-or-drained-basis-unresolved",
+      "note": "Beef sausage has no raw/cooked qualifier. An 84g portion does not establish sausage count or preparation basis."
+    },
+    {
+      "code": "4088700038505",
+      "categoryId": "drinks",
+      "conceptIds": [],
+      "excludeReason": null,
+      "note": "Spring-water identity and water categories support liquid mL/cup measures; all ten nutrient zeroes are explicitly recorded. 600ml pack is not a serve."
+    },
+    {
+      "code": "4088700063576",
+      "categoryId": "snacks",
+      "conceptIds": [],
+      "excludeReason": null,
+      "note": "Milk chocolate name agrees with chocolate categories; retain source brand Aldi. 1x40g is pack text only; grams."
+    },
+    {
+      "code": "4088700065648",
+      "categoryId": "canned",
+      "conceptIds": [],
+      "excludeReason": "preparation-or-drained-basis-unresolved",
+      "note": "Tuna in tomato/basil sauce: source does not establish drained versus packed nutrition basis; defer without guessing."
+    },
+    {
+      "code": "4088700070772",
+      "categoryId": "snacks",
+      "conceptIds": [],
+      "excludeReason": null,
+      "note": "Stackable potato crisps agree with source crisps tags; 40g source serving supported; no chip count inferred."
+    },
+    {
+      "code": "4088700091173",
+      "categoryId": "snacks",
+      "conceptIds": [],
+      "excludeReason": null,
+      "note": "Dark caramel/sea-salt chocolate identity and categories agree. Pack text 5, 25g bars alone does not create a bar measure; grams only."
+    },
+    {
+      "code": "4088700091197",
+      "categoryId": "snacks",
+      "conceptIds": [],
+      "excludeReason": "energy-pair-needs-review",
+      "note": "Source kcal and kJ differ by 5.18%; individual first-wave energy review excludes it despite the broader shared plausibility gate."
+    },
+    {
+      "code": "4088700109267",
+      "categoryId": "produce",
+      "conceptIds": [],
+      "excludeReason": null,
+      "note": "Explicit dried-apricot category resolves dried fruit identity. 30g portion retained but unknown-form serving stays quarantined; grams only."
+    },
+    {
+      "code": "4088700157008",
+      "categoryId": "cheese",
+      "conceptIds": [
+        "cheese"
+      ],
+      "excludeReason": null,
+      "note": "Shredded light tasty cheese agrees with cheddar/packaged-cheese tags. 25g source portion retained; grams, no invented slices."
+    },
+    {
+      "code": "4088700160466",
+      "categoryId": "snacks",
+      "conceptIds": [],
+      "excludeReason": null,
+      "note": "Coconut rolls with sweet snack/biscuit-and-cake tags support broad Snack Foods. No individual roll weight is evidenced; grams only."
+    },
+    {
+      "code": "4088700164204",
+      "categoryId": "yoghurt",
+      "conceptIds": [
+        "yoghurt"
+      ],
+      "excludeReason": null,
+      "note": "Greek-style yoghurt tags agree with name. Distinct GTIN remains separate from other Lyttos yoghurt. 150g source portion retained; grams only."
+    },
+    {
+      "code": "4088700194393",
+      "categoryId": "biscuits",
+      "conceptIds": [],
+      "excludeReason": null,
+      "note": "Chocolate-chip cookie name and exact cookie tags agree; no pack/serve/count evidence; grams only."
+    },
+    {
+      "code": "4088700200278",
+      "categoryId": "spreads",
+      "conceptIds": [],
+      "excludeReason": "energy-pair-needs-review",
+      "note": "Source kcal and kJ differ by 5.97%; no source explanation establishes a coherent energy pair."
+    },
+    {
+      "code": "4088700219737",
+      "categoryId": "cereal",
+      "conceptIds": [
+        "cereal"
+      ],
+      "excludeReason": null,
+      "note": "Original muesli agrees with muesli tags; 45g source serving supported, 400g pack kept separate."
+    },
+    {
+      "code": "4088700233696",
+      "categoryId": "yoghurt",
+      "conceptIds": [
+        "yoghurt"
+      ],
+      "excludeReason": "identity-category-basis-unresolved",
+      "note": "Coconut yoghurt name and low protein could describe a plant-based product, but source asserts dairy/fermented-milk/fruit yoghurt; identity basis needs confirmation."
+    },
+    {
+      "code": "4088700238455",
+      "categoryId": "cereal",
+      "conceptIds": [
+        "cereal"
+      ],
+      "excludeReason": null,
+      "note": "Pecan/maple muesli clusters agree with muesli tags; explicit 40g source portion supports serve plus grams."
+    },
+    {
+      "code": "4088700354186",
+      "categoryId": "produce",
+      "conceptIds": [],
+      "excludeReason": null,
+      "note": "Fine shredded slaw and prepared-salad/coleslaw tags agree. Low-energy vegetable slaw profile is coherent; 100g source portion supported."
+    },
+    {
+      "code": "9313820016108",
+      "categoryId": "drinks",
+      "conceptIds": [],
+      "excludeReason": null,
+      "note": "Pepsi Max with diet-cola tags and 375ml serving supports liquid mL/Metric Cup/Manufacturer Serve. Source Pepsi brand retained; no ownership inference."
+    },
+    {
+      "code": "9324956000916",
+      "categoryId": "snacks",
+      "conceptIds": [],
+      "excludeReason": "energy-pair-needs-review",
+      "note": "Source energy pair differs by 14.47%; fibre/polyol explanation cannot be reconstructed safely from this export."
+    },
+    {
+      "code": "9344962000274",
+      "categoryId": "yoghurt",
+      "conceptIds": [
+        "yoghurt"
+      ],
+      "excludeReason": null,
+      "note": "Greek black-cherry yoghurt identity and cherry-yoghurt tags agree. Source 125g portion retained, shared grams only; 4x125g pack separate."
+    }
+  ]
+}

@@ -447,7 +447,7 @@
     const text=String(food?.packageServingText||food?.serving||'');
     const b=basisInfo(food),serveScale=finite(food?.units?.serve);
     if(!serveScale)return food;
-    const count=text.match(/(?:^|\s)(\d+(?:[.,]\d+)?)\s*(biscuits?|crackers?|slices?|pieces?|chips?|nuggets?|bars?|sachets?|packets?|sticks?|wafers?|rolls?|burgers?|cakes?|teaspoons?|tablespoons?|tsp|tbsp|serves?|servings?)\b/i);
+    const count=text.match(/(?:^|[\s(])(\d+(?:[.,]\d+)?)\s*(biscuits?|crackers?|slices?|pieces?|chips?|nuggets?|bars?|sachets?|packets?|sticks?|wafers?|rolls?|burgers?|cakes?|teaspoons?|tablespoons?|tsp|tbsp|serves?|servings?)\b/i);
     if(count){
       const qty=finite(String(count[1]).replace(',','.')),raw=norm(count[2]).replace(/s$/,''),key=raw==='serving'?'serve':raw==='piece'?'piece':/^tea|^tsp/.test(raw)?'tsp':/^table|^tbsp/.test(raw)?'tbsp':raw;
       if(qty>0&&key!=='serve'){
