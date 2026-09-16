@@ -48,9 +48,14 @@
   function unregisterCatalogue(id){if(catalogues.delete(id)){revision++;for(const [key,food] of loadedFoods)if(C.retailerMembership(food,id).length||C.sourceDeclaredRetailerMembership(food,id).length||C.privateLabelCollectionMembership(food,id).length)loadedFoods.delete(key);}}
   function commercialOptions(conceptId){return [...catalogues.values()].filter(value=>value.commercial.get(conceptId)?.length).map(value=>({id:value.retailer.id,label:value.retailer.name,count:value.commercial.get(conceptId).length}));}
   function conceptSourceQuestion(session){
+    // Hash Brown already has a complete source-context question, including
+    // packaged/frozen. Preserve that accepted source decision and Back path.
+    if(session.conceptId==='hash-brown')return null;
     const known=session.known||{},options=commercialOptions(session.conceptId);
+    const brandOptions=global.HECBrandCatalogue?.conceptBrands(session.conceptId)||[];
+    if(known.breadSource==='brand'||known.catalogueSource==='brand')return {key:'brandIdentity',question:'Which brand?',options:brandOptions.map(b=>({value:b.key,label:`${b.name} (${b.count})`})),reason:'audited-concept-brand-membership'};
     if(known.breadSource==='supermarket'||known.catalogueSource==='supermarket')return {key:'retailerIdentity',question:'Which supermarket / brand identity?',options:options.map(item=>({value:item.id,label:item.label})),reason:'supported-retailer-concept'};
-    if(session.conceptId==='bread'||!options.length)return null;
+    if(session.conceptId==='bread'||!options.length&&!brandOptions.length)return null;
     if(!known.catalogueOrigin)return {key:'catalogueOrigin',question:'Generic or Commercial?',options:[{value:'generic',label:'Generic Australian food'},{value:'commercial',label:'Commercial'}],reason:'registered-retailer-concept-coverage'};
     if(known.catalogueOrigin==='commercial'&&!known.catalogueSource)return {key:'catalogueSource',question:'How would you like to find it?',options:[{value:'supermarket',label:'Supermarket / Brand Name'},{value:'brand',label:'Choose by product brand'}],reason:'registered-retailer-concept-coverage'};
     return null;

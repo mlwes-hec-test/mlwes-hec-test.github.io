@@ -74,7 +74,8 @@
     unknown:Object.freeze({family:'unknown',allowed:Object.freeze(['weight']),fallback:'g'})
   });
 
-  function norm(v){return String(v||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/&/g,' and ').replace(/[’']/g,'').replace(/[^a-z0-9]+/g,' ').trim();}
+  const normCache=new Map();
+  function norm(v){const text=String(v||'');if(normCache.has(text))return normCache.get(text);const result=text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/&/g,' and ').replace(/[’']/g,'').replace(/[^a-z0-9]+/g,' ').trim();if(text.length<=512){normCache.set(text,result);if(normCache.size>8192)normCache.delete(normCache.keys().next().value);}return result;}
   function finite(v){const x=Number(v);return Number.isFinite(x)?x:0;}
   function fmt(v){const x=finite(v);return Number.isInteger(x)?String(x):String(Number(x.toFixed(3)));}
   function words(v){return new Set(norm(v).split(' ').filter(Boolean));}

@@ -24,15 +24,20 @@
   };
   const UNIT_LOOKUP={};Object.entries(UNIT_WORDS).forEach(([u,words])=>words.forEach(w=>UNIT_LOOKUP[w]=u));
 
-  function norm(v){return String(v||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/&/g,' and ').replace(/[’']/g,'').replace(/[^a-z0-9]+/g,' ').trim();}
+  const normCache=new Map(),compoundCache=new Map(),singularCache=new Map();
+  function cachedText(cache,value,derive){const text=String(value||'');if(cache.has(text))return cache.get(text);const result=derive(text);if(text.length<=512){cache.set(text,result);if(cache.size>8192)cache.delete(cache.keys().next().value);}return result;}
+  function normalizedText(text){return text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/&/g,' and ').replace(/[’']/g,'').replace(/[^a-z0-9]+/g,' ').trim();}
+  function norm(v){return cachedText(normCache,v,normalizedText);}
   const COMPOUND_VARIANTS=Object.freeze([
     Object.freeze({pattern:/\bwhole\s+meal\b/g,replacement:'wholemeal'}),
     Object.freeze({pattern:/\bwhole\s+grain\b/g,replacement:'wholegrain'}),
     Object.freeze({pattern:/\bhash\s+brown\b/g,replacement:'hash brown'})
   ]);
-  function normaliseCompounds(value){let result=norm(value);for(const item of COMPOUND_VARIANTS)result=result.replace(item.pattern,item.replacement);return result.replace(/\s+/g,' ').trim();}
+  function compoundText(text){let result=norm(text);for(const item of COMPOUND_VARIANTS)result=result.replace(item.pattern,item.replacement);return result.replace(/\s+/g,' ').trim();}
+  function normaliseCompounds(value){return cachedText(compoundCache,value,compoundText);}
   function singularWord(w){if(IRREGULAR[w])return IRREGULAR[w];if(/ies$/.test(w)&&w.length>4)return w.slice(0,-3)+'y';if(/(ches|shes|xes|zes)$/.test(w))return w.slice(0,-2);if(/s$/.test(w)&&!/(ss|us|is)$/.test(w)&&w.length>3)return w.slice(0,-1);return w;}
-  function singular(v){return norm(v).split(' ').filter(Boolean).map(singularWord).join(' ');}
+  function singularText(text){return norm(text).split(' ').filter(Boolean).map(singularWord).join(' ');}
+  function singular(v){return cachedText(singularCache,v,singularText);}
   function title(v){return String(v||'').replace(/\b\w/g,c=>c.toUpperCase()).replace(/\bAnd\b/g,'&');}
   function tokens(v){return singular(v).split(' ').filter(Boolean);}
   function normaliseIntent(v){
@@ -161,11 +166,12 @@
     const original=String(raw||''),encoded=original.replace(/(\d)\s*\/\s*(\d)/g,'$1fraction$2').replace(/(\d)\.(\d)/g,'$1decimal$2'),normal=normaliseIntent(encoded).replace(/(\d+)fraction(\d+)/g,'$1/$2').replace(/(\d+)decimal(\d+)/g,'$1.$2'),words=normal.split(' ').filter(Boolean),numbers=[];
     for(let index=0;index<words.length;){const parsed=numericPhraseAt(words,index);if(!parsed){index+=1;continue;}numbers.push({...parsed,index,end:index+parsed.length});index+=parsed.length;}
     // A count from an unrelated loaded product cannot turn consumption into a variant.
-    const variantCandidates=(candidates||[]).filter(food=>{const identity=normaliseIntent(food?.name||'').replace(/^\d+\s*/, '').trim();return identity&&normal.includes(identity);});
+    const quantityCandidates=numbers.length?candidates:[];
+    const variantCandidates=(quantityCandidates||[]).filter(food=>{const identity=normaliseIntent(food?.name||'').replace(/^\d+\s*/, '').trim();return identity&&normal.includes(identity);});
     const variantCounts=candidateVariantCounts(variantCandidates);let variant=null,packageName=null,identityNumber=null;
     for(const item of numbers){const qualifier=words[item.end]||'',hyphenated=new RegExp(`\\b${String(item.text).replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}-(?:piece|pack|count)\\b`,'i').test(original);if(COUNT_QUALIFIER.test(qualifier)&&/^(?:piece|pieces|pack|packs|count)$/.test(qualifier)&&(variantCounts.has(item.value)||hyphenated)){variant=item;break;}}
     if(!variant&&numbers.length){variant=numbers.find(item=>{if(!variantCounts.has(item.value))return false;const queryTail=words.slice(item.end).join(' ');return variantCandidates.some(food=>{const name=normaliseIntent(food?.name||''),count=Number(food?.productSemantics?.count)||Number(name.match(/^(\d+)\b/)?.[1]),candidate=name.replace(/^\d+\s*/, '').trim();return count===item.value&&candidate&&queryTail.includes(candidate);});})||null;}
-    if(!variant){const exact=(candidates||[]).find(food=>[food?.name,`${food?.brand||''} ${food?.name||''}`,...(food?.sourceAliases||[]).map(alias=>`${alias} ${food.name}`)].some(value=>normaliseIntent(value)===normal));if(exact){const candidateNumbers=new Set((normaliseIntent(exact.name).match(/\b\d+(?:\.\d+)?\b/g)||[]).map(Number));packageName=numbers.find(item=>candidateNumbers.has(item.value))||null;identityNumber=packageName?null:numbers[0]||null;}}
+    if(!variant){const exact=(quantityCandidates||[]).find(food=>[food?.name,`${food?.brand||''} ${food?.name||''}`,...(food?.sourceAliases||[]).map(alias=>`${alias} ${food.name}`)].some(value=>normaliseIntent(value)===normal));if(exact){const candidateNumbers=new Set((normaliseIntent(exact.name).match(/\b\d+(?:\.\d+)?\b/g)||[]).map(Number));packageName=numbers.find(item=>candidateNumbers.has(item.value))||null;identityNumber=packageName?null:numbers[0]||null;}}
     const consumed=numbers.find(item=>item!==variant&&item!==packageName&&item!==identityNumber)||null;let consumedUnit='',remove=new Set(),replace=new Map();
     if(variant){replace.set(variant.index,Number.isInteger(variant.value)?String(variant.value):String(variant.value));for(let i=variant.index+1;i<variant.end;i++)remove.add(i);if(COUNT_QUALIFIER.test(words[variant.end]||''))remove.add(variant.end);}
     if(consumed&&/^(?:half|quarter|three quarters)$/.test(consumed.text)&&words[consumed.end]==='a')remove.add(consumed.end);
@@ -399,7 +405,7 @@
   ]);
   function conceptNorm(value){return singular(normaliseCompounds(value)).replace(/\bmaccas?\b|\bmc ?donalds?\b/g,'mcdonalds').replace(/\bhashbrown\b/g,'hash brown');}
   function conceptReference(food){return food?.afcd===true||food?.recordType==='afcd';}
-  const conceptEvidenceCache=new WeakMap(),conceptAttributeCache=new WeakMap();
+  const conceptEvidenceCache=new WeakMap(),conceptAttributeCache=new WeakMap(),conceptSignatureCache=new Map();
   function classifyFoodConcept(food){
     const name=conceptNorm(food?.name||food?.genericName),categories=conceptNorm([food?.genericName,...(food?.categories||[]),...(food?.categoryMemberships||[])].filter(Boolean).join(' '));
     // An adapter can declare a whole product's concept from an official menu
@@ -424,8 +430,17 @@
     for(const key of order){const concept=FOOD_CONCEPT_REGISTRY[key];if((concept.aliases||[]).some(alias=>categoryValues.includes(conceptNorm(alias))))return {conceptId:key,parentId:concept.parent||'',related:[],form:concept.form,confidence:'medium',evidence:'specific-category'};}
     return {conceptId:'unknown',parentId:'',related:[],confidence:'unknown',evidence:'no-supported-identity'};
   }
-  function conceptEvidenceSignature(food){return [food.name,food.genericName,food.recordType,food.afcd,food.category,food.foodSourceId,food.defaultUnit,food.sourceConceptId,food.sourceProvenance?.trustClass,food.productSemantics?.type,...(food.categories||[]),...(food.categoryMemberships||[])].join('\u0000');}
-  function foodConceptEvidence(food){if(!food||typeof food!=='object')return classifyFoodConcept(food);const signature=conceptEvidenceSignature(food),cached=conceptEvidenceCache.get(food);if(cached?.signature===signature)return cached.value;const value=Object.freeze(classifyFoodConcept(food));conceptEvidenceCache.set(food,{signature,value});conceptAttributeCache.delete(food);return value;}
+  function conceptEvidenceSignature(food){return JSON.stringify([food.name,food.genericName,food.recordType,food.afcd,food.category,food.foodSourceId,food.defaultUnit,food.sourceConceptId,food.sourceProvenance?.trustClass,food.productSemantics?.type,food.categories||[],food.categoryMemberships||[]]);}
+  const conceptScalarFields=['name','genericName','recordType','afcd','category','foodSourceId','defaultUnit','sourceConceptId'];
+  const emptyConceptValues=Object.freeze([]);
+  function conceptInputSnapshot(food){return {fields:conceptScalarFields.map(key=>food[key]),trust:food.sourceProvenance?.trustClass,type:food.productSemantics?.type,categories:[...(food.categories||[])],memberships:[...(food.categoryMemberships||[])]};}
+  function conceptPrimitive(value){return value===null||typeof value!=='object'&&typeof value!=='function';}
+  function sameConceptArray(before,after){if(before.length!==after.length)return false;for(let index=0;index<before.length;index++)if(!conceptPrimitive(before[index])||before[index]!==after[index])return false;return true;}
+  function sameConceptInputs(snapshot,food){
+    if(!snapshot)return false;for(let index=0;index<conceptScalarFields.length;index++){const value=food[conceptScalarFields[index]];if(!conceptPrimitive(value)||snapshot.fields[index]!==value)return false;}
+    return conceptPrimitive(food.sourceProvenance?.trustClass)&&snapshot.trust===food.sourceProvenance?.trustClass&&conceptPrimitive(food.productSemantics?.type)&&snapshot.type===food.productSemantics?.type&&sameConceptArray(snapshot.categories,food.categories||emptyConceptValues)&&sameConceptArray(snapshot.memberships,food.categoryMemberships||emptyConceptValues);
+  }
+  function foodConceptEvidence(food){if(!food||typeof food!=='object')return classifyFoodConcept(food);const cached=conceptEvidenceCache.get(food);if(cached&&sameConceptInputs(cached.inputs,food))return cached.value;const signature=conceptEvidenceSignature(food);if(cached?.signature===signature){cached.inputs=conceptInputSnapshot(food);return cached.value;}let value=conceptSignatureCache.get(signature);if(!value){value=Object.freeze(classifyFoodConcept(food));if(signature.length<=2048){conceptSignatureCache.set(signature,value);if(conceptSignatureCache.size>4096)conceptSignatureCache.delete(conceptSignatureCache.keys().next().value);}}conceptEvidenceCache.set(food,{signature,value,inputs:conceptInputSnapshot(food)});conceptAttributeCache.delete(food);return value;}
   function conceptAttributes(food,conceptId=foodConceptEvidence(food).conceptId){
     if(!food||typeof food!=='object')return {};
     const signature=`${food?.name}\u0000${conceptReference(food)}`,cached=conceptAttributeCache.get(food);if(cached?.signature===signature&&cached?.[conceptId])return cached[conceptId];
@@ -433,8 +448,8 @@
     for(const key of FOOD_CONCEPT_REGISTRY[conceptId]?.facets||[]){const definition=CONCEPT_FACETS[key];if(!definition)continue;const match=definition.rules.find(([,pattern])=>pattern.test(value));if(match)attrs[key]=match[0];else if(reference&&definition.referenceDefault)attrs[key]=definition.referenceDefault;}
     conceptAttributeCache.set(food,{...(cached?.signature===signature?cached:{}),signature,[conceptId]:Object.freeze(attrs)});return attrs;
   }
-  function conceptCompatibility(food,intent){
-    const candidate=foodConceptEvidence(food),requested=typeof intent==='string'?intent:intent?.conceptId,known=typeof intent==='object'?intent.known||{}:{};
+  function conceptCompatibility(food,intent,evidence=null){
+    const candidate=evidence||foodConceptEvidence(food),requested=typeof intent==='string'?intent:intent?.conceptId,known=typeof intent==='object'?intent.known||{}:{};
     const equivalent=candidate.conceptId===requested||(requested==='spread'&&candidate.parentId==='spread')||(requested==='chips'&&candidate.conceptId==='fries');
     if(candidate.excluded||!equivalent)return {candidateConceptId:candidate.conceptId,compatible:false,relationship:candidate.excluded?'excluded':(candidate.related||[]).includes(requested)?'related':'different-concept',evidence:candidate.evidence,confidence:candidate.confidence,conflicts:[]};
     const attrs=conceptAttributes(food,requested),conflicts=Object.entries(known).filter(([key,value])=>{const facet=CONCEPT_FACETS[key];if(!facet||value==='__unsure__')return false;const rule=facet.rules.find(([label])=>label===value);return attrs[key]!==value&&!rule?.[1].test(normaliseCompounds(food?.name));}).map(([key])=>key);

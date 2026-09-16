@@ -20,7 +20,8 @@
   const EXPLICIT_OVERRIDES=Object.freeze({}); // Reserved for source-reviewed exceptions; intentionally empty.
   const CONTROLLED_IDENTITY_ALIASES=Object.freeze({hotcakes:['hot cakes']}); // Orthographic only; no nutrition or serving override.
 
-  function norm(value){return String(value||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/&/g,' and ').replace(/[’']/g,'').replace(/[^a-z0-9]+/g,' ').replace(/\s+/g,' ').trim();}
+  const normCache=new Map();
+  function norm(value){const text=String(value||'');if(normCache.has(text))return normCache.get(text);const result=text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/&/g,' and ').replace(/[’']/g,'').replace(/[^a-z0-9]+/g,' ').replace(/\s+/g,' ').trim();if(text.length<=512){normCache.set(text,result);if(normCache.size>8192)normCache.delete(normCache.keys().next().value);}return result;}
   function unique(values){return [...new Set((values||[]).map(value=>String(value||'').trim()).filter(Boolean))];}
   function clone(value){return value===undefined?undefined:JSON.parse(JSON.stringify(value));}
   function stem(value){const word=norm(value);return word.length>4&&word.endsWith('s')&&!word.endsWith('ss')?word.slice(0,-1):word;}
