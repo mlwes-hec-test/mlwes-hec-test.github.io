@@ -1,3 +1,5 @@
+> Round Two (2026-09-18) expands these historical first-wave counts. See [Catalogue Expansion Round Two](CATALOGUE_EXPANSION_ROUND_TWO_REVIEW.md) and `data/catalogue-round-two/summary.json` for current private-testing coverage and provenance.
+
 # Aldi Australia private-testing catalogue — first wave
 
 Source-only build from branch alpha-0.6.33, accepted HEAD fac77ef8ac28ebf2c016de8e87b706005c78e0bc (Remove redundant weight graph detail panel), parent a9c07d551791119206086f86415fe3ae1fb8afd5. The starting working tree was clean. The workspace spelling HEC Develpoment is a junction resolving to the canonical HEC Development source path. Visible version stays 0.6.33.

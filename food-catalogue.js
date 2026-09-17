@@ -90,7 +90,7 @@
     const token=value=>String(value||'').normalize('NFKC').toLowerCase().replace(/\s+/g,' ').trim();
     return (food.retailerMemberships||[]).filter(item=>{
       const e=item.evidence||{};let url;try{url=new URL(e.url);}catch{return false;}
-      return item.retailerId===retailerId&&item.market==='AU'&&item.scope==='food'&&item.basis==='source-declared-store'&&item.verified===false&&item.listingState==='community-snapshot'&&e.trustClass==='open-food-facts-au'&&e.sourceId==='open-food-facts-au'&&e.recordId==='off:'+food.barcode&&/^\d{8,14}$/.test(food.barcode||'')&&['http:','https:'].includes(url.protocol)&&/^(?:[a-z-]+\.)?openfoodfacts\.org$/.test(url.hostname)&&url.pathname.split('/')[1]==='product'&&url.pathname.split('/')[2]===String(food.barcode)&&/^[a-f0-9]{64}$/i.test(e.snapshotSha256||'')&&/^[a-f0-9]{64}$/i.test(e.sha256||'')&&Number.isFinite(Date.parse(e.snapshotDate||''))&&e.countriesTags?.length===1&&e.countriesTags[0]==='en:australia'&&e.field==='stores'&&String(e.stores||'').split(',').some(value=>token(value)===token(entity.name));
+      return item.retailerId===retailerId&&item.market==='AU'&&item.scope==='food'&&item.basis==='source-declared-store'&&item.verified===false&&item.listingState==='community-snapshot'&&e.trustClass==='open-food-facts-au'&&e.sourceId==='open-food-facts-au'&&e.recordId==='off:'+food.barcode&&/^\d{8,14}$/.test(food.barcode||'')&&['http:','https:'].includes(url.protocol)&&/^(?:[a-z-]+\.)?openfoodfacts\.org$/.test(url.hostname)&&url.pathname.split('/')[1]==='product'&&url.pathname.split('/')[2]===String(food.barcode)&&/^[a-f0-9]{64}$/i.test(e.snapshotSha256||'')&&/^[a-f0-9]{64}$/i.test(e.sha256||'')&&Number.isFinite(Date.parse(e.snapshotDate||''))&&Array.isArray(e.countriesTags)&&e.countriesTags.includes('en:australia')&&(e.countriesTags.length===1||verifiedRetailEvidence(e.australianMarketEvidence)&&e.australianMarketEvidence.matchedGtin===food.barcode&&/^[a-f0-9]{64}$/i.test(e.australianMarketEvidence.sha256||''))&&e.field==='stores'&&String(e.stores||'').split(',').some(value=>token(value)===token(entity.name));
     });
   }
   // A reviewed community brand collection is not evidence of a retailer listing.
@@ -783,7 +783,7 @@
     // stored brand/name, not an alias or a partial phrase, for that exception.
     const exactNameCollision=intent.reason==='indexed-brand-plus-product'&&(SEARCH.conceptNorm(food.name)===SEARCH.conceptNorm(query)||!!food.brand&&REG.brandSearchText(`${food.brand} ${food.name}`)===REG.brandSearchText(query));
     if(intent.entity?.type==='brand'&&!consumerBrandMembership(intent.entity,food).matches&&!exactNameCollision)return false;
-    const communityStoreScope=intent.entity?.type==='retailer'&&global.HECRetailerCatalogue?.entity(intent.entity.id)?.collectionMode==='source-declared-store';
+    const communityStoreScope=intent.entity?.type==='retailer'&&(global.HECRetailerCatalogue?.entity(intent.entity.id)?.collectionMode==='source-declared-store'||intent.entity.id==='aldi'&&global.HECRetailerCatalogue?.entity(intent.entity.id)?.collectionMode==='private-testing-evidence');
     if(communityStoreScope){
       if(!sourceDeclaredRetailerMembership(food,intent.entity.id).length||!productEligibility(food).addability.normalLoggingAllowed)return false;
       const product=SEARCH.conceptNorm(intent.productQuery),concept=SEARCH.conceptFromQuery(product),aliases=concept&&((food.conceptIds||[]).includes(concept.key)||SEARCH.foodConceptEvidence(food).conceptId===concept.key)?concept.aliases:[];

@@ -1,0 +1,31 @@
+{"viewport":390,"reviewed":"353871"}
+{"viewport":390,"reviewed":"382738"}
+{"viewport":390,"reviewed":"321220"}
+{"viewport":390,"reviewed":"158188"}
+{"viewport":390,"reviewed":"233922"}
+{"viewport":390,"reviewed":"36009"}
+{"viewport":390,"reviewed":"98299"}
+{"viewport":390,"reviewed":"825528"}
+{"viewport":390,"reviewed":"756826"}
+{"viewport":390,"reviewed":"208679"}
+{"viewport":390,"reviewed":"905257"}
+{"viewport":375,"reviewed":"353871"}
+{"viewport":375,"reviewed":"382738"}
+{"viewport":375,"reviewed":"321220"}
+{"viewport":375,"reviewed":"158188"}
+{"viewport":375,"reviewed":"233922"}
+{"viewport":375,"reviewed":"36009"}
+{"viewport":375,"reviewed":"98299"}
+{"viewport":375,"reviewed":"825528"}
+{"viewport":375,"reviewed":"756826"}
+{"viewport":375,"reviewed":"208679"}
+{"viewport":375,"reviewed":"905257"}
+✔ real Woolworths catalogue, brands, conflicts and eleven Review flows (optional synthetic Diary save) on both mobile viewports (46665.4218ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 46944.1054

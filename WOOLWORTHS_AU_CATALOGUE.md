@@ -1,3 +1,5 @@
+> Round Two (2026-09-18) expands these historical first-wave counts. See [Catalogue Expansion Round Two](CATALOGUE_EXPANSION_ROUND_TWO_REVIEW.md) and `data/catalogue-round-two/summary.json` for current private-testing coverage and provenance.
+
 # Woolworths Australia first food catalogue
 
 This source-only wave starts at `703f230f07109941506b0b1b8b79ba306b303370` on `alpha-0.6.33`. It registers 43 publicly evidenced Woolworths food products across 17 retailer categories. Actual consumer brands remain separate from retailer membership: 32 products have verified Woolworths/private-label relationships and 11 retain national brands. The visible version stays 0.6.33 and the source TEST-role cache stays v5. This document does not authorise deployment.

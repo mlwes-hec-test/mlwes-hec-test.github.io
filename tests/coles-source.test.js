@@ -9,13 +9,13 @@ test('all Coles source rows reproduce from pinned, attributable OFF bytes withou
 });
 test('reviewed collection directory is lazy, paged and excludes restricted rows',async()=>{
   const reads=[];A.register(index,{loadJSON:async f=>{reads.push(f);return require('../data/coles-au/'+f);}});
-  const d=R.directory('coles');assert.equal(d.total,23);assert.equal(d.categories.length,12);assert.equal(reads.length,0);assert.equal(d.retailer.collectionMode,'source-declared-brand');
-  const a=await R.page('coles'),b=await R.page('coles',{offset:20});assert.equal(a.foods.length,20);assert.equal(b.foods.length,3);assert(a.hasMore);assert(!b.hasMore);
-  assert.equal(new Set([...a.foods,...b.foods].map(f=>f.id)).size,23);for(const f of [...a.foods,...b.foods])assert.equal(C.productEligibility(f).addability.normalLoggingAllowed,true);
-  assert(!a.foods.concat(b.foods).some(f=>rows.find(r=>r.food.id===f.id).food.browseEligible===false));
+  const d=R.directory('coles');assert.equal(d.total,860);assert.equal(d.categories.length,19);assert.equal(reads.length,0);assert.equal(d.retailer.collectionMode,'private-testing-evidence');
+  const a=await R.page('coles'),b=await R.page('coles',{offset:20});assert.equal(a.foods.length,20);assert.equal(b.foods.length,20);assert(a.hasMore);assert(b.hasMore);
+  assert.equal(new Set([...a.foods,...b.foods].map(f=>f.id)).size,40);for(const f of [...a.foods,...b.foods])assert.equal(C.productEligibility(f).addability.normalLoggingAllowed,true);
+  assert(!a.foods.concat(b.foods).some(f=>rows.find(r=>r.food.id===f.id)?.food.browseEligible===false));
 });
 test('guided Coles bread uses reviewed source-declared brand identity without claiming retailer verification',async()=>{
-  const result=await R.page('coles',{scope:'commercial-identity',conceptId:'bread'});assert.equal(result.foods.length,3);assert(result.foods.every(f=>C.brandKey(f.brand)==='coles'));assert(result.foods.every(f=>C.commercialIdentityMembership(R.entity('coles'),f).reason==='source-declared-private-label-identity'));
+  const result=await R.page('coles',{scope:'commercial-identity',conceptId:'bread'});assert(result.total>3);assert(result.foods.every(f=>C.brandKey(f.brand)==='coles'));assert(result.foods.every(f=>C.commercialIdentityMembership(R.entity('coles'),f).reason==='source-declared-private-label-identity'));
   assert(!C.commercialIdentityMembership(R.entity('coles'),O.toFood(rows[0].record)).matches);
 });
 test('synthetic national-brand, missing-pin, foreign-source and wrong-record claims cannot enter the collection',()=>{
@@ -40,8 +40,8 @@ test('source natural bread slices and mL drink amounts retain one confirmation a
   const drink=rows.find(r=>r.item.ref==='co-01:96').food;assert(!Object.keys(drink.units).includes('g'));const d=G.createSession([drink],drink.name,{intent:{kind:'exact-product'}});G.selectMeasure(d,'mL');G.selectAmount(d,250);assert.equal(d.stage,G.stages.CONFIRMATION);assert(Math.abs(d.nutrition.calories-49)<.001);
 });
 test('late Coles requests cannot replace Woolworths or generic query ownership',async()=>{
-  let finish;A.register(index,{loadJSON:f=>new Promise(resolve=>{finish=()=>resolve(require('../data/coles-au/'+f));})});
-  const s=R.createSession('coles',{ownerQuery:'Coles',ownerRevision:1});const pending=R.load(s,{categoryId:'bread'});await new Promise(resolve=>setImmediate(resolve));R.cancel(s);finish();assert.equal(await pending,null);assert.equal(s.result,null);assert.equal(R.recognise('Bread'),null);
+  const finishes=[];A.register(index,{loadJSON:f=>new Promise(resolve=>{finishes.push(()=>resolve(require('../data/coles-au/'+f)));})});
+  const s=R.createSession('coles',{ownerQuery:'Coles',ownerRevision:1});const pending=R.load(s,{categoryId:'bread'});await new Promise(resolve=>setImmediate(resolve));R.cancel(s);finishes.forEach(f=>f());assert.equal(await pending,null);assert.equal(s.result,null);assert.equal(R.recognise('Bread'),null);
 });
 test('changed hydrated collection evidence fails closed and cannot silently admit a different source',async()=>{
   A.register(index,{loadJSON:async f=>{const page=structuredClone(require('../data/coles-au/'+f));page.records.forEach(r=>r.privateLabelCollections=[]);return page;}});await assert.rejects(R.page('coles',{categoryId:'bread'}),/collection evidence differs/);

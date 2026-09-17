@@ -1,0 +1,24 @@
+[
+  {
+    "url": "https://www.aldi.com.au/product/bramwells-crunchy-peanut-butter-500g-000000000000366870",
+    "pack": "500 g",
+    "sha256": "b6debe92c4561a7ee79d0fd1df63417decf9e04c36df44841b56450e0bd65e9e",
+    "brand": "Bramwells",
+    "checkedAt": "2026-09-17T17:34:11.9917424Z",
+    "gtin": "4088700131084",
+    "status": 200,
+    "name": "Crunchy Peanut Butter",
+    "matchBasis": "Exact consumer brand, named variant and total pack size; GTIN remains OFF-reported, not retailer-verified"
+  },
+  {
+    "url": "https://www.aldi.com.au/product/hillcrest-almond-hazelnut-vanilla-premium-nut-bars-5-pack-175g-000000000366803001",
+    "pack": "175 g",
+    "sha256": "96dadfdf0951a57f201dff93f1bea48f94c2285d4068dbf660c7223fdbdaa1ee",
+    "brand": "Hillcrest",
+    "checkedAt": "2026-09-17T17:34:12.7653213Z",
+    "gtin": "26329253",
+    "status": 200,
+    "name": "Almond Hazelnut & Vanilla Premium Nut Bars",
+    "matchBasis": "Exact consumer brand, named variant and total pack size; GTIN remains OFF-reported, not retailer-verified"
+  }
+]

@@ -1,0 +1,31 @@
+✔ all admitted expansion identities are unique, loggable, attributable, and retain public release review (8229.3121ms)
+✔ unknown OFF nutrients stay absent and qualified official panel values are never invented as zero (504.9696ms)
+✔ every expanded retailer page has actual evidence and no duplicate canonical choices (4909.9683ms)
+✔ multi-market explicit Australia store evidence is accepted; a foreign-only or fabricated store claim is rejected (1.572ms)
+✔ manufacturer catalogue identities without GTIN are admitted only by canonical identity (15.5748ms)
+✔ all preserved accepted brand identities remain admitted exactly once (143.4442ms)
+✔ new regional identity holds and ingredient-only family mentions stay out of unrelated categories (271.2205ms)
+✔ new manufacturer products without a known barcode do not display a literal null barcode (14.3011ms)
+✔ generated shell and worker exactly match the canonical content generation (232.5186ms)
+✔ same visible version with changed controller produces a new shared generation (206.5133ms)
+✔ complete dependency inventory includes bootstrap configuration and both deployment variants (11.4539ms)
+✔ my-data installs verified core before skipWaiting and exposes safe readiness (532.273ms)
+✔ test installs verified core before skipWaiting and exposes safe readiness (284.203ms)
+✔ required core 404 rejects installation and removes staging without activation (231.206ms)
+✔ required core wrong-bytes rejects installation and removes staging without activation (183.7424ms)
+✔ slow required dependency does not publish readiness or skipWaiting early (175.9369ms)
+✔ optional artwork failure is outside atomic core readiness (127.0155ms)
+✔ navigation and versioned core remain cached and coherent while offline (157.9631ms)
+✔ missing generation and unknown generation cannot fall back to old core or HTML (145.4099ms)
+✔ unversioned core data consumers receive the verified current data, not a network revalidation (166.6178ms)
+✔ activation retains previous caches until every live client reports current readiness (116.8575ms)
+✔ same-path cached assets cannot cross a generation boundary (136.0084ms)
+✔ bootstrap owns update lifecycle and leaves personal storage contracts untouched (4.9153ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 23
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 17094.268

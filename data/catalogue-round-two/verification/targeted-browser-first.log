@@ -1,0 +1,35 @@
+✔ canonical cached results, shared retailer browse and GTIN conflicts on two mobile viewports (32452.8009ms)
+{"viewport":390,"reviewed":"353871"}
+{"viewport":390,"reviewed":"382738"}
+{"viewport":390,"reviewed":"321220"}
+{"viewport":390,"reviewed":"158188"}
+{"viewport":390,"reviewed":"233922"}
+{"viewport":390,"reviewed":"36009"}
+{"viewport":390,"reviewed":"98299"}
+{"viewport":390,"reviewed":"825528"}
+{"viewport":390,"reviewed":"756826"}
+{"viewport":390,"reviewed":"208679"}
+{"viewport":390,"reviewed":"905257"}
+✖ real Woolworths catalogue, brands, conflicts and eleven Review flows (optional synthetic Diary save) on both mobile viewports (53304.4346ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 1
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 86244.1448
+
+✖ failing tests:
+
+test at tests\woolworths-rendered.test.js:3:1
+✖ real Woolworths catalogue, brands, conflicts and eleven Review flows (optional synthetic Diary save) on both mobile viewports (53304.4346ms)
+  locator.click: Timeout 30000ms exceeded.
+  Call log:
+  [2m  - waiting for locator('[data-universal-result="woolworths-au:69286"]')[22m
+
+      at Object.run (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\scripts\audit_woolworths_edge.js:35:303)
+      at async TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\woolworths-rendered.test.js:3:174) {
+    name: 'TimeoutError',
+    log: [ `  - waiting for locator('[data-universal-result="woolworths-au:69286"]')` ]
+  }

@@ -1,0 +1,15 @@
+✔ independent source identities retain eligibility and ranking when weaker same-label rows arrive (65.1981ms)
+✔ copies of one canonical identity cannot manufacture label ambiguity (0.9615ms)
+✔ ambiguous labels within one source stay blocked and exact preview cannot bypass that decision (9.9696ms)
+✔ independent sources do not make generic or unnamed records specific products (10.2666ms)
+✔ shared GTIN conflict and source authority checks still control canonical merging (12.8715ms)
+Chiko regression evidence: C:\Users\mlwes\AppData\Local\Temp\hec-chiko-regression-yoc1P9
+✔ real production Chiko preview, hydrated Search and selection retain the accepted roll identity (7549.4678ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7981.7389

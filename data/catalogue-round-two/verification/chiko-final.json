@@ -1,0 +1,2458 @@
+{
+  "pass": true,
+  "preview": "Chiko\nRecognised food brand · source already known\nChiko Roll\nChiko · 1 roll (162 g) · 313 Cal · 1,310 kJ\nReview\nⓘ\n›",
+  "trace": {
+    "records": [
+      {
+        "food": {
+          "id": "aussie-chiko-roll",
+          "name": "Chiko Roll",
+          "brand": "Chiko",
+          "category": "Snacks & Takeaway",
+          "country": "Australia",
+          "aliases": [
+            "chiko roll",
+            "chiko",
+            "chicko roll",
+            "chico roll",
+            "chicco roll",
+            "cheeko roll"
+          ],
+          "defaultAmount": 1,
+          "defaultUnit": "roll",
+          "units": {
+            "roll": 1,
+            "serve": 1,
+            "g": 0.006172839506172839
+          },
+          "unitLabels": {
+            "roll": "Roll (162 g)",
+            "serve": "Serving (1 roll)",
+            "g": "g"
+          },
+          "serving": "1 roll (162 g)",
+          "nutrients": {
+            "calories": 313,
+            "protein": 9,
+            "carbs": 45.5,
+            "fat": 9.8,
+            "satFat": 2.3,
+            "fibre": 3.9,
+            "sugar": 3.7,
+            "sodium": 580
+          },
+          "score": 5,
+          "source": "Australian Retail Package Reference — verify current package",
+          "verified": false,
+          "ingredients": "Vegetables, wheat flour, barley, beef, canola oil, soy protein and seasonings",
+          "allergens": [
+            "wheat",
+            "gluten",
+            "soy"
+          ],
+          "foodGroups": {
+            "vegetables": 0.7,
+            "grains": 1,
+            "proteinFoods": 0.4
+          },
+          "waterMl": 45,
+          "__alpha0615Units": true
+        },
+        "eligibility": {
+          "canonicalId": "packaged:record:aussie-chiko-roll",
+          "exists": true,
+          "verificationStatus": "unverified",
+          "verified": false,
+          "candidate": false,
+          "identityQuality": {
+            "classification": "high-quality-exact-product",
+            "score": 1000,
+            "reason": "specific-consumer-product",
+            "consumable": true,
+            "exactEligible": true,
+            "sourceTier": 1,
+            "meaningful": true,
+            "contextCandidates": 2
+          },
+          "addability": {
+            "status": "loggable-now",
+            "label": "Loggable now",
+            "reasonCode": "identity-nutrition-measure-ready",
+            "message": "Nutrition and at least one safe measure are ready.",
+            "actions": [
+              {
+                "id": "choose-amount",
+                "label": "Choose an Amount"
+              }
+            ],
+            "normalLoggingAllowed": true
+          },
+          "conflicts": [],
+          "source": {
+            "sourceId": "aussie-chiko-roll",
+            "recordId": "aussie-chiko-roll",
+            "url": "",
+            "trustClass": "unknown",
+            "trustRank": 7,
+            "retrievedAt": null,
+            "verifiedAt": null,
+            "publishedDate": null,
+            "page": null,
+            "sha256": null,
+            "market": "AU",
+            "sourceType": "packaged"
+          },
+          "previewEligible": true,
+          "searchEligible": true,
+          "restaurantEligible": false
+        },
+        "canonical": {
+          "id": "packaged:record:aussie-chiko-roll",
+          "brandId": "chiko",
+          "displayBrand": "Chiko",
+          "productIdentity": "chiko roll",
+          "displayName": "Chiko Roll",
+          "familyId": null,
+          "familyName": null,
+          "category": "Snacks & Takeaway",
+          "foodForm": "countable",
+          "market": "AU",
+          "verificationStatus": "unverified",
+          "addabilityStatus": "loggable-now",
+          "currentState": "unknown",
+          "sourceTrust": "unknown",
+          "nutritionCompleteness": "unknown",
+          "servingEvidence": null,
+          "householdMeasureEvidence": {},
+          "pack": null,
+          "gtin": null,
+          "retailerMemberships": [],
+          "commercialIdentities": [],
+          "sourceReferences": [
+            {
+              "sourceId": "aussie-chiko-roll",
+              "recordId": "aussie-chiko-roll",
+              "url": "",
+              "trustClass": "unknown",
+              "trustRank": 7,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": null,
+              "market": "AU",
+              "sourceType": "packaged"
+            }
+          ],
+          "conflicts": [],
+          "flags": []
+        }
+      },
+      {
+        "food": {
+          "id": "off:9310081760092",
+          "sourceId": "off:9310081760092",
+          "barcode": "9310081760092",
+          "name": "Chiko Roll",
+          "genericName": "",
+          "brand": "Chiko",
+          "brandKey": "chiko",
+          "quantity": "",
+          "servingSize": "1 roll (162 g)",
+          "servingQuantity": 162,
+          "countries": [
+            "en:australia"
+          ],
+          "categories": [],
+          "nutritionBasis": {
+            "sourceBasis": "per-100g-off-csv",
+            "per100Unit": "g",
+            "semanticBasis": "per-serve"
+          },
+          "nutrients": {
+            "energyKj": 808.3901234567907,
+            "calories": 193.20987654321,
+            "protein": 5.3703703703704,
+            "carbs": 28.20987654321,
+            "fat": 5.679012345679,
+            "satFat": 2.4074074074074,
+            "fibre": 2.40740740740741,
+            "sugar": 2.0987654320988,
+            "sodium": 399.38271604938
+          },
+          "nutritionCompleteness": "complete",
+          "lastModified": "2026-03-19T08:07:21Z",
+          "source": "Open Food Facts · Australian external catalogue",
+          "sourceScope": "Australia",
+          "sourceUrl": "http://world-en.openfoodfacts.org/product/9310081760092/chiko-roll",
+          "provenanceClass": "australian-external-catalogue",
+          "recordType": "external-catalogue",
+          "market": "AU",
+          "categoryFacet": "Other products",
+          "categoryMemberships": [],
+          "category": "Other Packaged Food",
+          "physicalForm": "countable",
+          "nutritionPer100Unit": "g",
+          "country": "Australia",
+          "sourceName": "Chiko Roll",
+          "aliases": [
+            "Chiko Roll"
+          ],
+          "defaultAmount": 1,
+          "defaultUnit": "roll",
+          "units": {
+            "roll": 1.62,
+            "g": 0.01,
+            "serving": 1
+          },
+          "unitLabels": {
+            "roll": "Roll (162 g each)",
+            "g": "g",
+            "serving": "Source serving 1 roll (162 g); nutrition reference per 100 g"
+          },
+          "serving": "Source serving 1 roll (162 g); nutrition reference per 100 g",
+          "manufacturerServing": {
+            "amount": 162,
+            "unit": "g",
+            "text": "1 roll (162 g)"
+          },
+          "packageServingExplicit": true,
+          "sourceNutrients": {
+            "calories": 193.20987654321,
+            "energyKj": 780.98765432099,
+            "protein": 5.3703703703704,
+            "carbs": 28.20987654321,
+            "fat": 5.679012345679,
+            "satFat": 2.4074074074074,
+            "fibre": 2.40740740740741,
+            "sugar": 2.0987654320988,
+            "sodium": 399.38271604938,
+            "salt": 0.99845679012345
+          },
+          "rawSourceNutrients": {
+            "energyKj": 780.98765432099,
+            "calories": 193.20987654321,
+            "protein": 5.3703703703704,
+            "carbs": 28.20987654321,
+            "sugars": 2.0987654320988,
+            "fat": 5.679012345679,
+            "saturatedFat": 2.4074074074074,
+            "fibre": 2.40740740740741,
+            "sodium": 0.39938271604938,
+            "salt": 0.99845679012345
+          },
+          "nutritionIntegrity": {
+            "status": "usable",
+            "missing": [],
+            "energy": {
+              "status": "plausible",
+              "calories": 193.20987654321,
+              "energyKj": 780.98765432099,
+              "expectedKj": 808.3901234567907,
+              "relativeDifference": 0.0338975803150882
+            },
+            "macro": {
+              "status": "plausible",
+              "expectedCalories": 190.24691358024742,
+              "relativeDifference": 0.015335463258783868
+            },
+            "usable": true,
+            "loggable": true
+          },
+          "energyDisplaySource": "kcal-source-with-derived-kj",
+          "packageSize": "",
+          "score": 5,
+          "verified": false,
+          "entryBlockedReason": "",
+          "nutritionStatus": "usable",
+          "nutritionCompletenessSource": "complete",
+          "loggable": true,
+          "productIdentityQuality": {
+            "classification": "high-quality-exact-product",
+            "score": 1010,
+            "reason": "specific-consumer-product",
+            "consumable": true,
+            "exactEligible": true,
+            "sourceTier": 2
+          },
+          "sourceReferences": [
+            {
+              "source": "Open Food Facts",
+              "id": "off:9310081760092",
+              "url": "http://world-en.openfoodfacts.org/product/9310081760092/chiko-roll"
+            }
+          ],
+          "sourceNutritionBasis": "per-100g-off-csv",
+          "physicalFormSource": "identity-and-category-metadata",
+          "productSemantics": {
+            "type": "packaged-serving",
+            "confidence": "high",
+            "source": "explicit-metadata"
+          },
+          "semanticType": "packaged-serving",
+          "semanticSource": "explicit-metadata",
+          "servingPolicy": {
+            "semanticType": "packaged-serving",
+            "semanticSource": "explicit-metadata",
+            "confidence": "high",
+            "nutritionBasis": "per-serve",
+            "defaultAmount": 1,
+            "defaultUnit": "roll",
+            "allowedUnits": [
+              "roll",
+              "g"
+            ],
+            "allowedUnitFamily": "package",
+            "foodGroupUnitEligibility": {
+              "allowed": false,
+              "reason": "no-explicit-food-group-measure"
+            },
+            "naturalServingDisplay": "Source serving 1 roll (162 g); nutrition reference per 100 g",
+            "countMeaningful": false,
+            "sizePartOfIdentity": false,
+            "reviewOnly": false,
+            "partialEditingSafe": true,
+            "loggable": true
+          },
+          "servingDefaultUnit": "roll",
+          "lockedServingUnit": "roll",
+          "fractionUnits": [
+            "roll"
+          ],
+          "semanticResolution": {
+            "autoResolved": false,
+            "before": {
+              "amount": 1,
+              "unit": "roll",
+              "label": "Roll (162 g each)",
+              "serving": "Source serving 1 roll (162 g); nutrition reference per 100 g"
+            },
+            "after": {
+              "amount": 1,
+              "unit": "roll",
+              "label": "Roll (162 g each)",
+              "serving": "Source serving 1 roll (162 g); nutrition reference per 100 g"
+            },
+            "rule": "explicit-metadata"
+          },
+          "unitOrigins": {
+            "roll": {
+              "origin": "Explicit package serving count",
+              "confidence": "package-explicit",
+              "key": "roll",
+              "label": "Roll (162 g)",
+              "multiplier": 1.62,
+              "source": "Explicit package serving count",
+              "sourceType": "product-metadata",
+              "portionPreset": true,
+              "sourceLabel": "Roll (162 g each)",
+              "id": "roll",
+              "displayLabel": "Roll (162 g)",
+              "singularLabel": "roll",
+              "pluralLabel": "rolls",
+              "physicalFamily": "countable",
+              "conversionToBase": {
+                "baseUnit": "g",
+                "baseQuantity": 162,
+                "basis": "nutrition-base conversion"
+              },
+              "conversionBasis": "nutrition-base conversion",
+              "applicability": "countable",
+              "provenance": "manufacturer",
+              "displayPriority": 18,
+              "quickAmounts": [
+                0.25,
+                0.5,
+                0.75,
+                1
+              ]
+            },
+            "g": {
+              "key": "g",
+              "label": "g",
+              "multiplier": 0.01,
+              "source": "Explicit manufacturer serving",
+              "sourceType": "product-metadata",
+              "confidence": "package-explicit",
+              "portionPreset": false,
+              "sourceLabel": "g",
+              "id": "g",
+              "displayLabel": "g",
+              "singularLabel": "g",
+              "pluralLabel": "g",
+              "physicalFamily": "weight",
+              "conversionToBase": {
+                "baseUnit": "g",
+                "baseQuantity": 1,
+                "basis": "nutrition-base conversion"
+              },
+              "conversionBasis": "nutrition-base conversion",
+              "applicability": "countable",
+              "provenance": "manufacturer",
+              "displayPriority": 90,
+              "quickAmounts": [],
+              "origin": "Explicit manufacturer serving"
+            }
+          },
+          "servingFoundationSource": "Explicit package serving data",
+          "servingMeasureVersion": "0.6.33",
+          "sourceMeasureMetadata": {
+            "units": {
+              "g": 0.01,
+              "serve": 1.62
+            },
+            "labels": {
+              "g": "g",
+              "serve": "Manufacturer serving (1 roll (162 g))"
+            },
+            "origins": {},
+            "manufacturerServing": {
+              "amount": 162,
+              "unit": "g",
+              "text": "1 roll (162 g)"
+            },
+            "nutritionBasis": "per-100g-off-csv"
+          },
+          "allowedUnits": [
+            "roll",
+            "g"
+          ],
+          "quarantinedMeasures": [
+            {
+              "key": "serve",
+              "label": "Manufacturer serve (162 g)",
+              "multiplier": 1.62,
+              "source": "Explicit manufacturer serving",
+              "sourceType": "product-metadata",
+              "confidence": "package-explicit",
+              "portionPreset": true,
+              "sourceLabel": "Manufacturer serving (1 roll (162 g))",
+              "id": "serve",
+              "displayLabel": "Manufacturer serve (162 g)",
+              "singularLabel": "manufacturer serve",
+              "pluralLabel": "manufacturer serves",
+              "physicalFamily": "manufacturer",
+              "conversionToBase": {
+                "baseUnit": "g",
+                "baseQuantity": 162,
+                "basis": "nutrition-base conversion"
+              },
+              "conversionBasis": "nutrition-base conversion",
+              "applicability": "countable",
+              "provenance": "manufacturer",
+              "displayPriority": 30,
+              "quickAmounts": [
+                0.25,
+                0.5,
+                0.75,
+                1
+              ],
+              "rejectionReason": "equivalent-natural-and-manufacturer-measure-merged"
+            }
+          ],
+          "nutritionBasisConflict": false,
+          "categoryId": "other-food",
+          "sourceBrands": "Chiko",
+          "sourceBrandTokens": [
+            {
+              "key": "chiko",
+              "name": "Chiko"
+            }
+          ],
+          "conceptIds": [],
+          "sourceProvenance": {
+            "trustClass": "open-food-facts-au",
+            "sourceId": "open-food-facts-au",
+            "recordId": "off:9310081760092",
+            "url": "http://world-en.openfoodfacts.org/product/9310081760092/chiko-roll",
+            "snapshotDate": "2026-08-30",
+            "snapshotSha256": "f72687ee8bc6522054fe69dbfda6b91902c16af1ec2e043cde27bc6c29ad8176",
+            "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+            "checkedAt": "2026-09-18",
+            "rawRecordNumber": 4447337,
+            "lastModified": "2026-03-19T08:07:21Z",
+            "privateTestingApproved": true,
+            "publicReleaseReviewRequired": true
+          },
+          "privateTestingApproved": true,
+          "publicReleaseReviewRequired": true,
+          "brandAdmission": {
+            "status": "audited-round-two",
+            "evidenceSha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5"
+          },
+          "browseEligible": true,
+          "sourceAttribution": {
+            "attribution": "Open Food Facts contributors",
+            "contents": "DbCL 1.0",
+            "contentsUrl": "https://opendatacommons.org/licenses/dbcl/1-0/",
+            "database": "ODbL 1.0",
+            "databaseUrl": "https://opendatacommons.org/licenses/odbl/1-0/"
+          },
+          "currentState": "unknown",
+          "packIdentity": {
+            "text": null
+          },
+          "sourceServing": {
+            "text": "1 roll (162 g)",
+            "quantity": 162
+          },
+          "retailerMemberships": [
+            {
+              "retailerId": "woolworths",
+              "market": "AU",
+              "scope": "food",
+              "basis": "source-declared-store",
+              "verified": false,
+              "listingState": "community-snapshot",
+              "categoryIds": [
+                "other-food"
+              ],
+              "evidence": {
+                "trustClass": "open-food-facts-au",
+                "sourceId": "open-food-facts-au",
+                "recordId": "off:9310081760092",
+                "url": "http://world-en.openfoodfacts.org/product/9310081760092/chiko-roll",
+                "snapshotDate": "2026-08-30",
+                "snapshotSha256": "f72687ee8bc6522054fe69dbfda6b91902c16af1ec2e043cde27bc6c29ad8176",
+                "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+                "checkedAt": "2026-09-18",
+                "rawRecordNumber": 4447337,
+                "lastModified": "2026-03-19T08:07:21Z",
+                "privateTestingApproved": true,
+                "publicReleaseReviewRequired": true,
+                "field": "stores",
+                "stores": "Woolworths, Coles",
+                "countriesTags": [
+                  "en:australia"
+                ]
+              }
+            },
+            {
+              "retailerId": "coles",
+              "market": "AU",
+              "scope": "food",
+              "basis": "source-declared-store",
+              "verified": false,
+              "listingState": "community-snapshot",
+              "categoryIds": [
+                "other-food"
+              ],
+              "evidence": {
+                "trustClass": "open-food-facts-au",
+                "sourceId": "open-food-facts-au",
+                "recordId": "off:9310081760092",
+                "url": "http://world-en.openfoodfacts.org/product/9310081760092/chiko-roll",
+                "snapshotDate": "2026-08-30",
+                "snapshotSha256": "f72687ee8bc6522054fe69dbfda6b91902c16af1ec2e043cde27bc6c29ad8176",
+                "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+                "checkedAt": "2026-09-18",
+                "rawRecordNumber": 4447337,
+                "lastModified": "2026-03-19T08:07:21Z",
+                "privateTestingApproved": true,
+                "publicReleaseReviewRequired": true,
+                "field": "stores",
+                "stores": "Woolworths, Coles",
+                "countriesTags": [
+                  "en:australia"
+                ]
+              }
+            }
+          ],
+          "privateLabelCollections": [],
+          "__alpha0615Units": true
+        },
+        "eligibility": {
+          "canonicalId": "barcode:9310081760092",
+          "exists": true,
+          "verificationStatus": "catalogued-community",
+          "verified": false,
+          "candidate": false,
+          "identityQuality": {
+            "classification": "high-quality-exact-product",
+            "score": 1010,
+            "reason": "specific-consumer-product",
+            "consumable": true,
+            "exactEligible": true,
+            "sourceTier": 2,
+            "meaningful": true,
+            "contextCandidates": 2
+          },
+          "addability": {
+            "status": "loggable-now",
+            "label": "Loggable now",
+            "reasonCode": "identity-nutrition-measure-ready",
+            "message": "Nutrition and at least one safe measure are ready.",
+            "actions": [
+              {
+                "id": "choose-amount",
+                "label": "Choose an Amount"
+              }
+            ],
+            "normalLoggingAllowed": true
+          },
+          "conflicts": [],
+          "source": {
+            "sourceId": "open-food-facts-au",
+            "recordId": "off:9310081760092",
+            "url": "http://world-en.openfoodfacts.org/product/9310081760092/chiko-roll",
+            "trustClass": "open-food-facts-au",
+            "trustRank": 4,
+            "retrievedAt": null,
+            "verifiedAt": null,
+            "publishedDate": null,
+            "page": null,
+            "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+            "market": "AU",
+            "sourceType": "external-catalogue"
+          },
+          "previewEligible": true,
+          "searchEligible": true,
+          "restaurantEligible": false
+        },
+        "canonical": {
+          "id": "barcode:9310081760092",
+          "brandId": "chiko",
+          "displayBrand": "Chiko",
+          "productIdentity": "chiko roll",
+          "displayName": "Chiko Roll",
+          "familyId": null,
+          "familyName": null,
+          "category": "Other Packaged Food",
+          "foodForm": "countable",
+          "market": "AU",
+          "verificationStatus": "catalogued-community",
+          "addabilityStatus": "loggable-now",
+          "currentState": "unknown",
+          "sourceTrust": "open-food-facts-au",
+          "nutritionCompleteness": "usable",
+          "servingEvidence": {
+            "amount": 162,
+            "unit": "g",
+            "text": "1 roll (162 g)"
+          },
+          "householdMeasureEvidence": {
+            "roll": {
+              "origin": "Explicit package serving count",
+              "confidence": "package-explicit",
+              "key": "roll",
+              "label": "Roll (162 g)",
+              "multiplier": 1.62,
+              "source": "Explicit package serving count",
+              "sourceType": "product-metadata",
+              "portionPreset": true,
+              "sourceLabel": "Roll (162 g each)",
+              "id": "roll",
+              "displayLabel": "Roll (162 g)",
+              "singularLabel": "roll",
+              "pluralLabel": "rolls",
+              "physicalFamily": "countable",
+              "conversionToBase": {
+                "baseUnit": "g",
+                "baseQuantity": 162,
+                "basis": "nutrition-base conversion"
+              },
+              "conversionBasis": "nutrition-base conversion",
+              "applicability": "countable",
+              "provenance": "manufacturer",
+              "displayPriority": 18,
+              "quickAmounts": [
+                0.25,
+                0.5,
+                0.75,
+                1
+              ]
+            },
+            "g": {
+              "key": "g",
+              "label": "g",
+              "multiplier": 0.01,
+              "source": "Explicit manufacturer serving",
+              "sourceType": "product-metadata",
+              "confidence": "package-explicit",
+              "portionPreset": false,
+              "sourceLabel": "g",
+              "id": "g",
+              "displayLabel": "g",
+              "singularLabel": "g",
+              "pluralLabel": "g",
+              "physicalFamily": "weight",
+              "conversionToBase": {
+                "baseUnit": "g",
+                "baseQuantity": 1,
+                "basis": "nutrition-base conversion"
+              },
+              "conversionBasis": "nutrition-base conversion",
+              "applicability": "countable",
+              "provenance": "manufacturer",
+              "displayPriority": 90,
+              "quickAmounts": [],
+              "origin": "Explicit manufacturer serving"
+            }
+          },
+          "pack": null,
+          "gtin": "9310081760092",
+          "retailerMemberships": [],
+          "commercialIdentities": [],
+          "sourceReferences": [
+            {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:9310081760092",
+              "url": "http://world-en.openfoodfacts.org/product/9310081760092/chiko-roll",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            }
+          ],
+          "conflicts": [],
+          "flags": []
+        }
+      }
+    ],
+    "canonicalIds": [
+      "packaged:record:aussie-chiko-roll",
+      "barcode:9310081760092"
+    ],
+    "dedupedIds": [
+      "packaged:record:aussie-chiko-roll",
+      "barcode:9310081760092"
+    ],
+    "duplicate": {
+      "duplicate": false,
+      "reason": "insufficient-exact-identity-evidence"
+    },
+    "model": {
+      "version": "0.6.33",
+      "rawQuery": "Chiko roll",
+      "normalisedQuery": "chiko roll",
+      "identityQuery": "chiko roll",
+      "quantity": {
+        "raw": "Chiko roll",
+        "normalised": "chiko roll",
+        "identityQuery": "chiko roll",
+        "consumedQuantity": 1,
+        "consumedUnit": "",
+        "quantityExplicit": false,
+        "productVariantCount": null,
+        "packageNameCount": null,
+        "variantExplicit": false,
+        "amount": null,
+        "measure": "",
+        "explicit": false,
+        "phrase": ""
+      },
+      "conceptIntent": {
+        "rawQuery": "Chiko roll",
+        "identityQuery": "chiko roll",
+        "conceptId": "",
+        "kind": "exact-product",
+        "generic": false,
+        "known": {},
+        "quantity": {
+          "raw": "Chiko roll",
+          "normalised": "chiko roll",
+          "identityQuery": "chiko roll",
+          "consumedQuantity": 1,
+          "consumedUnit": "",
+          "quantityExplicit": false,
+          "productVariantCount": null,
+          "packageNameCount": null,
+          "variantExplicit": false,
+          "amount": null,
+          "measure": "",
+          "explicit": false,
+          "phrase": ""
+        },
+        "confidence": "high",
+        "evidence": "committed-product-identity",
+        "residual": "chiko roll",
+        "compoundId": "bread-roll"
+      },
+      "concept": null,
+      "submissionMode": "deliberate",
+      "groups": [
+        {
+          "key": "best",
+          "label": "Best match",
+          "items": [
+            {
+              "id": "packaged:record:aussie-chiko-roll",
+              "recordId": "aussie-chiko-roll",
+              "kind": "exact-product",
+              "name": "Chiko Roll",
+              "food": {
+                "id": "aussie-chiko-roll",
+                "name": "Chiko Roll",
+                "brand": "Chiko",
+                "category": "Snacks & Takeaway",
+                "country": "Australia",
+                "aliases": [
+                  "chiko roll",
+                  "chiko",
+                  "chicko roll",
+                  "chico roll",
+                  "chicco roll",
+                  "cheeko roll"
+                ],
+                "defaultAmount": 1,
+                "defaultUnit": "roll",
+                "units": {
+                  "roll": 1,
+                  "serve": 1,
+                  "g": 0.006172839506172839
+                },
+                "unitLabels": {
+                  "roll": "Roll (162 g)",
+                  "serve": "Serving (1 roll)",
+                  "g": "g"
+                },
+                "serving": "1 roll (162 g)",
+                "nutrients": {
+                  "calories": 313,
+                  "protein": 9,
+                  "carbs": 45.5,
+                  "fat": 9.8,
+                  "satFat": 2.3,
+                  "fibre": 3.9,
+                  "sugar": 3.7,
+                  "sodium": 580
+                },
+                "score": 5,
+                "source": "Australian Retail Package Reference — verify current package",
+                "verified": false,
+                "ingredients": "Vegetables, wheat flour, barley, beef, canola oil, soy protein and seasonings",
+                "allergens": [
+                  "wheat",
+                  "gluten",
+                  "soy"
+                ],
+                "foodGroups": {
+                  "vegetables": 0.7,
+                  "grains": 1,
+                  "proteinFoods": 0.4
+                },
+                "waterMl": 45,
+                "__alpha0615Units": true
+              },
+              "recordType": "packaged",
+              "provenance": {
+                "label": "Packaged Food",
+                "detail": "Australian Retail Package Reference — verify current package",
+                "verified": false
+              },
+              "addability": {
+                "status": "loggable-now",
+                "label": "Loggable now",
+                "reasonCode": "identity-nutrition-measure-ready",
+                "message": "Nutrition and at least one safe measure are ready.",
+                "actions": [
+                  {
+                    "id": "choose-amount",
+                    "label": "Choose an Amount"
+                  }
+                ],
+                "normalLoggingAllowed": true
+              },
+              "decisionTrace": {
+                "concept": {
+                  "conceptId": "bread-roll",
+                  "parentId": "bread-family",
+                  "related": [
+                    "bread"
+                  ],
+                  "excluded": false,
+                  "confidence": "high",
+                  "evidence": "compound-identity"
+                },
+                "compatibility": null,
+                "exactness": {
+                  "class": "exact-identity",
+                  "priority": 5,
+                  "identity": "roll"
+                },
+                "sourceTrust": 1,
+                "completeness": "loggable-now",
+                "rank": {
+                  "score": 1795,
+                  "tier": "exact-name",
+                  "query": "chiko roll",
+                  "relationshipIntent": "parent"
+                }
+              }
+            }
+          ],
+          "origin": "packaged"
+        },
+        {
+          "key": "broader",
+          "label": "Broader Australian Results",
+          "items": [
+            {
+              "id": "barcode:9310081760092",
+              "recordId": "off:9310081760092",
+              "kind": "exact-product",
+              "name": "Chiko Roll",
+              "food": {
+                "id": "off:9310081760092",
+                "sourceId": "off:9310081760092",
+                "barcode": "9310081760092",
+                "name": "Chiko Roll",
+                "genericName": "",
+                "brand": "Chiko",
+                "brandKey": "chiko",
+                "quantity": "",
+                "servingSize": "1 roll (162 g)",
+                "servingQuantity": 162,
+                "countries": [
+                  "en:australia"
+                ],
+                "categories": [],
+                "nutritionBasis": {
+                  "sourceBasis": "per-100g-off-csv",
+                  "per100Unit": "g",
+                  "semanticBasis": "per-serve"
+                },
+                "nutrients": {
+                  "energyKj": 808.3901234567907,
+                  "calories": 193.20987654321,
+                  "protein": 5.3703703703704,
+                  "carbs": 28.20987654321,
+                  "fat": 5.679012345679,
+                  "satFat": 2.4074074074074,
+                  "fibre": 2.40740740740741,
+                  "sugar": 2.0987654320988,
+                  "sodium": 399.38271604938
+                },
+                "nutritionCompleteness": "complete",
+                "lastModified": "2026-03-19T08:07:21Z",
+                "source": "Open Food Facts · Australian external catalogue",
+                "sourceScope": "Australia",
+                "sourceUrl": "http://world-en.openfoodfacts.org/product/9310081760092/chiko-roll",
+                "provenanceClass": "australian-external-catalogue",
+                "recordType": "external-catalogue",
+                "market": "AU",
+                "categoryFacet": "Other products",
+                "categoryMemberships": [],
+                "category": "Other Packaged Food",
+                "physicalForm": "countable",
+                "nutritionPer100Unit": "g",
+                "country": "Australia",
+                "sourceName": "Chiko Roll",
+                "aliases": [
+                  "Chiko Roll"
+                ],
+                "defaultAmount": 1,
+                "defaultUnit": "roll",
+                "units": {
+                  "roll": 1.62,
+                  "g": 0.01,
+                  "serving": 1
+                },
+                "unitLabels": {
+                  "roll": "Roll (162 g each)",
+                  "g": "g",
+                  "serving": "Source serving 1 roll (162 g); nutrition reference per 100 g"
+                },
+                "serving": "Source serving 1 roll (162 g); nutrition reference per 100 g",
+                "manufacturerServing": {
+                  "amount": 162,
+                  "unit": "g",
+                  "text": "1 roll (162 g)"
+                },
+                "packageServingExplicit": true,
+                "sourceNutrients": {
+                  "calories": 193.20987654321,
+                  "energyKj": 780.98765432099,
+                  "protein": 5.3703703703704,
+                  "carbs": 28.20987654321,
+                  "fat": 5.679012345679,
+                  "satFat": 2.4074074074074,
+                  "fibre": 2.40740740740741,
+                  "sugar": 2.0987654320988,
+                  "sodium": 399.38271604938,
+                  "salt": 0.99845679012345
+                },
+                "rawSourceNutrients": {
+                  "energyKj": 780.98765432099,
+                  "calories": 193.20987654321,
+                  "protein": 5.3703703703704,
+                  "carbs": 28.20987654321,
+                  "sugars": 2.0987654320988,
+                  "fat": 5.679012345679,
+                  "saturatedFat": 2.4074074074074,
+                  "fibre": 2.40740740740741,
+                  "sodium": 0.39938271604938,
+                  "salt": 0.99845679012345
+                },
+                "nutritionIntegrity": {
+                  "status": "usable",
+                  "missing": [],
+                  "energy": {
+                    "status": "plausible",
+                    "calories": 193.20987654321,
+                    "energyKj": 780.98765432099,
+                    "expectedKj": 808.3901234567907,
+                    "relativeDifference": 0.0338975803150882
+                  },
+                  "macro": {
+                    "status": "plausible",
+                    "expectedCalories": 190.24691358024742,
+                    "relativeDifference": 0.015335463258783868
+                  },
+                  "usable": true,
+                  "loggable": true
+                },
+                "energyDisplaySource": "kcal-source-with-derived-kj",
+                "packageSize": "",
+                "score": 5,
+                "verified": false,
+                "entryBlockedReason": "",
+                "nutritionStatus": "usable",
+                "nutritionCompletenessSource": "complete",
+                "loggable": true,
+                "productIdentityQuality": {
+                  "classification": "high-quality-exact-product",
+                  "score": 1010,
+                  "reason": "specific-consumer-product",
+                  "consumable": true,
+                  "exactEligible": true,
+                  "sourceTier": 2
+                },
+                "sourceReferences": [
+                  {
+                    "source": "Open Food Facts",
+                    "id": "off:9310081760092",
+                    "url": "http://world-en.openfoodfacts.org/product/9310081760092/chiko-roll"
+                  }
+                ],
+                "sourceNutritionBasis": "per-100g-off-csv",
+                "physicalFormSource": "identity-and-category-metadata",
+                "productSemantics": {
+                  "type": "packaged-serving",
+                  "confidence": "high",
+                  "source": "explicit-metadata"
+                },
+                "semanticType": "packaged-serving",
+                "semanticSource": "explicit-metadata",
+                "servingPolicy": {
+                  "semanticType": "packaged-serving",
+                  "semanticSource": "explicit-metadata",
+                  "confidence": "high",
+                  "nutritionBasis": "per-serve",
+                  "defaultAmount": 1,
+                  "defaultUnit": "roll",
+                  "allowedUnits": [
+                    "roll",
+                    "g"
+                  ],
+                  "allowedUnitFamily": "package",
+                  "foodGroupUnitEligibility": {
+                    "allowed": false,
+                    "reason": "no-explicit-food-group-measure"
+                  },
+                  "naturalServingDisplay": "Source serving 1 roll (162 g); nutrition reference per 100 g",
+                  "countMeaningful": false,
+                  "sizePartOfIdentity": false,
+                  "reviewOnly": false,
+                  "partialEditingSafe": true,
+                  "loggable": true
+                },
+                "servingDefaultUnit": "roll",
+                "lockedServingUnit": "roll",
+                "fractionUnits": [
+                  "roll"
+                ],
+                "semanticResolution": {
+                  "autoResolved": false,
+                  "before": {
+                    "amount": 1,
+                    "unit": "roll",
+                    "label": "Roll (162 g each)",
+                    "serving": "Source serving 1 roll (162 g); nutrition reference per 100 g"
+                  },
+                  "after": {
+                    "amount": 1,
+                    "unit": "roll",
+                    "label": "Roll (162 g each)",
+                    "serving": "Source serving 1 roll (162 g); nutrition reference per 100 g"
+                  },
+                  "rule": "explicit-metadata"
+                },
+                "unitOrigins": {
+                  "roll": {
+                    "origin": "Explicit package serving count",
+                    "confidence": "package-explicit",
+                    "key": "roll",
+                    "label": "Roll (162 g)",
+                    "multiplier": 1.62,
+                    "source": "Explicit package serving count",
+                    "sourceType": "product-metadata",
+                    "portionPreset": true,
+                    "sourceLabel": "Roll (162 g each)",
+                    "id": "roll",
+                    "displayLabel": "Roll (162 g)",
+                    "singularLabel": "roll",
+                    "pluralLabel": "rolls",
+                    "physicalFamily": "countable",
+                    "conversionToBase": {
+                      "baseUnit": "g",
+                      "baseQuantity": 162,
+                      "basis": "nutrition-base conversion"
+                    },
+                    "conversionBasis": "nutrition-base conversion",
+                    "applicability": "countable",
+                    "provenance": "manufacturer",
+                    "displayPriority": 18,
+                    "quickAmounts": [
+                      0.25,
+                      0.5,
+                      0.75,
+                      1
+                    ]
+                  },
+                  "g": {
+                    "key": "g",
+                    "label": "g",
+                    "multiplier": 0.01,
+                    "source": "Explicit manufacturer serving",
+                    "sourceType": "product-metadata",
+                    "confidence": "package-explicit",
+                    "portionPreset": false,
+                    "sourceLabel": "g",
+                    "id": "g",
+                    "displayLabel": "g",
+                    "singularLabel": "g",
+                    "pluralLabel": "g",
+                    "physicalFamily": "weight",
+                    "conversionToBase": {
+                      "baseUnit": "g",
+                      "baseQuantity": 1,
+                      "basis": "nutrition-base conversion"
+                    },
+                    "conversionBasis": "nutrition-base conversion",
+                    "applicability": "countable",
+                    "provenance": "manufacturer",
+                    "displayPriority": 90,
+                    "quickAmounts": [],
+                    "origin": "Explicit manufacturer serving"
+                  }
+                },
+                "servingFoundationSource": "Explicit package serving data",
+                "servingMeasureVersion": "0.6.33",
+                "sourceMeasureMetadata": {
+                  "units": {
+                    "g": 0.01,
+                    "serve": 1.62
+                  },
+                  "labels": {
+                    "g": "g",
+                    "serve": "Manufacturer serving (1 roll (162 g))"
+                  },
+                  "origins": {},
+                  "manufacturerServing": {
+                    "amount": 162,
+                    "unit": "g",
+                    "text": "1 roll (162 g)"
+                  },
+                  "nutritionBasis": "per-100g-off-csv"
+                },
+                "allowedUnits": [
+                  "roll",
+                  "g"
+                ],
+                "quarantinedMeasures": [
+                  {
+                    "key": "serve",
+                    "label": "Manufacturer serve (162 g)",
+                    "multiplier": 1.62,
+                    "source": "Explicit manufacturer serving",
+                    "sourceType": "product-metadata",
+                    "confidence": "package-explicit",
+                    "portionPreset": true,
+                    "sourceLabel": "Manufacturer serving (1 roll (162 g))",
+                    "id": "serve",
+                    "displayLabel": "Manufacturer serve (162 g)",
+                    "singularLabel": "manufacturer serve",
+                    "pluralLabel": "manufacturer serves",
+                    "physicalFamily": "manufacturer",
+                    "conversionToBase": {
+                      "baseUnit": "g",
+                      "baseQuantity": 162,
+                      "basis": "nutrition-base conversion"
+                    },
+                    "conversionBasis": "nutrition-base conversion",
+                    "applicability": "countable",
+                    "provenance": "manufacturer",
+                    "displayPriority": 30,
+                    "quickAmounts": [
+                      0.25,
+                      0.5,
+                      0.75,
+                      1
+                    ],
+                    "rejectionReason": "equivalent-natural-and-manufacturer-measure-merged"
+                  }
+                ],
+                "nutritionBasisConflict": false,
+                "categoryId": "other-food",
+                "sourceBrands": "Chiko",
+                "sourceBrandTokens": [
+                  {
+                    "key": "chiko",
+                    "name": "Chiko"
+                  }
+                ],
+                "conceptIds": [],
+                "sourceProvenance": {
+                  "trustClass": "open-food-facts-au",
+                  "sourceId": "open-food-facts-au",
+                  "recordId": "off:9310081760092",
+                  "url": "http://world-en.openfoodfacts.org/product/9310081760092/chiko-roll",
+                  "snapshotDate": "2026-08-30",
+                  "snapshotSha256": "f72687ee8bc6522054fe69dbfda6b91902c16af1ec2e043cde27bc6c29ad8176",
+                  "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+                  "checkedAt": "2026-09-18",
+                  "rawRecordNumber": 4447337,
+                  "lastModified": "2026-03-19T08:07:21Z",
+                  "privateTestingApproved": true,
+                  "publicReleaseReviewRequired": true
+                },
+                "privateTestingApproved": true,
+                "publicReleaseReviewRequired": true,
+                "brandAdmission": {
+                  "status": "audited-round-two",
+                  "evidenceSha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5"
+                },
+                "browseEligible": true,
+                "sourceAttribution": {
+                  "attribution": "Open Food Facts contributors",
+                  "contents": "DbCL 1.0",
+                  "contentsUrl": "https://opendatacommons.org/licenses/dbcl/1-0/",
+                  "database": "ODbL 1.0",
+                  "databaseUrl": "https://opendatacommons.org/licenses/odbl/1-0/"
+                },
+                "currentState": "unknown",
+                "packIdentity": {
+                  "text": null
+                },
+                "sourceServing": {
+                  "text": "1 roll (162 g)",
+                  "quantity": 162
+                },
+                "retailerMemberships": [
+                  {
+                    "retailerId": "woolworths",
+                    "market": "AU",
+                    "scope": "food",
+                    "basis": "source-declared-store",
+                    "verified": false,
+                    "listingState": "community-snapshot",
+                    "categoryIds": [
+                      "other-food"
+                    ],
+                    "evidence": {
+                      "trustClass": "open-food-facts-au",
+                      "sourceId": "open-food-facts-au",
+                      "recordId": "off:9310081760092",
+                      "url": "http://world-en.openfoodfacts.org/product/9310081760092/chiko-roll",
+                      "snapshotDate": "2026-08-30",
+                      "snapshotSha256": "f72687ee8bc6522054fe69dbfda6b91902c16af1ec2e043cde27bc6c29ad8176",
+                      "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+                      "checkedAt": "2026-09-18",
+                      "rawRecordNumber": 4447337,
+                      "lastModified": "2026-03-19T08:07:21Z",
+                      "privateTestingApproved": true,
+                      "publicReleaseReviewRequired": true,
+                      "field": "stores",
+                      "stores": "Woolworths, Coles",
+                      "countriesTags": [
+                        "en:australia"
+                      ]
+                    }
+                  },
+                  {
+                    "retailerId": "coles",
+                    "market": "AU",
+                    "scope": "food",
+                    "basis": "source-declared-store",
+                    "verified": false,
+                    "listingState": "community-snapshot",
+                    "categoryIds": [
+                      "other-food"
+                    ],
+                    "evidence": {
+                      "trustClass": "open-food-facts-au",
+                      "sourceId": "open-food-facts-au",
+                      "recordId": "off:9310081760092",
+                      "url": "http://world-en.openfoodfacts.org/product/9310081760092/chiko-roll",
+                      "snapshotDate": "2026-08-30",
+                      "snapshotSha256": "f72687ee8bc6522054fe69dbfda6b91902c16af1ec2e043cde27bc6c29ad8176",
+                      "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+                      "checkedAt": "2026-09-18",
+                      "rawRecordNumber": 4447337,
+                      "lastModified": "2026-03-19T08:07:21Z",
+                      "privateTestingApproved": true,
+                      "publicReleaseReviewRequired": true,
+                      "field": "stores",
+                      "stores": "Woolworths, Coles",
+                      "countriesTags": [
+                        "en:australia"
+                      ]
+                    }
+                  }
+                ],
+                "privateLabelCollections": [],
+                "__alpha0615Units": true
+              },
+              "recordType": "external-catalogue",
+              "provenance": {
+                "label": "Open Food Facts AU",
+                "detail": "Open Food Facts · Australian external catalogue",
+                "verified": false
+              },
+              "addability": {
+                "status": "loggable-now",
+                "label": "Loggable now",
+                "reasonCode": "identity-nutrition-measure-ready",
+                "message": "Nutrition and at least one safe measure are ready.",
+                "actions": [
+                  {
+                    "id": "choose-amount",
+                    "label": "Choose an Amount"
+                  }
+                ],
+                "normalLoggingAllowed": true
+              },
+              "decisionTrace": {
+                "concept": {
+                  "conceptId": "bread-roll",
+                  "parentId": "bread-family",
+                  "related": [
+                    "bread"
+                  ],
+                  "excluded": false,
+                  "confidence": "high",
+                  "evidence": "compound-identity"
+                },
+                "compatibility": null,
+                "exactness": {
+                  "class": "exact-identity",
+                  "priority": 5,
+                  "identity": "roll"
+                },
+                "sourceTrust": 2,
+                "completeness": "loggable-now",
+                "rank": {
+                  "score": 1635,
+                  "tier": "exact-name",
+                  "query": "chiko roll",
+                  "relationshipIntent": "neutral"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "total": 2
+    }
+  },
+  "submitted": "Results for “Chiko roll”\nChoose a result to continue\nBEST MATCH\nChiko Roll\nChiko · Packaged Food · Source reference: 1 roll (162 g) · Loggable now · choose an amount\nChoose\nBROADER AUSTRALIAN RESULTS\nChiko Roll\nChiko · Open Food Facts AU · Barcode 9310081760092 · Source reference: Source serving 1 roll (162 g); nutrition reference per 100 g · Loggable now · choose an amount\nChoose",
+  "selected": {
+    "food": {
+      "id": "aussie-chiko-roll",
+      "name": "Chiko Roll",
+      "brand": "Chiko",
+      "category": "Snacks & Takeaway",
+      "country": "Australia",
+      "aliases": [
+        "chiko roll",
+        "chiko",
+        "chicko roll",
+        "chico roll",
+        "chicco roll",
+        "cheeko roll"
+      ],
+      "defaultAmount": 1,
+      "defaultUnit": "roll",
+      "units": {
+        "roll": 1,
+        "serve": 1,
+        "g": 0.006172839506172839
+      },
+      "unitLabels": {
+        "roll": "Roll (162 g)",
+        "serve": "Serving (1 roll)",
+        "g": "g"
+      },
+      "serving": "1 roll (162 g)",
+      "nutrients": {
+        "calories": 313,
+        "protein": 9,
+        "carbs": 45.5,
+        "fat": 9.8,
+        "satFat": 2.3,
+        "fibre": 3.9,
+        "sugar": 3.7,
+        "sodium": 580
+      },
+      "score": 5,
+      "source": "Australian Retail Package Reference — verify current package",
+      "verified": false,
+      "ingredients": "Vegetables, wheat flour, barley, beef, canola oil, soy protein and seasonings",
+      "allergens": [
+        "wheat",
+        "gluten",
+        "soy"
+      ],
+      "foodGroups": {
+        "vegetables": 0.7,
+        "grains": 1,
+        "proteinFoods": 0.4
+      },
+      "waterMl": 45,
+      "__alpha0615Units": true
+    },
+    "profile": {
+      "rejectedMeasures": [
+        {
+          "key": "serve",
+          "label": "Manufacturer serve (162 g)",
+          "multiplier": 1,
+          "source": "source-product-metadata",
+          "sourceType": "product-metadata",
+          "confidence": "source-product-metadata",
+          "portionPreset": false,
+          "sourceLabel": "Serving (1 roll)",
+          "id": "serve",
+          "displayLabel": "Manufacturer serve (162 g)",
+          "singularLabel": "manufacturer serve",
+          "pluralLabel": "manufacturer serves",
+          "physicalFamily": "manufacturer",
+          "conversionToBase": {
+            "baseUnit": "g",
+            "baseQuantity": 162,
+            "basis": "nutrition-base conversion"
+          },
+          "conversionBasis": "nutrition-base conversion",
+          "applicability": "countable",
+          "provenance": "manufacturer",
+          "displayPriority": 30,
+          "quickAmounts": [
+            0.25,
+            0.5,
+            0.75,
+            1
+          ],
+          "rejectionReason": "equivalent-natural-and-manufacturer-measure-merged"
+        }
+      ],
+      "nutritionBasisConflict": false,
+      "productKey": "packaged:record:aussie-chiko-roll",
+      "physicalForm": "countable",
+      "physicalFamily": "countable",
+      "portionKind": "roll",
+      "formProfile": {
+        "family": "countable",
+        "allowed": [
+          "countable",
+          "manufacturer",
+          "weight"
+        ],
+        "fallback": "item"
+      },
+      "measures": [
+        {
+          "key": "roll",
+          "label": "Roll (162 g)",
+          "multiplier": 1,
+          "source": "source-product-metadata",
+          "sourceType": "product-metadata",
+          "confidence": "source-product-metadata",
+          "portionPreset": false,
+          "sourceLabel": "Roll (162 g)",
+          "id": "roll",
+          "displayLabel": "Roll (162 g)",
+          "singularLabel": "roll",
+          "pluralLabel": "rolls",
+          "physicalFamily": "countable",
+          "conversionToBase": {
+            "baseUnit": "g",
+            "baseQuantity": 162,
+            "basis": "nutrition-base conversion"
+          },
+          "conversionBasis": "nutrition-base conversion",
+          "applicability": "countable",
+          "provenance": "manufacturer",
+          "displayPriority": 18,
+          "quickAmounts": [
+            0.25,
+            0.5,
+            0.75,
+            1
+          ]
+        },
+        {
+          "key": "g",
+          "label": "g",
+          "multiplier": 0.006172839506172839,
+          "source": "source-product-metadata",
+          "sourceType": "product-metadata",
+          "confidence": "source-product-metadata",
+          "portionPreset": false,
+          "sourceLabel": "g",
+          "id": "g",
+          "displayLabel": "g",
+          "singularLabel": "g",
+          "pluralLabel": "g",
+          "physicalFamily": "weight",
+          "conversionToBase": {
+            "baseUnit": "g",
+            "baseQuantity": 1,
+            "basis": "nutrition-base conversion"
+          },
+          "conversionBasis": "nutrition-base conversion",
+          "applicability": "countable",
+          "provenance": "manufacturer",
+          "displayPriority": 90,
+          "quickAmounts": []
+        }
+      ],
+      "portionPresets": [],
+      "unavailablePresets": [],
+      "preferredMeasure": "roll",
+      "selectedMeasure": null,
+      "amount": null,
+      "nutritionBasis": {
+        "semanticBasis": "per-item"
+      },
+      "referenceServing": null,
+      "packageSize": "",
+      "sourceDefault": {
+        "amount": 1,
+        "unit": "roll"
+      },
+      "resolvedFood": {
+        "id": "aussie-chiko-roll",
+        "name": "Chiko Roll",
+        "brand": "Chiko",
+        "category": "Snacks & Takeaway",
+        "country": "Australia",
+        "aliases": [
+          "chiko roll",
+          "chiko",
+          "chicko roll",
+          "chico roll",
+          "chicco roll",
+          "cheeko roll"
+        ],
+        "defaultAmount": 1,
+        "defaultUnit": "roll",
+        "units": {
+          "roll": 1,
+          "g": 0.006172839506172839
+        },
+        "unitLabels": {
+          "roll": "Roll (162 g)",
+          "g": "g"
+        },
+        "serving": "1 roll (162 g)",
+        "nutrients": {
+          "calories": 313,
+          "protein": 9,
+          "carbs": 45.5,
+          "fat": 9.8,
+          "satFat": 2.3,
+          "fibre": 3.9,
+          "sugar": 3.7,
+          "sodium": 580
+        },
+        "score": 5,
+        "source": "Australian Retail Package Reference — verify current package",
+        "verified": false,
+        "ingredients": "Vegetables, wheat flour, barley, beef, canola oil, soy protein and seasonings",
+        "allergens": [
+          "wheat",
+          "gluten",
+          "soy"
+        ],
+        "foodGroups": {
+          "vegetables": 0.7,
+          "grains": 1,
+          "proteinFoods": 0.4
+        },
+        "waterMl": 45,
+        "__alpha0615Units": true,
+        "productSemantics": {
+          "type": "single-item",
+          "confidence": "medium",
+          "source": "explicit-metadata"
+        },
+        "semanticType": "single-item",
+        "semanticSource": "explicit-metadata",
+        "servingPolicy": {
+          "semanticType": "single-item",
+          "semanticSource": "explicit-metadata",
+          "confidence": "medium",
+          "nutritionBasis": "per-item",
+          "defaultAmount": 1,
+          "defaultUnit": "roll",
+          "allowedUnits": [
+            "roll",
+            "g"
+          ],
+          "allowedUnitFamily": "natural-item",
+          "foodGroupUnitEligibility": {
+            "allowed": false,
+            "reason": "no-explicit-food-group-measure"
+          },
+          "naturalServingDisplay": "1 roll (162 g)",
+          "countMeaningful": false,
+          "sizePartOfIdentity": false,
+          "reviewOnly": false,
+          "partialEditingSafe": true,
+          "loggable": true
+        },
+        "servingDefaultUnit": "roll",
+        "lockedServingUnit": "roll",
+        "fractionUnits": [
+          "roll"
+        ],
+        "nutritionBasis": {
+          "semanticBasis": "per-item"
+        },
+        "semanticResolution": {
+          "autoResolved": false,
+          "before": {
+            "amount": 1,
+            "unit": "roll",
+            "label": "Roll (162 g)",
+            "serving": "1 roll (162 g)"
+          },
+          "after": {
+            "amount": 1,
+            "unit": "roll",
+            "label": "Roll (162 g)",
+            "serving": "1 roll (162 g)"
+          },
+          "rule": "explicit-metadata"
+        },
+        "unitOrigins": {
+          "roll": {
+            "key": "roll",
+            "label": "Roll (162 g)",
+            "multiplier": 1,
+            "source": "source-product-metadata",
+            "sourceType": "product-metadata",
+            "confidence": "source-product-metadata",
+            "portionPreset": false,
+            "sourceLabel": "Roll (162 g)",
+            "id": "roll",
+            "displayLabel": "Roll (162 g)",
+            "singularLabel": "roll",
+            "pluralLabel": "rolls",
+            "physicalFamily": "countable",
+            "conversionToBase": {
+              "baseUnit": "g",
+              "baseQuantity": 162,
+              "basis": "nutrition-base conversion"
+            },
+            "conversionBasis": "nutrition-base conversion",
+            "applicability": "countable",
+            "provenance": "manufacturer",
+            "displayPriority": 18,
+            "quickAmounts": [
+              0.25,
+              0.5,
+              0.75,
+              1
+            ],
+            "origin": "source-product-metadata"
+          },
+          "g": {
+            "key": "g",
+            "label": "g",
+            "multiplier": 0.006172839506172839,
+            "source": "source-product-metadata",
+            "sourceType": "product-metadata",
+            "confidence": "source-product-metadata",
+            "portionPreset": false,
+            "sourceLabel": "g",
+            "id": "g",
+            "displayLabel": "g",
+            "singularLabel": "g",
+            "pluralLabel": "g",
+            "physicalFamily": "weight",
+            "conversionToBase": {
+              "baseUnit": "g",
+              "baseQuantity": 1,
+              "basis": "nutrition-base conversion"
+            },
+            "conversionBasis": "nutrition-base conversion",
+            "applicability": "countable",
+            "provenance": "manufacturer",
+            "displayPriority": 90,
+            "quickAmounts": [],
+            "origin": "source-product-metadata"
+          }
+        },
+        "servingFoundationSource": "Explicit package serving data",
+        "servingMeasureVersion": "0.6.33",
+        "sourceMeasureMetadata": {
+          "units": {
+            "roll": 1,
+            "serve": 1,
+            "g": 0.006172839506172839
+          },
+          "labels": {
+            "roll": "Roll (162 g)",
+            "serve": "Serving (1 roll)",
+            "g": "g"
+          },
+          "origins": {},
+          "manufacturerServing": null,
+          "nutritionBasis": null
+        },
+        "allowedUnits": [
+          "roll",
+          "g"
+        ],
+        "quarantinedMeasures": [
+          {
+            "key": "serve",
+            "label": "Manufacturer serve (162 g)",
+            "multiplier": 1,
+            "source": "source-product-metadata",
+            "sourceType": "product-metadata",
+            "confidence": "source-product-metadata",
+            "portionPreset": false,
+            "sourceLabel": "Serving (1 roll)",
+            "id": "serve",
+            "displayLabel": "Manufacturer serve (162 g)",
+            "singularLabel": "manufacturer serve",
+            "pluralLabel": "manufacturer serves",
+            "physicalFamily": "manufacturer",
+            "conversionToBase": {
+              "baseUnit": "g",
+              "baseQuantity": 162,
+              "basis": "nutrition-base conversion"
+            },
+            "conversionBasis": "nutrition-base conversion",
+            "applicability": "countable",
+            "provenance": "manufacturer",
+            "displayPriority": 30,
+            "quickAmounts": [
+              0.25,
+              0.5,
+              0.75,
+              1
+            ],
+            "rejectionReason": "equivalent-natural-and-manufacturer-measure-merged"
+          }
+        ],
+        "nutritionBasisConflict": false
+      }
+    },
+    "ui": {
+      "query": "Chiko roll",
+      "stage": "serving-measure",
+      "state": "exact-product",
+      "product": "Chiko Roll",
+      "selectedMeasure": "",
+      "measureAutoSelected": false,
+      "destination": {
+        "date": "2026-09-18",
+        "meal": ""
+      }
+    }
+  },
+  "review": "← Back\n🏠 Home\nReview Chiko Roll\n\nNothing is added until you confirm it.\n\nReview the Source\n\nAustralian Retail Package Reference — verify current package. Check the quantity and details before adding.\n\nServing Measures: Package/product data · no invented household conversion.\n\nDate\nMeal\nChoose A Meal\nBreakfast\nLunch\nDinner\nSnacks\nOther\nUnit\nRoll (162 g)\ng\nAmount\nQuick amount\n¼\n½\n¾\n1\nYou Are Adding: 1 Roll (162 g)\n313 Cal · 1,310 kJ · Will be added only after you confirm Add to Diary.\nAdd An Optional Note\nView Nutrition Details\n313 Cal · 1,310 kJ\nAdd to Diary\nAdd & Save to My Foods",
+  "previewReview": "← Back\n🏠 Home\nReview Chiko Roll\n\nNothing is added until you confirm it.\n\nReview the Source\n\nAustralian Retail Package Reference — verify current package. Check the quantity and details before adding.\n\nServing Measures: Package/product data · no invented household conversion.\n\nDate\nMeal\nChoose A Meal\nBreakfast\nLunch\nDinner\nSnacks\nOther\nAmount\nQuick amount\n¼\n½\n¾\n1\nYou Are Adding: 1 Roll (162 g)\n313 Cal · 1,310 kJ · Will be added only after you confirm Add to Diary.\nAdd An Optional Note\nView Nutrition Details\n313 Cal · 1,310 kJ\nAdd to Diary\nAdd & Save to My Foods",
+  "routing": {
+    "sameOriginRequests": 111,
+    "localFulfilled": 111,
+    "localResponses": 111,
+    "optionalLocalMisses": [],
+    "requiredAssetMisses": [],
+    "liveFallthrough": 0,
+    "pageErrors": [],
+    "consoleErrors": [],
+    "warnings": [
+      "Service Worker registration blocked by Playwright"
+    ],
+    "failedAssets": [],
+    "external": [],
+    "routes": [
+      {
+        "url": "https://mlwes-hec-test.github.io/",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\index.html",
+        "contentType": "text/html; charset=utf-8",
+        "sha256": "c686bd226924c6b81e0e3caeb8998ab966fd11402dbd52f7948c8a67cf243ba2"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/app-icons/hec-my-data-180.png",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\app-icons\\hec-my-data-180.png",
+        "contentType": "image/png",
+        "sha256": "821ad74175976371f63744c5c6c2949c21e70089b5b4e673385849c9af692cf1"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/app-icons/hec-my-data-512.png",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\app-icons\\hec-my-data-512.png",
+        "contentType": "image/png",
+        "sha256": "915bb5322764baeaa2967ee987b92d86648a4540227e60693496238d6fd509b0"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/installation-config.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\deployment\\test\\installation-config.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "51eda2ef257743377cbcaa00eb8af0db7bcfee5601d2f58f53d1f8ec36f5f721"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/config.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\config.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "5917c660ff0a2bca08efe8029a74ea7a566e34719c27e09fc143390549a26895"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/installation-foundation.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\installation-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "dc71c1e21e8971a650e1f287cb9e9dcf634592586836a4e7dfd688c74d28fb7f"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/migrations.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\migrations.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "eb8433966b7e505147561ca0876585047ce90675817c63cc639469443aad188c"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/companions.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\companions.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "68a968795334573fee49f8aebcbfb863bcb09963c2b24eb541c394e1fc299fc0"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/companion-artwork.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\companion-artwork.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "34b293d84189769df566e668fc7c73039524cb6ffffc99dd5e7fdf8f21e4fb90"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/companion-voice-metadata.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\companion-voice-metadata.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "27140423757ed50ef25852371ae27bb73d4d2ace86b93fc00d0bc8fd14c38ac2"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/companion-voices.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\companion-voices.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "1d8ad4bb334c931d66c407e6b573e35e08bf526d4786440c9cd06d4d602ede64"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/stage4-foundation.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\stage4-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "3c1616b011cf13a6c5c16d925a04a20e8197cef9734c0a1b1a83b2c86b7f9287"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/weight-progress-foundation.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\weight-progress-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "5b6b7818bbbc5ac41df685747d6bdcbb46e1ec1e727b6f42109117a5518d7c7f"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/nutrition-trends-foundation.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\nutrition-trends-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "1c0a338f04fff58d9ea85dd0cac03bb057bb355194bf20f6905be1fe4549e2b1"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/app.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\app.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "8fc4061605e14c014c456274cd9b50f393be7eb3768f0a3ca715e69bf22c2196"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/entity-registry.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\entity-registry.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "eec3b44c9f4a35bf1dc8b415412223fcd641614d8de8da1fbf731113d5f6bddb"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/search-foundation.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\search-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "92e7d74e8f38e83f7501732c17dccc22f92cf93ab9fe1bf47275f2cc2dc391f7"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/product-serving-semantics.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\product-serving-semantics.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "35734e07540429ce77d1da99f643acc77325d71b1edf3a75db0a2de7b2e602d2"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/food-sources.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\food-sources.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "ce47dfe59913769db42d0ea7b1f551bbac1e832f9ac18f9c1f57ef0790d4b4e5"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/australian-catalogue-data.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\australian-catalogue-data.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "05ab1f75ed98a2c6bdafeff48d51f68b8f57124502d9d4f10846c448d92f3d68"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/mcdonalds-au-catalogue-data.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\mcdonalds-au-catalogue-data.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "8390eac90e11a94ecf436412dbe6cea328ab4e40844a43d9e2c0c1beebf70c50"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/mcdonalds-au-catalogue.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\mcdonalds-au-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "88b5f4e2c2e2d7affea39e5d370fb9a635704005ff810df05b2de927c83a6f3e"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/kfc-au-catalogue-data.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\kfc-au-catalogue-data.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "473e071cf68b18fd75481ea4def01166ee7b1237eecc0e56fa5a408e79305201"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/kfc-au-supplement-data.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\kfc-au-supplement-data.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "af33ffc60656c8cd391c35251c88e8c372188fd641a1e9636baeef3a1b64d595"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/kfc-au-catalogue.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\kfc-au-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "ea0f01eb3e5e8c609168b14bdb2eec4e05dd03d9ff41c29e12848baf10b7c905"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/food-catalogue.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\food-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "4d55eae439e8683fa743085e0081042a3b9aaa0bbddd4a79d7bd0877bf6d05e6"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/retailer-catalogue.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\retailer-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "10b7b345568d72aca7f4cd7a88c9f03d064bfba0272eb1a4d655cde9c2fc754f"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/retailer-source.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\retailer-source.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "297366d9150070d80a89b5f175e681ad3e6647b9f81c3797dae2f1cb1c1ea000"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/woolworths-au-catalogue.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\woolworths-au-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "d3cdb12816ac132d29c217aa567362bcede6e2370744312d1dc905bd1926d447"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/off-catalogue.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\off-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "2cc88fbc05ee810a903ce6e0e17daf820a5b1a7ad55d7f80eb9437496816c37d"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/coles-au-catalogue.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\coles-au-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "43c530d80e92e7d4c5fcb87e2c2f514277bf91b7197988b51d175bc043efd030"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/aldi-au-catalogue.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\aldi-au-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "2c87916645a8703779288e4de1391d1e828e6f1647756376dab73f87a16cf6a2"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/brand-au-catalogue.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\brand-au-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "04dcc5645d16e4b01654241dd6d19d096cc850a3e4450fb7c7e0c0a0e4e44972"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/brand-catalogue.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\brand-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "815044d094b78a446a1588f3d00249a9cdb135db12718e63a2744bcd48456182"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/guided-branching.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\guided-branching.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "fc6883c9a34fd19dda80b3f3c2289f01f092a4c6456f196bf2b85c256669eeb0"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/packaged-foods.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\packaged-foods.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "98a5d2da46c319391f5b114f9502aa6c28a2610ea3f2d96a3fbdf2172595c629"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/capture-foundation.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\capture-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "fb511df79da233ec7738d1dcdb0b3a26acb3393bf2fc924bd64d00cbfc7205d2"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/serving-foundation.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\serving-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "118a3fddffaaa611107629e16fd0b42ad5c03a18969d75ebde663d6c19cf59d3"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/guided-product-resolution.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\guided-product-resolution.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "6f941507e4937b23599530099b7988ad40af4b54d70c9d224830a4c952b77d68"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/activity-foundation.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\activity-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "68f2e923769697bb90b0d0e13193533ebff5fa9b29846c0d05e5ced28fb83557"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/food-groups-foundation.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\food-groups-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "2919670d100bb6de8794bed8a3bcbb7b18dec2d5f4a3a95912ddbd23268526b6"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/conversation-foundation.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\conversation-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "c313b738df302742261e2fd2ea06c58fcc72e38292f856a3da6df5596f799d26"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/alpha06.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\alpha06.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "864622bd877a0ce17442be5451beaea13f493a28f187fef07ee33cc5ccf150e9"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/alpha064.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\alpha064.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "e62d1f3a73c71ae5adea9ec1be76ee778ac6b00c1741553d8ce27bcb1b02a9d0"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/styles.css?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\styles.css",
+        "contentType": "text/css; charset=utf-8",
+        "sha256": "99a0886c30277a666e7875ec691daa5070cdb9f22721e4d2a1bf7848d47be76e"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/manifest.webmanifest?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\deployment\\test\\manifest.webmanifest",
+        "contentType": "application/manifest+json",
+        "sha256": "4a520e29476ad7e525265096dd35d105f87844c0efddde44f2f47d950fc74652"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/manifest.json?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\manifest.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "b1e5d58b660cb4d36192ec898bef95f1cfcdbaed9d374be4cc10820450981e42"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/afcd-release-3.json?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\afcd-release-3.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "d729c6ea5bf1014724bde5d4038e995cd79059824cebab9f32b52ed4671560dd"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/styles.css?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\styles.css",
+        "contentType": "text/css; charset=utf-8",
+        "sha256": "99a0886c30277a666e7875ec691daa5070cdb9f22721e4d2a1bf7848d47be76e"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/installation-config.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\deployment\\test\\installation-config.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "51eda2ef257743377cbcaa00eb8af0db7bcfee5601d2f58f53d1f8ec36f5f721"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/config.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\config.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "5917c660ff0a2bca08efe8029a74ea7a566e34719c27e09fc143390549a26895"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/installation-foundation.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\installation-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "dc71c1e21e8971a650e1f287cb9e9dcf634592586836a4e7dfd688c74d28fb7f"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/migrations.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\migrations.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "eb8433966b7e505147561ca0876585047ce90675817c63cc639469443aad188c"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/companions.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\companions.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "68a968795334573fee49f8aebcbfb863bcb09963c2b24eb541c394e1fc299fc0"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/companion-artwork.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\companion-artwork.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "34b293d84189769df566e668fc7c73039524cb6ffffc99dd5e7fdf8f21e4fb90"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/companion-voice-metadata.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\companion-voice-metadata.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "27140423757ed50ef25852371ae27bb73d4d2ace86b93fc00d0bc8fd14c38ac2"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/companion-voices.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\companion-voices.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "1d8ad4bb334c931d66c407e6b573e35e08bf526d4786440c9cd06d4d602ede64"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/stage4-foundation.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\stage4-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "3c1616b011cf13a6c5c16d925a04a20e8197cef9734c0a1b1a83b2c86b7f9287"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/weight-progress-foundation.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\weight-progress-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "5b6b7818bbbc5ac41df685747d6bdcbb46e1ec1e727b6f42109117a5518d7c7f"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/nutrition-trends-foundation.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\nutrition-trends-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "1c0a338f04fff58d9ea85dd0cac03bb057bb355194bf20f6905be1fe4549e2b1"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/app.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\app.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "8fc4061605e14c014c456274cd9b50f393be7eb3768f0a3ca715e69bf22c2196"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/percy-pelican.webp",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\percy-pelican.webp",
+        "contentType": "image/webp",
+        "sha256": "f79e5fc3745ea09fb98b0526d28769ba1e1d871362819fb31df4537a46d4b132"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/wally-wombat.webp",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\wally-wombat.webp",
+        "contentType": "image/webp",
+        "sha256": "8f34fbaf347d465e771281fa7e709453e45c592d795a83c828a76bcaec333d92"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/anna-goanna.webp",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\anna-goanna.webp",
+        "contentType": "image/webp",
+        "sha256": "e2efc2e1da539d2e04bb5ce92552bd5f29906ea56cf1ec326ad09e00bba114f7"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/shelly-turtle.webp",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\shelly-turtle.webp",
+        "contentType": "image/webp",
+        "sha256": "8d537c227cd88fa687eb3a8581dc0de8e7dbdd1c177c0e1eae2200668c3bd8b6"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/ruby-ringneck.webp",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\ruby-ringneck.webp",
+        "contentType": "image/webp",
+        "sha256": "f2ac967e366447432c0bb525119f04874af4fbfa2ac4c31c474b5ec6b0ddf147"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/bonnie-bilby.webp",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\bonnie-bilby.webp",
+        "contentType": "image/webp",
+        "sha256": "333a0b3cf51ae29f62a32777cfba6f493e7497588c2f714a302e495401df749b"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/skip-kangaroo.webp",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\skip-kangaroo.webp",
+        "contentType": "image/webp",
+        "sha256": "b139f5ef5ca9751f7da88cdb52f2367ba8c60d3fe1d638c962f826eaaa9e4aed"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/rusty-dingo.webp",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\rusty-dingo.webp",
+        "contentType": "image/webp",
+        "sha256": "ba049ece4cee5ca74460508143761bed385f43af29967eb58c6cbcced6ab0a50"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/gary-galah.webp",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\gary-galah.webp",
+        "contentType": "image/webp",
+        "sha256": "1f546aee82fc52b4fa220184b85f793d92a4e1edb512fbf7be2bdba4c0f97dba"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/monty-python.webp",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\monty-python.webp",
+        "contentType": "image/webp",
+        "sha256": "127fde1859d768ff07803c4be80cf8902ff194b2fe788351b50483eae2613fd6"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/chuckles-kookaburra.webp",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\chuckles-kookaburra.webp",
+        "contentType": "image/webp",
+        "sha256": "0f52aeba8f024040a9c0579dcdc0e4fb3b877d6763580a28c68a0498a60bf802"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/ernie-echidna.webp",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\ernie-echidna.webp",
+        "contentType": "image/webp",
+        "sha256": "e03ac30375b4f8bf65a4a530d1cfecaf82b5ece0db702fb2d055347dd2814b9a"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/spike-thorny-devil.webp",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\spike-thorny-devil.webp",
+        "contentType": "image/webp",
+        "sha256": "66de8f89fc1134abdef0ce868556d5be45fc6b7314db3c8ffc3c2617ce425232"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/cassie-cassowary.webp",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\cassie-cassowary.webp",
+        "contentType": "image/webp",
+        "sha256": "bf7c0c0aeb9ac97a80f71ae0e2365ec8eda73ace6a148bf0c65fa3badfed830d"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/salty-crocodile.webp",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\salty-crocodile.webp",
+        "contentType": "image/webp",
+        "sha256": "91dc823b4857c94ede69ac6d859afa963f3504e9ac84c3bc4b2faa46055ef875"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/bushy-koala.webp",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\bushy-koala.webp",
+        "contentType": "image/webp",
+        "sha256": "faff3d2dc1487608ad590e4d18b9c07a28b1db73f5016549a0f9d901be9e158b"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/hero/512/percy-pelican.webp",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\hero\\512\\percy-pelican.webp",
+        "contentType": "image/webp",
+        "sha256": "8bcb7041c09acc7a6522f37d82be46cbc586d09aabec42031e687a5c7875e243"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/entity-registry.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\entity-registry.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "eec3b44c9f4a35bf1dc8b415412223fcd641614d8de8da1fbf731113d5f6bddb"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/search-foundation.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\search-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "92e7d74e8f38e83f7501732c17dccc22f92cf93ab9fe1bf47275f2cc2dc391f7"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/product-serving-semantics.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\product-serving-semantics.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "35734e07540429ce77d1da99f643acc77325d71b1edf3a75db0a2de7b2e602d2"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/food-sources.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\food-sources.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "ce47dfe59913769db42d0ea7b1f551bbac1e832f9ac18f9c1f57ef0790d4b4e5"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/australian-catalogue-data.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\australian-catalogue-data.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "05ab1f75ed98a2c6bdafeff48d51f68b8f57124502d9d4f10846c448d92f3d68"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/mcdonalds-au-catalogue-data.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\mcdonalds-au-catalogue-data.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "8390eac90e11a94ecf436412dbe6cea328ab4e40844a43d9e2c0c1beebf70c50"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/mcdonalds-au-catalogue.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\mcdonalds-au-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "88b5f4e2c2e2d7affea39e5d370fb9a635704005ff810df05b2de927c83a6f3e"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/kfc-au-catalogue-data.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\kfc-au-catalogue-data.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "473e071cf68b18fd75481ea4def01166ee7b1237eecc0e56fa5a408e79305201"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/kfc-au-supplement-data.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\kfc-au-supplement-data.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "af33ffc60656c8cd391c35251c88e8c372188fd641a1e9636baeef3a1b64d595"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/kfc-au-catalogue.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\kfc-au-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "ea0f01eb3e5e8c609168b14bdb2eec4e05dd03d9ff41c29e12848baf10b7c905"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/food-catalogue.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\food-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "4d55eae439e8683fa743085e0081042a3b9aaa0bbddd4a79d7bd0877bf6d05e6"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/retailer-catalogue.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\retailer-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "10b7b345568d72aca7f4cd7a88c9f03d064bfba0272eb1a4d655cde9c2fc754f"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/retailer-source.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\retailer-source.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "297366d9150070d80a89b5f175e681ad3e6647b9f81c3797dae2f1cb1c1ea000"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/woolworths-au-catalogue.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\woolworths-au-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "d3cdb12816ac132d29c217aa567362bcede6e2370744312d1dc905bd1926d447"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/off-catalogue.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\off-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "2cc88fbc05ee810a903ce6e0e17daf820a5b1a7ad55d7f80eb9437496816c37d"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/coles-au-catalogue.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\coles-au-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "43c530d80e92e7d4c5fcb87e2c2f514277bf91b7197988b51d175bc043efd030"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/aldi-au-catalogue.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\aldi-au-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "2c87916645a8703779288e4de1391d1e828e6f1647756376dab73f87a16cf6a2"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/brand-au-catalogue.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\brand-au-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "04dcc5645d16e4b01654241dd6d19d096cc850a3e4450fb7c7e0c0a0e4e44972"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/brand-catalogue.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\brand-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "815044d094b78a446a1588f3d00249a9cdb135db12718e63a2744bcd48456182"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/guided-branching.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\guided-branching.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "fc6883c9a34fd19dda80b3f3c2289f01f092a4c6456f196bf2b85c256669eeb0"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/packaged-foods.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\packaged-foods.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "98a5d2da46c319391f5b114f9502aa6c28a2610ea3f2d96a3fbdf2172595c629"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/capture-foundation.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\capture-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "fb511df79da233ec7738d1dcdb0b3a26acb3393bf2fc924bd64d00cbfc7205d2"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/serving-foundation.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\serving-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "118a3fddffaaa611107629e16fd0b42ad5c03a18969d75ebde663d6c19cf59d3"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/guided-product-resolution.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\guided-product-resolution.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "6f941507e4937b23599530099b7988ad40af4b54d70c9d224830a4c952b77d68"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/activity-foundation.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\activity-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "68f2e923769697bb90b0d0e13193533ebff5fa9b29846c0d05e5ced28fb83557"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/food-groups-foundation.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\food-groups-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "2919670d100bb6de8794bed8a3bcbb7b18dec2d5f4a3a95912ddbd23268526b6"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/conversation-foundation.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\conversation-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "c313b738df302742261e2fd2ea06c58fcc72e38292f856a3da6df5596f799d26"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/alpha06.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\alpha06.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "864622bd877a0ce17442be5451beaea13f493a28f187fef07ee33cc5ccf150e9"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/afcd-release-3.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\afcd-release-3.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "d729c6ea5bf1014724bde5d4038e995cd79059824cebab9f32b52ed4671560dd"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/alpha064.js?g=e27083db31dbcd7031159618",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\alpha064.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "e62d1f3a73c71ae5adea9ec1be76ee778ac6b00c1741553d8ce27bcb1b02a9d0"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/brand-au/products/round-two-119.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\brand-au\\products\\round-two-119.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "91c56ba08b962e2a4487b71da41d7fff6e422b0248564a28491497b58a308911"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/woolworths-au/products/round-two-017.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\woolworths-au\\products\\round-two-017.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "a36acfe9dcc08bdbe1c1eff3f08124ae59b2348d1959171e5d68d813638195e6"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/coles-au/products/round-two-015.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\coles-au\\products\\round-two-015.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "d58e074a8662e215a17548f063b32ad5465bc66b327515a5ebea71834d1f7bd5"
+      }
+    ]
+  }
+}

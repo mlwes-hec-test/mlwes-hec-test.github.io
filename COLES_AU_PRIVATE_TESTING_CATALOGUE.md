@@ -1,3 +1,5 @@
+> Round Two (2026-09-18) expands these historical first-wave counts. See [Catalogue Expansion Round Two](CATALOGUE_EXPANSION_ROUND_TWO_REVIEW.md) and `data/catalogue-round-two/summary.json` for current private-testing coverage and provenance.
+
 # Coles private-testing collection
 
 This bounded source wave reuses the existing Australian Open Food Facts (OFF) database layer. It is a community-sourced Coles-brand collection for private HEC testing, not an official current Coles catalogue. No Coles website content is captured, imported or reused. No deployment or push is authorised by this document.

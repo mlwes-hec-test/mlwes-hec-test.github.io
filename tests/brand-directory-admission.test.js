@@ -7,7 +7,7 @@ require('../woolworths-au-catalogue');require('../coles-au-catalogue');require('
 function directoryController(foods,brandCatalogue=B){
   const source=fs.readFileSync(path.join(__dirname,'../alpha06.js'),'utf8');
   const controller=source.slice(source.indexOf('function au633LoadBrand('),source.indexOf('\nfunction au633SubmitBrand('));
-  const scope={window:{HECBrandCatalogue:brandCatalogue},C8:C,au633BrandState:null,searchSession633:{rawQuery:'',revision:1},allFoods:()=>foods,au633BrandQueryCurrent:()=>true,au633RenderBrand:()=>{},rememberCanonicalFoods:()=>{},au633ConceptMember:(food,id)=>!id||B.entries.get('off:'+food.barcode)?.conceptIds.includes(id)};
+  const scope={window:{HECBrandCatalogue:brandCatalogue},C8:C,au633BrandState:null,searchSession633:{rawQuery:'',revision:1},allFoods:()=>foods,au633BrandQueryCurrent:()=>true,au633RenderBrand:()=>{},rememberCanonicalFoods:()=>{},au633ConceptMember:(food,id)=>!id||B.entryFor(food)?.conceptIds.includes(id)};
   vm.runInNewContext(controller,scope);return scope;
 }
 
@@ -17,7 +17,7 @@ test('actual directory controller preserves the entire index set despite loaded 
   const scope=directoryController([...require('../australian-catalogue-data').packagedProducts,...retailer,...admitted]);
   for(const brand of B.index.brands){
     const state=scope.au633LoadBrand(brand.name);await state.promise;assert(!state.error,brand.key+': '+state.error);
-    const expected=B.index.entries.filter(e=>e.brandKeys.includes(brand.key)).map(e=>'barcode:'+e.barcode).sort();
+    const expected=B.index.entries.filter(e=>e.brandKeys.includes(brand.key)).map(C.canonicalKey).sort();
     assert.deepEqual(Array.from(state.records,C.canonicalKey).sort(),expected,brand.key);
   }
 });
@@ -29,19 +29,19 @@ test('failed generated shard loading cannot substitute a cached or manufacturer-
 });
 
 test('every generated brand directory has exactly its admitted identities across all pages and categories',async()=>{
-  assert.deepEqual([B.index.entries.length,B.index.brands.length,B.index.categories.length],[1922,342,17]);
+  assert.deepEqual([B.index.entries.length,B.index.brands.length,B.index.categories.length],[7489,2736,20]);
   for(const brand of B.index.brands){
     const expected=B.index.entries.filter(e=>e.brandKeys.includes(brand.key));
     const actual=[];
     for(let offset=0;;offset+=B.pageSize){const page=await B.page(brand.key,{offset});actual.push(...page.foods);if(!page.hasMore)break;}
-    assert.deepEqual(actual.map(C.canonicalKey).sort(),expected.map(e=>'barcode:'+e.barcode).sort(),brand.key);
+    assert.deepEqual(actual.map(C.canonicalKey).sort(),expected.map(C.canonicalKey).sort(),brand.key);
     assert(actual.every(f=>B.isBrandMember(f,brand.key)),brand.key);
     assert.equal(B.directory(brand.key).categories.reduce((n,c)=>n+c.count,0),actual.length);
   }
 });
 
 test('priority counts, source spellings, Hash Browns membership and exact products remain admitted',async()=>{
-  for(const [key,count] of [['kelloggs',30],['mccain',6],['campbells',3],['nescafe',3]])assert.equal(B.directory(key).total,count);
+  for(const [key,count] of [['kelloggs',43],['mccain',108],['campbells',10],['nescafe',6]])assert.equal(B.directory(key).total,count);
   assert.equal(B.directory('pmu'),null);
   for(const query of ['McCain','Mccain','MCCAIN'])assert.equal(B.recognise(query).brand.key,'mccain');
   for(const [query,id] of [['McCain Hash Browns','off:9310174025084'],["Kellogg's Corn Flakes",'off:8801083672700'],["Campbell’s Chunky Beef & Veg",'off:9300644700702'],['Nescafé Café Nescafé Gold Original','off:93625302']])assert((await B.search(query)).foods.some(f=>C.canonicalKey(f)==='barcode:'+id.slice(4)),query);
@@ -53,7 +53,7 @@ test('brand labels, manufacturer supplements and excluded raw products cannot gr
   const excluded=raw.foods.filter(f=>!B.isAdmitted(f));assert(excluded.length);
   for(const food of excluded)assert(!B.isBrandMember(food,'mccain'),food.id);
   const supplements=require('../australian-catalogue-data').packagedProducts.filter(f=>f.brand==='McCain'&&!f.barcode);assert(supplements.length);
-  for(const food of supplements)assert(!B.isBrandMember(food,'mccain'),food.id);
+  for(const food of supplements)assert.equal(B.isBrandMember(food,'mccain'),B.index.entries.some(e=>C.canonicalKey(e)===C.canonicalKey(food)&&e.brandKeys.includes('mccain')),food.id);
   const admitted=(await B.search('McCain Hash Browns')).foods[0];
   assert(!B.isBrandMember({...admitted,brand:'Unrelated'},'kelloggs'));
   assert(!B.isBrandMember({...admitted,barcode:null},'mccain'));

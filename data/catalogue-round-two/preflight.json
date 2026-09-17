@@ -1,0 +1,23 @@
+{
+  "checkedAt": "2026-09-17T16:56:28.3653731Z",
+  "canonicalSource": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32",
+  "authorisedSourceOnly": true,
+  "separateMisspelledCopyUntouched": true,
+  "branch": "alpha-0.6.33",
+  "startingHead": "705cc4536eedc52db6d81564b9d51fedb42876fa",
+  "startingSubject": "Fix admitted brand catalogue browsing",
+  "startingTree": "clean",
+  "test": {
+    "version": 44,
+    "sha": "574c307297261213ac9500afa2a50a67cc95d575",
+    "repository": "mlwes-hec-test/mlwes-hec-test.github.io"
+  },
+  "myData": {
+    "version": 11,
+    "sha": "37b9f02ee029eb7fdec3ad6a0547dda58a86e5d7",
+    "repository": "Lifestyle-Companion/Lifestyle-Companion"
+  },
+  "verification": "Independent read-only GitHub REST commits/HEAD",
+  "privateTestingApproved": true,
+  "publicReleaseLicensingAdmissionGate": false
+}

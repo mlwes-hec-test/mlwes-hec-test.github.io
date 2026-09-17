@@ -63,10 +63,13 @@ test('real production Chiko preview, hydrated Search and selection retain the ac
   try{
     const context=await qa.contextFor(browser,{width:390,height:844},routing),page=await context.newPage();await qa.openLibrary(page);
     await page.locator('#food-search').fill('Chiko roll');
-    await page.waitForFunction(()=>HECOpenFoodFactsAU.getLoaded('off:9310081760092'));
     const review=page.locator('#food-live-results [data-food-review="aussie-chiko-roll"]').first();await review.waitFor({state:'visible'});
     report.preview=await page.locator('#food-live-results').innerText();
     assert.match(report.preview,/1 roll \(162 g\).*313 Cal.*1,310 kJ/);
+    await page.locator('#submit-food-search').click();
+    const target=page.locator('[data-universal-result="aussie-chiko-roll"]');await target.waitFor({state:'visible'});
+    // Approved brand shards hydrate on committed Search; preview remains local.
+    await page.waitForFunction(()=>HEC_AU_CATALOGUE_TEST.foods().some(f=>f.id==='off:9310081760092'));
     report.trace=await page.evaluate(()=>{
       const C=HECFoodCatalogue,records=HEC_AU_CATALOGUE_TEST.foods().filter(food=>/chiko/i.test(food.brand)),canonical=C.canonicaliseRecords(records);
       return {records:records.map(food=>({food,eligibility:C.productEligibility(food,{candidates:canonical}),canonical:C.canonicalProduct(food)})),canonicalIds:canonical.map(C.canonicalKey),dedupedIds:C.dedupe(canonical).map(C.canonicalKey),duplicate:C.strongDuplicateEvidence(records[0],records[1]),model:C.submittedResultModel(records,'Chiko roll')};
@@ -74,8 +77,6 @@ test('real production Chiko preview, hydrated Search and selection retain the ac
     assert.equal(report.trace.records.length,2);assert.equal(report.trace.canonicalIds.length,2);assert.equal(report.trace.duplicate.duplicate,false);
     const accepted=report.trace.records.find(row=>row.food.id==='aussie-chiko-roll');
     assert(accepted.eligibility.addability.normalLoggingAllowed);assert.equal(accepted.eligibility.verified,false);
-    await page.locator('#submit-food-search').click();
-    const target=page.locator('[data-universal-result="aussie-chiko-roll"]');await target.waitFor({state:'visible'});
     report.submitted=await page.locator('#food-results').innerText();assert.match(await target.innerText(),/Loggable now/);
     assert.equal(await page.locator('[data-universal-result]').first().getAttribute('data-universal-result'),'aussie-chiko-roll');
     await target.click();
