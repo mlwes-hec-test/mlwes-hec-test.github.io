@@ -1,5 +1,36 @@
 # Shared retailer browse and GTIN identity safety
 
+## Current supermarket browse policy (Round Three source repair)
+
+Aldi, Woolworths and Coles roots mean the retailer's verified own/private-label
+families. They do not mean every product sold by that supermarket. The accepted
+Round Three family audit supplies an exact consumer-brand-key map in each built
+retailer index. Only verified current or uncertain-currentness relationships are
+eligible; explicit legacy and unverified spellings are excluded. Currentness of
+a family never asserts live product availability. This policy supersedes the
+historical listing-only browse admission described below for these three adapters.
+
+Listing, store-association and private-label evidence remains unchanged. Search
+postings retain accepted independent and legacy products, whereas retailer browse
+and commercial concept postings apply the family gate. Exclusion from a root does
+not remove a product or change its consumer brand, canonical identity or nutrition.
+
+The retailer root retains food categories and offers a House brands list. Brand
+selection pages the same canonical groups, supports category intersection, and
+uses the existing query ownership, cancellation and Back behaviour.
+
+`scripts/food-category-semantics.js` applies high-confidence compound-food rules
+before historical token/tag categories. All four established builders apply the
+same final projection through `scripts/catalogue-semantics-repair.js`; future
+Round Two classification also uses the shared rules before broad fallback rules.
+`browseCategoryId` records the derived display category without rewriting category
+assertions inside original relationship evidence. Ambiguous forms remain unchanged.
+The repair does not re-run admission or mint new identities.
+
+Potato Jewel/Jewels/Gem/Gems are controlled search aliases. They are attached only
+to an actual potato-jewel/gem product name, and never rename that product. Search
+deduplicates canonical groups before pagination.
+
 Architecture repair based on source checkpoint `33aa1ac482424b85173f641736644c244de20325`, branch `alpha-0.6.33`. This change contains no production retailer listings or product ingestion. Source version 0.6.33 and TEST-role cache v5 are unchanged. Live environments are outside this change.
 
 ## Identity and evidence

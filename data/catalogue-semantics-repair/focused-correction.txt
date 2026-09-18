@@ -1,0 +1,15 @@
+✔ ordinary supermarket browse is relationship-gated, current or uncertain, never sale or provenance alone (7038.8272ms)
+✔ independent and legacy products retain useful global search and canonical identity (1197.495ms)
+✔ retailer Brands navigation reaches Seasons Pride and Elmsbury, with category intersection (59.3783ms)
+✔ compound foods outrank ingredient and broad cake tokens in projected categories and concepts (22.6488ms)
+✔ Jewel/Gem aliases resolve one canonical product, preserve authentic names and exact branded intent (172.2532ms)
+✔ all accepted source identity, nutrition, measure and evidence facts remain byte-equivalent (2693.853ms)
+✔ protected McCain review still resolves its canonical alias and accepted energy (6.0846ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 22664.6393

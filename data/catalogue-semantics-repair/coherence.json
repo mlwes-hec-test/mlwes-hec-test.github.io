@@ -1,0 +1,30 @@
+{
+  "generation": "345556f9ab7aef73efdc9a39",
+  "catalogues": [
+    {
+      "kind": "woolworths",
+      "exactGeneratedBytes": true,
+      "shards": 52,
+      "shardHashes": true
+    },
+    {
+      "kind": "coles",
+      "exactGeneratedBytes": true,
+      "shards": 50,
+      "shardHashes": true
+    },
+    {
+      "kind": "aldi",
+      "exactGeneratedBytes": true,
+      "shards": 18,
+      "shardHashes": true
+    },
+    {
+      "kind": "brand",
+      "exactGeneratedBytes": true,
+      "shards": 376,
+      "shardHashes": true
+    }
+  ],
+  "staleOutputs": []
+}

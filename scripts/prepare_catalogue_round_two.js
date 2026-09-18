@@ -6,6 +6,8 @@ const ROOT=path.resolve(__dirname,'..'),BASE=path.join(ROOT,'data/catalogue-roun
 const write=(n,v)=>fs.writeFileSync(path.join(BASE,n),JSON.stringify(v)+'\n');
 const tags=s=>String(s||'').split(',').map(s=>s.trim()).filter(Boolean);
 function category(fields,previous){
+ const semantic=require('./food-category-semantics').classify(fields);
+ if(!previous.reasons.some(r=>['unsupported-domain','restaurant-domain'].includes(r))&&semantic)return semantic.id;
  if(previous.categoryId)return previous.categoryId;
  const name=C.norm(fields.product_name),t=tags(fields.categories_tags);
  if(previous.reasons.includes('unsupported-domain')||previous.reasons.includes('restaurant-domain'))return null;
