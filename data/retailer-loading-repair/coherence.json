@@ -1,0 +1,33 @@
+{
+  "generation": "b73351bbca5371e5cfcccfd5",
+  "catalogues": [
+    {
+      "id": "aldi",
+      "shards": 18,
+      "hashesPass": true
+    },
+    {
+      "id": "woolworths",
+      "shards": 52,
+      "hashesPass": true
+    },
+    {
+      "id": "coles",
+      "shards": 50,
+      "hashesPass": true
+    },
+    {
+      "id": "brand",
+      "shards": 376,
+      "hashesPass": true
+    }
+  ],
+  "counts": {
+    "brandBrowse": 7489,
+    "brandDirectory": 2736,
+    "ordinary": 7511,
+    "packagedUniverse": 73393
+  },
+  "staleOutputs": [],
+  "ordinaryCountMethod": "Same as scripts/report_catalogue_semantics.js: canonicalise each retailer evidence population before eligibility; combine accepted brand records and deduplicate eligible identities"
+}

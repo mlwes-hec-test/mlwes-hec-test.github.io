@@ -4201,6 +4201,7 @@ function retailerRender633(state){
   let content='';
   if(state.loading)content='<p role="status">Loading foods…</p>';
   else if(state.error)content='<p role="status">The retailer catalogue could not be loaded. Try again.</p><button type="button" class="secondary" data-retailer-retry>Try Again</button>';
+  else if(state.categoryId!==null&&!items.length)content='<p role="status">No matching foods are available for this retailer choice. Go back to choose another category or house brand.</p>';
   else if(!model?.total)content=`<p>${commercial?'No supported retailer products have been added for this food yet.':'No verified retailer food catalogue has been added yet.'}</p>`;
   else if(state.categoryId===null&&state.view==='brands')content=`<h3>House brands</h3><div class="guided-resolution-choices">${model.brands.map(brand=>`<button type="button" class="guided-resolution-choice" data-retailer-brand="${esc(brand.key)}"><span>${esc(brand.name)} (${brand.count})</span><b>›</b></button>`).join('')}</div>`;
   else if(state.categoryId===null)content=`${model.brands?.length?'<button type="button" class="secondary wide" data-retailer-brands>Browse house brands ›</button><h3>Food categories</h3>':''}<div class="guided-resolution-choices">${[...model.categories,{id:'*',label:'All Items',count:model.total}].map(category=>`<button type="button" class="guided-resolution-choice" data-retailer-category="${esc(category.id)}"><span>${esc(category.label)} (${category.count})</span><b>›</b></button>`).join('')}</div>`;

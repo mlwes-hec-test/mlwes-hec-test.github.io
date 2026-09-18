@@ -1,0 +1,10 @@
+{
+  "source": "f337d214a7d8c71bbd0026bc9d46f1db35f94899",
+  "scenario": "Synthetic unresolved evidence loader; no physical-device telemetry",
+  "requestedDeadlineMs": 20,
+  "observationAfterMs": 80,
+  "loading": true,
+  "result": null,
+  "error": "",
+  "conclusion": "Original load ignores deadline and awaits unresolved loader indefinitely; physical initiating cause not established"
+}

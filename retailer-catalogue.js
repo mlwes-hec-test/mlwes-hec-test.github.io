@@ -120,11 +120,12 @@
   }
   function createSession(retailerId,{ownerQuery,ownerRevision,scope='retailer',conceptId=''}={}){return {retailerId,ownerQuery,ownerRevision,scope,conceptId,categoryId:scope==='commercial-identity'?'*':null,brandKey:'',view:'categories',offset:0,request:0,active:true,loading:false,result:null,error:''};}
   function cancel(session){if(session){session.active=false;session.request++;session.result=null;session.loading=false;}}
-  async function load(session,{categoryId=session.categoryId,brandKey=session.brandKey||'',offset=0,isCurrent=()=>true}={}){
-    const request=++session.request,owns=()=>session.active&&session.request===request&&isCurrent();session.categoryId=categoryId;session.brandKey=brandKey;session.offset=offset;session.loading=true;session.result=null;session.error='';
-    try{const result=categoryId===null?directory(session.retailerId,session):await page(session.retailerId,{...session,categoryId,offset,isCurrent:owns});if(!owns())return null;session.result=result;return result;}
+  async function load(session,{categoryId=session.categoryId,brandKey=session.brandKey||'',offset=0,isCurrent=()=>true,timeoutMs=15000}={}){
+    let timer,expired=false;
+    const request=++session.request,owns=()=>session.active&&session.request===request&&isCurrent(),current=()=>owns()&&!expired;session.categoryId=categoryId;session.brandKey=brandKey;session.offset=offset;session.loading=true;session.result=null;session.error='';
+    try{const result=categoryId===null?directory(session.retailerId,session):await Promise.race([page(session.retailerId,{...session,categoryId,offset,isCurrent:current}),new Promise((_,reject)=>{timer=setTimeout(()=>{expired=true;reject(Error('Retailer catalogue took too long to load'));},timeoutMs);})]);if(!owns())return null;if(!result)throw Error('Retailer catalogue changed while loading. Try again.');session.result=result;return result;}
     catch(error){if(owns())session.error=String(error.message||error);return null;}
-    finally{if(owns())session.loading=false;}
+    finally{clearTimeout(timer);if(owns())session.loading=false;}
   }
   const api={version:'0.6.33',pageSize:PAGE_SIZE,maxEvidenceRows:MAX_EVIDENCE_ROWS,entity,recognise,registerCatalogue,unregisterCatalogue,commercialOptions,conceptSourceQuestion,directory,page,search,loadedFoods,createSession,load,cancel,revision:()=>revision};
   global.HECRetailerCatalogue=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;

@@ -1,0 +1,74 @@
+✔ exact query ownership retires Cote for Côte (64.7256ms)
+✔ exact query ownership retires Côte for Cote (3.2256ms)
+✔ exact query ownership retires resume for résumé (4.25ms)
+✔ exact query ownership retires résumé for resume (12.3811ms)
+✔ exact query ownership retires Burgen for Bürgen (4.1598ms)
+✔ exact query ownership retires Häagen-Dazs for Haagen-Dazs (4.6139ms)
+✔ exact query ownership retires Milk for milk (10.9361ms)
+✔ exact query ownership retires milk for milk  (3.415ms)
+✔ exact query ownership retires Bürgen for Bürgen (4.8844ms)
+✔ returning to an earlier exact spelling cannot revive its old ticket (3.5505ms)
+✔ approved retrieval equivalence never defines input identity (1.1075ms)
+✖ production brand cache and late hydration stay owned across Cote → Côte (22.0621ms)
+✖ production brand cache and late hydration stay owned across Côte → Cote (11.6524ms)
+✖ production brand cache and late hydration stay owned across resume → résumé (10.0323ms)
+✖ production brand cache and late hydration stay owned across résumé → resume (6.8826ms)
+✖ production brand cache and late hydration stay owned across Burgen → Bürgen (11.1602ms)
+✖ production brand cache and late hydration stay owned across Häagen-Dazs → Haagen-Dazs (13.0526ms)
+✔ currentness checks require exact input even if a caller supplies the current revision (4.4632ms)
+✔ production OFF await rejects a late response after an exact-input edit (13.996ms)
+✔ production delayed preview cannot revive a retired query (7.1858ms)
+✔ production explicit-product hydration ignores a retired owner even with the same local request token (12.8641ms)
+✔ production guided-source hydration rejects a retired central owner (11.9578ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 16
+ℹ fail 6
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1121.0839
+
+✖ failing tests:
+
+test at data\retailer-loading-repair\query-ownership-baseline.test.js:29:36
+✖ production brand cache and late hydration stay owned across Cote → Côte (22.0621ms)
+  TypeError: Cannot read properties of undefined (reading 'id')
+      at TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\data\retailer-loading-repair\query-ownership-baseline.test.js:35:145)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at data\retailer-loading-repair\query-ownership-baseline.test.js:29:36
+✖ production brand cache and late hydration stay owned across Côte → Cote (11.6524ms)
+  TypeError: Cannot read properties of undefined (reading 'id')
+      at TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\data\retailer-loading-repair\query-ownership-baseline.test.js:35:145)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at data\retailer-loading-repair\query-ownership-baseline.test.js:29:36
+✖ production brand cache and late hydration stay owned across resume → résumé (10.0323ms)
+  TypeError: Cannot read properties of undefined (reading 'id')
+      at TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\data\retailer-loading-repair\query-ownership-baseline.test.js:35:145)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at data\retailer-loading-repair\query-ownership-baseline.test.js:29:36
+✖ production brand cache and late hydration stay owned across résumé → resume (6.8826ms)
+  TypeError: Cannot read properties of undefined (reading 'id')
+      at TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\data\retailer-loading-repair\query-ownership-baseline.test.js:35:145)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at data\retailer-loading-repair\query-ownership-baseline.test.js:29:36
+✖ production brand cache and late hydration stay owned across Burgen → Bürgen (11.1602ms)
+  TypeError: Cannot read properties of undefined (reading 'id')
+      at TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\data\retailer-loading-repair\query-ownership-baseline.test.js:35:145)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at data\retailer-loading-repair\query-ownership-baseline.test.js:29:36
+✖ production brand cache and late hydration stay owned across Häagen-Dazs → Haagen-Dazs (13.0526ms)
+  TypeError: Cannot read properties of undefined (reading 'id')
+      at TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\data\retailer-loading-repair\query-ownership-baseline.test.js:35:145)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)

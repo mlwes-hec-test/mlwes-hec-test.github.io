@@ -1,0 +1,28 @@
+{
+  "sourceHead": "f337d214a7d8c71bbd0026bc9d46f1db35f94899",
+  "branch": "alpha-0.6.33",
+  "sourceHeadParent": "2f9f69613d99b45580bf81da9e6ae08ec96a7ae9",
+  "localCommitCreated": false,
+  "workingTreeClean": false,
+  "status": [
+    " M alpha06.js",
+    " M index.html",
+    " M release-manifest.json",
+    " M retailer-catalogue.js",
+    " M retailer-source.js",
+    " M service-worker.js",
+    "?? RETAILER_BROWSE_LOADING_REPAIR_REVIEW.md",
+    "?? data/retailer-loading-repair/",
+    "?? scripts/audit_retailer_loading.js",
+    "?? scripts/audit_retailer_loading_edge.js",
+    "?? tests/retailer-loading.test.js"
+  ],
+  "junction": {
+    "linkType": "Junction",
+    "target": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32",
+    "creationUtc": "2026-09-03T05:51:20.6882527Z",
+    "lastWriteUtc": "2026-09-03T05:51:20.6882527Z"
+  },
+  "generation": "b73351bbca5371e5cfcccfd5",
+  "trackedCatalogueChanges": []
+}

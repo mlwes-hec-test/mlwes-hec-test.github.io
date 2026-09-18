@@ -1,0 +1,13 @@
+✔ stale category, stale brand and empty intersection settle empty without offering zero choices (4.6807ms)
+✔ unresolved adapter is bounded; late result cannot refill caches or overwrite retry (44.892ms)
+✔ shard deadline aborts stalled read, evicts rejected promise and allows real retry (30.2959ms)
+✔ loader rejection and catalogue replacement terminate as errors (2.371ms)
+✔ timeout from an old request cannot finish a newer request (27.1349ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 315.5171

@@ -1,0 +1,40 @@
+{
+  "pass": true,
+  "generation": "b73351bbca5371e5cfcccfd5",
+  "verifiedPerformanceAssetFiles": 297,
+  "verifiedShards": 496,
+  "routeEvidenceReused": 115,
+  "retailers": {
+    "aldi": {
+      "visible": 222,
+      "loggable": 222,
+      "restricted": 0,
+      "categories": 16,
+      "brands": 32
+    },
+    "woolworths": {
+      "visible": 362,
+      "loggable": 347,
+      "restricted": 15,
+      "categories": 20,
+      "brands": 11
+    },
+    "coles": {
+      "visible": 417,
+      "loggable": 417,
+      "restricted": 0,
+      "categories": 18,
+      "brands": 15
+    }
+  },
+  "counts": {
+    "brandBrowse": 7489,
+    "brandDirectory": 2736,
+    "ordinary": 7511,
+    "packagedUniverse": 73393
+  },
+  "runtimeDataUnchanged": true,
+  "performanceReused": true,
+  "physicalTrigger": "unconfirmed",
+  "baselineFixtureFailures": 6
+}

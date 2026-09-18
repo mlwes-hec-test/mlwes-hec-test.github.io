@@ -1,0 +1,23 @@
+✔ generated shell and worker exactly match the canonical content generation (146.5264ms)
+✔ same visible version with changed controller produces a new shared generation (139.7596ms)
+✔ complete dependency inventory includes bootstrap configuration and both deployment variants (1.7223ms)
+✔ my-data installs verified core before skipWaiting and exposes safe readiness (211.041ms)
+✔ test installs verified core before skipWaiting and exposes safe readiness (123.024ms)
+✔ required core 404 rejects installation and removes staging without activation (102.3168ms)
+✔ required core wrong-bytes rejects installation and removes staging without activation (118.2849ms)
+✔ slow required dependency does not publish readiness or skipWaiting early (130.9189ms)
+✔ optional artwork failure is outside atomic core readiness (143.4492ms)
+✔ navigation and versioned core remain cached and coherent while offline (156.7301ms)
+✔ missing generation and unknown generation cannot fall back to old core or HTML (160.8662ms)
+✔ unversioned core data consumers receive the verified current data, not a network revalidation (189.9667ms)
+✔ activation retains previous caches until every live client reports current readiness (154.1587ms)
+✔ same-path cached assets cannot cross a generation boundary (151.704ms)
+✔ bootstrap owns update lifecycle and leaves personal storage contracts untouched (1.9998ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2173.4787

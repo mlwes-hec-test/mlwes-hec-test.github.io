@@ -1,5 +1,5 @@
 {
-  "generation": "345556f9ab7aef73efdc9a39",
+  "generation": "b73351bbca5371e5cfcccfd5",
   "version": "0.6.33",
   "runtime": [
     "installation-config.js",
@@ -45,7 +45,7 @@
     "alpha064.js"
   ],
   "files": {
-    "index.html": "434702c22518a4765169e236d5f593eb355d632fb6ee57e6fb5a3b066a6d5be3",
+    "index.html": "e3e1da5ce08dc7b3faab30ea149760546bf7b8e70963d22444402cedb25c7d2a",
     "installation-config.js": "e04cd8e2625d202b3833aa4f15077489128c1b50780aebf866890baf2b29a9f7",
     "config.js": "5917c660ff0a2bca08efe8029a74ea7a566e34719c27e09fc143390549a26895",
     "installation-foundation.js": "dc71c1e21e8971a650e1f287cb9e9dcf634592586836a4e7dfd688c74d28fb7f",
@@ -69,8 +69,8 @@
     "kfc-au-supplement-data.js": "af33ffc60656c8cd391c35251c88e8c372188fd641a1e9636baeef3a1b64d595",
     "kfc-au-catalogue.js": "ea0f01eb3e5e8c609168b14bdb2eec4e05dd03d9ff41c29e12848baf10b7c905",
     "food-catalogue.js": "a5f80425a02eebdea66b7d96599c71c3b76225c67a900c865fb506376e5fb6c2",
-    "retailer-catalogue.js": "103833ffd89c8daacd43d89fc53c5e06c6b6396d0364b0d621661ae0efc31fa4",
-    "retailer-source.js": "297366d9150070d80a89b5f175e681ad3e6647b9f81c3797dae2f1cb1c1ea000",
+    "retailer-catalogue.js": "2ee2e548544e0b96d78133e36a18af68c0ea468ffb427124f6f3af1cc378e317",
+    "retailer-source.js": "2b93bd5f91c4dff76715044ca1f9d497c49ac03b2de0a56922365aed01525e33",
     "woolworths-au-catalogue.js": "2aefbaed040f4d7157f84f0b15565ece849e277e14f25478a21de19aa34b7845",
     "off-catalogue.js": "2cc88fbc05ee810a903ce6e0e17daf820a5b1a7ad55d7f80eb9437496816c37d",
     "coles-au-catalogue.js": "138fe86d5c4ce676a2c7c7f315d6469dd2dbdbca04563ec2c8fcc6fd691af5a1",
@@ -85,7 +85,7 @@
     "activity-foundation.js": "68f2e923769697bb90b0d0e13193533ebff5fa9b29846c0d05e5ced28fb83557",
     "food-groups-foundation.js": "2919670d100bb6de8794bed8a3bcbb7b18dec2d5f4a3a95912ddbd23268526b6",
     "conversation-foundation.js": "c313b738df302742261e2fd2ea06c58fcc72e38292f856a3da6df5596f799d26",
-    "alpha06.js": "f4eb28780fc6b0e532160b87e837de0ff22748fe2b89d6a4214e30bad6da3139",
+    "alpha06.js": "1faf466d2b19314140ba78f1f4d94e7149df85fa736ad00572e9cc8f943a3263",
     "alpha064.js": "e62d1f3a73c71ae5adea9ec1be76ee778ac6b00c1741553d8ce27bcb1b02a9d0",
     "styles.css": "99a0886c30277a666e7875ec691daa5070cdb9f22721e4d2a1bf7848d47be76e",
     "manifest.webmanifest": "20e91f54038b7ff6863544d11579b3ee3cbdb6001e25d92bafc03c3977e749ed",
