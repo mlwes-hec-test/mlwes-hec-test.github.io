@@ -1,0 +1,20 @@
+✔ all house-brand admissions reuse accepted canonical identity, brand, nutrition and measures (968.6135ms)
+✔ official house-brand relationship is bound to both identities and AU product evidence (3.7982ms)
+✔ every retailer root exposes its full audited membership once; restricted counts stay fixed (3353.9895ms)
+✔ direct house-brand search reaches the same canonical records without retailer brand replacement (562.7177ms)
+✔ source spelling keys, legacy Select and unresolved candidate holds remain explicit (1436.9673ms)
+✔ unknown nutrition stays unknown and natural measures do not change (106.4155ms)
+✔ incomplete nutrition and same-GTIN conflicts never gain ordinary admission (2069.778ms)
+✔ protected McCain canonical alias and 75 g Review energy are unchanged (9.9016ms)
+✔ family audit and admissions are hash-pinned with private-testing policy intact (19.9567ms)
+✔ all accepted brand identity, panel and measure bytes match starting SOURCE (1270.3455ms)
+✔ house-brand ingredient and use mentions cannot pollute concept narrowing (2.2316ms)
+✔ explicit retailer and house-brand product requests preserve evidenced identity (20.2654ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10864.0972

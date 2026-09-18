@@ -1,0 +1,72 @@
+{
+  "checkedAt": "2026-09-18T07:34:35.450Z",
+  "pass": true,
+  "sourceHead": "3435b42ee57b43cc24084d63c852ced916a21236",
+  "branch": "alpha-0.6.33",
+  "intendedFilesBeforeReportUpdates": 169,
+  "unexpectedChanges": [],
+  "whitespace": "pass",
+  "buildersExact": [
+    "woolworths",
+    "coles",
+    "aldi",
+    "brand"
+  ],
+  "staleOutputs": [],
+  "generation": "174a5378e0f75a49c175f6b5",
+  "version": "0.6.33",
+  "retailers": {
+    "woolworths": {
+      "visible": 960,
+      "ordinary": 940,
+      "restrictedVisible": 20
+    },
+    "coles": {
+      "visible": 904,
+      "ordinary": 904,
+      "restrictedVisible": 0
+    },
+    "aldi": {
+      "visible": 297,
+      "ordinary": 297,
+      "restrictedVisible": 0
+    }
+  },
+  "counts": {
+    "brandBrowse": 7489,
+    "brandDirectory": 2736,
+    "approvedBrowse": 7511,
+    "packagedUniverse": 73393,
+    "canonicalOverlapsReused": 291,
+    "newOrdinaryCanonicalIdentities": 0,
+    "genuinelyNewCanonicalIdentities": 0
+  },
+  "memberships": {
+    "aldi": 210,
+    "woolworths": 37,
+    "coles": 44
+  },
+  "mcCain": {
+    "gtin": "9310174025084",
+    "id": "woolworths-au:98299",
+    "grams": 75,
+    "calories": 130,
+    "energyKj": 543
+  },
+  "acceptedEvidenceFilesUnchanged": 425,
+  "existingFocusedEvidence": "Final house-brand 12/12 and previously completed focused campaigns retained; no unresolved failure",
+  "performanceReused": {
+    "coldFirstMs": 350.5,
+    "samples": 50,
+    "medianMs": 70.89999997615814,
+    "p95Ms": 115
+  },
+  "noCampaignRepeated": true,
+  "stagedWhitespaceCleanup": {
+    "files": [
+      "focused-tests.log",
+      "final-focused-tests.log"
+    ],
+    "change": "Removed trailing spaces on blank diagnostic lines only; test results retained. No runtime/catalogue change."
+  }
+}

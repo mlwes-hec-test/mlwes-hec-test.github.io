@@ -1,0 +1,4 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),B=require('./benchmark_brand_rendered'),{policy}=require('./brand-performance-policy');
+async function run(out){fs.mkdirSync(out,{recursive:true});const cold=await B.runCold(path.join(out,'cold-first')),normal=await B.run(path.join(out,'official')),result={scope:'Round Three final source runtime and catalogue data; one cold-first observation and one 50-sample normal campaign',generation:require('../release-manifest.json').generation,policy,pass:cold.pass&&normal.pass,failures:[...(!cold.pass?['cold-first']:[]),...(!normal.pass?['official']:[])],coldFirst:cold.measurement,official:normal.measurements};fs.writeFileSync(path.join(out,'house-brand-performance.json'),JSON.stringify(result,null,2));return result;}
+if(require.main===module)run(process.argv[2]).then(r=>{console.log(JSON.stringify(r));if(!r.pass)process.exitCode=1;}).catch(e=>{console.error(e);process.exitCode=1;});module.exports={run};

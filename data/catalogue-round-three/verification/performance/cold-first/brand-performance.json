@@ -1,0 +1,1585 @@
+{
+  "pass": true,
+  "mode": "cold-first",
+  "policy": {
+    "id": "brand-rendered-50-and-cold-v1",
+    "normalSamples": 50,
+    "coldSamples": 1,
+    "percentile": "sorted[min(n-1, floor(n * .95))]",
+    "median": "sorted[floor(n * .5)]",
+    "genericMedianLimitMs": 100,
+    "genericP95LimitMs": 300,
+    "coldFirstLimitMs": 500,
+    "otherP95LimitMs": 250,
+    "otherComparison": "<",
+    "warmupIterations": 0
+  },
+  "generation": "174a5378e0f75a49c175f6b5",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "diagnostic": {
+    "sameOriginRequests": 253,
+    "localFulfilled": 253,
+    "localResponses": 253,
+    "optionalLocalMisses": [],
+    "requiredAssetMisses": [],
+    "liveFallthrough": 0,
+    "pageErrors": [],
+    "consoleErrors": [],
+    "warnings": [
+      "Service Worker registration blocked by Playwright"
+    ],
+    "failedAssets": [],
+    "external": [],
+    "routes": [
+      {
+        "url": "https://mlwes-hec-test.github.io/",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\index.html",
+        "contentType": "text/html; charset=utf-8",
+        "sha256": "29644c78ec780bc7164bd8241794e5d11568d2f08281c5c0b5235d0b87bad971"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/app-icons/hec-my-data-180.png",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\app-icons\\hec-my-data-180.png",
+        "contentType": "image/png",
+        "sha256": "821ad74175976371f63744c5c6c2949c21e70089b5b4e673385849c9af692cf1"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/app-icons/hec-my-data-512.png",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\app-icons\\hec-my-data-512.png",
+        "contentType": "image/png",
+        "sha256": "915bb5322764baeaa2967ee987b92d86648a4540227e60693496238d6fd509b0"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/installation-config.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\deployment\\test\\installation-config.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "51eda2ef257743377cbcaa00eb8af0db7bcfee5601d2f58f53d1f8ec36f5f721"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/config.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\config.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "5917c660ff0a2bca08efe8029a74ea7a566e34719c27e09fc143390549a26895"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/installation-foundation.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\installation-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "dc71c1e21e8971a650e1f287cb9e9dcf634592586836a4e7dfd688c74d28fb7f"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/migrations.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\migrations.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "eb8433966b7e505147561ca0876585047ce90675817c63cc639469443aad188c"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/companions.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\companions.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "68a968795334573fee49f8aebcbfb863bcb09963c2b24eb541c394e1fc299fc0"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/companion-artwork.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\companion-artwork.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "34b293d84189769df566e668fc7c73039524cb6ffffc99dd5e7fdf8f21e4fb90"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/companion-voice-metadata.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\companion-voice-metadata.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "27140423757ed50ef25852371ae27bb73d4d2ace86b93fc00d0bc8fd14c38ac2"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/companion-voices.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\companion-voices.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "1d8ad4bb334c931d66c407e6b573e35e08bf526d4786440c9cd06d4d602ede64"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/stage4-foundation.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\stage4-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "3c1616b011cf13a6c5c16d925a04a20e8197cef9734c0a1b1a83b2c86b7f9287"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/weight-progress-foundation.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\weight-progress-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "5b6b7818bbbc5ac41df685747d6bdcbb46e1ec1e727b6f42109117a5518d7c7f"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/nutrition-trends-foundation.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\nutrition-trends-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "1c0a338f04fff58d9ea85dd0cac03bb057bb355194bf20f6905be1fe4549e2b1"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/app.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\app.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "8fc4061605e14c014c456274cd9b50f393be7eb3768f0a3ca715e69bf22c2196"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/entity-registry.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\entity-registry.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "eec3b44c9f4a35bf1dc8b415412223fcd641614d8de8da1fbf731113d5f6bddb"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/search-foundation.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\search-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "92e7d74e8f38e83f7501732c17dccc22f92cf93ab9fe1bf47275f2cc2dc391f7"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/product-serving-semantics.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\product-serving-semantics.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "35734e07540429ce77d1da99f643acc77325d71b1edf3a75db0a2de7b2e602d2"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/food-sources.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\food-sources.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "ce47dfe59913769db42d0ea7b1f551bbac1e832f9ac18f9c1f57ef0790d4b4e5"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/australian-catalogue-data.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\australian-catalogue-data.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "05ab1f75ed98a2c6bdafeff48d51f68b8f57124502d9d4f10846c448d92f3d68"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/mcdonalds-au-catalogue-data.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\mcdonalds-au-catalogue-data.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "8390eac90e11a94ecf436412dbe6cea328ab4e40844a43d9e2c0c1beebf70c50"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/mcdonalds-au-catalogue.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\mcdonalds-au-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "88b5f4e2c2e2d7affea39e5d370fb9a635704005ff810df05b2de927c83a6f3e"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/kfc-au-catalogue-data.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\kfc-au-catalogue-data.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "473e071cf68b18fd75481ea4def01166ee7b1237eecc0e56fa5a408e79305201"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/kfc-au-supplement-data.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\kfc-au-supplement-data.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "af33ffc60656c8cd391c35251c88e8c372188fd641a1e9636baeef3a1b64d595"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/kfc-au-catalogue.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\kfc-au-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "ea0f01eb3e5e8c609168b14bdb2eec4e05dd03d9ff41c29e12848baf10b7c905"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/food-catalogue.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\food-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "16ee81ecb9bf2ab43b1d47ddf796e3c4ff01a025aa61bde916ea3989f1df4296"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/retailer-catalogue.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\retailer-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "10b7b345568d72aca7f4cd7a88c9f03d064bfba0272eb1a4d655cde9c2fc754f"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/retailer-source.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\retailer-source.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "297366d9150070d80a89b5f175e681ad3e6647b9f81c3797dae2f1cb1c1ea000"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/woolworths-au-catalogue.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\woolworths-au-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "3676090a4831d31a6ad55384229a23afe70f55853573ce1a41f83b307e200143"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/off-catalogue.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\off-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "2cc88fbc05ee810a903ce6e0e17daf820a5b1a7ad55d7f80eb9437496816c37d"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/coles-au-catalogue.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\coles-au-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "032121e7f5f8dcff83f415088a1399e13963eb97f6143760634dcff981e09216"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/aldi-au-catalogue.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\aldi-au-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "688fa4a8ceae26cfcc885a7cfca5141aaf327b18c9e1266f76f99770e5b55881"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/brand-au-catalogue.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\brand-au-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "26922d7cd731f0324c80d9d26aab2e7c41fe73e07ef61c26cf18ca27a9df0303"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/brand-catalogue.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\brand-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "815044d094b78a446a1588f3d00249a9cdb135db12718e63a2744bcd48456182"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/guided-branching.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\guided-branching.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "fc6883c9a34fd19dda80b3f3c2289f01f092a4c6456f196bf2b85c256669eeb0"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/packaged-foods.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\packaged-foods.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "98a5d2da46c319391f5b114f9502aa6c28a2610ea3f2d96a3fbdf2172595c629"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/capture-foundation.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\capture-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "fb511df79da233ec7738d1dcdb0b3a26acb3393bf2fc924bd64d00cbfc7205d2"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/serving-foundation.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\serving-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "118a3fddffaaa611107629e16fd0b42ad5c03a18969d75ebde663d6c19cf59d3"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/guided-product-resolution.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\guided-product-resolution.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "6f941507e4937b23599530099b7988ad40af4b54d70c9d224830a4c952b77d68"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/activity-foundation.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\activity-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "68f2e923769697bb90b0d0e13193533ebff5fa9b29846c0d05e5ced28fb83557"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/food-groups-foundation.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\food-groups-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "2919670d100bb6de8794bed8a3bcbb7b18dec2d5f4a3a95912ddbd23268526b6"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/conversation-foundation.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\conversation-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "c313b738df302742261e2fd2ea06c58fcc72e38292f856a3da6df5596f799d26"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/alpha06.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\alpha06.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "864622bd877a0ce17442be5451beaea13f493a28f187fef07ee33cc5ccf150e9"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/alpha064.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\alpha064.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "e62d1f3a73c71ae5adea9ec1be76ee778ac6b00c1741553d8ce27bcb1b02a9d0"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/styles.css?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\styles.css",
+        "contentType": "text/css; charset=utf-8",
+        "sha256": "99a0886c30277a666e7875ec691daa5070cdb9f22721e4d2a1bf7848d47be76e"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/manifest.webmanifest?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\deployment\\test\\manifest.webmanifest",
+        "contentType": "application/manifest+json",
+        "sha256": "4a520e29476ad7e525265096dd35d105f87844c0efddde44f2f47d950fc74652"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/manifest.json?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\manifest.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "b1e5d58b660cb4d36192ec898bef95f1cfcdbaed9d374be4cc10820450981e42"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/afcd-release-3.json?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\afcd-release-3.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "d729c6ea5bf1014724bde5d4038e995cd79059824cebab9f32b52ed4671560dd"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/styles.css?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\styles.css",
+        "contentType": "text/css; charset=utf-8",
+        "sha256": "99a0886c30277a666e7875ec691daa5070cdb9f22721e4d2a1bf7848d47be76e"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/installation-config.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\deployment\\test\\installation-config.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "51eda2ef257743377cbcaa00eb8af0db7bcfee5601d2f58f53d1f8ec36f5f721"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/config.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\config.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "5917c660ff0a2bca08efe8029a74ea7a566e34719c27e09fc143390549a26895"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/installation-foundation.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\installation-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "dc71c1e21e8971a650e1f287cb9e9dcf634592586836a4e7dfd688c74d28fb7f"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/migrations.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\migrations.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "eb8433966b7e505147561ca0876585047ce90675817c63cc639469443aad188c"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/companions.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\companions.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "68a968795334573fee49f8aebcbfb863bcb09963c2b24eb541c394e1fc299fc0"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/companion-artwork.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\companion-artwork.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "34b293d84189769df566e668fc7c73039524cb6ffffc99dd5e7fdf8f21e4fb90"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/companion-voice-metadata.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\companion-voice-metadata.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "27140423757ed50ef25852371ae27bb73d4d2ace86b93fc00d0bc8fd14c38ac2"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/companion-voices.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\companion-voices.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "1d8ad4bb334c931d66c407e6b573e35e08bf526d4786440c9cd06d4d602ede64"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/stage4-foundation.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\stage4-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "3c1616b011cf13a6c5c16d925a04a20e8197cef9734c0a1b1a83b2c86b7f9287"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/weight-progress-foundation.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\weight-progress-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "5b6b7818bbbc5ac41df685747d6bdcbb46e1ec1e727b6f42109117a5518d7c7f"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/nutrition-trends-foundation.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\nutrition-trends-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "1c0a338f04fff58d9ea85dd0cac03bb057bb355194bf20f6905be1fe4549e2b1"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/app.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\app.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "8fc4061605e14c014c456274cd9b50f393be7eb3768f0a3ca715e69bf22c2196"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/percy-pelican.webp",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\percy-pelican.webp",
+        "contentType": "image/webp",
+        "sha256": "f79e5fc3745ea09fb98b0526d28769ba1e1d871362819fb31df4537a46d4b132"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/wally-wombat.webp",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\wally-wombat.webp",
+        "contentType": "image/webp",
+        "sha256": "8f34fbaf347d465e771281fa7e709453e45c592d795a83c828a76bcaec333d92"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/anna-goanna.webp",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\anna-goanna.webp",
+        "contentType": "image/webp",
+        "sha256": "e2efc2e1da539d2e04bb5ce92552bd5f29906ea56cf1ec326ad09e00bba114f7"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/shelly-turtle.webp",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\shelly-turtle.webp",
+        "contentType": "image/webp",
+        "sha256": "8d537c227cd88fa687eb3a8581dc0de8e7dbdd1c177c0e1eae2200668c3bd8b6"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/ruby-ringneck.webp",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\ruby-ringneck.webp",
+        "contentType": "image/webp",
+        "sha256": "f2ac967e366447432c0bb525119f04874af4fbfa2ac4c31c474b5ec6b0ddf147"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/bonnie-bilby.webp",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\bonnie-bilby.webp",
+        "contentType": "image/webp",
+        "sha256": "333a0b3cf51ae29f62a32777cfba6f493e7497588c2f714a302e495401df749b"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/skip-kangaroo.webp",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\skip-kangaroo.webp",
+        "contentType": "image/webp",
+        "sha256": "b139f5ef5ca9751f7da88cdb52f2367ba8c60d3fe1d638c962f826eaaa9e4aed"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/rusty-dingo.webp",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\rusty-dingo.webp",
+        "contentType": "image/webp",
+        "sha256": "ba049ece4cee5ca74460508143761bed385f43af29967eb58c6cbcced6ab0a50"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/gary-galah.webp",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\gary-galah.webp",
+        "contentType": "image/webp",
+        "sha256": "1f546aee82fc52b4fa220184b85f793d92a4e1edb512fbf7be2bdba4c0f97dba"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/monty-python.webp",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\monty-python.webp",
+        "contentType": "image/webp",
+        "sha256": "127fde1859d768ff07803c4be80cf8902ff194b2fe788351b50483eae2613fd6"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/chuckles-kookaburra.webp",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\chuckles-kookaburra.webp",
+        "contentType": "image/webp",
+        "sha256": "0f52aeba8f024040a9c0579dcdc0e4fb3b877d6763580a28c68a0498a60bf802"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/ernie-echidna.webp",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\ernie-echidna.webp",
+        "contentType": "image/webp",
+        "sha256": "e03ac30375b4f8bf65a4a530d1cfecaf82b5ece0db702fb2d055347dd2814b9a"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/spike-thorny-devil.webp",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\spike-thorny-devil.webp",
+        "contentType": "image/webp",
+        "sha256": "66de8f89fc1134abdef0ce868556d5be45fc6b7314db3c8ffc3c2617ce425232"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/cassie-cassowary.webp",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\cassie-cassowary.webp",
+        "contentType": "image/webp",
+        "sha256": "bf7c0c0aeb9ac97a80f71ae0e2365ec8eda73ace6a148bf0c65fa3badfed830d"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/salty-crocodile.webp",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\salty-crocodile.webp",
+        "contentType": "image/webp",
+        "sha256": "91dc823b4857c94ede69ac6d859afa963f3504e9ac84c3bc4b2faa46055ef875"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/bushy-koala.webp",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\bushy-koala.webp",
+        "contentType": "image/webp",
+        "sha256": "faff3d2dc1487608ad590e4d18b9c07a28b1db73f5016549a0f9d901be9e158b"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/hero/512/percy-pelican.webp",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\hero\\512\\percy-pelican.webp",
+        "contentType": "image/webp",
+        "sha256": "8bcb7041c09acc7a6522f37d82be46cbc586d09aabec42031e687a5c7875e243"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/entity-registry.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\entity-registry.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "eec3b44c9f4a35bf1dc8b415412223fcd641614d8de8da1fbf731113d5f6bddb"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/search-foundation.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\search-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "92e7d74e8f38e83f7501732c17dccc22f92cf93ab9fe1bf47275f2cc2dc391f7"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/product-serving-semantics.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\product-serving-semantics.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "35734e07540429ce77d1da99f643acc77325d71b1edf3a75db0a2de7b2e602d2"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/food-sources.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\food-sources.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "ce47dfe59913769db42d0ea7b1f551bbac1e832f9ac18f9c1f57ef0790d4b4e5"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/australian-catalogue-data.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\australian-catalogue-data.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "05ab1f75ed98a2c6bdafeff48d51f68b8f57124502d9d4f10846c448d92f3d68"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/mcdonalds-au-catalogue-data.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\mcdonalds-au-catalogue-data.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "8390eac90e11a94ecf436412dbe6cea328ab4e40844a43d9e2c0c1beebf70c50"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/mcdonalds-au-catalogue.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\mcdonalds-au-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "88b5f4e2c2e2d7affea39e5d370fb9a635704005ff810df05b2de927c83a6f3e"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/kfc-au-catalogue-data.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\kfc-au-catalogue-data.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "473e071cf68b18fd75481ea4def01166ee7b1237eecc0e56fa5a408e79305201"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/kfc-au-supplement-data.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\kfc-au-supplement-data.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "af33ffc60656c8cd391c35251c88e8c372188fd641a1e9636baeef3a1b64d595"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/kfc-au-catalogue.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\kfc-au-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "ea0f01eb3e5e8c609168b14bdb2eec4e05dd03d9ff41c29e12848baf10b7c905"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/food-catalogue.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\food-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "16ee81ecb9bf2ab43b1d47ddf796e3c4ff01a025aa61bde916ea3989f1df4296"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/retailer-catalogue.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\retailer-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "10b7b345568d72aca7f4cd7a88c9f03d064bfba0272eb1a4d655cde9c2fc754f"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/retailer-source.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\retailer-source.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "297366d9150070d80a89b5f175e681ad3e6647b9f81c3797dae2f1cb1c1ea000"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/woolworths-au-catalogue.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\woolworths-au-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "3676090a4831d31a6ad55384229a23afe70f55853573ce1a41f83b307e200143"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/off-catalogue.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\off-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "2cc88fbc05ee810a903ce6e0e17daf820a5b1a7ad55d7f80eb9437496816c37d"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/coles-au-catalogue.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\coles-au-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "032121e7f5f8dcff83f415088a1399e13963eb97f6143760634dcff981e09216"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/aldi-au-catalogue.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\aldi-au-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "688fa4a8ceae26cfcc885a7cfca5141aaf327b18c9e1266f76f99770e5b55881"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/brand-au-catalogue.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\brand-au-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "26922d7cd731f0324c80d9d26aab2e7c41fe73e07ef61c26cf18ca27a9df0303"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/brand-catalogue.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\brand-catalogue.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "815044d094b78a446a1588f3d00249a9cdb135db12718e63a2744bcd48456182"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/guided-branching.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\guided-branching.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "fc6883c9a34fd19dda80b3f3c2289f01f092a4c6456f196bf2b85c256669eeb0"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/packaged-foods.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\packaged-foods.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "98a5d2da46c319391f5b114f9502aa6c28a2610ea3f2d96a3fbdf2172595c629"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/capture-foundation.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\capture-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "fb511df79da233ec7738d1dcdb0b3a26acb3393bf2fc924bd64d00cbfc7205d2"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/serving-foundation.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\serving-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "118a3fddffaaa611107629e16fd0b42ad5c03a18969d75ebde663d6c19cf59d3"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/guided-product-resolution.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\guided-product-resolution.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "6f941507e4937b23599530099b7988ad40af4b54d70c9d224830a4c952b77d68"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/activity-foundation.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\activity-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "68f2e923769697bb90b0d0e13193533ebff5fa9b29846c0d05e5ced28fb83557"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/food-groups-foundation.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\food-groups-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "2919670d100bb6de8794bed8a3bcbb7b18dec2d5f4a3a95912ddbd23268526b6"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/conversation-foundation.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\conversation-foundation.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "c313b738df302742261e2fd2ea06c58fcc72e38292f856a3da6df5596f799d26"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/alpha06.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\alpha06.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "864622bd877a0ce17442be5451beaea13f493a28f187fef07ee33cc5ccf150e9"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/afcd-release-3.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\afcd-release-3.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "d729c6ea5bf1014724bde5d4038e995cd79059824cebab9f32b52ed4671560dd"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/alpha064.js?g=174a5378e0f75a49c175f6b5",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\alpha064.js",
+        "contentType": "text/javascript; charset=utf-8",
+        "sha256": "e62d1f3a73c71ae5adea9ec1be76ee778ac6b00c1741553d8ce27bcb1b02a9d0"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/manifest.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\manifest.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "b1e5d58b660cb4d36192ec898bef95f1cfcdbaed9d374be4cc10820450981e42"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/woolworths-au/products/round-two-004.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\woolworths-au\\products\\round-two-004.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "92f7e8293dce5679ed04b6d2dd6d62c5870467ce1850b551b629baf73cdf8b3b"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/woolworths-au/products/round-two-014.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\woolworths-au\\products\\round-two-014.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "e8078dc18b33075937878f4895c11dcc95a99f0dd71e683dcf7ee909485b2b08"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/woolworths-au/products/round-two-002.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\woolworths-au\\products\\round-two-002.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "e54fd96f42dd6c61e95cb3932a5a8a2a75050e52333c30111aa2d615df012957"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/woolworths-au/products/00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\woolworths-au\\products\\00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "138d02629bda7d781ba707d690d79d5d421561f5ad5759decab6a6cf88eff381"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/woolworths-au/products/round-three-000.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\woolworths-au\\products\\round-three-000.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "cc26cf0ee3f3a4c7f2a52d92a1dc6b284f7f61fbc24429c7fc08c687116737e8"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/woolworths-au/products/round-two-007.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\woolworths-au\\products\\round-two-007.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "649a759ab542b46f1c7cf8380cfa3291c11dac2c0218d8d7d903fa1cec585b55"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/woolworths-au/products/round-two-013.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\woolworths-au\\products\\round-two-013.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "96205d2b9fffbfe7bd820bcb2959f0aa4bd8da8486c8dc25c8baa39e74afd7f3"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/aldi-au/products/round-three-000.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\aldi-au\\products\\round-three-000.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "372f1acb87ef13455c0e21c209167cf05be84b0221ebcdbefdbc742828736849"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/aldi-au/products/round-three-001.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\aldi-au\\products\\round-three-001.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "2df92537bb1c1bb25d730686cbea0f5a35b9ddda93626b2f99ecc570e37e13a8"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/aldi-au/products/00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\aldi-au\\products\\00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "9bda6718b30186499ba39df7676cb471f08cf4c372c5ed73b9157985921e31fb"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/aldi-au/products/round-three-003.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\aldi-au\\products\\round-three-003.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "b40e488af5506c0c29adc2c76b3375dfe5314bc5194e016608dfc8ce083673b3"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/aldi-au/products/round-three-004.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\aldi-au\\products\\round-three-004.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "a84539335f25dd7b9b87ff92aec88482f39afdf8192a993da7137612af031fa7"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/aldi-au/products/round-three-006.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\aldi-au\\products\\round-three-006.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "1615c9e03bda2944a567951580725e903db57a888129a1c44a869cb046fd6197"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/aldi-au/products/round-three-008.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\aldi-au\\products\\round-three-008.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "20328bcc0c95f40f10844eac38612ab5e7645422e0052ee572a25379b8b494eb"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/aldi-au/products/round-three-010.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\aldi-au\\products\\round-three-010.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "1b5bb543479b379264caae726c338ac2c9e20d2579733ef50d5de00f5e373a21"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/intelligence/br.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\intelligence\\br.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "0f1ac5fde1972f31d21b755da35c882a11d5335a0a39eee080e05220a63ca289"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/intelligence/fr.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\intelligence\\fr.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "ef01c7bf572ba6cfa07d16bc30a42394a96724e09dbe9c2056a348fd8b358a0b"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/intelligence/co.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\intelligence\\co.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "c0c82b3668a880983187903ea148f7c95e710a9b0b80d98c3c465ac24aa78df7"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/intelligence/to.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\intelligence\\to.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "ac689e7970453185afa13e7746a5d4d3367d81729129521ccdca310a681a7f55"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/coles-au/products/round-two-013.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\coles-au\\products\\round-two-013.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "0e0b105a0617a0d5a73cf8bde29ef66f4e586e820d6f44467f9d3a11960b2f03"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/coles-au/products/00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\coles-au\\products\\00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "81ca8b80cc619151fda0175b6e646c20798d76bd57cf603400ec608cbf656a4f"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/coles-au/products/round-two-006.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\coles-au\\products\\round-two-006.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "6623f6f599216abd2f646540351b19c91e08c0ce18497def2258c06e4d40bbac"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/coles-au/products/round-two-005.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\coles-au\\products\\round-two-005.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "611d36e3db46724680eb00bf6ee56e4a64797075994a9966f3be57205ae519cf"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/coles-au/products/round-two-012.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\coles-au\\products\\round-two-012.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "e8cf74c7dd1ec9a013458eba207ab2894c34fa35119d81678d8327bb87197627"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/coles-au/products/round-two-019.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\coles-au\\products\\round-two-019.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "6ab98ff9343c09a9e09de364612946ddc8138a9da6bc34fbfde3f46041f2c5f7"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/coles-au/products/round-two-021.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\coles-au\\products\\round-two-021.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "02d9d8070660bfeea2bbf0114804418cd2a2d8a07ae0e5a569b8555b17b4e945"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/coles-au/products/round-two-031.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\coles-au\\products\\round-two-031.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "a0ba036ced51d656a701036a31c530a53e8677708f6784c10a2feca6fd125dd3"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/search/br.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\search\\br.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "258d14f393569cf257ed57fde7048b21e28029e91ad7ea7cca55b8d858f1f01e"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/search/bu.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\search\\bu.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "96f864fffaa501275641a8bb28f720581a50100062c5e4ec6d7192c1276a79fd"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/search/pu.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\search\\pu.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "64d2d99f7e5686c037a5fe65323c8983f5cfa54fc3708130df99adea0d4c2209"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/search/fr.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\search\\fr.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "51f26fc42ac7f5fc46b7a9788be7cbd9aab967804e864c0125b5ee7ce453e7a2"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/search/to.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\search\\to.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "ec789e5439ca54ab608fc15dd54589bf07ece9ef1b42c54bbea19abd40d5fada"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/search/co.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\search\\co.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "326144749f348303a29053120a58e9ad3238899de5bbba1a113cb0756bec333e"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/br-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\br-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "e1e3c662213d4249d68b0f378711c7eb07e65bbdbaa07ac4d31a1260a6e1c465"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/la-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\la-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "b8f600556e9d7c0a77bcb76a1b74d893e8ed30b8d0ffa9659b23f6b3ff5cefa1"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/ba-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\ba-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "9646b7acc33cc7233437f28e747b924aaa00c7ede96e9c37ad396dde0abe62ec"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/co-01.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\co-01.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "e89745b7ce19003d2999997061697f8975928464f184edc76a23a1ed426698a9"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/ti-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\ti-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "7fa167e88356ae066434bf3e7f0971d8e8655d1335a1271cbc2b34f70a017023"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/gr-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\gr-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "7575107a48aebedcd2cc3941fbfc7e858412fe28685885df728ad476ec9774bb"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/he-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\he-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "070e6988a14f20a3bd4b2dab052eb87c895ace372cea69ff3b1d55779e417e81"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/bu-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\bu-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "3518ca9291268c8f003cafe88491c5d2b29ad9ad208fadd792a6e7c58cb6bc99"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/ka-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\ka-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "632c041a5b5473c66cda963103fbcded5a85dbe80f422ea61f294e61087ffcf0"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/wo-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\wo-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "1502037259a246c86ca2254ab2e22edb7334f103428bdd3a8a405208edc560f2"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/wo-02.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\wo-02.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "f7a195c26d0fd422ed6a4803b5370ac717b5d40a3fc446cb2bd5b17ced4a761a"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/wo-03.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\wo-03.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "a521e4ae0bfd6788da6dff71de6eeb407c19734f8f136979a5cac5de432e3209"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/7e-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\7e-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "35032293ce32c92926aeb5739af97a6b0a6d24c0ef5ea07a43639c0874425221"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/ma-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\ma-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "8c2f122cd83808eca732e77234d324d8fb57acce86a86f51f77c2f89eb6eed06"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/mi-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\mi-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "f2dbaf7e9c498ea60dee6f1402b3cb128842c1bcfd0fb3eb0e25900da04d6bf8"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/co-02.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\co-02.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "5d7e80ec976e8f9417593df99a12983a35f04c264ffa43c9ad9a519b9bca8f46"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/so-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\so-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "ca942f714d2f7eb3281bb51ccc8bd6a7e331a5a9e1b3fd5dd25bc82eb4a84e89"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/bi-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\bi-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "b5e0253418ebf0ea4973973577ecbae5cda8b6425ea0f1325f7cce786a4e5ab0"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/ki-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\ki-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "36abdcc33f9ec7198beb502141d4b44753aa15afa58cd15e4eb57fdbd79e0511"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/ab-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\ab-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "b15ac9dd1d0967113d2441e3f9f6f5036831bc4f42ee31a975ffe70c56848f21"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/al-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\al-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "8cd0d5a54a673d196f27514319f161b25871b6c88cdf1bb93d0e38540a780577"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/al-01.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\al-01.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "5d5676a17a090f2985120479a290c0c463063474c7b6e4d5f29c226f4f52f3db"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/cr-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\cr-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "e8dee9776a45bda7f31eb6fdb9f59be9d86306ab98e302e9a536d064f8540dc8"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/fa-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\fa-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "1d364b046ab104ab1a99ca8788fe329f349342f5839afa9f8c5e93747d57f6a8"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/gl-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\gl-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "df101bd8c68aa57fe9e633bc68918adfe788e2d25c32895e616bc420c0140dff"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/go-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\go-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "da5493c4abbe6d291255b09b51cb33f17523cc5213a91471c63b650a369f50f8"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/ha-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\ha-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "e74e898dedf43f6d77c7a46cfb78c8819f0338e512f78c739c68d698745c72fd"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/ke-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\ke-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "07e8866cd339a188c6e270bfa1b41a90dbcf932c89885c0d2904355e1c92968e"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/ma-01.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\ma-01.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "be49aee6e81471f82d8dbbe77151111335a0fe3c2df57682d83b9a28f6aac6d1"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/pe-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\pe-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "48d279e17e88db72979e626e4b0ae8217562b3e4ca2971e73ff76dd783b34e6d"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/vi-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\vi-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "bd456b112b309415c243c9ebd510c19d0c1b0214fff8abc2bc8baf30a15b7d1b"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/wh-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\wh-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "25b75f919813e5f3debfddbca58b8e8c8d7f3bd2244d843a3f82abd0e1bddfd6"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/ba-01.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\ba-01.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "aba93a22784539f56f264f053ec5910b4d5638ac886a990fd896e00cd94c276a"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/co-03.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\co-03.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "00b741b9f4082f5fc7308e0bee69361a053af3e1ec2d64ce940f80129a8f895e"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/co-04.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\co-04.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "88e775068810e45830c257ec54f79cef13bfd828b85b33ef8319e49af912e7c4"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/co-05.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\co-05.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "8a8cc6bf87d8a2eb5c8e851e58672031bcb2ca98444718b5ed662df9d67f13f7"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/fl-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\fl-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "51dd403d84693059d876b1425c37c7ec5e46b31584948cf8b601290092eea0f8"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/ga-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\ga-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "413fe2d5cb1f8484e71bccffeb95d2d4f1361fcf8cf5f0e09b5177780bc7732d"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/ge-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\ge-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "a32095506aea6a31d8fa1433123ccdc78b56584c9c81f24659ca253344302be5"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/ko-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\ko-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "853f9ef8de74eed7da171c97bb55d480e1b0ad1a19790d5629b3c54d6b7f7ff0"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/le-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\le-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "d0a34e530e605c127c268ffd552c83c257c5971a431619bfe769498317787e7c"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/or-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\or-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "717c21526cd5858a13feab877b4772268872be683ded3032d2606ab9982abb61"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/pa-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\pa-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "f5b3900e897594db1a5cc81f183b41c39a6aff0750d91c9ab719e19b2ea11cc0"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/pl-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\pl-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "794a07de7fb674bcffd48b88838552fec3fed29b75d1eee25f5f7f04c67f7cc9"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/sa-01.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\sa-01.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "ba4835f3594309b4379309df9a20344e53aee01184acb56a8fdb8c69f4e9c29f"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/st-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\st-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "78cdaf697d5124d7c64d228f31e58c4ef23143062768bdd78ba57cf788078043"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/th-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\th-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "f22532f6184efe5abad9ccb9649c12be35a7815b3115f8752ad0199a88ab68e6"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/wo-01.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\wo-01.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "50b6ce1f04f1a161a0a3ee009e63a057c5d29d7ce42241186873d6061d8163c4"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/yi-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\yi-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "0be984281439651ed47a0335724ca8e1674082454a4fec3c3d4cc2dba1fb018f"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/bc-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\bc-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "4323b87097ce2ed06998abac33b86cc91ea696ba8dff0274d71209c23e3a8897"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/ob-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\ob-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "971b1584eb43658b8541dec9fe74330cdcea3ca0e816dfe9c18e557dcf9221d9"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/sm-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\sm-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "550abb80c3006b4a2fbf16bc4d02ced800e8aa91e4f775974310c928c7fa4d7d"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/ol-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\ol-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "e7fd2553042e73330ee4ca258bced79c5747df080fc571547299efc60740683a"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/ar-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\ar-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "72ea038f861e324b904d451cc7d42982c334034087dcaaf6855c0b5da13f6415"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/fe-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\fe-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "575271524671f1d8234828c068a1d7e13da32f5686952a5204a327407a8071ed"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/je-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\je-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "059eac6fde96dc9a9687054acbd3578d84d9cb565527e5c5ab59c292e7b5c540"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/mo-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\mo-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "9d0515edb62686b2f8dc0a6120bb28627a5e6db2d44b9c6fe2da3cb97ca5d190"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/mr-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\mr-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "4134f2e227509eec515d74eeb1e66b4b022fe842aabdf6ecb94bfa9b5bc281eb"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/si-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\si-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "169bb3c312af1f43434ee61597fcc75e657212b261333ec42c07f2ae1e2f440d"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/we-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\we-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "27029d08cec432269c81d73947095a107f8a68fea29534142e86318d1d9ab32f"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/bo-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\bo-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "ad00c64e78c063cacb7b776dcaee7daa167669302da3cca181899e19b0a122ca"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/gu-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\gu-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "600b9484007d220fb13d86c6b067266ae2bcf7177e0f3786b7d736cb8d31b4fe"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/me-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\me-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "49bcdb2cf759319043ddf3607e6177f87150b0b583e544063853dab888ae491b"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/mc-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\mc-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "dbcbdc367309499e924abf0f3bfdb1bc103bbc53c21e0344b644fa0f20e42139"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/to-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\to-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "46b4df6e926637d1c970d60194ca022c5a68ecb6504532aea009e7b1544c7f6f"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/su-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\su-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "3c2de49c46b5aa5aed0a476b09298e5ecc7abc6326fa3211a57f8ccccd33101c"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/an-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\an-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "8d3af03c8946a6fb678b4ef9f924f9f29d27d08c00c0cd4fb1b429a191af435e"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/au-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\au-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "f0bb4256e3f3aafbccebcc722693666dd846fd25752a3c911c73173b0078b926"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/bf-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\bf-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "6dabe762fdbce80a0a8a0b7a636e114c86da8374f25520ab52eeb900b3137cc7"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/ca-01.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\ca-01.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "0b0557d16cf3414741ca1f38a5fd7523d154a429f4d7a01cd8f0a94f01d6898d"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/da-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\da-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "d667aa1b1265ecd5beaca7068b3da08328181c497646ac7c5d46bfe0ab05e19a"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/et-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\et-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "48d7fc020e5431bfa3c0f678ba69eac0ae63e03338254248689c4601feb00fe7"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/hi-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\hi-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "adce88eeabfb004302afa6afe111f0e296f84fb6c53679e1ac879ad7ca1a3088"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/ma-02.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\ma-02.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "d1472b5f9091379c1c3f7ee8c97b65f6461e0446fac577fcb28b28cfaa426d08"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/pi-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\pi-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "c67a00c7ed529d19f36d76da7bd5d257a9d7d8aef51e4b27ac8fa86c1158a265"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/th-01.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\th-01.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "5956fb110e1bb138b038905fa111cfb78935dcfe9d433177ccbabcf2a2221882"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/tu-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\tu-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "e33233aa14d5829c1c73ebbdb7f0c3169984c011dc67be0e22ed36f664e727c2"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/va-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\va-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "351d9abe5b602327db37afbf700bba177340ac9e162c27f6349db821d8e1b750"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/7s-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\7s-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "8fb524415d5184b7305ab518d4143262fc10a849499f9225e070d63075b92ca2"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/el-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\el-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "04034f67249fe3d0e37542ad5b30c3e9644957c668c0841ad42926dd484d8d17"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/gf-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\gf-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "a536befa4dc4d43b5d9ac6f547c491af0bbafdd57a3a03df24b63c23a58b68b7"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/ho-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\ho-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "f0fd818be899c633719418fb06990101badc619e978cccd93ff74d7914337a40"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/il-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\il-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "b5f6046c839eae7cdf1d520efcf762f5da58f0ae7ea88d5fc8d0fc03638bf326"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/li-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\li-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "4294c297f52f8dac025a6577039dcbdcf566fdafefeeabe9bd7ace90a8078d62"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/mu-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\mu-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "2cfe8582c85f190d86b9e0000ed9f87cc98d333c6aa651a589eac8e6bb83c803"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/sk-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\sk-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "a83eb57cbd93fbf88a3b568c9407b2cf75fdb5b3847a3c07b8da5a6c02785204"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/tr-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\tr-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "e5ebbb66882e3915baac5f2de785949fafebd448a1a9f5d92f8514a2e98a9388"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/wa-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\wa-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "d6f8e53d5ecee59a872f27012c6ced002814cae3dd9b7ea4d2ccc95f8615fa8a"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/wi-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\wi-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "fb5ed35d964e17f284e034ceca931ae63af95f9f9b68ae83056a8b472c6a3015"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/ku-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\ku-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "494d184bb232669667ccf0d5e63d294a7bc1fa467a09c95a515936a4c14058ca"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/do-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\do-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "700383cc91023d90bc7d16ad5de4c1d8e3c55f4d3ab257093db71b78c364c8b7"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/hu-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\hu-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "76c080ec5b982c4bfc7975733c02ceb5caa1735dc6764a1fac7e8370a7238fd4"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/ry-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\ry-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "8c07c58293f8f178410572130d55b0ca0583b8f4dc72c733eef23188d0c03c10"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/re-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\re-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "dfa219f75932a66cd2a59c6ff159bc670a14d1730c0d4c7b0f9a9c2cc6bbb093"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/ci-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\ci-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "4f2373b565507e53345dbfc7c4a884c3cebafbce6bfcaff98608da991fa1b897"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/im-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\im-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "7c4db391e414c11d6c914798b8784cf76df3499b2e763b51bcf43fe4886f055e"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/lo-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\lo-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "6c20957152cab555aff4114a5ece8f0aa7c91c0a3ad218f136adfa652fa85c18"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/qu-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\qu-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "47c142fadc2d26ebba1d5d7be7016124f290dc59f474ade73cf14815b81d23dc"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/ai-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\ai-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "fc708c5d811282bf6257f08d01ed7a4bea0ecbaa3b900dd088ab50c664756cb2"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/un-02.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\un-02.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "e4e810ac4c1f51e18203f509a9e2e40b5946034f835e53e073ec36ced5b0972e"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/aa-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\aa-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "4654a3830562b567c2688b089f9d8267ba6a0ed85a40eeb4cf7a72834e536305"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/yu-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\yu-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "b5b835f7be8632a86a6c9eb649bc533417c402e3c93c8d3aac8bbc2b0c91b6e2"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/ca-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\ca-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "8a7810a7e37fa789fd0291629b2d6462dbfa01353724b6b07a2cfa03fb8a0ed5"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/ch-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\ch-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "f80cbb4f9d789c5d46a6e8a36ad28b83ab935553e7a3dbddef667a0b32d4c3b5"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/fo-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\fo-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "122d242ba4a0844a6a5813e9a235183da79ef4e544039577de6905d4f591cc11"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/ra-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\ra-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "7cd2325408c0e6d0f2dde57242179360b803745cc11c9e13c538856d9fc19622"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/sa-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\sa-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "eb2954eafe92ed0b97298eea6442eb7b2934f3fb32b950ae820a572e2e63cfa5"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/se-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\se-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "484ceda46b9dc10ddebd3d19dce33bd14ba379f581e2967c676cfe1cb912ae61"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/te-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\te-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "609042e6fda3881b9459a3c21a0a907c17f6dd0fb4562e44ac35d0a50982f046"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/yo-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\yo-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "0c2903e5815ed0409666c2a09810e29a8297894e6eaeddfa33b4357039cba549"
+      },
+      {
+        "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/products/di-00.json",
+        "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\products\\di-00.json",
+        "contentType": "application/json; charset=utf-8",
+        "sha256": "ed9d8d8e3b27bd6eb0f8d655b8a51e69478e6e9855545c41a28b40921f5d86da"
+      }
+    ]
+  },
+  "samplesMs": {
+    "genericShortlist": [
+      350.5
+    ]
+  },
+  "measurements": {},
+  "extraFlows": [],
+  "browser": {
+    "name": "Microsoft Edge",
+    "version": "153.0.4234.32",
+    "executable": "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe",
+    "freshProcess": true,
+    "freshContext": true
+  },
+  "measurement": {
+    "iterations": 1,
+    "firstMs": 350.5,
+    "medianMs": 350.5,
+    "p95Ms": 350.5,
+    "maxMs": 350.5,
+    "samplesMs": [
+      350.5
+    ],
+    "limitMs": 500,
+    "comparison": "<=",
+    "pass": true
+  },
+  "failures": []
+}

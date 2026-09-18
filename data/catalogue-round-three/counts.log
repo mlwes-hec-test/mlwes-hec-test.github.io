@@ -1,0 +1,106 @@
+{
+  "date": "2026-09-18",
+  "retailers": {
+    "woolworths": {
+      "before": {
+        "visible": 923,
+        "ordinary": 903,
+        "restrictedVisible": 20
+      },
+      "after": {
+        "visible": 960,
+        "ordinary": 940
+      },
+      "admittedMemberships": 37
+    },
+    "coles": {
+      "before": {
+        "visible": 860,
+        "ordinary": 860
+      },
+      "after": {
+        "visible": 904,
+        "ordinary": 904
+      },
+      "admittedMemberships": 44
+    },
+    "aldi": {
+      "before": {
+        "visible": 87,
+        "ordinary": 87
+      },
+      "after": {
+        "visible": 297,
+        "ordinary": 297
+      },
+      "admittedMemberships": 210
+    }
+  },
+  "totals": {
+    "brandBrowse": {
+      "before": 7489,
+      "after": 7489
+    },
+    "brandDirectory": {
+      "before": 2736,
+      "after": 2736
+    },
+    "approvedBrowse": {
+      "before": 7511,
+      "after": 7511
+    },
+    "packagedUniverse": {
+      "before": 73393,
+      "after": 73393
+    },
+    "newOrdinaryCanonicalIdentities": 0,
+    "canonicalOverlapsReused": 291,
+    "genuinelyNewCanonicalIdentities": 0,
+    "retailerMembershipAdditions": 291
+  },
+  "families": {
+    "auditRows": 221,
+    "relationshipVerified": 82,
+    "current": 58,
+    "legacy": 4,
+    "uncertain": 159,
+    "materiallyRepresented": 116
+  },
+  "holds": {
+    "distinctRetailerCanonicalPairs": 8895,
+    "distinctCanonicalIdentities": 8892,
+    "reasons": {
+      "production-projection-ineligible": 8365,
+      "needs-nutrition-completion": 8317,
+      "missing-required-macros": 8075,
+      "house-brand-relationship-unverified": 1961,
+      "identity-incomplete": 471,
+      "energy-disagreement-over-five-percent": 440,
+      "liquid-basis-not-corroborated": 369,
+      "off-quality-errors": 343,
+      "serving-basis-conflict": 285,
+      "nutrition-conflict": 260,
+      "AU-only-product-corroboration-required": 97,
+      "invalid-gtin": 91,
+      "physical-form-pack-conflict": 69,
+      "details-only": 48,
+      "food-domain-not-established": 46,
+      "contradictory-serving-text": 22,
+      "pack-serving-unit-conflict": 21,
+      "unsupported-domain": 19,
+      "material-source-conflict": 16,
+      "australian-product-identity-unresolved": 14,
+      "source-brand-token-is-not-consumer-brand": 13,
+      "composite-product-category-unresolved": 11,
+      "prior-individual-review-hold": 6,
+      "existing-canonical-conflict": 5,
+      "protected-retailer-internal-record": 3,
+      "incompatible-retailer-gtin-overlap": 3,
+      "name-category-contradiction": 2,
+      "incoherent-nutrient-mass": 2
+    },
+    "notes": "Reasons overlap. Per-family counts are separate source-key views and must not be summed. Some unresolved secondary spellings can refer to a canonical product already admitted under a proved primary brand."
+  },
+  "generation": "174a5378e0f75a49c175f6b5",
+  "version": "0.6.33"
+}

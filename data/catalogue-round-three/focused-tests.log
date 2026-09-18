@@ -1,0 +1,210 @@
+✖ audited brand generation is byte deterministic and committed outputs match (49696.4186ms)
+✔ the established percentile is the maximum at 20 and index 47 at 50 (4.5662ms)
+✔ all samples including a slow first search remain in arrival order (4.4442ms)
+✔ generic median and p95 are independent inclusive gates, evaluated without rounding (2.2431ms)
+✔ cold check is separate, exactly one observation, and inclusive at 500 ms (8.2719ms)
+✔ all other rendered operations retain their existing strict 250 ms p95 gate (3.894ms)
+✔ incomplete distributions, unknown operations and invalid durations cannot pass (3.4218ms)
+✔ one failing independent run or cold check fails acceptance without averaging (1.8189ms)
+✔ independent source identities retain eligibility and ranking when weaker same-label rows arrive (247.0148ms)
+✔ copies of one canonical identity cannot manufacture label ambiguity (3.8073ms)
+✔ ambiguous labels within one source stay blocked and exact preview cannot bypass that decision (36.331ms)
+✔ independent sources do not make generic or unnamed records specific products (42.862ms)
+✔ shared GTIN conflict and source authority checks still control canonical merging (80.4555ms)
+Chiko regression evidence: C:\Users\mlwes\AppData\Local\Temp\hec-chiko-regression-cEMNOo
+✔ real production Chiko preview, hydrated Search and selection retain the accepted roll identity (23160.0549ms)
+✖ all house-brand admissions reuse accepted canonical identity, brand, nutrition and measures (200.8376ms)
+✔ official house-brand relationship is bound to both identities and AU product evidence (5.0187ms)
+✖ every retailer root exposes its full audited membership once; restricted counts stay fixed (9071.0609ms)
+✔ direct house-brand search reaches the same canonical records without retailer brand replacement (2628.4568ms)
+✔ source spelling keys, legacy Select and unresolved candidate holds remain explicit (4092.5435ms)
+✔ unknown nutrition stays unknown and natural measures do not change (1006.0515ms)
+✖ incomplete nutrition and same-GTIN conflicts never gain ordinary admission (904.1809ms)
+✖ protected McCain canonical alias and 75 g Review energy are unchanged (63.3514ms)
+✔ family audit and admissions are hash-pinned with private-testing policy intact (45.0319ms)
+✔ all admitted expansion identities are unique, loggable, attributable, and retain public release review (27058.2344ms)
+✔ unknown OFF nutrients stay absent and qualified official panel values are never invented as zero (992.189ms)
+✔ every expanded retailer page has actual evidence and no duplicate canonical choices (9528.9563ms)
+✔ multi-market explicit Australia store evidence is accepted; a foreign-only or fabricated store claim is rejected (1.9647ms)
+✔ manufacturer catalogue identities without GTIN are admitted only by canonical identity (13.5472ms)
+✔ all preserved accepted brand identities remain admitted exactly once (179.9569ms)
+✔ new regional identity holds and ingredient-only family mentions stay out of unrelated categories (611.029ms)
+✔ new manufacturer products without a known barcode do not display a literal null barcode (26.7593ms)
+✔ category coverage never acts as an admission cap for otherwise eligible foods (50.8541ms)
+✔ base bread asks origin, then supported bread types (399.1939ms)
+✔ compound bread identities cannot compete with ordinary bread (1.5309ms)
+✔ whole meal spelling and supplied white/wholemeal facets agree (20.1391ms)
+✔ quantity, food identity and supplied bread type remain separate (4.3111ms)
+✔ milk source is unresolved before cow, oat and other source choices (30.0038ms)
+✔ milk compounds are excluded while genuine chocolate flavoured milk remains fluid milk (10.6643ms)
+✔ plant source queries never acquire cow fat/lactose questions (60.0058ms)
+✔ cow source and milk fat/lactose intent are preserved independently (5.2851ms)
+✔ AFCD ingredient qualifiers cannot replace an egg or bread head concept (2.5582ms)
+✔ plain cereal, cheese, chicken, apple and rice exclude containing foods (1.8678ms)
+✔ specific confectionery and condiment categories outrank ingredient-like product names (2.5043ms)
+✔ edited identity metadata invalidates classification and facet caches (2.2398ms)
+✔ fresh apple is distinct from dried apple and whole eggs never acquire poultry measures (62.0739ms)
+✔ hash-brown identity supports plural and spacing without admitting composed dishes (1.0732ms)
+✔ chips asks food class before preparation and distinguishes fries from crisps (13.7356ms)
+✔ declared restaurant identities survive an unrelated same-title incomplete record (512.6166ms)
+✔ exact product semantics beat a longer variant independently of product names and scores (56.0047ms)
+✔ restaurant aliases and explicit counts retain distinct shared intent (538.4124ms)
+✔ natural measure utility prioritises slices and fluid volumes without restoring rejected units (44.8444ms)
+✔ thin/thick spread cannot acquire invented conversions (11.8872ms)
+✔ submitted generic diagnostics separate related concepts from equivalent identities (33.7767ms)
+✔ bare family aliases do not pre-answer catch-all subtype facets (16.7511ms)
+✔ yoghurt cannot inherit the nut ingredient standard serve (5.3216ms)
+✔ non-adjacent chocolate egg names are confectionery (1.0258ms)
+✔ brand and subtype inference separates bread from wraps using committed category evidence (2.7564ms)
+✔ catalogue discovery expands declared alias inflections before concept filtering (3.5171ms)
+✔ egg preparation preserves named methods and skips supplied cooking information (24.4049ms)
+✔ generated shell and worker exactly match the canonical content generation (519.6031ms)
+✔ same visible version with changed controller produces a new shared generation (448.93ms)
+✔ complete dependency inventory includes bootstrap configuration and both deployment variants (21.7492ms)
+✔ my-data installs verified core before skipWaiting and exposes safe readiness (864.2353ms)
+✔ test installs verified core before skipWaiting and exposes safe readiness (562.2542ms)
+✔ required core 404 rejects installation and removes staging without activation (583.9603ms)
+✔ required core wrong-bytes rejects installation and removes staging without activation (644.195ms)
+✔ slow required dependency does not publish readiness or skipWaiting early (363.6021ms)
+✔ optional artwork failure is outside atomic core readiness (270.6017ms)
+✔ navigation and versioned core remain cached and coherent while offline (323.2556ms)
+✔ missing generation and unknown generation cannot fall back to old core or HTML (382.6637ms)
+✔ unversioned core data consumers receive the verified current data, not a network revalidation (837.4933ms)
+✔ activation retains previous caches until every live client reports current readiness (1494.5362ms)
+✔ same-path cached assets cannot cross a generation boundary (541.9653ms)
+✔ bootstrap owns update lifecycle and leaves personal storage contracts untouched (7.3571ms)
+✔ exact retailer recognition remains separate from consumer-brand identity (107.9856ms)
+✔ no name, OFF URL or brand-index match can substitute for verified retailer membership (51.2716ms)
+✔ membership keeps the national and private-label consumer brands and provenance intact (131.16ms)
+✔ community nutrition with separate official listing evidence does not become manufacturer verification (77.7752ms)
+✔ food-only categories and all-items postings exclude non-food products (9.4247ms)
+✔ root and category directory do not hydrate products; pages have a strict bound and cache (84.5417ms)
+✔ category and Back navigation retain retailer ownership (5.6843ms)
+✔ retiring retailer intent leaves subsequent generic and brand searches independent (353.0272ms)
+✔ late retailer hydration cannot replace a newer owner or refill its cancelled session (4.8743ms)
+✔ late category result cannot overwrite a newer category within the same query (5.0807ms)
+✔ a synthetic second retailer uses the identical registration, evidence and browse contracts (41.4498ms)
+✔ guided supermarket identity requires separate house/private-label evidence, not retailer stock (12.9996ms)
+✔ actual consumer-brand selection still uses consumer-brand membership (2.4812ms)
+✔ unverified or wrong-brand commercial identity evidence cannot widen the guided route (3.0686ms)
+✔ product handoff keeps canonical identity, unknown nutrients and one confirmation (40.3079ms)
+✔ a loader cannot substitute foreign IDs or weaken the indexed listing evidence (5.0559ms)
+✔ retailer aliases cannot take over generic food or known consumer-brand recognition (4.8304ms)
+✔ the generic source converter requires consumer brand and does not turn retailers into restaurants (43.9655ms)
+ℹ tests 92
+ℹ suites 0
+ℹ pass 87
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 50441.5937
+
+✖ failing tests:
+
+test at tests\brand-generation.test.js:4:1
+✖ audited brand generation is byte deterministic and committed outputs match (49696.4186ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  634 !== 577
+
+      at TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\brand-generation.test.js:7:129)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 634,
+    expected: 577,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\catalogue-round-three.test.js:5:1
+✖ all house-brand admissions reuse accepted canonical identity, brand, nutrition and measures (200.8376ms)
+  AssertionError [ERR_ASSERTION]: off:4061459032789 sourceProvenance
+  + actual - expected
+
+    {
+  -   checkedAt: '2026-09-18',
+      lastModified: '2026-05-25T10:51:20Z',
+  -   privateTestingApproved: true,
+  -   publicReleaseReviewRequired: true,
+      rawRecordNumber: 2471362,
+      recordId: 'off:4061459032789',
+  +   sha256: '94d2d921f5e135e933c9f43e640b15072e101b4fd1d7aa8d58fa5df313b57f24',
+  -   sha256: 'cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5',
+      snapshotDate: '2026-08-30',
+      snapshotSha256: 'f72687ee8bc6522054fe69dbfda6b91902c16af1ec2e043cde27bc6c29ad8176',
+      sourceId: 'open-food-facts-au',
+      trustClass: 'open-food-facts-au',
+      url: 'http://world-en.openfoodfacts.org/product/4061459032789/white-seeded-burger-buns-bakers-life'
+
+      at TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\catalogue-round-three.test.js:5:421)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: { lastModified: '2026-05-25T10:51:20Z', rawRecordNumber: 2471362, recordId: 'off:4061459032789', sha256: '94d2d921f5e135e933c9f43e640b15072e101b4fd1d7aa8d58fa5df313b57f24', snapshotDate: '2026-08-30', snapshotSha256: 'f72687ee8bc6522054fe69dbfda6b91902c16af1ec2e043cde27bc6c29ad8176', sourceId: 'open-food-facts-au', trustClass: 'open-food-facts-au', url: 'http://world-en.openfoodfacts.org/product/4061459032789/white-seeded-burger-buns-bakers-life' },
+    expected: { trustClass: 'open-food-facts-au', sourceId: 'open-food-facts-au', recordId: 'off:4061459032789', url: 'http://world-en.openfoodfacts.org/product/4061459032789/white-seeded-burger-buns-bakers-life', snapshotDate: '2026-08-30', snapshotSha256: 'f72687ee8bc6522054fe69dbfda6b91902c16af1ec2e043cde27bc6c29ad8176', sha256: 'cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5', checkedAt: '2026-09-18', rawRecordNumber: 2471362, lastModified: '2026-05-25T10:51:20Z', privateTestingApproved: true, publicReleaseReviewRequired: true },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\catalogue-round-three.test.js:7:1
+✖ every retailer root exposes its full audited membership once; restricted counts stay fixed (9071.0609ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  904 !== 907
+
+      at TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\catalogue-round-three.test.js:7:245)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 904,
+    expected: 907,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\catalogue-round-three.test.js:11:1
+✖ incomplete nutrition and same-GTIN conflicts never gain ordinary admission (904.1809ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+    assert(!C.productEligibility(incomplete).addability.normalLoggingAllowed)
+
+      at TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\catalogue-round-three.test.js:11:357)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\catalogue-round-three.test.js:12:1
+✖ protected McCain canonical alias and 75 g Review energy are unchanged (63.3514ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+    assert(f)
+
+      at TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\catalogue-round-three.test.js:12:216)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

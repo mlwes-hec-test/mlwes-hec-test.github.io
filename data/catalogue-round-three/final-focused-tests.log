@@ -1,0 +1,106 @@
+✔ independent source identities retain eligibility and ranking when weaker same-label rows arrive (249.5513ms)
+✔ copies of one canonical identity cannot manufacture label ambiguity (7.4653ms)
+✔ ambiguous labels within one source stay blocked and exact preview cannot bypass that decision (38.6835ms)
+✔ independent sources do not make generic or unnamed records specific products (32.7163ms)
+✔ shared GTIN conflict and source authority checks still control canonical merging (37.0821ms)
+Chiko regression evidence: C:\Users\mlwes\AppData\Local\Temp\hec-chiko-regression-u1FqnA
+✔ real production Chiko preview, hydrated Search and selection retain the accepted roll identity (11407.0513ms)
+✔ all house-brand admissions reuse accepted canonical identity, brand, nutrition and measures (4400.8104ms)
+✔ official house-brand relationship is bound to both identities and AU product evidence (12.4827ms)
+✔ every retailer root exposes its full audited membership once; restricted counts stay fixed (6442.4181ms)
+✔ direct house-brand search reaches the same canonical records without retailer brand replacement (1247.6581ms)
+✔ source spelling keys, legacy Select and unresolved candidate holds remain explicit (2717.2231ms)
+✔ unknown nutrition stays unknown and natural measures do not change (159.8233ms)
+✔ incomplete nutrition and same-GTIN conflicts never gain ordinary admission (4006.6814ms)
+✔ protected McCain canonical alias and 75 g Review energy are unchanged (54.6725ms)
+✔ family audit and admissions are hash-pinned with private-testing policy intact (24.8437ms)
+✔ all accepted brand identity, panel and measure bytes match starting SOURCE (1846.3595ms)
+✔ house-brand ingredient and use mentions cannot pollute concept narrowing (1.1984ms)
+✖ explicit retailer and house-brand product requests preserve evidenced identity (46.5008ms)
+✔ base bread asks origin, then supported bread types (280.1543ms)
+✔ compound bread identities cannot compete with ordinary bread (3.411ms)
+✔ whole meal spelling and supplied white/wholemeal facets agree (37.0298ms)
+✔ quantity, food identity and supplied bread type remain separate (2.7018ms)
+✔ milk source is unresolved before cow, oat and other source choices (13.903ms)
+✔ milk compounds are excluded while genuine chocolate flavoured milk remains fluid milk (4.4457ms)
+✔ plant source queries never acquire cow fat/lactose questions (17.1145ms)
+✔ cow source and milk fat/lactose intent are preserved independently (6.2451ms)
+✔ AFCD ingredient qualifiers cannot replace an egg or bread head concept (1.5891ms)
+✔ plain cereal, cheese, chicken, apple and rice exclude containing foods (2.1511ms)
+✔ specific confectionery and condiment categories outrank ingredient-like product names (3.0008ms)
+✔ edited identity metadata invalidates classification and facet caches (2.2015ms)
+✔ fresh apple is distinct from dried apple and whole eggs never acquire poultry measures (71.3652ms)
+✔ hash-brown identity supports plural and spacing without admitting composed dishes (2.1558ms)
+✔ chips asks food class before preparation and distinguishes fries from crisps (14.8869ms)
+✔ declared restaurant identities survive an unrelated same-title incomplete record (289.9109ms)
+✔ exact product semantics beat a longer variant independently of product names and scores (22.9582ms)
+✔ restaurant aliases and explicit counts retain distinct shared intent (235.8463ms)
+✔ natural measure utility prioritises slices and fluid volumes without restoring rejected units (15.6887ms)
+✔ thin/thick spread cannot acquire invented conversions (2.7592ms)
+✔ submitted generic diagnostics separate related concepts from equivalent identities (14.7645ms)
+✔ bare family aliases do not pre-answer catch-all subtype facets (17.3826ms)
+✔ yoghurt cannot inherit the nut ingredient standard serve (4.8904ms)
+✔ non-adjacent chocolate egg names are confectionery (1.0492ms)
+✔ brand and subtype inference separates bread from wraps using committed category evidence (2.4729ms)
+✔ catalogue discovery expands declared alias inflections before concept filtering (6.7702ms)
+✔ egg preparation preserves named methods and skips supplied cooking information (25.2897ms)
+✔ generated shell and worker exactly match the canonical content generation (294.2042ms)
+✔ same visible version with changed controller produces a new shared generation (183.0559ms)
+✔ complete dependency inventory includes bootstrap configuration and both deployment variants (20.0176ms)
+✔ my-data installs verified core before skipWaiting and exposes safe readiness (397.7721ms)
+✔ test installs verified core before skipWaiting and exposes safe readiness (270.1286ms)
+✔ required core 404 rejects installation and removes staging without activation (194.1031ms)
+✔ required core wrong-bytes rejects installation and removes staging without activation (215.8115ms)
+✔ slow required dependency does not publish readiness or skipWaiting early (284.4997ms)
+✔ optional artwork failure is outside atomic core readiness (202.5413ms)
+✔ navigation and versioned core remain cached and coherent while offline (259.6326ms)
+✔ missing generation and unknown generation cannot fall back to old core or HTML (207.329ms)
+✔ unversioned core data consumers receive the verified current data, not a network revalidation (816.1763ms)
+✔ activation retains previous caches until every live client reports current readiness (1080.5439ms)
+✔ same-path cached assets cannot cross a generation boundary (451.3249ms)
+✔ bootstrap owns update lifecycle and leaves personal storage contracts untouched (7.5804ms)
+✔ exact retailer recognition remains separate from consumer-brand identity (54.1387ms)
+✔ no name, OFF URL or brand-index match can substitute for verified retailer membership (21.9756ms)
+✔ membership keeps the national and private-label consumer brands and provenance intact (55.7309ms)
+✔ community nutrition with separate official listing evidence does not become manufacturer verification (7.8879ms)
+✔ food-only categories and all-items postings exclude non-food products (9.0436ms)
+✔ root and category directory do not hydrate products; pages have a strict bound and cache (14.1633ms)
+✔ category and Back navigation retain retailer ownership (3.2772ms)
+✔ retiring retailer intent leaves subsequent generic and brand searches independent (206.6932ms)
+✔ late retailer hydration cannot replace a newer owner or refill its cancelled session (5.5834ms)
+✔ late category result cannot overwrite a newer category within the same query (9.466ms)
+✔ a synthetic second retailer uses the identical registration, evidence and browse contracts (12.8406ms)
+✔ guided supermarket identity requires separate house/private-label evidence, not retailer stock (3.3724ms)
+✔ actual consumer-brand selection still uses consumer-brand membership (4.0218ms)
+✔ unverified or wrong-brand commercial identity evidence cannot widen the guided route (3.9694ms)
+✔ product handoff keeps canonical identity, unknown nutrients and one confirmation (34.5793ms)
+✔ a loader cannot substitute foreign IDs or weaken the indexed listing evidence (13.0262ms)
+✔ retailer aliases cannot take over generic food or known consumer-brand recognition (5.8205ms)
+✔ the generic source converter requires consumer brand and does not turn retailers into restaurants (18.1134ms)
+ℹ tests 78
+ℹ suites 0
+ℹ pass 77
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 23146.3526
+
+✖ failing tests:
+
+test at tests\catalogue-round-three.test.js:18:1
+✖ explicit retailer and house-brand product requests preserve evidenced identity (46.5008ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+    assert(!C.explicitIdentityMatch(additions.find(f=>f.brand==='Seasons Pride'),'Coles Seasons Pride Potato Jewels'))
+
+      at TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\catalogue-round-three.test.js:18:544)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

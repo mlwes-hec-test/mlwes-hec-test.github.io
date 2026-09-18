@@ -1,0 +1,32 @@
+{
+  "checkedAt": "2026-09-18T17:36:34.8026673+10:00",
+  "path": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Develpoment\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32",
+  "linkType": "Junction",
+  "target": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32",
+  "creationTime": "2026-09-03T15:51:20.6882527+10:00",
+  "lastWriteTime": "2026-09-03T15:51:20.6882527+10:00",
+  "decision": "PASS: Myron accepted the junction interpretation and superseded the separate-copy assumption. Canonical changes being visible through this read-only alias are expected.",
+  "priorFinding": {
+    "checkedAt": "2026-09-18T08:34:22.7702525+10:00",
+    "path": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Develpoment\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32",
+    "linkType": "Junction",
+    "target": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32",
+    "creationTime": "2026-09-03T15:51:20.6882527+10:00",
+    "lastWriteTime": "2026-09-03T15:51:20.6882527+10:00",
+    "decision": "Stop before commit: the user-described separate copy is a junction to the canonical source. No junction creation, deletion or reconfiguration was performed by this task; all task writes targeted the canonical path. Separate-copy unchanged condition cannot be attested."
+  },
+  "authoritativeWorkingPath": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32",
+  "aliasPolicy": "Read-only junction alias; no editing, creation, deletion, retargeting, repair, conversion or copying through/between path names.",
+  "canonicalGitResolution": [
+    "C:/Users/mlwes/OneDrive/Documents/HEC Development/Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32",
+    "C:/Users/mlwes/OneDrive/Documents/HEC Development/Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32/.git"
+  ],
+  "aliasGitResolution": [
+    "C:/Users/mlwes/OneDrive/Documents/HEC Development/Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32",
+    "C:/Users/mlwes/OneDrive/Documents/HEC Development/Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32/.git"
+  ],
+  "sameGitWorktree": true,
+  "junctionTopologyModified": false,
+  "allRoundThreeWritesUsedCanonicalPath": true,
+  "verificationBasis": "Read-only LinkType/target/timestamp and Git resolution checks, plus Round Three tool-operation history. No task operation created, removed, retargeted or reconfigured the junction."
+}

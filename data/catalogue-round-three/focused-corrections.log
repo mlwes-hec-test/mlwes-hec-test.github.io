@@ -1,0 +1,35 @@
+✔ audited brand generation is byte deterministic and committed outputs match (29324.091ms)
+✔ all house-brand admissions reuse accepted canonical identity, brand, nutrition and measures (1964.5199ms)
+✔ official house-brand relationship is bound to both identities and AU product evidence (6.6267ms)
+✔ every retailer root exposes its full audited membership once; restricted counts stay fixed (5433.2548ms)
+✔ direct house-brand search reaches the same canonical records without retailer brand replacement (948.4472ms)
+✔ source spelling keys, legacy Select and unresolved candidate holds remain explicit (2432.979ms)
+✔ unknown nutrition stays unknown and natural measures do not change (176.9195ms)
+✔ incomplete nutrition and same-GTIN conflicts never gain ordinary admission (3873.5461ms)
+✔ protected McCain canonical alias and 75 g Review energy are unchanged (8.8628ms)
+✔ family audit and admissions are hash-pinned with private-testing policy intact (21.735ms)
+✔ all accepted brand identity, panel and measure bytes match starting SOURCE (1871.2245ms)
+✔ house-brand ingredient and use mentions cannot pollute concept narrowing (2.1076ms)
+✔ generated shell and worker exactly match the canonical content generation (245.4012ms)
+✔ same visible version with changed controller produces a new shared generation (225.0181ms)
+✔ complete dependency inventory includes bootstrap configuration and both deployment variants (6.7358ms)
+✔ my-data installs verified core before skipWaiting and exposes safe readiness (334.1409ms)
+✔ test installs verified core before skipWaiting and exposes safe readiness (232.5286ms)
+✔ required core 404 rejects installation and removes staging without activation (195.5058ms)
+✔ required core wrong-bytes rejects installation and removes staging without activation (161.8762ms)
+✔ slow required dependency does not publish readiness or skipWaiting early (213.2454ms)
+✔ optional artwork failure is outside atomic core readiness (228.4907ms)
+✔ navigation and versioned core remain cached and coherent while offline (203.0027ms)
+✔ missing generation and unknown generation cannot fall back to old core or HTML (194.8397ms)
+✔ unversioned core data consumers receive the verified current data, not a network revalidation (132.7728ms)
+✔ activation retains previous caches until every live client reports current readiness (209.8934ms)
+✔ same-path cached assets cannot cross a generation boundary (250.7995ms)
+✔ bootstrap owns update lifecycle and leaves personal storage contracts untouched (6.5087ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 27
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 29957.9666

@@ -1,0 +1,23 @@
+{
+  "pass": true,
+  "catalogues": [
+    {
+      "kind": "woolworths",
+      "deterministic": true
+    },
+    {
+      "kind": "coles",
+      "deterministic": true
+    },
+    {
+      "kind": "aldi",
+      "deterministic": true
+    },
+    {
+      "kind": "brand",
+      "deterministic": true
+    }
+  ],
+  "generation": "174a5378e0f75a49c175f6b5",
+  "releaseStale": []
+}

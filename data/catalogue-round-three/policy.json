@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "privateTestingApproved": true,
+  "publicReleaseReviewRequired": true,
+  "publicReleaseLicensingAdmissionGate": false,
+  "approvedSha256": "a27bb31f2b2bdafbb3a3acdf2547e767d02eefc1b0c32123f5e871fc039978ff",
+  "beforeAuditSha256": "b12138d288a65a5e947281b1d8c6ef54e05bcc1e78e8acc5af29cca253c96920",
+  "evidenceSha256": "408202c83d14f55d94b1103806b23c297c6fe50eda0e57e0ad74f46a673b0e35",
+  "noNutritionChanges": true,
+  "noCanonicalMinting": true,
+  "admission": "Existing accepted AU-only canonical products gain independently evidenced private-label collection membership. Unknown availability remains unknown. No guessed panels or alias merges."
+}

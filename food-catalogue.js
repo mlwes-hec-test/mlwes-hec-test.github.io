@@ -94,13 +94,21 @@
     });
   }
   // A reviewed community brand collection is not evidence of a retailer listing.
-  // Only an exact retailer-name consumer brand is supported here; other private
-  // label families still need independent relationship evidence.
+  // Exact retailer-name community brands and independently evidenced house-brand
+  // families are supported without asserting a current retailer listing.
   function privateLabelCollectionMembership(food,retailerId){
     if(!food?.privateLabelCollections?.length)return [];
     const entity=REG.entries.find(item=>item.id===retailerId&&item.type==='retailer');
-    if(!entity||marketFor(food)!=='AU'||brandKey(food.brand)!==brandKey(entity.name))return [];
+    if(!entity||marketFor(food)!=='AU')return [];
     return (food.privateLabelCollections||[]).filter(item=>{
+      if(item.basis==='official-house-brand-relationship'){
+        const e=item.evidence||{},r=e.houseBrandRelationship||{};
+        // This proves a private-label family relationship, not a current listing.
+        // Bind both identities and the pinned AU product evidence; never infer
+        // retailer membership from a similar name or a foreign store token.
+        return item.retailerId===retailerId&&item.market==='AU'&&item.scope==='food'&&item.verified===true&&brandKey(item.consumerBrand)===brandKey(food.brand)&&verifiedRetailEvidence(e)&&/^[a-f0-9]{64}$/i.test(e.sha256||'')&&r.retailerId===retailerId&&r.brandKey===brandKey(food.brand)&&r.relationshipVerified===true&&['current','legacy','uncertain'].includes(r.status)&&e.productEvidence?.recordId==='off:'+food.barcode&&/^[a-f0-9]{64}$/i.test(e.productEvidence.sha256||'')&&e.productEvidence.countriesTags?.length===1&&e.productEvidence.countriesTags[0]==='en:australia';
+      }
+      if(brandKey(food.brand)!==brandKey(entity.name))return false;
       const e=item.evidence||{};let url;try{url=new URL(e.url);}catch{return false;}
       return item.retailerId===retailerId&&item.market==='AU'&&item.scope==='food'&&item.basis==='source-declared-brand'&&item.verified===false&&brandKey(item.consumerBrand)===brandKey(food.brand)&&e.trustClass==='open-food-facts-au'&&e.sourceId==='open-food-facts-au'&&/^off:\d{8,14}$/.test(e.recordId||'')&&e.recordId==='off:'+food.barcode&&['http:','https:'].includes(url.protocol)&&/^(?:[a-z-]+\.)?openfoodfacts\.org$/.test(url.hostname)&&url.pathname.split('/')[1]==='product'&&url.pathname.split('/')[2]===String(food.barcode)&&/^[a-f0-9]{64}$/i.test(e.snapshotSha256||'')&&/^[a-f0-9]{64}$/i.test(e.sha256||'')&&Number.isFinite(Date.parse(e.snapshotDate||''));
     });
@@ -783,6 +791,12 @@
     // stored brand/name, not an alias or a partial phrase, for that exception.
     const exactNameCollision=intent.reason==='indexed-brand-plus-product'&&(SEARCH.conceptNorm(food.name)===SEARCH.conceptNorm(query)||!!food.brand&&REG.brandSearchText(`${food.brand} ${food.name}`)===REG.brandSearchText(query));
     if(intent.entity?.type==='brand'&&!consumerBrandMembership(intent.entity,food).matches&&!exactNameCollision)return false;
+    const houseBrandScope=intent.entity?.type==='retailer'&&privateLabelCollectionMembership(food,intent.entity.id).some(m=>m.basis==='official-house-brand-relationship');
+    if(houseBrandScope){
+      if(!productEligibility(food).addability.normalLoggingAllowed)return false;
+      const product=SEARCH.conceptNorm(intent.productQuery),hay=SEARCH.conceptNorm([food.brand,food.name,...(food.aliases||[])].join(' ')).split(' ');
+      return !!product&&product.split(' ').every(token=>hay.includes(token));
+    }
     const communityStoreScope=intent.entity?.type==='retailer'&&(global.HECRetailerCatalogue?.entity(intent.entity.id)?.collectionMode==='source-declared-store'||intent.entity.id==='aldi'&&global.HECRetailerCatalogue?.entity(intent.entity.id)?.collectionMode==='private-testing-evidence');
     if(communityStoreScope){
       if(!sourceDeclaredRetailerMembership(food,intent.entity.id).length||!productEligibility(food).addability.normalLoggingAllowed)return false;
