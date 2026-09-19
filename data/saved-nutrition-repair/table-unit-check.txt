@@ -1,0 +1,26 @@
+✔ empty and partial panels retain same-basis saved nutrition without mutating baseline (10.3443ms)
+✔ changed serving or metric column never inherits incompatible old cells (1.3408ms)
+✔ explicit zero replaces saved cell and an energy edit does not keep conflicting energy conversion (0.8552ms)
+✔ serving and pack distinct: 170 g (0.2982ms)
+✔ serving and pack distinct: 125 g (0.2135ms)
+✔ serving and pack distinct: 250 mL (0.1564ms)
+✔ serving and pack distinct: 1 piece (0.2452ms)
+✔ decimal literal preserved: 5.3 (0.1985ms)
+✔ decimal literal preserved: 3.3 (0.2009ms)
+✔ decimal literal preserved: 0.8 (0.3317ms)
+✔ decimal literal preserved: 12.5 (0.1604ms)
+✔ decimal literal preserved: 1.7 (0.1453ms)
+✔ decimal literal preserved: 0.3 (0.1023ms)
+✔ decimal literal preserved: 33 (0.0935ms)
+✔ table geometry associates words across column blocks and preserves missing-cell ownership (2.5933ms)
+✔ geometry rejects low confidence integer and split decimal without losing other column (0.6738ms)
+✔ geometry respects reversed printed column headings (0.3634ms)
+✔ geometry without supported heading evidence falls back without guessing column (0.3067ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 226.5665

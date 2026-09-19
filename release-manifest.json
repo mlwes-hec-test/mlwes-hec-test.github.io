@@ -1,5 +1,5 @@
 {
-  "generation": "7ddf61b27bf1d1c0e42aca89",
+  "generation": "6d04c06412e8010bd712ada5",
   "version": "0.6.33",
   "runtime": [
     "installation-config.js",
@@ -45,7 +45,7 @@
     "alpha064.js"
   ],
   "files": {
-    "index.html": "79a3b11ffa3a8c1dc50302b6951919bfde2dbe56b82ea6d0d5e0ba10065d0768",
+    "index.html": "afd85c0b81d9e00b369b9c57e5d81a89b38bddc39030d33e72412fbef4e3ed28",
     "installation-config.js": "e04cd8e2625d202b3833aa4f15077489128c1b50780aebf866890baf2b29a9f7",
     "config.js": "5917c660ff0a2bca08efe8029a74ea7a566e34719c27e09fc143390549a26895",
     "installation-foundation.js": "dc71c1e21e8971a650e1f287cb9e9dcf634592586836a4e7dfd688c74d28fb7f",
@@ -79,13 +79,13 @@
     "brand-catalogue.js": "4712fbc3181eb76ac8860e3ba033721980f030e1ff7c05d0de2309d151e2dab3",
     "guided-branching.js": "fc6883c9a34fd19dda80b3f3c2289f01f092a4c6456f196bf2b85c256669eeb0",
     "packaged-foods.js": "6bf73978372464077c6bcffa78afa3cb05588e97189ba901f603eff61f6b7579",
-    "capture-foundation.js": "dc5755ea2f49c461369b438f02e4d1d305f328fe1fadfa0e324c57aa21d6eeaf",
+    "capture-foundation.js": "f2fa62409e1b971d516e786fc501353b5a3002f7a81f7c45393d64f5eca263a0",
     "serving-foundation.js": "870f5625b687548c6727ca0223e3643cd7e7fcdf53632486191db90b4283eb75",
     "guided-product-resolution.js": "6f941507e4937b23599530099b7988ad40af4b54d70c9d224830a4c952b77d68",
     "activity-foundation.js": "68f2e923769697bb90b0d0e13193533ebff5fa9b29846c0d05e5ced28fb83557",
     "food-groups-foundation.js": "2919670d100bb6de8794bed8a3bcbb7b18dec2d5f4a3a95912ddbd23268526b6",
     "conversation-foundation.js": "c313b738df302742261e2fd2ea06c58fcc72e38292f856a3da6df5596f799d26",
-    "alpha06.js": "bb48946a162fd7300f9fe90f9d3e766bfaccc5c02690af6a4281c69df57fe8e6",
+    "alpha06.js": "4d16f0c559161974f7ee4a7a03addf56956abe779d934869c3f7d3fa15a1c908",
     "alpha064.js": "e62d1f3a73c71ae5adea9ec1be76ee778ac6b00c1741553d8ce27bcb1b02a9d0",
     "styles.css": "3eda0feb5a59ba4a3d8900aa6e4905c57b7ed3180c910cadd782db18297aa58c",
     "manifest.webmanifest": "20e91f54038b7ff6863544d11579b3ee3cbdb6001e25d92bafc03c3977e749ed",

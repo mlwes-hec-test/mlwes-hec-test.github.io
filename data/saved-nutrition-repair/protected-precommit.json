@@ -1,0 +1,12 @@
+[
+  {
+    "repository": "mlwes-hec-test/mlwes-hec-test.github.io",
+    "sha": "5d885ca0e602c2360cf29ad5d995a21dc0912d58",
+    "subject": "Deploy HEC TEST v50 — barcode identity and panel confirmation repair"
+  },
+  {
+    "repository": "Lifestyle-Companion/Lifestyle-Companion",
+    "sha": "2c39809706039b93ad613d07bd6b15229ccf2612",
+    "subject": "Deploy HEC My Data v13 — retailer catalogue and loading repairs"
+  }
+]

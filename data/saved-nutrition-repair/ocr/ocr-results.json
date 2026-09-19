@@ -1,0 +1,1710 @@
+{
+  "pass": true,
+  "synthetic": true,
+  "cases": [
+    {
+      "name": "clean-flat",
+      "results": {
+        "before": {
+          "confidence": 93,
+          "text": "NUTRITION INFORMATION\nServings per package 1\nServing size 170 g\n\nAverage Quantity per Serving                 Average Quantity per 100 g\nEnergy (kJ)                                           670                                           394.12\nProtein (g)                                      3.3                                     1.94\nFat, total (g)                                    5.3                                     3.12\nSaturated fat (g)                                     0.8                                           0.47\nCarbohydrate (g)                                        23                                                 13.53\nSugars (9)                                                  12.5                                              7.35\nDietary fibre (g)                                       1.2                                           0.71\nSodium (mg)                                              158                                               92.94\nIngredients: Milk, vanilla flavour, starch.\n",
+          "parsed": {
+            "text": "NUTRITION INFORMATION\nServings per package 1\nServing size 170 g\n\nAverage Quantity per Serving                 Average Quantity per 100 g\nEnergy (kJ)                                           670                                           394.12\nProtein (g)                                      3.3                                     1.94\nFat, total (g)                                    5.3                                     3.12\nSaturated fat (g)                                     0.8                                           0.47\nCarbohydrate (g)                                        23                                                 13.53\nSugars (9)                                                  12.5                                              7.35\nDietary fibre (g)                                       1.2                                           0.71\nSodium (mg)                                              158                                               92.94\nIngredients: Milk, vanilla flavour, starch.\n",
+            "perServing": {
+              "energyKj": 670,
+              "calories": 160.13384321223708,
+              "protein": 3.3,
+              "carbs": 23,
+              "fat": 5.3,
+              "satFat": 0.8,
+              "fibre": 1.2,
+              "sugar": null,
+              "sodium": 158,
+              "calcium": null,
+              "iron": null,
+              "potassium": null
+            },
+            "per100": {
+              "energyKj": 394.12,
+              "calories": 94.19694072657744,
+              "protein": 1.94,
+              "carbs": 13.53,
+              "fat": 3.12,
+              "satFat": 0.47,
+              "fibre": 0.71,
+              "sugar": null,
+              "sodium": 92.94,
+              "calcium": null,
+              "iron": null,
+              "potassium": null
+            },
+            "servingAmount": 170,
+            "servingUnit": "g",
+            "servingText": "Serving size 170 g",
+            "manufacturerServing": true,
+            "per100Unit": "g",
+            "selectedBasis": "perServing",
+            "servingsPerPack": 1,
+            "servingCount": null,
+            "servingCountUnit": "",
+            "model": {
+              "perServing": {
+                "energyKj": 670,
+                "calories": 160.13384321223708,
+                "protein": 3.3,
+                "carbs": 23,
+                "fat": 5.3,
+                "satFat": 0.8,
+                "fibre": 1.2,
+                "sugar": null,
+                "sodium": 158,
+                "calcium": null,
+                "iron": null,
+                "potassium": null
+              },
+              "per100": {
+                "energyKj": 394.12,
+                "calories": 94.19694072657744,
+                "protein": 1.94,
+                "carbs": 13.53,
+                "fat": 3.12,
+                "satFat": 0.47,
+                "fibre": 0.71,
+                "sugar": null,
+                "sodium": 92.94,
+                "calcium": null,
+                "iron": null,
+                "potassium": null
+              },
+              "servingAmount": 170,
+              "servingUnit": "g",
+              "servingText": "Serving size 170 g",
+              "manufacturerServing": true,
+              "per100Unit": "g",
+              "selectedBasis": "perServing",
+              "servingsPerPack": 1,
+              "servingCount": null,
+              "servingCountUnit": ""
+            },
+            "ingredients": "Milk, vanilla flavour, starch.",
+            "detected": {
+              "perServing": true,
+              "per100": true
+            },
+            "issues": [
+              "uncertain-sugar-columns"
+            ],
+            "discrepancies": [],
+            "questionable": true,
+            "extractionConfidence": 93
+          },
+          "detected": 14,
+          "incorrect": []
+        },
+        "after": {
+          "confidence": 93,
+          "text": "NUTRITION INFORMATION\nServings per package 1\nServing size 170 g\n\nAverage Quantity per Serving                 Average Quantity per 100 g\nEnergy (kJ)                                           670                                           394.12\nProtein (g)                                      3.3                                     1.94\nFat, total (g)                                    5.3                                     3.12\nSaturated fat (g)                                     0.8                                           0.47\nCarbohydrate (g)                                        23                                                 13.53\nSugars (9)                                                  12.5                                              7.35\nDietary fibre (g)                                       1.2                                           0.71\nSodium (mg)                                              158                                               92.94\nIngredients: Milk, vanilla flavour, starch.\n",
+          "parsed": {
+            "text": "NUTRITION INFORMATION\nServings per package 1\nServing size 170 g\n\nAverage Quantity per Serving                 Average Quantity per 100 g\nEnergy (kJ)                                           670                                           394.12\nProtein (g)                                      3.3                                     1.94\nFat, total (g)                                    5.3                                     3.12\nSaturated fat (g)                                     0.8                                           0.47\nCarbohydrate (g)                                        23                                                 13.53\nSugars (9)                                                  12.5                                              7.35\nDietary fibre (g)                                       1.2                                           0.71\nSodium (mg)                                              158                                               92.94\nIngredients: Milk, vanilla flavour, starch.\n",
+            "perServing": {
+              "energyKj": 670,
+              "calories": 160.13384321223708,
+              "protein": 3.3,
+              "carbs": 23,
+              "fat": 5.3,
+              "satFat": 0.8,
+              "fibre": 1.2,
+              "sugar": null,
+              "sodium": 158,
+              "calcium": null,
+              "iron": null,
+              "potassium": null
+            },
+            "per100": {
+              "energyKj": 394.12,
+              "calories": 94.19694072657744,
+              "protein": 1.94,
+              "carbs": 13.53,
+              "fat": 3.12,
+              "satFat": 0.47,
+              "fibre": 0.71,
+              "sugar": null,
+              "sodium": 92.94,
+              "calcium": null,
+              "iron": null,
+              "potassium": null
+            },
+            "servingAmount": 170,
+            "servingUnit": "g",
+            "servingText": "Serving size 170 g",
+            "manufacturerServing": true,
+            "per100Unit": "g",
+            "selectedBasis": "perServing",
+            "servingsPerPack": 1,
+            "servingCount": null,
+            "servingCountUnit": "",
+            "model": {
+              "perServing": {
+                "energyKj": 670,
+                "calories": 160.13384321223708,
+                "protein": 3.3,
+                "carbs": 23,
+                "fat": 5.3,
+                "satFat": 0.8,
+                "fibre": 1.2,
+                "sugar": null,
+                "sodium": 158,
+                "calcium": null,
+                "iron": null,
+                "potassium": null
+              },
+              "per100": {
+                "energyKj": 394.12,
+                "calories": 94.19694072657744,
+                "protein": 1.94,
+                "carbs": 13.53,
+                "fat": 3.12,
+                "satFat": 0.47,
+                "fibre": 0.71,
+                "sugar": null,
+                "sodium": 92.94,
+                "calcium": null,
+                "iron": null,
+                "potassium": null
+              },
+              "servingAmount": 170,
+              "servingUnit": "g",
+              "servingText": "Serving size 170 g",
+              "manufacturerServing": true,
+              "per100Unit": "g",
+              "selectedBasis": "perServing",
+              "servingsPerPack": 1,
+              "servingCount": null,
+              "servingCountUnit": ""
+            },
+            "ingredients": "Milk, vanilla flavour, starch.",
+            "detected": {
+              "perServing": true,
+              "per100": true
+            },
+            "issues": [
+              "uncertain-sugar-columns"
+            ],
+            "discrepancies": [],
+            "questionable": true,
+            "extractionConfidence": 93,
+            "tableEvidence": [
+              {
+                "key": "energyKj",
+                "basis": "perServing",
+                "text": "670",
+                "confidence": 96
+              },
+              {
+                "key": "energyKj",
+                "basis": "per100",
+                "text": "394.12",
+                "confidence": 96
+              },
+              {
+                "key": "protein",
+                "basis": "perServing",
+                "text": "3.3",
+                "confidence": 96
+              },
+              {
+                "key": "protein",
+                "basis": "per100",
+                "text": "1.94",
+                "confidence": 96
+              },
+              {
+                "key": "fat",
+                "basis": "perServing",
+                "text": "5.3",
+                "confidence": 95
+              },
+              {
+                "key": "fat",
+                "basis": "per100",
+                "text": "3.12",
+                "confidence": 94
+              },
+              {
+                "key": "satFat",
+                "basis": "perServing",
+                "text": "0.8",
+                "confidence": 96
+              },
+              {
+                "key": "satFat",
+                "basis": "per100",
+                "text": "0.47",
+                "confidence": 96
+              },
+              {
+                "key": "carbs",
+                "basis": "perServing",
+                "text": "23",
+                "confidence": 96
+              },
+              {
+                "key": "carbs",
+                "basis": "per100",
+                "text": "13.53",
+                "confidence": 95
+              },
+              {
+                "key": "fibre",
+                "basis": "perServing",
+                "text": "1.2",
+                "confidence": 96
+              },
+              {
+                "key": "fibre",
+                "basis": "per100",
+                "text": "0.71",
+                "confidence": 96
+              },
+              {
+                "key": "sodium",
+                "basis": "perServing",
+                "text": "158",
+                "confidence": 96
+              },
+              {
+                "key": "sodium",
+                "basis": "per100",
+                "text": "92.94",
+                "confidence": 96
+              }
+            ]
+          },
+          "detected": 14,
+          "incorrect": []
+        }
+      }
+    },
+    {
+      "name": "reduced-contrast",
+      "results": {
+        "before": {
+          "confidence": 94,
+          "text": "NUTRITION INFORMATION\nServings per package 1\nServing size 170 g\n\nAverage Quantity per Serving                 Average Quantity per 100 g\nEnergy (kJ)                                           670                                           394.12\nProtein (g)                                      3.3                                     1.94\nFat, total (g)                                    5.3                                     3.12\nSaturated fat (g)                                     0.8                                           0.47\nCarbohydrate (g)                                        23                                                 13.53\nSugars (g)                                                  12.5                                              7.35\nDietary fibre (g)                                       1.2                                           0.71\nSodium (mg)                                              158                                               92.94\nIngredients: Milk, vanilla flavour, starch.\n",
+          "parsed": {
+            "text": "NUTRITION INFORMATION\nServings per package 1\nServing size 170 g\n\nAverage Quantity per Serving                 Average Quantity per 100 g\nEnergy (kJ)                                           670                                           394.12\nProtein (g)                                      3.3                                     1.94\nFat, total (g)                                    5.3                                     3.12\nSaturated fat (g)                                     0.8                                           0.47\nCarbohydrate (g)                                        23                                                 13.53\nSugars (g)                                                  12.5                                              7.35\nDietary fibre (g)                                       1.2                                           0.71\nSodium (mg)                                              158                                               92.94\nIngredients: Milk, vanilla flavour, starch.\n",
+            "perServing": {
+              "energyKj": 670,
+              "calories": 160.13384321223708,
+              "protein": 3.3,
+              "carbs": 23,
+              "fat": 5.3,
+              "satFat": 0.8,
+              "fibre": 1.2,
+              "sugar": 12.5,
+              "sodium": 158,
+              "calcium": null,
+              "iron": null,
+              "potassium": null
+            },
+            "per100": {
+              "energyKj": 394.12,
+              "calories": 94.19694072657744,
+              "protein": 1.94,
+              "carbs": 13.53,
+              "fat": 3.12,
+              "satFat": 0.47,
+              "fibre": 0.71,
+              "sugar": 7.35,
+              "sodium": 92.94,
+              "calcium": null,
+              "iron": null,
+              "potassium": null
+            },
+            "servingAmount": 170,
+            "servingUnit": "g",
+            "servingText": "Serving size 170 g",
+            "manufacturerServing": true,
+            "per100Unit": "g",
+            "selectedBasis": "perServing",
+            "servingsPerPack": 1,
+            "servingCount": null,
+            "servingCountUnit": "",
+            "model": {
+              "perServing": {
+                "energyKj": 670,
+                "calories": 160.13384321223708,
+                "protein": 3.3,
+                "carbs": 23,
+                "fat": 5.3,
+                "satFat": 0.8,
+                "fibre": 1.2,
+                "sugar": 12.5,
+                "sodium": 158,
+                "calcium": null,
+                "iron": null,
+                "potassium": null
+              },
+              "per100": {
+                "energyKj": 394.12,
+                "calories": 94.19694072657744,
+                "protein": 1.94,
+                "carbs": 13.53,
+                "fat": 3.12,
+                "satFat": 0.47,
+                "fibre": 0.71,
+                "sugar": 7.35,
+                "sodium": 92.94,
+                "calcium": null,
+                "iron": null,
+                "potassium": null
+              },
+              "servingAmount": 170,
+              "servingUnit": "g",
+              "servingText": "Serving size 170 g",
+              "manufacturerServing": true,
+              "per100Unit": "g",
+              "selectedBasis": "perServing",
+              "servingsPerPack": 1,
+              "servingCount": null,
+              "servingCountUnit": ""
+            },
+            "ingredients": "Milk, vanilla flavour, starch.",
+            "detected": {
+              "perServing": true,
+              "per100": true
+            },
+            "issues": [],
+            "discrepancies": [],
+            "questionable": false,
+            "extractionConfidence": 94
+          },
+          "detected": 16,
+          "incorrect": []
+        },
+        "after": {
+          "confidence": 94,
+          "text": "NUTRITION INFORMATION\nServings per package 1\nServing size 170 g\n\nAverage Quantity per Serving                 Average Quantity per 100 g\nEnergy (kJ)                                           670                                           394.12\nProtein (g)                                      3.3                                     1.94\nFat, total (g)                                    5.3                                     3.12\nSaturated fat (g)                                     0.8                                           0.47\nCarbohydrate (g)                                        23                                                 13.53\nSugars (g)                                                  12.5                                              7.35\nDietary fibre (g)                                       1.2                                           0.71\nSodium (mg)                                              158                                               92.94\nIngredients: Milk, vanilla flavour, starch.\n",
+          "parsed": {
+            "text": "NUTRITION INFORMATION\nServings per package 1\nServing size 170 g\n\nAverage Quantity per Serving                 Average Quantity per 100 g\nEnergy (kJ)                                           670                                           394.12\nProtein (g)                                      3.3                                     1.94\nFat, total (g)                                    5.3                                     3.12\nSaturated fat (g)                                     0.8                                           0.47\nCarbohydrate (g)                                        23                                                 13.53\nSugars (g)                                                  12.5                                              7.35\nDietary fibre (g)                                       1.2                                           0.71\nSodium (mg)                                              158                                               92.94\nIngredients: Milk, vanilla flavour, starch.\n",
+            "perServing": {
+              "energyKj": 670,
+              "calories": 160.13384321223708,
+              "protein": 3.3,
+              "carbs": 23,
+              "fat": 5.3,
+              "satFat": 0.8,
+              "fibre": 1.2,
+              "sugar": 12.5,
+              "sodium": 158,
+              "calcium": null,
+              "iron": null,
+              "potassium": null
+            },
+            "per100": {
+              "energyKj": 394.12,
+              "calories": 94.19694072657744,
+              "protein": 1.94,
+              "carbs": 13.53,
+              "fat": 3.12,
+              "satFat": 0.47,
+              "fibre": 0.71,
+              "sugar": 7.35,
+              "sodium": 92.94,
+              "calcium": null,
+              "iron": null,
+              "potassium": null
+            },
+            "servingAmount": 170,
+            "servingUnit": "g",
+            "servingText": "Serving size 170 g",
+            "manufacturerServing": true,
+            "per100Unit": "g",
+            "selectedBasis": "perServing",
+            "servingsPerPack": 1,
+            "servingCount": null,
+            "servingCountUnit": "",
+            "model": {
+              "perServing": {
+                "energyKj": 670,
+                "calories": 160.13384321223708,
+                "protein": 3.3,
+                "carbs": 23,
+                "fat": 5.3,
+                "satFat": 0.8,
+                "fibre": 1.2,
+                "sugar": 12.5,
+                "sodium": 158,
+                "calcium": null,
+                "iron": null,
+                "potassium": null
+              },
+              "per100": {
+                "energyKj": 394.12,
+                "calories": 94.19694072657744,
+                "protein": 1.94,
+                "carbs": 13.53,
+                "fat": 3.12,
+                "satFat": 0.47,
+                "fibre": 0.71,
+                "sugar": 7.35,
+                "sodium": 92.94,
+                "calcium": null,
+                "iron": null,
+                "potassium": null
+              },
+              "servingAmount": 170,
+              "servingUnit": "g",
+              "servingText": "Serving size 170 g",
+              "manufacturerServing": true,
+              "per100Unit": "g",
+              "selectedBasis": "perServing",
+              "servingsPerPack": 1,
+              "servingCount": null,
+              "servingCountUnit": ""
+            },
+            "ingredients": "Milk, vanilla flavour, starch.",
+            "detected": {
+              "perServing": true,
+              "per100": true
+            },
+            "issues": [],
+            "discrepancies": [],
+            "questionable": false,
+            "extractionConfidence": 94,
+            "tableEvidence": [
+              {
+                "key": "energyKj",
+                "basis": "perServing",
+                "text": "670",
+                "confidence": 97
+              },
+              {
+                "key": "energyKj",
+                "basis": "per100",
+                "text": "394.12",
+                "confidence": 96
+              },
+              {
+                "key": "protein",
+                "basis": "perServing",
+                "text": "3.3",
+                "confidence": 95
+              },
+              {
+                "key": "protein",
+                "basis": "per100",
+                "text": "1.94",
+                "confidence": 96
+              },
+              {
+                "key": "fat",
+                "basis": "perServing",
+                "text": "5.3",
+                "confidence": 94
+              },
+              {
+                "key": "fat",
+                "basis": "per100",
+                "text": "3.12",
+                "confidence": 95
+              },
+              {
+                "key": "satFat",
+                "basis": "perServing",
+                "text": "0.8",
+                "confidence": 96
+              },
+              {
+                "key": "satFat",
+                "basis": "per100",
+                "text": "0.47",
+                "confidence": 96
+              },
+              {
+                "key": "carbs",
+                "basis": "perServing",
+                "text": "23",
+                "confidence": 95
+              },
+              {
+                "key": "carbs",
+                "basis": "per100",
+                "text": "13.53",
+                "confidence": 96
+              },
+              {
+                "key": "sugar",
+                "basis": "perServing",
+                "text": "12.5",
+                "confidence": 94
+              },
+              {
+                "key": "sugar",
+                "basis": "per100",
+                "text": "7.35",
+                "confidence": 96
+              },
+              {
+                "key": "fibre",
+                "basis": "perServing",
+                "text": "1.2",
+                "confidence": 96
+              },
+              {
+                "key": "fibre",
+                "basis": "per100",
+                "text": "0.71",
+                "confidence": 96
+              },
+              {
+                "key": "sodium",
+                "basis": "perServing",
+                "text": "158",
+                "confidence": 96
+              },
+              {
+                "key": "sodium",
+                "basis": "per100",
+                "text": "92.94",
+                "confidence": 96
+              }
+            ]
+          },
+          "detected": 16,
+          "incorrect": []
+        }
+      }
+    },
+    {
+      "name": "decimal-rich",
+      "results": {
+        "before": {
+          "confidence": 93,
+          "text": "NUTRITION INFORMATION\nServings per package 1\nServing size 170 g\n\nAverage Quantity per Serving                 Average Quantity per 100 g\nEnergy (kJ)                                               670                                           394.12\nProtein (g)                                         3.3                                     1.94\nFat, total (g)                                       5.3                                     3.12\nSaturated fat (g)                                         0.8                                           0.47\nCarbohydrate (g)                                            23                                                 13.53\nSugars (9)                                                      12.5                                              7.35\nDietary fibre (g)                                          1.2                                           0.71\nSodium (mg)                                                  158                                               92.94\nIngredients: Milk, vanilla flavour, starch.\n",
+          "parsed": {
+            "text": "NUTRITION INFORMATION\nServings per package 1\nServing size 170 g\n\nAverage Quantity per Serving                 Average Quantity per 100 g\nEnergy (kJ)                                               670                                           394.12\nProtein (g)                                         3.3                                     1.94\nFat, total (g)                                       5.3                                     3.12\nSaturated fat (g)                                         0.8                                           0.47\nCarbohydrate (g)                                            23                                                 13.53\nSugars (9)                                                      12.5                                              7.35\nDietary fibre (g)                                          1.2                                           0.71\nSodium (mg)                                                  158                                               92.94\nIngredients: Milk, vanilla flavour, starch.\n",
+            "perServing": {
+              "energyKj": 670,
+              "calories": 160.13384321223708,
+              "protein": 3.3,
+              "carbs": 23,
+              "fat": 5.3,
+              "satFat": 0.8,
+              "fibre": 1.2,
+              "sugar": null,
+              "sodium": 158,
+              "calcium": null,
+              "iron": null,
+              "potassium": null
+            },
+            "per100": {
+              "energyKj": 394.12,
+              "calories": 94.19694072657744,
+              "protein": 1.94,
+              "carbs": 13.53,
+              "fat": 3.12,
+              "satFat": 0.47,
+              "fibre": 0.71,
+              "sugar": null,
+              "sodium": 92.94,
+              "calcium": null,
+              "iron": null,
+              "potassium": null
+            },
+            "servingAmount": 170,
+            "servingUnit": "g",
+            "servingText": "Serving size 170 g",
+            "manufacturerServing": true,
+            "per100Unit": "g",
+            "selectedBasis": "perServing",
+            "servingsPerPack": 1,
+            "servingCount": null,
+            "servingCountUnit": "",
+            "model": {
+              "perServing": {
+                "energyKj": 670,
+                "calories": 160.13384321223708,
+                "protein": 3.3,
+                "carbs": 23,
+                "fat": 5.3,
+                "satFat": 0.8,
+                "fibre": 1.2,
+                "sugar": null,
+                "sodium": 158,
+                "calcium": null,
+                "iron": null,
+                "potassium": null
+              },
+              "per100": {
+                "energyKj": 394.12,
+                "calories": 94.19694072657744,
+                "protein": 1.94,
+                "carbs": 13.53,
+                "fat": 3.12,
+                "satFat": 0.47,
+                "fibre": 0.71,
+                "sugar": null,
+                "sodium": 92.94,
+                "calcium": null,
+                "iron": null,
+                "potassium": null
+              },
+              "servingAmount": 170,
+              "servingUnit": "g",
+              "servingText": "Serving size 170 g",
+              "manufacturerServing": true,
+              "per100Unit": "g",
+              "selectedBasis": "perServing",
+              "servingsPerPack": 1,
+              "servingCount": null,
+              "servingCountUnit": ""
+            },
+            "ingredients": "Milk, vanilla flavour, starch.",
+            "detected": {
+              "perServing": true,
+              "per100": true
+            },
+            "issues": [
+              "uncertain-sugar-columns"
+            ],
+            "discrepancies": [],
+            "questionable": true,
+            "extractionConfidence": 93
+          },
+          "detected": 14,
+          "incorrect": []
+        },
+        "after": {
+          "confidence": 93,
+          "text": "NUTRITION INFORMATION\nServings per package 1\nServing size 170 g\n\nAverage Quantity per Serving                 Average Quantity per 100 g\nEnergy (kJ)                                               670                                           394.12\nProtein (g)                                         3.3                                     1.94\nFat, total (g)                                       5.3                                     3.12\nSaturated fat (g)                                         0.8                                           0.47\nCarbohydrate (g)                                            23                                                 13.53\nSugars (9)                                                      12.5                                              7.35\nDietary fibre (g)                                          1.2                                           0.71\nSodium (mg)                                                  158                                               92.94\nIngredients: Milk, vanilla flavour, starch.\n",
+          "parsed": {
+            "text": "NUTRITION INFORMATION\nServings per package 1\nServing size 170 g\n\nAverage Quantity per Serving                 Average Quantity per 100 g\nEnergy (kJ)                                               670                                           394.12\nProtein (g)                                         3.3                                     1.94\nFat, total (g)                                       5.3                                     3.12\nSaturated fat (g)                                         0.8                                           0.47\nCarbohydrate (g)                                            23                                                 13.53\nSugars (9)                                                      12.5                                              7.35\nDietary fibre (g)                                          1.2                                           0.71\nSodium (mg)                                                  158                                               92.94\nIngredients: Milk, vanilla flavour, starch.\n",
+            "perServing": {
+              "energyKj": 670,
+              "calories": 160.13384321223708,
+              "protein": 3.3,
+              "carbs": 23,
+              "fat": 5.3,
+              "satFat": 0.8,
+              "fibre": 1.2,
+              "sugar": null,
+              "sodium": 158,
+              "calcium": null,
+              "iron": null,
+              "potassium": null
+            },
+            "per100": {
+              "energyKj": 394.12,
+              "calories": 94.19694072657744,
+              "protein": 1.94,
+              "carbs": 13.53,
+              "fat": 3.12,
+              "satFat": 0.47,
+              "fibre": 0.71,
+              "sugar": null,
+              "sodium": 92.94,
+              "calcium": null,
+              "iron": null,
+              "potassium": null
+            },
+            "servingAmount": 170,
+            "servingUnit": "g",
+            "servingText": "Serving size 170 g",
+            "manufacturerServing": true,
+            "per100Unit": "g",
+            "selectedBasis": "perServing",
+            "servingsPerPack": 1,
+            "servingCount": null,
+            "servingCountUnit": "",
+            "model": {
+              "perServing": {
+                "energyKj": 670,
+                "calories": 160.13384321223708,
+                "protein": 3.3,
+                "carbs": 23,
+                "fat": 5.3,
+                "satFat": 0.8,
+                "fibre": 1.2,
+                "sugar": null,
+                "sodium": 158,
+                "calcium": null,
+                "iron": null,
+                "potassium": null
+              },
+              "per100": {
+                "energyKj": 394.12,
+                "calories": 94.19694072657744,
+                "protein": 1.94,
+                "carbs": 13.53,
+                "fat": 3.12,
+                "satFat": 0.47,
+                "fibre": 0.71,
+                "sugar": null,
+                "sodium": 92.94,
+                "calcium": null,
+                "iron": null,
+                "potassium": null
+              },
+              "servingAmount": 170,
+              "servingUnit": "g",
+              "servingText": "Serving size 170 g",
+              "manufacturerServing": true,
+              "per100Unit": "g",
+              "selectedBasis": "perServing",
+              "servingsPerPack": 1,
+              "servingCount": null,
+              "servingCountUnit": ""
+            },
+            "ingredients": "Milk, vanilla flavour, starch.",
+            "detected": {
+              "perServing": true,
+              "per100": true
+            },
+            "issues": [
+              "uncertain-sugar-columns"
+            ],
+            "discrepancies": [],
+            "questionable": true,
+            "extractionConfidence": 93,
+            "tableEvidence": [
+              {
+                "key": "energyKj",
+                "basis": "perServing",
+                "text": "670",
+                "confidence": 96
+              },
+              {
+                "key": "energyKj",
+                "basis": "per100",
+                "text": "394.12",
+                "confidence": 96
+              },
+              {
+                "key": "protein",
+                "basis": "perServing",
+                "text": "3.3",
+                "confidence": 96
+              },
+              {
+                "key": "protein",
+                "basis": "per100",
+                "text": "1.94",
+                "confidence": 96
+              },
+              {
+                "key": "fat",
+                "basis": "perServing",
+                "text": "5.3",
+                "confidence": 95
+              },
+              {
+                "key": "fat",
+                "basis": "per100",
+                "text": "3.12",
+                "confidence": 94
+              },
+              {
+                "key": "satFat",
+                "basis": "perServing",
+                "text": "0.8",
+                "confidence": 96
+              },
+              {
+                "key": "satFat",
+                "basis": "per100",
+                "text": "0.47",
+                "confidence": 96
+              },
+              {
+                "key": "carbs",
+                "basis": "perServing",
+                "text": "23",
+                "confidence": 96
+              },
+              {
+                "key": "carbs",
+                "basis": "per100",
+                "text": "13.53",
+                "confidence": 95
+              },
+              {
+                "key": "fibre",
+                "basis": "perServing",
+                "text": "1.2",
+                "confidence": 96
+              },
+              {
+                "key": "fibre",
+                "basis": "per100",
+                "text": "0.71",
+                "confidence": 96
+              },
+              {
+                "key": "sodium",
+                "basis": "perServing",
+                "text": "158",
+                "confidence": 96
+              },
+              {
+                "key": "sodium",
+                "basis": "per100",
+                "text": "92.94",
+                "confidence": 96
+              }
+            ]
+          },
+          "detected": 14,
+          "incorrect": []
+        }
+      }
+    },
+    {
+      "name": "two-column-mass",
+      "results": {
+        "before": {
+          "confidence": 93,
+          "text": "NUTRITION INFORMATION\nServings per package 6\nServing size 170 g\n\nAverage Quantity per Serving                 Average Quantity per 100 g\nEnergy (kJ)                                           670                                           394.12\nProtein (g)                                      3.3                                     1.94\nFat, total (g)                                    5.3                                     3.12\nSaturated fat (g)                                     0.8                                           0.47\nCarbohydrate (g)                                        23                                                 13.53\nSugars (9)                                                  12.5                                              7.35\nDietary fibre (g)                                       1.2                                           0.71\nSodium (mg)                                              158                                               92.94\nIngredients: Milk, vanilla flavour, starch.\n",
+          "parsed": {
+            "text": "NUTRITION INFORMATION\nServings per package 6\nServing size 170 g\n\nAverage Quantity per Serving                 Average Quantity per 100 g\nEnergy (kJ)                                           670                                           394.12\nProtein (g)                                      3.3                                     1.94\nFat, total (g)                                    5.3                                     3.12\nSaturated fat (g)                                     0.8                                           0.47\nCarbohydrate (g)                                        23                                                 13.53\nSugars (9)                                                  12.5                                              7.35\nDietary fibre (g)                                       1.2                                           0.71\nSodium (mg)                                              158                                               92.94\nIngredients: Milk, vanilla flavour, starch.\n",
+            "perServing": {
+              "energyKj": 670,
+              "calories": 160.13384321223708,
+              "protein": 3.3,
+              "carbs": 23,
+              "fat": 5.3,
+              "satFat": 0.8,
+              "fibre": 1.2,
+              "sugar": null,
+              "sodium": 158,
+              "calcium": null,
+              "iron": null,
+              "potassium": null
+            },
+            "per100": {
+              "energyKj": 394.12,
+              "calories": 94.19694072657744,
+              "protein": 1.94,
+              "carbs": 13.53,
+              "fat": 3.12,
+              "satFat": 0.47,
+              "fibre": 0.71,
+              "sugar": null,
+              "sodium": 92.94,
+              "calcium": null,
+              "iron": null,
+              "potassium": null
+            },
+            "servingAmount": 170,
+            "servingUnit": "g",
+            "servingText": "Serving size 170 g",
+            "manufacturerServing": true,
+            "per100Unit": "g",
+            "selectedBasis": "perServing",
+            "servingsPerPack": 6,
+            "servingCount": null,
+            "servingCountUnit": "",
+            "model": {
+              "perServing": {
+                "energyKj": 670,
+                "calories": 160.13384321223708,
+                "protein": 3.3,
+                "carbs": 23,
+                "fat": 5.3,
+                "satFat": 0.8,
+                "fibre": 1.2,
+                "sugar": null,
+                "sodium": 158,
+                "calcium": null,
+                "iron": null,
+                "potassium": null
+              },
+              "per100": {
+                "energyKj": 394.12,
+                "calories": 94.19694072657744,
+                "protein": 1.94,
+                "carbs": 13.53,
+                "fat": 3.12,
+                "satFat": 0.47,
+                "fibre": 0.71,
+                "sugar": null,
+                "sodium": 92.94,
+                "calcium": null,
+                "iron": null,
+                "potassium": null
+              },
+              "servingAmount": 170,
+              "servingUnit": "g",
+              "servingText": "Serving size 170 g",
+              "manufacturerServing": true,
+              "per100Unit": "g",
+              "selectedBasis": "perServing",
+              "servingsPerPack": 6,
+              "servingCount": null,
+              "servingCountUnit": ""
+            },
+            "ingredients": "Milk, vanilla flavour, starch.",
+            "detected": {
+              "perServing": true,
+              "per100": true
+            },
+            "issues": [
+              "uncertain-sugar-columns"
+            ],
+            "discrepancies": [],
+            "questionable": true,
+            "extractionConfidence": 93
+          },
+          "detected": 14,
+          "incorrect": []
+        },
+        "after": {
+          "confidence": 93,
+          "text": "NUTRITION INFORMATION\nServings per package 6\nServing size 170 g\n\nAverage Quantity per Serving                 Average Quantity per 100 g\nEnergy (kJ)                                           670                                           394.12\nProtein (g)                                      3.3                                     1.94\nFat, total (g)                                    5.3                                     3.12\nSaturated fat (g)                                     0.8                                           0.47\nCarbohydrate (g)                                        23                                                 13.53\nSugars (9)                                                  12.5                                              7.35\nDietary fibre (g)                                       1.2                                           0.71\nSodium (mg)                                              158                                               92.94\nIngredients: Milk, vanilla flavour, starch.\n",
+          "parsed": {
+            "text": "NUTRITION INFORMATION\nServings per package 6\nServing size 170 g\n\nAverage Quantity per Serving                 Average Quantity per 100 g\nEnergy (kJ)                                           670                                           394.12\nProtein (g)                                      3.3                                     1.94\nFat, total (g)                                    5.3                                     3.12\nSaturated fat (g)                                     0.8                                           0.47\nCarbohydrate (g)                                        23                                                 13.53\nSugars (9)                                                  12.5                                              7.35\nDietary fibre (g)                                       1.2                                           0.71\nSodium (mg)                                              158                                               92.94\nIngredients: Milk, vanilla flavour, starch.\n",
+            "perServing": {
+              "energyKj": 670,
+              "calories": 160.13384321223708,
+              "protein": 3.3,
+              "carbs": 23,
+              "fat": 5.3,
+              "satFat": 0.8,
+              "fibre": 1.2,
+              "sugar": null,
+              "sodium": 158,
+              "calcium": null,
+              "iron": null,
+              "potassium": null
+            },
+            "per100": {
+              "energyKj": 394.12,
+              "calories": 94.19694072657744,
+              "protein": 1.94,
+              "carbs": 13.53,
+              "fat": 3.12,
+              "satFat": 0.47,
+              "fibre": 0.71,
+              "sugar": null,
+              "sodium": 92.94,
+              "calcium": null,
+              "iron": null,
+              "potassium": null
+            },
+            "servingAmount": 170,
+            "servingUnit": "g",
+            "servingText": "Serving size 170 g",
+            "manufacturerServing": true,
+            "per100Unit": "g",
+            "selectedBasis": "perServing",
+            "servingsPerPack": 6,
+            "servingCount": null,
+            "servingCountUnit": "",
+            "model": {
+              "perServing": {
+                "energyKj": 670,
+                "calories": 160.13384321223708,
+                "protein": 3.3,
+                "carbs": 23,
+                "fat": 5.3,
+                "satFat": 0.8,
+                "fibre": 1.2,
+                "sugar": null,
+                "sodium": 158,
+                "calcium": null,
+                "iron": null,
+                "potassium": null
+              },
+              "per100": {
+                "energyKj": 394.12,
+                "calories": 94.19694072657744,
+                "protein": 1.94,
+                "carbs": 13.53,
+                "fat": 3.12,
+                "satFat": 0.47,
+                "fibre": 0.71,
+                "sugar": null,
+                "sodium": 92.94,
+                "calcium": null,
+                "iron": null,
+                "potassium": null
+              },
+              "servingAmount": 170,
+              "servingUnit": "g",
+              "servingText": "Serving size 170 g",
+              "manufacturerServing": true,
+              "per100Unit": "g",
+              "selectedBasis": "perServing",
+              "servingsPerPack": 6,
+              "servingCount": null,
+              "servingCountUnit": ""
+            },
+            "ingredients": "Milk, vanilla flavour, starch.",
+            "detected": {
+              "perServing": true,
+              "per100": true
+            },
+            "issues": [
+              "uncertain-sugar-columns"
+            ],
+            "discrepancies": [],
+            "questionable": true,
+            "extractionConfidence": 93,
+            "tableEvidence": [
+              {
+                "key": "energyKj",
+                "basis": "perServing",
+                "text": "670",
+                "confidence": 96
+              },
+              {
+                "key": "energyKj",
+                "basis": "per100",
+                "text": "394.12",
+                "confidence": 96
+              },
+              {
+                "key": "protein",
+                "basis": "perServing",
+                "text": "3.3",
+                "confidence": 96
+              },
+              {
+                "key": "protein",
+                "basis": "per100",
+                "text": "1.94",
+                "confidence": 96
+              },
+              {
+                "key": "fat",
+                "basis": "perServing",
+                "text": "5.3",
+                "confidence": 95
+              },
+              {
+                "key": "fat",
+                "basis": "per100",
+                "text": "3.12",
+                "confidence": 94
+              },
+              {
+                "key": "satFat",
+                "basis": "perServing",
+                "text": "0.8",
+                "confidence": 96
+              },
+              {
+                "key": "satFat",
+                "basis": "per100",
+                "text": "0.47",
+                "confidence": 96
+              },
+              {
+                "key": "carbs",
+                "basis": "perServing",
+                "text": "23",
+                "confidence": 96
+              },
+              {
+                "key": "carbs",
+                "basis": "per100",
+                "text": "13.53",
+                "confidence": 95
+              },
+              {
+                "key": "fibre",
+                "basis": "perServing",
+                "text": "1.2",
+                "confidence": 96
+              },
+              {
+                "key": "fibre",
+                "basis": "per100",
+                "text": "0.71",
+                "confidence": 96
+              },
+              {
+                "key": "sodium",
+                "basis": "perServing",
+                "text": "158",
+                "confidence": 96
+              },
+              {
+                "key": "sodium",
+                "basis": "per100",
+                "text": "92.94",
+                "confidence": 96
+              }
+            ]
+          },
+          "detected": 14,
+          "incorrect": []
+        }
+      }
+    },
+    {
+      "name": "two-column-liquid",
+      "results": {
+        "before": {
+          "confidence": 93,
+          "text": "NUTRITION INFORMATION\nServings per package 4\nServing size 170 mL\n\nAverage Quantity per Serving                Average Quantity per 100 mL\nEnergy (kJ)                                           670                                           394.12\nProtein (g)                                      3.3                                     1.94\nFat, total (g)                                    5.3                                     3.12\nSaturated fat (g)                                     0.8                                           0.47\nCarbohydrate (g)                                        23                                                 13.53\nSugars (9)                                                  12.5                                              7.35\nDietary fibre (g)                                       1.2                                           0.71\nSodium (mg)                                              158                                               92.94\nIngredients: Milk, vanilla flavour, starch.\n",
+          "parsed": {
+            "text": "NUTRITION INFORMATION\nServings per package 4\nServing size 170 mL\n\nAverage Quantity per Serving                Average Quantity per 100 mL\nEnergy (kJ)                                           670                                           394.12\nProtein (g)                                      3.3                                     1.94\nFat, total (g)                                    5.3                                     3.12\nSaturated fat (g)                                     0.8                                           0.47\nCarbohydrate (g)                                        23                                                 13.53\nSugars (9)                                                  12.5                                              7.35\nDietary fibre (g)                                       1.2                                           0.71\nSodium (mg)                                              158                                               92.94\nIngredients: Milk, vanilla flavour, starch.\n",
+            "perServing": {
+              "energyKj": 670,
+              "calories": 160.13384321223708,
+              "protein": 3.3,
+              "carbs": 23,
+              "fat": 5.3,
+              "satFat": 0.8,
+              "fibre": 1.2,
+              "sugar": null,
+              "sodium": 158,
+              "calcium": null,
+              "iron": null,
+              "potassium": null
+            },
+            "per100": {
+              "energyKj": 394.12,
+              "calories": 94.19694072657744,
+              "protein": 1.94,
+              "carbs": 13.53,
+              "fat": 3.12,
+              "satFat": 0.47,
+              "fibre": 0.71,
+              "sugar": null,
+              "sodium": 92.94,
+              "calcium": null,
+              "iron": null,
+              "potassium": null
+            },
+            "servingAmount": 170,
+            "servingUnit": "mL",
+            "servingText": "Serving size 170 mL",
+            "manufacturerServing": true,
+            "per100Unit": "mL",
+            "selectedBasis": "perServing",
+            "servingsPerPack": 4,
+            "servingCount": null,
+            "servingCountUnit": "",
+            "model": {
+              "perServing": {
+                "energyKj": 670,
+                "calories": 160.13384321223708,
+                "protein": 3.3,
+                "carbs": 23,
+                "fat": 5.3,
+                "satFat": 0.8,
+                "fibre": 1.2,
+                "sugar": null,
+                "sodium": 158,
+                "calcium": null,
+                "iron": null,
+                "potassium": null
+              },
+              "per100": {
+                "energyKj": 394.12,
+                "calories": 94.19694072657744,
+                "protein": 1.94,
+                "carbs": 13.53,
+                "fat": 3.12,
+                "satFat": 0.47,
+                "fibre": 0.71,
+                "sugar": null,
+                "sodium": 92.94,
+                "calcium": null,
+                "iron": null,
+                "potassium": null
+              },
+              "servingAmount": 170,
+              "servingUnit": "mL",
+              "servingText": "Serving size 170 mL",
+              "manufacturerServing": true,
+              "per100Unit": "mL",
+              "selectedBasis": "perServing",
+              "servingsPerPack": 4,
+              "servingCount": null,
+              "servingCountUnit": ""
+            },
+            "ingredients": "Milk, vanilla flavour, starch.",
+            "detected": {
+              "perServing": true,
+              "per100": true
+            },
+            "issues": [
+              "uncertain-sugar-columns"
+            ],
+            "discrepancies": [],
+            "questionable": true,
+            "extractionConfidence": 93
+          },
+          "detected": 14,
+          "incorrect": []
+        },
+        "after": {
+          "confidence": 93,
+          "text": "NUTRITION INFORMATION\nServings per package 4\nServing size 170 mL\n\nAverage Quantity per Serving                Average Quantity per 100 mL\nEnergy (kJ)                                           670                                           394.12\nProtein (g)                                      3.3                                     1.94\nFat, total (g)                                    5.3                                     3.12\nSaturated fat (g)                                     0.8                                           0.47\nCarbohydrate (g)                                        23                                                 13.53\nSugars (9)                                                  12.5                                              7.35\nDietary fibre (g)                                       1.2                                           0.71\nSodium (mg)                                              158                                               92.94\nIngredients: Milk, vanilla flavour, starch.\n",
+          "parsed": {
+            "text": "NUTRITION INFORMATION\nServings per package 4\nServing size 170 mL\n\nAverage Quantity per Serving                Average Quantity per 100 mL\nEnergy (kJ)                                           670                                           394.12\nProtein (g)                                      3.3                                     1.94\nFat, total (g)                                    5.3                                     3.12\nSaturated fat (g)                                     0.8                                           0.47\nCarbohydrate (g)                                        23                                                 13.53\nSugars (9)                                                  12.5                                              7.35\nDietary fibre (g)                                       1.2                                           0.71\nSodium (mg)                                              158                                               92.94\nIngredients: Milk, vanilla flavour, starch.\n",
+            "perServing": {
+              "energyKj": 670,
+              "calories": 160.13384321223708,
+              "protein": 3.3,
+              "carbs": 23,
+              "fat": 5.3,
+              "satFat": 0.8,
+              "fibre": 1.2,
+              "sugar": null,
+              "sodium": 158,
+              "calcium": null,
+              "iron": null,
+              "potassium": null
+            },
+            "per100": {
+              "energyKj": 394.12,
+              "calories": 94.19694072657744,
+              "protein": 1.94,
+              "carbs": 13.53,
+              "fat": 3.12,
+              "satFat": 0.47,
+              "fibre": 0.71,
+              "sugar": null,
+              "sodium": 92.94,
+              "calcium": null,
+              "iron": null,
+              "potassium": null
+            },
+            "servingAmount": 170,
+            "servingUnit": "mL",
+            "servingText": "Serving size 170 mL",
+            "manufacturerServing": true,
+            "per100Unit": "mL",
+            "selectedBasis": "perServing",
+            "servingsPerPack": 4,
+            "servingCount": null,
+            "servingCountUnit": "",
+            "model": {
+              "perServing": {
+                "energyKj": 670,
+                "calories": 160.13384321223708,
+                "protein": 3.3,
+                "carbs": 23,
+                "fat": 5.3,
+                "satFat": 0.8,
+                "fibre": 1.2,
+                "sugar": null,
+                "sodium": 158,
+                "calcium": null,
+                "iron": null,
+                "potassium": null
+              },
+              "per100": {
+                "energyKj": 394.12,
+                "calories": 94.19694072657744,
+                "protein": 1.94,
+                "carbs": 13.53,
+                "fat": 3.12,
+                "satFat": 0.47,
+                "fibre": 0.71,
+                "sugar": null,
+                "sodium": 92.94,
+                "calcium": null,
+                "iron": null,
+                "potassium": null
+              },
+              "servingAmount": 170,
+              "servingUnit": "mL",
+              "servingText": "Serving size 170 mL",
+              "manufacturerServing": true,
+              "per100Unit": "mL",
+              "selectedBasis": "perServing",
+              "servingsPerPack": 4,
+              "servingCount": null,
+              "servingCountUnit": ""
+            },
+            "ingredients": "Milk, vanilla flavour, starch.",
+            "detected": {
+              "perServing": true,
+              "per100": true
+            },
+            "issues": [
+              "uncertain-sugar-columns"
+            ],
+            "discrepancies": [],
+            "questionable": true,
+            "extractionConfidence": 93,
+            "tableEvidence": [
+              {
+                "key": "energyKj",
+                "basis": "perServing",
+                "text": "670",
+                "confidence": 96
+              },
+              {
+                "key": "energyKj",
+                "basis": "per100",
+                "text": "394.12",
+                "confidence": 96
+              },
+              {
+                "key": "protein",
+                "basis": "perServing",
+                "text": "3.3",
+                "confidence": 96
+              },
+              {
+                "key": "protein",
+                "basis": "per100",
+                "text": "1.94",
+                "confidence": 96
+              },
+              {
+                "key": "fat",
+                "basis": "perServing",
+                "text": "5.3",
+                "confidence": 95
+              },
+              {
+                "key": "fat",
+                "basis": "per100",
+                "text": "3.12",
+                "confidence": 94
+              },
+              {
+                "key": "satFat",
+                "basis": "perServing",
+                "text": "0.8",
+                "confidence": 96
+              },
+              {
+                "key": "satFat",
+                "basis": "per100",
+                "text": "0.47",
+                "confidence": 96
+              },
+              {
+                "key": "carbs",
+                "basis": "perServing",
+                "text": "23",
+                "confidence": 96
+              },
+              {
+                "key": "carbs",
+                "basis": "per100",
+                "text": "13.53",
+                "confidence": 95
+              },
+              {
+                "key": "fibre",
+                "basis": "perServing",
+                "text": "1.2",
+                "confidence": 96
+              },
+              {
+                "key": "fibre",
+                "basis": "per100",
+                "text": "0.71",
+                "confidence": 96
+              },
+              {
+                "key": "sodium",
+                "basis": "perServing",
+                "text": "158",
+                "confidence": 96
+              },
+              {
+                "key": "sodium",
+                "basis": "per100",
+                "text": "92.94",
+                "confidence": 96
+              }
+            ]
+          },
+          "detected": 14,
+          "incorrect": []
+        }
+      }
+    },
+    {
+      "name": "uncertain-field",
+      "results": {
+        "before": {
+          "confidence": 93,
+          "text": "NUTRITION INFORMATION\nServings per package 1\nServing size 170 g\n\nAverage Quantity per Serving                 Average Quantity per 100 g\nEnergy (kJ)                                           670                                           394.12\nProtein (g)                                      3.3                                     1.94\nFat, total (g)                                                                            3.12\nSaturated fat (g)                                     0.8                                           0.47\nCarbohydrate (g)                                        23                                                 13.53\nSugars (9)                                                  12.5                                              7.35\nDietary fibre (g)                                       1.2                                           0.71\nSodium (mg)                                              158                                               92.94\nIngredients: Milk, vanilla flavour, starch.\n",
+          "parsed": {
+            "text": "NUTRITION INFORMATION\nServings per package 1\nServing size 170 g\n\nAverage Quantity per Serving                 Average Quantity per 100 g\nEnergy (kJ)                                           670                                           394.12\nProtein (g)                                      3.3                                     1.94\nFat, total (g)                                                                            3.12\nSaturated fat (g)                                     0.8                                           0.47\nCarbohydrate (g)                                        23                                                 13.53\nSugars (9)                                                  12.5                                              7.35\nDietary fibre (g)                                       1.2                                           0.71\nSodium (mg)                                              158                                               92.94\nIngredients: Milk, vanilla flavour, starch.\n",
+            "perServing": {
+              "energyKj": 670,
+              "calories": 160.13384321223708,
+              "protein": 3.3,
+              "carbs": 23,
+              "fat": null,
+              "satFat": 0.8,
+              "fibre": 1.2,
+              "sugar": null,
+              "sodium": 158,
+              "calcium": null,
+              "iron": null,
+              "potassium": null
+            },
+            "per100": {
+              "energyKj": 394.12,
+              "calories": 94.19694072657744,
+              "protein": 1.94,
+              "carbs": 13.53,
+              "fat": null,
+              "satFat": 0.47,
+              "fibre": 0.71,
+              "sugar": null,
+              "sodium": 92.94,
+              "calcium": null,
+              "iron": null,
+              "potassium": null
+            },
+            "servingAmount": 170,
+            "servingUnit": "g",
+            "servingText": "Serving size 170 g",
+            "manufacturerServing": true,
+            "per100Unit": "g",
+            "selectedBasis": "perServing",
+            "servingsPerPack": 1,
+            "servingCount": null,
+            "servingCountUnit": "",
+            "model": {
+              "perServing": {
+                "energyKj": 670,
+                "calories": 160.13384321223708,
+                "protein": 3.3,
+                "carbs": 23,
+                "fat": null,
+                "satFat": 0.8,
+                "fibre": 1.2,
+                "sugar": null,
+                "sodium": 158,
+                "calcium": null,
+                "iron": null,
+                "potassium": null
+              },
+              "per100": {
+                "energyKj": 394.12,
+                "calories": 94.19694072657744,
+                "protein": 1.94,
+                "carbs": 13.53,
+                "fat": null,
+                "satFat": 0.47,
+                "fibre": 0.71,
+                "sugar": null,
+                "sodium": 92.94,
+                "calcium": null,
+                "iron": null,
+                "potassium": null
+              },
+              "servingAmount": 170,
+              "servingUnit": "g",
+              "servingText": "Serving size 170 g",
+              "manufacturerServing": true,
+              "per100Unit": "g",
+              "selectedBasis": "perServing",
+              "servingsPerPack": 1,
+              "servingCount": null,
+              "servingCountUnit": ""
+            },
+            "ingredients": "Milk, vanilla flavour, starch.",
+            "detected": {
+              "perServing": true,
+              "per100": true
+            },
+            "issues": [
+              "uncertain-fat-columns",
+              "uncertain-sugar-columns"
+            ],
+            "discrepancies": [],
+            "questionable": true,
+            "extractionConfidence": 93
+          },
+          "detected": 12,
+          "incorrect": []
+        },
+        "after": {
+          "confidence": 93,
+          "text": "NUTRITION INFORMATION\nServings per package 1\nServing size 170 g\n\nAverage Quantity per Serving                 Average Quantity per 100 g\nEnergy (kJ)                                           670                                           394.12\nProtein (g)                                      3.3                                     1.94\nFat, total (g)                                                                            3.12\nSaturated fat (g)                                     0.8                                           0.47\nCarbohydrate (g)                                        23                                                 13.53\nSugars (9)                                                  12.5                                              7.35\nDietary fibre (g)                                       1.2                                           0.71\nSodium (mg)                                              158                                               92.94\nIngredients: Milk, vanilla flavour, starch.\n",
+          "parsed": {
+            "text": "NUTRITION INFORMATION\nServings per package 1\nServing size 170 g\n\nAverage Quantity per Serving                 Average Quantity per 100 g\nEnergy (kJ)                                           670                                           394.12\nProtein (g)                                      3.3                                     1.94\nFat, total (g)                                                                            3.12\nSaturated fat (g)                                     0.8                                           0.47\nCarbohydrate (g)                                        23                                                 13.53\nSugars (9)                                                  12.5                                              7.35\nDietary fibre (g)                                       1.2                                           0.71\nSodium (mg)                                              158                                               92.94\nIngredients: Milk, vanilla flavour, starch.\n",
+            "perServing": {
+              "energyKj": 670,
+              "calories": 160.13384321223708,
+              "protein": 3.3,
+              "carbs": 23,
+              "fat": null,
+              "satFat": 0.8,
+              "fibre": 1.2,
+              "sugar": null,
+              "sodium": 158,
+              "calcium": null,
+              "iron": null,
+              "potassium": null
+            },
+            "per100": {
+              "energyKj": 394.12,
+              "calories": 94.19694072657744,
+              "protein": 1.94,
+              "carbs": 13.53,
+              "fat": 3.12,
+              "satFat": 0.47,
+              "fibre": 0.71,
+              "sugar": null,
+              "sodium": 92.94,
+              "calcium": null,
+              "iron": null,
+              "potassium": null
+            },
+            "servingAmount": 170,
+            "servingUnit": "g",
+            "servingText": "Serving size 170 g",
+            "manufacturerServing": true,
+            "per100Unit": "g",
+            "selectedBasis": "perServing",
+            "servingsPerPack": 1,
+            "servingCount": null,
+            "servingCountUnit": "",
+            "model": {
+              "perServing": {
+                "energyKj": 670,
+                "calories": 160.13384321223708,
+                "protein": 3.3,
+                "carbs": 23,
+                "fat": null,
+                "satFat": 0.8,
+                "fibre": 1.2,
+                "sugar": null,
+                "sodium": 158,
+                "calcium": null,
+                "iron": null,
+                "potassium": null
+              },
+              "per100": {
+                "energyKj": 394.12,
+                "calories": 94.19694072657744,
+                "protein": 1.94,
+                "carbs": 13.53,
+                "fat": 3.12,
+                "satFat": 0.47,
+                "fibre": 0.71,
+                "sugar": null,
+                "sodium": 92.94,
+                "calcium": null,
+                "iron": null,
+                "potassium": null
+              },
+              "servingAmount": 170,
+              "servingUnit": "g",
+              "servingText": "Serving size 170 g",
+              "manufacturerServing": true,
+              "per100Unit": "g",
+              "selectedBasis": "perServing",
+              "servingsPerPack": 1,
+              "servingCount": null,
+              "servingCountUnit": ""
+            },
+            "ingredients": "Milk, vanilla flavour, starch.",
+            "detected": {
+              "perServing": true,
+              "per100": true
+            },
+            "issues": [
+              "confirm-perServing-fat",
+              "uncertain-sugar-columns"
+            ],
+            "discrepancies": [],
+            "questionable": true,
+            "extractionConfidence": 93,
+            "tableEvidence": [
+              {
+                "key": "energyKj",
+                "basis": "perServing",
+                "text": "670",
+                "confidence": 96
+              },
+              {
+                "key": "energyKj",
+                "basis": "per100",
+                "text": "394.12",
+                "confidence": 96
+              },
+              {
+                "key": "protein",
+                "basis": "perServing",
+                "text": "3.3",
+                "confidence": 96
+              },
+              {
+                "key": "protein",
+                "basis": "per100",
+                "text": "1.94",
+                "confidence": 96
+              },
+              {
+                "key": "fat",
+                "basis": "per100",
+                "text": "3.12",
+                "confidence": 94
+              },
+              {
+                "key": "satFat",
+                "basis": "perServing",
+                "text": "0.8",
+                "confidence": 96
+              },
+              {
+                "key": "satFat",
+                "basis": "per100",
+                "text": "0.47",
+                "confidence": 96
+              },
+              {
+                "key": "carbs",
+                "basis": "perServing",
+                "text": "23",
+                "confidence": 96
+              },
+              {
+                "key": "carbs",
+                "basis": "per100",
+                "text": "13.53",
+                "confidence": 95
+              },
+              {
+                "key": "fibre",
+                "basis": "perServing",
+                "text": "1.2",
+                "confidence": 96
+              },
+              {
+                "key": "fibre",
+                "basis": "per100",
+                "text": "0.71",
+                "confidence": 96
+              },
+              {
+                "key": "sodium",
+                "basis": "perServing",
+                "text": "158",
+                "confidence": 96
+              },
+              {
+                "key": "sodium",
+                "basis": "per100",
+                "text": "92.94",
+                "confidence": 96
+              }
+            ]
+          },
+          "detected": 13,
+          "incorrect": []
+        }
+      }
+    }
+  ],
+  "beforeDetected": 84,
+  "afterDetected": 85
+}

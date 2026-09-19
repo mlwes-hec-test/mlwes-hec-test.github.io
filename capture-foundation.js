@@ -40,13 +40,76 @@
     return {text:clean,...model,model,ingredients,detected:{perServing:headers.some(h=>h.basis==='perServing'),per100:headers.some(h=>h.basis==='per100')},issues:[...new Set(issues)],discrepancies:P().basisDiscrepancies(model),questionable:issues.length>0};
   }
   function chosenBasis(model){return model?.selectedBasis||((valueOrNull(model?.perServing?.calories)!==null||valueOrNull(model?.perServing?.energyKj)!==null)?'perServing':'per100');}
+  // Missing OCR cells are unknown, never instructions to delete saved values.
+  // A changed serving/metric basis cannot safely inherit the old column.
+  function mergePanelBaseline(food,panel){
+    const old=reviewModelFor(food),next=clone(old),readBases=['perServing','per100'].filter(basis=>KEYS.some(key=>valueOrNull(panel[basis]?.[key])!==null));
+    if(!readBases.length)return next;
+    for(const key of ['servingAmount','servingUnit','per100Unit','servingsPerPack','servingCount','servingCountUnit','servingText'])if(panel[key]!==null&&panel[key]!==undefined&&panel[key]!=='')next[key]=panel[key];
+    next.manufacturerServing=!!next.servingAmount;
+    for(const basis of ['perServing','per100']){
+      const same=basis==='perServing'?next.servingAmount===old.servingAmount&&next.servingUnit===old.servingUnit&&next.servingCount===old.servingCount&&next.servingCountUnit===old.servingCountUnit:next.per100Unit===old.per100Unit;
+      next[basis]=same?clone(old[basis]):emptyNutrients();
+      for(const key of KEYS)if(valueOrNull(panel[basis]?.[key])!==null)next[basis][key]=panel[basis][key];
+      if(valueOrNull(panel[basis]?.energyKj)!==null&&valueOrNull(panel[basis]?.calories)===null)next[basis].calories=panel[basis].energyKj/4.184;
+      if(valueOrNull(panel[basis]?.calories)!==null&&valueOrNull(panel[basis]?.energyKj)===null)next[basis].energyKj=panel[basis].calories*4.184;
+    }
+    next.selectedBasis=panel.selectedBasis||(readBases.length===1?readBases[0]:old.selectedBasis)||chosenBasis(next);
+    return P().basisModel(next);
+  }
+  // Rebuild physical rows across OCR blocks. Tesseract may emit each table
+  // column as its own line/block; text order alone then loses column ownership.
+  function geometryPanel(data){
+    const words=(data.blocks||[]).flatMap(b=>(b.paragraphs||[]).flatMap(p=>(p.lines||[]).flatMap(l=>l.words||[]))).filter(w=>w.text&&w.bbox&&['x0','x1','y0','y1'].every(k=>Number.isFinite(w.bbox[k])));
+    if(!words.length)return null;
+    const height=words.map(w=>w.bbox.y1-w.bbox.y0).filter(h=>h>0).sort((a,b)=>a-b),h=height[Math.floor(height.length/2)]||20,rows=[];
+    for(const w of words.sort((a,b)=>(a.bbox.y0+a.bbox.y1)-(b.bbox.y0+b.bbox.y1))){const y=(w.bbox.y0+w.bbox.y1)/2;let row=rows.find(r=>Math.abs(r.y-y)<h*.6);if(!row){row={y,words:[]};rows.push(row);}row.words.push(w);}
+    for(const r of rows){r.words.sort((a,b)=>a.bbox.x0-b.bbox.x0);r.text=r.words.map(w=>w.text.trim()).join(' ');}
+    const headers=[];
+    for(const row of rows)for(let i=0;i<row.words.length;i++){
+      const ws=row.words.slice(i,i+4),text=ws.map(w=>w.text).join(' '),match=text.match(/^per\s+(serv(?:e|ing)\b|100\s*(g|ml)\b)/i);
+      if(!match)continue;let used=[],joined='';for(const w of ws){used.push(w);joined+=(joined?' ':'')+w.text;if(joined.length>=match[0].length)break;}
+      if(used.some(w=>valueOrNull(w.confidence)===null||w.confidence<80))continue;
+      const basis=/^100/i.test(match[1])?'per100':'perServing';if(headers.some(x=>x.basis===basis))return null;
+      headers.push({basis,unit:match[2]||'',x:(used[0].bbox.x0+used.at(-1).bbox.x1)/2,y:row.y,left:used[0].bbox.x0});
+    }
+    if(headers.length!==2)return null;headers.sort((a,b)=>a.x-b.x);const gap=headers[1].x-headers[0].x;if(gap<h*4)return null;
+    const body=[],issues=[],evidence=[],tableEnd=rows.find(r=>/^ingredients\b/i.test(r.text)&&r.y>Math.max(...headers.map(x=>x.y)))?.y??Infinity;
+    for(const row of rows){
+      if(row.y<=Math.max(...headers.map(x=>x.y))+h*.5||row.y>=tableEnd)continue;
+      const definition=ROWS.find(([key,pattern])=>pattern.test(row.text));if(!definition)continue;
+      const [key,pattern,unit]=definition,labelEnd=row.text.match(pattern)[0].length;let length=0,lastLabel=-1;
+      for(let i=0;i<row.words.length;i++){length+=(i?1:0)+row.words[i].text.length;if(length>=labelEnd){lastLabel=i;break;}}
+      const labelWords=row.words.slice(0,lastLabel+1);if(labelWords.some(w=>valueOrNull(w.confidence)===null||w.confidence<70)){issues.push('uncertain-'+key+'-columns');continue;}
+      const suffix=row.words.slice(lastLabel+1),unitWord=suffix[0],labelUnit=unitWord?.text.match(/^\(([^)]+)\)$/)?.[1]||(unitWord&&/^(g|mg|kj|kcal|cal)$/i.test(unitWord.text)&&unitWord.bbox.x1<headers[0].left-h*2?unitWord.text:null);
+      if(labelUnit&&!/^(g|mg|kj|kcal|cal)$/i.test(labelUnit)){issues.push('uncertain-'+key+'-columns');continue;}
+      const groups=headers.map(()=>[]);let ambiguous=false;
+      for(const w of suffix){if(w===suffix[0]&&labelUnit)continue;const x=(w.bbox.x0+w.bbox.x1)/2,dist=headers.map(c=>Math.abs(c.x-x)),i=dist[0]<dist[1]?0:1;
+        if(dist[i]>gap*.48||Math.abs(dist[0]-dist[1])<gap*.12){ambiguous=true;continue;}groups[i].push(w);
+      }
+      if(ambiguous){issues.push('uncertain-'+key+'-columns');continue;}
+      const cells=groups.map((ws,i)=>{const text=ws.map(w=>w.text).join(' ').trim();const numeric=ws.filter(w=>/\d/.test(w.text));const confident=numeric.length===1&&numeric.every(w=>valueOrNull(w.confidence)!==null&&w.confidence>=80)&&!(/\d\s+[.,]|[.,]\s+\d/.test(text));
+        const valid=/^\d+(?:[.,]\d+)?\s*(?:g|mg|kj|kcal|cal)?$/i.test(text);
+        if(!confident||!valid){issues.push('confirm-'+headers[i].basis+'-'+key);return '?';}evidence.push({key,basis:headers[i].basis,text,confidence:numeric[0].confidence});return text;});
+      // Use the recognised row unit when present. Never repair a damaged unit
+      // or infer the location of a missing decimal point.
+      const printed=labelUnit||(key==='energyKj'?null:unit);if(key==='energyKj'&&!printed&&!cells.some(c=>/kj|cal/i.test(c)))continue;
+      body.push(row.text.match(pattern)[0]+(printed?' ('+printed+')':'')+' '+cells.join(' '));
+    }
+    if(!body.length)return null;
+    const metadata=rows.filter(r=>/serv(?:ing|e|lng)\s*(?:size|slze)|servings?\s+per\s+pack/i.test(r.text)).map(r=>r.text);
+    const text=[...metadata,headers.map(x=>'Per '+(x.basis==='perServing'?'Serving':'100 '+x.unit)).join(' '),...body].join('\n');
+    return {text,issues,evidence};
+  }
   function parseOcrResult(data={}){
     const uncertainLines=[];
     for(const block of data.blocks||[])for(const paragraph of block.paragraphs||[])for(const line of paragraph.lines||[]){
       if((line.words||[]).some(word=>/\d/.test(word.text||'')&&Number(word.confidence)<80))uncertainLines.push(line.text||'');
     }
     if(valueOrNull(data.confidence)!==null&&Number(data.confidence)<70)uncertainLines.push(...String(data.text||'').split('\n').filter(line=>/\d/.test(line)));
-    const parsed=parseNutritionPanel(data.text,{uncertainLines});parsed.extractionConfidence=valueOrNull(data.confidence);return parsed;
+    const plain=parseNutritionPanel(data.text,{uncertainLines}),table=geometryPanel(data);
+    if(!table){plain.extractionConfidence=valueOrNull(data.confidence);return plain;}
+    const parsed=parseNutritionPanel(table.text);parsed.text=String(data.text||'');parsed.ingredients=plain.ingredients;parsed.issues=[...new Set([...parsed.issues,...table.issues])];parsed.questionable=parsed.issues.length>0;parsed.extractionConfidence=valueOrNull(data.confidence);parsed.tableEvidence=table.evidence;return parsed;
   }
   function privateIdentityStatus({name='',brand='',barcode=''}={}){
     const candidate={name,brand,barcode,recordType:'private',market:'AU',nutrients:{calories:0}};
@@ -118,6 +181,6 @@
     return {...status,recognised:!!food?.name};
   }
   function actionsFor(food){const status=barcodeStatus(food);return {save:status.canSaveToMyFoods,add:status.canAddToDiary,both:status.canAddToDiary};}
-  const api={version:VERSION,nutrientKeys:KEYS,valueOrNull,emptyNutrients,validBarcode,createScanSession,acceptDetection,finishLookup,resetScanSession,parseNutritionPanel,parseOcrResult,reviewStatus,validationMessage,chosenBasis,privateIdentityStatus,buildBarcodeFood,buildPanelFood,reviewModelFor,comparePanel,barcodeStatus,actionsFor};
+  const api={version:VERSION,nutrientKeys:KEYS,valueOrNull,emptyNutrients,validBarcode,createScanSession,acceptDetection,finishLookup,resetScanSession,parseNutritionPanel,parseOcrResult,reviewStatus,validationMessage,chosenBasis,mergePanelBaseline,privateIdentityStatus,buildBarcodeFood,buildPanelFood,reviewModelFor,comparePanel,barcodeStatus,actionsFor};
   global.HECCaptureFoundation=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);

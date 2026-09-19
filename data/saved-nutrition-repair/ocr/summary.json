@@ -1,0 +1,11 @@
+{
+  "fixtures": 6,
+  "readableTargets": 95,
+  "totalCells": 96,
+  "beforeCorrect": 84,
+  "afterCorrect": 85,
+  "incorrectAccepted": 0,
+  "unknownCells": 11,
+  "rowsWithAcceptedCells": 43,
+  "ingredients": 6
+}
