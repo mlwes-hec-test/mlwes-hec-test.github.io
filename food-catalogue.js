@@ -62,6 +62,7 @@
   function preparationKey(food){return norm(food?.preparation||food?.prep||food?.guidedSelections?.prep||food?.variantSelections?.prep||'');}
   function canonicalKey(food){
     const kind=recordType(food),sourceId=sourceIdFor(food);
+    if(kind===RECORD_TYPES.PRIVATE&&food?.privateProductIdentity?.id===`private:${food.id}`)return food.privateProductIdentity.id;
     if(kind===RECORD_TYPES.FOOD_SOURCE&&food?.foodSourceId&&food?.sourceItemId)return `food-source:${food.foodSourceId}:${food.sourceItemId}${food?.sourceVariantId?`:${food.sourceVariantId}`:''}`;
     if(kind===RECORD_TYPES.AFCD&&sourceId)return `afcd:${sourceId}`;
     if(food?.barcode)return `barcode:${String(food.barcode).replace(/\D/g,'')}`;
@@ -190,7 +191,7 @@
     if(conflicts.some(item=>item.severity==='material'&&(!item.resolution||item.resolution==='unresolved')))decision={status:'needs-nutrition-completion',label:'Needs Nutrition Completion',reasonCode:'source-conflict',message:'Published serving or nutrition evidence disagrees. Review the source evidence before logging.',actions:[{id:'complete',label:'Complete Nutrition'}],normalLoggingAllowed:false};
     if(conflicts.some(item=>item.code==='same-gtin-identity-conflict'&&item.resolution==='unresolved'))decision={status:'needs-nutrition-completion',label:'Product Identity Conflict',reasonCode:'identity-conflict',message:'Sources disagree about this product identity or pack. Review the evidence before logging.',actions:[{id:'details',label:'View Details'}],normalLoggingAllowed:false};
     const product=[RECORD_TYPES.PACKAGED,RECORD_TYPES.EXTERNAL,RECORD_TYPES.ONLINE,RECORD_TYPES.FOOD_SOURCE].includes(recordType(food));
-    if(product&&base.normalLoggingAllowed&&!quality.exactEligible)decision={status:'details-only',label:'Details only',reasonCode:`identity-${quality.reason}`,message:'This record needs a specific product identity.',actions:[{id:'details',label:'View Details'}],normalLoggingAllowed:false};
+    if(product&&base.normalLoggingAllowed&&!quality.exactEligible)decision={status:'details-only',label:'Details only',reasonCode:`identity-${quality.reason}`,message:quality.reason==='low-local-relevance'&&food?.barcode&&meaningfulProductName(food)?'Review this product and confirm the current packet to save a private My Food.':'Enter the specific product name from the packet, and brand or barcode where available.',actions:[{id:'details',label:'View Details'}],normalLoggingAllowed:false};
     if(food?.legacyPreviewOnly||food?.itemStatus==='retired')decision={status:'details-only',label:'Details only',reasonCode:food?.legacyPreviewOnly?'legacy-preview-identity':'retired-product',actions:[{id:'details',label:'View Details'}],normalLoggingAllowed:false};
     if(food?.catalogueEligibility?.normalLoggingAllowed===false&&![RECORD_TYPES.PRIVATE,RECORD_TYPES.RECIPE].includes(recordType(food)))decision=food.catalogueEligibility;
     const verified=['official-au-manufacturer','official-au-restaurant','official-au-retailer','package-verified-au'].includes(evidence.trustClass),candidate=evidence.trustClass==='candidate';

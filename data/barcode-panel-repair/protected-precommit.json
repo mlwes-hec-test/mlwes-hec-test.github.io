@@ -1,0 +1,12 @@
+[
+  {
+    "repository": "mlwes-hec-test/mlwes-hec-test.github.io",
+    "sha": "575c80b93ca5de21669c1d1a4aeb250e5409e803",
+    "subject": "Deploy HEC TEST v49 — product capture pipeline repair"
+  },
+  {
+    "repository": "Lifestyle-Companion/Lifestyle-Companion",
+    "sha": "2c39809706039b93ad613d07bd6b15229ccf2612",
+    "subject": "Deploy HEC My Data v13 — retailer catalogue and loading repairs"
+  }
+]

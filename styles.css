@@ -887,3 +887,6 @@ html[data-hec-installation-role="test"] body{padding-top:var(--hec-installation-
 @media(min-width:701px){#home .eight-room-circle .companion-centre.no-companion{width:36%!important}}
 
 @media(max-width:700px){#home .home-header{padding-top:max(8px,env(safe-area-inset-top));padding-right:max(14px,env(safe-area-inset-right));padding-left:max(14px,env(safe-area-inset-left))}#home .home-corner-logo{right:max(14px,env(safe-area-inset-right))}}
+
+/* Compact Australian panel: labels and both printed columns stay aligned. */
+.capture-nutrition-table{width:100%;table-layout:fixed;border-collapse:collapse;margin:12px 0}.capture-nutrition-table th,.capture-nutrition-table td{padding:6px 3px;border-bottom:1px solid #d9e1db;text-align:left;overflow-wrap:anywhere}.capture-nutrition-table th:first-child{width:40%;font-size:.86rem}.capture-nutrition-table input{width:100%;min-width:0;padding:8px 4px;font-size:16px}.capture-nutrition-table input[aria-invalid="true"]{border:2px solid #a64719}#ocr-review details{margin:12px 0}#ocr-review summary{cursor:pointer;font-weight:600}#capture-comparison select{width:100%;min-width:0}

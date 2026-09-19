@@ -1,5 +1,5 @@
 {
-  "generation": "8e84152076aacc39ae4ffa24",
+  "generation": "7ddf61b27bf1d1c0e42aca89",
   "version": "0.6.33",
   "runtime": [
     "installation-config.js",
@@ -45,7 +45,7 @@
     "alpha064.js"
   ],
   "files": {
-    "index.html": "16de69e964a440bada7ade128c2e0561d543c88587b641c183b54051936f863f",
+    "index.html": "79a3b11ffa3a8c1dc50302b6951919bfde2dbe56b82ea6d0d5e0ba10065d0768",
     "installation-config.js": "e04cd8e2625d202b3833aa4f15077489128c1b50780aebf866890baf2b29a9f7",
     "config.js": "5917c660ff0a2bca08efe8029a74ea7a566e34719c27e09fc143390549a26895",
     "installation-foundation.js": "dc71c1e21e8971a650e1f287cb9e9dcf634592586836a4e7dfd688c74d28fb7f",
@@ -68,7 +68,7 @@
     "kfc-au-catalogue-data.js": "473e071cf68b18fd75481ea4def01166ee7b1237eecc0e56fa5a408e79305201",
     "kfc-au-supplement-data.js": "af33ffc60656c8cd391c35251c88e8c372188fd641a1e9636baeef3a1b64d595",
     "kfc-au-catalogue.js": "ea0f01eb3e5e8c609168b14bdb2eec4e05dd03d9ff41c29e12848baf10b7c905",
-    "food-catalogue.js": "a5f80425a02eebdea66b7d96599c71c3b76225c67a900c865fb506376e5fb6c2",
+    "food-catalogue.js": "410c78a24a810df43d546436302bf404f30cb331a57dd9b0782bf0de1c6c0e40",
     "retailer-catalogue.js": "2ee2e548544e0b96d78133e36a18af68c0ea468ffb427124f6f3af1cc378e317",
     "retailer-source.js": "2b93bd5f91c4dff76715044ca1f9d497c49ac03b2de0a56922365aed01525e33",
     "woolworths-au-catalogue.js": "2aefbaed040f4d7157f84f0b15565ece849e277e14f25478a21de19aa34b7845",
@@ -79,15 +79,15 @@
     "brand-catalogue.js": "4712fbc3181eb76ac8860e3ba033721980f030e1ff7c05d0de2309d151e2dab3",
     "guided-branching.js": "fc6883c9a34fd19dda80b3f3c2289f01f092a4c6456f196bf2b85c256669eeb0",
     "packaged-foods.js": "6bf73978372464077c6bcffa78afa3cb05588e97189ba901f603eff61f6b7579",
-    "capture-foundation.js": "7cc9c40462e51ea5626b22acb4be37b0197fa06a4113ed0631db533dc68af489",
+    "capture-foundation.js": "dc5755ea2f49c461369b438f02e4d1d305f328fe1fadfa0e324c57aa21d6eeaf",
     "serving-foundation.js": "870f5625b687548c6727ca0223e3643cd7e7fcdf53632486191db90b4283eb75",
     "guided-product-resolution.js": "6f941507e4937b23599530099b7988ad40af4b54d70c9d224830a4c952b77d68",
     "activity-foundation.js": "68f2e923769697bb90b0d0e13193533ebff5fa9b29846c0d05e5ced28fb83557",
     "food-groups-foundation.js": "2919670d100bb6de8794bed8a3bcbb7b18dec2d5f4a3a95912ddbd23268526b6",
     "conversation-foundation.js": "c313b738df302742261e2fd2ea06c58fcc72e38292f856a3da6df5596f799d26",
-    "alpha06.js": "e1fade40401aa9686b7ec4318c16898c084c86ffdb81846935eb939c01fd334d",
+    "alpha06.js": "bb48946a162fd7300f9fe90f9d3e766bfaccc5c02690af6a4281c69df57fe8e6",
     "alpha064.js": "e62d1f3a73c71ae5adea9ec1be76ee778ac6b00c1741553d8ce27bcb1b02a9d0",
-    "styles.css": "99a0886c30277a666e7875ec691daa5070cdb9f22721e4d2a1bf7848d47be76e",
+    "styles.css": "3eda0feb5a59ba4a3d8900aa6e4905c57b7ed3180c910cadd782db18297aa58c",
     "manifest.webmanifest": "20e91f54038b7ff6863544d11579b3ee3cbdb6001e25d92bafc03c3977e749ed",
     "data/open-food-facts-au/manifest.json": "b1e5d58b660cb4d36192ec898bef95f1cfcdbaed9d374be4cc10820450981e42",
     "afcd-release-3.json": "d729c6ea5bf1014724bde5d4038e995cd79059824cebab9f32b52ed4671560dd"

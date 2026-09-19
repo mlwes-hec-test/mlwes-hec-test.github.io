@@ -11,7 +11,7 @@
   function finishLookup(session,food,error=''){return {...session,state:food?'review':'not-found',food:food||null,error:String(error||''),locked:true};}
   function resetScanSession(){return createScanSession();}
   const ROWS=[['energyKj',/^(?:energy|calories?)\b/i,'kj'],['calories',/^(?:energy|calories?)\b/i,'kcal'],['protein',/^protein\b/i,'g'],['fat',/^(?:total\s+fat|fat(?:,?\s*total)?)\b/i,'g'],['satFat',/^(?:[-–]\s*)?(?:saturated|saturates)(?:\s+fat)?/i,'g'],['carbs',/^(?:carbohydrate|carbs)\b/i,'g'],['sugar',/^(?:[-–]\s*|of which\s+)?sugars?\b/i,'g'],['fibre',/^(?:dietary\s+)?fib(?:re|er)\b/i,'g'],['sodium',/^sodium\b/i,'mg'],['calcium',/^calcium\b/i,'mg'],['iron',/^iron\b/i,'mg'],['potassium',/^potassium\b/i,'mg']];
-  function parseNutritionPanel(text){
+  function parseNutritionPanel(text,{uncertainLines=[]}={}){
     const clean=String(text||'').replace(/\r\n?/g,'\n'),lines=clean.split(/\n+/).map(line=>line.trim()).filter(Boolean),issues=[];
     const serveLine=lines.find(line=>/serv(?:ing|e|lng)\s*(?:size|slze)/i.test(line))||'',size=serveLine.match(/(\d+(?:[.,]\d+)?)\s*(g|ml)\b/i),count=serveLine.match(/(\d+(?:[.,]\d+)?)\s*(pieces?|slices?|biscuits?|bars?|crackers?)\b/i),pack=clean.match(/servings?\s+per\s+pack(?:age)?\s*:?\s*(\d+(?:[.,]\d+)?)/i),number=value=>Number(value.replace(',','.')),servingAmount=size?number(size[1]):null;
     const headings=lines.filter(line=>/per\s*(?:serv(?:e|ing)\b|100\s*(?:g|ml)\b)/i.test(line)&&!/^serv(?:ing|e)\s*size/i.test(line)).join(' '),headers=[...headings.matchAll(/per\s*(serv(?:e|ing)\b|100\s*(g|ml)\b)/gi)].map(m=>({basis:/^100/i.test(m[1])?'per100':'perServing',unit:m[2]?(/ml/i.test(m[2])?'mL':'g'):''})).filter((h,i,a)=>a.findIndex(x=>x.basis===h.basis)===i);
@@ -19,8 +19,11 @@
     for(const [key,pattern,unit] of ROWS){
       const energy=key==='energyKj'||key==='calories',unitPattern=unit==='kj'?/\bkj\b/i:/\b(?:kcal|cal)\b/i;
       const line=lines.find(line=>pattern.test(line)&&(!energy||unitPattern.test(line)));if(!line)continue;
+      if(uncertainLines.some(value=>value.trim()===line)){issues.push('uncertain-'+key+'-columns');continue;}
       const labelled=line.replace(pattern,''),rowUnit=labelled.match(/^\s*[,:(]?\s*(kJ|kcal|Cal|mg|g)\s*\)?\s*[:)]?/i)?.[1]?.toLowerCase().replace(/^cal$/,'kcal');
+      const printedUnit=labelled.match(/^\s*\(([^)]+)\)/)?.[1];if(printedUnit&&!/^(kj|kcal|cal|mg|g)$/i.test(printedUnit)){issues.push('uncertain-'+key+'-columns');continue;}
       const body=labelled.replace(/^\s*[,:(]?\s*(?:kJ|kcal|Cal|mg|g)\s*\)?\s*[:)]?/i,'');
+      if(/\d\s+[.,]|[.,]\s+\d/.test(body)){issues.push('uncertain-'+key+'-columns');continue;}
       const tokens=[...body.matchAll(/([<>≤≥]?\s*[-+]?\d+(?:[.,]\d+)?)\s*(kcal|cal|kj|mg|g)?\b|(\?+|[—–])/gi)].map(m=>({raw:(m[1]||m[3]).trim(),unit:(m[2]||'').toLowerCase().replace(/^cal$/,'kcal')}));
       const values=energy?tokens.filter(t=>t.unit===unit||(!t.unit&&rowUnit===unit)):tokens;
       if(energy&&!values.length)continue;
@@ -37,6 +40,25 @@
     return {text:clean,...model,model,ingredients,detected:{perServing:headers.some(h=>h.basis==='perServing'),per100:headers.some(h=>h.basis==='per100')},issues:[...new Set(issues)],discrepancies:P().basisDiscrepancies(model),questionable:issues.length>0};
   }
   function chosenBasis(model){return model?.selectedBasis||((valueOrNull(model?.perServing?.calories)!==null||valueOrNull(model?.perServing?.energyKj)!==null)?'perServing':'per100');}
+  function parseOcrResult(data={}){
+    const uncertainLines=[];
+    for(const block of data.blocks||[])for(const paragraph of block.paragraphs||[])for(const line of paragraph.lines||[]){
+      if((line.words||[]).some(word=>/\d/.test(word.text||'')&&Number(word.confidence)<80))uncertainLines.push(line.text||'');
+    }
+    if(valueOrNull(data.confidence)!==null&&Number(data.confidence)<70)uncertainLines.push(...String(data.text||'').split('\n').filter(line=>/\d/.test(line)));
+    const parsed=parseNutritionPanel(data.text,{uncertainLines});parsed.extractionConfidence=valueOrNull(data.confidence);return parsed;
+  }
+  function privateIdentityStatus({name='',brand='',barcode=''}={}){
+    const candidate={name,brand,barcode,recordType:'private',market:'AU',nutrients:{calories:0}};
+    const quality=global.HECFoodCatalogue?.exactProductQuality?.(candidate);
+    const named=quality?quality.exactEligible:!!String(name).trim()&&!/^(food|product|unknown|barcode\s*\d+)$/i.test(String(name).trim());
+    return {ready:!!validBarcode(barcode)&&named,message:!validBarcode(barcode)?'Scan or enter the product barcode.':!named?'Enter the specific product name from this packet (and brand if shown).':''};
+  }
+  function buildBarcodeFood({food,id,confirmed=false}={}){
+    const identity=privateIdentityStatus(food);
+    if(!identity.ready)return {food:null,status:{ready:false,missing:['product-identity']},message:identity.message};
+    return buildPanelFood({id,name:food.name,brand:food.brand,barcode:food.barcode,model:reviewModelFor(food),confirmed,ingredients:food.ingredients,packageSize:food.packageSize||food.packageQuantity||food.quantity||'',catalogueFood:food,choice:'catalogue'});
+  }
   function reviewStatus({name='',model,confirmed=false,discrepancyConfirmed=false}={}){
     const missing=[],basis=chosenBasis(model),values=model?.[basis]||{},energy=P().normalisedEnergy(values);
     if(!String(name).trim())missing.push('name');
@@ -53,11 +75,12 @@
     return {ready:missing.length===0,missing,discrepancies,basis};
   }
   function validationMessage(status,model){
-    const labels={name:'Enter the food name.',basis:'Confirm whether the values are per serve or per 100 g / mL.',energy:'Enter energy for '+(chosenBasis(model)==='perServing'?'one serve':'100 '+(model?.per100Unit||model?.servingUnit||'g / mL'))+'.','per100-unit':'Choose g or mL for the per-100 column.','serving-size':'Enter a positive serving size and its unit, or leave size blank for a fixed serve.','basis-unit-conflict':'Serving and per-100 units differ; confirm the correct basis.','package-confirmation':'Check the package and confirm the values.','discrepancy-confirmation':'Review the differing columns and confirm the selected calculation basis.','energy-unit-conflict':'The kJ and Cal values disagree. Correct them or clear the unreadable value.'};
+    const labels={'product-identity':'Enter the specific product name from the packet, and brand if shown.',name:'Enter the food name.',basis:'Confirm whether the values are per serve or per 100 g / mL.',energy:'Enter energy for '+(chosenBasis(model)==='perServing'?'one serve':'100 '+(model?.per100Unit||model?.servingUnit||'g / mL'))+'.','per100-unit':'Choose g or mL for the per-100 column.','serving-size':'Enter a positive serving size and its unit, or leave size blank for a fixed serve.','basis-unit-conflict':'Serving and per-100 units differ; confirm the correct basis.','package-confirmation':'Check the package and confirm the values.','discrepancy-confirmation':'Review the differing columns and confirm the selected calculation basis.','energy-unit-conflict':'The kJ and Cal values disagree. Correct them or clear the unreadable value.'};
     return status.missing.map(key=>labels[key]||'Check '+key.replace(/-/g,' ')+'.').join(' ');
   }
   function buildPanelFood({id,name,brand='',barcode='',model,confirmed=false,discrepancyConfirmed=false,ingredients='',packageSize='',catalogueFood=null,choice='panel',extracted=null}={}){
     const status=reviewStatus({name,model,confirmed,discrepancyConfirmed});if(!status.ready)return {food:null,status};
+    if(validBarcode(barcode)&&!privateIdentityStatus({name,brand,barcode}).ready)return {food:null,status:{...status,ready:false,missing:['product-identity']}};
     const basis=status.basis,useServing=basis==='perServing',amount=model.manufacturerServing?valueOrNull(model.servingAmount):null,unit=useServing?model.servingUnit:(model.per100Unit||model.servingUnit),nutrients=P().normalisedEnergy(model[basis]).nutrients,units={},unitLabels={};
     let defaultAmount=useServing?1:100,defaultUnit=useServing?'serve':unit,serving=useServing?'Manufacturer serve':'Reference per 100 '+unit;
     if(useServing){units.serve=1;unitLabels.serve=amount?'Manufacturer Serve ('+amount+' '+unit+')':'Manufacturer Serve';if(amount)units[unit]=1/amount;}
@@ -66,11 +89,13 @@
     if(units[unit])unitLabels[unit]=unit;
     if(Number(model.servingCount)>0&&/^(piece|slice|biscuit|bar|cracker)$/.test(model.servingCountUnit)&&units.serve){units[model.servingCountUnit]=units.serve/Number(model.servingCount);unitLabels[model.servingCountUnit]=model.servingCountUnit;}
     const food={id:String(id||'panel-'+Date.now()),recordType:'private',verificationStatus:'package-confirmed',market:'AU',barcode:validBarcode(barcode),name:String(name).trim(),brand:String(brand).trim(),category:'Packaged Food',country:'Australia',aliases:[name,brand].filter(Boolean),defaultAmount,defaultUnit,units,unitLabels,serving,nutrients,foodGroups:{},waterMl:null,hydrationType:unit==='mL'?'drink':'food',score:6,source:choice==='catalogue'?'Barcode Nutrition · User Checked':'Current Package Nutrition Panel · User Checked',verified:false,packageServingExplicit:!!amount,ingredients:String(ingredients).trim(),packageSize:String(packageSize).trim(),servingsPerPack:valueOrNull(model.servingsPerPack),nutritionStatus:'user-confirmed',loggable:true,recognisedOnly:false,productSemantics:{type:'packaged-serving',confidence:'high'},captureEvidence:{barcode:validBarcode(barcode),catalogue:catalogueFood?{id:catalogueFood.id,canonicalId:catalogueFood.canonicalId||null,barcode:catalogueFood.barcode||null,name:catalogueFood.name,brand:catalogueFood.brand||null,source:catalogueFood.source||null,nutrients:clone(catalogueFood.nutrients),units:clone(catalogueFood.units),nutritionBasis:reviewModelFor(catalogueFood)}:null,extracted:clone(extracted),confirmedPanel:clone(model),choice,confirmed:true}};
+    food.canonicalId='private:'+food.id;food.privateProductIdentity={id:food.canonicalId,gtin:food.barcode||null,name:food.name,brand:food.brand||null,packageSize:food.packageSize||null};
+    food.captureEvidence.confirmedAt=new Date().toISOString();
     P().attachBasis(food,{...model,selectedBasis:basis});return {food,status};
   }
   // Review adapter only: opening a legacy record never migrates or rewrites it.
   function reviewModelFor(food){
-    if(food?.nutritionBasis&&typeof food.nutritionBasis==='object'){const unit=food.nutritionBasis.per100Unit||food.nutritionPer100Unit||(food.units?.g>0&&!food.units?.mL?'g':food.units?.mL>0&&!food.units?.g?'mL':'');return P().basisModel({...food.nutritionBasis,per100Unit:unit});}
+    if(food?.nutritionBasis&&['perServing','per100'].some(basis=>['calories','energyKj'].some(key=>valueOrNull(food.nutritionBasis[basis]?.[key])!==null))){const unit=food.nutritionBasis.per100Unit||food.nutritionPer100Unit||(food.units?.g>0&&!food.units?.mL?'g':food.units?.mL>0&&!food.units?.g?'mL':'');return P().basisModel({...food.nutritionBasis,per100Unit:unit});}
     if(food?.nutritionPer100||food?.nutritionPerServing)return P().basisModel({per100:food.nutritionPer100,perServing:food.nutritionPerServing,per100Unit:food.nutritionPer100Unit||'',servingAmount:food.manufacturerServing?.amount,servingUnit:food.manufacturerServing?.unit||'',manufacturerServing:!!food.manufacturerServing});
     const unit=food?.units?.g>0?'g':food?.units?.mL>0?'mL':'',scale=unit?food.units[unit]:null,serve=food?.units?.serve;
     return P().basisModel({perServing:serve>0?P().scale(food.nutrients,serve):{},per100:scale?P().scale(food.nutrients,scale*100):{},servingAmount:serve>0&&scale?serve/scale:null,servingUnit:unit,per100Unit:unit,manufacturerServing:serve>0&&!!scale,selectedBasis:serve>0?'perServing':unit?'per100':''});
@@ -93,6 +118,6 @@
     return {...status,recognised:!!food?.name};
   }
   function actionsFor(food){const status=barcodeStatus(food);return {save:status.canSaveToMyFoods,add:status.canAddToDiary,both:status.canAddToDiary};}
-  const api={version:VERSION,nutrientKeys:KEYS,valueOrNull,emptyNutrients,validBarcode,createScanSession,acceptDetection,finishLookup,resetScanSession,parseNutritionPanel,reviewStatus,validationMessage,chosenBasis,buildPanelFood,reviewModelFor,comparePanel,barcodeStatus,actionsFor};
+  const api={version:VERSION,nutrientKeys:KEYS,valueOrNull,emptyNutrients,validBarcode,createScanSession,acceptDetection,finishLookup,resetScanSession,parseNutritionPanel,parseOcrResult,reviewStatus,validationMessage,chosenBasis,privateIdentityStatus,buildBarcodeFood,buildPanelFood,reviewModelFor,comparePanel,barcodeStatus,actionsFor};
   global.HECCaptureFoundation=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);

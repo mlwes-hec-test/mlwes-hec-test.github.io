@@ -1,0 +1,138 @@
+{
+  "ocr-psm4": {
+    "cases": [
+      {
+        "before": 10,
+        "name": "clean-flat",
+        "issues": [
+          "uncertain-protein-columns",
+          "uncertain-fat-columns",
+          "uncertain-sugar-columns"
+        ],
+        "after": 10
+      },
+      {
+        "before": 14,
+        "name": "reduced-contrast",
+        "issues": [
+          "uncertain-protein-columns",
+          "uncertain-fat-columns",
+          "uncertain-sugar-columns",
+          "uncertain-fibre-columns"
+        ],
+        "after": 8
+      },
+      {
+        "before": 10,
+        "name": "decimal-rich",
+        "issues": [
+          "uncertain-protein-columns",
+          "uncertain-fat-columns",
+          "uncertain-sugar-columns"
+        ],
+        "after": 10
+      },
+      {
+        "before": 10,
+        "name": "two-column-mass",
+        "issues": [
+          "uncertain-protein-columns",
+          "uncertain-fat-columns",
+          "uncertain-sugar-columns"
+        ],
+        "after": 10
+      },
+      {
+        "before": 10,
+        "name": "two-column-liquid",
+        "issues": [
+          "uncertain-protein-columns",
+          "uncertain-fat-columns",
+          "uncertain-sugar-columns"
+        ],
+        "after": 10
+      },
+      {
+        "before": 10,
+        "name": "uncertain-field",
+        "issues": [
+          "uncertain-protein-columns",
+          "uncertain-fat-columns",
+          "uncertain-sugar-columns"
+        ],
+        "after": 10
+      }
+    ],
+    "afterDetected": 58,
+    "pass": false,
+    "beforeDetected": 64
+  },
+  "ocr": {
+    "cases": [
+      {
+        "before": 10,
+        "name": "clean-flat",
+        "issues": [
+          "uncertain-protein-columns",
+          "uncertain-fat-columns",
+          "uncertain-sugar-columns"
+        ],
+        "after": 10
+      },
+      {
+        "before": 14,
+        "name": "reduced-contrast",
+        "issues": [
+          "uncertain-protein-columns",
+          "uncertain-fat-columns",
+          "uncertain-sugar-columns",
+          "uncertain-fibre-columns"
+        ],
+        "after": 8
+      },
+      {
+        "before": 10,
+        "name": "decimal-rich",
+        "issues": [
+          "uncertain-protein-columns",
+          "uncertain-fat-columns",
+          "uncertain-sugar-columns"
+        ],
+        "after": 10
+      },
+      {
+        "before": 10,
+        "name": "two-column-mass",
+        "issues": [
+          "uncertain-protein-columns",
+          "uncertain-fat-columns",
+          "uncertain-sugar-columns"
+        ],
+        "after": 10
+      },
+      {
+        "before": 10,
+        "name": "two-column-liquid",
+        "issues": [
+          "uncertain-protein-columns",
+          "uncertain-fat-columns",
+          "uncertain-sugar-columns"
+        ],
+        "after": 10
+      },
+      {
+        "before": 10,
+        "name": "uncertain-field",
+        "issues": [
+          "uncertain-protein-columns",
+          "uncertain-fat-columns",
+          "uncertain-sugar-columns"
+        ],
+        "after": 10
+      }
+    ],
+    "afterDetected": 58,
+    "pass": false,
+    "beforeDetected": 64
+  }
+}

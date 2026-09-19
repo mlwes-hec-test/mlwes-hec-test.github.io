@@ -21,7 +21,7 @@ async function run(){
   await page.evaluate(text=>{window.__captureOcrText=text;window.Tesseract={createWorker:async()=>({setParameters:async()=>{},recognize:async()=>{if(window.__captureOcrFail)throw Error('Synthetic extraction failure');return {data:{text:window.__captureOcrText}};},terminate:async()=>{}})};},fixture.solidText);
   await page.locator('#scan-image').setInputFiles(panelFile);await page.locator('#run-label-ocr').click();
   await page.waitForFunction(()=>document.querySelector('#ocr-calcium').value==='150');assert.equal(await page.locator('#ocr-food-name').inputValue(),'Synthetic Vanilla Custard');await snap('02-extracted-panel');
-  await page.locator('#ocr-calcium').fill('151');await page.locator('#ocr-ingredients').fill('Synthetic milk, vanilla, starch.');await page.locator('#ocr-pack-size').fill('750 g');
+  await page.locator('#ocr-calcium').evaluate(n=>n.closest('details').open=true);await page.locator('#ocr-calcium').fill('151');await page.locator('#ocr-ingredients').fill('Synthetic milk, vanilla, starch.');await page.locator('#ocr-pack-size').fill('750 g');
   await page.locator('#capture-value-choice').selectOption('panel');await page.locator('#ocr-package-confirmed').check();
   assert(await page.locator('[data-capture-source="ocr"][data-capture-action="save"]').isEnabled());await snap('03-confirmed-corrections');
   await page.locator('[data-capture-source="ocr"][data-capture-action="save"]').click();await page.locator('#food-library.active').waitFor();
@@ -30,7 +30,7 @@ async function run(){
   await page.reload();await page.waitForFunction(()=>window.HECRelease?.snapshot().state==='ready');await page.evaluate(()=>openAlpha05Feature('food-library'));await page.locator('[data-library-tab="saved"]').click();
   await snap('04-reopened-my-food');
   const row=page.locator('#food-results [data-food-save="'+id+'"]').locator('..');await row.locator('.resource-main').click();
-  await page.locator('#food-entry-editor.active').waitFor();report.amount={unit:await page.locator('#entry-unit').inputValue(),amount:await page.locator('#entry-amount').inputValue(),options:await page.locator('#entry-unit option').evaluateAll(ns=>ns.map(n=>n.value))};
+  await require('./capture_amount_test_helper')(page);await page.locator('#food-entry-editor.active').waitFor();report.amount={unit:await page.locator('#entry-unit').inputValue(),amount:await page.locator('#entry-amount').inputValue(),options:await page.locator('#entry-unit option').evaluateAll(ns=>ns.map(n=>n.value))};
   assert(!report.amount.options.includes('mL'));assert.notEqual(Number(report.amount.amount),750);
   await page.locator('#entry-amount').fill('2');await page.locator('#entry-meal').selectOption('Lunch');await snap('05-final-review');await page.locator('#save-food-entry').click();
   state=await page.evaluate(()=>JSON.parse(localStorage.getItem(HEC_APP.functionalStorageKey)));const entries=Object.values(state.diary).flat();assert.equal(entries.length,1);assert.equal(entries[0].nutrients.calcium,302);assert.deepEqual(entries[0].foodGroups,{});assert.equal(entries[0].waterMl,null);report.diary=entries[0];await snap('06-diary-save');

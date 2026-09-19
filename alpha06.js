@@ -1414,8 +1414,14 @@ function keepCapturedFoodAvailable(food,{save=false}={}){
 }
 function openCapturedFoodForDiary(food,{save=false}={}){
   if(!X8?.barcodeStatus?.(food)?.canAddToDiary||!C8.canLog(food)){showActionToast(C8.addability(food).message||"Complete And Confirm The Nutrition Details Before Adding This Food.",null,6000);return false;}
-  keepCapturedFoodAvailable(food,{save});const meal=ext.ui.pendingMeal||ext.ui?.mealEntrySession?.meal||'',date=ext.ui?.mealEntrySession?.date||ext.ui.diaryDate||isoToday();prepareEntry(food,{date,meal,source:food.source});if(!editorState)return false;
-  editorState.returnTo='scan-centre';editorState.pendingDiarySave=save;editorState.libraryOnly=false;by("entry-date")?.closest(".form-grid")?.classList.remove("hidden");if(by("entry-date"))by("entry-date").value=date;if(by("entry-meal"))by("entry-meal").value=meal;if(by("save-food-entry")){by("save-food-entry").classList.remove("hidden");by("save-food-entry").textContent=save?'Confirm Save & Add To Diary':'Confirm Add To Diary';}by("save-food-entry-and-food")?.classList.add("hidden");updateEntryPreview();if(!meal){showActionToast('Choose a Diary meal, then confirm. No default meal has been selected.',null,6000);by('entry-meal')?.focus();}return true;
+  keepCapturedFoodAvailable(food,{save});const meal=ext.ui.pendingMeal||ext.ui?.mealEntrySession?.meal||'',date=ext.ui?.mealEntrySession?.date||ext.ui.diaryDate||isoToday();chooseCapturedAmount(food,({amount,unit})=>{prepareEntry(food,{date,meal,source:food.source,amount,unit});if(!editorState)return;
+  editorState.returnTo='scan-centre';editorState.pendingDiarySave=save;editorState.libraryOnly=false;by("entry-date")?.closest(".form-grid")?.classList.remove("hidden");if(by("entry-date"))by("entry-date").value=date;if(by("entry-meal"))by("entry-meal").value=meal;if(by("save-food-entry")){by("save-food-entry").classList.remove("hidden");by("save-food-entry").textContent=save?'Confirm Save & Add To Diary':'Confirm Add To Diary';}by("save-food-entry-and-food")?.classList.add("hidden");updateEntryPreview();if(!meal){showActionToast('Choose a Diary meal, then confirm. No default meal has been selected.',null,6000);by('entry-meal')?.focus();}});return true;
+}
+function chooseCapturedAmount(food,onReview){
+  const units=X8?Object.keys(food.units||{}).filter(unit=>Number(food.units[unit])>0):[];
+  openModal('How much did you have?',food.name,'Close',()=>{},'<label>Amount<input id="capture-amount" type="number" min="0" step="any" inputmode="decimal"></label><label>Unit<select id="capture-amount-unit">'+units.map(unit=>'<option value="'+esc(unit)+'">'+esc(food.unitLabels?.[unit]||unit)+'</option>').join('')+'</select></label><p id="capture-amount-help">Choose the amount you ate. Pack size does not set this amount.</p><button id="capture-amount-review" type="button" class="primary wide">Review</button>');
+  by('a05-modal-confirm').classList.add('hidden');by('capture-amount-unit').value=units.includes(food.defaultUnit)?food.defaultUnit:units[0];
+  by('capture-amount-review').onclick=()=>{const amount=Number(by('capture-amount').value),unit=by('capture-amount-unit').value;if(!(amount>0)||!Number.isFinite(amount)||!units.includes(unit)){by('capture-amount-help').textContent='Enter a positive amount and choose its unit.';return;}closeModal();onReview({amount,unit});};
 }
 function updateBarcodeLookupState(){const input=by("scan-barcode-input"),button=by("lookup-barcode");if(button)button.disabled=!validBarcodeValue(input?.value);}
 function updateScanModeUI(){
@@ -1507,25 +1513,51 @@ function parseNutritionPanel(text){
 }
 const ALPHA0631_OCR_FIELDS={energyKj:"ocr-energy-kj",calcium:"ocr-calcium",iron:"ocr-iron",potassium:"ocr-potassium",calories:"ocr-calories",protein:"ocr-protein",carbs:"ocr-carbs",fat:"ocr-fat",satFat:"ocr-sat-fat",fibre:"ocr-fibre",sugar:"ocr-sugar",sodium:"ocr-sodium"};
 const ALPHA08_OCR100_FIELDS={energyKj:"ocr100-energy-kj",calcium:"ocr100-calcium",iron:"ocr100-iron",potassium:"ocr100-potassium",calories:"ocr100-calories",protein:"ocr100-protein",carbs:"ocr100-carbs",fat:"ocr100-fat",satFat:"ocr100-sat-fat",fibre:"ocr100-fibre",sugar:"ocr100-sugar",sodium:"ocr100-sodium"};
-function alpha08SetOcrValues(fields,values={}){Object.entries(fields).forEach(([key,id])=>{if(by(id))by(id).value=values[key]===null||values[key]===undefined?'':Number(Number(values[key]).toFixed(6));});}
-function alpha08ReadOcrValues(fields){return Object.fromEntries(Object.entries(fields).map(([key,id])=>{const value=by(id)?.value;return [key,value===undefined||value===''?null:Number(value)];}));}
+function alpha08SetOcrValues(fields,values={}){Object.entries(fields).forEach(([key,id])=>{const input=by(id);if(!input)return;const value=values[key];input.value=value==null?'':Number(Number(value).toFixed(2));input.dataset.displayed=input.value;input.dataset.precise=value==null?'':String(value);});}
+function alpha08ReadOcrValues(fields){return Object.fromEntries(Object.entries(fields).map(([key,id])=>{const input=by(id),value=input?.value;return [key,value===undefined||value===''?null:Number(input.dataset.precise&&value===input.dataset.displayed?input.dataset.precise:value)];}));}
 
+function applyCaptureModel(model){
+  alpha08SetOcrValues(ALPHA0631_OCR_FIELDS,model.perServing);alpha08SetOcrValues(ALPHA08_OCR100_FIELDS,model.per100);
+  for(const [id,key] of Object.entries({'ocr-serving-amount':'servingAmount','ocr-serving-unit':'servingUnit','ocr-per100-unit':'per100Unit','ocr-selected-basis':'selectedBasis','ocr-servings-per-pack':'servingsPerPack','ocr-serving-count':'servingCount','ocr-serving-count-unit':'servingCountUnit'}))by(id).value=model[key]??'';
+  if(!model.selectedBasis)by('ocr-selected-basis').value=X8.chosenBasis(model);
+}
+function selectCaptureValues(choice){
+  if(!productCapture)return;
+  if(productCapture.choice==='panel'||productCapture.displayedSource==='panel')productCapture.panelModel=clone(alpha08OcrModel());
+  productCapture.choice=choice;
+  productCapture.displayedSource=choice;
+  if(choice)applyCaptureModel(choice==='catalogue'?X8.reviewModelFor(productCapture.catalogueFood):productCapture.panelModel);
+  qa('#ocr-review input[aria-invalid]').forEach(input=>{input.setAttribute('aria-invalid','false');input.placeholder='';});
+  by('capture-field-issues').textContent=choice==='catalogue'?'Barcode values are now shown below. Check them against this packet; the photo reading is kept separately.':'Package values are now shown below. Correct any unreadable or differing values, then confirm.';
+  by('ocr-package-confirmed').checked=false;by('ocr-discrepancy-confirmed').checked=false;
+}
+function confirmedBarcodeFood(){
+  if(!scanBarcodeFood||!productCapture)return null;
+  return X8.buildBarcodeFood({food:scanBarcodeFood,id:productCapture.id,confirmed:by('barcode-package-confirmed').checked}).food;
+}
+function updateBarcodeConfirmation(){
+  const result=scanBarcodeFood?X8.buildBarcodeFood({food:scanBarcodeFood,id:productCapture?.id,confirmed:by('barcode-package-confirmed').checked}):null;
+  const ready=!!result?.food&&C8.canLog(result.food);
+  setCaptureActionState('barcode',{save:ready,add:ready,both:ready});
+  if(result&&!ready)by('scan-review-status').textContent=result.message||X8.validationMessage(result.status,X8.reviewModelFor(scanBarcodeFood));
+  else if(ready)by('scan-review-status').textContent='Packet checked. Ready to save your private food or choose an amount for Diary.';
+}
+by('barcode-package-confirmed').addEventListener('change',updateBarcodeConfirmation);
 function alpha08OcrModel(){return P8.basisModel({perServing:alpha08ReadOcrValues(ALPHA0631_OCR_FIELDS),per100:alpha08ReadOcrValues(ALPHA08_OCR100_FIELDS),servingAmount:by('ocr-serving-amount').value||null,servingUnit:by('ocr-serving-unit').value,per100Unit:by('ocr-per100-unit').value,selectedBasis:by('ocr-selected-basis').value,servingText:'User checked manufacturer serving',manufacturerServing:!!by('ocr-serving-amount').value,servingsPerPack:by('ocr-servings-per-pack').value||null,servingCount:by('ocr-serving-count').value||null,servingCountUnit:by('ocr-serving-count-unit').value});}
 function alpha08UpdateOcrReview(){
   const model=alpha08OcrModel(),status=X8.reviewStatus({name:by('ocr-food-name').value,model,confirmed:by('ocr-package-confirmed').checked,discrepancyConfirmed:by('ocr-discrepancy-confirmed').checked});
   if(!model.selectedBasis){status.missing.push('basis');status.ready=false;}
-  const comparison=X8.comparePanel(productCapture?.catalogueFood,model),box=by('capture-comparison');
+  const comparison=X8.comparePanel(productCapture?.catalogueFood,productCapture?.panelModel||model),box=by('capture-comparison');
   if(productCapture?.catalogueFood){
     box.classList.remove('hidden');
     const heading={different:'Package Values Differ From Barcode Values',compatible:'Package Values Match Closely',incomplete:'No Comparable Values Yet'}[comparison.status]||'Review Package Values';
     const signature=JSON.stringify({comparison,choice:productCapture.choice});
-    if(box.dataset.signature!==signature){box.dataset.signature=signature;box.innerHTML='<strong>'+heading+'</strong><p>For your private My Food only. The catalogue stays unchanged.</p><div class="capture-comparison-rows">'+comparison.rows.map(row=>'<p>'+esc(row.key)+': barcode '+formatNumber(row.catalogue,true)+' → panel '+formatNumber(row.panel,true)+(row.different?' · differs':'')+'</p>').join('')+'</div><label>Use For My Food<select id="capture-value-choice"><option value="">Choose values</option><option value="panel">Checked physical panel</option><option value="catalogue">Barcode / catalogue values</option></select></label>';by('capture-value-choice').value=productCapture.choice||'';}
+    if(box.dataset.signature!==signature){box.dataset.signature=signature;box.innerHTML='<strong>'+heading+'</strong><p>For your private My Food only. The catalogue stays unchanged.</p><div class="capture-comparison-rows">'+comparison.rows.map(row=>'<p>'+esc(({calories:'Energy (Cal)',satFat:'Saturated fat (g)',carbs:'Carbohydrate (g)',sugar:'Sugars (g)',sodium:'Sodium (mg)'})[row.key]||row.key+' (g)')+': barcode '+formatNumber(row.catalogue,true)+' → panel '+formatNumber(row.panel,true)+(row.different?' · differs':'')+'</p>').join('')+'</div><label>Use For My Food<select id="capture-value-choice"><option value="">Choose values</option><option value="panel">Use Checked Package Values</option><option value="catalogue">Use Barcode Values</option></select></label>';by('capture-value-choice').value=productCapture.choice||'';}
     if(!productCapture.choice){status.ready=false;status.missing.push('barcode-panel-choice');}
   }else box.classList.add('hidden');
-  if(productCapture?.choice==='catalogue'){
-    const chosenStatus=X8.reviewStatus({name:by('ocr-food-name').value,model:X8.reviewModelFor(productCapture.catalogueFood),confirmed:by('ocr-package-confirmed').checked,discrepancyConfirmed:by('ocr-discrepancy-confirmed').checked});
-    status.ready=chosenStatus.ready;status.missing=chosenStatus.missing;status.discrepancies=chosenStatus.discrepancies;
-  }
+  const identity=productCapture?.barcode?X8.privateIdentityStatus({name:by('ocr-food-name').value,brand:by('ocr-food-brand').value,barcode:productCapture.barcode}):{ready:true};if(!identity.ready){status.ready=false;status.missing.push('product-identity');}
+  by('ocr-advanced').open=!model.selectedBasis||(model.selectedBasis==='per100'&&!model.per100Unit)||!!status.discrepancies.length;
+  by('ocr-100-column').textContent='Per 100 '+(model.per100Unit||model.servingUnit||'g / mL');
   by('ocr-discrepancy-confirm-row').classList.toggle('hidden',!status.discrepancies.length);
   by('ocr-review-status').innerHTML=status.ready?'<strong>Ready To Save</strong><p>Your checked nutrition supports a Diary amount. Nothing is logged until final Review.</p>':'<strong>Review Still Required</strong><p>'+esc(X8.validationMessage(status,model).replace('Check barcode panel choice.','Choose the panel or barcode values for your private My Food.'))+'</p>';
   setCaptureActionState('ocr',{save:status.ready,add:status.ready,both:status.ready});return {model,status};
@@ -1538,7 +1570,7 @@ function alpha0631ScaleOcrReview(){
 function fillOcrReview(parsed){
   if(!parsed)return;ocrParsedPanel=parsed;ocrReviewedFood=null;captureActionLocked=false;
   productCapture ||= {id:uid('panel'),barcode:validBarcodeValue(by('scan-barcode-input').value),choice:'panel'};
-  productCapture.panelStarted=true;productCapture.extracted=clone(parsed);productCapture.choice=productCapture.catalogueFood?'':'panel';
+  productCapture.panelStarted=true;productCapture.extracted=clone(parsed);productCapture.panelModel=clone(parsed.model);productCapture.choice=productCapture.catalogueFood?'':'panel';productCapture.displayedSource='panel';
   const fields={'ocr-serving-amount':parsed.servingAmount,'ocr-serving-unit':parsed.servingUnit,'ocr-per100-unit':parsed.per100Unit,'ocr-selected-basis':parsed.selectedBasis||X8.chosenBasis(parsed.model),'ocr-servings-per-pack':parsed.servingsPerPack,'ocr-serving-count':parsed.servingCount,'ocr-serving-count-unit':parsed.servingCountUnit};
   Object.entries(fields).forEach(([id,value])=>by(id).value=value??'');
   if(!parsed.detected?.perServing&&!parsed.detected?.per100)by('ocr-selected-basis').value='';
@@ -1547,16 +1579,18 @@ function fillOcrReview(parsed){
   for(const [basis,fields] of [['perServing',ALPHA0631_OCR_FIELDS],['per100',ALPHA08_OCR100_FIELDS]])for(const [key,id] of Object.entries(fields)){const uncertain=(parsed.issues||[]).some(issue=>issue==='confirm-'+basis+'-'+key||issue==='uncertain-'+key+'-columns');by(id).setAttribute('aria-invalid',String(uncertain));by(id).setAttribute('aria-describedby','capture-field-issues');by(id).placeholder=uncertain?'Please check the packet':'';}
   by('ocr-serving-column').classList.remove('hidden');by('ocr-100-column').classList.remove('hidden');
   by('ocr-package-confirmed').checked=false;by('ocr-discrepancy-confirmed').checked=false;
-  by('capture-field-issues').textContent=parsed.issues?.length?'Please check: '+parsed.issues.join(', ').replace(/-/g,' ')+'. Uncertain values are left blank.':'Review the extracted values against the packet.';
-  by('ocr-review').classList.remove('hidden');alpha0631ScaleOcrReview();alpha08UpdateOcrReview();
+  by('capture-field-issues').textContent=parsed.issues?.length?'Please check the marked fields against the packet. Uncertain values are left blank. You can correct them or choose the barcode values you checked.':'Review the extracted values against the packet.';
+  by('ocr-review').classList.remove('hidden');if(productCapture.catalogueFood&&parsed.perServing.calories===null&&parsed.per100.calories===null){applyCaptureModel(X8.reviewModelFor(productCapture.catalogueFood));productCapture.displayedSource='catalogue';}alpha0631ScaleOcrReview();alpha08UpdateOcrReview();
 }
 const alpha08FillOcrReview=fillOcrReview;
 by('ocr-review')?.addEventListener('input',event=>{
   if(event.target.id==='ocr-text')return;event.target.removeAttribute('aria-invalid');
-  if(event.target.id==='capture-value-choice'){productCapture.choice=event.target.value;by('ocr-package-confirmed').checked=false;}
+  delete event.target.dataset.precise;
+  if(event.target.id==='capture-value-choice'){selectCaptureValues(event.target.value);}
   else if(!event.target.id.includes('confirmed')){
     by('ocr-package-confirmed').checked=false;by('ocr-discrepancy-confirmed').checked=false;
-    if(productCapture?.catalogueFood)productCapture.choice='';
+    if(productCapture&&!productCapture.choice)productCapture.choice=productCapture.displayedSource||'panel';
+    if(productCapture?.choice==='panel')productCapture.panelModel=clone(alpha08OcrModel());
     for(const prefix of ['ocr','ocr100'])if(event.target.id===prefix+'-energy-kj')by(prefix+'-calories').value='';else if(event.target.id===prefix+'-calories')by(prefix+'-energy-kj').value='';
   }
   ocrReviewedFood=null;captureActionLocked=false;alpha08UpdateOcrReview();
@@ -1564,7 +1598,17 @@ by('ocr-review')?.addEventListener('input',event=>{
 by('ocr-review')?.addEventListener('change',()=>alpha08UpdateOcrReview());
 
 async function prepareOcrImage(file){
-  try{const bitmap=await createImageBitmap(file),max=3000,scale=Math.min(3,max/Math.max(bitmap.width,bitmap.height)),w=Math.max(1,Math.round(bitmap.width*scale)),h=Math.max(1,Math.round(bitmap.height*scale)),canvas=document.createElement("canvas");canvas.width=w;canvas.height=h;const ctx=canvas.getContext("2d",{willReadFrequently:true});ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality="high";ctx.drawImage(bitmap,0,0,w,h);const image=ctx.getImageData(0,0,w,h),d=image.data,hist=new Array(256).fill(0);let sum=0,count=0;for(let i=0;i<d.length;i+=4){const g=Math.max(0,Math.min(255,Math.round(.299*d[i]+.587*d[i+1]+.114*d[i+2])));hist[g]++;sum+=g;count++;d[i]=d[i+1]=d[i+2]=g;}let total=count,sumB=0,wB=0,maxVar=0,threshold=140,sumAll=0;for(let i=0;i<256;i++)sumAll+=i*hist[i];for(let t=0;t<256;t++){wB+=hist[t];if(!wB)continue;const wF=total-wB;if(!wF)break;sumB+=t*hist[t];const mB=sumB/wB,mF=(sumAll-sumB)/wF,between=wB*wF*(mB-mF)*(mB-mF);if(between>maxVar){maxVar=between;threshold=t;}}const darkBackground=(sum/Math.max(count,1))<150;for(let i=0;i<d.length;i+=4){const g=d[i];const bw=darkBackground?(g>threshold?0:255):(g<threshold?0:255);d[i]=d[i+1]=d[i+2]=bw;d[i+3]=255;}ctx.putImageData(image,0,0);bitmap.close?.();return canvas;}catch{return file;}
+  try{
+    // Honour camera EXIF orientation and retain the entire table. Cropping or
+    // hard binarisation can remove column headings and small decimal strokes.
+    const bitmap=await createImageBitmap(file,{imageOrientation:'from-image'}),scale=Math.min(1,3000/Math.max(bitmap.width,bitmap.height));
+    const canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(bitmap.width*scale));canvas.height=Math.max(1,Math.round(bitmap.height*scale));
+    const ctx=canvas.getContext('2d',{willReadFrequently:true});ctx.fillStyle='white';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';ctx.drawImage(bitmap,0,0,canvas.width,canvas.height);bitmap.close?.();
+    const image=ctx.getImageData(0,0,canvas.width,canvas.height),d=image.data;let low=255,high=0;
+    for(let i=0;i<d.length;i+=4){const g=Math.round(.299*d[i]+.587*d[i+1]+.114*d[i+2]);d[i]=d[i+1]=d[i+2]=g;low=Math.min(low,g);high=Math.max(high,g);}
+    if(high-low>20)for(let i=0;i<d.length;i+=4)d[i]=d[i+1]=d[i+2]=Math.round((d[i]-low)*255/(high-low));
+    ctx.putImageData(image,0,0);return canvas;
+  }catch{return file;}
 }
 
 by("run-label-ocr")?.addEventListener("click",async()=>{
@@ -1576,8 +1620,8 @@ by("run-label-ocr")?.addEventListener("click",async()=>{
     worker=await Tesseract.createWorker('eng',1,{logger:m=>{if(epoch===captureEpoch&&m.progress)box.textContent=String(m.status||'Reading')+' · '+Math.round(m.progress*100)+'%';}});
     if(epoch!==captureEpoch)return;
     await worker.setParameters({tessedit_pageseg_mode:'6',preserve_interword_spaces:'1',user_defined_dpi:'300'});
-    const result=await worker.recognize(image);if(epoch!==captureEpoch)return;
-    const text=result.data?.text||'';by('ocr-text').value=text;const parsed=parseNutritionPanel(text);parsed.extractionConfidence=X8.valueOrNull(result.data?.confidence);if(parsed.extractionConfidence!==null&&parsed.extractionConfidence<70){parsed.issues.push('low-text-confidence');parsed.questionable=true;}fillOcrReview(parsed);
+    const result=await worker.recognize(image,{}, {text:true,blocks:true});if(epoch!==captureEpoch)return;
+    by('ocr-text').value=result.data?.text||'';const parsed=X8.parseOcrResult(result.data);fillOcrReview(parsed);
     box.textContent=parsed.questionable?'Some fields need confirmation. Check the marked fields or enter the values from the packet.':'Panel Read. Check Every Value Against The Package.';
   }catch(error){if(epoch!==captureEpoch)return;box.textContent='The panel could not be read reliably. Try Again or enter the values manually.';fillOcrReview(parseNutritionPanel(''));}
   finally{await worker?.terminate?.();if(epoch===captureEpoch)button.disabled=!scanFile;}
@@ -1585,19 +1629,19 @@ by("run-label-ocr")?.addEventListener("click",async()=>{
 function alpha08PanelFood(){
   const review=alpha08UpdateOcrReview();if(!review.status.ready)return null;
   productCapture ||= {id:uid('panel'),choice:'panel'};
-  const model=productCapture.choice==='catalogue'?X8.reviewModelFor(productCapture.catalogueFood):review.model;
+  const model=review.model;
   const result=X8.buildPanelFood({id:productCapture.id,name:by('ocr-food-name').value,brand:by('ocr-food-brand').value,barcode:productCapture.barcode||validBarcodeValue(by('scan-barcode-input').value),model,confirmed:by('ocr-package-confirmed').checked,discrepancyConfirmed:by('ocr-discrepancy-confirmed').checked,ingredients:by('ocr-ingredients').value,packageSize:by('ocr-pack-size').value,catalogueFood:productCapture.catalogueFood,choice:productCapture.choice,extracted:productCapture.extracted});
   ocrReviewedFood=result.food;
-  if(ocrReviewedFood){ocrReviewedFood.captureEvidence.confirmedPanel=clone(review.model);for(const key of ['customNotes','createdAt'])if(productCapture.existingPrivate?.[key]!==undefined)ocrReviewedFood[key]=clone(productCapture.existingPrivate[key]);}
+  if(ocrReviewedFood){ocrReviewedFood.captureEvidence.confirmedPanel=clone(productCapture.panelModel||review.model);ocrReviewedFood.captureEvidence.selectedModel=clone(review.model);for(const key of ['customNotes','createdAt'])if(productCapture.existingPrivate?.[key]!==undefined)ocrReviewedFood[key]=clone(productCapture.existingPrivate[key]);}
   return ocrReviewedFood;
 }
 document.addEventListener('click',event=>{
   const button=event.target.closest('[data-capture-action][data-capture-source]');if(!button||button.disabled||captureActionLocked)return;
-  const source=button.dataset.captureSource,action=button.dataset.captureAction,food=source==='barcode'?scanBarcodeFood:alpha08PanelFood();
+  const source=button.dataset.captureSource,action=button.dataset.captureAction,food=source==='barcode'?confirmedBarcodeFood():alpha08PanelFood();
   if(!food){showActionToast('Complete And Confirm The Review Before Choosing That Action.',null,6000);return;}
   const allowed=X8.actionsFor(food);if(!allowed[action]){showActionToast('Review the nutrition and supported amount before adding this food.',null,6000);return;}
   captureActionLocked=true;setCaptureActionState(source,{});
-  if(source==='ocr'&&action!=='add'&&productCapture?.replacesSavedId&&(action==='save'||C8.canLog(food)))ext.savedFoodIds=ext.savedFoodIds.filter(id=>id!==productCapture.replacesSavedId);
+  if(action!=='add'&&productCapture?.replacesSavedId&&(action==='save'||C8.canLog(food)))ext.savedFoodIds=ext.savedFoodIds.filter(id=>id!==productCapture.replacesSavedId);
   if(action==='save'){keepCapturedFoodAvailable(food,{save:true});resetProductCapture();ext.ui.libraryTab='saved';ext.ui.foodSearch='';saveExt();openFeature('food-library');showActionToast(food.name+' saved to My Foods. Nothing was added to the Diary.',null,5000);return;}
   if(openCapturedFoodForDiary(food,{save:action==='both'}))resetProductCapture();else captureActionLocked=false;
 },true);
@@ -2220,6 +2264,7 @@ lookupBarcodeProduct=async function(code){
   const epoch=captureEpoch;productCapture={id:uid('panel'),barcode:validBarcodeValue(code),choice:'panel'};
   const food=await oldLookupBarcodeProduct(code);if(epoch!==captureEpoch)return null;
   productCapture.catalogueFood=food?clone(food):null;
+  if(food){const saved=ext.customFoods.find(item=>item.barcode===food.barcode);productCapture.id=saved?.id||productCapture.id;productCapture.existingPrivate=saved?clone(saved):null;productCapture.replacesSavedId=ext.savedFoodIds.includes(food.id)?food.id:null;by('barcode-package-confirmed').checked=false;updateBarcodeConfirmation();}
   if(food&&by('scan-food-preview'))by('scan-food-preview').insertAdjacentHTML('beforeend','<button type="button" class="secondary wide compare-package-button" data-compare-barcode-panel="'+esc(food.id)+'">Compare With Nutrition Panel</button>');
   if(!food)by('barcode-status').insertAdjacentHTML('beforeend',' <button type="button" class="secondary" id="capture-unknown-panel">Continue With Nutrition Panel</button>');
   return food;
@@ -4339,7 +4384,7 @@ function resetProductCapture(){
   by('capture-comparison').innerHTML='';delete by('capture-comparison').dataset.signature;
   by('scan-preview').className='scan-preview empty-state';by('scan-preview').textContent='No Image Selected Yet.';
   by('scan-food-preview').innerHTML='';const frontUrl=by('ocr-front-preview').querySelector('img')?.src;if(frontUrl?.startsWith('blob:'))URL.revokeObjectURL(frontUrl);by('ocr-front-preview').innerHTML='';by('ocr-front-status').textContent='';
-  by('run-label-ocr').disabled=true;by('run-front-ocr').disabled=true;
+  by('run-label-ocr').disabled=true;by('run-front-ocr').disabled=true;by('ocr-advanced').open=false;by('capture-field-issues').textContent='';qa('#ocr-review input').forEach(input=>{input.removeAttribute('aria-invalid');input.placeholder='';});
   setCaptureActionState('ocr',{});setCaptureActionState('barcode',{});updateBarcodeLookupState();
 }
 function beginProductPanel(food=null,{force=false}={}){
@@ -4349,7 +4394,7 @@ function beginProductPanel(food=null,{force=false}={}){
   const catalogue=food||productCapture?.catalogueFood||null;
   productCapture={...(productCapture||{}),id:saved?.id||productCapture?.id||uid('panel'),barcode,catalogueFood:catalogue?clone(catalogue):null,existingPrivate:saved?clone(saved):null,choice:catalogue?'':'panel',panelStarted:true,suspended:false,replacesSavedId:!saved&&food&&ext.savedFoodIds.includes(food.id)?food.id:null};
   by('scan-barcode-input').value=barcode;by('ocr-food-name').value=saved?.name||food?.name||'';by('ocr-food-brand').value=saved?.brand||food?.brand||'';
-  by('ocr-pack-size').value=saved?.packageSize||food?.packageSize||'';by('ocr-ingredients').value=saved?.ingredients||food?.ingredients||'';
+  by('ocr-pack-size').value=saved?.packageSize||food?.packageSize||food?.packageQuantity||'';by('ocr-ingredients').value=saved?.ingredients||food?.ingredients||'';
   const existing=saved||food,model=existing?X8.reviewModelFor(existing):X8.parseNutritionPanel('').model;
   fillOcrReview({...model,model,ingredients:existing?.ingredients||'',detected:{perServing:Object.values(model.perServing).some(v=>v!==null),per100:Object.values(model.per100).some(v=>v!==null)},issues:[]});
   ext.ui.scanMode='label';saveExt();updateScanModeUI();
@@ -4368,14 +4413,15 @@ window.HECBeforeScreenShow=function(id){
   captureBeforeScreen?.(id);
 };
 by('capture-resume-draft').addEventListener('click',()=>{productCapture.suspended=false;ext.ui.scanMode=productCapture.panelStarted?'label':'barcode';updateScanModeUI();});
-by('capture-new-active').addEventListener('click',()=>{resetProductCapture();updateScanModeUI();});
-by('capture-new-draft').addEventListener('click',()=>{resetProductCapture();ext.ui.scanMode='label';updateScanModeUI();});
+function startNewProductCapture(){resetProductCapture();ext.ui.scanMode='label';saveExt();updateScanModeUI();by('scan-mode-copy').textContent='New capture — photograph a Nutrition Panel, enter it manually, or choose Scan Barcode.';by('scan-centre').scrollTop=0;by('scan-mode-copy').scrollIntoView({block:'start'});}
+by('capture-new-active').addEventListener('click',startNewProductCapture);
+by('capture-new-draft').addEventListener('click',startNewProductCapture);
 by('capture-cancel').addEventListener('click',()=>{resetProductCapture();saveExt();openFeature('home');});
 by('capture-retry').addEventListener('click',()=>{
   // Keep the intended identity; explicitly discard this extraction attempt.
   const identity=productCapture?clone(productCapture):null;
   resetProductCapture();if(identity){productCapture={id:identity.id,barcode:identity.barcode,catalogueFood:identity.catalogueFood,replacesSavedId:identity.replacesSavedId};beginProductPanel(identity.catalogueFood);}
-  ext.ui.scanMode='label';updateScanModeUI();
+  ext.ui.scanMode='label';updateScanModeUI();by('ocr-progress').classList.remove('hidden');by('ocr-progress').textContent='New reading attempt — choose or photograph the panel again. Previous OCR values have been cleared.';by('scan-photo-capture').scrollIntoView({block:'start'});
 });
 by('capture-manual').addEventListener('click',()=>{if(!productCapture?.panelStarted)beginProductPanel(scanBarcodeFood);by('ocr-review').classList.remove('hidden');alpha08UpdateOcrReview();});
 by('capture-parse-text').addEventListener('click',()=>fillOcrReview(parseNutritionPanel(by('ocr-text').value)));
@@ -4385,5 +4431,10 @@ document.addEventListener('click',event=>{
   if(event.target.closest('#capture-unknown-panel')){beginProductPanel();return;}
   const mode=event.target.closest('[data-scan-mode="label"]');if(mode&&!productCapture?.suspended)beginProductPanel(scanBarcodeFood);
 });
+const capturePrepareEntry=prepareEntry;
+prepareEntry=function(food,options={}){
+  if(food?.captureEvidence?.confirmed&&!options.entry&&!(Number(options.amount)>0)&&C8.canLog(food)){chooseCapturedAmount(food,amount=>capturePrepareEntry(food,{...options,...amount}));return;}
+  return capturePrepareEntry(food,options);
+};
 resetProductCapture();
 })();
