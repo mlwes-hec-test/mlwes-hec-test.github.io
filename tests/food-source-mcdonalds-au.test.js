@@ -165,5 +165,5 @@ test('program integrity report returns the reviewed totals with zero errors',()=
 });
 
 test('UI contract keeps blocked products details-only and displays exact reasons and licensing',()=>{
-  const runtime=read('alpha06.js');assert.match(runtime,/food\.entryBlockedReason\|\|'A complete fixed nutrition value is not available/);assert.match(runtime,/nutritionStatus==='configurable'\?'Configurable meal'/);assert.match(runtime,/Cannot add to Diary/);assert.match(runtime,/Catalogue use:/);assert.match(runtime,/data-food-details/);assert.match(runtime,/C8&&\!C8\.canLog\(food\)/);
+  const runtime=read('alpha06.js');assert.match(runtime,/C8\?\.addability\?\.\(food\)\?\.message\|\|food\.entryBlockedReason/);assert.match(runtime,/nutritionStatus==='configurable'\?'Configurable meal'/);assert.match(runtime,/Cannot add to Diary/);assert.match(runtime,/Catalogue use:/);assert.match(runtime,/data-food-details/);assert.match(runtime,/C8&&\!C8\.canLog\(food\)/);
 });

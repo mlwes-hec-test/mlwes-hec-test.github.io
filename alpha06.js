@@ -327,6 +327,7 @@ function scaledNutrientsForConsumedPortion(food,consumedPortion,amount,unit){
 }
 function scaledFoodGroups(food,amount,unit){
   const multiplier = foodMultiplier(food,amount,unit);
+  if(food?.recordType==='private'&&food.captureEvidence?.confirmed)return Object.fromEntries(Object.entries(food.foodGroups||{}).map(([key,value])=>[key,value===null||value===undefined||value===''?null:Number(value)*multiplier]));
   const result = Object.fromEntries(FOOD_GROUP_KEYS.map(key => [key,0]));
   FOOD_GROUP_KEYS.forEach(key => { result[key] = n(food?.foodGroups?.[key]) * multiplier; });
   return result;
@@ -1039,7 +1040,7 @@ function renderLibrary(){
 function foodResultSourceMeta(food){const value=window.HECFoodCatalogue?.provenance?.(food)?.label||'',brand=normalise(food?.brand||''),label=normalise(value);return !label||label===brand||['verified food','packaged food','food record'].includes(label)?'':value;}
 function resourceFoodRow(food){
   const saved=ext.savedFoodIds.includes(food.id)||(ext.customFoods||[]).some(item=>item.id===food.id),safety=foodSafety(food),loggable=window.HECFoodCatalogue?.canLog?window.HECFoodCatalogue.canLog(food):hasEnergyValue(food?.nutrients?.calories);
-  const blocked=food.entryBlockedReason||'A complete fixed nutrition value is not available for this item.';
+  const blocked=C8?.addability?.(food)?.message||food.entryBlockedReason||'Enter energy and confirm a supported amount in Review Nutrition.';
   return `<article class="resource-row ${food.afcd?"afcd-row":""} ${safety.blocked||!loggable?"food-warning":""}"><button class="resource-main" data-food-details="${esc(food.id)}"><strong>${esc(food.name)}${food.afcd?'<span class="afcd-badge">AFCD</span>':""}</strong><small>${esc(loggable?[food.brand,foodResultSourceMeta(food),cleanMeasureText(food.serving),energyText(food.nutrients?.calories,food.nutrients?.energyKj)].filter(Boolean).join(" · "):[food.brand,foodResultSourceMeta(food),food.nutritionStatus==='configurable'?'Configurable meal':'Nutrition unavailable'].filter(Boolean).join(' · '))}</small></button><button class="resource-save ${saved?"saved":""}" data-food-save="${esc(food.id)}" aria-label="${saved?"Remove from":"Save to"} My Foods: ${esc(food.name)}" title="${saved?"Remove from":"Save to"} My Foods">${saved?"✓":"☆"}</button><button class="resource-add" data-food-add="${esc(food.id)}" aria-label="${loggable?"Review and add":"Cannot add"} ${esc(food.name)}" ${loggable?'':`disabled title="Complete the nutrition information before adding to Diary" data-blocked-reason="${esc(blocked)}"`}>＋</button></article>`;
 }
 function foodCard(food){return resourceFoodRow(food);}
@@ -1252,7 +1253,7 @@ function showFoodDetails(id){
   const food=getFood(id);if(!food)return;
   const safety=foodSafety(food),groups=scaledFoodGroups(food,defaultAmount(food),defaultUnit(food));
   const fixed=window.HECFoodCatalogue?.canLog?window.HECFoodCatalogue.canLog(food):true,licence=food.foodSourceId?`<p class="fine"><strong>Catalogue use:</strong> ${esc(food.usageScope||'development/founder-trial')} · ${food.productionApproved?'Production approved':esc(food.licenceStatus||'No production reuse approval recorded')}</p>`:'';
-  openModal(food.name,`${cleanMeasureText(food.serving)} · ${food.source}`,"Close",()=>{},`${fixed?`${nutritionCards(food.nutrients)}<p class="fine"><strong>Nutrition guidance:</strong> ${esc(rc3NutritionGuidance(food.nutrients))}</p>`:`<p class="danger-text"><strong>Cannot add to Diary:</strong> ${esc(food.entryBlockedReason||'A complete fixed nutrition value is not available.')}</p>`}<p><strong>Food-group contribution:</strong> ${FOOD_GROUP_KEYS.filter(key=>groups[key]>0).map(key=>`${esc(FOOD_GROUP_LABELS[key])} ${formatNumber(groups[key],true)} serve`).join(" · ")||"Not yet classified"}</p><p><strong>Estimated water:</strong> ${availableValueText(food.waterMl,'mL')}${food.waterMl===null||food.waterMl===undefined?'':' per listed serving'}</p><p><strong>Ingredients:</strong> ${esc(food.ingredients||"Not Available")}</p>${licence}${identityConflictDetails633(food)}${(food.sourceAnomalies||[]).map(note=>`<p class="fine"><strong>Published-source note:</strong> ${esc(note)}</p>`).join('')}${safety.blocked?`<p class="danger-text"><strong>Profile warning:</strong> ${esc(safety.message)}</p>`:""}`);
+  openModal(food.name,`${cleanMeasureText(food.serving)} · ${food.source}`,"Close",()=>{},`${fixed?`${nutritionCards(food.nutrients)}<p class="fine"><strong>Nutrition guidance:</strong> ${esc(rc3NutritionGuidance(food.nutrients))}</p>`:`<p class="danger-text"><strong>Cannot add to Diary:</strong> ${esc(C8?.addability?.(food)?.message||food.entryBlockedReason||'Enter energy and confirm a supported amount in Review Nutrition.')}</p>`}${(food.barcode||food.recordType==='private'||ext.savedFoodIds.includes(food.id))?`<button type="button" class="secondary wide" data-review-product-nutrition="${esc(food.id)}">Review Nutrition</button>`:''}<p><strong>Food-group contribution:</strong> ${FOOD_GROUP_KEYS.filter(key=>groups[key]>0).map(key=>`${esc(FOOD_GROUP_LABELS[key])} ${formatNumber(groups[key],true)} serve`).join(" · ")||"Not yet classified"}</p><p><strong>Estimated water:</strong> ${availableValueText(food.waterMl,'mL')}${food.waterMl===null||food.waterMl===undefined?'':' per listed serving'}</p><p><strong>Ingredients:</strong> ${esc(food.ingredients||"Not Available")}</p>${licence}${identityConflictDetails633(food)}${(food.sourceAnomalies||[]).map(note=>`<p class="fine"><strong>Published-source note:</strong> ${esc(note)}</p>`).join('')}${safety.blocked?`<p class="danger-text"><strong>Profile warning:</strong> ${esc(safety.message)}</p>`:""}`);
   by("a05-modal-confirm").className="primary";
 }
 function renderRecipeLibrary(query=""){
@@ -1386,6 +1387,7 @@ by("confirm-voice-log")?.addEventListener("click",()=>{
 
 // Scan capture and review
 const X8=window.HECCaptureFoundation;
+let productCapture=null,captureEpoch=0;
 let scanFile=null,scanBarcodeControls=null,scanBarcodeStream=null,scanBarcodeTimer=null,barcodeDetectionLocked=false,scanBarcodeFood=null,ocrParsedPanel=null,ocrReviewedFood=null,captureActionLocked=false;
 function loadExternalScript(src,test){
   if(test())return Promise.resolve(true);
@@ -1411,7 +1413,7 @@ function keepCapturedFoodAvailable(food,{save=false}={}){
   if(save||!isPrivate)saveExt();return true;
 }
 function openCapturedFoodForDiary(food,{save=false}={}){
-  if(!X8?.barcodeStatus?.(food)?.canAddToDiary){showActionToast("Complete And Confirm The Nutrition Details Before Adding This Food.",null,6000);return false;}
+  if(!X8?.barcodeStatus?.(food)?.canAddToDiary||!C8.canLog(food)){showActionToast(C8.addability(food).message||"Complete And Confirm The Nutrition Details Before Adding This Food.",null,6000);return false;}
   keepCapturedFoodAvailable(food,{save});const meal=ext.ui.pendingMeal||ext.ui?.mealEntrySession?.meal||'',date=ext.ui?.mealEntrySession?.date||ext.ui.diaryDate||isoToday();prepareEntry(food,{date,meal,source:food.source});if(!editorState)return false;
   editorState.returnTo='scan-centre';editorState.pendingDiarySave=save;editorState.libraryOnly=false;by("entry-date")?.closest(".form-grid")?.classList.remove("hidden");if(by("entry-date"))by("entry-date").value=date;if(by("entry-meal"))by("entry-meal").value=meal;if(by("save-food-entry")){by("save-food-entry").classList.remove("hidden");by("save-food-entry").textContent=save?'Confirm Save & Add To Diary':'Confirm Add To Diary';}by("save-food-entry-and-food")?.classList.add("hidden");updateEntryPreview();if(!meal){showActionToast('Choose a Diary meal, then confirm. No default meal has been selected.',null,6000);by('entry-meal')?.focus();}return true;
 }
@@ -1427,24 +1429,24 @@ function updateScanModeUI(){
 function renderScanSelect(){updateScanModeUI();updateBarcodeLookupState();}
 qa("[data-scan-mode]").forEach(button=>button.addEventListener("click",()=>{const next=button.dataset.scanMode;if(next!=="barcode")stopBarcodeCamera();ext.ui.scanMode=next;saveExt();updateScanModeUI();if(next==="barcode")startBarcodeCamera();}));
 function displayScanImage(dataUrl){by("scan-preview").className="scan-preview";by("scan-preview").innerHTML=`<img id="scan-preview-image" src="${dataUrl}" alt="Captured food or package"><p>Image Captured. Review The Applicable Tools Below.</p>`;}
-by("scan-image")?.addEventListener("change",event=>{scanFile=event.target.files?.[0]||null;if(!scanFile)return;const reader=new FileReader();reader.onload=async()=>{displayScanImage(reader.result);by("run-label-ocr").disabled=false;if(ext.ui.scanMode==="barcode")await decodeBarcodeFromPreview();};reader.readAsDataURL(scanFile);});
+by("scan-image")?.addEventListener("change",event=>{scanFile=event.target.files?.[0]||null;if(!scanFile)return;productCapture ||= {id:uid("panel"),barcode:validBarcodeValue(by("scan-barcode-input").value),choice:"panel"};const epoch=++captureEpoch;const reader=new FileReader();reader.onload=async()=>{if(epoch!==captureEpoch)return;displayScanImage(reader.result);by("run-label-ocr").disabled=false;if(ext.ui.scanMode==="barcode")await decodeBarcodeFromPreview();};reader.readAsDataURL(scanFile);});
 
 by("take-scan-photo")?.addEventListener("click",()=>{const input=by("scan-image");if(!input)return;input.setAttribute("capture","environment");input.click();});
 by("choose-scan-photo")?.addEventListener("click",()=>{const input=by("scan-image");if(!input)return;input.removeAttribute("capture");input.click();});
 async function lookupBarcodeProduct(code){
   const clean=validBarcodeValue(code);if(!clean){showActionToast("Enter Or Scan A Valid Barcode.",null,2000);return null;}by("scan-barcode-input")?.blur();updateBarcodeLookupState();by("barcode-status").textContent=`Looking Up ${clean}…`;by("scan-review-card")?.classList.add("hidden");scanBarcodeFood=null;captureActionLocked=false;
-  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),12000);
+  const lookupOwner=captureEpoch,controller=new AbortController(),timer=setTimeout(()=>controller.abort(),12000);
   try{
-    const localExternal=await catalogueBarcode633(clean);
+    const lookupEpoch=captureEpoch;const localExternal=await catalogueBarcode633(clean);if(lookupEpoch!==captureEpoch)return null;
     if(localExternal){scanBarcodeFood=localExternal;const review=X8?.barcodeStatus?.(localExternal)||{canAddToDiary:hasEnergyValue(localExternal.nutrients?.calories),canSaveToMyFoods:true,missing:[]};by("scan-food-preview").innerHTML=`<div class="food-detail-title"><div><h3>${esc(localExternal.name)}</h3><p>${esc(localExternal.brand||"Brand Not Listed")} · Barcode ${esc(clean)} · ${esc(localExternal.packageSize||localExternal.serving)}</p></div></div>${nutritionCards(localExternal.nutrients)}`;const status=by("scan-review-status");if(status)status.innerHTML=review.canAddToDiary?'<strong>Australian Catalogue Match — Review Before Choosing</strong><p>Compare this catalogue record with the package.</p>':'<strong>Exact Product Found, But Nutrition Is Incomplete</strong><p>Use Read Nutrition Panel or enter nutrition manually before adding it to Diary.</p>';setCaptureActionState('barcode',X8?.actionsFor?.(localExternal)||{save:true,add:review.canAddToDiary,both:review.canAddToDiary});by("scan-review-card").classList.remove("hidden");by("barcode-status").textContent=`Found ${localExternal.name} in the Australian product catalogue.`;return localExternal;}
     const fields="code,product_name,generic_name,brands,countries,countries_tags,nutriments,serving_size,serving_quantity,serving_quantity_unit,ingredients_text,allergens,image_front_small_url,image_front_url";
     const response=await fetch(`https://world.openfoodfacts.org/api/v2/product/${encodeURIComponent(clean)}.json?fields=${encodeURIComponent(fields)}`,{headers:{Accept:"application/json"},signal:controller.signal});
-    if(!response.ok)throw new Error(`Lookup ${response.status}`);const data=await response.json();if(data.status===0||!data.product)throw new Error("Product not found");const food=makeOpenFoodFactsFood(data.product),review=X8?.barcodeStatus?.(food)||{canAddToDiary:hasEnergyValue(food.nutrients?.calories),canSaveToMyFoods:true,missing:[]};
+    if(!response.ok)throw new Error(`Lookup ${response.status}`);const data=await response.json();if(lookupEpoch!==captureEpoch)return null;if(data.status===0||!data.product)throw new Error("Product not found");const food=makeOpenFoodFactsFood(data.product),review=X8?.barcodeStatus?.(food)||{canAddToDiary:hasEnergyValue(food.nutrients?.calories),canSaveToMyFoods:true,missing:[]};
     if(review.canAddToDiary)upsertOnlineFoods([food]);scanBarcodeFood=food;const image=food.imageUrl?`<img class="scan-product-image" src="${esc(food.imageUrl)}" alt="${esc(food.name)} package image">`:"";
     by("scan-food-preview").innerHTML=`<div class="food-detail-title">${image}<div><h3>${esc(food.name)}</h3><p>${esc(food.brand||"Brand Not Listed")} · Barcode ${esc(clean)} · ${esc(food.serving)}</p></div></div>${nutritionCards(food.nutrients)}<div class="status-box scan-review-warning"><strong>Package Check Required</strong><p>Online barcode data can be incomplete or outdated. Compare the serving size and every nutrition value with the package. If they differ, read the Nutrition Panel instead.</p></div>`;
     const status=by("scan-review-status");if(status)status.innerHTML=review.canAddToDiary?'<strong>Recognised — Review Before Choosing</strong><p>This record has usable energy and serving data. Choose one explicit action below after checking the package.</p>':`<strong>Recognised, But Nutrition Is Incomplete</strong><p>${esc((review.missing||[]).join(', ')||'Required nutrition')} is missing. Diary actions are blocked. You may save the identity to My Foods, then use Nutrition Panel to complete it.</p>`;setCaptureActionState('barcode',X8?.actionsFor?.(food)||{save:true,add:review.canAddToDiary,both:review.canAddToDiary});
     by("scan-review-card").classList.remove("hidden");by("barcode-status").textContent=review.canAddToDiary?`Found ${food.name}. Check It Against The Package Before Choosing An Action.`:`Found ${food.name}, But The Online Nutrition Is Incomplete.`;setTimeout(()=>by("scan-review-card")?.scrollIntoView({behavior:"smooth",block:"start"}),80);return food;
-  }catch(error){by("barcode-status").innerHTML=`No Barcode Record Was Found For <strong>${esc(clean)}</strong>. Switch To <strong>Nutrition Panel</strong> to read the package directly, or create a custom food.`;showActionToast("Barcode Lookup Did Not Find This Product.",null,5000);return null;}finally{clearTimeout(timer);}
+  }catch(error){if(lookupOwner!==captureEpoch)return null;by("barcode-status").innerHTML=`No Barcode Record Was Found For <strong>${esc(clean)}</strong>. Switch To <strong>Nutrition Panel</strong> to read the package directly, or create a custom food.`;showActionToast("Barcode Lookup Did Not Find This Product.",null,5000);return null;}finally{clearTimeout(timer);}
 }
 by("lookup-barcode")?.addEventListener("click",()=>lookupBarcodeProduct(by("scan-barcode-input").value));by("scan-barcode-input")?.addEventListener("input",updateBarcodeLookupState);by("scan-barcode-input")?.addEventListener("keydown",event=>{if(event.key==="Enter"&&validBarcodeValue(event.currentTarget.value)){event.preventDefault();lookupBarcodeProduct(event.currentTarget.value);}});
 async function decodeBarcodeFromPreview(){
@@ -1503,36 +1505,103 @@ function rowValues(lines,tests,unit="g"){
 function parseNutritionPanel(text){
   return X8?.parseNutritionPanel?X8.parseNutritionPanel(text):{servingAmount:null,servingUnit:'g',perServing:{},per100:{},detected:{},issues:['capture-foundation-unavailable'],questionable:true,text:String(text||'')};
 }
-const ALPHA0631_OCR_FIELDS={calories:"ocr-calories",protein:"ocr-protein",carbs:"ocr-carbs",fat:"ocr-fat",satFat:"ocr-sat-fat",fibre:"ocr-fibre",sugar:"ocr-sugar",sodium:"ocr-sodium"};
-const ALPHA08_OCR100_FIELDS={calories:"ocr100-calories",protein:"ocr100-protein",carbs:"ocr100-carbs",fat:"ocr100-fat",satFat:"ocr100-sat-fat",fibre:"ocr100-fibre",sugar:"ocr100-sugar",sodium:"ocr100-sodium"};
-function alpha08SetOcrValues(fields,values={}){Object.entries(fields).forEach(([key,id])=>{if(by(id))by(id).value=values[key]===null||values[key]===undefined?'':round1(values[key]);});}
+const ALPHA0631_OCR_FIELDS={energyKj:"ocr-energy-kj",calcium:"ocr-calcium",iron:"ocr-iron",potassium:"ocr-potassium",calories:"ocr-calories",protein:"ocr-protein",carbs:"ocr-carbs",fat:"ocr-fat",satFat:"ocr-sat-fat",fibre:"ocr-fibre",sugar:"ocr-sugar",sodium:"ocr-sodium"};
+const ALPHA08_OCR100_FIELDS={energyKj:"ocr100-energy-kj",calcium:"ocr100-calcium",iron:"ocr100-iron",potassium:"ocr100-potassium",calories:"ocr100-calories",protein:"ocr100-protein",carbs:"ocr100-carbs",fat:"ocr100-fat",satFat:"ocr100-sat-fat",fibre:"ocr100-fibre",sugar:"ocr100-sugar",sodium:"ocr100-sodium"};
+function alpha08SetOcrValues(fields,values={}){Object.entries(fields).forEach(([key,id])=>{if(by(id))by(id).value=values[key]===null||values[key]===undefined?'':Number(Number(values[key]).toFixed(6));});}
 function alpha08ReadOcrValues(fields){return Object.fromEntries(Object.entries(fields).map(([key,id])=>{const value=by(id)?.value;return [key,value===undefined||value===''?null:Number(value)];}));}
-function alpha08OcrModel(){return P8?.basisModel?.({perServing:alpha08ReadOcrValues(ALPHA0631_OCR_FIELDS),per100:alpha08ReadOcrValues(ALPHA08_OCR100_FIELDS),servingAmount:by('ocr-serving-amount')?.value||null,servingUnit:by('ocr-serving-unit')?.value||'g',servingText:'Current manufacturer serving',manufacturerServing:!!by('ocr-serving-amount')?.value})||null;}
+
+function alpha08OcrModel(){return P8.basisModel({perServing:alpha08ReadOcrValues(ALPHA0631_OCR_FIELDS),per100:alpha08ReadOcrValues(ALPHA08_OCR100_FIELDS),servingAmount:by('ocr-serving-amount').value||null,servingUnit:by('ocr-serving-unit').value,per100Unit:by('ocr-per100-unit').value,selectedBasis:by('ocr-selected-basis').value,servingText:'User checked manufacturer serving',manufacturerServing:!!by('ocr-serving-amount').value,servingsPerPack:by('ocr-servings-per-pack').value||null,servingCount:by('ocr-serving-count').value||null,servingCountUnit:by('ocr-serving-count-unit').value});}
 function alpha08UpdateOcrReview(){
-  const model=alpha08OcrModel(),status=X8?.reviewStatus?.({name:by('ocr-food-name')?.value||'',model,confirmed:!!by('ocr-package-confirmed')?.checked,discrepancyConfirmed:!!by('ocr-discrepancy-confirmed')?.checked})||{ready:false,missing:['review']},packageReady=status.ready,comparisonPending=!!ext.ui.compareBarcodeFoodId,box=by('ocr-review-status'),discrepancyRow=by('ocr-discrepancy-confirm-row');
-  if(comparisonPending){status.ready=false;if(!status.missing.includes('barcode-panel-choice'))status.missing.push('barcode-panel-choice');}
-  discrepancyRow?.classList.toggle('hidden',!status.discrepancies?.length);if(box){const labels={name:'food name',energy:'Calories / energy',"serving-size":'manufacturer serving size',"package-confirmation":'package confirmation',"discrepancy-confirmation":'discrepancy confirmation',"barcode-panel-choice":'the barcode versus current-package choice'};box.innerHTML=status.ready?'<strong>Ready For Your Chosen Action</strong><p>The current package values are complete and confirmed. Nothing is saved or logged until you choose below.</p>':`<strong>Review Still Required</strong><p>Check ${esc(status.missing.map(x=>labels[x]||x).join(', '))} before saving or adding.</p>`;}
-  const usePackage=by('ocr-review')?.querySelector('[data-use-package-values]');if(usePackage)usePackage.disabled=!packageReady;
+  const model=alpha08OcrModel(),status=X8.reviewStatus({name:by('ocr-food-name').value,model,confirmed:by('ocr-package-confirmed').checked,discrepancyConfirmed:by('ocr-discrepancy-confirmed').checked});
+  if(!model.selectedBasis){status.missing.push('basis');status.ready=false;}
+  const comparison=X8.comparePanel(productCapture?.catalogueFood,model),box=by('capture-comparison');
+  if(productCapture?.catalogueFood){
+    box.classList.remove('hidden');
+    const heading={different:'Package Values Differ From Barcode Values',compatible:'Package Values Match Closely',incomplete:'No Comparable Values Yet'}[comparison.status]||'Review Package Values';
+    const signature=JSON.stringify({comparison,choice:productCapture.choice});
+    if(box.dataset.signature!==signature){box.dataset.signature=signature;box.innerHTML='<strong>'+heading+'</strong><p>For your private My Food only. The catalogue stays unchanged.</p><div class="capture-comparison-rows">'+comparison.rows.map(row=>'<p>'+esc(row.key)+': barcode '+formatNumber(row.catalogue,true)+' → panel '+formatNumber(row.panel,true)+(row.different?' · differs':'')+'</p>').join('')+'</div><label>Use For My Food<select id="capture-value-choice"><option value="">Choose values</option><option value="panel">Checked physical panel</option><option value="catalogue">Barcode / catalogue values</option></select></label>';by('capture-value-choice').value=productCapture.choice||'';}
+    if(!productCapture.choice){status.ready=false;status.missing.push('barcode-panel-choice');}
+  }else box.classList.add('hidden');
+  if(productCapture?.choice==='catalogue'){
+    const chosenStatus=X8.reviewStatus({name:by('ocr-food-name').value,model:X8.reviewModelFor(productCapture.catalogueFood),confirmed:by('ocr-package-confirmed').checked,discrepancyConfirmed:by('ocr-discrepancy-confirmed').checked});
+    status.ready=chosenStatus.ready;status.missing=chosenStatus.missing;status.discrepancies=chosenStatus.discrepancies;
+  }
+  by('ocr-discrepancy-confirm-row').classList.toggle('hidden',!status.discrepancies.length);
+  by('ocr-review-status').innerHTML=status.ready?'<strong>Ready To Save</strong><p>Your checked nutrition supports a Diary amount. Nothing is logged until final Review.</p>':'<strong>Review Still Required</strong><p>'+esc(X8.validationMessage(status,model).replace('Check barcode panel choice.','Choose the panel or barcode values for your private My Food.'))+'</p>';
   setCaptureActionState('ocr',{save:status.ready,add:status.ready,both:status.ready});return {model,status};
 }
+
 function alpha0631ScaleOcrReview(){
   if(!ocrParsedPanel)return;const status=by('ocr-scale-status');if(status)status.textContent='Printed per-serving and per-100 values stay separate. HEC does not create a missing column.';alpha08UpdateOcrReview();
 }
+
 function fillOcrReview(parsed){
-  if(!parsed)return;ocrParsedPanel=parsed;ocrReviewedFood=null;captureActionLocked=false;if(by("ocr-serving-amount"))by("ocr-serving-amount").value=parsed.servingAmount||'';if(by("ocr-serving-unit"))by("ocr-serving-unit").value=parsed.servingUnit||"g";alpha08SetOcrValues(ALPHA0631_OCR_FIELDS,parsed.perServing);alpha08SetOcrValues(ALPHA08_OCR100_FIELDS,parsed.per100);const noColumns=!parsed.detected?.perServing&&!parsed.detected?.per100;by('ocr-serving-column')?.classList.toggle('hidden',!noColumns&&!parsed.detected?.perServing);by('ocr-100-column')?.classList.toggle('hidden',!noColumns&&!parsed.detected?.per100);if(by('ocr-package-confirmed'))by('ocr-package-confirmed').checked=false;if(by('ocr-discrepancy-confirmed'))by('ocr-discrepancy-confirmed').checked=false;by("ocr-review")?.classList.remove("hidden");alpha0631ScaleOcrReview();
+  if(!parsed)return;ocrParsedPanel=parsed;ocrReviewedFood=null;captureActionLocked=false;
+  productCapture ||= {id:uid('panel'),barcode:validBarcodeValue(by('scan-barcode-input').value),choice:'panel'};
+  productCapture.panelStarted=true;productCapture.extracted=clone(parsed);productCapture.choice=productCapture.catalogueFood?'':'panel';
+  const fields={'ocr-serving-amount':parsed.servingAmount,'ocr-serving-unit':parsed.servingUnit,'ocr-per100-unit':parsed.per100Unit,'ocr-selected-basis':parsed.selectedBasis||X8.chosenBasis(parsed.model),'ocr-servings-per-pack':parsed.servingsPerPack,'ocr-serving-count':parsed.servingCount,'ocr-serving-count-unit':parsed.servingCountUnit};
+  Object.entries(fields).forEach(([id,value])=>by(id).value=value??'');
+  if(!parsed.detected?.perServing&&!parsed.detected?.per100)by('ocr-selected-basis').value='';
+  if(parsed.ingredients)by('ocr-ingredients').value=parsed.ingredients;
+  alpha08SetOcrValues(ALPHA0631_OCR_FIELDS,parsed.perServing);alpha08SetOcrValues(ALPHA08_OCR100_FIELDS,parsed.per100);
+  for(const [basis,fields] of [['perServing',ALPHA0631_OCR_FIELDS],['per100',ALPHA08_OCR100_FIELDS]])for(const [key,id] of Object.entries(fields)){const uncertain=(parsed.issues||[]).some(issue=>issue==='confirm-'+basis+'-'+key||issue==='uncertain-'+key+'-columns');by(id).setAttribute('aria-invalid',String(uncertain));by(id).setAttribute('aria-describedby','capture-field-issues');by(id).placeholder=uncertain?'Please check the packet':'';}
+  by('ocr-serving-column').classList.remove('hidden');by('ocr-100-column').classList.remove('hidden');
+  by('ocr-package-confirmed').checked=false;by('ocr-discrepancy-confirmed').checked=false;
+  by('capture-field-issues').textContent=parsed.issues?.length?'Please check: '+parsed.issues.join(', ').replace(/-/g,' ')+'. Uncertain values are left blank.':'Review the extracted values against the packet.';
+  by('ocr-review').classList.remove('hidden');alpha0631ScaleOcrReview();alpha08UpdateOcrReview();
 }
 const alpha08FillOcrReview=fillOcrReview;
-['ocr-food-name','ocr-food-brand','ocr-serving-amount','ocr-serving-unit','ocr-package-confirmed','ocr-discrepancy-confirmed',...Object.values(ALPHA0631_OCR_FIELDS),...Object.values(ALPHA08_OCR100_FIELDS)].forEach(id=>by(id)?.addEventListener(id.includes('confirmed')||id==='ocr-serving-unit'?'change':'input',()=>{ocrReviewedFood=null;captureActionLocked=false;alpha08UpdateOcrReview();}));
+by('ocr-review')?.addEventListener('input',event=>{
+  if(event.target.id==='ocr-text')return;event.target.removeAttribute('aria-invalid');
+  if(event.target.id==='capture-value-choice'){productCapture.choice=event.target.value;by('ocr-package-confirmed').checked=false;}
+  else if(!event.target.id.includes('confirmed')){
+    by('ocr-package-confirmed').checked=false;by('ocr-discrepancy-confirmed').checked=false;
+    if(productCapture?.catalogueFood)productCapture.choice='';
+    for(const prefix of ['ocr','ocr100'])if(event.target.id===prefix+'-energy-kj')by(prefix+'-calories').value='';else if(event.target.id===prefix+'-calories')by(prefix+'-energy-kj').value='';
+  }
+  ocrReviewedFood=null;captureActionLocked=false;alpha08UpdateOcrReview();
+});
+by('ocr-review')?.addEventListener('change',()=>alpha08UpdateOcrReview());
+
 async function prepareOcrImage(file){
   try{const bitmap=await createImageBitmap(file),max=3000,scale=Math.min(3,max/Math.max(bitmap.width,bitmap.height)),w=Math.max(1,Math.round(bitmap.width*scale)),h=Math.max(1,Math.round(bitmap.height*scale)),canvas=document.createElement("canvas");canvas.width=w;canvas.height=h;const ctx=canvas.getContext("2d",{willReadFrequently:true});ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality="high";ctx.drawImage(bitmap,0,0,w,h);const image=ctx.getImageData(0,0,w,h),d=image.data,hist=new Array(256).fill(0);let sum=0,count=0;for(let i=0;i<d.length;i+=4){const g=Math.max(0,Math.min(255,Math.round(.299*d[i]+.587*d[i+1]+.114*d[i+2])));hist[g]++;sum+=g;count++;d[i]=d[i+1]=d[i+2]=g;}let total=count,sumB=0,wB=0,maxVar=0,threshold=140,sumAll=0;for(let i=0;i<256;i++)sumAll+=i*hist[i];for(let t=0;t<256;t++){wB+=hist[t];if(!wB)continue;const wF=total-wB;if(!wF)break;sumB+=t*hist[t];const mB=sumB/wB,mF=(sumAll-sumB)/wF,between=wB*wF*(mB-mF)*(mB-mF);if(between>maxVar){maxVar=between;threshold=t;}}const darkBackground=(sum/Math.max(count,1))<150;for(let i=0;i<d.length;i+=4){const g=d[i];const bw=darkBackground?(g>threshold?0:255):(g<threshold?0:255);d[i]=d[i+1]=d[i+2]=bw;d[i+3]=255;}ctx.putImageData(image,0,0);bitmap.close?.();return canvas;}catch{return file;}
 }
+
 by("run-label-ocr")?.addEventListener("click",async()=>{
-  if(!scanFile)return;const box=by("ocr-progress");box.classList.remove("hidden");box.textContent="Preparing The Photo For Nutrition Panel Reading…";
-  try{const ok=await ensureOcrLibrary();if(!ok)throw new Error("OCR library unavailable");const image=await prepareOcrImage(scanFile);const worker=await Tesseract.createWorker("eng",1,{logger:m=>{if(m.progress)box.textContent=`${String(m.status||"Reading").replace(/\b\w/g,c=>c.toUpperCase())} · ${Math.round(m.progress*100)}%`;}});try{await worker.setParameters({tessedit_pageseg_mode:"6",preserve_interword_spaces:"1",user_defined_dpi:"300"});}catch{}const result=await worker.recognize(image);await worker.terminate();const text=result.data?.text||"";by("ocr-text").value=text;const parsed=parseNutritionPanel(text);fillOcrReview(parsed);const found=[...Object.values(parsed.perServing||{}),...Object.values(parsed.per100||{})].filter(v=>v!==null&&v!==undefined).length;box.textContent=found?`Recognition Complete · ${found} Printed Nutrition Values Detected. Check Every Value Against The Package.`:"Text Was Read, But The Nutrition Columns Need Manual Review. Enter The Values From The Package Below.";
-  }catch(error){box.textContent="OCR Could Not Reliably Read This Image. Try A Closer, Square-On Photo In Brighter Light, Or Enter The Values Manually.";fillOcrReview(parseNutritionPanel(''));}
+  if(!scanFile)return;const epoch=++captureEpoch,file=scanFile,box=by('ocr-progress'),button=by('run-label-ocr');let worker;
+  button.disabled=true;box.classList.remove('hidden');box.textContent='Preparing The Photo For Nutrition Panel Reading…';
+  try{
+    const ok=await ensureOcrLibrary();if(epoch!==captureEpoch)return;if(!ok)throw Error('OCR library unavailable');
+    const image=await prepareOcrImage(file);if(epoch!==captureEpoch)return;
+    worker=await Tesseract.createWorker('eng',1,{logger:m=>{if(epoch===captureEpoch&&m.progress)box.textContent=String(m.status||'Reading')+' · '+Math.round(m.progress*100)+'%';}});
+    if(epoch!==captureEpoch)return;
+    await worker.setParameters({tessedit_pageseg_mode:'6',preserve_interword_spaces:'1',user_defined_dpi:'300'});
+    const result=await worker.recognize(image);if(epoch!==captureEpoch)return;
+    const text=result.data?.text||'';by('ocr-text').value=text;const parsed=parseNutritionPanel(text);parsed.extractionConfidence=X8.valueOrNull(result.data?.confidence);if(parsed.extractionConfidence!==null&&parsed.extractionConfidence<70){parsed.issues.push('low-text-confidence');parsed.questionable=true;}fillOcrReview(parsed);
+    box.textContent=parsed.questionable?'Some fields need confirmation. Check the marked fields or enter the values from the packet.':'Panel Read. Check Every Value Against The Package.';
+  }catch(error){if(epoch!==captureEpoch)return;box.textContent='The panel could not be read reliably. Try Again or enter the values manually.';fillOcrReview(parseNutritionPanel(''));}
+  finally{await worker?.terminate?.();if(epoch===captureEpoch)button.disabled=!scanFile;}
 });
-function alpha08PanelFood(){const review=alpha08UpdateOcrReview();if(!review.status.ready)return null;const result=X8?.buildPanelFood?.({id:ocrReviewedFood?.id||uid('panel'),name:by('ocr-food-name')?.value||'',brand:by('ocr-food-brand')?.value||'',barcode:validBarcodeValue(by('scan-barcode-input')?.value),model:review.model,confirmed:!!by('ocr-package-confirmed')?.checked,discrepancyConfirmed:!!by('ocr-discrepancy-confirmed')?.checked});ocrReviewedFood=result?.food||null;return ocrReviewedFood;}
-document.addEventListener('click',event=>{const button=event.target.closest('[data-capture-action][data-capture-source]');if(!button||button.disabled||captureActionLocked)return;const source=button.dataset.captureSource,action=button.dataset.captureAction,food=source==='barcode'?scanBarcodeFood:alpha08PanelFood();if(!food){showActionToast('Complete And Confirm The Review Before Choosing That Action.',null,6000);return;}const allowed=X8?.actionsFor?.(food)||{save:true,add:hasEnergyValue(food.nutrients?.calories),both:hasEnergyValue(food.nutrients?.calories)};if(!allowed[action]){showActionToast('This Food Is Not Complete Enough For That Action.',null,6000);return;}captureActionLocked=true;setCaptureActionState(source,{});if(action==='save'){keepCapturedFoodAvailable(food,{save:true});ext.ui.libraryTab='saved';ext.ui.foodSearch='';saveExt();openFeature('food-library');showActionToast(`${food.name} saved to My Foods. Nothing was added to the Diary.`,null,5000);return;}openCapturedFoodForDiary(food,{save:action==='both'});},true);
+function alpha08PanelFood(){
+  const review=alpha08UpdateOcrReview();if(!review.status.ready)return null;
+  productCapture ||= {id:uid('panel'),choice:'panel'};
+  const model=productCapture.choice==='catalogue'?X8.reviewModelFor(productCapture.catalogueFood):review.model;
+  const result=X8.buildPanelFood({id:productCapture.id,name:by('ocr-food-name').value,brand:by('ocr-food-brand').value,barcode:productCapture.barcode||validBarcodeValue(by('scan-barcode-input').value),model,confirmed:by('ocr-package-confirmed').checked,discrepancyConfirmed:by('ocr-discrepancy-confirmed').checked,ingredients:by('ocr-ingredients').value,packageSize:by('ocr-pack-size').value,catalogueFood:productCapture.catalogueFood,choice:productCapture.choice,extracted:productCapture.extracted});
+  ocrReviewedFood=result.food;
+  if(ocrReviewedFood){ocrReviewedFood.captureEvidence.confirmedPanel=clone(review.model);for(const key of ['customNotes','createdAt'])if(productCapture.existingPrivate?.[key]!==undefined)ocrReviewedFood[key]=clone(productCapture.existingPrivate[key]);}
+  return ocrReviewedFood;
+}
+document.addEventListener('click',event=>{
+  const button=event.target.closest('[data-capture-action][data-capture-source]');if(!button||button.disabled||captureActionLocked)return;
+  const source=button.dataset.captureSource,action=button.dataset.captureAction,food=source==='barcode'?scanBarcodeFood:alpha08PanelFood();
+  if(!food){showActionToast('Complete And Confirm The Review Before Choosing That Action.',null,6000);return;}
+  const allowed=X8.actionsFor(food);if(!allowed[action]){showActionToast('Review the nutrition and supported amount before adding this food.',null,6000);return;}
+  captureActionLocked=true;setCaptureActionState(source,{});
+  if(source==='ocr'&&action!=='add'&&productCapture?.replacesSavedId&&(action==='save'||C8.canLog(food)))ext.savedFoodIds=ext.savedFoodIds.filter(id=>id!==productCapture.replacesSavedId);
+  if(action==='save'){keepCapturedFoodAvailable(food,{save:true});resetProductCapture();ext.ui.libraryTab='saved';ext.ui.foodSearch='';saveExt();openFeature('food-library');showActionToast(food.name+' saved to My Foods. Nothing was added to the Diary.',null,5000);return;}
+  if(openCapturedFoodForDiary(food,{save:action==='both'}))resetProductCapture();else captureActionLocked=false;
+},true);
+
 by("photo-find-food")?.addEventListener("click",()=>{ext.ui.libraryTab="all";ext.ui.pendingMeal=ext.ui.pendingMeal||"";saveExt();openFeature("food-library");showActionToast("Search And Add Each Food Visible In The Photo.",null,2000);});
 by("photo-add-note")?.addEventListener("click",()=>showActionToast("Meal Photos Stay In This Browser Session Only In This Founder Trial.",null,5000));
 
@@ -2140,14 +2209,21 @@ function compareNutrients(food,parsed){
   const panel=parsed?.perServing||{},online=food?.nutrients||{};const keys=[['calories','Calories','Cal'],['protein','Protein','g'],['carbs','Carbohydrate','g'],['fat','Fat','g'],['satFat','Saturated Fat','g'],['fibre','Fibre','g'],['sugar','Sugars','g'],['sodium','Sodium','mg']];
   return keys.filter(([k])=>Number.isFinite(Number(panel[k]))&&Number(panel[k])>0).map(([k,label,unit])=>{const a=Number(online[k]||0),b=Number(panel[k]||0),diff=b-a,pct=a?Math.abs(diff)/Math.abs(a)*100:Infinity;return {k,label,unit,online:a,panel:b,diff,pct,close:pct<=5||Math.abs(diff)<(k==='sodium'?5:.2)};});
 }
-document.addEventListener('click',event=>{if(!event.target.closest('[data-compare-barcode-panel]'))return;const id=event.target.closest('[data-compare-barcode-panel]').dataset.compareBarcodePanel,food=scanBarcodeFood?.id===id?scanBarcodeFood:getFood(id);if(food)keepCapturedFoodAvailable(food,{save:false});ext.ui.compareBarcodeFoodId=id;ext.ui.scanMode='label';saveExt();updateScanModeUI();el('label-tools')?.scrollIntoView({behavior:'smooth',block:'start'});showActionToast('Photograph the package Nutrition Information Panel. The Companion will compare it with the barcode record.',null,5000);});
-const oldLookupBarcodeProduct=lookupBarcodeProduct;
-lookupBarcodeProduct=async function(code){const food=await oldLookupBarcodeProduct(code);if(food&&el('scan-food-preview')){el('scan-food-preview').insertAdjacentHTML('beforeend',`<button type="button" class="secondary wide compare-package-button" data-compare-barcode-panel="${safe(food.id)}">Compare With Nutrition Panel</button>`);}return food;};
+
 document.addEventListener('click',event=>{
-  const keep=event.target.closest('[data-keep-barcode-values]'),use=event.target.closest('[data-use-package-values]');if(!keep&&!use)return;const id=(keep||use).dataset.keepBarcodeValues||(keep||use).dataset.usePackageValues;const food=getFood(id);if(!food)return;
-  if(use){const model=alpha08OcrModel(),packageValues=model?.perServing?.calories!==null?model.perServing:P8?.calculatedServingFrom100?.(model),energy=packageValues?.calories;if(energy===null||energy===undefined||energy===''||!Number.isFinite(Number(energy))){showActionToast('Confirm A Usable Current-Package Energy Value Before Using It.',null,5000);return;}food.nutrients={...food.nutrients,...packageValues};if(model?.servingAmount){food.serving=`${formatNumber(model.servingAmount,true)} ${model.servingUnit}`;food.units={serve:1,[model.servingUnit]:1/model.servingAmount};food.unitLabels={serve:`Serve (${food.serving})`,[model.servingUnit]:model.servingUnit};enrichNaturalUnits(food);}food.source='Current Package Nutrition Panel · User Checked';food.verificationStatus='package-confirmed';upsertOnlineFoods([food]);}
-  markFoodVerified(id,use?'nutrition-panel-confirmed':'barcode-package-check');ext.ui.compareBarcodeFoodId='';saveExt();by('ocr-review')?.querySelector('.barcode-panel-comparison')?.remove();alpha08UpdateOcrReview();showActionToast(use?'Checked current-package values saved for this food.':'Barcode values kept after comparison.',null,3000);renderScanSelect();
+  const compare=event.target.closest('[data-compare-barcode-panel]');if(!compare)return;
+  beginProductPanel(scanBarcodeFood||getFood(compare.dataset.compareBarcodePanel));
 });
+const oldLookupBarcodeProduct=lookupBarcodeProduct;
+lookupBarcodeProduct=async function(code){
+  resetProductCapture();by('scan-barcode-input').value=validBarcodeValue(code);
+  const epoch=captureEpoch;productCapture={id:uid('panel'),barcode:validBarcodeValue(code),choice:'panel'};
+  const food=await oldLookupBarcodeProduct(code);if(epoch!==captureEpoch)return null;
+  productCapture.catalogueFood=food?clone(food):null;
+  if(food&&by('scan-food-preview'))by('scan-food-preview').insertAdjacentHTML('beforeend','<button type="button" class="secondary wide compare-package-button" data-compare-barcode-panel="'+esc(food.id)+'">Compare With Nutrition Panel</button>');
+  if(!food)by('barcode-status').insertAdjacentHTML('beforeend',' <button type="button" class="secondary" id="capture-unknown-panel">Continue With Nutrition Panel</button>');
+  return food;
+};
 
 /* ---------- 10. Periodic re-verification prompt ---------- */
 function staleSavedFoods(){const now=Date.now();return (ext.savedFoodIds||[]).map(id=>({id,food:getFood(id),meta:ext.foodVerification?.[id]})).filter(x=>x.food&&(x.food.barcode||x.meta?.method)).filter(x=>{const stamp=x.meta?.packageVerifiedAt||x.meta?.savedAt;return stamp&&(now-new Date(stamp).getTime())>180*DAY_MS;});}
@@ -2343,21 +2419,6 @@ setTimeout(()=>{if(mainData().completed)maybePromptFoodReview();if(document.quer
   // Stage 8 keeps one authoritative parser. Legacy UI integrations delegate to
   // the capture foundation and must never synthesise a missing printed column.
   parseNutritionPanel=function(text){return X8?.parseNutritionPanel?X8.parseNutritionPanel(text):{servingAmount:null,servingUnit:'g',perServing:{},per100:{},detected:{},issues:['capture-foundation-unavailable'],questionable:true,text:String(text||'')};};
-  function compareRows(food,parsed){
-    const panel=parsed?.perServing||{},online=food?.nutrients||{};
-    return nutrientKeys.map(([k,label,unit])=>{const a=finite(online[k])?Number(online[k]):null,b=finite(panel[k])?Number(panel[k]):null;if(b===null)return null;const diff=(a===null?null:b-a),pct=(a&&diff!==null?Math.abs(diff)/Math.abs(a)*100:Infinity),close=a!==null&&(pct<=5||Math.abs(diff)<(k==='sodium'?5:.2));return {k,label,unit,online:a,panel:b,diff,pct,close};}).filter(Boolean);
-  }
-  fillOcrReview=function(parsed){
-    if(!parsed)return;alpha08FillOcrReview(parsed);
-    const id=ext.ui.compareBarcodeFoodId,box=$('ocr-review');box?.querySelector('.barcode-panel-comparison')?.remove();
-    if(id){
-      const food=getFood(id),rows=compareRows(food,parsed); if(food&&box){
-        const valid=rows.length,diffs=rows.filter(r=>r.online===null||!r.close),complete=valid>=5;
-        const heading=!complete?`Comparison Incomplete — ${valid} Values Read`:diffs.length?'Package Differences Found — Review Before Saving':'Package Information Matches Closely ✓';
-        const rowHtml=rows.map(r=>`<div class="${r.close?'match':'difference'}"><span>${safeText(r.label)}</span><b>${r.online===null?'Not Available':`${formatNumber(r.online,true)} ${r.unit}`}</b><span>→</span><b>${formatNumber(r.panel,true)} ${r.unit}</b><em>${r.online===null?'Package only':r.close?'Close':`${r.diff>0?'+':''}${formatNumber(r.diff,true)} ${r.unit}`}</em></div>`).join('');
-        box.insertAdjacentHTML('afterbegin',`<div class="barcode-panel-comparison status-box"><strong>${heading}</strong><div class="compare-column-heads"><span>Nutrient</span><b>Barcode</b><i></i><b>Package</b><em>Difference</em></div><div class="compare-table">${rowHtml||'<p>No reliable package nutrient values were recognised. Please enter them from the label below.</p>'}</div><p class="fine"><strong>Recommended:</strong> use the current package values after checking the photographed panel. The package is the best source; OCR is only an assistant and can be corrected.</p><div class="quick-action-row"><button type="button" class="secondary" data-keep-barcode-values="${safeText(id)}">Keep Barcode Values</button><button type="button" class="primary" data-use-package-values="${safeText(id)}" disabled>Use Checked Package Values</button></div></div>`);alpha08UpdateOcrReview();
-      }}
-  };
 
   // The active camera owner stops every track after the first accepted code.
   // Restart is deliberate; an existing browser permission remains reusable.
@@ -3647,12 +3708,18 @@ entryCard=function(entry){const label=alpha0631DisplayIdentity(entry);return `<a
 alpha0615OpenMealOverview=function(meal){const date=ext.ui.diaryDate||isoToday(),items=entriesForDate(date).filter(e=>e.meal===meal&&e.status!=='skipped'),total=sumNutrients(items).calories;openModal(`${meal} · ${formatNumber(total)} Cal`,`${relativeDateLabel(date)} · Tap a food to edit it. Swipe left on a row to reveal Delete.`,`Done`,()=>{},`<div class="meal-overview-list">${items.length?items.map(e=>`<div class="meal-overview-row" data-overview-row="${esc(e.id)}"><button type="button" class="meal-overview-edit" data-overview-edit="${esc(e.id)}"><span><strong>${esc(alpha0631DisplayIdentity(e))}</strong><small>${esc(entryNaturalQuantity(e))}</small></span><b>${energyText(e.nutrients?.calories)}</b></button><button type="button" class="meal-overview-delete" data-overview-delete="${esc(e.id)}">🗑 Delete</button></div>`).join(''):`<p class="empty-state">No Foods Yet.</p>`}</div><button type="button" class="secondary wide" data-overview-add="${esc(meal)}">＋ Add Food To ${esc(meal)}</button>${items.length?`<div class="quick-action-row alpha0632-overview-transfer"><button type="button" class="secondary" data-copy-diary-meal="${esc(meal)}">Copy Meal</button><button type="button" class="secondary" data-move-diary-meal="${esc(meal)}">Move Meal</button></div>`:''}`);setTimeout(()=>alpha0615EnableSwipeDelete(),0);};
 
 const alpha0631PrepareEntryBase=prepareEntry;
-prepareEntry=function(food,opts={}){if(!opts.entry&&C8&&!C8.canLog(food)){showActionToast(food?.entryBlockedReason||'This item cannot be added to Diary as one fixed nutrition value.',null,8000);showFoodDetails(food?.id);return;}alpha0631PrepareEntryBase(food,opts);const unit=by('entry-unit'),label=unit?.closest('label');if(!label)return;const selectedMass=unit.value==='g'&&Number(editorFood()?.units?.g)>0;const locked=!selectedMass&&!(opts.consumedPortion||opts.entry?.consumedPortion||opts.entry?.foodSnapshot?.consumedPortion)&&food?.lockedServingUnit&&unitOptions(food)?.[food.lockedServingUnit]!==undefined;if(locked){unit.value=food.lockedServingUnit;label.classList.add('alpha0631-locked-unit');label.setAttribute('aria-hidden','true');}else{label.classList.remove('alpha0631-locked-unit');label.removeAttribute('aria-hidden');}updateEntryPreview();};
+prepareEntry=function(food,opts={}){if(!opts.entry&&C8&&!C8.canLog(food)){showActionToast(food?.entryBlockedReason||'This item cannot be added to Diary as one fixed nutrition value.',null,8000);showFoodDetails(food?.id);return;}alpha0631PrepareEntryBase(food,opts);const unit=by('entry-unit'),label=unit?.closest('label');if(!label)return;const selectedMass=unit.value==='g'&&Number(editorFood()?.units?.g)>0;const locked=!selectedMass&&!food?.captureEvidence?.confirmed&&!(opts.consumedPortion||opts.entry?.consumedPortion||opts.entry?.foodSnapshot?.consumedPortion)&&food?.lockedServingUnit&&unitOptions(food)?.[food.lockedServingUnit]!==undefined;if(locked){unit.value=food.lockedServingUnit;label.classList.add('alpha0631-locked-unit');label.setAttribute('aria-hidden','true');}else{label.classList.remove('alpha0631-locked-unit');label.removeAttribute('aria-hidden');}updateEntryPreview();};
 
 let alpha0631FrontFile=null;
 function alpha0631FrontNameFromText(text){const lines=String(text||'').split(/\n+/).map(x=>x.replace(/\s+/g,' ').trim()).filter(x=>x.length>=2&&x.length<=80);const rejects=/nutrition|information|ingredients|servings?|energy|protein|fat|carbohydrate|sodium|sugar|storage|cooking|instructions?|best before|use by|barcode|www\.|\bkj\b|\bkcal\b|\bcal\b|\b100\s*g\b/i;const clean=lines.filter(x=>!rejects.test(x)&&!/^\d+[.,]?\d*\s*(g|kg|ml|l)\b/i.test(x));const entityLine=clean.find(x=>REG29?.identify?.(x)?.some(m=>['brand','retailer'].includes(m.entity.type)));const chosen=[];if(entityLine)chosen.push(entityLine);for(const line of clean){if(chosen.includes(line))continue;if(/[a-z]{3}/i.test(line))chosen.push(line);if(chosen.length>=3)break;}return chosen.join(' ').replace(/\s+/g,' ').trim().slice(0,120);}
-by('ocr-front-image')?.addEventListener('change',event=>{const file=event.target.files?.[0]||null;alpha0631FrontFile=file;const preview=by('ocr-front-preview'),button=by('run-front-ocr'),status=by('ocr-front-status');if(button)button.disabled=!file;if(!file){preview?.classList.add('hidden');if(preview)preview.innerHTML='';if(status)status.textContent='';return;}const url=URL.createObjectURL(file);if(preview){preview.innerHTML=`<img src="${url}" alt="Front of food package">`;preview.classList.remove('hidden');}if(status)status.textContent='Front photo ready. Tap Read Brand & Product Name.';});
-by('run-front-ocr')?.addEventListener('click',async()=>{if(!alpha0631FrontFile)return;const status=by('ocr-front-status');if(status)status.textContent='Reading the front of the pack…';try{const ok=await ensureOcrLibrary();if(!ok)throw new Error('OCR unavailable');const image=await prepareOcrImage(alpha0631FrontFile);const worker=await Tesseract.createWorker('eng',1);const result=await worker.recognize(image);await worker.terminate();const suggested=alpha0631FrontNameFromText(result.data?.text||'');if(suggested){if(by('ocr-food-name'))by('ocr-food-name').value=suggested;if(status)status.textContent=`Suggested name: ${suggested}. Check it against the package and edit if needed.`;}else if(status)status.textContent='HEC read the photo but could not confidently isolate the product name. Enter or correct the name below.';}catch{if(status)status.textContent='The front photo could not be read reliably. You can still type the product name and use the Nutrition Panel values.';}});
+by('ocr-front-image')?.addEventListener('change',event=>{productCapture ||= {id:uid('panel'),choice:'panel'};const file=event.target.files?.[0]||null;alpha0631FrontFile=file;const preview=by('ocr-front-preview'),button=by('run-front-ocr'),status=by('ocr-front-status');if(button)button.disabled=!file;if(!file){preview?.classList.add('hidden');if(preview)preview.innerHTML='';if(status)status.textContent='';return;}const url=URL.createObjectURL(file);if(preview){preview.innerHTML=`<img src="${url}" alt="Front of food package">`;preview.classList.remove('hidden');}if(status)status.textContent='Front photo ready. Tap Read Brand & Product Name.';});
+by('run-front-ocr')?.addEventListener('click',async()=>{
+  if(!alpha0631FrontFile)return;const epoch=captureEpoch,file=alpha0631FrontFile,status=by('ocr-front-status');let worker;
+  status.textContent='Reading the front of the pack…';
+  try{const ok=await ensureOcrLibrary();if(epoch!==captureEpoch)return;if(!ok)throw Error('OCR unavailable');const image=await prepareOcrImage(file);if(epoch!==captureEpoch)return;worker=await Tesseract.createWorker('eng',1);if(epoch!==captureEpoch)return;const result=await worker.recognize(image);if(epoch!==captureEpoch)return;const suggested=alpha0631FrontNameFromText(result.data?.text||'');if(suggested){by('ocr-food-name').value=suggested;by('ocr-package-confirmed').checked=false;status.textContent='Suggested name: '+suggested+'. Check it against the package and edit if needed.';alpha08UpdateOcrReview();}else status.textContent='Enter or correct the product name below.';}
+  catch{if(epoch===captureEpoch)status.textContent='The front photo could not be read reliably. You can still enter the product name.';}
+  finally{await worker?.terminate?.();}
+});
 
 function alpha0631ViewportHarden(){document.documentElement.style.setProperty('--hec-vv-width',`${Math.round(window.visualViewport?.width||window.innerWidth)}px`);}
 window.visualViewport?.addEventListener('resize',alpha0631ViewportHarden,{passive:true});window.visualViewport?.addEventListener('scroll',alpha0631ViewportHarden,{passive:true});window.addEventListener('orientationchange',()=>setTimeout(alpha0631ViewportHarden,120),{passive:true});alpha0631ViewportHarden();
@@ -3926,7 +3993,7 @@ function ps34GuidedNav(session){const canBack=session.answers?.length||session.s
 function ps34AnswerSummary(session){const answers=GUIDED_PRODUCTS.answerSummary?.(session)||[];return answers.length?`<div class="guided-resolution-answer-summary" aria-label="Your choices">${answers.map(answer=>`<span><small>${esc(answer.question)}</small><b>${esc(answer.label)}</b></span>`).join('')}</div>`:'';}
 function ps34GuidedMarkup(raw,family,{compact=false}={}){
   const session=ps34EnsureGuided(raw,family);if(!session)return '';
-  if(session.exactProduct&&!session.addability?.normalLoggingAllowed){const actions=(session.addability?.actions||[]).map(action=>action.id==='nutrition-panel'?'<button type="button" class="secondary" data-open-scan-mode="label">Read Nutrition Panel</button>':action.id==='barcode'?'<button type="button" class="secondary" data-open-scan-mode="barcode">Scan Barcode</button>':action.id==='manual-nutrition'?'<button type="button" class="secondary" data-open-feature="custom-food">Enter Nutrition Manually</button>':action.id==='generic-alternative'?'<button type="button" class="secondary" data-gpr-generic-alternative>Use a Generic Alternative</button>':action.id==='details'?`<button type="button" class="secondary" data-food-details="${esc(session.exactProduct.id)}">View Details</button>`:'').join('');return `<section class="guided-resolution-card"><small>${esc(session.addability?.label||'Details only')}</small><strong>${esc(session.exactProduct.name)}</strong><p>${esc(session.identityIssue||session.addability?.message||'Complete this product’s nutrition and portion conversion.')}</p><div class="universal-search-handoffs">${actions}</div>${ps34GuidedNav(session)}</section>`;}
+  if(session.exactProduct&&!session.addability?.normalLoggingAllowed){const actions=(session.addability?.actions||[]).map(action=>action.id==='nutrition-panel'?`<button type="button" class="secondary" data-review-product-nutrition="${esc(session.exactProduct.id)}">Read Nutrition Panel</button>`:action.id==='barcode'?'<button type="button" class="secondary" data-open-scan-mode="barcode">Scan Barcode</button>':action.id==='manual-nutrition'?`<button type="button" class="secondary" data-review-product-nutrition="${esc(session.exactProduct.id)}">Enter Nutrition Manually</button>`:action.id==='generic-alternative'?'<button type="button" class="secondary" data-gpr-generic-alternative>Use a Generic Alternative</button>':action.id==='details'?`<button type="button" class="secondary" data-food-details="${esc(session.exactProduct.id)}">View Details</button>`:'').join('');return `<section class="guided-resolution-card"><small>${esc(session.addability?.label||'Details only')}</small><strong>${esc(session.exactProduct.name)}</strong><p>${esc(session.identityIssue||session.addability?.message||'Complete this product’s nutrition and portion conversion.')}</p><div class="universal-search-handoffs">${actions}</div>${ps34GuidedNav(session)}</section>`;}
   const identityKind=family.intent?.kind==='generic-category'?'Generic food':family.intent?.kind==='consumer-brand'?'Recognised brand':'Product matches',answers=ps34AnswerSummary(session),recognised=`<div class="guided-resolution-understanding"><strong>${esc(identityKind)}: ${esc(family.entity.name)}</strong><small>Product identity is resolved before serving or amount.</small></div>`;
   if(session.stage===GUIDED_PRODUCTS.stages.IDENTITY){const question=session.nextQuestion,branded=session.genericConcept?'<button type="button" class="secondary wide" data-gpr-branded>Browse Branded Products</button>':'';if(session.resolutionState===GUIDED_PRODUCTS.states.INCOMPLETE||!question)return `<section class="guided-resolution-card ${compact?'guided-resolution-compact':''}">${recognised}${answers}<div class="guided-resolution-question"><strong>Product identity needs more information</strong><small>A barcode or broad family label is not treated as the exact food you consumed.</small></div>${branded}${ps34GuidedNav(session)}<div class="guided-resolution-fallback"><small>Keep typing, scan for a better source name, read the Nutrition Panel, or complete the product name manually.</small></div></section>`;const choices=(question.options||[]).map(option=>`<button type="button" class="guided-resolution-choice" data-gpr-answer="${esc(question.key)}" data-gpr-value="${esc(option.value)}"><span>${esc(option.label)}</span><b>›</b></button>`).join('');return `<section class="guided-resolution-card ${compact?'guided-resolution-compact':''}">${recognised}${answers}<div class="guided-resolution-question"><strong>${esc(question?.question||'Which exact product?')}</strong><small>${question.key==='product'?'Choose the real product name. Optional narrowing is used only when it materially helps.':'Only the unresolved attributes needed to identify one nutrition record are asked.'}</small></div><div class="guided-resolution-choices">${choices}</div>${branded}${ps34GuidedNav(session)}<div class="guided-resolution-fallback"><small>Can’t find it? Keep typing, scan its barcode, read the Nutrition Panel, or create it manually.</small></div></section>`;}
   const product=session.exactProduct,identity=`<div class="guided-resolution-exact"><small>${session.identityKind==='generic-reference'?'Exact Australian nutrition reference':'Exact canonical product'}</small><strong>${esc(product?.name||'')}</strong><span>${esc(product?.brand||'')}</span></div>${answers}`;
@@ -4260,4 +4327,63 @@ window.HEC_RC3_FOOD_SEARCH_TEST={
 };
 ext.ui.foodSearchCorrections='rc3-intent-state-serving-diary';saveExt();
 
+
+// Product capture owns one in-memory draft. Navigation offers resume/new;
+// completed drafts and asynchronous work can never reopen an old product.
+function resetProductCapture(){
+  captureEpoch++;stopBarcodeCamera();scanFile=null;scanBarcodeFood=null;ocrParsedPanel=null;ocrReviewedFood=null;captureActionLocked=false;productCapture=null;alpha0631FrontFile=null;
+  ext.ui.compareBarcodeFoodId='';
+  qa('#scan-centre input, #scan-centre textarea').forEach(input=>{if(input.type==='checkbox')input.checked=false;else input.value='';});
+  ['ocr-serving-unit','ocr-per100-unit','ocr-selected-basis','ocr-serving-count-unit'].forEach(id=>by(id).value='');
+  ['ocr-review','scan-review-card','ocr-progress','ocr-front-preview','capture-resume','capture-comparison'].forEach(id=>by(id)?.classList.add('hidden'));
+  by('capture-comparison').innerHTML='';delete by('capture-comparison').dataset.signature;
+  by('scan-preview').className='scan-preview empty-state';by('scan-preview').textContent='No Image Selected Yet.';
+  by('scan-food-preview').innerHTML='';const frontUrl=by('ocr-front-preview').querySelector('img')?.src;if(frontUrl?.startsWith('blob:'))URL.revokeObjectURL(frontUrl);by('ocr-front-preview').innerHTML='';by('ocr-front-status').textContent='';
+  by('run-label-ocr').disabled=true;by('run-front-ocr').disabled=true;
+  setCaptureActionState('ocr',{});setCaptureActionState('barcode',{});updateBarcodeLookupState();
+}
+function beginProductPanel(food=null,{force=false}={}){
+  const barcode=validBarcodeValue(food?.barcode||productCapture?.barcode||by('scan-barcode-input').value);
+  if(productCapture?.panelStarted&&!force){ext.ui.scanMode='label';updateScanModeUI();return;}
+  const saved=(ext.customFoods||[]).find(item=>food&&item.id===food.id)||(barcode&&(ext.customFoods||[]).find(item=>item.barcode===barcode));
+  const catalogue=food||productCapture?.catalogueFood||null;
+  productCapture={...(productCapture||{}),id:saved?.id||productCapture?.id||uid('panel'),barcode,catalogueFood:catalogue?clone(catalogue):null,existingPrivate:saved?clone(saved):null,choice:catalogue?'':'panel',panelStarted:true,suspended:false,replacesSavedId:!saved&&food&&ext.savedFoodIds.includes(food.id)?food.id:null};
+  by('scan-barcode-input').value=barcode;by('ocr-food-name').value=saved?.name||food?.name||'';by('ocr-food-brand').value=saved?.brand||food?.brand||'';
+  by('ocr-pack-size').value=saved?.packageSize||food?.packageSize||'';by('ocr-ingredients').value=saved?.ingredients||food?.ingredients||'';
+  const existing=saved||food,model=existing?X8.reviewModelFor(existing):X8.parseNutritionPanel('').model;
+  fillOcrReview({...model,model,ingredients:existing?.ingredients||'',detected:{perServing:Object.values(model.perServing).some(v=>v!==null),per100:Object.values(model.per100).some(v=>v!==null)},issues:[]});
+  ext.ui.scanMode='label';saveExt();updateScanModeUI();
+}
+const captureStartCamera=startBarcodeCamera;startBarcodeCamera=async function(){if(productCapture?.suspended)return;return captureStartCamera();};
+const captureModeUI=updateScanModeUI;
+updateScanModeUI=function(){
+  captureModeUI();by('capture-controls').classList.toggle('hidden',ext.ui.scanMode==='food');
+  const paused=!!productCapture?.suspended;by('capture-resume').classList.toggle('hidden',!paused);qa('[data-scan-mode]').forEach(button=>button.disabled=paused);
+  if(paused){by('capture-controls').classList.add('hidden');['barcode-tools','label-tools','scan-photo-capture','scan-review-card','photo-tools'].forEach(id=>by(id)?.classList.add('hidden'));}
+  else if(productCapture?.panelStarted)by('scan-review-card').classList.add('hidden');
+};
+const captureBeforeScreen=window.HECBeforeScreenShow;
+window.HECBeforeScreenShow=function(id){
+  if(id!=='scan-centre'&&document.querySelector('#scan-centre.active')&&productCapture){productCapture.suspended=true;captureEpoch++;stopBarcodeCamera();}
+  captureBeforeScreen?.(id);
+};
+by('capture-resume-draft').addEventListener('click',()=>{productCapture.suspended=false;ext.ui.scanMode=productCapture.panelStarted?'label':'barcode';updateScanModeUI();});
+by('capture-new-active').addEventListener('click',()=>{resetProductCapture();updateScanModeUI();});
+by('capture-new-draft').addEventListener('click',()=>{resetProductCapture();ext.ui.scanMode='label';updateScanModeUI();});
+by('capture-cancel').addEventListener('click',()=>{resetProductCapture();saveExt();openFeature('home');});
+by('capture-retry').addEventListener('click',()=>{
+  // Keep the intended identity; explicitly discard this extraction attempt.
+  const identity=productCapture?clone(productCapture):null;
+  resetProductCapture();if(identity){productCapture={id:identity.id,barcode:identity.barcode,catalogueFood:identity.catalogueFood,replacesSavedId:identity.replacesSavedId};beginProductPanel(identity.catalogueFood);}
+  ext.ui.scanMode='label';updateScanModeUI();
+});
+by('capture-manual').addEventListener('click',()=>{if(!productCapture?.panelStarted)beginProductPanel(scanBarcodeFood);by('ocr-review').classList.remove('hidden');alpha08UpdateOcrReview();});
+by('capture-parse-text').addEventListener('click',()=>fillOcrReview(parseNutritionPanel(by('ocr-text').value)));
+document.addEventListener('click',event=>{
+  const review=event.target.closest('[data-review-product-nutrition]');
+  if(review){const food=getFood(review.dataset.reviewProductNutrition);if(!food)return;closeModal();resetProductCapture();beginProductPanel(food,{force:true});openFeature('scan-centre');return;}
+  if(event.target.closest('#capture-unknown-panel')){beginProductPanel();return;}
+  const mode=event.target.closest('[data-scan-mode="label"]');if(mode&&!productCapture?.suspended)beginProductPanel(scanBarcodeFood);
+});
+resetProductCapture();
 })();

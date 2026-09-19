@@ -1,0 +1,12 @@
+[
+  {
+    "repository": "mlwes-hec-test/mlwes-hec-test.github.io",
+    "sha": "03a30148c2e3eb9cfaa11e9283999e6f039720e5",
+    "subject": "Deploy HEC TEST v48 — retailer loading hardening"
+  },
+  {
+    "repository": "Lifestyle-Companion/Lifestyle-Companion",
+    "sha": "2c39809706039b93ad613d07bd6b15229ccf2612",
+    "subject": "Deploy HEC My Data v13 — retailer catalogue and loading repairs"
+  }
+]

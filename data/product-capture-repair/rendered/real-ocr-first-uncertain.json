@@ -1,0 +1,96 @@
+{
+  "engine": "Tesseract.js 7.0.0",
+  "fixture": "Synthetic clean flat panel, not Wicked Sister nutrition",
+  "confidence": 89,
+  "text": "NUTRITION INFORMATION\n\nServings per package 6\n\nServing size 125 g\n\nAverage quantity per serving    Average quantity per 100 g\nEnergy 625 kJ 500 k3J\n\nProtein 5 g 4 g\n\nFat, total 5g 4 g\n\n- Saturated fat 3 g 2.4 g\n\nCarbohydrate 20 g 16 g\n\n- Sugars 15 g 12 g\n\nDietary fibre 1.25 g 1 g\n\nSodium 75 mg 60 mg\n\nCalcium 150 mg 120 mg\n\nIngredients: Milk, synthetic vanilla flavour, starch.\n",
+  "parsed": {
+    "text": "NUTRITION INFORMATION\n\nServings per package 6\n\nServing size 125 g\n\nAverage quantity per serving    Average quantity per 100 g\nEnergy 625 kJ 500 k3J\n\nProtein 5 g 4 g\n\nFat, total 5g 4 g\n\n- Saturated fat 3 g 2.4 g\n\nCarbohydrate 20 g 16 g\n\n- Sugars 15 g 12 g\n\nDietary fibre 1.25 g 1 g\n\nSodium 75 mg 60 mg\n\nCalcium 150 mg 120 mg\n\nIngredients: Milk, synthetic vanilla flavour, starch.\n",
+    "perServing": {
+      "energyKj": null,
+      "calories": null,
+      "protein": 5,
+      "carbs": 20,
+      "fat": 5,
+      "satFat": 3,
+      "fibre": 1.25,
+      "sugar": 15,
+      "sodium": 75,
+      "calcium": 150,
+      "iron": null,
+      "potassium": null
+    },
+    "per100": {
+      "energyKj": null,
+      "calories": null,
+      "protein": 4,
+      "carbs": 16,
+      "fat": 4,
+      "satFat": 2.4,
+      "fibre": 1,
+      "sugar": 12,
+      "sodium": 60,
+      "calcium": 120,
+      "iron": null,
+      "potassium": null
+    },
+    "servingAmount": 125,
+    "servingUnit": "g",
+    "servingText": "Serving size 125 g",
+    "manufacturerServing": true,
+    "per100Unit": "g",
+    "selectedBasis": "",
+    "servingsPerPack": 6,
+    "servingCount": null,
+    "servingCountUnit": "",
+    "model": {
+      "perServing": {
+        "energyKj": null,
+        "calories": null,
+        "protein": 5,
+        "carbs": 20,
+        "fat": 5,
+        "satFat": 3,
+        "fibre": 1.25,
+        "sugar": 15,
+        "sodium": 75,
+        "calcium": 150,
+        "iron": null,
+        "potassium": null
+      },
+      "per100": {
+        "energyKj": null,
+        "calories": null,
+        "protein": 4,
+        "carbs": 16,
+        "fat": 4,
+        "satFat": 2.4,
+        "fibre": 1,
+        "sugar": 12,
+        "sodium": 60,
+        "calcium": 120,
+        "iron": null,
+        "potassium": null
+      },
+      "servingAmount": 125,
+      "servingUnit": "g",
+      "servingText": "Serving size 125 g",
+      "manufacturerServing": true,
+      "per100Unit": "g",
+      "selectedBasis": "",
+      "servingsPerPack": 6,
+      "servingCount": null,
+      "servingCountUnit": ""
+    },
+    "ingredients": "Milk, synthetic vanilla flavour, starch.",
+    "detected": {
+      "perServing": true,
+      "per100": true
+    },
+    "issues": [
+      "uncertain-energyKj-columns",
+      "energy-not-recognised"
+    ],
+    "discrepancies": [],
+    "questionable": true
+  }
+}
