@@ -12,37 +12,61 @@
   function resetScanSession(){return createScanSession();}
   const ROWS=[['energyKj',/^(?:energy|calories?)\b/i,'kj'],['calories',/^(?:energy|calories?)\b/i,'kcal'],['protein',/^protein\b/i,'g'],['fat',/^(?:total\s+fat|fat(?:,?\s*total)?)\b/i,'g'],['satFat',/^(?:[-–]\s*)?(?:saturated|saturates)(?:\s+fat)?/i,'g'],['carbs',/^(?:carbohydrate|carbs)\b/i,'g'],['sugar',/^(?:[-–]\s*|of which\s+)?sugars?\b/i,'g'],['fibre',/^(?:dietary\s+)?fib(?:re|er)\b/i,'g'],['sodium',/^sodium\b/i,'mg'],['calcium',/^calcium\b/i,'mg'],['iron',/^iron\b/i,'mg'],['potassium',/^potassium\b/i,'mg']];
   function countUnits(){const serving=global.HECServingFoundation||(typeof module!=='undefined'?require('./serving-foundation'):null);return Object.values(serving?.PORTION_VOCABULARY||{}).filter(item=>['countable','sliced'].includes(item.family));}
+  function waterPreparationAllowed(model={}){
+    return model.servingUnit!=='mL'&&(model.per100Unit!=='mL'||model.per100Context==='as-prepared');
+  }
+  // Capture destinations are explicit, in-memory intent, never persisted UI dates.
+  function captureDestination({today,intent=null}={}){
+    return intent?.source==='diary-add'&&/^\d{4}-\d{2}-\d{2}$/.test(intent.date)&&intent.meal?{source:'diary-add',date:intent.date,meal:intent.meal}:{source:'neutral',date:today,meal:''};
+  }
+  function panelLines(text){
+    // Join wrapped declarations/headings, never arbitrary prose or two numbers.
+    return String(text||'').replace(/\r\n?/g,'\n')
+      .replace(/\b(per|servings?\s+per)\s*\n\s*(?=serv(?:e|ing)\b|100\b|pack(?:age)?\b)/gi,'$1 ')
+      .replace(/\b(serv(?:ing|e|lng))\s*\n\s*(?=s(?:i|l)ze\b)/gi,'$1 ')
+      .replace(/\b100\s*\n\s*(g|ml)\b/gi,'100 $1')
+      .replace(/\b(per\s*100\s*ml)\s*\n\s*((?:as\s+)?prepared)\b/gi,'$1 $2')
+      .replace(/\b(serv(?:ing|e|lng)\s*s(?:i|l)ze|servings?\s+per\s+pack(?:age)?)\s*:?\s*\n\s*(?=\d|one\b)/gi,'$1: ')
+      .split(/\n+/).map(line=>line.trim()).filter(Boolean);
+  }
   function parseServing(text){
-    const clean=String(text||''),line=clean.match(/serv(?:ing|e|lng)\s*(?:size|slze)\s*:?\s*([^\n]+)/i)?.[1]||'',size=line.match(/(\d+(?:[.,]\d+)?)\s*(g|ml)\b/i),number=v=>Number(v.replace(',','.'));
+    const clean=panelLines(text).join('\n'),line=clean.match(/serv(?:ing|e|lng)\s*(?:size|slze)\s*:?\s*([^\n]+)/i)?.[1]||'',damaged=/\d\s+[.,]|[.,]\s+\d|\d[a-z]\d/i.test(line),size=!damaged&&line.match(/(?:^|\(\s*)(\d+(?:[.,]\d+)?)\s*(g|ml)\b/i),number=v=>Number(v.replace(',','.'));
     const aliases=countUnits().flatMap(item=>item.aliases.map(alias=>({alias,key:item.id}))).sort((a,b)=>b.alias.length-a.alias.length);
     let count=null,countUnit='';
-    for(const {alias,key} of aliases){const match=line.match(new RegExp('(\\d+(?:[.,]\\d+)?)\\s*'+alias+'\\b','i')),one=clean.match(new RegExp('\\bone\\s+'+alias+'\\s*(?:=|equals?|is)\\s*one\\s+serv(?:ing|e)\\b','i'));if(match||one){count=match?number(match[1]):1;countUnit=key;break;}}
-    const pack=clean.match(/servings?\s+per\s+pack(?:age)?\s*:?\s*(?:about\s+)?(\d+(?:[.,]\d+)?)/i);
+    for(const {alias,key} of aliases){const match=line.match(new RegExp('(?:^|[\\s(])(\\d+(?:[.,]\\d+)?)\\s*'+alias+'\\b','i')),one=clean.match(new RegExp('\\b(?:one|1)\\s+'+alias+'\\s*(?:=|equals?|is)\\s*(?:one|1)\\s+serv(?:ing|e)\\b','i'));if(match||one){count=match?number(match[1]):1;countUnit=key;break;}}
+    const packLine=clean.match(/servings?\s+per\s+pack(?:age)?\s*:?\s*([^\n]+)/i)?.[1]||'',pack=!/\d\s+[.,]|[.,]\s+\d/.test(packLine)&&packLine.match(/^(?:about\s+)?(\d+(?:[.,]\d+)?)(?=\s*(?:$|\())/i);
     return {servingAmount:size?number(size[1]):null,servingUnit:size?(/ml/i.test(size[2])?'mL':'g'):'',servingText:line,manufacturerServing:!!size,servingCount:count,servingCountUnit:countUnit,servingsPerPack:pack?number(pack[1]):null};
   }
   function parseNutritionPanel(text,{uncertainLines=[]}={}){
-    const clean=String(text||'').replace(/\r\n?/g,'\n'),raw=clean.split(/\n+/).map(line=>line.trim()).filter(Boolean),lines=[],issues=[],number=value=>Number(value.replace(',','.'));
+    const clean=String(text||'').replace(/\r\n?/g,'\n'),raw=panelLines(clean),lines=[],issues=[],number=value=>Number(value.replace(',','.'));
     // OCR frequently separates a row label from its cells. Join only adjacent
     // numeric continuations, stopping at the next label, heading or prose.
     for(let i=0;i<raw.length;i++){let line=raw[i];if(ROWS.some(([,p])=>p.test(line))||/serving\s*size|servings?\s+per\s+pack/i.test(line))while(i+1<raw.length&&/^[<>≤≥]?\s*\d/.test(raw[i+1])&&!/per\s*100/i.test(raw[i+1]))line+=' '+raw[++i];lines.push(line);}
     const serving=parseServing(lines.filter(line=>!uncertainLines.some(value=>value.trim()&&line.includes(value.trim()))).join('\n'));
-    const headings=lines.filter(line=>/per\s*(?:serv(?:e|ing)\b|100\s*(?:g|ml)\b)/i.test(line)&&!/^serv(?:ing|e)\s*size/i.test(line)).join(' '),headers=[...headings.matchAll(/per\s*(serv(?:e|ing)\b|100\s*(g|ml)\b)/gi)].map(m=>({basis:/^100/i.test(m[1])?'per100':'perServing',unit:m[2]?(/ml/i.test(m[2])?'mL':'g'):''})).filter((h,i,a)=>a.findIndex(x=>x.basis===h.basis)===i);
-    const per100Context=/per\s*100\s*ml\s*(?:\n\s*)?(?:as\s+)?prepared/i.test(clean)?'as-prepared':'product';
+    const headings=lines.filter(line=>/per\s*(?:serv(?:e|ing)\b|100\s*(?:g|ml)\b)/i.test(line)&&!/^serv(?:ing|e)\s*size/i.test(line)).join(' '),headers=[...headings.matchAll(/per\s*(serv(?:e|ing)\b|100\s*(g|ml)\b)(\s+(?:as\s+)?prepared)?/gi)].map(m=>({basis:/^100/i.test(m[1])?'per100':'perServing',unit:m[2]?(/ml/i.test(m[2])?'mL':'g'):'',context:m[3]?'as-prepared':'product'}));
+    // More than one reference column cannot fit the current two-basis model.
+    // Keep the unambiguous serving cells; do not merge dry and prepared data.
+    const duplicate=basis=>headers.filter(h=>h.basis===basis).length>1;
+    if(uncertainLines.some(value=>/per\s*(?:serv(?:e|ing)\b|100\b)/i.test(value)))headers.length=0;
+    const per100Context=headers.find(h=>h.basis==='per100')?.context||'product';
     const per100Unit=headers.find(h=>h.basis==='per100')?.unit||'',perServing=emptyNutrients(),per100=emptyNutrients(),columns={perServing,per100},qualifiers={perServing:{},per100:{}},energyProvenance={perServing:{},per100:{}};
     for(const [key,pattern,unit] of ROWS){
-      const energy=key==='energyKj'||key==='calories',unitPattern=unit==='kj'?/\bkj\b/i:/\b(?:kcal|cal)\b/i;
+      const energy=key==='energyKj'||key==='calories',unitPattern=unit==='kj'?/(?<![a-z])kj\b/i:/(?<![a-z])(?:kcal|cal)\b/i;
       const line=lines.find(line=>pattern.test(line)&&(!energy||unitPattern.test(line)));if(!line)continue;
       if(uncertainLines.some(value=>value.trim()&&line.includes(value.trim()))){issues.push('uncertain-'+key+'-columns');continue;}
       const labelled=line.replace(pattern,''),rowUnit=labelled.match(/^\s*[,:(]?\s*(kJ|kcal|Cal|mg|g)\s*\)?\s*[:)]?/i)?.[1]?.toLowerCase().replace(/^cal$/,'kcal');
+      if(!energy&&rowUnit&&rowUnit!==unit){issues.push('uncertain-'+key+'-columns');continue;}
       const printedUnit=labelled.match(/^\s*\(([^)]+)\)/)?.[1];if(printedUnit&&!/^(kj|kcal|cal|mg|g)$/i.test(printedUnit)){issues.push('uncertain-'+key+'-columns');continue;}
       const body=labelled.replace(/^\s*[,:(]?\s*(?:kJ|kcal|Cal|mg|g)\s*\)?\s*[:)]?/i,'');
       if(/\d\s+[.,]|[.,]\s+\d/.test(body)){issues.push('uncertain-'+key+'-columns');continue;}
-      const tokens=[...body.matchAll(/([<>≤≥]?\s*[-+]?\d+(?:[.,]\d+)?)\s*(kcal|cal|kj|mg|g)?\b|(\?+|[—–])/gi)].map(m=>({raw:(m[1]||m[3]).trim(),unit:(m[2]||'').toLowerCase().replace(/^cal$/,'kcal')}));
+      const cellPattern=/([<>≤≥]?\s*[-+]?\d+(?:[.,]\d+)?|\?+)\s*(kcal|cal|kj|mg|g)?\b|([—–]|\?+)/gi;
+      if(body.replace(cellPattern,'').replace(/[\s/|(),:]/g,'')){issues.push('uncertain-'+key+'-columns');continue;}
+      const tokens=[...body.matchAll(cellPattern)].map(m=>({raw:(m[1]||m[3]).trim(),unit:(m[2]||'').toLowerCase().replace(/^cal$/,'kcal')}));
       const values=energy?tokens.filter(t=>t.unit===unit||(!t.unit&&rowUnit===unit)):tokens;
       if(energy&&!values.length)continue;
       // One surviving token cannot establish which of two columns was unreadable.
       if(!headers.length||values.length!==headers.length){issues.push('uncertain-'+key+'-columns');continue;}
-      values.forEach((token,index)=>{const basis=headers[index].basis,less=token.raw.match(/^(<|≤)\s*(\d+(?:[.,]\d+)?)$/);if(less&&(!token.unit||token.unit===unit)){qualifiers[basis][key]={operator:less[1],limit:number(less[2])};return;}if(!/^\d+(?:[.,]\d+)?$/.test(token.raw)||(token.unit&&token.unit!==unit)){issues.push('confirm-'+basis+'-'+key);return;}columns[basis][key]=number(token.raw);if(energy)energyProvenance[basis][key]='printed';});
+      values.forEach((token,index)=>{const basis=headers[index].basis;if(duplicate(basis)){issues.push('uncertain-'+key+'-columns');return;}const less=token.raw.match(/^(<|≤)\s*(\d+(?:[.,]\d+)?)$/);if(less&&(!token.unit||token.unit===unit)){qualifiers[basis][key]={operator:less[1],limit:number(less[2])};return;}if(!/^\d+(?:[.,]\d+)?$/.test(token.raw)||(token.unit&&token.unit!==unit)){issues.push('confirm-'+basis+'-'+key);return;}columns[basis][key]=number(token.raw);if(energy)energyProvenance[basis][key]='printed';});
     }
     for(const [basis,column] of Object.entries(columns)){
       if(column.calories===null&&column.energyKj!==null){column.calories=column.energyKj/4.184;energyProvenance[basis].calories='derived-from-kj';}
@@ -89,13 +113,20 @@
     for(const r of rows){r.words.sort((a,b)=>a.bbox.x0-b.bbox.x0);r.text=r.words.map(w=>w.text.trim()).join(' ');}
     const headers=[];
     for(const row of rows)for(let i=0;i<row.words.length;i++){
-      const ws=row.words.slice(i,i+4),text=ws.map(w=>w.text).join(' '),match=text.match(/^per\s+(serv(?:e|ing)\b|100\s*(g|ml)\b)/i);
+      const start=row.words[i];if(!/^per\b/i.test(start.text))continue;
+      const ws=row.words.slice(i,i+4).filter(w=>w.bbox.x0-start.bbox.x0<h*7);
+      // Headings often wrap across two or three physical lines on narrow packs.
+      for(const below of rows.filter(r=>r.y>row.y+h*.5&&r.y<=row.y+h*3)){
+        if(/^per\s+(serv(?:e|ing)\b|100\s*(g|ml)\b)/i.test(ws.map(w=>w.text).join(' ')))break;
+        ws.push(...below.words.filter(w=>Math.abs(w.bbox.x0-start.bbox.x0)<h*2&&/^(?:serv(?:e|ing)|100|g|ml)\b/i.test(w.text)));
+      }
+      const text=ws.map(w=>w.text).join(' '),match=text.match(/^per\s+(serv(?:e|ing)\b|100\s*(g|ml)\b)/i);
       if(!match)continue;let used=[],joined='';for(const w of ws){used.push(w);joined+=(joined?' ':'')+w.text;if(joined.length>=match[0].length)break;}
       if(used.some(w=>valueOrNull(w.confidence)===null||w.confidence<80))continue;
       const basis=/^100/i.test(match[1])?'per100':'perServing';if(headers.some(x=>x.basis===basis))return null;
-      headers.push({basis,unit:match[2]||'',x:(used[0].bbox.x0+used.at(-1).bbox.x1)/2,y:row.y,left:used[0].bbox.x0});
+      headers.push({basis,unit:match[2]||'',x:(Math.min(...used.map(w=>w.bbox.x0))+Math.max(...used.map(w=>w.bbox.x1)))/2,y:Math.max(...used.map(w=>(w.bbox.y0+w.bbox.y1)/2)),left:used[0].bbox.x0});
     }
-    if(headers.length!==2)return null;headers.sort((a,b)=>a.x-b.x);const gap=headers[1].x-headers[0].x;if(gap<h*4)return null;
+    if(!headers.length||headers.length>2)return null;headers.sort((a,b)=>a.x-b.x);const gap=headers.length===2?headers[1].x-headers[0].x:h*20;if(gap<h*4)return null;
     const body=[],issues=[],evidence=[],tableEnd=rows.find(r=>/^ingredients\b/i.test(r.text)&&r.y>Math.max(...headers.map(x=>x.y)))?.y??Infinity;
     for(const row of rows){
       if(row.y<=Math.max(...headers.map(x=>x.y))+h*.5||row.y>=tableEnd)continue;
@@ -107,7 +138,8 @@
       if(labelUnit&&!/^(g|mg|kj|kcal|cal)$/i.test(labelUnit)){issues.push('uncertain-'+key+'-columns');continue;}
       const groups=headers.map(()=>[]);let ambiguous=false;
       for(const w of suffix){if(w===suffix[0]&&labelUnit)continue;const x=(w.bbox.x0+w.bbox.x1)/2,dist=headers.map(c=>Math.abs(c.x-x)),i=dist[0]<dist[1]?0:1;
-        if(dist[i]>gap*.48||Math.abs(dist[0]-dist[1])<gap*.12){ambiguous=true;continue;}groups[i].push(w);
+        const column=headers.length===1?0:i;
+        if(dist[column]>gap*.48||(headers.length===2&&Math.abs(dist[0]-dist[1])<gap*.12)){ambiguous=true;continue;}groups[column].push(w);
       }
       if(ambiguous){issues.push('uncertain-'+key+'-columns');continue;}
       if(key==='energyKj'){
@@ -115,13 +147,13 @@
         // not erase a legible kJ token in the same physical table cell.
         for(const [energyKey,energyUnit] of [['energyKj','kj'],['calories','kcal']]){
           const normalizedUnit=value=>String(value||'').toLowerCase().replace(/^cal$/,'kcal');
-          if(normalizedUnit(labelUnit)!==energyUnit&&!groups.some(ws=>new RegExp(energyUnit==='kj'?'\\bkj\\b':'\\b(?:kcal|cal)\\b','i').test(ws.map(w=>w.text).join(' '))))continue;
+          if(normalizedUnit(labelUnit)!==energyUnit&&!groups.some(ws=>new RegExp(energyUnit==='kj'?'(?<![a-z])kj\\b':'(?<![a-z])(?:kcal|cal)\\b','i').test(ws.map(w=>w.text).join(' '))))continue;
           const cells=groups.map((ws,i)=>{
             let offset=0;const spans=ws.map(w=>{const start=offset;offset+=w.text.length+1;return {w,start,end:offset-1};}),text=ws.map(w=>w.text).join(' ');
-            const matches=[...text.matchAll(/([<≤]?\s*\d+(?:[.,]\d+)?)\s*(kj|kcal|cal)\b/gi)].filter(m=>normalizedUnit(m[2])===energyUnit);
+            const matches=[...text.matchAll(/(?<![\w.,+\-])([<≤]?\s*\d+(?:[.,]\d+)?)\s*(kj|kcal|cal)\b/gi)].filter(m=>normalizedUnit(m[2])===energyUnit);
             if(!matches.length&&normalizedUnit(labelUnit)===energyUnit&&/^[<≤]?\s*\d+(?:[.,]\d+)?$/.test(text))matches.push({0:text,1:text,index:0});
             const match=matches.length===1?matches[0]:null,relevant=match?spans.filter(s=>s.end>match.index&&s.start<match.index+match[0].length).map(s=>s.w):[];
-            if(!match||relevant.filter(w=>/\d/.test(w.text)).length!==1||relevant.some(w=>valueOrNull(w.confidence)===null||w.confidence<80)||/\d\s+[.,]|[.,]\s+\d/.test(text)){issues.push('confirm-'+headers[i].basis+'-'+energyKey);return '?';}
+            if(!match||/[>≥+\-]\s*$/.test(text.slice(0,match.index))||relevant.filter(w=>/\d/.test(w.text)).length!==1||relevant.some(w=>valueOrNull(w.confidence)===null||w.confidence<80)||/\d\s+[.,]|[.,]\s+\d/.test(text)){issues.push('confirm-'+headers[i].basis+'-'+energyKey);return '?';}
             evidence.push({key:energyKey,basis:headers[i].basis,text:match[1],confidence:Math.min(...relevant.map(w=>w.confidence))});return match[1].trim();
           });
           body.push('Energy ('+energyUnit+') '+cells.join(' '));
@@ -143,11 +175,14 @@
     return {text,issues,evidence};
   }
   function parseOcrResult(data={}){
-    const uncertainLines=[];
+    const uncertainLines=[],confidentLines=[];
     for(const block of data.blocks||[])for(const paragraph of block.paragraphs||[])for(const line of paragraph.lines||[]){
-      if((line.words||[]).some(word=>/\d/.test(word.text||'')&&Number(word.confidence)<80))uncertainLines.push(line.text||'');
+      const words=line.words||[];
+      if(words.some(word=>valueOrNull(word.confidence)===null||Number(word.confidence)<(/\d/.test(word.text||'')?80:70)))uncertainLines.push(line.text||'');
+      else if(words.length&&words.map(w=>w.text).join(' ').trim()===(line.text||'').trim())confidentLines.push((line.text||'').trim());
     }
-    if(valueOrNull(data.confidence)!==null&&Number(data.confidence)<70)uncertainLines.push(...String(data.text||'').split('\n').filter(line=>/\d/.test(line)));
+    // A noisy ingredients block must not veto independently confident panel cells.
+    if(valueOrNull(data.confidence)!==null&&Number(data.confidence)<70)uncertainLines.push(...String(data.text||'').split('\n').filter(line=>/\d/.test(line)&&!confidentLines.includes(line.trim())));
     const plain=parseNutritionPanel(data.text,{uncertainLines}),table=geometryPanel(data);
     if(!table){plain.readMethod='ocr';plain.extractionConfidence=valueOrNull(data.confidence);return plain;}
     const parsed=parseNutritionPanel(table.text);
@@ -209,7 +244,7 @@
     food.captureEvidence.confirmedAt=new Date().toISOString();
     if(unit==='g'||unit==='mL'){food.physicalForm=unit==='mL'?'liquid':model.servingCountUnit==='slice'?'sliced':model.servingCount>0?'countable':'weight';food.physicalFormSource='confirmed-packet-basis';}
     food.nutrientQualifiers=clone(model.qualifiers?.[basis]||{});
-    if(model.waterPreparation&&unit==='g')food.preparation={type:'water',usualWaterMl:valueOrNull(model.usualWaterMl)};
+    if(model.waterPreparation&&waterPreparationAllowed(model))food.preparation={type:'water',usualWaterMl:valueOrNull(model.usualWaterMl)};
     P().attachBasis(food,{...model,selectedBasis:basis});return {food,status};
   }
   // Review adapter only: opening a legacy record never migrates or rewrites it.
@@ -252,6 +287,6 @@
     remaining.sort((a,b)=>b.height-a.height);
     return {name:name||remaining[0]?.text||'',brand:brandText,confidence:candidates.length?'review-required':'low'};
   }
-  const api={version:VERSION,nutrientKeys:KEYS,valueOrNull,emptyNutrients,validBarcode,createScanSession,acceptDetection,finishLookup,resetScanSession,countUnits,parseServing,parseNutritionPanel,parseOcrResult,reviewStatus,validationMessage,chosenBasis,mergePanelBaseline,privateIdentityStatus,buildBarcodeFood,buildPanelFood,reviewModelFor,comparePanel,barcodeStatus,actionsFor,preparationWater,frontIdentity};
+  const api={version:VERSION,nutrientKeys:KEYS,valueOrNull,emptyNutrients,validBarcode,createScanSession,acceptDetection,finishLookup,resetScanSession,countUnits,waterPreparationAllowed,captureDestination,parseServing,parseNutritionPanel,parseOcrResult,reviewStatus,validationMessage,chosenBasis,mergePanelBaseline,privateIdentityStatus,buildBarcodeFood,buildPanelFood,reviewModelFor,comparePanel,barcodeStatus,actionsFor,preparationWater,frontIdentity};
   global.HECCaptureFoundation=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);

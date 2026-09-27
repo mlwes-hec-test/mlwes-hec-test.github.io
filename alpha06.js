@@ -1389,7 +1389,8 @@ by("confirm-voice-log")?.addEventListener("click",()=>{
 
 // Scan capture and review
 const X8=window.HECCaptureFoundation;
-let productCapture=null,captureEpoch=0;
+let productCapture=null,captureEpoch=0,captureDiaryIntent=null;
+function newCaptureDraft(fields={}){return {...fields,destination:X8.captureDestination({today:isoToday(),intent:captureDiaryIntent})};}
 let scanFile=null,scanBarcodeControls=null,scanBarcodeStream=null,scanBarcodeTimer=null,barcodeDetectionLocked=false,scanBarcodeFood=null,ocrParsedPanel=null,ocrReviewedFood=null,captureActionLocked=false;
 function loadExternalScript(src,test){
   if(test())return Promise.resolve(true);
@@ -1416,7 +1417,7 @@ function keepCapturedFoodAvailable(food,{save=false}={}){
 }
 function openCapturedFoodForDiary(food,{save=false}={}){
   if(!X8?.barcodeStatus?.(food)?.canAddToDiary||!C8.canLog(food)){showActionToast(C8.addability(food).message||"Complete And Confirm The Nutrition Details Before Adding This Food.",null,6000);return false;}
-  keepCapturedFoodAvailable(food,{save});const meal=ext.ui.pendingMeal||ext.ui?.mealEntrySession?.meal||'',date=ext.ui?.mealEntrySession?.date||ext.ui.diaryDate||isoToday();chooseCapturedAmount(food,selection=>{prepareEntry(food,{date,meal,source:food.source,...selection});if(!editorState)return;
+  keepCapturedFoodAvailable(food,{save});const {meal,date}=productCapture?.destination||X8.captureDestination({today:isoToday(),intent:captureDiaryIntent});chooseCapturedAmount(food,selection=>{prepareEntry(food,{date,meal,source:food.source,...selection});if(!editorState)return;
   editorState.returnTo='scan-centre';editorState.pendingDiarySave=save;editorState.libraryOnly=false;by("entry-date")?.closest(".form-grid")?.classList.remove("hidden");if(by("entry-date"))by("entry-date").value=date;if(by("entry-meal"))by("entry-meal").value=meal;if(by("save-food-entry")){by("save-food-entry").classList.remove("hidden");by("save-food-entry").textContent=save?'Confirm Save & Add To Diary':'Confirm Add To Diary';}by("save-food-entry-and-food")?.classList.add("hidden");updateEntryPreview();if(!meal){showActionToast('Choose a Diary meal, then confirm. No default meal has been selected.',null,6000);by('entry-meal')?.focus();}});return true;
 }
 function savedNutritionReviewAction(food){
@@ -1447,7 +1448,16 @@ function updateScanModeUI(){
 function renderScanSelect(){updateScanModeUI();updateBarcodeLookupState();}
 qa("[data-scan-mode]").forEach(button=>button.addEventListener("click",()=>{const next=button.dataset.scanMode;if(next!=="barcode")stopBarcodeCamera();ext.ui.scanMode=next;saveExt();updateScanModeUI();if(next==="barcode")startBarcodeCamera();}));
 function displayScanImage(dataUrl){by("scan-preview").className="scan-preview";by("scan-preview").innerHTML=`<img id="scan-preview-image" src="${dataUrl}" alt="Captured food or package"><p>Image Captured. Review The Applicable Tools Below.</p>`;}
-by("scan-image")?.addEventListener("change",event=>{scanFile=event.target.files?.[0]||null;if(!scanFile)return;productCapture ||= {id:uid("panel"),barcode:validBarcodeValue(by("scan-barcode-input").value),choice:"panel"};const epoch=++captureEpoch;const reader=new FileReader();reader.onload=async()=>{if(epoch!==captureEpoch)return;displayScanImage(reader.result);by("run-label-ocr").disabled=false;if(ext.ui.scanMode==='label'){by('run-label-ocr').scrollIntoView({block:'center'});by('run-label-ocr').focus({preventScroll:true});by('ocr-progress').classList.remove('hidden');by('ocr-progress').textContent='Photo ready. Read Nutrition Panel is the next step.';}if(ext.ui.scanMode==="barcode")await decodeBarcodeFromPreview();};reader.readAsDataURL(scanFile);});
+async function focusPanelReadAction(epoch){
+  // Image decoding and the status paragraph both change the mobile layout.
+  try{await by('scan-preview-image')?.decode();}catch{}
+  await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+  if(epoch!==captureEpoch||!by('scan-centre').classList.contains('active')||ext.ui.scanMode!=='label')return;
+  const button=by('run-label-ocr');button.scrollIntoView({block:'center',behavior:'instant'});button.focus({preventScroll:true});
+  const viewport=window.visualViewport,top=viewport?.offsetTop||0,bottom=top+(viewport?.height||innerHeight),banner=by('hec-test-installation-banner')?.getBoundingClientRect(),header=q('#scan-centre .sticky')?.getBoundingClientRect(),safeTop=Math.max(top,banner?.bottom||0,header?.bottom||0)+16,rect=button.getBoundingClientRect();
+  if(rect.top<safeTop||rect.bottom>bottom-16)window.scrollBy({top:rect.top-(safeTop+Math.max(0,(bottom-16-safeTop-rect.height)/2)),behavior:'instant'});
+}
+by("scan-image")?.addEventListener("change",event=>{scanFile=event.target.files?.[0]||null;if(!scanFile)return;productCapture ||= newCaptureDraft({id:uid("panel"),barcode:validBarcodeValue(by("scan-barcode-input").value),choice:"panel"});const epoch=++captureEpoch;const reader=new FileReader();reader.onload=async()=>{if(epoch!==captureEpoch)return;displayScanImage(reader.result);by("run-label-ocr").disabled=false;if(ext.ui.scanMode==='label'){by('ocr-progress').classList.remove('hidden');by('ocr-progress').textContent='Photo ready. Read Nutrition Panel is the next step.';await focusPanelReadAction(epoch);}if(ext.ui.scanMode==="barcode")await decodeBarcodeFromPreview();};reader.readAsDataURL(scanFile);});
 
 by("take-scan-photo")?.addEventListener("click",()=>{const input=by("scan-image");if(!input)return;input.setAttribute("capture","environment");input.click();});
 by("choose-scan-photo")?.addEventListener("click",()=>{const input=by("scan-image");if(!input)return;input.removeAttribute("capture");input.click();});
@@ -1534,6 +1544,7 @@ function applyCaptureModel(model){
   alpha08SetOcrValues(ALPHA0631_OCR_FIELDS,model.perServing,model.qualifiers?.perServing,model.energyProvenance?.perServing);alpha08SetOcrValues(ALPHA08_OCR100_FIELDS,model.per100,model.qualifiers?.per100,model.energyProvenance?.per100);
   for(const [id,key] of Object.entries({'ocr-serving-amount':'servingAmount','ocr-serving-unit':'servingUnit','ocr-per100-unit':'per100Unit','ocr-selected-basis':'selectedBasis','ocr-servings-per-pack':'servingsPerPack','ocr-serving-count':'servingCount','ocr-serving-count-unit':'servingCountUnit','ocr-per100-context':'per100Context'}))by(id).value=model[key]??'';
   by('ocr-water-preparation').checked=model.waterPreparation===true;
+  by('ocr-preparation-options').open=model.waterPreparation===true;
   if(!model.selectedBasis)by('ocr-selected-basis').value=X8.chosenBasis(model);
 }
 function selectCaptureValues(choice){
@@ -1577,7 +1588,10 @@ function alpha08UpdateOcrReview(){
   const identity=productCapture?.barcode?X8.privateIdentityStatus({name:by('ocr-food-name').value,brand:by('ocr-food-brand').value,barcode:productCapture.barcode}):{ready:true};if(!identity.ready){status.ready=false;status.missing.push('product-identity');}
   by('ocr-advanced').open=!model.selectedBasis||(model.selectedBasis==='per100'&&!model.per100Unit)||!!status.discrepancies.length;
   by('ocr-100-column').textContent='Per 100 '+(model.per100Unit||model.servingUnit||'g / mL')+(model.per100Context==='as-prepared'?' As Prepared':'');
-  by('ocr-water-preparation-row').classList.toggle('hidden',model.servingUnit!=='g'&&model.per100Unit!=='g');
+  const waterAllowed=X8.waterPreparationAllowed(model);by('ocr-preparation-options').classList.toggle('hidden',!waterAllowed);
+  if(!waterAllowed)by('ocr-water-preparation').checked=false;
+  by('ocr-water-preparation-help').classList.toggle('hidden',!waterAllowed||!by('ocr-water-preparation').checked);
+  if(waterAllowed&&model.waterPreparation)by('ocr-preparation-options').open=true;
   by('ocr-discrepancy-confirm-row').classList.toggle('hidden',!status.discrepancies.length);
   by('ocr-review-status').innerHTML=status.ready?'<strong>Ready To Save</strong><p>Your checked nutrition supports a Diary amount. Nothing is logged until final Review.</p>':'<strong>Review Still Required</strong><p>'+esc(X8.validationMessage(status,model).replace('Check barcode panel choice.','Choose the panel or barcode values for your private My Food.'))+'</p>';
   setCaptureActionState('ocr',{save:status.ready,add:status.ready,both:status.ready});return {model,status};
@@ -1589,7 +1603,7 @@ function alpha0631ScaleOcrReview(){
 
 function fillOcrReview(parsed){
   if(!parsed)return;ocrParsedPanel=parsed;ocrReviewedFood=null;captureActionLocked=false;
-  productCapture ||= {id:uid('panel'),barcode:validBarcodeValue(by('scan-barcode-input').value),choice:'panel'};
+  productCapture ||= newCaptureDraft({id:uid('panel'),barcode:validBarcodeValue(by('scan-barcode-input').value),choice:'panel'});
   productCapture.panelStarted=true;productCapture.extracted=clone(parsed);productCapture.panelModel=productCapture.catalogueFood?X8.mergePanelBaseline(productCapture.catalogueFood,parsed.model):clone(parsed.model);productCapture.choice=productCapture.catalogueFood?'':'panel';productCapture.displayedSource='panel';
   const fields={'ocr-serving-amount':parsed.servingAmount,'ocr-serving-unit':parsed.servingUnit,'ocr-per100-unit':parsed.per100Unit,'ocr-selected-basis':parsed.selectedBasis||X8.chosenBasis(parsed.model),'ocr-servings-per-pack':parsed.servingsPerPack,'ocr-serving-count':parsed.servingCount,'ocr-serving-count-unit':parsed.servingCountUnit};
   Object.entries(fields).forEach(([id,value])=>by(id).value=value??'');
@@ -1654,7 +1668,7 @@ by("run-label-ocr")?.addEventListener("click",async()=>{
 });
 function alpha08PanelFood(){
   const review=alpha08UpdateOcrReview();if(!review.status.ready)return null;
-  productCapture ||= {id:uid('panel'),choice:'panel'};
+  productCapture ||= newCaptureDraft({id:uid('panel'),choice:'panel'});
   const model=review.model;
   const result=X8.buildPanelFood({id:productCapture.id,name:by('ocr-food-name').value,brand:by('ocr-food-brand').value,barcode:productCapture.barcode||validBarcodeValue(by('scan-barcode-input').value),model,confirmed:by('ocr-package-confirmed').checked,discrepancyConfirmed:by('ocr-discrepancy-confirmed').checked,ingredients:by('ocr-ingredients').value,packageSize:by('ocr-pack-size').value,catalogueFood:productCapture.catalogueFood,choice:productCapture.choice,extracted:productCapture.extracted});
   ocrReviewedFood=result.food;
@@ -2287,7 +2301,7 @@ document.addEventListener('click',event=>{
 const oldLookupBarcodeProduct=lookupBarcodeProduct;
 lookupBarcodeProduct=async function(code){
   resetProductCapture();by('scan-barcode-input').value=validBarcodeValue(code);
-  const epoch=captureEpoch;productCapture={id:uid('panel'),barcode:validBarcodeValue(code),choice:'panel'};
+  const epoch=captureEpoch;productCapture=newCaptureDraft({id:uid('panel'),barcode:validBarcodeValue(code),choice:'panel'});
   const food=await oldLookupBarcodeProduct(code);if(epoch!==captureEpoch)return null;
   productCapture.catalogueFood=food?clone(food):null;
   if(food){const saved=ext.customFoods.find(item=>item.barcode===food.barcode);productCapture.id=saved?.id||productCapture.id;productCapture.existingPrivate=saved?clone(saved):null;productCapture.replacesSavedId=ext.savedFoodIds.includes(food.id)?food.id:null;by('barcode-package-confirmed').checked=false;updateBarcodeConfirmation();}
@@ -3783,7 +3797,7 @@ prepareEntry=function(food,opts={}){if(!opts.entry&&C8&&!C8.canLog(food)){showAc
 
 let alpha0631FrontFile=null;
 function alpha0631FrontNameFromText(text){return X8.frontIdentity({text},{identifyBrand:value=>REG29?.identify?.(value)?.some(m=>['brand','retailer'].includes(m.entity.type))}).name;}
-by('ocr-front-image')?.addEventListener('change',event=>{productCapture ||= {id:uid('panel'),choice:'panel'};const file=event.target.files?.[0]||null;alpha0631FrontFile=file;const preview=by('ocr-front-preview'),button=by('run-front-ocr'),status=by('ocr-front-status');if(button)button.disabled=!file;if(!file){preview?.classList.add('hidden');if(preview)preview.innerHTML='';if(status)status.textContent='';return;}const url=URL.createObjectURL(file);if(preview){preview.innerHTML=`<img src="${url}" alt="Front of food package">`;preview.classList.remove('hidden');}if(status)status.textContent='Front photo ready. Tap Read Brand & Product Name.';});
+by('ocr-front-image')?.addEventListener('change',event=>{productCapture ||= newCaptureDraft({id:uid('panel'),choice:'panel'});const file=event.target.files?.[0]||null;alpha0631FrontFile=file;const preview=by('ocr-front-preview'),button=by('run-front-ocr'),status=by('ocr-front-status');if(button)button.disabled=!file;if(!file){preview?.classList.add('hidden');if(preview)preview.innerHTML='';if(status)status.textContent='';return;}const url=URL.createObjectURL(file);if(preview){preview.innerHTML=`<img src="${url}" alt="Front of food package">`;preview.classList.remove('hidden');}if(status)status.textContent='Front photo ready. Tap Read Brand & Product Name.';});
 by('run-front-ocr')?.addEventListener('click',async()=>{
   if(!alpha0631FrontFile)return;const epoch=captureEpoch,file=alpha0631FrontFile,status=by('ocr-front-status');let worker;
   status.textContent='Reading the front of the pack…';
@@ -4404,6 +4418,7 @@ ext.ui.foodSearchCorrections='rc3-intent-state-serving-diary';saveExt();
 function resetProductCapture(){
   captureEpoch++;stopBarcodeCamera();scanFile=null;scanBarcodeFood=null;ocrParsedPanel=null;ocrReviewedFood=null;captureActionLocked=false;productCapture=null;alpha0631FrontFile=null;
   ext.ui.compareBarcodeFoodId='';
+  by('ocr-preparation-options').open=false;
   qa('#scan-centre input, #scan-centre textarea').forEach(input=>{if(input.type==='checkbox')input.checked=false;else input.value='';});
   ['ocr-serving-unit','ocr-per100-unit','ocr-selected-basis','ocr-serving-count-unit'].forEach(id=>by(id).value='');
   ['ocr-review','scan-review-card','ocr-progress','ocr-front-preview','capture-resume','capture-comparison'].forEach(id=>by(id)?.classList.add('hidden'));
@@ -4418,7 +4433,7 @@ function beginProductPanel(food=null,{force=false,savedReview=false}={}){
   if(productCapture?.panelStarted&&!force){ext.ui.scanMode='label';updateScanModeUI();return;}
   const saved=(ext.customFoods||[]).find(item=>food&&item.id===food.id)||(barcode&&(ext.customFoods||[]).find(item=>item.barcode===barcode));
   const catalogue=food||productCapture?.catalogueFood||null;
-  productCapture={...(productCapture||{}),id:saved?.id||productCapture?.id||uid('panel'),barcode,catalogueFood:catalogue?clone(catalogue):null,existingPrivate:saved?clone(saved):null,savedReview:savedReview||!!productCapture?.savedReview,choice:catalogue?'':'panel',panelStarted:true,suspended:false,replacesSavedId:!saved&&food&&ext.savedFoodIds.includes(food.id)?food.id:null};
+  productCapture={...newCaptureDraft(),...(productCapture||{}),id:saved?.id||productCapture?.id||uid('panel'),barcode,catalogueFood:catalogue?clone(catalogue):null,existingPrivate:saved?clone(saved):null,savedReview:savedReview||!!productCapture?.savedReview,choice:catalogue?'':'panel',panelStarted:true,suspended:false,replacesSavedId:!saved&&food&&ext.savedFoodIds.includes(food.id)?food.id:null};
   by('scan-barcode-input').value=barcode;by('ocr-food-name').value=saved?.name||food?.name||'';by('ocr-food-brand').value=saved?.brand||food?.brand||'';
   by('ocr-pack-size').value=saved?.packageSize||food?.packageSize||food?.packageQuantity||'';by('ocr-ingredients').value=saved?.ingredients||food?.ingredients||'';
   const existing=saved||food,model=existing?X8.reviewModelFor(existing):X8.parseNutritionPanel('').model;
@@ -4441,6 +4456,7 @@ updateScanModeUI=function(){
 };
 const captureBeforeScreen=window.HECBeforeScreenShow;
 window.HECBeforeScreenShow=function(id){
+  if(!['food-library','scan-centre','food-entry-editor'].includes(id))captureDiaryIntent=null;
   if(id!=='scan-centre'&&document.querySelector('#scan-centre.active')&&productCapture){productCapture.suspended=true;captureEpoch++;stopBarcodeCamera();}
   captureBeforeScreen?.(id);
 };
@@ -4452,11 +4468,17 @@ by('capture-cancel').addEventListener('click',()=>{const savedReview=productCapt
 by('capture-retry').addEventListener('click',()=>{
   // Keep the intended identity; explicitly discard this extraction attempt.
   const identity=productCapture?clone(productCapture):null;
-  resetProductCapture();if(identity){productCapture={id:identity.id,barcode:identity.barcode,catalogueFood:identity.catalogueFood,replacesSavedId:identity.replacesSavedId,savedReview:identity.savedReview};beginProductPanel(identity.catalogueFood);}
+  resetProductCapture();if(identity){productCapture={id:identity.id,barcode:identity.barcode,catalogueFood:identity.catalogueFood,replacesSavedId:identity.replacesSavedId,savedReview:identity.savedReview,destination:identity.destination};beginProductPanel(identity.catalogueFood);}
   ext.ui.scanMode='label';updateScanModeUI();by('ocr-progress').classList.remove('hidden');by('ocr-progress').textContent='New reading attempt — choose or photograph the panel again. Previous OCR values have been cleared.';by('scan-photo-capture').scrollIntoView({block:'start'});
 });
 by('capture-manual').addEventListener('click',()=>{if(!productCapture?.panelStarted)beginProductPanel(scanBarcodeFood);by('ocr-review').classList.remove('hidden');alpha08UpdateOcrReview();by('ocr-review').scrollIntoView({block:'start'});by('ocr-food-name').focus({preventScroll:true});});
 by('capture-parse-text').addEventListener('click',()=>fillOcrReview(parseNutritionPanel(by('ocr-text').value)));
+
+document.addEventListener('click',event=>{
+  const add=event.target.closest('[data-add-to-meal], [data-overview-add]');
+  if(add)captureDiaryIntent={source:'diary-add',date:ext.ui.diaryDate||isoToday(),meal:add.dataset.addToMeal||add.dataset.overviewAdd};
+  if(event.target.closest('[data-finish-meal-entry], [data-clear-pending-meal]'))captureDiaryIntent=null;
+},true);
 document.addEventListener('click',event=>{
   const review=event.target.closest('[data-review-product-nutrition]');
   if(review){const food=getFood(review.dataset.reviewProductNutrition);if(!food)return;closeModal();resetProductCapture();beginProductPanel(food,{force:true,savedReview:true});openFeature('scan-centre');return;}
