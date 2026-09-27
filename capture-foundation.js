@@ -11,15 +11,28 @@
   function finishLookup(session,food,error=''){return {...session,state:food?'review':'not-found',food:food||null,error:String(error||''),locked:true};}
   function resetScanSession(){return createScanSession();}
   const ROWS=[['energyKj',/^(?:energy|calories?)\b/i,'kj'],['calories',/^(?:energy|calories?)\b/i,'kcal'],['protein',/^protein\b/i,'g'],['fat',/^(?:total\s+fat|fat(?:,?\s*total)?)\b/i,'g'],['satFat',/^(?:[-–]\s*)?(?:saturated|saturates)(?:\s+fat)?/i,'g'],['carbs',/^(?:carbohydrate|carbs)\b/i,'g'],['sugar',/^(?:[-–]\s*|of which\s+)?sugars?\b/i,'g'],['fibre',/^(?:dietary\s+)?fib(?:re|er)\b/i,'g'],['sodium',/^sodium\b/i,'mg'],['calcium',/^calcium\b/i,'mg'],['iron',/^iron\b/i,'mg'],['potassium',/^potassium\b/i,'mg']];
+  function countUnits(){const serving=global.HECServingFoundation||(typeof module!=='undefined'?require('./serving-foundation'):null);return Object.values(serving?.PORTION_VOCABULARY||{}).filter(item=>['countable','sliced'].includes(item.family));}
+  function parseServing(text){
+    const clean=String(text||''),line=clean.match(/serv(?:ing|e|lng)\s*(?:size|slze)\s*:?\s*([^\n]+)/i)?.[1]||'',size=line.match(/(\d+(?:[.,]\d+)?)\s*(g|ml)\b/i),number=v=>Number(v.replace(',','.'));
+    const aliases=countUnits().flatMap(item=>item.aliases.map(alias=>({alias,key:item.id}))).sort((a,b)=>b.alias.length-a.alias.length);
+    let count=null,countUnit='';
+    for(const {alias,key} of aliases){const match=line.match(new RegExp('(\\d+(?:[.,]\\d+)?)\\s*'+alias+'\\b','i')),one=clean.match(new RegExp('\\bone\\s+'+alias+'\\s*(?:=|equals?|is)\\s*one\\s+serv(?:ing|e)\\b','i'));if(match||one){count=match?number(match[1]):1;countUnit=key;break;}}
+    const pack=clean.match(/servings?\s+per\s+pack(?:age)?\s*:?\s*(?:about\s+)?(\d+(?:[.,]\d+)?)/i);
+    return {servingAmount:size?number(size[1]):null,servingUnit:size?(/ml/i.test(size[2])?'mL':'g'):'',servingText:line,manufacturerServing:!!size,servingCount:count,servingCountUnit:countUnit,servingsPerPack:pack?number(pack[1]):null};
+  }
   function parseNutritionPanel(text,{uncertainLines=[]}={}){
-    const clean=String(text||'').replace(/\r\n?/g,'\n'),lines=clean.split(/\n+/).map(line=>line.trim()).filter(Boolean),issues=[];
-    const serveLine=lines.find(line=>/serv(?:ing|e|lng)\s*(?:size|slze)/i.test(line))||'',size=serveLine.match(/(\d+(?:[.,]\d+)?)\s*(g|ml)\b/i),count=serveLine.match(/(\d+(?:[.,]\d+)?)\s*(pieces?|slices?|biscuits?|bars?|crackers?)\b/i),pack=clean.match(/servings?\s+per\s+pack(?:age)?\s*:?\s*(\d+(?:[.,]\d+)?)/i),number=value=>Number(value.replace(',','.')),servingAmount=size?number(size[1]):null;
+    const clean=String(text||'').replace(/\r\n?/g,'\n'),raw=clean.split(/\n+/).map(line=>line.trim()).filter(Boolean),lines=[],issues=[],number=value=>Number(value.replace(',','.'));
+    // OCR frequently separates a row label from its cells. Join only adjacent
+    // numeric continuations, stopping at the next label, heading or prose.
+    for(let i=0;i<raw.length;i++){let line=raw[i];if(ROWS.some(([,p])=>p.test(line))||/serving\s*size|servings?\s+per\s+pack/i.test(line))while(i+1<raw.length&&/^[<>≤≥]?\s*\d/.test(raw[i+1])&&!/per\s*100/i.test(raw[i+1]))line+=' '+raw[++i];lines.push(line);}
+    const serving=parseServing(lines.filter(line=>!uncertainLines.some(value=>value.trim()&&line.includes(value.trim()))).join('\n'));
     const headings=lines.filter(line=>/per\s*(?:serv(?:e|ing)\b|100\s*(?:g|ml)\b)/i.test(line)&&!/^serv(?:ing|e)\s*size/i.test(line)).join(' '),headers=[...headings.matchAll(/per\s*(serv(?:e|ing)\b|100\s*(g|ml)\b)/gi)].map(m=>({basis:/^100/i.test(m[1])?'per100':'perServing',unit:m[2]?(/ml/i.test(m[2])?'mL':'g'):''})).filter((h,i,a)=>a.findIndex(x=>x.basis===h.basis)===i);
-    const per100Unit=headers.find(h=>h.basis==='per100')?.unit||'',servingUnit=size?(/ml/i.test(size[2])?'mL':'g'):per100Unit,perServing=emptyNutrients(),per100=emptyNutrients(),columns={perServing,per100};
+    const per100Context=/per\s*100\s*ml\s*(?:\n\s*)?(?:as\s+)?prepared/i.test(clean)?'as-prepared':'product';
+    const per100Unit=headers.find(h=>h.basis==='per100')?.unit||'',perServing=emptyNutrients(),per100=emptyNutrients(),columns={perServing,per100},qualifiers={perServing:{},per100:{}},energyProvenance={perServing:{},per100:{}};
     for(const [key,pattern,unit] of ROWS){
       const energy=key==='energyKj'||key==='calories',unitPattern=unit==='kj'?/\bkj\b/i:/\b(?:kcal|cal)\b/i;
       const line=lines.find(line=>pattern.test(line)&&(!energy||unitPattern.test(line)));if(!line)continue;
-      if(uncertainLines.some(value=>value.trim()===line)){issues.push('uncertain-'+key+'-columns');continue;}
+      if(uncertainLines.some(value=>value.trim()&&line.includes(value.trim()))){issues.push('uncertain-'+key+'-columns');continue;}
       const labelled=line.replace(pattern,''),rowUnit=labelled.match(/^\s*[,:(]?\s*(kJ|kcal|Cal|mg|g)\s*\)?\s*[:)]?/i)?.[1]?.toLowerCase().replace(/^cal$/,'kcal');
       const printedUnit=labelled.match(/^\s*\(([^)]+)\)/)?.[1];if(printedUnit&&!/^(kj|kcal|cal|mg|g)$/i.test(printedUnit)){issues.push('uncertain-'+key+'-columns');continue;}
       const body=labelled.replace(/^\s*[,:(]?\s*(?:kJ|kcal|Cal|mg|g)\s*\)?\s*[:)]?/i,'');
@@ -29,30 +42,39 @@
       if(energy&&!values.length)continue;
       // One surviving token cannot establish which of two columns was unreadable.
       if(!headers.length||values.length!==headers.length){issues.push('uncertain-'+key+'-columns');continue;}
-      values.forEach((token,index)=>{if(!/^\d+(?:[.,]\d+)?$/.test(token.raw)||(token.unit&&token.unit!==unit)){issues.push('confirm-'+headers[index].basis+'-'+key);return;}columns[headers[index].basis][key]=number(token.raw);});
+      values.forEach((token,index)=>{const basis=headers[index].basis,less=token.raw.match(/^(<|≤)\s*(\d+(?:[.,]\d+)?)$/);if(less&&(!token.unit||token.unit===unit)){qualifiers[basis][key]={operator:less[1],limit:number(less[2])};return;}if(!/^\d+(?:[.,]\d+)?$/.test(token.raw)||(token.unit&&token.unit!==unit)){issues.push('confirm-'+basis+'-'+key);return;}columns[basis][key]=number(token.raw);if(energy)energyProvenance[basis][key]='printed';});
     }
-    for(const column of Object.values(columns))if(column.calories===null&&column.energyKj!==null)column.calories=column.energyKj/4.184;
+    for(const [basis,column] of Object.entries(columns)){
+      if(column.calories===null&&column.energyKj!==null){column.calories=column.energyKj/4.184;energyProvenance[basis].calories='derived-from-kj';}
+      for(const [key,factor] of Object.entries({protein:4,carbs:4,sugar:4,fat:9,satFat:9,fibre:2})){
+        const massLimit=basis==='per100'&&per100Unit==='g'?100:basis==='perServing'&&serving.servingUnit==='g'?serving.servingAmount:null;
+        if(column[key]!==null&&(massLimit!==null&&column[key]>massLimit+.2||column.calories!==null&&column[key]*factor>column.calories*2.2+20)){column[key]=null;issues.push('confirm-'+basis+'-'+key);}
+      }
+    }
     for(const [basis,column] of Object.entries(columns))for(const [part,total] of [['sugar','carbs'],['satFat','fat']])if(column[part]!==null&&column[total]!==null&&column[part]>column[total]+.2){column[part]=null;issues.push('confirm-'+basis+'-'+part);}
     if(!headers.length)issues.push('column-headings-not-recognised');
     if(perServing.calories===null&&per100.calories===null)issues.push('energy-not-recognised');
-    const model=P().basisModel({perServing,per100,servingAmount,servingUnit,per100Unit,selectedBasis:perServing.calories!==null?'perServing':per100.calories!==null?'per100':'',servingText:serveLine,manufacturerServing:!!servingAmount,servingsPerPack:pack?number(pack[1]):null,servingCount:count?number(count[1]):null,servingCountUnit:count?count[2].toLowerCase().replace(/s$/,''):''});
+    const model=P().basisModel({...serving,perServing,per100,per100Unit,per100Context,qualifiers,energyProvenance,printedColumns:headers.map(h=>h.basis),selectedBasis:perServing.calories!==null?'perServing':per100.calories!==null&&per100Context!=='as-prepared'?'per100':''});
     const ingredients=clean.match(/ingredients\s*:\s*([^\n]*(?:\n(?!\s*(?:nutrition|allergen|contains|storage)\b)[^\n]*)*)/i)?.[1]?.trim()||'';
-    return {text:clean,...model,model,ingredients,detected:{perServing:headers.some(h=>h.basis==='perServing'),per100:headers.some(h=>h.basis==='per100')},issues:[...new Set(issues)],discrepancies:P().basisDiscrepancies(model),questionable:issues.length>0};
+    return {text:clean,readMethod:'text',...model,model,ingredients,detected:{perServing:headers.some(h=>h.basis==='perServing'),per100:headers.some(h=>h.basis==='per100')},issues:[...new Set(issues)],discrepancies:P().basisDiscrepancies(model),questionable:issues.length>0};
   }
   function chosenBasis(model){return model?.selectedBasis||((valueOrNull(model?.perServing?.calories)!==null||valueOrNull(model?.perServing?.energyKj)!==null)?'perServing':'per100');}
   // Missing OCR cells are unknown, never instructions to delete saved values.
   // A changed serving/metric basis cannot safely inherit the old column.
   function mergePanelBaseline(food,panel){
-    const old=reviewModelFor(food),next=clone(old),readBases=['perServing','per100'].filter(basis=>KEYS.some(key=>valueOrNull(panel[basis]?.[key])!==null));
+    const old=reviewModelFor(food),next=clone(old),readBases=['perServing','per100'].filter(basis=>KEYS.some(key=>valueOrNull(panel[basis]?.[key])!==null||panel.qualifiers?.[basis]?.[key]));
     if(!readBases.length)return next;
-    for(const key of ['servingAmount','servingUnit','per100Unit','servingsPerPack','servingCount','servingCountUnit','servingText'])if(panel[key]!==null&&panel[key]!==undefined&&panel[key]!=='')next[key]=panel[key];
+    for(const key of ['servingAmount','servingUnit','per100Unit','per100Context','servingsPerPack','servingCount','servingCountUnit','servingText'])if(panel[key]!==null&&panel[key]!==undefined&&panel[key]!==''&&!(panel.printedColumns&&!panel.printedColumns.includes('per100')&&['per100Unit','per100Context'].includes(key)))next[key]=panel[key];
     next.manufacturerServing=!!next.servingAmount;
     for(const basis of ['perServing','per100']){
-      const same=basis==='perServing'?next.servingAmount===old.servingAmount&&next.servingUnit===old.servingUnit&&next.servingCount===old.servingCount&&next.servingCountUnit===old.servingCountUnit:next.per100Unit===old.per100Unit;
+      const same=basis==='perServing'?next.servingAmount===old.servingAmount&&next.servingUnit===old.servingUnit&&next.servingCount===old.servingCount&&next.servingCountUnit===old.servingCountUnit:next.per100Unit===old.per100Unit&&next.per100Context===old.per100Context;
       next[basis]=same?clone(old[basis]):emptyNutrients();
-      for(const key of KEYS)if(valueOrNull(panel[basis]?.[key])!==null)next[basis][key]=panel[basis][key];
-      if(valueOrNull(panel[basis]?.energyKj)!==null&&valueOrNull(panel[basis]?.calories)===null)next[basis].calories=panel[basis].energyKj/4.184;
-      if(valueOrNull(panel[basis]?.calories)!==null&&valueOrNull(panel[basis]?.energyKj)===null)next[basis].energyKj=panel[basis].calories*4.184;
+      next.qualifiers[basis]=same?clone(old.qualifiers?.[basis]||{}):{};next.energyProvenance[basis]=same?clone(old.energyProvenance?.[basis]||{}):{};
+      for(const key of KEYS){
+        const qualifier=panel.qualifiers?.[basis]?.[key],source=panel.energyProvenance?.[basis]?.[key];
+        if(qualifier){next[basis][key]=null;next.qualifiers[basis][key]=clone(qualifier);}
+        else if(valueOrNull(panel[basis]?.[key])!==null&&!(source?.startsWith('derived')&&next[basis][key]!==null&&!next.energyProvenance[basis][key]?.startsWith('derived'))){next[basis][key]=panel[basis][key];delete next.qualifiers[basis][key];if(source)next.energyProvenance[basis][key]=source;}
+      }
     }
     next.selectedBasis=panel.selectedBasis||(readBases.length===1?readBases[0]:old.selectedBasis)||chosenBasis(next);
     return P().basisModel(next);
@@ -88,8 +110,26 @@
         if(dist[i]>gap*.48||Math.abs(dist[0]-dist[1])<gap*.12){ambiguous=true;continue;}groups[i].push(w);
       }
       if(ambiguous){issues.push('uncertain-'+key+'-columns');continue;}
-      const cells=groups.map((ws,i)=>{const text=ws.map(w=>w.text).join(' ').trim();const numeric=ws.filter(w=>/\d/.test(w.text));const confident=numeric.length===1&&numeric.every(w=>valueOrNull(w.confidence)!==null&&w.confidence>=80)&&!(/\d\s+[.,]|[.,]\s+\d/.test(text));
-        const valid=/^\d+(?:[.,]\d+)?\s*(?:g|mg|kj|kcal|cal)?$/i.test(text);
+      if(key==='energyKj'){
+        // Each printed energy unit owns its own cell. A damaged Cal token must
+        // not erase a legible kJ token in the same physical table cell.
+        for(const [energyKey,energyUnit] of [['energyKj','kj'],['calories','kcal']]){
+          const normalizedUnit=value=>String(value||'').toLowerCase().replace(/^cal$/,'kcal');
+          if(normalizedUnit(labelUnit)!==energyUnit&&!groups.some(ws=>new RegExp(energyUnit==='kj'?'\\bkj\\b':'\\b(?:kcal|cal)\\b','i').test(ws.map(w=>w.text).join(' '))))continue;
+          const cells=groups.map((ws,i)=>{
+            let offset=0;const spans=ws.map(w=>{const start=offset;offset+=w.text.length+1;return {w,start,end:offset-1};}),text=ws.map(w=>w.text).join(' ');
+            const matches=[...text.matchAll(/([<≤]?\s*\d+(?:[.,]\d+)?)\s*(kj|kcal|cal)\b/gi)].filter(m=>normalizedUnit(m[2])===energyUnit);
+            if(!matches.length&&normalizedUnit(labelUnit)===energyUnit&&/^[<≤]?\s*\d+(?:[.,]\d+)?$/.test(text))matches.push({0:text,1:text,index:0});
+            const match=matches.length===1?matches[0]:null,relevant=match?spans.filter(s=>s.end>match.index&&s.start<match.index+match[0].length).map(s=>s.w):[];
+            if(!match||relevant.filter(w=>/\d/.test(w.text)).length!==1||relevant.some(w=>valueOrNull(w.confidence)===null||w.confidence<80)||/\d\s+[.,]|[.,]\s+\d/.test(text)){issues.push('confirm-'+headers[i].basis+'-'+energyKey);return '?';}
+            evidence.push({key:energyKey,basis:headers[i].basis,text:match[1],confidence:Math.min(...relevant.map(w=>w.confidence))});return match[1].trim();
+          });
+          body.push('Energy ('+energyUnit+') '+cells.join(' '));
+        }
+        continue;
+      }
+      const cells=groups.map((ws,i)=>{const text=ws.map(w=>w.text).join(' ').trim();const numeric=ws.filter(w=>/\d/.test(w.text));const confident=numeric.length===1&&ws.every(w=>valueOrNull(w.confidence)!==null&&w.confidence>=80)&&!(/\d\s+[.,]|[.,]\s+\d/.test(text));
+        const valid=/^[<≤]?\s*\d+(?:[.,]\d+)?\s*(?:g|mg|kj|kcal|cal)?$/i.test(text);
         if(!confident||!valid){issues.push('confirm-'+headers[i].basis+'-'+key);return '?';}evidence.push({key,basis:headers[i].basis,text,confidence:numeric[0].confidence});return text;});
       // Use the recognised row unit when present. Never repair a damaged unit
       // or infer the location of a missing decimal point.
@@ -97,8 +137,9 @@
       body.push(row.text.match(pattern)[0]+(printed?' ('+printed+')':'')+' '+cells.join(' '));
     }
     if(!body.length)return null;
-    const metadata=rows.filter(r=>/serv(?:ing|e|lng)\s*(?:size|slze)|servings?\s+per\s+pack/i.test(r.text)).map(r=>r.text);
-    const text=[...metadata,headers.map(x=>'Per '+(x.basis==='perServing'?'Serving':'100 '+x.unit)).join(' '),...body].join('\n');
+    const metadata=rows.filter(r=>/serv(?:ing|e|lng)\s*(?:size|slze)|servings?\s+per\s+pack/i.test(r.text)&&r.words.every(w=>valueOrNull(w.confidence)!==null&&w.confidence>=(/\d/.test(w.text)?80:70))).map(r=>r.text);
+    const prepared=/per\s*100\s*ml\s*(?:as\s+)?prepared/i.test(rows.map(r=>r.text).join(' '));
+    const text=[...metadata,headers.map(x=>'Per '+(x.basis==='perServing'?'Serving':'100 '+x.unit+(prepared&&/ml/i.test(x.unit)?' As Prepared':''))).join(' '),...body].join('\n');
     return {text,issues,evidence};
   }
   function parseOcrResult(data={}){
@@ -108,8 +149,18 @@
     }
     if(valueOrNull(data.confidence)!==null&&Number(data.confidence)<70)uncertainLines.push(...String(data.text||'').split('\n').filter(line=>/\d/.test(line)));
     const plain=parseNutritionPanel(data.text,{uncertainLines}),table=geometryPanel(data);
-    if(!table){plain.extractionConfidence=valueOrNull(data.confidence);return plain;}
-    const parsed=parseNutritionPanel(table.text);parsed.text=String(data.text||'');parsed.ingredients=plain.ingredients;parsed.issues=[...new Set([...parsed.issues,...table.issues])];parsed.questionable=parsed.issues.length>0;parsed.extractionConfidence=valueOrNull(data.confidence);parsed.tableEvidence=table.evidence;return parsed;
+    if(!table){plain.readMethod='ocr';plain.extractionConfidence=valueOrNull(data.confidence);return plain;}
+    const parsed=parseNutritionPanel(table.text);
+    // Retain independently legible metadata/rows that the geometry adapter did
+    // not handle (for example a separate Cal continuation below an energy row).
+    for(const key of ['servingAmount','servingUnit','servingText','servingCount','servingCountUnit','servingsPerPack'])if(parsed.model[key]==null||parsed.model[key]==='')parsed.model[key]=plain.model[key];
+    if(plain.model.per100Context==='as-prepared')parsed.model.per100Context='as-prepared';
+    for(const basis of ['perServing','per100'])for(const key of KEYS)if(!table.evidence.some(e=>e.basis===basis&&e.key===key)&&!table.issues.some(issue=>issue==='confirm-'+basis+'-'+key||issue==='uncertain-'+key+'-columns')){
+      if(plain[basis][key]!==null&&!(plain.energyProvenance[basis]?.[key]?.startsWith('derived')&&parsed.model.energyProvenance[basis]?.[key]==='printed')){parsed.model[basis][key]=plain[basis][key];if(plain.energyProvenance[basis]?.[key])parsed.model.energyProvenance[basis][key]=plain.energyProvenance[basis][key];}
+      if(plain.qualifiers[basis]?.[key]){parsed.model[basis][key]=null;parsed.model.qualifiers[basis][key]=clone(plain.qualifiers[basis][key]);}
+    }
+    parsed.model=P().basisModel({...parsed.model,manufacturerServing:!!parsed.model.servingAmount,selectedBasis:parsed.model.selectedBasis||plain.model.selectedBasis});
+    Object.assign(parsed,parsed.model);parsed.readMethod='ocr';parsed.text=String(data.text||'');parsed.ingredients=plain.ingredients;parsed.issues=[...new Set([...parsed.issues,...table.issues])];parsed.discrepancies=P().basisDiscrepancies(parsed.model);parsed.questionable=parsed.issues.length>0;parsed.extractionConfidence=valueOrNull(data.confidence);parsed.tableEvidence=table.evidence;return parsed;
   }
   function privateIdentityStatus({name='',brand='',barcode=''}={}){
     const candidate={name,brand,barcode,recordType:'private',market:'AU',nutrients:{calories:0}};
@@ -128,6 +179,7 @@
     if(!['perServing','per100'].includes(basis))missing.push('basis');
     if(valueOrNull(energy.nutrients.calories)===null)missing.push('energy');
     if(basis==='per100'&&!['g','mL'].includes(model?.per100Unit||model?.servingUnit))missing.push('per100-unit');
+    if(basis==='per100'&&model?.per100Context==='as-prepared')missing.push('prepared-reference');
     if(model?.servingAmount!=null&&(!(Number(model.servingAmount)>0)||!['g','mL'].includes(model.servingUnit)))missing.push('serving-size');
     if(basis==='per100'&&model?.manufacturerServing&&model.servingUnit!==(model.per100Unit||model.servingUnit))missing.push('basis-unit-conflict');
     for(const [key,value] of Object.entries(values))if(value!=null&&(valueOrNull(value)===null||Number(value)<0))missing.push('invalid-'+key);
@@ -139,21 +191,25 @@
   }
   function validationMessage(status,model){
     const labels={'product-identity':'Enter the specific product name from the packet, and brand if shown.',name:'Enter the food name.',basis:'Confirm whether the values are per serve or per 100 g / mL.',energy:'Enter energy for '+(chosenBasis(model)==='perServing'?'one serve':'100 '+(model?.per100Unit||model?.servingUnit||'g / mL'))+'.','per100-unit':'Choose g or mL for the per-100 column.','serving-size':'Enter a positive serving size and its unit, or leave size blank for a fixed serve.','basis-unit-conflict':'Serving and per-100 units differ; confirm the correct basis.','package-confirmation':'Check the package and confirm the values.','discrepancy-confirmation':'Review the differing columns and confirm the selected calculation basis.','energy-unit-conflict':'The kJ and Cal values disagree. Correct them or clear the unreadable value.'};
+    labels['prepared-reference']='Use the dry product per-serving values. The as-prepared column is a separate reference, not a powder or preparation-water amount.';
     return status.missing.map(key=>labels[key]||'Check '+key.replace(/-/g,' ')+'.').join(' ');
   }
   function buildPanelFood({id,name,brand='',barcode='',model,confirmed=false,discrepancyConfirmed=false,ingredients='',packageSize='',catalogueFood=null,choice='panel',extracted=null}={}){
     const status=reviewStatus({name,model,confirmed,discrepancyConfirmed});if(!status.ready)return {food:null,status};
     if(validBarcode(barcode)&&!privateIdentityStatus({name,brand,barcode}).ready)return {food:null,status:{...status,ready:false,missing:['product-identity']}};
-    const basis=status.basis,useServing=basis==='perServing',amount=model.manufacturerServing?valueOrNull(model.servingAmount):null,unit=useServing?model.servingUnit:(model.per100Unit||model.servingUnit),nutrients=P().normalisedEnergy(model[basis]).nutrients,units={},unitLabels={};
+    const basis=status.basis,useServing=basis==='perServing',amount=model.manufacturerServing?valueOrNull(model.servingAmount):null,unit=useServing?model.servingUnit:(model.per100Unit||model.servingUnit),nutrients=P().normalisedEnergy(model[basis],{preservePrintedPair:true}).nutrients,units={},unitLabels={};
     let defaultAmount=useServing?1:100,defaultUnit=useServing?'serve':unit,serving=useServing?'Manufacturer serve':'Reference per 100 '+unit;
     if(useServing){units.serve=1;unitLabels.serve=amount?'Manufacturer Serve ('+amount+' '+unit+')':'Manufacturer Serve';if(amount)units[unit]=1/amount;}
     else{units[unit]=.01;if(amount&&model.servingUnit===unit){units.serve=amount/100;unitLabels.serve='Manufacturer Serve ('+amount+' '+unit+'; calculated from per 100 '+unit+')';defaultAmount=1;defaultUnit='serve';serving='Manufacturer serving '+amount+' '+unit+' · calculated from per 100 '+unit;}}
     if(amount&&useServing)serving='Manufacturer serving '+amount+' '+unit;
     if(units[unit])unitLabels[unit]=unit;
-    if(Number(model.servingCount)>0&&/^(piece|slice|biscuit|bar|cracker)$/.test(model.servingCountUnit)&&units.serve){units[model.servingCountUnit]=units.serve/Number(model.servingCount);unitLabels[model.servingCountUnit]=model.servingCountUnit;}
+    if(Number(model.servingCount)>0&&countUnits().some(item=>item.id===model.servingCountUnit)&&units.serve&&unit!=='mL'){units[model.servingCountUnit]=units.serve/Number(model.servingCount);unitLabels[model.servingCountUnit]=model.servingCountUnit;}
     const food={id:String(id||'panel-'+Date.now()),recordType:'private',verificationStatus:'package-confirmed',market:'AU',barcode:validBarcode(barcode),name:String(name).trim(),brand:String(brand).trim(),category:'Packaged Food',country:'Australia',aliases:[name,brand].filter(Boolean),defaultAmount,defaultUnit,units,unitLabels,serving,nutrients,foodGroups:{},waterMl:null,hydrationType:unit==='mL'?'drink':'food',score:6,source:choice==='catalogue'?'Barcode Nutrition · User Checked':'Current Package Nutrition Panel · User Checked',verified:false,packageServingExplicit:!!amount,ingredients:String(ingredients).trim(),packageSize:String(packageSize).trim(),servingsPerPack:valueOrNull(model.servingsPerPack),nutritionStatus:'user-confirmed',loggable:true,recognisedOnly:false,productSemantics:{type:'packaged-serving',confidence:'high'},captureEvidence:{barcode:validBarcode(barcode),catalogue:catalogueFood?{id:catalogueFood.id,canonicalId:catalogueFood.canonicalId||null,barcode:catalogueFood.barcode||null,name:catalogueFood.name,brand:catalogueFood.brand||null,source:catalogueFood.source||null,nutrients:clone(catalogueFood.nutrients),units:clone(catalogueFood.units),nutritionBasis:reviewModelFor(catalogueFood)}:null,extracted:clone(extracted),confirmedPanel:clone(model),choice,confirmed:true}};
     food.canonicalId='private:'+food.id;food.privateProductIdentity={id:food.canonicalId,gtin:food.barcode||null,name:food.name,brand:food.brand||null,packageSize:food.packageSize||null};
     food.captureEvidence.confirmedAt=new Date().toISOString();
+    if(unit==='g'||unit==='mL'){food.physicalForm=unit==='mL'?'liquid':model.servingCountUnit==='slice'?'sliced':model.servingCount>0?'countable':'weight';food.physicalFormSource='confirmed-packet-basis';}
+    food.nutrientQualifiers=clone(model.qualifiers?.[basis]||{});
+    if(model.waterPreparation&&unit==='g')food.preparation={type:'water',usualWaterMl:valueOrNull(model.usualWaterMl)};
     P().attachBasis(food,{...model,selectedBasis:basis});return {food,status};
   }
   // Review adapter only: opening a legacy record never migrates or rewrites it.
@@ -164,13 +220,13 @@
     return P().basisModel({perServing:serve>0?P().scale(food.nutrients,serve):{},per100:scale?P().scale(food.nutrients,scale*100):{},servingAmount:serve>0&&scale?serve/scale:null,servingUnit:unit,per100Unit:unit,manufacturerServing:serve>0&&!!scale,selectedBasis:serve>0?'perServing':unit?'per100':''});
   }
   function comparePanel(catalogueFood,model){
-    if(!catalogueFood)return {status:'none',rows:[]};
-    const old=reviewModelFor(catalogueFood),basis=chosenBasis(model),newValues=P().normalisedEnergy(model?.[basis]).nutrients;let oldValues=old[basis];
-    if(basis==='perServing'&&model.manufacturerServing&&model.servingUnit===(old.per100Unit||old.servingUnit)&&valueOrNull(old.per100.calories)!==null)oldValues=P().scale(old.per100,model.servingAmount/100);
+    if(!catalogueFood||!model)return {status:'none',rows:[]};
+    const old=reviewModelFor(catalogueFood),basis=chosenBasis(model),sameServing=old.servingAmount===model.servingAmount&&old.servingUnit===model.servingUnit;let oldValues=old[basis];
+    if(basis==='perServing'&&(!sameServing||!['calories','energyKj'].some(key=>valueOrNull(old.perServing[key])!==null))&&old.per100Context!=='as-prepared'&&model.manufacturerServing&&model.servingUnit===(old.per100Unit||old.servingUnit)&&valueOrNull(old.per100.calories)!==null)oldValues=P().scale(old.per100,model.servingAmount/100);
     if(basis==='perServing'&&old.manufacturerServing&&model.manufacturerServing&&(old.servingAmount!==model.servingAmount||old.servingUnit!==model.servingUnit)&&valueOrNull(old.per100.calories)===null)oldValues={};
-    if(basis==='per100'&&(old.per100Unit||old.servingUnit)!==(model.per100Unit||model.servingUnit))oldValues={};
-    oldValues=P().normalisedEnergy(oldValues).nutrients;
-    const rows=KEYS.filter(key=>key!=='energyKj'&&valueOrNull(newValues[key])!==null&&valueOrNull(oldValues[key])!==null).map(key=>({key,catalogue:oldValues[key],panel:newValues[key],different:Math.abs(oldValues[key]-newValues[key])>Math.max(['sodium','calcium','potassium'].includes(key)?5:.2,Math.abs(oldValues[key])*.05)}));
+    if(basis==='per100'&&((old.per100Unit||old.servingUnit)!==(model.per100Unit||model.servingUnit)||old.per100Context!==model.per100Context))oldValues={};
+    oldValues=P().normalisedEnergy(oldValues,{preservePrintedPair:true}).nutrients;
+    const rows=KEYS.filter(key=>!model.energyProvenance?.[basis]?.[key]?.startsWith('derived')&&valueOrNull(model[basis]?.[key])!==null&&valueOrNull(oldValues[key])!==null).map(key=>({key,catalogue:oldValues[key],panel:model[basis][key],different:Math.abs(oldValues[key]-model[basis][key])>Math.max(['sodium','calcium','potassium'].includes(key)?5:.2,Math.abs(oldValues[key])*.05)}));
     return {status:!rows.length?'incomplete':rows.some(row=>row.different)?'different':'compatible',basis,rows};
   }
   function barcodeStatus(food){
@@ -181,6 +237,21 @@
     return {...status,recognised:!!food?.name};
   }
   function actionsFor(food){const status=barcodeStatus(food);return {save:status.canSaveToMyFoods,add:status.canAddToDiary,both:status.canAddToDiary};}
-  const api={version:VERSION,nutrientKeys:KEYS,valueOrNull,emptyNutrients,validBarcode,createScanSession,acceptDetection,finishLookup,resetScanSession,parseNutritionPanel,parseOcrResult,reviewStatus,validationMessage,chosenBasis,mergePanelBaseline,privateIdentityStatus,buildBarcodeFood,buildPanelFood,reviewModelFor,comparePanel,barcodeStatus,actionsFor};
+  function preparationWater(food,{amountMl=null,alreadyLoggedSeparately=false}={}){
+    if(food?.preparation?.type!=='water')return null;
+    const amount=valueOrNull(amountMl),valid=amount!==null&&amount>=0?amount:null;
+    return {amountMl:valid,alreadyLoggedSeparately:alreadyLoggedSeparately===true,fluidMl:alreadyLoggedSeparately?0:valid};
+  }
+  function frontIdentity(data={}, {name='',brand='',identifyBrand=()=>false}={}){
+    const reject=/health\s*star|\brating\b|nutrition|ingredients|servings?|energy|protein|sodium|carbohydrate|storage|instructions?|best before|use by|barcode|www\.|\b(?:kj|kcal|cal)\b|%|\baustralian\b|\b(?:made|grown)\s+in\b|\bno\s+added\b|\b(?:source\s+of|high\s+in|low\s+in)\b|\b\d+\s*(?:pack|slices?|sachets?|g|kg|ml|l)\b/i;
+    const layout=(data.blocks||[]).flatMap(b=>(b.paragraphs||[]).flatMap(p=>p.lines||[]));
+    const candidates=String(data.text||'').split(/\n+/).map(text=>text.replace(/\s+/g,' ').trim()).filter(text=>text.length>=3&&text.length<=70&&!reject.test(text)&&/^[a-z][a-z '&’-]+$/i.test(text)).map(text=>{const line=layout.find(l=>String(l.text||'').trim()===text),words=line?.words||[],confidence=words.length?Math.min(...words.map(w=>Number(w.confidence??0))):Number(data.confidence??85),height=words.length?Math.max(...words.map(w=>(w.bbox?.y1||0)-(w.bbox?.y0||0))):0;return {text,confidence,height};}).filter(row=>row.confidence>=80);
+    const detectedBrand=candidates.find(row=>identifyBrand(row.text)||brand&&row.text.toLowerCase()===brand.toLowerCase());
+    let brandText=brand||detectedBrand?.text||'',remaining=candidates.filter(row=>row!==detectedBrand&&row.text.toLowerCase()!==brandText.toLowerCase());
+    if(!brandText&&remaining.length===2&&remaining.every(row=>row.text.split(' ').length>=2)){brandText=remaining.shift().text;}
+    remaining.sort((a,b)=>b.height-a.height);
+    return {name:name||remaining[0]?.text||'',brand:brandText,confidence:candidates.length?'review-required':'low'};
+  }
+  const api={version:VERSION,nutrientKeys:KEYS,valueOrNull,emptyNutrients,validBarcode,createScanSession,acceptDetection,finishLookup,resetScanSession,countUnits,parseServing,parseNutritionPanel,parseOcrResult,reviewStatus,validationMessage,chosenBasis,mergePanelBaseline,privateIdentityStatus,buildBarcodeFood,buildPanelFood,reviewModelFor,comparePanel,barcodeStatus,actionsFor,preparationWater,frontIdentity};
   global.HECCaptureFoundation=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);

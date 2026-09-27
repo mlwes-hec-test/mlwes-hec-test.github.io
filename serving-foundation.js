@@ -51,6 +51,7 @@
     piece:Object.freeze({id:'piece',displayLabel:'Piece',singularLabel:'piece',pluralLabel:'pieces',family:'countable',aliases:['piece','pieces'],priority:20,fractions:true}),
     biscuit:Object.freeze({id:'biscuit',displayLabel:'Biscuit',singularLabel:'biscuit',pluralLabel:'biscuits',family:'countable',aliases:['biscuit','biscuits'],priority:18,fractions:true}),
     cracker:Object.freeze({id:'cracker',displayLabel:'Cracker',singularLabel:'cracker',pluralLabel:'crackers',family:'countable',aliases:['cracker','crackers'],priority:18,fractions:true}),
+    crispbread:Object.freeze({id:'crispbread',displayLabel:'Crispbread',singularLabel:'crispbread',pluralLabel:'crispbreads',family:'countable',aliases:['crispbread','crispbreads'],priority:18,fractions:true}),
     bar:Object.freeze({id:'bar',displayLabel:'Bar',singularLabel:'bar',pluralLabel:'bars',family:'countable',aliases:['bar','bars'],priority:18,fractions:true}),
     sachet:Object.freeze({id:'sachet',displayLabel:'Sachet',singularLabel:'sachet',pluralLabel:'sachets',family:'countable',aliases:['sachet','sachets'],priority:18,fractions:true}),
     packet:Object.freeze({id:'packet',displayLabel:'Packet',singularLabel:'packet',pluralLabel:'packets',family:'countable',aliases:['packet','packets'],priority:18,fractions:true}),
@@ -204,7 +205,7 @@
 
   function portionKind(food,form=physicalForm(food)){
     const text=norm(`${food?.name||''} ${food?.servingSize||''} ${food?.packageServingText||''} ${food?.serving||''}`),units=food?.units||{};
-    for(const key of ['biscuit','cracker','bar','sachet','packet','roll','burger'])if(units[key]!==undefined||new RegExp(`\\b${key}s?\\b`).test(text))return key;
+    for(const key of ['biscuit','cracker','crispbread','bar','sachet','packet','roll','burger'])if(units[key]!==undefined||new RegExp(`\\b${key}s?\\b`).test(text))return key;
     if(form.form==='sliced')return /bread/.test(text)?'bread-slice':'slice';
     if(form.form==='spread')return 'spread';if(form.form==='liquid')return 'liquid';
     if(['countable','solid-countable'].includes(form.form))return units.piece!==undefined?'piece':'item';
@@ -266,7 +267,7 @@
     return profile.allowed.includes(family)?'':`${family}-measure-incompatible-with-${form.form}-form`;
   }
   function finalCompatibilityFirewall(food,candidates,form=physicalForm(food)){
-    const rawBasis=food.sourceNutritionBasis||food.nutritionBasis,per100Unit=normalizeMeasure(food.nutritionPer100Unit||rawBasis?.per100Unit||(/per[ -]?100[ -]?ml/i.test(typeof rawBasis==='string'?rawBasis:'')?'mL':'')),weightEvidence=food.unitOrigins?.g,hasTrustedWeightConversion=Number(food.units?.g)>0&&PORTION_PRESET_POLICY.trustedConfidence.includes(weightEvidence?.confidence)&&/density|weight conversion/i.test(`${weightEvidence?.origin||''} ${weightEvidence?.derivation||''}`),nutritionBasisConflict=per100Unit==='mL'&&!['liquid','unknown'].includes(form.form)&&!hasTrustedWeightConversion;
+    const rawBasis=food.sourceNutritionBasis||food.nutritionBasis,per100Unit=normalizeMeasure(rawBasis?.per100Context==='as-prepared'&&rawBasis.selectedBasis==='perServing'?rawBasis.servingUnit:food.nutritionPer100Unit||rawBasis?.per100Unit||(/per[ -]?100[ -]?ml/i.test(typeof rawBasis==='string'?rawBasis:'')?'mL':'')),weightEvidence=food.unitOrigins?.g,hasTrustedWeightConversion=Number(food.units?.g)>0&&PORTION_PRESET_POLICY.trustedConfidence.includes(weightEvidence?.confidence)&&/density|weight conversion/i.test(`${weightEvidence?.origin||''} ${weightEvidence?.derivation||''}`),nutritionBasisConflict=per100Unit==='mL'&&!['liquid','unknown'].includes(form.form)&&!hasTrustedWeightConversion;
     const safe=[],rejected=[...(food.quarantinedMeasures||[])];
     for(const candidate of candidates){const reason=nutritionBasisConflict?'nutrition-basis-volume-conflict-with-solid-form':compatibilityReason(candidate,form,food);if(reason){const item={...candidate,rejectionReason:reason};if(!rejected.some(old=>old.key===item.key&&old.multiplier===item.multiplier&&old.rejectionReason===reason))rejected.push(item);}else safe.push(enrichChoice(candidate,food,form));}
     const equivalent=(a,b)=>{const ac=a.conversionToBase||{},bc=b.conversionToBase||{},sameBase=ac.baseUnit&&ac.baseUnit===bc.baseUnit&&Math.abs(Number(ac.baseQuantity)-Number(bc.baseQuantity))<.0001,sameNutrition=Math.abs(Number(a.multiplier)-Number(b.multiplier))<.000001,oneManufacturer=[a,b].some(item=>item.physicalFamily==='manufacturer'),oneNatural=[a,b].some(item=>['countable','sliced'].includes(item.physicalFamily));return sameBase&&sameNutrition&&oneManufacturer&&oneNatural;};
