@@ -42,7 +42,7 @@ Sodium 108 mg / 43 mg
 Calcium 315 mg / 126 mg`;
 const drink=`DRY DRINK MIX
 Servings per pack:
-26
+10
 Serving size:
 12.5 g
 ONE SACHET = ONE SERVING
@@ -62,7 +62,7 @@ Sugars 3.3 g 2.2 g
 Sodium 51 mg 35 mg`;
 function spatial({prepared=false,weakServe=false,weakQualifier=false,metadataOnly=false}={}){
   const words=[],add=(text,x,y,confidence=96)=>words.push({text,confidence,bbox:{x0:x,y0:y,x1:x+text.length*8,y1:y+18}});
-  add('Servings per pack:',20,0);add(prepared?'26':'4',330,0);add('(',405,0);add('unreadable packet notes)',420,0,30);
+  add('Servings per pack:',20,0);add(prepared?'10':'4',330,0);add('(',405,0);add('unreadable packet notes)',420,0,30);
   add('Serving size:',20,30);add(prepared?'12.5':'250',330,30);add(prepared?'g':'mL',375,30,prepared?96:30);
   if(prepared){add('ONE SACHET',20,60);add('=',160,60);add('ONE SERVING',190,60);}
   if(!metadataOnly){

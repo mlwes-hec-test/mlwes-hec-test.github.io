@@ -1,0 +1,169 @@
+HEC SOURCE-only real iPhone panel mapping repair
+2026-10-03 | visible version 0.6.33
+
+Accepted starting state
+Canonical repository: C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32
+The workspace path with "HEC Develpoment" is a junction to that repository.
+Branch: alpha-0.6.33
+HEAD: 974543ef7fef9feff159bbc00dd5247afd418ecc
+Direct parent: fd0a0fbee5a3bccb138c88a4bab7282aa1531abe
+Subject: Repair installed PWA update readiness
+Starting git status --short: empty. All six preconditions passed before editing.
+
+OCR architecture and rejection paths
+1. alpha06.js:1664 prepares the image, preserving orientation and the full panel.
+   alpha06.js:1687 receives browser Tesseract worker.recognize() output with
+   text:true and blocks:true. This path does not call native iOS OCR.
+2. result.data includes flattened text and page confidence; its block/paragraph/
+   line/word hierarchy can include word confidence and x0/y0/x1/y1 bounding boxes.
+   alpha06.js:1688 shows the raw text and calls parseOcrResult(result.data).
+3. capture-foundation.js panelLines() joins selected wrapped declarations and
+   headings. parseNutritionPanel() joins adjacent numeric row continuations.
+   spatialRows() independently sorts words vertically and horizontally across
+   blocks, using median word height to reconstruct physical rows.
+4. parseServing() extracts serving size, item/count relationship and pack count.
+5. geometryPanel() locates headings and associates cells by x-position, including
+   percent-column exclusion; it feeds reconstructed rows to parseNutritionPanel().
+6. Existing numeric word/header confidence requirements (80) and text-label
+   requirements (70) remain. Low page confidence cannot veto independently
+   supported spatial cells. Unsafe tokens, absent units, ambiguous ownership,
+   incomplete column runs and existing contradiction checks can withhold fields.
+7. fillOcrReview() in alpha06.js:1621 retains extracted evidence separately from
+   the displayed model. mergePanelBaseline() combines compatible fields, and
+   comparePanel() compares equal serving/metric bases. The user chooses panel
+   or existing values and confirms the packet before a private food is saved.
+
+Why the supplied patterns failed
+- The exact strings "Servings per package: 10.5 (...)" and "Servings Per Pack:
+  10" already parsed when isolated and confident. A weak neighbouring word could
+  reject the whole OCR line. The independent metadata pass masked weak notes,
+  but its count regex accepted only end-of-line or an opening parenthesis after
+  the count; "10.5 ? ..." was rejected. Split-decimal checks also scanned notes.
+- "Sening an" did not match the narrow serving-size label expression.
+- Spatial heading discovery missed fused "per100", losing two-column geometry.
+- The text parser filtered out unitless "1040", then rejected the remaining
+  "697 kJ" because its energy-token count no longer matched two headings.
+- "AsPrepared" and "as-prepared" were not recognised; "Serving | AsPrepared"
+  on a separate heading line was not associated with the per-100 reference.
+- Adding newly recovered count details to a matching metric serving previously
+  made the baseline merge treat the whole serving column as incompatible.
+These are reproduced source rejection paths. The original iPhone word boxes and
+confidence values were not supplied, so their exact historical values are unknown.
+
+Targeted repair
+- Pack count validation now ends at the count token and its boundary, allowing
+  unrelated trailing descriptions. Numeric fragments, ranges, signs and units
+  still invalidate the count. Confidence masking distinguishes damaged numeric
+  continuations from noisy prose; "10 .5" cannot become an accepted 10.
+- A damaged serving label can recover an intact metric/count pair only near a
+  preceding pack declaration and before a nearby nutrition heading. It requires
+  one unique candidate with a similar serving token or masked label, and stops
+  at nutrient/ingredient/direction regions. It uses the shared count-unit registry.
+- Fused per100 headings work in spatial reconstruction. Ordered energy runs can
+  preserve the explicitly unit-labelled first cell while leaving a unitless
+  neighbour unknown. A lone value still cannot select one of two columns.
+- AsPrepared, As Prepared, as-prepared and prepared are recognised in heading
+  context. Wrapped "Serving | ..." headings are associated with the reference.
+  Weak heading evidence is not promoted; unrelated prepared prose is ignored.
+- Newly adding count details to an unchanged positive metric serving can retain
+  existing unread nutrient cells. Conflicting known counts or changed bases still
+  prevent inappropriate inheritance. Panel cells take precedence on acceptance.
+- Raw extraction, baseline catalogue/private values and confirmed merged values
+  remain separately available in captureEvidence. No catalogue record is mutated.
+
+Fixture results
+New tests/fixtures/real-iphone-panel.js preserves the brief's noisy transcription.
+It includes text-only, line-confidence and representative spatial observations.
+Geometry/confidence are synthetic examples, not claimed original device output.
+
+Bread: all three forms recover pack count 10.5, serving 67 g, 2 slices, energy
+697 kJ, sodium 255 mg per serve and 380 mg per 100 g. Protein, carbohydrate and
+fibre corruption remain blank. The unitless per-100 "1040" is not made into kJ.
+Spatial evidence can place printed 248 Cal in the reference column; flattened
+text alone cannot. Missing per-serving Cal is derived from kJ and marked derived.
+
+Nescafe: all three forms recover pack count 10, serving 12.5 g, printed serving
+200 kJ / 47 Cal and separate Per 100 mL As Prepared 130 kJ / 32 Cal. No protein
+<1 g or sachet declaration was added to this transcription. Separate regression
+coverage retains qualifiers. The earlier physical fixture's 26-pack expectation
+and its tests were corrected to 10; generic unrelated pack-count tests remain.
+
+Private-serving integration: a separately seeded verified private relationship
+supplies 1 sachet = 12.5 g and water-only preparation. Both survive partial OCR,
+panel selection and saving. Compatible unread cells survive, and source evidence
+distinguishes retained values from OCR. Shared catalogue and input fixtures remain
+unchanged. Printed energy pairs survive food creation, saving and Diary snapshots;
+200 kJ is not replaced with 196.648 kJ calculated from 47 Cal.
+
+Safety and retained behaviour
+No product names or barcodes were added to runtime logic. No decimal insertion,
+digit substitution, nutrient plausibility repair or known-package value lookup
+was introduced. Values such as 30849 are never turned into 30.8. Existing safety
+checks may reject a value, but never generate a replacement nutrient quantity.
+Private serving reuse, water preparation, date provenance, natural portion units,
+printed/derived energy distinction and PWA update recovery have regression coverage.
+release-bootstrap.js, scripts/service-worker.template.js, alpha06.js and
+packaged-foods.js are unchanged.
+
+Mobile verification
+390 x 844 and 320 x 568: populated serving fields, expanded Serving details,
+exact energy pairs and prepared heading, reachable required controls, missing
+Item Unit attention guidance and no material horizontal overflow verified.
+Screenshots were visually inspected. The existing reduced-height keyboard,
+private barcode reuse, Diary, snapshot and date workflows are also exercised.
+Tests use fresh isolated Edge contexts, SOURCE assets intercepted locally and
+mocked Tesseract results. Live same-origin fallthrough is asserted to be zero.
+No personal browser profile or live TEST application is used by these tests.
+
+Focused gates
+217/217 non-rendered tests passed, including 130 capture/parser checks and 87
+release/update/serving and earlier iPhone regression checks. This includes 19 new
+parser/integration tests. All 10/10 rendered tests passed on the final generation,
+including the two new viewport tests: 227 total passes, no failures or skips.
+Final transcription screenshots:
+C:\Users\mlwes\AppData\Local\Temp\hec-iphone-mapping-390-ERwuDc
+C:\Users\mlwes\AppData\Local\Temp\hec-iphone-mapping-320-NK6IET
+Commands:
+node --test tests/real-iphone-panel.test.js tests/physical-panel-repair.test.js tests/post-v52-capture.test.js tests/shared-product-capture.test.js tests/saved-nutrition-review.test.js tests/product-capture-pipeline.test.js tests/release-coherence.test.js tests/release-update-lifecycle.test.js tests/physical-iphone-follow-up.test.js tests/physical-iphone-search-serving-corrections.test.js tests/product-serving-semantics.test.js
+node --test tests/real-iphone-panel-rendered.test.js tests/physical-panel-repair-rendered.test.js tests/post-v52-capture-rendered.test.js tests/shared-product-capture-rendered.test.js
+node scripts/build_release.js --check
+git diff --check
+
+Release generation
+Before: e9f3ff4ddcc889187226ef36
+After: b99b3afec672a990ed7c1a45
+Generated with node scripts/build_release.js; deterministic build check passed.
+Visible version remains 0.6.33. Only release identities/hashes changed in the
+generated index.html, release-manifest.json and service-worker.js.
+
+Files changed
+capture-foundation.js
+index.html (generated)
+release-manifest.json (generated)
+service-worker.js (generated)
+tests/fixtures/real-iphone-panel.js (new)
+tests/real-iphone-panel.test.js (new)
+tests/real-iphone-panel-rendered.test.js (new)
+tests/fixtures/physical-panel-ocr.js (10-pack correction)
+tests/physical-panel-repair.test.js (10-pack expectation)
+tests/physical-panel-repair-rendered.test.js (10-pack expectation)
+REAL_IPHONE_PANEL_MAPPING_REPAIR_REPORT.txt (this report)
+
+Commit contract and scope
+One new local SOURCE commit, subject: Improve real iPhone panel field mapping
+Direct parent: 974543ef7fef9feff159bbc00dd5247afd418ecc
+The new SHA and final git status are reported after committing, outside this
+self-contained pre-commit report. The accepted starting commit is not amended.
+Nothing pushed or deployed. TEST is left at the supplied accepted v55 state:
+314d4ce700b8ea57469b6e56f6707e6245b45544, generation e9f3ff4ddcc889187226ef36.
+My Data is left at 120714d2d31bdc610039dbe70ce0fb6d3c9df6e0.
+These deployment states were not independently re-queried or modified.
+No personal app data or backups accessed. No catalogue expansion started.
+
+Remaining limitations
+This validates the mapper against the supplied messy transcription and explicitly
+modelled observation structures, not a fresh physical iPhone capture. Actual OCR
+with insufficient confidence, absent units, ambiguous headings or column ownership
+can still leave fields blank. The existing two-basis model cannot represent both
+a dry per-100 and prepared per-100 reference simultaneously. Physical iPhone
+acceptance remains a separate future step; this job stops at the local commit.

@@ -12,7 +12,7 @@
   function resetScanSession(){return createScanSession();}
   const ROWS=[['energyKj',/^(?:energy|calories?)\b/i,'kj'],['calories',/^(?:energy|calories?)\b/i,'kcal'],['protein',/^protein\b/i,'g'],['fat',/^(?:total\s+fat|fat(?:,?\s*total)?)\b/i,'g'],['satFat',/^(?:[-–]\s*)?(?:saturated|saturates)(?:\s+fat)?/i,'g'],['carbs',/^(?:carbohydrate|carbs)\b/i,'g'],['sugar',/^(?:[-–]\s*|of which\s+)?sugars?\b/i,'g'],['fibre',/^(?:dietary\s+)?fib(?:re|er)\b/i,'g'],['sodium',/^sodium\b/i,'mg'],['calcium',/^calcium\b/i,'mg'],['iron',/^iron\b/i,'mg'],['potassium',/^potassium\b/i,'mg']];
   function countUnits(){const serving=global.HECServingFoundation||(typeof module!=='undefined'?require('./serving-foundation'):null);return Object.values(serving?.PORTION_VOCABULARY||{}).filter(item=>['countable','sliced','household'].includes(item.family));}
-  const PREPARED_HEADING='(?:as\\s+prepared|prepared\\s+product|when\\s+prepared|prepared\\s+according\\s+to\\s+directions|prepared)';
+  const PREPARED_HEADING='(?:as[\\s-]*prepared|prepared\\s+product|when\\s+prepared|prepared\\s+according\\s+to\\s+directions|prepared)';
   function waterPreparationAllowed(model={}){
     return model.servingUnit!=='mL'&&(model.per100Unit!=='mL'||model.per100Context==='as-prepared');
   }
@@ -27,16 +27,34 @@
       .replace(/\b(serv(?:ing|e|lng))\s*\n\s*(?=s(?:i|l)ze\b)/gi,'$1 ')
       .replace(/\b100\s*\n\s*(g|ml)\b/gi,'100 $1')
       .replace(new RegExp('\\b(per\\s*100\\s*(?:ml|g))\\s*\\n\\s*('+PREPARED_HEADING+')\\b','gi'),'$1 $2')
+      .replace(new RegExp('\\b(per\\s*100\\s*(?:ml|g))[^\\S\\n]*\\n[ \\t]*serv(?:e|ing)[ \\t]*[|:][ \\t]*('+PREPARED_HEADING+')[ \\t]*(?=\\n|$)','gi'),'$1 $2')
       .replace(/\b(serv(?:ing|e|lng)\s*s(?:i|l)ze|servings?\s+per\s+pack(?:age)?)\s*:?\s*\n\s*(?=\d|one\b)/gi,'$1: ')
       .split(/\n+/).map(line=>line.trim()).filter(Boolean);
   }
   function parseServing(text){
-    const clean=panelLines(text).join('\n'),line=clean.match(/serv(?:ing|e|lng)\s*(?:size|slze)\s*:?\s*([^\n]+)/i)?.[1]||'',size=line.match(/(?:^|\(\s*)(\d+(?:[.,]\d+)?)\s*(g|ml)\b/i),number=v=>Number(v.replace(',','.'));
+    const lines=panelLines(text),clean=lines.join('\n'),number=v=>Number(v.replace(',','.'));
+    let line=clean.match(/serv(?:ing|e|lng)\s*(?:size|slze)\s*:?\s*([^\n]+)/i)?.[1]||'';
     const aliases=countUnits().flatMap(item=>item.aliases.map(alias=>({alias,key:item.id}))).sort((a,b)=>b.alias.length-a.alias.length);
     const numbers={one:1,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8,nine:9,ten:10,eleven:11,twelve:12},quantity='(?:\\d+(?:[.,]\\d+)?|'+Object.keys(numbers).join('|')+')';
+    if(!line){
+      // Recover a damaged label only in the declaration region, with BOTH an
+      // intact metric amount and explicit count. Never search ingredient prose.
+      const heading=lines.findIndex(s=>/per\s*(?:serv(?:e|ing)\b|100\s*(?:g|ml)\b)/i.test(s)),end=lines.findIndex(s=>ROWS.some(([,p])=>p.test(s))||/^(?:ingredients|directions|net\s+weight)\b/i.test(s));
+      const candidates=[];
+      const nearServing=token=>{let row=[...Array(8).keys()];for(const c of token.toLowerCase()){const next=[row[0]+1];for(let j=1;j<=7;j++)next[j]=Math.min(next[j-1]+1,row[j]+1,row[j-1]+(c==='serving'[j-1]?0:1));row=next;}return row[7]<=2;};
+      for(let i=0;i<lines.length;i++){
+        if(heading<0||i>=heading||heading-i>6||end>=0&&i>=end||!lines.slice(Math.max(0,i-3),i).some(s=>/^servings?\s+per\s+pack(?:age)?\b/i.test(s)))continue;
+        const m=lines[i].match(new RegExp('^([a-z? :]*?)((?:\\d+(?:[.,]\\d+)?)\\s*(?:g|ml)\\s*\\(\\s*'+quantity+'\\s+(?:'+aliases.map(a=>a.alias).join('|')+')\\s*\\))$','i'));
+        if(m&&(!m[1].trim()||/^[? :]+$/.test(m[1])||m[1].trim().split(/\s+/).some(nearServing)))candidates.push(m[2]);
+      }
+      if(candidates.length===1)line=candidates[0];
+    }
+    const size=line.match(/(?:^|\(\s*)(\d+(?:[.,]\d+)?)\s*(g|ml)\b/i);
     let count=null,countUnit='';
     for(const {alias,key} of aliases){const direct=line.match(new RegExp('(?:^|[\\s(])('+quantity+')\\s*'+alias+'\\b','i')),match=direct||clean.match(new RegExp('(?<![\\w.,+\\-])('+quantity+')\\s+'+alias+'\\s*(?:=|equals?|is)\\s*(?:one|1)\\s+serv(?:ing|e)\\b','i'));if(match&&!/[\d.,+\-]\s*$/.test((direct?line:clean).slice(0,match.index))){count=numbers[match[1].toLowerCase()]||number(match[1]);countUnit=key;break;}}
-    const packLine=clean.match(/servings?\s+per\s+pack(?:age)?\s*:?\s*([^\n]+)/i)?.[1]||'',pack=!/\d\s+[.,]|[.,]\s+\d/.test(packLine)&&packLine.match(/^(?:about\s+)?(\d+(?:[.,]\d+)?)(?=\s*(?:$|\())/i);
+    const packLine=clean.match(/servings?\s+per\s+pack(?:age)?\s*:?\s*([^\n]+)/i)?.[1]||'',packMatch=packLine.match(/^(?:about\s+)?(\d+(?:[.,]\d+)?)(?=$|\s|\()/i),tail=packMatch?packLine.slice(packMatch[0].length).trimStart():'';
+    // Validate the count token and its boundary, not unrelated trailing notes.
+    const pack=packMatch&&!/^(?:[\d.,+\-/#–—<>≤≥±]|(?:g|mg|ml|kg|to|or|x)\b)/i.test(tail)?packMatch:null;
     return {servingAmount:size?number(size[1]):null,servingUnit:size?(/ml/i.test(size[2])?'mL':'g'):'',servingText:line,manufacturerServing:!!size,servingCount:count,servingCountUnit:countUnit,servingsPerPack:pack?number(pack[1]):null};
   }
   function parseNutritionPanel(text,{uncertainLines=[]}={}){
@@ -50,6 +68,8 @@
     // Keep the unambiguous serving cells; do not merge dry and prepared data.
     const duplicate=basis=>headers.filter(h=>h.basis===basis).length>1;
     if(uncertainLines.some(value=>/per\s*(?:serv(?:e|ing)\b|100\b)/i.test(value)))headers.length=0;
+    const originalLines=clean.split('\n'),firstNutrient=originalLines.findIndex(line=>ROWS.some(([,p])=>p.test(line.trim()))),headerRegion=originalLines.slice(0,firstNutrient<0?originalLines.length:firstNutrient).join('\n');
+    if(uncertainLines.some(value=>value.trim()&&headerRegion.includes(value.trim())&&new RegExp('\\b'+PREPARED_HEADING+'\\b','i').test(value)))headers.forEach(h=>h.context='product');
     const per100Context=headers.find(h=>h.basis==='per100')?.context||'product';
     const per100Unit=headers.find(h=>h.basis==='per100')?.unit||'',perServing=emptyNutrients(),per100=emptyNutrients(),columns={perServing,per100},qualifiers={perServing:{},per100:{}},energyProvenance={perServing:{},per100:{}};
     for(const [key,pattern,unit] of ROWS){
@@ -64,7 +84,16 @@
       const cellPattern=/([<>≤≥]?\s*[-+]?\d+(?:[.,]\d+)?|\?+)\s*(kcal|cal|kj|mg|g)?\b|([—–]|\?+)/gi;
       if(body.replace(cellPattern,'').replace(/[\s/|(),:]/g,'')){issues.push('uncertain-'+key+'-columns');continue;}
       const tokens=[...body.matchAll(cellPattern)].map(m=>({raw:(m[1]||m[3]).trim(),unit:(m[2]||'').toLowerCase().replace(/^cal$/,'kcal')}));
-      const values=energy?tokens.filter(t=>t.unit===unit||(!t.unit&&rowUnit===unit)):tokens;
+      let values=energy?tokens.filter(t=>t.unit===unit||(!t.unit&&rowUnit===unit)):tokens;
+      if(energy&&!rowUnit&&values.length!==headers.length){
+        // A complete ordered run can retain a cell with a printed unit while
+        // its unitless neighbour stays unknown. Do not shift a lone Cal/kJ.
+        const runs=[];let run=[];
+        for(const token of tokens){if(token.unit&&token.unit!==unit){if(run.length)runs.push(run);run=[];}else run.push(token);}
+        if(run.length)runs.push(run);
+        const matching=runs.filter(r=>r.length===headers.length&&r[0]?.unit===unit);
+        if(matching.length===1)values=matching[0].map(t=>t.unit===unit?t:{raw:'?',unit});
+      }
       if(energy&&!values.length)continue;
       // One surviving token cannot establish which of two columns was unreadable.
       if(!headers.length||values.length!==headers.length){issues.push('uncertain-'+key+'-columns');continue;}
@@ -125,7 +154,8 @@
     if((next.servingAmount!==old.servingAmount||next.servingUnit!==old.servingUnit)&&!(panel.servingCount>0&&panel.servingCountUnit)){next.servingCount=null;next.servingCountUnit='';next.servingProvenance=null;}
     next.manufacturerServing=!!next.servingAmount;
     for(const basis of ['perServing','per100']){
-      const same=basis==='perServing'?next.servingAmount===old.servingAmount&&next.servingUnit===old.servingUnit&&next.servingCount===old.servingCount&&next.servingCountUnit===old.servingCountUnit:next.per100Unit===old.per100Unit&&next.per100Context===old.per100Context;
+      const sameCount=next.servingCount===old.servingCount&&next.servingCountUnit===old.servingCountUnit,addedCount=!old.servingCount&&!old.servingCountUnit&&old.servingAmount>0;
+      const same=basis==='perServing'?next.servingAmount===old.servingAmount&&next.servingUnit===old.servingUnit&&(sameCount||addedCount):next.per100Unit===old.per100Unit&&next.per100Context===old.per100Context;
       next[basis]=same?clone(old[basis]):emptyNutrients();
       next.qualifiers[basis]=same?clone(old.qualifiers?.[basis]||{}):{};next.energyProvenance[basis]=same?clone(old.energyProvenance?.[basis]||{}):{};
       for(const key of KEYS){
@@ -150,18 +180,22 @@
     for(const r of rows){r.words.sort((a,b)=>a.bbox.x0-b.bbox.x0);r.text=r.words.map(w=>w.text.trim()).join(' ');}
     return {rows,h};
   }
-  function trustedRowText(row){return row.words.map(w=>valueOrNull(w.confidence)!==null&&w.confidence>=(/\d/.test(w.text)?80:70)?w.text:'?').join(' ');}
+  function trustedRowText(row){
+    // Keep a damaged numeric continuation distinguishable from noisy prose:
+    // masking "10 .5" as "10 ?" must not turn it into a trusted pack count.
+    return row.words.map(w=>valueOrNull(w.confidence)!==null&&w.confidence>=(/\d/.test(w.text)?80:70)?w.text:/^[\d.,+\-]/.test(w.text)?'#':w.text.startsWith('(')?'(?':'?').join(' ');
+  }
   function geometryPanel(data){
     const {rows,h}=spatialRows(data),headers=[];
     for(const row of rows)for(let i=0;i<row.words.length;i++){
-      const start=row.words[i];if(!/^per\b/i.test(start.text))continue;
+      const start=row.words[i];if(!/^per(?=\s|100\b|$)/i.test(start.text))continue;
       const ws=row.words.slice(i,i+4).filter(w=>w.bbox.x0-start.bbox.x0<h*7);
       // Headings often wrap across two or three physical lines on narrow packs.
       for(const below of rows.filter(r=>r.y>row.y+h*.5&&r.y<=row.y+h*3)){
-        if(/^per\s+(serv(?:e|ing)\b|100\s*(g|ml)\b)/i.test(ws.map(w=>w.text).join(' ')))break;
+        if(/^per\s*(serv(?:e|ing)\b|100\s*(g|ml)\b)/i.test(ws.map(w=>w.text).join(' ')))break;
         ws.push(...below.words.filter(w=>Math.abs(w.bbox.x0-start.bbox.x0)<h*2&&/^(?:serv(?:e|ing)|100|g|ml)\b/i.test(w.text)));
       }
-      const text=ws.map(w=>w.text).join(' '),match=text.match(/^per\s+(serv(?:e|ing)\b|100\s*(g|ml)\b)/i);
+      const text=ws.map(w=>w.text).join(' '),match=text.match(/^per\s*(serv(?:e|ing)\b|100\s*(g|ml)\b)/i);
       if(!match)continue;let used=[],joined='';for(const w of ws){used.push(w);joined+=(joined?' ':'')+w.text;if(joined.length>=match[0].length)break;}
       if(used.some(w=>valueOrNull(w.confidence)===null||w.confidence<80))continue;
       const basis=/^100/i.test(match[1])?'per100':'perServing';if(headers.some(x=>x.basis===basis))return null;

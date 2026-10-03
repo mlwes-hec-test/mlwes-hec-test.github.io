@@ -23,7 +23,7 @@ test('one weak spatial energy cell cannot erase its printed Cal or the other col
  const p=X.parseOcrResult(f.spatial({weakServe:true}));assert.equal(p.perServing.energyKj,null);assert.equal(p.perServing.calories,114);assert.equal(p.per100.energyKj,191);assert.equal(p.perServing.sodium,108);
 });
 test('spatial wrapped prepared heading, count relationship and qualifier are retained',()=>{
- const p=X.parseOcrResult(f.spatial({prepared:true}));assert.equal(p.servingsPerPack,26);assert.equal(p.servingAmount,12.5);assert.equal(p.servingCount,1);assert.equal(p.servingCountUnit,'sachet');assert.equal(p.per100Context,'as-prepared');assert.equal(p.selectedBasis,'perServing');assert.equal(p.perServing.energyKj,200);assert.equal(p.perServing.calories,47);assert.equal(p.per100.calories,32);assert.equal(p.per100.energyKj,130);assert.deepEqual(p.qualifiers.perServing.protein,{operator:'<',limit:1});
+ const p=X.parseOcrResult(f.spatial({prepared:true}));assert.equal(p.servingsPerPack,10);assert.equal(p.servingAmount,12.5);assert.equal(p.servingCount,1);assert.equal(p.servingCountUnit,'sachet');assert.equal(p.per100Context,'as-prepared');assert.equal(p.selectedBasis,'perServing');assert.equal(p.perServing.energyKj,200);assert.equal(p.perServing.calories,47);assert.equal(p.per100.calories,32);assert.equal(p.per100.energyKj,130);assert.deepEqual(p.qualifiers.perServing.protein,{operator:'<',limit:1});
  const weak=X.parseOcrResult(f.spatial({prepared:true,weakQualifier:true}));assert.equal(weak.perServing.protein,null);assert.equal(weak.qualifiers.perServing.protein,undefined);assert.equal(weak.qualifiers.per100.protein.limit,1);
 });
 test('printed pair, sodium and qualifier survive food construction, natural amount and JSON snapshot',()=>{
