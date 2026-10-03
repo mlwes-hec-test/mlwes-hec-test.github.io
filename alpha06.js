@@ -1559,6 +1559,7 @@ function selectCaptureValues(choice){
   if(choice)applyCaptureModel(choice==='catalogue'?X8.reviewModelFor(productCapture.catalogueFood):productCapture.panelModel);
   qa('#ocr-review input[aria-invalid]').forEach(input=>{input.setAttribute('aria-invalid','false');input.placeholder='';});
   by('capture-field-issues').textContent=choice==='catalogue'?(productCapture.savedReview?'Saved values':'Barcode values')+' are now shown below. Check them against this packet; the photo reading is kept separately.':'Package values are now shown below. Correct any unreadable or differing values, then confirm.';
+  showPreparedReferenceGuidance(choice==='panel'?productCapture.extracted:null);
   by('ocr-package-confirmed').checked=false;by('ocr-discrepancy-confirmed').checked=false;
 }
 function confirmedBarcodeFood(){
@@ -1618,6 +1619,15 @@ function alpha0631ScaleOcrReview(){
   if(!ocrParsedPanel)return;const status=by('ocr-scale-status');if(status)status.textContent='Printed per-serving and per-100 values stay separate. HEC does not create a missing column.';alpha08UpdateOcrReview();
 }
 
+function showPreparedReferenceGuidance(parsed){
+  const reference=parsed?.preparedReference;
+  by('ocr-per100-unit').setAttribute('aria-invalid',String(!!reference&&!by('ocr-per100-unit').value));
+  if(!reference)return;
+  by('capture-field-issues').textContent+=' The As Prepared heading was read'+(reference.calories!==null?' with '+reference.calories+' Cal':'')+', but its reference amount and unit were not read. Check the packet before entering those reference values.';
+  // A retained, valid product column is not the unread prepared reference.
+  for(const id of ['ocr-per100-unit','ocr100-calories'])if(!by(id).value){by(id).setAttribute('aria-invalid','true');by(id).setAttribute('aria-describedby','capture-field-issues');}
+}
+
 function fillOcrReview(parsed){
   if(!parsed)return;ocrParsedPanel=parsed;ocrReviewedFood=null;captureActionLocked=false;
   productCapture ||= newCaptureDraft({id:uid('panel'),barcode:validBarcodeValue(by('scan-barcode-input').value),choice:'panel'});
@@ -1631,14 +1641,15 @@ function fillOcrReview(parsed){
   by('ocr-serving-column').classList.remove('hidden');by('ocr-100-column').classList.remove('hidden');
   by('ocr-package-confirmed').checked=false;by('ocr-discrepancy-confirmed').checked=false;
   const uncertainNames=[...new Set(qa('#ocr-review input[aria-invalid="true"]').map(input=>input.getAttribute('aria-label')||input.id))];
-  by('capture-field-issues').textContent=parsed.issues?.length?'Check '+(uncertainNames.join(', ')||'the printed column headings and energy')+' against the packet. Uncertain values are left blank.':'Review the extracted values against the packet.';
+  const useful=['perServing','per100'].some(basis=>Object.values(parsed[basis]).some(value=>value!==null)||Object.keys(parsed.qualifiers?.[basis]||{}).length),metadata=parsed.servingsPerPack!==null||parsed.servingAmount!==null||parsed.servingCount!==null||!!parsed.preparedReference;
+  by('capture-field-issues').textContent=(parsed.issues?.length&&(useful||metadata)?useful?'Some panel values were read. ':'Some serving or pack details were read. ':'')+(parsed.issues?.length?'Check '+(uncertainNames.join(', ')||'the printed column headings and energy')+' against the packet. Uncertain values are left blank.':'Review the extracted values against the packet.');
   by('ocr-review').classList.remove('hidden');qa('.ocr-raw-details').forEach(node=>node.open=false);
   if(productCapture.catalogueFood){
     applyCaptureModel(productCapture.panelModel);
-    const useful=['perServing','per100'].some(basis=>Object.values(parsed[basis]).some(value=>value!==null)||Object.keys(parsed.qualifiers?.[basis]||{}).length),metadata=parsed.servingsPerPack!==null||parsed.servingAmount!==null||parsed.servingCount!==null;
     by('capture-field-issues').textContent=useful?'Panel readings are shown where available. Missing readings retain saved values where the serving and units match. Check the comparison and marked fields before confirming.':metadata?'Some serving or pack details were read. Check those details; unreadable nutrition remains unchanged. Enter missing energy from the packet to continue.':'No usable nutrition was read. Existing values are intact. Keep them after checking the packet, edit fields, Try Again, or Cancel.';
     if(uncertainNames.length)by('capture-field-issues').textContent+=' Check: '+uncertainNames.join(', ')+'.';
   }
+  showPreparedReferenceGuidance(parsed);
   alpha0631ScaleOcrReview();alpha08UpdateOcrReview();
 }
 const alpha08FillOcrReview=fillOcrReview;

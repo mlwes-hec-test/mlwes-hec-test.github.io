@@ -13,6 +13,58 @@
   const ROWS=[['energyKj',/^(?:energy|calories?)\b/i,'kj'],['calories',/^(?:energy|calories?)\b/i,'kcal'],['protein',/^protein\b/i,'g'],['fat',/^(?:total\s+fat|fat(?:,?\s*total)?)\b/i,'g'],['satFat',/^(?:[-–]\s*)?(?:saturated|saturates)(?:\s+fat)?/i,'g'],['carbs',/^(?:carbohydrate|carbs)\b/i,'g'],['sugar',/^(?:[-–]\s*|of which\s+)?sugars?\b/i,'g'],['fibre',/^(?:dietary\s+)?fib(?:re|er)\b/i,'g'],['sodium',/^sodium\b/i,'mg'],['calcium',/^calcium\b/i,'mg'],['iron',/^iron\b/i,'mg'],['potassium',/^potassium\b/i,'mg']];
   function countUnits(){const serving=global.HECServingFoundation||(typeof module!=='undefined'?require('./serving-foundation'):null);return Object.values(serving?.PORTION_VOCABULARY||{}).filter(item=>['countable','sliced','household'].includes(item.family));}
   const PREPARED_HEADING='(?:as[\\s-]*prepared|prepared\\s+product|when\\s+prepared|prepared\\s+according\\s+to\\s+directions|prepared)';
+  const COUNT_NUMBERS={one:1,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8,nine:9,ten:10,eleven:11,twelve:12};
+  function nearLabel(value,target,limit){
+    if(Math.abs(value.length-target.length)>limit)return false;
+    let row=Array.from({length:target.length+1},(_,i)=>i);
+    for(const c of value){const next=[row[0]+1];for(let j=1;j<=target.length;j++)next[j]=Math.min(next[j-1]+1,row[j]+1,row[j-1]+(c===target[j-1]?0:1));row=next;}
+    return row[target.length]<=limit;
+  }
+  function servingSizeLine(line){
+    // Match the whole short label at the start of a declaration. Only letters
+    // and separators are normalised; the numeric payload is never corrected.
+    const match=line.match(new RegExp('^([a-z][a-z\\s.:_-]*?)\\s*([\\d(].*|(?:'+Object.keys(COUNT_NUMBERS).join('|')+')\\b.*)$','i'));
+    if(!match)return '';
+    const label=match[1].toLowerCase().replace(/[\s.:_-]/g,'');
+    return ['servingsize','servesize'].some(target=>nearLabel(label,target,2))?match[2]:'';
+  }
+  function servingMetadataRegion(lines,index){
+    const start=Math.max(0,index-5),before=lines.slice(start,index),after=lines.slice(index+1,index+7);
+    if(before.some(s=>ROWS.some(([,p])=>p.test(s))||/^(?:ingredients|directions|contains|preparation)\b/i.test(s)))return false;
+    return before.some(s=>/^nutrition\s+information\b/i.test(s))||after.some(s=>/^(?:quantity\s+)?(?:per\s*serv(?:e|ing)|per\s*100\s*(?:g|ml)|serving\s*\|)/i.test(s));
+  }
+  function packPayload(lines,index){
+    // A noisy prefix separated from the metadata by a table rule is harmless.
+    // Fuzzy/masked serving words still need a nutrition metadata region.
+    const match=lines[index].split('|').at(-1).trim().match(/^([a-z?]+)\s+per\s+pack(?:age)?\s*:?\s*(.*)$/i);
+    if(!match)return '';
+    const token=match[1].toLowerCase(),exact=/^(?:servings?|serves)$/.test(token);
+    const payload=match[2]||(/^\d/.test(lines[index+1]||'')?lines[index+1]:'');
+    return exact||servingMetadataRegion(lines,index)&&(token==='?'||['servings','serves'].some(target=>nearLabel(token,target,Math.abs(token.length-target.length)===1?2:1)))?payload:'';
+  }
+  const ENERGY_CELLS=/^(?:\(?\d+(?:[.,]\d+)?\s*(?:kj|kcal|cal)\)?\s*(?:[|/]\s*)?)+$/i;
+  function unresolvedPreparedCalories(lines,serving,uncertainLines=[]){
+    // Two damaged headings can identify a prepared reference without stating
+    // its denominator. Never turn that reference into a per-100 column.
+    const safe=lines.map(line=>uncertainLines.some(value=>value.trim()&&line.includes(value.trim()))?'?':line);
+    const heading=safe.findIndex((line,i)=>/^(?:quantity\s+)?(?:per\s+)?serving\s*\|\s*(?:per\s+)?serving$/i.test(line)&&/^as[\s-]*prepared\s*\|?$/i.test(safe[i+1]||''));
+    if(heading<0)return null;
+    const reference={heading:safe[heading+1],basis:null,calories:null},nearby=safe.slice(heading+2,heading+5),boundary=nearby.findIndex(line=>/^(?:ingredients|directions|preparation|contains|storage)\b/i.test(line)),rows=nearby.slice(0,boundary<0?nearby.length:boundary).filter(line=>ENERGY_CELLS.test(line));
+    const row=rows.length===1?rows[0]:null,cells=row?[...row.matchAll(/(\d+(?:[.,]\d+)?)\s*(?:kcal|cal)\b/gi)].map(m=>Number(m[1].replace(',','.'))):[];
+    const statements=[];
+    for(const line of safe){
+      const match=line.match(/^(?:contains\s+on\s+average\s+)?(\d+(?:[.,]\d+)?)\s+calories\s+per\s+([a-z]+)\s*\.?$/i);
+      if(!match)continue;
+      const unit=match[2].toLowerCase(),item=countUnits().find(item=>item.aliases.includes(unit));
+      if(/^serv(?:e|ing)$/.test(unit)||serving.servingCount===1&&item?.id===serving.servingCountUnit)statements.push({value:Number(match[1].replace(',','.')),text:line});
+    }
+    // Supporting prose corroborates a complete, ordered two-cell Cal row. It
+    // cannot repair digits, select among conflicting statements or supply kJ.
+    if(cells.length===2&&!/kj/i.test(row)&&statements.length&&statements.every(s=>s.value===cells[0])&&cells[0]!==cells[1]){
+      reference.calories=cells[1];return {reference,perServingCal:cells[0],evidence:{row,statement:statements[0].text}};
+    }
+    return {reference,perServingCal:null,evidence:null};
+  }
   function waterPreparationAllowed(model={}){
     return model.servingUnit!=='mL'&&(model.per100Unit!=='mL'||model.per100Context==='as-prepared');
   }
@@ -33,15 +85,15 @@
   }
   function parseServing(text){
     const lines=panelLines(text),clean=lines.join('\n'),number=v=>Number(v.replace(',','.'));
-    let line=clean.match(/serv(?:ing|e|lng)\s*(?:size|slze)\s*:?\s*([^\n]+)/i)?.[1]||'';
+    let line=lines.map((s,i)=>servingSizeLine(s)||(/^\d/.test(lines[i+1]||'')?servingSizeLine(s+' '+lines[i+1]):'')).find(Boolean)||'';
     const aliases=countUnits().flatMap(item=>item.aliases.map(alias=>({alias,key:item.id}))).sort((a,b)=>b.alias.length-a.alias.length);
-    const numbers={one:1,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8,nine:9,ten:10,eleven:11,twelve:12},quantity='(?:\\d+(?:[.,]\\d+)?|'+Object.keys(numbers).join('|')+')';
+    const numbers=COUNT_NUMBERS,quantity='(?:\\d+(?:[.,]\\d+)?|'+Object.keys(numbers).join('|')+')';
     if(!line){
       // Recover a damaged label only in the declaration region, with BOTH an
       // intact metric amount and explicit count. Never search ingredient prose.
       const heading=lines.findIndex(s=>/per\s*(?:serv(?:e|ing)\b|100\s*(?:g|ml)\b)/i.test(s)),end=lines.findIndex(s=>ROWS.some(([,p])=>p.test(s))||/^(?:ingredients|directions|net\s+weight)\b/i.test(s));
       const candidates=[];
-      const nearServing=token=>{let row=[...Array(8).keys()];for(const c of token.toLowerCase()){const next=[row[0]+1];for(let j=1;j<=7;j++)next[j]=Math.min(next[j-1]+1,row[j]+1,row[j-1]+(c==='serving'[j-1]?0:1));row=next;}return row[7]<=2;};
+      const nearServing=token=>nearLabel(token.toLowerCase(),'serving',2);
       for(let i=0;i<lines.length;i++){
         if(heading<0||i>=heading||heading-i>6||end>=0&&i>=end||!lines.slice(Math.max(0,i-3),i).some(s=>/^servings?\s+per\s+pack(?:age)?\b/i.test(s)))continue;
         const m=lines[i].match(new RegExp('^([a-z? :]*?)((?:\\d+(?:[.,]\\d+)?)\\s*(?:g|ml)\\s*\\(\\s*'+quantity+'\\s+(?:'+aliases.map(a=>a.alias).join('|')+')\\s*\\))$','i'));
@@ -52,7 +104,13 @@
     const size=line.match(/(?:^|\(\s*)(\d+(?:[.,]\d+)?)\s*(g|ml)\b/i);
     let count=null,countUnit='';
     for(const {alias,key} of aliases){const direct=line.match(new RegExp('(?:^|[\\s(])('+quantity+')\\s*'+alias+'\\b','i')),match=direct||clean.match(new RegExp('(?<![\\w.,+\\-])('+quantity+')\\s+'+alias+'\\s*(?:=|equals?|is)\\s*(?:one|1)\\s+serv(?:ing|e)\\b','i'));if(match&&!/[\d.,+\-]\s*$/.test((direct?line:clean).slice(0,match.index))){count=numbers[match[1].toLowerCase()]||number(match[1]);countUnit=key;break;}}
-    const packLine=clean.match(/servings?\s+per\s+pack(?:age)?\s*:?\s*([^\n]+)/i)?.[1]||'',packMatch=packLine.match(/^(?:about\s+)?(\d+(?:[.,]\d+)?)(?=$|\s|\()/i),tail=packMatch?packLine.slice(packMatch[0].length).trimStart():'';
+    if(count===null&&size){
+      // One edit, one unambiguous natural unit, only inside parentheses directly
+      // attached to an explicit metric serving. Short/household words stay exact.
+      const attached=line.slice(size.index+size[0].length).match(new RegExp('^\\s*\\(\\s*('+quantity+')\\s*([a-z]{4,})\\s*\\)\\s*$','i'));
+      if(attached){const word=attached[2].toLowerCase(),matches=new Set(countUnits().filter(item=>item.family!=='household'&&item.aliases.some(alias=>/^[a-z]{4,}$/.test(alias)&&nearLabel(word,alias,1))).map(item=>item.id));if(matches.size===1){count=numbers[attached[1].toLowerCase()]||number(attached[1]);countUnit=[...matches][0];}}
+    }
+    const packLine=lines.map((_,index)=>packPayload(lines,index)).find(Boolean)||'',packMatch=packLine.match(/^(?:about\s+)?(\d+(?:[.,]\d+)?)(?=$|\s|\()/i),tail=packMatch?packLine.slice(packMatch[0].length).trimStart():'';
     // Validate the count token and its boundary, not unrelated trailing notes.
     const pack=packMatch&&!/^(?:[\d.,+\-/#–—<>≤≥±]|(?:g|mg|ml|kg|to|or|x)\b)/i.test(tail)?packMatch:null;
     return {servingAmount:size?number(size[1]):null,servingUnit:size?(/ml/i.test(size[2])?'mL':'g'):'',servingText:line,manufacturerServing:!!size,servingCount:count,servingCountUnit:countUnit,servingsPerPack:pack?number(pack[1]):null};
@@ -61,7 +119,12 @@
     const clean=String(text||'').replace(/\r\n?/g,'\n'),raw=panelLines(clean),lines=[],issues=[],number=value=>Number(value.replace(',','.'));
     // OCR frequently separates a row label from its cells. Join only adjacent
     // numeric continuations, stopping at the next label, heading or prose.
-    for(let i=0;i<raw.length;i++){let line=raw[i];if(ROWS.some(([,p])=>p.test(line)))while(i+1<raw.length&&/^\(?[<>≤≥]?\s*\d/.test(raw[i+1])&&!/per\s*100/i.test(raw[i+1]))line+=' '+raw[++i];lines.push(line);}
+    for(let i=0;i<raw.length;i++){
+      let line=raw[i];
+      if(ENERGY_CELLS.test(line)&&raw.slice(0,i).some(s=>/^(?:(?:average\s+)?quantity\s+)?per\s*(?:serv(?:e|ing)\b|100\s*(?:g|ml)\b)/i.test(s))&&!raw.slice(0,i).some(s=>/^(?:ingredients|directions|contains|preparation)\b/i.test(s)))line='Energy '+line;
+      if(ROWS.some(([,p])=>p.test(line)))while(i+1<raw.length&&/^\(?[<>≤≥]?\s*\d/.test(raw[i+1])&&!/per\s*100/i.test(raw[i+1]))line+=' '+raw[++i];
+      lines.push(line);
+    }
     const serving=parseServing(raw.filter(line=>!uncertainLines.some(value=>value.trim()&&line.includes(value.trim()))).join('\n'));
     const headings=lines.filter(line=>/per\s*(?:serv(?:e|ing)\b|100\s*(?:g|ml)\b)/i.test(line)&&!/^serv(?:ing|e)\s*size/i.test(line)).join(' '),headers=[...headings.matchAll(new RegExp('per\\s*(serv(?:e|ing)\\b|100\\s*(g|ml)\\b)(\\s+'+PREPARED_HEADING+')?','gi'))].map(m=>({basis:/^100/i.test(m[1])?'per100':'perServing',unit:m[2]?(/ml/i.test(m[2])?'mL':'g'):'',context:m[3]?'as-prepared':'product'}));
     // More than one reference column cannot fit the current two-basis model.
@@ -99,6 +162,8 @@
       if(!headers.length||values.length!==headers.length){issues.push('uncertain-'+key+'-columns');continue;}
       values.forEach((token,index)=>{const basis=headers[index].basis;if(duplicate(basis)){issues.push('uncertain-'+key+'-columns');return;}if(!energy&&!token.unit&&!rowUnit){issues.push('confirm-'+basis+'-'+key);return;}const less=token.raw.match(/^(<|≤)\s*(\d+(?:[.,]\d+)?)$/);if(less&&(!token.unit||token.unit===unit)){qualifiers[basis][key]={operator:less[1],limit:number(less[2])};return;}if(!/^\d+(?:[.,]\d+)?$/.test(token.raw)||(token.unit&&token.unit!==unit)){issues.push('confirm-'+basis+'-'+key);return;}columns[basis][key]=number(token.raw);if(energy)energyProvenance[basis][key]='printed';});
     }
+    const partial=!headers.some(h=>h.basis==='per100')?unresolvedPreparedCalories(raw,serving,uncertainLines):null;
+    if(partial){issues.push('prepared-reference-basis-unresolved');if(perServing.calories===null&&partial.perServingCal!==null){perServing.calories=partial.perServingCal;energyProvenance.perServing.calories='printed';if(!headers.some(h=>h.basis==='perServing'))headers.push({basis:'perServing',unit:'',context:'product'});}}
     for(const [basis,column] of Object.entries(columns)){
       if(column.calories===null&&column.energyKj!==null){column.calories=column.energyKj/4.184;energyProvenance[basis].calories='derived-from-kj';}
       for(const [key,factor] of Object.entries({protein:4,carbs:4,sugar:4,fat:9,satFat:9,fibre:2})){
@@ -111,7 +176,7 @@
     if(perServing.calories===null&&per100.calories===null)issues.push('energy-not-recognised');
     const model=guidePanelModel(P().basisModel({...serving,perServing,per100,per100Unit,per100Context,qualifiers,energyProvenance,servingProvenance:serving.servingAmount||serving.servingCount?{source:'printed'}:null,printedColumns:headers.map(h=>h.basis),selectedBasis:perServing.calories!==null?'perServing':per100.calories!==null&&per100Context!=='as-prepared'?'per100':''}),{text:raw.filter(line=>!uncertainLines.some(value=>value.trim()&&line.includes(value.trim()))).join('\n')});
     const ingredients=clean.match(/ingredients\s*:\s*([^\n]*(?:\n(?!\s*(?:nutrition|allergen|contains|storage)\b)[^\n]*)*)/i)?.[1]?.trim()||'';
-    return {text:clean,readMethod:'text',...model,model,ingredients,detected:{perServing:headers.some(h=>h.basis==='perServing'),per100:headers.some(h=>h.basis==='per100')},issues:[...new Set(issues)],discrepancies:P().basisDiscrepancies(model),questionable:issues.length>0};
+    return {text:clean,readMethod:'text',...model,model,ingredients,...(partial?{preparedReference:partial.reference,calorieEvidence:partial.evidence}:{}),detected:{perServing:headers.some(h=>h.basis==='perServing'),per100:headers.some(h=>h.basis==='per100')},issues:[...new Set(issues)],discrepancies:P().basisDiscrepancies(model),questionable:issues.length>0};
   }
   function guidePanelModel(model,{text='',food=null}={}){
     const next=P().basisModel(model),dry=next.servingUnit==='g'||!next.servingUnit&&next.per100Unit!=='mL';
@@ -150,7 +215,7 @@
       if(sameServing&&panel.servingCount>0&&panel.servingCountUnit){next.servingCount=panel.servingCount;next.servingCountUnit=panel.servingCountUnit;next.servingProvenance=clone(panel.servingProvenance);}
       return next;
     }
-    for(const key of ['servingAmount','servingUnit','per100Unit','per100Context','servingsPerPack','servingCount','servingCountUnit','servingText'])if(panel[key]!==null&&panel[key]!==undefined&&panel[key]!==''&&!(panel.printedColumns&&!panel.printedColumns.includes('per100')&&['per100Unit','per100Context'].includes(key)))next[key]=panel[key];
+    for(const key of ['servingAmount','servingUnit','per100Unit','per100Context','servingsPerPack','servingCount','servingCountUnit','servingText'])if(panel[key]!==null&&panel[key]!==undefined&&panel[key]!==''&&!(key==='servingText'&&!panel.servingAmount&&old.servingAmount)&&!(panel.printedColumns&&!panel.printedColumns.includes('per100')&&['per100Unit','per100Context'].includes(key)))next[key]=panel[key];
     if((next.servingAmount!==old.servingAmount||next.servingUnit!==old.servingUnit)&&!(panel.servingCount>0&&panel.servingCountUnit)){next.servingCount=null;next.servingCountUnit='';next.servingProvenance=null;}
     next.manufacturerServing=!!next.servingAmount;
     for(const basis of ['perServing','per100']){
@@ -167,7 +232,9 @@
     next.selectedBasis=panel.selectedBasis||(readBases.length===1?readBases[0]:old.selectedBasis)||chosenBasis(next);
     if(panel.preparationEvidence){next.preparationEvidence=clone(panel.preparationEvidence);next.waterPreparation=panel.waterPreparation===true;}
     else if(panel.waterPreparation)next.waterPreparation=true;
-    if(panel.servingProvenance)next.servingProvenance=clone(panel.servingProvenance);
+    // A printed item count cannot relabel an unread, retained metric serving as
+    // panel evidence. The new count remains in captureEvidence.extracted.
+    if(panel.servingProvenance&&(panel.servingAmount||!old.servingAmount))next.servingProvenance=clone(panel.servingProvenance);
     return guidePanelModel(next);
   }
   // Rebuild physical rows across OCR blocks. Tesseract may emit each table
@@ -202,16 +269,16 @@
       headers.push({basis,unit:match[2]||'',x:(Math.min(...used.map(w=>w.bbox.x0))+Math.max(...used.map(w=>w.bbox.x1)))/2,y:Math.max(...used.map(w=>(w.bbox.y0+w.bbox.y1)/2)),left:used[0].bbox.x0});
     }
     if(!headers.length||headers.length>2)return null;headers.sort((a,b)=>a.x-b.x);const gap=headers.length===2?headers[1].x-headers[0].x:h*20;if(gap<h*4)return null;
-    const tableTop=Math.max(...headers.map(x=>x.y)),firstBody=rows.find(r=>r.y>tableTop&&ROWS.some(([,p])=>p.test(r.text)))?.y??tableTop+h*4;
+    const tableTop=Math.max(...headers.map(x=>x.y)),firstBody=rows.find(r=>r.y>tableTop&&(ROWS.some(([,p])=>p.test(r.text))||ENERGY_CELLS.test(r.text)))?.y??tableTop+h*4;
     const percentColumns=rows.filter(r=>r.y<=firstBody).flatMap(r=>r.words.filter(w=>/%\s*(?:DI|RDI)|^(?:DI|RDI)%?$/i.test(w.text)).map(w=>(w.bbox.x0+w.bbox.x1)/2));
     for(const header of headers){const local=rows.filter(r=>r.y>=header.y-h*3&&r.y<firstBody).map(r=>r.words.filter(w=>Math.abs((w.bbox.x0+w.bbox.x1)/2-header.x)<gap*.45).map(w=>w.confidence>=70?w.text:'?').join(' ')).join(' ');header.prepared=header.basis==='per100'&&new RegExp('\\b'+PREPARED_HEADING+'\\b','i').test(local);}
-    const body=[],issues=[],evidence=[],tableEnd=rows.find(r=>/^(?:ingredients|directions|preparation)\b/i.test(r.text)&&r.y>tableTop)?.y??Infinity,logicalRows=[];
+    const body=[],issues=[],evidence=[],tableEnd=rows.find(r=>/^(?:ingredients|directions|preparation|contains|storage)\b/i.test(r.text)&&r.y>tableTop)?.y??Infinity,logicalRows=[];
     for(const row of rows){const previous=logicalRows.at(-1);if(previous&&ROWS.some(([,p])=>p.test(previous.text))&&/^\(?[<>≤≥]?\s*\d/.test(row.text)&&row.y-previous.lastY<=h*2.6){previous.words.push(...row.words);previous.lastY=row.y;}else logicalRows.push({...row,words:[...row.words],lastY:row.y});}
     for(const row of logicalRows){
       if(row.y<=Math.max(...headers.map(x=>x.y))+h*.5||row.y>=tableEnd)continue;
-      const definition=ROWS.find(([key,pattern])=>pattern.test(row.text));if(!definition)continue;
+      const definition=ROWS.find(([key,pattern])=>pattern.test(row.text))||(ENERGY_CELLS.test(row.text)?['energyKj',/^/,'kj']:null);if(!definition)continue;
       const [key,pattern,unit]=definition,labelEnd=row.text.match(pattern)[0].length;let length=0,lastLabel=-1;
-      for(let i=0;i<row.words.length;i++){length+=(i?1:0)+row.words[i].text.length;if(length>=labelEnd){lastLabel=i;break;}}
+      for(let i=0;labelEnd&&i<row.words.length;i++){length+=(i?1:0)+row.words[i].text.length;if(length>=labelEnd){lastLabel=i;break;}}
       const labelWords=row.words.slice(0,lastLabel+1);if(labelWords.some(w=>valueOrNull(w.confidence)===null||w.confidence<70)){issues.push('uncertain-'+key+'-columns');continue;}
       const suffix=row.words.slice(lastLabel+1),unitWord=suffix[0],labelUnit=unitWord?.text.match(/^\(([^)]+)\)$/)?.[1]||(unitWord&&/^(g|mg|kj|kcal|cal)$/i.test(unitWord.text)&&unitWord.bbox.x1<headers[0].left-h*2?unitWord.text:null);
       if(labelUnit&&!/^(g|mg|kj|kcal|cal)$/i.test(labelUnit)){issues.push('uncertain-'+key+'-columns');continue;}
@@ -268,9 +335,12 @@
     const metadata=parseServing(trusted);
     for(const key of ['servingAmount','servingUnit','servingText','servingCount','servingCountUnit','servingsPerPack'])if(metadata[key]!=null&&metadata[key]!=='')plain.model[key]=metadata[key];
     if(metadata.servingAmount||metadata.servingCount)plain.model.servingProvenance={source:'printed'};
+    const partial=!plain.printedColumns.includes('per100')?unresolvedPreparedCalories(panelLines(trusted),metadata):null;
+    if(partial){plain.preparedReference=partial.reference;plain.calorieEvidence=partial.evidence;plain.issues=[...new Set([...plain.issues,'prepared-reference-basis-unresolved'])];if(partial.perServingCal!==null&&plain.model.perServing.calories===null){plain.model.perServing.calories=partial.perServingCal;plain.model.energyProvenance.perServing.calories='printed';plain.model.selectedBasis='perServing';plain.model.printedColumns=['perServing'];plain.detected.perServing=true;plain.issues=plain.issues.filter(issue=>!['column-headings-not-recognised','energy-not-recognised'].includes(issue));}}
     plain.model.manufacturerServing=!!plain.model.servingAmount;Object.assign(plain,plain.model);
     if(!table){plain.readMethod='ocr';plain.extractionConfidence=valueOrNull(data.confidence);return plain;}
     const parsed=parseNutritionPanel(table.text);
+    if(plain.preparedReference&&!parsed.printedColumns.includes('per100')){parsed.preparedReference=plain.preparedReference;parsed.calorieEvidence=plain.calorieEvidence;parsed.issues.push('prepared-reference-basis-unresolved');}
     // Retain independently legible metadata/rows that the geometry adapter did
     // not handle (for example a separate Cal continuation below an energy row).
     for(const key of ['servingAmount','servingUnit','servingText','servingCount','servingCountUnit','servingsPerPack'])if(parsed.model[key]==null||parsed.model[key]==='')parsed.model[key]=plain.model[key];

@@ -72,8 +72,10 @@ test("6. IndexedDB mirror deletion is role-specific",async()=>{
 });
 
 async function activatedCaches(role,keys){
-  const w=require('./release-worker-context').workerContext({role});await w.run('install');
-  for(const key of keys)await w.cache.open(key);await w.run('activate');await w.message('HEC_RELEASE_CLIENT_READY');
+  const w=require('./release-worker-context').workerContext({role});
+  // These are predecessor caches. Caches created after install must survive
+  // because they may belong to a newer generation still being staged.
+  for(const key of keys)await w.cache.open(key);await w.run('install');await w.run('activate');await w.message('HEC_RELEASE_CLIENT_READY');
   return {deleted:w.events.deleted,claimed:w.events.claimed===1};
 }
 

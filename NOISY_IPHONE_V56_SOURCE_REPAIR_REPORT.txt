@@ -1,0 +1,202 @@
+HEC SOURCE-only noisy iPhone OCR repair
+2026-10-04 | Visible application version 0.6.33
+
+Starting state verified before editing
+Canonical repository:
+C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32
+The workspace spelling "HEC Develpoment" is a junction to this canonical path.
+Branch: alpha-0.6.33
+HEAD: 0b54a8d9d0b1d6d63f3654acb5decedb8ccd1a1e
+Parent: 974543ef7fef9feff159bbc00dd5247afd418ecc
+Subject: Improve real iPhone panel field mapping
+Status: clean. All six required starting checks passed.
+Starting SOURCE generation: b99b3afec672a990ed7c1a45
+
+Clarification governing the prepared reference
+The supplied v56 text contains no explicit "100 mL". The founder answered:
+"No / not known - keep the reference basis unresolved".
+Consequently, the exact v56 fixture must NOT map 32 Cal to Per 100 mL.
+It retains an As Prepared reference with 32 Cal and an unknown basis in the
+extraction evidence and review guidance. A separate, clearly labelled synthetic
+variation supplies explicit Per 100 mL evidence and verifies full 47/32 mapping.
+
+Reproduced rejection paths and limits of the historical evidence
+- parseServing's old narrow size-label expression did not accept Serving Sze,
+  Servng Size or Serving sz. Its natural-unit parser required exact vocabulary
+  aliases, so neither sice nor slce could produce the slice relationship.
+- Servingsize:67g(2sice) ALREADY produced 67 g in an isolated high-confidence
+  text read at the accepted HEAD. Its count/unit failed. The supplied text alone
+  cannot explain why the physical run also left the metric serving blank.
+  parseOcrResult can reject a line for a weak word/page confidence; its separate
+  declaration pass can preserve independently confident words. Actual physical
+  word confidences, bounding boxes and the complete OCR dump were not supplied.
+- The pack-label expression required servings/serving and rejected senings.
+- AsPrepared was already supported when attached to a recognised per-100
+  heading, but the exact damaged "Quantity Serving | Serving" heading provided
+  no recognised basis. The model has no valid per-100 denominator to infer here.
+- Both text and geometry paths required an Energy/Calories row label. The
+  isolated 47 Cal / 32 Cal row was discarded despite explicit energy units.
+- A printed item-only declaration could overwrite the retained metric serving's
+  provenance/text during merge. It must not relabel an unread private 12.5 g
+  serving as OCR evidence.
+
+Targeted implementation
+capture-foundation.js
+- Whole short serving labels are normalised for case, whitespace and separators
+  and compared with canonical serving-size labels using at most two edits.
+  Matching is anchored to a declaration, not arbitrary prose containing serving.
+  Existing severely damaged-label recovery remains constrained to nearby pack
+  metadata and a table, with an intact metric/count pair. Wrapped declarations
+  and the existing one-to-twelve word-number vocabulary remain supported.
+- Natural-unit correction uses the existing count/slice vocabulary. It requires
+  an explicit metric serving, an explicit count, attached parentheses, at least
+  four letters, one edit, and exactly one candidate unit. Household/short words
+  are not fuzzy corrected. Ambiguous pachet (packet/sachet) is rejected.
+- Damaged pack labels need a nutrition metadata region and clear Per Pack or
+  Per Package wording. Same-length tokens allow one edit; tokens with a one-
+  character length difference allow two. This accepts senings but rejects
+  settings. A separated noise prefix and wrapped count are tolerated. Numeric
+  fragments, signs, ranges and attached units remain invalid pack counts.
+- Explicitly unit-labelled energy-only rows can be mapped using existing table
+  headings, text order or word geometry. Cells remain independent, including
+  weak/absent neighbouring nutrients. Reversed columns are covered.
+- Damaged two-column prepared headings preserve an unresolved reference.
+  The first Cal cell is accepted only when a separate explicit per-serving
+  statement corroborates it; per-item prose additionally requires an explicit
+  one-item-equals-one-serving declaration. Conflicting statements, weak words,
+  malformed numbers and incomplete rows cannot establish that mapping.
+- Raw extraction retains the corroborating row/statement and unresolved
+  reference. Nothing inserts decimals, guesses units or manufactures printed kJ.
+- Merge retains compatible baseline values and the existing private metric
+  serving provenance when only a count was read. Shared catalogue records are
+  never changed. The user still selects and confirms the source.
+
+alpha06.js
+- Fresh partial reads explicitly say that some panel or serving/pack details
+  were read. Existing baseline-retention wording remains for comparisons.
+- Prepared-reference guidance states that the reference amount/unit were not
+  read and, when supported, shows the unresolved 32 Cal evidence. It remains
+  visible after selecting panel values. Selecting catalogue values preserves
+  that choice and keeps OCR evidence separate. Valid retained product columns
+  are not marked invalid merely because a separate prepared basis is unread.
+
+Exact v56 fixture results
+Bread, in text, line-confidence and representative spatial modes:
+Servings per package: 10.5 (19 slices and 2 crusts)
+Servingsize:67g(2sice)
+=> 10.5 servings per pack; 67 g; 2 slices per serve.
+The package's 19 slices and 2 crusts do not become the serving count.
+No nutrient quantities were added to this supplied bread snippet.
+The previous Sening an fixture continues to pass.
+
+Nescafe, in all three modes, preserves the supplied strings:
+ONE SACHET = ONE SERVING
+TOR | senings Per Pack: 10
+Serving Sze:1258
+Quantity Serving | Serving
+AsPrepared |
+47 Cal     32 Cal
+Contains on average
+47 calories per sachet
+=> 10 servings per pack; 1 sachet; printed per-serve 47 Cal.
+=> As Prepared / 32 Cal retained as evidence with basis=null, not per100.
+=> OCR servingAmount=null, servingUnit='', both OCR kJ cells=null.
+The unit integration retains trusted 12.5 g, water-only preparation, compatible
+210 kJ/sodium/sugar baseline values and distinct raw/baseline/confirmed evidence.
+The rendered barcode flow reuses the private serving/preparation relationship;
+it does not import the private food's nutrients into an otherwise per-100-only
+barcode record. Its unread per-serving kJ therefore stays blank in the review.
+Existing food/Diary conversion may derive 196.648 kJ from 47 Cal; its provenance
+is derived-from-calories, and the extracted/confirmed printed kJ remains null.
+Neither 200 kJ nor 130 kJ is fabricated from this OCR run.
+
+Safety and regression coverage
+- Fuzzy size labels, fused spacing, singular/plural natural units, multiple
+  vocabulary families, pack-label variants and wrapped declarations.
+- AsPrepared, As Prepared, As-Prepared and asprepared in table context.
+- Explicit reference variants map printed 47 Cal per serve and 32 Cal per
+  100 mL As Prepared without requiring readable protein/fat/carbohydrate.
+- Serving Sze:1258 never becomes 12.5 g; Carbohydrate 3089 never becomes 30.8;
+  Sugars 33g is never changed to 3.3. A retained baseline value stays separate
+  from a rejected OCR value. Unrelated prepared/pack prose creates no column/count.
+- Weak word confidence is not upgraded by corroboration. Existing thresholds
+  remain 80 for numeric cells and 70 for text labels (80 for spatial basis words).
+- Private serving reuse, water preparation, printed/derived energy provenance,
+  nutrient qualifiers, historical date intent, saved-food reopening, barcode
+  confirmation, release/update lifecycle and installation isolation are covered.
+- One pre-existing isolation-test fixture created supposedly old caches after
+  installation. Corrected it to create predecessor caches before installation;
+  accepted PWA protection correctly retains caches created after installation.
+  No PWA runtime, worker template, bootstrap or installation identity was changed.
+
+Focused verification
+282/282 non-rendered tests passed; zero failures/skips.
+Includes 44 new v56 parser/integration tests.
+Command:
+node --test tests/noisy-iphone-v56.test.js tests/real-iphone-panel.test.js tests/physical-panel-repair.test.js tests/post-v52-capture.test.js tests/shared-product-capture.test.js tests/saved-nutrition-review.test.js tests/product-capture-pipeline.test.js tests/release-coherence.test.js tests/release-update-lifecycle.test.js tests/physical-iphone-follow-up.test.js tests/physical-iphone-search-serving-corrections.test.js tests/product-serving-semantics.test.js tests/barcode-confirmation.test.js tests/dual-install-isolation.test.js
+Unit log:
+C:\Users\mlwes\AppData\Local\Temp\hec-v56-focused-044bb3f57433484b92cf764e21fd4180.txt
+
+13/13 rendered tests passed; zero failures/skips. This includes the two new
+exact-v56 viewport tests, qualifier rendering, earlier physical-panel and real-
+iPhone transcriptions, private barcode reuse, saved-food fallback, natural-unit
+Diary snapshots, preparation water and date/reopen flows.
+Final focused total: 295/295 passed (282 non-rendered + 13 rendered).
+Rendered campaign command:
+node --test --test-concurrency=1 tests/noisy-iphone-v56-rendered.test.js tests/real-iphone-panel-rendered.test.js tests/physical-panel-repair-rendered.test.js tests/post-v52-capture-rendered.test.js tests/shared-product-capture-rendered.test.js tests/nutrient-qualifier-review-rendered.test.js
+
+Mobile verification
+The exact v56 review flows pass at 390 x 844 and 320 x 568, including serving
+fields, Serving details, private sachet/water reuse, partial-success guidance,
+unresolved prepared evidence, required missing-energy guidance, source choice,
+private save and unchanged catalogue. Controls are reachable and the document
+has no material horizontal overflow. Screenshots were visually inspected.
+Final-generation v56 screenshot directories:
+C:\Users\mlwes\AppData\Local\Temp\hec-v56-noisy-390-XCPWVa
+C:\Users\mlwes\AppData\Local\Temp\hec-v56-noisy-320-0ir3fP
+All rendered tests use fresh isolated Edge contexts, synthetic profiles/foods,
+mocked OCR and SOURCE assets intercepted locally. Live same-origin fallthrough
+is asserted to be zero; external requests are blocked or explicitly mocked.
+
+Release and syntax
+Normal deterministic build: node scripts/build_release.js
+Generation before: b99b3afec672a990ed7c1a45
+Generation after: 4ecbd4c95fcbe7e6f32e8162
+Visible version: 0.6.33, unchanged.
+node scripts/build_release.js --check passed.
+node --check passed for both changed runtime files and all three new JS files.
+git diff --check passed. Generated identifiers were not manually edited.
+
+Files changed
+capture-foundation.js
+alpha06.js
+index.html (generated release identity)
+release-manifest.json (generated)
+service-worker.js (generated release identity; template unchanged)
+tests/fixtures/noisy-iphone-v56.js (new)
+tests/noisy-iphone-v56.test.js (new)
+tests/noisy-iphone-v56-rendered.test.js (new)
+tests/dual-install-isolation.test.js (predecessor-cache fixture ordering)
+NOISY_IPHONE_V56_SOURCE_REPAIR_REPORT.txt (this report)
+
+Commit and scope contract
+One new local SOURCE commit, without amending the accepted HEAD.
+Direct parent: 0b54a8d9d0b1d6d63f3654acb5decedb8ccd1a1e
+Subject: Improve noisy iPhone panel metadata mapping
+The final response records the new SHA and post-commit status; this document
+cannot contain its own commit SHA. Work stops after that local commit/report.
+Nothing pushed or deployed. TEST is left unchanged at the supplied v56 state:
+d55b6d3a0bd398793c297f6aaaec574d28917e9b, generation b99b3afec672a990ed7c1a45.
+My Data is left unchanged at 120714d2d31bdc610039dbe70ce0fb6d3c9df6e0.
+Those deployment states were not independently queried or modified.
+No personal data or backups accessed. No catalogue expansion or shared catalogue
+mutation. No changes to PWA update logic, storage identities, Wally or Diary code.
+
+Remaining limitations
+These are transcription and synthetic geometry/confidence tests, not physical
+iPhone acceptance. Very weak or fused OCR tokens can still be withheld; the
+original word boxes/confidences were not supplied. No missing decimal/unit is
+guessed. The exact prepared denominator remains unresolved as directed by the
+founder. Clear additional heading evidence or manual packet checking is required
+before using 32 Cal as a structured reference. Ambiguous natural words, conflicting
+corroboration and insufficient column evidence deliberately remain unaccepted.
