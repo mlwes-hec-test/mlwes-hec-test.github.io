@@ -11,7 +11,8 @@
   function finishLookup(session,food,error=''){return {...session,state:food?'review':'not-found',food:food||null,error:String(error||''),locked:true};}
   function resetScanSession(){return createScanSession();}
   const ROWS=[['energyKj',/^(?:energy|calories?)\b/i,'kj'],['calories',/^(?:energy|calories?)\b/i,'kcal'],['protein',/^protein\b/i,'g'],['fat',/^(?:total\s+fat|fat(?:,?\s*total)?)\b/i,'g'],['satFat',/^(?:[-–]\s*)?(?:saturated|saturates)(?:\s+fat)?/i,'g'],['carbs',/^(?:carbohydrate|carbs)\b/i,'g'],['sugar',/^(?:[-–]\s*|of which\s+)?sugars?\b/i,'g'],['fibre',/^(?:dietary\s+)?fib(?:re|er)\b/i,'g'],['sodium',/^sodium\b/i,'mg'],['calcium',/^calcium\b/i,'mg'],['iron',/^iron\b/i,'mg'],['potassium',/^potassium\b/i,'mg']];
-  function countUnits(){const serving=global.HECServingFoundation||(typeof module!=='undefined'?require('./serving-foundation'):null);return Object.values(serving?.PORTION_VOCABULARY||{}).filter(item=>['countable','sliced'].includes(item.family));}
+  function countUnits(){const serving=global.HECServingFoundation||(typeof module!=='undefined'?require('./serving-foundation'):null);return Object.values(serving?.PORTION_VOCABULARY||{}).filter(item=>['countable','sliced','household'].includes(item.family));}
+  const PREPARED_HEADING='(?:as\\s+prepared|prepared\\s+product|when\\s+prepared|prepared\\s+according\\s+to\\s+directions|prepared)';
   function waterPreparationAllowed(model={}){
     return model.servingUnit!=='mL'&&(model.per100Unit!=='mL'||model.per100Context==='as-prepared');
   }
@@ -25,15 +26,16 @@
       .replace(/\b(per|servings?\s+per)\s*\n\s*(?=serv(?:e|ing)\b|100\b|pack(?:age)?\b)/gi,'$1 ')
       .replace(/\b(serv(?:ing|e|lng))\s*\n\s*(?=s(?:i|l)ze\b)/gi,'$1 ')
       .replace(/\b100\s*\n\s*(g|ml)\b/gi,'100 $1')
-      .replace(/\b(per\s*100\s*ml)\s*\n\s*((?:as\s+)?prepared)\b/gi,'$1 $2')
+      .replace(new RegExp('\\b(per\\s*100\\s*(?:ml|g))\\s*\\n\\s*('+PREPARED_HEADING+')\\b','gi'),'$1 $2')
       .replace(/\b(serv(?:ing|e|lng)\s*s(?:i|l)ze|servings?\s+per\s+pack(?:age)?)\s*:?\s*\n\s*(?=\d|one\b)/gi,'$1: ')
       .split(/\n+/).map(line=>line.trim()).filter(Boolean);
   }
   function parseServing(text){
-    const clean=panelLines(text).join('\n'),line=clean.match(/serv(?:ing|e|lng)\s*(?:size|slze)\s*:?\s*([^\n]+)/i)?.[1]||'',damaged=/\d\s+[.,]|[.,]\s+\d|\d[a-z]\d/i.test(line),size=!damaged&&line.match(/(?:^|\(\s*)(\d+(?:[.,]\d+)?)\s*(g|ml)\b/i),number=v=>Number(v.replace(',','.'));
+    const clean=panelLines(text).join('\n'),line=clean.match(/serv(?:ing|e|lng)\s*(?:size|slze)\s*:?\s*([^\n]+)/i)?.[1]||'',size=line.match(/(?:^|\(\s*)(\d+(?:[.,]\d+)?)\s*(g|ml)\b/i),number=v=>Number(v.replace(',','.'));
     const aliases=countUnits().flatMap(item=>item.aliases.map(alias=>({alias,key:item.id}))).sort((a,b)=>b.alias.length-a.alias.length);
+    const numbers={one:1,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8,nine:9,ten:10,eleven:11,twelve:12},quantity='(?:\\d+(?:[.,]\\d+)?|'+Object.keys(numbers).join('|')+')';
     let count=null,countUnit='';
-    for(const {alias,key} of aliases){const match=line.match(new RegExp('(?:^|[\\s(])(\\d+(?:[.,]\\d+)?)\\s*'+alias+'\\b','i')),one=clean.match(new RegExp('\\b(?:one|1)\\s+'+alias+'\\s*(?:=|equals?|is)\\s*(?:one|1)\\s+serv(?:ing|e)\\b','i'));if(match||one){count=match?number(match[1]):1;countUnit=key;break;}}
+    for(const {alias,key} of aliases){const direct=line.match(new RegExp('(?:^|[\\s(])('+quantity+')\\s*'+alias+'\\b','i')),match=direct||clean.match(new RegExp('(?<![\\w.,+\\-])('+quantity+')\\s+'+alias+'\\s*(?:=|equals?|is)\\s*(?:one|1)\\s+serv(?:ing|e)\\b','i'));if(match&&!/[\d.,+\-]\s*$/.test((direct?line:clean).slice(0,match.index))){count=numbers[match[1].toLowerCase()]||number(match[1]);countUnit=key;break;}}
     const packLine=clean.match(/servings?\s+per\s+pack(?:age)?\s*:?\s*([^\n]+)/i)?.[1]||'',pack=!/\d\s+[.,]|[.,]\s+\d/.test(packLine)&&packLine.match(/^(?:about\s+)?(\d+(?:[.,]\d+)?)(?=\s*(?:$|\())/i);
     return {servingAmount:size?number(size[1]):null,servingUnit:size?(/ml/i.test(size[2])?'mL':'g'):'',servingText:line,manufacturerServing:!!size,servingCount:count,servingCountUnit:countUnit,servingsPerPack:pack?number(pack[1]):null};
   }
@@ -41,9 +43,9 @@
     const clean=String(text||'').replace(/\r\n?/g,'\n'),raw=panelLines(clean),lines=[],issues=[],number=value=>Number(value.replace(',','.'));
     // OCR frequently separates a row label from its cells. Join only adjacent
     // numeric continuations, stopping at the next label, heading or prose.
-    for(let i=0;i<raw.length;i++){let line=raw[i];if(ROWS.some(([,p])=>p.test(line))||/serving\s*size|servings?\s+per\s+pack/i.test(line))while(i+1<raw.length&&/^[<>≤≥]?\s*\d/.test(raw[i+1])&&!/per\s*100/i.test(raw[i+1]))line+=' '+raw[++i];lines.push(line);}
-    const serving=parseServing(lines.filter(line=>!uncertainLines.some(value=>value.trim()&&line.includes(value.trim()))).join('\n'));
-    const headings=lines.filter(line=>/per\s*(?:serv(?:e|ing)\b|100\s*(?:g|ml)\b)/i.test(line)&&!/^serv(?:ing|e)\s*size/i.test(line)).join(' '),headers=[...headings.matchAll(/per\s*(serv(?:e|ing)\b|100\s*(g|ml)\b)(\s+(?:as\s+)?prepared)?/gi)].map(m=>({basis:/^100/i.test(m[1])?'per100':'perServing',unit:m[2]?(/ml/i.test(m[2])?'mL':'g'):'',context:m[3]?'as-prepared':'product'}));
+    for(let i=0;i<raw.length;i++){let line=raw[i];if(ROWS.some(([,p])=>p.test(line)))while(i+1<raw.length&&/^\(?[<>≤≥]?\s*\d/.test(raw[i+1])&&!/per\s*100/i.test(raw[i+1]))line+=' '+raw[++i];lines.push(line);}
+    const serving=parseServing(raw.filter(line=>!uncertainLines.some(value=>value.trim()&&line.includes(value.trim()))).join('\n'));
+    const headings=lines.filter(line=>/per\s*(?:serv(?:e|ing)\b|100\s*(?:g|ml)\b)/i.test(line)&&!/^serv(?:ing|e)\s*size/i.test(line)).join(' '),headers=[...headings.matchAll(new RegExp('per\\s*(serv(?:e|ing)\\b|100\\s*(g|ml)\\b)(\\s+'+PREPARED_HEADING+')?','gi'))].map(m=>({basis:/^100/i.test(m[1])?'per100':'perServing',unit:m[2]?(/ml/i.test(m[2])?'mL':'g'):'',context:m[3]?'as-prepared':'product'}));
     // More than one reference column cannot fit the current two-basis model.
     // Keep the unambiguous serving cells; do not merge dry and prepared data.
     const duplicate=basis=>headers.filter(h=>h.basis===basis).length>1;
@@ -57,7 +59,7 @@
       const labelled=line.replace(pattern,''),rowUnit=labelled.match(/^\s*[,:(]?\s*(kJ|kcal|Cal|mg|g)\s*\)?\s*[:)]?/i)?.[1]?.toLowerCase().replace(/^cal$/,'kcal');
       if(!energy&&rowUnit&&rowUnit!==unit){issues.push('uncertain-'+key+'-columns');continue;}
       const printedUnit=labelled.match(/^\s*\(([^)]+)\)/)?.[1];if(printedUnit&&!/^(kj|kcal|cal|mg|g)$/i.test(printedUnit)){issues.push('uncertain-'+key+'-columns');continue;}
-      const body=labelled.replace(/^\s*[,:(]?\s*(?:kJ|kcal|Cal|mg|g)\s*\)?\s*[:)]?/i,'');
+      const body=labelled.replace(/^\s*[,:(]?\s*(?:kJ|kcal|Cal|mg|g)\s*\)?\s*[:)]?/i,'').replace(/\b\d+(?:[.,]\d+)?\s*%\s*(?:DI\b)?/gi,'');
       if(/\d\s+[.,]|[.,]\s+\d/.test(body)){issues.push('uncertain-'+key+'-columns');continue;}
       const cellPattern=/([<>≤≥]?\s*[-+]?\d+(?:[.,]\d+)?|\?+)\s*(kcal|cal|kj|mg|g)?\b|([—–]|\?+)/gi;
       if(body.replace(cellPattern,'').replace(/[\s/|(),:]/g,'')){issues.push('uncertain-'+key+'-columns');continue;}
@@ -66,7 +68,7 @@
       if(energy&&!values.length)continue;
       // One surviving token cannot establish which of two columns was unreadable.
       if(!headers.length||values.length!==headers.length){issues.push('uncertain-'+key+'-columns');continue;}
-      values.forEach((token,index)=>{const basis=headers[index].basis;if(duplicate(basis)){issues.push('uncertain-'+key+'-columns');return;}const less=token.raw.match(/^(<|≤)\s*(\d+(?:[.,]\d+)?)$/);if(less&&(!token.unit||token.unit===unit)){qualifiers[basis][key]={operator:less[1],limit:number(less[2])};return;}if(!/^\d+(?:[.,]\d+)?$/.test(token.raw)||(token.unit&&token.unit!==unit)){issues.push('confirm-'+basis+'-'+key);return;}columns[basis][key]=number(token.raw);if(energy)energyProvenance[basis][key]='printed';});
+      values.forEach((token,index)=>{const basis=headers[index].basis;if(duplicate(basis)){issues.push('uncertain-'+key+'-columns');return;}if(!energy&&!token.unit&&!rowUnit){issues.push('confirm-'+basis+'-'+key);return;}const less=token.raw.match(/^(<|≤)\s*(\d+(?:[.,]\d+)?)$/);if(less&&(!token.unit||token.unit===unit)){qualifiers[basis][key]={operator:less[1],limit:number(less[2])};return;}if(!/^\d+(?:[.,]\d+)?$/.test(token.raw)||(token.unit&&token.unit!==unit)){issues.push('confirm-'+basis+'-'+key);return;}columns[basis][key]=number(token.raw);if(energy)energyProvenance[basis][key]='printed';});
     }
     for(const [basis,column] of Object.entries(columns)){
       if(column.calories===null&&column.energyKj!==null){column.calories=column.energyKj/4.184;energyProvenance[basis].calories='derived-from-kj';}
@@ -78,17 +80,49 @@
     for(const [basis,column] of Object.entries(columns))for(const [part,total] of [['sugar','carbs'],['satFat','fat']])if(column[part]!==null&&column[total]!==null&&column[part]>column[total]+.2){column[part]=null;issues.push('confirm-'+basis+'-'+part);}
     if(!headers.length)issues.push('column-headings-not-recognised');
     if(perServing.calories===null&&per100.calories===null)issues.push('energy-not-recognised');
-    const model=P().basisModel({...serving,perServing,per100,per100Unit,per100Context,qualifiers,energyProvenance,printedColumns:headers.map(h=>h.basis),selectedBasis:perServing.calories!==null?'perServing':per100.calories!==null&&per100Context!=='as-prepared'?'per100':''});
+    const model=guidePanelModel(P().basisModel({...serving,perServing,per100,per100Unit,per100Context,qualifiers,energyProvenance,servingProvenance:serving.servingAmount||serving.servingCount?{source:'printed'}:null,printedColumns:headers.map(h=>h.basis),selectedBasis:perServing.calories!==null?'perServing':per100.calories!==null&&per100Context!=='as-prepared'?'per100':''}),{text:raw.filter(line=>!uncertainLines.some(value=>value.trim()&&line.includes(value.trim()))).join('\n')});
     const ingredients=clean.match(/ingredients\s*:\s*([^\n]*(?:\n(?!\s*(?:nutrition|allergen|contains|storage)\b)[^\n]*)*)/i)?.[1]?.trim()||'';
     return {text:clean,readMethod:'text',...model,model,ingredients,detected:{perServing:headers.some(h=>h.basis==='perServing'),per100:headers.some(h=>h.basis==='per100')},issues:[...new Set(issues)],discrepancies:P().basisDiscrepancies(model),questionable:issues.length>0};
+  }
+  function guidePanelModel(model,{text='',food=null}={}){
+    const next=P().basisModel(model),dry=next.servingUnit==='g'||!next.servingUnit&&next.per100Unit!=='mL';
+    if(next.servingUnit==='g'&&next.per100Unit==='mL'&&next.per100Context==='as-prepared'&&['calories','energyKj'].some(key=>valueOrNull(next.perServing[key])!==null))next.selectedBasis='perServing';
+    if(!waterPreparationAllowed(next)){next.waterPreparation=false;next.preparationEvidence=null;return next;}
+    if(next.waterPreparation&&!next.preparationEvidence)next.preparationEvidence={kind:'dry-beverage',liquid:'water',source:'user-entered'};
+    const family=[text,food?.name,food?.category,food?.productFamily].filter(Boolean).join(' '),beverage=/\b(?:cappuccino|latte|hot\s+chocolate|instant\s+coffee|(?:drink|beverage)\s+(?:mix|powder)|powdered\s+(?:drink|beverage))\b/i.test(family);
+    if(dry&&beverage&&!next.preparationEvidence){
+      // Preparation directions, never the words "as prepared" alone, establish
+      // the liquid. Milk alternatives and additions make water-only uncertain.
+      const instructions=String(text).split(/\n|[.!;]/).filter(line=>/\b(?:add|mix|stir|prepare|pour)\b/i.test(line)),water=instructions.some(line=>/\bwater\b/i.test(line)),milk=instructions.some(line=>/\bmilk\b/i.test(line)),other=instructions.some(line=>/\b(?:juice|cream|syrup|sugar|honey)\b/i.test(line)),ambiguous=instructions.some(line=>/\b(?:no|not|never|avoid|without|instead|or|optional)\b/i.test(line));
+      const liquid=!ambiguous&&water&&!milk&&!other?'water':!ambiguous&&milk&&!water&&!other?'milk':'unknown';
+      next.preparationEvidence={kind:'dry-beverage',liquid,source:liquid==='unknown'?'product-family':'printed-instructions'};
+      next.waterPreparation=liquid==='water';
+    }
+    return next;
+  }
+  function servingAttention(model){
+    const hasCount=model?.servingCount!==null&&model?.servingCount!==undefined,hasUnit=!!model?.servingCountUnit;
+    return hasCount||hasUnit?!(Number(model.servingCount)>0&&countUnits().some(item=>item.id===model.servingCountUnit)):false;
+  }
+  function basisGuidance(model){
+    if(model?.servingUnit==='g'&&model?.per100Unit==='mL'&&model?.per100Context==='as-prepared')return model.selectedBasis==='perServing'?'The packet shows a '+model.servingAmount+' g dry serving and a separate 100 mL as-prepared column. HEC will use the Per Serve values for the dry product. Check this is correct.':'Choose Per Serve under “Which printed column should HEC use?” and enter the dry serving energy. The 100 mL as-prepared column is a separate reference.';
+    return '';
   }
   function chosenBasis(model){return model?.selectedBasis||((valueOrNull(model?.perServing?.calories)!==null||valueOrNull(model?.perServing?.energyKj)!==null)?'perServing':'per100');}
   // Missing OCR cells are unknown, never instructions to delete saved values.
   // A changed serving/metric basis cannot safely inherit the old column.
   function mergePanelBaseline(food,panel){
     const old=reviewModelFor(food),next=clone(old),readBases=['perServing','per100'].filter(basis=>KEYS.some(key=>valueOrNull(panel[basis]?.[key])!==null||panel.qualifiers?.[basis]?.[key]));
-    if(!readBases.length)return next;
+    // Pack count does not change the nutrition basis, so it survives a
+    // metadata-only read. A conflicting serving still cannot erase saved cells.
+    if(valueOrNull(panel.servingsPerPack)!==null)next.servingsPerPack=panel.servingsPerPack;
+    if(!readBases.length){
+      const sameServing=panel.servingAmount===old.servingAmount&&panel.servingUnit===old.servingUnit;
+      if(sameServing&&panel.servingCount>0&&panel.servingCountUnit){next.servingCount=panel.servingCount;next.servingCountUnit=panel.servingCountUnit;next.servingProvenance=clone(panel.servingProvenance);}
+      return next;
+    }
     for(const key of ['servingAmount','servingUnit','per100Unit','per100Context','servingsPerPack','servingCount','servingCountUnit','servingText'])if(panel[key]!==null&&panel[key]!==undefined&&panel[key]!==''&&!(panel.printedColumns&&!panel.printedColumns.includes('per100')&&['per100Unit','per100Context'].includes(key)))next[key]=panel[key];
+    if((next.servingAmount!==old.servingAmount||next.servingUnit!==old.servingUnit)&&!(panel.servingCount>0&&panel.servingCountUnit)){next.servingCount=null;next.servingCountUnit='';next.servingProvenance=null;}
     next.manufacturerServing=!!next.servingAmount;
     for(const basis of ['perServing','per100']){
       const same=basis==='perServing'?next.servingAmount===old.servingAmount&&next.servingUnit===old.servingUnit&&next.servingCount===old.servingCount&&next.servingCountUnit===old.servingCountUnit:next.per100Unit===old.per100Unit&&next.per100Context===old.per100Context;
@@ -101,17 +135,24 @@
       }
     }
     next.selectedBasis=panel.selectedBasis||(readBases.length===1?readBases[0]:old.selectedBasis)||chosenBasis(next);
-    return P().basisModel(next);
+    if(panel.preparationEvidence){next.preparationEvidence=clone(panel.preparationEvidence);next.waterPreparation=panel.waterPreparation===true;}
+    else if(panel.waterPreparation)next.waterPreparation=true;
+    if(panel.servingProvenance)next.servingProvenance=clone(panel.servingProvenance);
+    return guidePanelModel(next);
   }
   // Rebuild physical rows across OCR blocks. Tesseract may emit each table
   // column as its own line/block; text order alone then loses column ownership.
-  function geometryPanel(data){
+  function spatialRows(data){
     const words=(data.blocks||[]).flatMap(b=>(b.paragraphs||[]).flatMap(p=>(p.lines||[]).flatMap(l=>l.words||[]))).filter(w=>w.text&&w.bbox&&['x0','x1','y0','y1'].every(k=>Number.isFinite(w.bbox[k])));
-    if(!words.length)return null;
+    if(!words.length)return {rows:[],h:20};
     const height=words.map(w=>w.bbox.y1-w.bbox.y0).filter(h=>h>0).sort((a,b)=>a-b),h=height[Math.floor(height.length/2)]||20,rows=[];
     for(const w of words.sort((a,b)=>(a.bbox.y0+a.bbox.y1)-(b.bbox.y0+b.bbox.y1))){const y=(w.bbox.y0+w.bbox.y1)/2;let row=rows.find(r=>Math.abs(r.y-y)<h*.6);if(!row){row={y,words:[]};rows.push(row);}row.words.push(w);}
     for(const r of rows){r.words.sort((a,b)=>a.bbox.x0-b.bbox.x0);r.text=r.words.map(w=>w.text.trim()).join(' ');}
-    const headers=[];
+    return {rows,h};
+  }
+  function trustedRowText(row){return row.words.map(w=>valueOrNull(w.confidence)!==null&&w.confidence>=(/\d/.test(w.text)?80:70)?w.text:'?').join(' ');}
+  function geometryPanel(data){
+    const {rows,h}=spatialRows(data),headers=[];
     for(const row of rows)for(let i=0;i<row.words.length;i++){
       const start=row.words[i];if(!/^per\b/i.test(start.text))continue;
       const ws=row.words.slice(i,i+4).filter(w=>w.bbox.x0-start.bbox.x0<h*7);
@@ -127,8 +168,12 @@
       headers.push({basis,unit:match[2]||'',x:(Math.min(...used.map(w=>w.bbox.x0))+Math.max(...used.map(w=>w.bbox.x1)))/2,y:Math.max(...used.map(w=>(w.bbox.y0+w.bbox.y1)/2)),left:used[0].bbox.x0});
     }
     if(!headers.length||headers.length>2)return null;headers.sort((a,b)=>a.x-b.x);const gap=headers.length===2?headers[1].x-headers[0].x:h*20;if(gap<h*4)return null;
-    const body=[],issues=[],evidence=[],tableEnd=rows.find(r=>/^ingredients\b/i.test(r.text)&&r.y>Math.max(...headers.map(x=>x.y)))?.y??Infinity;
-    for(const row of rows){
+    const tableTop=Math.max(...headers.map(x=>x.y)),firstBody=rows.find(r=>r.y>tableTop&&ROWS.some(([,p])=>p.test(r.text)))?.y??tableTop+h*4;
+    const percentColumns=rows.filter(r=>r.y<=firstBody).flatMap(r=>r.words.filter(w=>/%\s*(?:DI|RDI)|^(?:DI|RDI)%?$/i.test(w.text)).map(w=>(w.bbox.x0+w.bbox.x1)/2));
+    for(const header of headers){const local=rows.filter(r=>r.y>=header.y-h*3&&r.y<firstBody).map(r=>r.words.filter(w=>Math.abs((w.bbox.x0+w.bbox.x1)/2-header.x)<gap*.45).map(w=>w.confidence>=70?w.text:'?').join(' ')).join(' ');header.prepared=header.basis==='per100'&&new RegExp('\\b'+PREPARED_HEADING+'\\b','i').test(local);}
+    const body=[],issues=[],evidence=[],tableEnd=rows.find(r=>/^(?:ingredients|directions|preparation)\b/i.test(r.text)&&r.y>tableTop)?.y??Infinity,logicalRows=[];
+    for(const row of rows){const previous=logicalRows.at(-1);if(previous&&ROWS.some(([,p])=>p.test(previous.text))&&/^\(?[<>≤≥]?\s*\d/.test(row.text)&&row.y-previous.lastY<=h*2.6){previous.words.push(...row.words);previous.lastY=row.y;}else logicalRows.push({...row,words:[...row.words],lastY:row.y});}
+    for(const row of logicalRows){
       if(row.y<=Math.max(...headers.map(x=>x.y))+h*.5||row.y>=tableEnd)continue;
       const definition=ROWS.find(([key,pattern])=>pattern.test(row.text));if(!definition)continue;
       const [key,pattern,unit]=definition,labelEnd=row.text.match(pattern)[0].length;let length=0,lastLabel=-1;
@@ -139,6 +184,7 @@
       const groups=headers.map(()=>[]);let ambiguous=false;
       for(const w of suffix){if(w===suffix[0]&&labelUnit)continue;const x=(w.bbox.x0+w.bbox.x1)/2,dist=headers.map(c=>Math.abs(c.x-x)),i=dist[0]<dist[1]?0:1;
         const column=headers.length===1?0:i;
+        if(/%/.test(w.text)||percentColumns.some(px=>Math.abs(px-x)<dist[column]&&Math.abs(px-x)<gap*.4))continue;
         if(dist[column]>gap*.48||(headers.length===2&&Math.abs(dist[0]-dist[1])<gap*.12)){ambiguous=true;continue;}groups[column].push(w);
       }
       if(ambiguous){issues.push('uncertain-'+key+'-columns');continue;}
@@ -165,13 +211,11 @@
         if(!confident||!valid){issues.push('confirm-'+headers[i].basis+'-'+key);return '?';}evidence.push({key,basis:headers[i].basis,text,confidence:numeric[0].confidence});return text;});
       // Use the recognised row unit when present. Never repair a damaged unit
       // or infer the location of a missing decimal point.
-      const printed=labelUnit||(key==='energyKj'?null:unit);if(key==='energyKj'&&!printed&&!cells.some(c=>/kj|cal/i.test(c)))continue;
+      const printed=labelUnit; if(key==='energyKj'&&!printed&&!cells.some(c=>/kj|cal/i.test(c)))continue;
       body.push(row.text.match(pattern)[0]+(printed?' ('+printed+')':'')+' '+cells.join(' '));
     }
     if(!body.length)return null;
-    const metadata=rows.filter(r=>/serv(?:ing|e|lng)\s*(?:size|slze)|servings?\s+per\s+pack/i.test(r.text)&&r.words.every(w=>valueOrNull(w.confidence)!==null&&w.confidence>=(/\d/.test(w.text)?80:70))).map(r=>r.text);
-    const prepared=/per\s*100\s*ml\s*(?:as\s+)?prepared/i.test(rows.map(r=>r.text).join(' '));
-    const text=[...metadata,headers.map(x=>'Per '+(x.basis==='perServing'?'Serving':'100 '+x.unit+(prepared&&/ml/i.test(x.unit)?' As Prepared':''))).join(' '),...body].join('\n');
+    const text=[headers.map(x=>'Per '+(x.basis==='perServing'?'Serving':'100 '+x.unit+(x.prepared?' As Prepared':''))).join(' '),...body].join('\n');
     return {text,issues,evidence};
   }
   function parseOcrResult(data={}){
@@ -184,6 +228,13 @@
     // A noisy ingredients block must not veto independently confident panel cells.
     if(valueOrNull(data.confidence)!==null&&Number(data.confidence)<70)uncertainLines.push(...String(data.text||'').split('\n').filter(line=>/\d/.test(line)&&!confidentLines.includes(line.trim())));
     const plain=parseNutritionPanel(data.text,{uncertainLines}),table=geometryPanel(data);
+    // Declaration numbers have independent confidence. Noisy words inside a
+    // pack-count parenthesis must not veto the legible count preceding it.
+    const rows=spatialRows(data).rows,layoutLines=(data.blocks||[]).flatMap(b=>(b.paragraphs||[]).flatMap(p=>p.lines||[])),trusted=rows.length?rows.map(trustedRowText).join('\n'):layoutLines.filter(l=>l.words?.length).map(trustedRowText).join('\n');
+    const metadata=parseServing(trusted);
+    for(const key of ['servingAmount','servingUnit','servingText','servingCount','servingCountUnit','servingsPerPack'])if(metadata[key]!=null&&metadata[key]!=='')plain.model[key]=metadata[key];
+    if(metadata.servingAmount||metadata.servingCount)plain.model.servingProvenance={source:'printed'};
+    plain.model.manufacturerServing=!!plain.model.servingAmount;Object.assign(plain,plain.model);
     if(!table){plain.readMethod='ocr';plain.extractionConfidence=valueOrNull(data.confidence);return plain;}
     const parsed=parseNutritionPanel(table.text);
     // Retain independently legible metadata/rows that the geometry adapter did
@@ -194,7 +245,7 @@
       if(plain[basis][key]!==null&&!(plain.energyProvenance[basis]?.[key]?.startsWith('derived')&&parsed.model.energyProvenance[basis]?.[key]==='printed')){parsed.model[basis][key]=plain[basis][key];if(plain.energyProvenance[basis]?.[key])parsed.model.energyProvenance[basis][key]=plain.energyProvenance[basis][key];}
       if(plain.qualifiers[basis]?.[key]){parsed.model[basis][key]=null;parsed.model.qualifiers[basis][key]=clone(plain.qualifiers[basis][key]);}
     }
-    parsed.model=P().basisModel({...parsed.model,manufacturerServing:!!parsed.model.servingAmount,selectedBasis:parsed.model.selectedBasis||plain.model.selectedBasis});
+    parsed.model=guidePanelModel({...parsed.model,preparationEvidence:plain.model.preparationEvidence,waterPreparation:plain.model.waterPreparation,servingProvenance:plain.model.servingProvenance,manufacturerServing:!!parsed.model.servingAmount,selectedBasis:parsed.model.selectedBasis||plain.model.selectedBasis},{text:trusted});
     Object.assign(parsed,parsed.model);parsed.readMethod='ocr';parsed.text=String(data.text||'');parsed.ingredients=plain.ingredients;parsed.issues=[...new Set([...parsed.issues,...table.issues])];parsed.discrepancies=P().basisDiscrepancies(parsed.model);parsed.questionable=parsed.issues.length>0;parsed.extractionConfidence=valueOrNull(data.confidence);parsed.tableEvidence=table.evidence;return parsed;
   }
   function privateIdentityStatus({name='',brand='',barcode=''}={}){
@@ -206,7 +257,30 @@
   function buildBarcodeFood({food,id,confirmed=false}={}){
     const identity=privateIdentityStatus(food);
     if(!identity.ready)return {food:null,status:{ready:false,missing:['product-identity']},message:identity.message};
-    return buildPanelFood({id,name:food.name,brand:food.brand,barcode:food.barcode,model:reviewModelFor(food),confirmed,ingredients:food.ingredients,packageSize:food.packageSize||food.packageQuantity||food.quantity||'',catalogueFood:food,choice:'catalogue'});
+    const result=buildPanelFood({id,name:food.name,brand:food.brand,barcode:food.barcode,model:reviewModelFor(food),confirmed,ingredients:food.ingredients,packageSize:food.packageSize||food.packageQuantity||food.quantity||'',catalogueFood:food,choice:'catalogue'});
+    if(result.food&&food.privateServingOverlay){result.food.captureEvidence.privateServingOverlay=clone(food.privateServingOverlay);result.food.captureEvidence.catalogue.nutritionBasis=clone(food.privateServingOverlay.catalogueBasis);}
+    return result;
+  }
+  function privateServingOverlay(food,privateFoods=[]){
+    if(!validBarcode(food?.barcode))return food;
+    const current=reviewModelFor(food),norm=value=>String(value||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+    const compatible=privateFoods.filter(saved=>{
+      if(saved.recordType!=='private'||saved.captureEvidence?.confirmed!==true||saved.verificationStatus!=='package-confirmed'||validBarcode(saved.barcode)!==validBarcode(food.barcode))return false;
+      const original=saved.captureEvidence.catalogue,sameIdentity=norm(saved.name)===norm(food.name)&&norm(saved.brand)===norm(food.brand)||original&&original.id===food.id&&norm(original.name)===norm(food.name)&&norm(original.brand)===norm(food.brand);
+      if(!sameIdentity)return false;
+      const known=reviewModelFor(saved);
+      return known.servingAmount>0&&known.servingUnit==='g'&&known.servingCount>0&&countUnits().some(unit=>unit.id===known.servingCountUnit)&&
+        (!current.servingAmount||current.servingAmount===known.servingAmount&&current.servingUnit===known.servingUnit)&&
+        (!current.per100Unit||current.per100Unit===known.servingUnit||current.per100Context==='as-prepared')&&
+        (!current.servingCount||current.servingCount===known.servingCount&&current.servingCountUnit===known.servingCountUnit);
+    });
+    if(!compatible.length)return food;
+    const signatures=new Set(compatible.map(saved=>{const m=reviewModelFor(saved);return JSON.stringify([m.servingAmount,m.servingUnit,m.servingCount,m.servingCountUnit]);}));
+    if(signatures.size!==1)return food;
+    compatible.sort((a,b)=>String(b.captureEvidence.confirmedAt||'').localeCompare(String(a.captureEvidence.confirmedAt||'')));
+    const saved=compatible[0],known=reviewModelFor(saved),overlay=clone(food),provenance={source:'user-verified',privateFoodId:saved.id,confirmedAt:saved.captureEvidence.confirmedAt||null};
+    overlay.nutritionBasis=P().basisModel({...current,servingAmount:known.servingAmount,servingUnit:known.servingUnit,manufacturerServing:true,servingCount:known.servingCount,servingCountUnit:known.servingCountUnit,servingProvenance:provenance,waterPreparation:known.waterPreparation,preparationEvidence:known.preparationEvidence,usualWaterMl:known.usualWaterMl});
+    overlay.privateServingOverlay={...provenance,catalogueBasis:clone(current)};return overlay;
   }
   function reviewStatus({name='',model,confirmed=false,discrepancyConfirmed=false}={}){
     const missing=[],basis=chosenBasis(model),values=model?.[basis]||{},energy=P().normalisedEnergy(values);
@@ -216,6 +290,8 @@
     if(basis==='per100'&&!['g','mL'].includes(model?.per100Unit||model?.servingUnit))missing.push('per100-unit');
     if(basis==='per100'&&model?.per100Context==='as-prepared')missing.push('prepared-reference');
     if(model?.servingAmount!=null&&(!(Number(model.servingAmount)>0)||!['g','mL'].includes(model.servingUnit)))missing.push('serving-size');
+    if(servingAttention(model))missing.push('serving-count');
+    if(waterPreparationAllowed(model)&&model?.preparationEvidence?.kind==='dry-beverage'&&model.preparationEvidence.liquid==='unknown'&&!model.waterPreparation)missing.push('preparation-liquid');
     if(basis==='per100'&&model?.manufacturerServing&&model.servingUnit!==(model.per100Unit||model.servingUnit))missing.push('basis-unit-conflict');
     for(const [key,value] of Object.entries(values))if(value!=null&&(valueOrNull(value)===null||Number(value)<0))missing.push('invalid-'+key);
     for(const [part,total] of [['sugar','carbs'],['satFat','fat']])if(valueOrNull(values[part])!==null&&valueOrNull(values[total])!==null&&Number(values[part])>Number(values[total])+.2)missing.push(part+'-exceeds-'+total);
@@ -227,6 +303,10 @@
   function validationMessage(status,model){
     const labels={'product-identity':'Enter the specific product name from the packet, and brand if shown.',name:'Enter the food name.',basis:'Confirm whether the values are per serve or per 100 g / mL.',energy:'Enter energy for '+(chosenBasis(model)==='perServing'?'one serve':'100 '+(model?.per100Unit||model?.servingUnit||'g / mL'))+'.','per100-unit':'Choose g or mL for the per-100 column.','serving-size':'Enter a positive serving size and its unit, or leave size blank for a fixed serve.','basis-unit-conflict':'Serving and per-100 units differ; confirm the correct basis.','package-confirmation':'Check the package and confirm the values.','discrepancy-confirmation':'Review the differing columns and confirm the selected calculation basis.','energy-unit-conflict':'The kJ and Cal values disagree. Correct them or clear the unreadable value.'};
     labels['prepared-reference']='Use the dry product per-serving values. The as-prepared column is a separate reference, not a powder or preparation-water amount.';
+    labels['serving-count']='In Serving details, enter a positive Items Per Serve and choose its Item Unit, or clear both if the packet does not state them.';
+    labels['preparation-liquid']='In Preparation, confirm whether this dry drink mix uses water, milk or another liquid.';
+    labels['basis-unit-conflict']='Open “Which printed column should HEC use?” and choose Per Serve for the dry serving, or correct the serving and per-100 units from the packet.';
+    if(basisGuidance(model))labels['prepared-reference']=basisGuidance(model);
     return status.missing.map(key=>labels[key]||'Check '+key.replace(/-/g,' ')+'.').join(' ');
   }
   function buildPanelFood({id,name,brand='',barcode='',model,confirmed=false,discrepancyConfirmed=false,ingredients='',packageSize='',catalogueFood=null,choice='panel',extracted=null}={}){
@@ -238,14 +318,17 @@
     else{units[unit]=.01;if(amount&&model.servingUnit===unit){units.serve=amount/100;unitLabels.serve='Manufacturer Serve ('+amount+' '+unit+'; calculated from per 100 '+unit+')';defaultAmount=1;defaultUnit='serve';serving='Manufacturer serving '+amount+' '+unit+' · calculated from per 100 '+unit;}}
     if(amount&&useServing)serving='Manufacturer serving '+amount+' '+unit;
     if(units[unit])unitLabels[unit]=unit;
-    if(Number(model.servingCount)>0&&countUnits().some(item=>item.id===model.servingCountUnit)&&units.serve&&unit!=='mL'){units[model.servingCountUnit]=units.serve/Number(model.servingCount);unitLabels[model.servingCountUnit]=model.servingCountUnit;}
+    const natural=countUnits().find(item=>item.id===model.servingCountUnit);
+    if(Number(model.servingCount)>0&&natural&&units.serve&&unit!=='mL'){units[natural.id]=units.serve/Number(model.servingCount);unitLabels[natural.id]=natural.displayLabel+(amount?' ('+Number((amount/model.servingCount).toFixed(6))+' '+unit+')':'');defaultUnit=natural.id;defaultAmount=1;}
     const food={id:String(id||'panel-'+Date.now()),recordType:'private',verificationStatus:'package-confirmed',market:'AU',barcode:validBarcode(barcode),name:String(name).trim(),brand:String(brand).trim(),category:'Packaged Food',country:'Australia',aliases:[name,brand].filter(Boolean),defaultAmount,defaultUnit,units,unitLabels,serving,nutrients,foodGroups:{},waterMl:null,hydrationType:unit==='mL'?'drink':'food',score:6,source:choice==='catalogue'?'Barcode Nutrition · User Checked':'Current Package Nutrition Panel · User Checked',verified:false,packageServingExplicit:!!amount,ingredients:String(ingredients).trim(),packageSize:String(packageSize).trim(),servingsPerPack:valueOrNull(model.servingsPerPack),nutritionStatus:'user-confirmed',loggable:true,recognisedOnly:false,productSemantics:{type:'packaged-serving',confidence:'high'},captureEvidence:{barcode:validBarcode(barcode),catalogue:catalogueFood?{id:catalogueFood.id,canonicalId:catalogueFood.canonicalId||null,barcode:catalogueFood.barcode||null,name:catalogueFood.name,brand:catalogueFood.brand||null,source:catalogueFood.source||null,nutrients:clone(catalogueFood.nutrients),units:clone(catalogueFood.units),nutritionBasis:reviewModelFor(catalogueFood)}:null,extracted:clone(extracted),confirmedPanel:clone(model),choice,confirmed:true}};
     food.canonicalId='private:'+food.id;food.privateProductIdentity={id:food.canonicalId,gtin:food.barcode||null,name:food.name,brand:food.brand||null,packageSize:food.packageSize||null};
     food.captureEvidence.confirmedAt=new Date().toISOString();
-    if(unit==='g'||unit==='mL'){food.physicalForm=unit==='mL'?'liquid':model.servingCountUnit==='slice'?'sliced':model.servingCount>0?'countable':'weight';food.physicalFormSource='confirmed-packet-basis';}
+    food.captureEvidence.energyProvenance=Object.fromEntries(['energyKj','calories'].map(key=>[key,valueOrNull(model[basis][key])===null?(key==='energyKj'?'derived-from-calories':'derived-from-kj'):model.energyProvenance?.[basis]?.[key]||(choice==='catalogue'?'catalogue':'user-entered')]));
+    if(unit==='g'||unit==='mL'){food.physicalForm=unit==='mL'?'liquid':model.servingCountUnit==='slice'?'sliced':model.servingCount>0&&natural?.family!=='household'?'countable':'weight';food.physicalFormSource='confirmed-packet-basis';}
+    if(natural&&units[natural.id])food.unitOrigins={[natural.id]:{origin:'User-verified package serving relationship',confidence:'package-explicit',sourceType:'product-metadata',privateFoodId:model.servingProvenance?.privateFoodId||food.id}};
     food.nutrientQualifiers=clone(model.qualifiers?.[basis]||{});
     if(model.waterPreparation&&waterPreparationAllowed(model))food.preparation={type:'water',usualWaterMl:valueOrNull(model.usualWaterMl)};
-    P().attachBasis(food,{...model,selectedBasis:basis});return {food,status};
+    P().attachBasis(food,{...model,selectedBasis:basis,servingProvenance:{...model.servingProvenance,source:'user-verified',inputSource:model.servingProvenance?.source||'user-entered'}});return {food,status};
   }
   // Review adapter only: opening a legacy record never migrates or rewrites it.
   function reviewModelFor(food){
@@ -287,6 +370,6 @@
     remaining.sort((a,b)=>b.height-a.height);
     return {name:name||remaining[0]?.text||'',brand:brandText,confidence:candidates.length?'review-required':'low'};
   }
-  const api={version:VERSION,nutrientKeys:KEYS,valueOrNull,emptyNutrients,validBarcode,createScanSession,acceptDetection,finishLookup,resetScanSession,countUnits,waterPreparationAllowed,captureDestination,parseServing,parseNutritionPanel,parseOcrResult,reviewStatus,validationMessage,chosenBasis,mergePanelBaseline,privateIdentityStatus,buildBarcodeFood,buildPanelFood,reviewModelFor,comparePanel,barcodeStatus,actionsFor,preparationWater,frontIdentity};
+  const api={version:VERSION,nutrientKeys:KEYS,valueOrNull,emptyNutrients,validBarcode,createScanSession,acceptDetection,finishLookup,resetScanSession,countUnits,waterPreparationAllowed,captureDestination,parseServing,parseNutritionPanel,parseOcrResult,guidePanelModel,servingAttention,basisGuidance,privateServingOverlay,reviewStatus,validationMessage,chosenBasis,mergePanelBaseline,privateIdentityStatus,buildBarcodeFood,buildPanelFood,reviewModelFor,comparePanel,barcodeStatus,actionsFor,preparationWater,frontIdentity};
   global.HECCaptureFoundation=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);

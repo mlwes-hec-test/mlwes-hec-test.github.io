@@ -1,5 +1,5 @@
 {
-  "generation": "b6a77c86637654bcabea84b7",
+  "generation": "7cef3085aa7868d7ce517e68",
   "version": "0.6.33",
   "runtime": [
     "installation-config.js",
@@ -45,7 +45,7 @@
     "alpha064.js"
   ],
   "files": {
-    "index.html": "e72ffebfd134651220b939c412e4f863e7acb0748e49d2da30a8d77b5ebc1fd6",
+    "index.html": "45fd6e468fe953e107cd377f2aaaad913d1cbc55e47f3447a61ebee5155f0c3c",
     "installation-config.js": "e04cd8e2625d202b3833aa4f15077489128c1b50780aebf866890baf2b29a9f7",
     "config.js": "5917c660ff0a2bca08efe8029a74ea7a566e34719c27e09fc143390549a26895",
     "installation-foundation.js": "dc71c1e21e8971a650e1f287cb9e9dcf634592586836a4e7dfd688c74d28fb7f",
@@ -78,14 +78,14 @@
     "brand-au-catalogue.js": "d124be4bc2bbfa6a8ca20abf6ef39c54c819a8e4404b384484ccd51fb1f00fad",
     "brand-catalogue.js": "4712fbc3181eb76ac8860e3ba033721980f030e1ff7c05d0de2309d151e2dab3",
     "guided-branching.js": "fc6883c9a34fd19dda80b3f3c2289f01f092a4c6456f196bf2b85c256669eeb0",
-    "packaged-foods.js": "bd3b898f982ac4a635c96cbb9d1860cc3577b9fa175592853fdad8085e8d8b38",
-    "capture-foundation.js": "475d296ee2fe43682492f6828752f6d2b3ed8f89c97e3f8cdf8005fb396a00ed",
-    "serving-foundation.js": "1f5f54813171290abf803f9af89933115f92ef1c311002bb5d3d85158f7a8c07",
+    "packaged-foods.js": "81d1f8100edc2d3975af86800ce4bb69ea212967a493b2e75083e4c1c9f0a228",
+    "capture-foundation.js": "bc0b265b35679f29175eff6f63dda6e28960ae829431fd99c30256c64bf85591",
+    "serving-foundation.js": "eac0bccbe32b02a7da741f7ddd0aa269b17e95b9deed969bae45d0fb2daead75",
     "guided-product-resolution.js": "6f941507e4937b23599530099b7988ad40af4b54d70c9d224830a4c952b77d68",
     "activity-foundation.js": "68f2e923769697bb90b0d0e13193533ebff5fa9b29846c0d05e5ced28fb83557",
     "food-groups-foundation.js": "2919670d100bb6de8794bed8a3bcbb7b18dec2d5f4a3a95912ddbd23268526b6",
     "conversation-foundation.js": "c313b738df302742261e2fd2ea06c58fcc72e38292f856a3da6df5596f799d26",
-    "alpha06.js": "6427dfa7e34d5c0242fcd5622cdd783e2abe62fa688c8b8bb8f21f8a56c7f9ae",
+    "alpha06.js": "69377614c72957e58e32a3cb0f293b194922faa0d5174b98690e1471efb67aed",
     "alpha064.js": "e62d1f3a73c71ae5adea9ec1be76ee778ac6b00c1741553d8ce27bcb1b02a9d0",
     "styles.css": "3eda0feb5a59ba4a3d8900aa6e4905c57b7ed3180c910cadd782db18297aa58c",
     "manifest.webmanifest": "20e91f54038b7ff6863544d11579b3ee3cbdb6001e25d92bafc03c3977e749ed",

@@ -37,6 +37,7 @@ test('Capture uses Today from neutral Library, preserves explicit historical Add
  const report=qa.evidence(),{chromium,edge}=qa.browserTools(),browser=await chromium.launch({headless:true,executablePath:edge});
  try{const context=await qa.contextFor(browser,{width:390,height:844},report);await context.addInitScript(returningProfile);const page=await context.newPage();await page.goto(qa.ORIGIN+'/');await page.waitForFunction(()=>HECRelease.snapshot().state==='ready');
   const today=await page.evaluate(()=>HECDate.todayISO());
+  await page.evaluate(()=>openAlpha05Feature('food-library'));await startPanel(page);await enterPanel(page);await review(page);assert.equal(await page.locator('#entry-date').inputValue(),today);assert.equal(await page.locator('#entry-meal').inputValue(),'');
   const historical='2026-09-19';await page.evaluate(()=>openAlpha05Feature('food-diary'));await page.locator('#diary-date').evaluate((n,date)=>{n.value=date;n.dispatchEvent(new Event('change',{bubbles:true}));},historical);
   await page.locator('[data-add-to-meal="Lunch"]').first().click();await startPanel(page);await enterPanel(page);await review(page);assert.equal(await page.locator('#entry-date').inputValue(),historical);assert.equal(await page.locator('#entry-meal').inputValue(),'Lunch');assert.equal(await page.locator('#entry-unit').inputValue(),'slice');
   // An unrelated Home → Library entry is neutral even though the Diary day is old.

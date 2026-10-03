@@ -54,6 +54,7 @@
     crispbread:Object.freeze({id:'crispbread',displayLabel:'Crispbread',singularLabel:'crispbread',pluralLabel:'crispbreads',family:'countable',aliases:['crispbread','crispbreads'],priority:18,fractions:true}),
     bar:Object.freeze({id:'bar',displayLabel:'Bar',singularLabel:'bar',pluralLabel:'bars',family:'countable',aliases:['bar','bars'],priority:18,fractions:true}),
     sachet:Object.freeze({id:'sachet',displayLabel:'Sachet',singularLabel:'sachet',pluralLabel:'sachets',family:'countable',aliases:['sachet','sachets'],priority:18,fractions:true}),
+    scoop:Object.freeze({id:'scoop',displayLabel:'Scoop',singularLabel:'scoop',pluralLabel:'scoops',family:'household',aliases:['scoop','scoops'],priority:18,fractions:true}),
     packet:Object.freeze({id:'packet',displayLabel:'Packet',singularLabel:'packet',pluralLabel:'packets',family:'countable',aliases:['packet','packets'],priority:18,fractions:true}),
     roll:Object.freeze({id:'roll',displayLabel:'Roll',singularLabel:'roll',pluralLabel:'rolls',family:'countable',aliases:['roll','rolls'],priority:18,fractions:true}),
     burger:Object.freeze({id:'burger',displayLabel:'Burger',singularLabel:'burger',pluralLabel:'burgers',family:'countable',aliases:['burger','burgers'],priority:18,fractions:true}),
@@ -257,6 +258,7 @@
     if(['countable','packaged-item','packaged-single'].includes(form.form)&&family==='sliced'&&/\b\d+(?:[.,]\d+)?\s*slices?\b/i.test(`${food.servingSize||''} ${food.packageServingText||''} ${food.serving||''}`)&&conversion.baseUnit==='g'&&conversion.baseQuantity>0&&trusted)return '';
     if(family==='manufacturer'&&solid){const unit=normalizeMeasure(food.manufacturerServing?.unit||''),label=String(measure.label||'');if(unit==='mL'||unit==='L'||/\b\d+(?:[.,]\d+)?\s*(?:mL|ml|litres?|liters?)\b/.test(label))return `source-serving-volume-incompatible-with-${form.form}-form`;}
     if(family==='household'){
+      if(food.recordType==='private'&&food.captureEvidence?.confirmed&&food.nutritionBasis?.servingCountUnit===measure.key&&food.nutritionBasis.servingCount>0&&conversion.baseUnit==='g'&&conversion.baseQuantity>0&&trusted)return '';
       if(form.form==='spread')return conversion.baseUnit==='g'&&conversion.baseQuantity>0&&trusted?'':'spread-household-measure-needs-validated-weight-conversion';
       if(form.form==='liquid')return conversion.baseUnit==='mL'&&conversion.baseQuantity>0?'':'liquid-household-measure-needs-volume-conversion';
       // Existing reviewed Australian food-group measures remain applicable to
