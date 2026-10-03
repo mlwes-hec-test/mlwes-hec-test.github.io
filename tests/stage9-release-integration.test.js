@@ -94,9 +94,9 @@ test("7. companion authoring sources remain absent and only 48 runtime WebPs shi
 });
 
 test("8. My Data prunes only unused same-role application caches",async()=>{
-  const w=require('./release-worker-context').workerContext();await w.run('install');
+  const w=require('./release-worker-context').workerContext();
   for(const key of ['healthy-eating-companion-my-data-old','healthy-eating-companion-test-old','healthy-eating-companion-alpha-0-6-33-v5','unrelated'])await w.cache.open(key);
-  await w.run('activate');assert.deepEqual(w.events.deleted,[]);await w.message('HEC_RELEASE_CLIENT_READY');
+  await w.run('install');await w.run('activate');assert.deepEqual(w.events.deleted,[]);await w.message('HEC_RELEASE_CLIENT_READY');
   assert.deepEqual(w.events.deleted.sort(),['healthy-eating-companion-alpha-0-6-33-v5','healthy-eating-companion-my-data-old']);
 });
 test("9. a new generation cannot use an old same-path cache entry",async()=>{

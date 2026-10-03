@@ -35,11 +35,19 @@ The new inline bootstrap is present before any application dependency executes,
 including when a legacy worker serves the new shell. It hides and makes the app
 inert until startup succeeds. The worker stages generation-addressed core URLs,
 checks every response hash and writes a readiness marker only after every core
-write completes. A failed required download rejects installation and removes
-only that incomplete staging cache. Activation and skipWaiting happen only for
-a complete generation.
+write completes. Readiness checks the marker's generation and the presence of
+every required entry. A failed required download rejects installation and keeps
+the incomplete staging cache unreadable for a verified retry. Activation and
+skipWaiting happen only for a complete generation reachable by its cache name.
+After writing, the worker reopens the cache by name; one bounded retry handles
+legacy workers that unlink a newer staging cache during installation. Activation,
+navigation and an explicit resume message can also finish an incomplete core.
+Repairs reuse cached bytes only after checking their full SHA-256 hashes.
 
-Navigation serves the verified cached shell. Required scripts and CSS use exact
+Navigation serves the verified cached shell. If repair cannot finish, a small
+recovery document provides a real registration/update/resume/controller handshake
+behind Retry. It loads no application modules and accesses no personal storage.
+Required scripts and CSS use exact
 generation cache keys; they never revalidate in the background or fall back by
 pathname to older bytes or HTML. Browser subresource integrity independently
 checks script/style execution. Runtime exceptions keep the gate closed. A
@@ -57,14 +65,22 @@ once only when the page generation differs from the ready controller. The new
 page reads its matching cached shell. Failed updates have a non-destructive
 Retry path; script execution failures require an explicit retry reload rather
 than replaying modules into a partially initialised global scope. A delayed
-readiness reply can be retried on foregrounding. Startup, pageshow, visible
+readiness reply can be retried on foregrounding. Waiting/activated state changes
+resume a paused page, and replies from replaced controllers are not accepted.
+An existing waiting worker receives the resume message, which verifies its core
+before skipWaiting. Retry after partial startup verifies readiness before its
+single reload. The original 20-second handshake and 15-second fetch bounds remain;
+timing failures do not trigger automatic reload loops. Startup, pageshow, visible
 foregrounding and online events share an in-flight check and a 60-second
 network throttle. Offline starts skip the network check.
 
 Old caches are retained while any live controlled client has not reported the
-current generation ready. After all have reported, only obsolete caches owned
-by the same role (plus My Data's historical common prefix) are removed. Personal
-storage is never part of this protocol.
+current generation ready. After all have reported, only same-role caches observed
+before this worker's installation (plus My Data's historical common prefix) are
+eligible for removal. Caches created by a future installer are never swept by
+this worker. If the worker restarts and loses that in-memory predecessor list,
+cleanup is conservatively skipped. Personal storage is never part of this
+protocol. The lazy data/optional-asset cache is not a core readiness prerequisite.
 
 `HECRelease.snapshot()` reports only page/core/worker/cache generation, role,
 readiness, executed hashes and update counters. It exposes no personal data.
@@ -93,3 +109,18 @@ for subsequent-protocol offline/foreground cases. It never uses a real profile,
 publishes files, clears storage or warms candidate caches before the immediate
 upgrade observation. Edge mobile viewports are not proof of physical iOS
 WebKit behaviour; guarded TEST and physical acceptance remain necessary.
+
+The focused update regression is `node --test tests/release-update-lifecycle.test.js`.
+It covers delayed installation/control/cache completion, partial-start Retry,
+recovery-document Retry and legacy cleanup racing a new installer. It uses the
+SOURCE predecessor worker at `29ef9ab` for the legacy protocol reproduction.
+
+`scripts/audit_pwa_update_readiness.js` accepts a disposable JSON configuration
+with `output`, `prior`, `priorRepository` and `certificate`. It verifies the
+exported v53 core against deployment commit
+`06c4db8e6d047a701b54a863fc75f9780083821b` before serving it on loopback HTTPS.
+Three Edge scenarios cover normal upgrade, an actual legacy cleanup race with
+reopen during installation, and fresh load. Synthetic data and disk profiles
+survive ordinary online/offline close/reopen without reseeding. The harness
+reports WebKit executable availability; Edge's mobile viewport and synthetic
+`navigator.standalone` flag do not reproduce the native iOS Home Screen lifecycle.

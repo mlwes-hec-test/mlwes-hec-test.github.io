@@ -9,33 +9,46 @@
   const assetURL=file=>new URL(file+'?g='+release.generation,location.href).href;
   const integrity=file=>'sha256-'+btoa(coreHash(file).match(/../g).map(byte=>String.fromCharCode(parseInt(byte,16))).join(''));
   const delay=ms=>new Promise(resolve=>setTimeout(resolve,ms));
-  let registration=null,started=false,starting=null,reloading=false,lastCheck=0,checking=null,installFailed=false;
-  const watchedRegistrations=new WeakSet();
+  let registration=null,started=false,starting=null,recovering=null,reloading=false,lastCheck=0,checking=null,installFailed=false;
+  const watchedRegistrations=new WeakSet(),watchedWorkers=new WeakSet();
   function status(message,blocked=true,retry=false){
     if(blocked){document.documentElement.removeAttribute('data-hec-ready');app.inert=true;app.hidden=true;diagnostics.state='updating';}
     notice.hidden=false;notice.dataset.blocking=String(blocked);notice.replaceChildren();
     const text=document.createElement('p');text.textContent=message;notice.append(text);
-    if(retry){const button=document.createElement('button');button.textContent='Retry update';button.onclick=async()=>{if(!started)return begin();if(app.hidden)await onControllerChange();return checkUpdate(true);};notice.append(button);}
+    if(retry){const button=document.createElement('button');button.textContent='Retry update';button.onclick=()=>started?recover(true):begin();notice.append(button);}
   }
-  function paused(){const blocked=!started||app.hidden;status(blocked?'The update could not finish. Connect to the internet and try again. Your saved data remains on this device.':'The update is paused. You can keep using HEC.',blocked,true);if(blocked)diagnostics.state='paused';}
+  function paused(){const blocked=!started||app.hidden;status(blocked?(navigator.onLine?'The update is not ready yet. Try again to finish downloading and preparing it. Your saved data remains on this device.':'You are offline. Connect to the internet and retry the update. Your saved data remains on this device.'):'The update is paused. You can keep using HEC.',blocked,true);if(blocked)diagnostics.state='paused';}
   function workerStatus(worker=navigator.serviceWorker?.controller){
     if(!worker)return Promise.resolve(null);
     return new Promise(resolve=>{const channel=new MessageChannel(),timer=setTimeout(()=>done(null),1500);function done(value){clearTimeout(timer);channel.port1.close();resolve(value);}channel.port1.onmessage=event=>done(event.data);try{worker.postMessage({type:'HEC_RELEASE_STATUS'},[channel.port2]);}catch{done(null);}});
   }
   function remember(value){if(value?.ready){diagnostics.workerGeneration=value.generation;diagnostics.cacheGeneration=value.cache;}}
-  async function onControllerChange(){
+  function reload(){if(!reloading){reloading=true;diagnostics.reloads++;status('Updating HEC…');location.reload();}}
+  function reveal(){app.hidden=false;app.inert=false;document.documentElement.setAttribute('data-hec-ready','');notice.hidden=true;diagnostics.state='ready';}
+  function recover(force=false){
+    if(starting||recovering||reloading)return starting||recovering;
+    recovering=(async()=>{if(force)await checkUpdate(true);if(await coherentWorker()&&started)reveal();})().catch(error=>{diagnostics.failure=String(error.message);paused();}).finally(()=>{recovering=null;});
+    return recovering;
+  }
+  function onControllerChange(){
     if(started)status('Updating HEC…');
-    const value=await workerStatus();remember(value);
-    if(!value?.ready||value.role!==role){if(started)paused();return;}
-    if(value.generation===release.generation){if(started){app.hidden=false;app.inert=false;document.documentElement.setAttribute('data-hec-ready','');notice.hidden=true;diagnostics.state='ready';}return;}
-    if(!reloading){reloading=true;diagnostics.reloads++;status('Updating HEC…');location.reload();}
+    if(!started){if(!starting)void begin();return;}
+    return recover();
   }
   function watchRegistration(reg){
     registration=reg;
     if(watchedRegistrations.has(reg))return;watchedRegistrations.add(reg);
-    const watch=()=>{const worker=reg.installing;if(!worker)return;
-      if(started)status('An update is being prepared. You can keep using HEC.',false);
-      worker.addEventListener('statechange',()=>{if(worker.state==='redundant'){installFailed=true;if(started)paused();}});
+    const watch=()=>{for(const worker of [reg.installing,reg.waiting,reg.active]){if(!worker||watchedWorkers.has(worker))continue;watchedWorkers.add(worker);
+      if(worker.state==='installed')worker.postMessage({type:'HEC_RELEASE_RESUME'});
+      if(started&&worker===reg.installing)status('An update is being prepared. You can keep using HEC.',false);
+      worker.addEventListener('statechange',()=>{
+        if(worker.state==='redundant'){installFailed=true;if(started)paused();}
+        if(worker.state==='installed'||worker.state==='activated'){
+          if(worker.state==='installed')worker.postMessage({type:'HEC_RELEASE_RESUME'});
+          if(diagnostics.state==='paused'||started&&app.hidden)void onControllerChange();
+        }
+      });
+    }
     };
     reg.addEventListener('updatefound',watch);watch();
   }
@@ -47,15 +60,26 @@
   async function coherentWorker(){
     installFailed=false;
     if(!('serviceWorker' in navigator)||!location.protocol.startsWith('http'))return false;
-    const current=await workerStatus();remember(current);
-    if(current?.ready&&current.role===role&&current.generation===release.generation){
-      const reg=await navigator.serviceWorker.getRegistration();if(reg){watchRegistration(reg);void checkUpdate();}return true;
+    const controller=navigator.serviceWorker.controller,current=await workerStatus(controller);remember(current);
+    if(current?.ready&&current.role===role&&current.generation===release.generation&&controller===navigator.serviceWorker.controller&&controller.state==='activated'){
+      const reg=await navigator.serviceWorker.getRegistration();if(reg){watchRegistration(reg);void checkUpdate();}
+      if(controller===navigator.serviceWorker.controller&&(!reg||reg.active===controller))return true;
     }
     try{
-      const reg=await navigator.serviceWorker.register(`service-worker.js?v=${encodeURIComponent(release.version)}&role=${encodeURIComponent(role)}`,{scope:'./',updateViaCache:'none'});
-      watchRegistration(reg);const updated=await checkUpdate(true);if(updated===false&&!reg.installing)throw Error('Update check unavailable');
-      const deadline=Date.now()+20000;
-      while(Date.now()<deadline){const value=await workerStatus();remember(value);if(value?.ready&&value.role===role){if(value.generation!==release.generation){await onControllerChange();throw Error('Changing page generation');}return true;}if(installFailed||!reg.installing&&!reg.waiting&&reg.active?.state==='redundant')break;await delay(150);}
+      const reg=await navigator.serviceWorker.getRegistration()||await navigator.serviceWorker.register(`service-worker.js?v=${encodeURIComponent(release.version)}&role=${encodeURIComponent(role)}`,{scope:'./',updateViaCache:'none'});
+      watchRegistration(reg);void checkUpdate(true);
+      const deadline=Date.now()+20000,resumed=new WeakSet();
+      while(Date.now()<deadline){
+        for(const worker of [reg.waiting,reg.active])if(worker&&!resumed.has(worker)){resumed.add(worker);worker.postMessage({type:'HEC_RELEASE_RESUME'});}
+        const controller=navigator.serviceWorker.controller,value=await workerStatus(controller);remember(value);
+        if(value?.ready&&value.role===role&&controller===navigator.serviceWorker.controller&&controller===reg.active&&controller.state==='activated'){
+          if(value.generation===release.generation)return true;
+          // A new document may still be controlled by the old worker. Wait for
+          // its successor before choosing the shell to reload.
+          if(!reg.installing&&!reg.waiting){reload();throw Error('Changing page generation');}
+        }
+        if(installFailed&&!reg.installing&&!reg.waiting)break;await delay(150);
+      }
       throw Error('Core readiness not reached');
     }catch(error){
       // A browser that cannot register a worker may still run a fully verified
@@ -79,6 +103,9 @@
   async function boot(){
     status('Updating HEC…');
     if(!await coherentWorker())await verifyOnlineCore();
+    // Retry after partial runtime execution is allowed to reload only after the
+    // same controller/core handshake as a normal update.
+    if(diagnostics.executed.length){reload();return;}
     diagnostics.requiredCoreGeneration=release.generation;
     let runtimeError=null;const onError=event=>{runtimeError=event.error||Error('Runtime startup failed');};window.addEventListener('error',onError);
     try{
@@ -93,19 +120,18 @@
       if(!window.HECFoodCatalogue?.retailerMembership||!window.HEC_SEARCH_SESSION_TEST||!window.HECRetailerCatalogue?.directory||!window.HECRetailerSource?.register)throw Error('Runtime registrations incomplete');
     }finally{window.removeEventListener('error',onError);}
     const manifest=document.createElement('link');manifest.rel='manifest';manifest.href=assetURL('manifest.webmanifest');document.head.append(manifest);
-    started=true;diagnostics.state='ready';app.hidden=false;app.inert=false;document.documentElement.setAttribute('data-hec-ready','');notice.hidden=true;
+    // Activation can occur while ordered scripts are loading.
+    if(navigator.serviceWorker?.controller)await coherentWorker();
+    started=true;reveal();
     navigator.serviceWorker?.controller?.postMessage({type:'HEC_RELEASE_CLIENT_READY',generation:release.generation});
   }
   function begin(){
     if(starting)return starting;
-    // A failed script execution cannot be safely replayed in the same global
-    // scope. Reload this verified shell on explicit retry, never in a loop.
-    if(diagnostics.executed.length){location.reload();return;}
     starting=boot().catch(error=>{diagnostics.failure=String(error.message);paused();}).finally(()=>{starting=null;});return starting;
   }
   window.HECRelease=Object.freeze({snapshot:()=>JSON.parse(JSON.stringify(diagnostics)),check:()=>checkUpdate(true)});
   navigator.serviceWorker?.addEventListener('controllerchange',()=>void onControllerChange());
-  function foreground(){if(started){if(app.hidden)void onControllerChange();void checkUpdate();}else if(diagnostics.state==='paused')void begin();}
+  function foreground(){if(started){if(app.hidden)void recover();void checkUpdate();}else if(diagnostics.state==='paused')void begin();}
   window.addEventListener('pageshow',foreground);
   document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')foreground();});
   window.addEventListener('online',foreground);

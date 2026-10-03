@@ -1,0 +1,151 @@
+HEC installed PWA update readiness — SOURCE-only repair
+2026-10-03
+
+STARTING STATE
+Canonical repository: C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32
+The workspace path under "HEC Develpoment" is a junction to that repository.
+Branch: alpha-0.6.33
+HEAD: fd0a0fbee5a3bccb138c88a4bab7282aa1531abe
+Parent: ad0d2e174c494770ce0af7e5d4e365c2f3a66ba0
+Subject: Preserve nutrient qualifiers in Review
+Starting status: clean. All required preflight conditions matched before edits.
+
+FAILURE PATH AND EVIDENCE
+The accepted worker sends navigations to coreResponse('index.html', its own
+generation). The exact plain-text 503 message "HEC update is not ready. Please
+retry while online." means the named core cache lacks its readiness marker or
+the generation-addressed index.html. This path does not consult the lazy data
+cache, release-manifest.json over the network, or navigation preload.
+
+The earlier bootstrap's paused message follows a boot/controller readiness
+failure, including the 20-second gate, a 1.5-second status timeout, or required
+asset/startup failure. Its Retry path reloads immediately if any runtime scripts
+already executed. Its started-but-hidden path can repeat a single readiness
+probe without repairing cache completion. A ready marker alone also did not
+prove that every core entry still existed.
+
+A concrete cache race was reproduced before repair: old-worker
+HEC_RELEASE_CLIENT_READY -> pruneUnused enumerates ALL other same-role caches
+-> deletes a future worker's staging cache -> future worker finishes writes on
+the detached cache object and writes its marker -> skipWaiting -> activation
+cannot find the marker by cache name -> "Core release not ready" -> navigation
+503 with the exact reported fallback text. The test observed one skipWaiting
+and the deletion of the future core cache. The repaired real-browser regression
+also observed the exact v53 worker deleting the new staging cache.
+
+This proves a SOURCE defect and a matching synthetic failure path. No native
+iPhone diagnostic trace was available, so it does NOT prove that this was the
+unique initiating cause on the physical phone. Other cache loss/intermediate
+states lead to the same old fallback. Merely increasing timeouts would not
+repair an unlinked cache or advance a stalled handshake.
+
+LIFECYCLE REPAIR
+1. Core readiness requires a matching generation marker and all required keys.
+   Every new download and every reused entry during repair is SHA-256 checked.
+   Generation-addressed execution and script/style integrity remain enforced.
+2. Install/repair is shared by concurrent callers. Completion is reopened by
+   cache name; one bounded retry handles a legacy worker unlinking staging.
+3. Activation verifies/repairs the core before claiming clients. Navigation can
+   repair missing current core, or return an actionable recovery document.
+4. Failed partial downloads remain unreadable, available for a verified retry.
+   No incomplete generation is declared ready or substituted with old bytes.
+5. Cleanup considers only same-role caches present before installation, after
+   all live controlled clients report readiness. Future staging caches are not
+   swept. A worker restart loses the in-memory predecessor list and safely
+   defers cleanup; it may retain extra caches until a later installation.
+6. Bootstrap observes installing/waiting/active transitions and controllerchange.
+   It rejects stale replies and rechecks controller identity after registration
+   lookup. A new page waits for a pending successor instead of reloading back
+   into a ready old controller. Startup checks control again before revealing.
+7. Retry rechecks registration, calls update(), resumes waiting/current workers,
+   and polls readiness/control within the existing bound. Resume verifies the
+   core before skipWaiting. Concurrent retries share work. Partial execution
+   requires readiness before one explicit reload; modules are not replayed.
+8. Failed navigation returns HTML with Retry using registration/update/resume and
+   controller readiness, rather than a terminal plain-text document. It runs no
+   application modules and distinguishes offline state from an unfinished or
+   failed download/preparation. No automatic reload loop is introduced.
+
+The original 20-second handshake, 1.5-second message timeout and 15-second fetch
+timeout were not increased. No navigation preload is used. The data cache is
+created lazily for optional assets; absence before core readiness is valid.
+
+DATA AND SCOPE
+The update implementation accesses no localStorage, sessionStorage or IndexedDB,
+and never unregisters a worker, clears user storage, resets a profile or requires
+reinstallation. Prior coherent caches remain usable during a normal download.
+No Product Capture, qualifier, serving, As Prepared, date, catalogue, identity,
+private-serving-overlay or storage-namespace implementation changed. Every
+non-index core file hash and both role hash maps equal accepted SOURCE HEAD.
+Browser retention checks cover profile/name/weight, custom foods, saved-food IDs,
+Diary, private serving evidence and a synthetic IndexedDB sentinel. Tests used
+disposable profiles and synthetic fixtures only, with no reseed after upgrade.
+
+FOCUSED VALIDATION
+node --test tests/release-coherence.test.js tests/release-update-lifecycle.test.js tests/stage9-release-integration.test.js
+Result: 52 tests passed, 0 failed (15 coherence + 14 delayed/recovery + 23 release).
+
+Delayed scenarios:
+A. Delayed install: no early readiness, skipWaiting or application execution.
+B. Waiting successor under old controller: resume, then wait for correct control.
+C. Controllerchange after the original 20-second bound: paused page resumes.
+D. Core exists before lazy data cache: valid; missing required key is not ready.
+E. Completion after initial readiness failure: subsequent polling/Retry succeeds.
+F. Concurrent Retry during progress: joins repair; no premature reload.
+G. Navigation/cache loss and reopen during install: coherent repair/recovery.
+H. Synthetic records survive normal, delayed, reopened and offline states.
+Additional checks cover wrong bytes, failed requests, activation-time cache loss,
+legacy cleanup, stale controller replies, partial startup and recovery-HTML Retry.
+
+Final persistent browser gate: scripts/audit_pwa_update_readiness.js
+3/3 scenarios passed: normal v53 upgrade (390 px), delayed legacy cleanup race
+with reopen during installation (320 px), and fresh candidate load (390 px).
+Both upgrades include ordinary close/reopen online and offline, no destructive
+storage calls, no runtime page errors and coherent visible page/core/controller.
+Prior core/index/worker/manifest bytes were compared directly to exact TEST v53
+commit 06c4db8e6d047a701b54a863fc75f9780083821b; not a rebuilt approximation.
+Prior generation: b6a77c86637654bcabea84b7.
+Final evidence:
+C:\Users\mlwes\AppData\Local\Temp\hec-pwa-update-final-4712f54fcbe54381bf9cfb69c31e8d15\results.json
+The accompanying config.json and screenshots are synthetic local evidence.
+
+WebKit: NOT RUN. Playwright exists, but its WebKit executable is not installed:
+C:\Users\mlwes\AppData\Local\ms-playwright\webkit-2336\Playwright.exe
+Edge used mobile viewports, touch, persistent disk profiles and a synthetic
+navigator.standalone flag. This does not emulate native iOS Home Screen lifecycle;
+even desktop WebKit would not prove physical installed-iPhone acceptance.
+
+Syntax checks passed for both editable runtime files, generated worker, browser
+harness and all five changed test/helper JavaScript files. Release build --check
+and git diff --check passed. Unrelated full repository suites were not run.
+
+RELEASE AND FILES
+Normal deterministic command: node scripts/build_release.js
+Generation before: 7cef3085aa7868d7ce517e68
+Generation after:  e9f3ff4ddcc889187226ef36
+Visible version: 0.6.33 (unchanged). No manual generation edits.
+Expected repaired TEST cache suffix: e9f3ff4ddcc889187226ef36, when later deployed.
+Current deployed TEST generation remains the supplied 7cef3085aa7868d7ce517e68.
+
+Editable implementation: release-bootstrap.js; scripts/service-worker.template.js.
+Generated: index.html; service-worker.js; release-manifest.json.
+Tests/helpers: tests/release-update-lifecycle.test.js; tests/release-worker-context.js;
+tests/release-coherence.test.js; tests/deployment-test-context.js;
+tests/stage9-release-integration.test.js; scripts/audit_pwa_update_readiness.js.
+Documentation: PWA_RELEASE_COHERENCE.md; PWA_UPDATE_REPAIR_REPORT.txt.
+Existing cache-cleanup fixtures now create predecessor caches before installation,
+matching the corrected contract; the same-role and all-client guards remain tested.
+
+COMMIT AND EXTERNAL STATE
+Exactly one local SOURCE commit is authorized, subject:
+Repair installed PWA update readiness
+Direct parent must remain fd0a0fbee5a3bccb138c88a4bab7282aa1531abe.
+The final chat report records its SHA and post-commit clean status; this document
+is included in that commit. The accepted parent is not amended.
+
+Nothing pushed or deployed. No TEST or My Data deployment writes performed.
+TEST remains at the supplied v54 SHA d604b1090731b651f37fba93fce239e7c2e96ef1.
+My Data remains at the supplied SHA 120714d2d31bdc610039dbe70ce0fb6d3c9df6e0.
+These remote states were not independently re-queried; this work changed neither.
+No personal data or backups accessed. No physical phone clearing, cache clearing,
+unregistration, reset or reinstallation was performed or prescribed.

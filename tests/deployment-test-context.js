@@ -63,10 +63,10 @@ function assertCacheDeclaration(assert,worker,app){
   assert(worker.includes('CACHE_PREFIX}-core-'));return details;
 }
 async function assertCacheActivation(assert,worker,app){
-  assertCacheDeclaration(assert,worker,app);const w=require('./release-worker-context').workerContext({role:app.installationRole});await w.run('install');
+  assertCacheDeclaration(assert,worker,app);const w=require('./release-worker-context').workerContext({role:app.installationRole});
   const obsolete=app.cachePrefix+'-old',opposite=(app.installationRole==='test'?INSTALLATIONS['my-data']:INSTALLATIONS.test).cachePrefix+'-old';
   for(const key of [obsolete,opposite,'unrelated-cache'])await w.cache.open(key);
-  await w.run('activate');assert.deepEqual(w.events.deleted,[]);await w.message('HEC_RELEASE_CLIENT_READY');
+  await w.run('install');await w.run('activate');assert.deepEqual(w.events.deleted,[]);await w.message('HEC_RELEASE_CLIENT_READY');
   assert.deepEqual(w.events.deleted,[obsolete]);assert.equal(w.events.claimed,1);
 }
 
