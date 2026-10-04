@@ -36,7 +36,7 @@ async function run({outputDirectory=fs.mkdtempSync(path.join(os.tmpdir(),'hec-hj
       await submit(page,query);
       // Hash Brown and Burger offer a source chooser. Chips, chicken burgers
       // and nuggets expose the restaurant identity in submitted result groups.
-      if(['Hash Brown','Burger'].includes(query)){await page.locator('[data-fc-base]').click();const expand=page.locator('[data-fc-narrow]');if(await expand.count())await expand.click();await page.locator('[data-fc-answer="sourceContext"][data-fc-value="ready-to-eat"]').click();await settled(page);}
+      if(['Hash Brown','Burger'].includes(query)){await page.locator('[data-fc-base]').click();const expand=page.locator('[data-fc-narrow]');if(await expand.count())await expand.click();const generic=page.locator('[data-fc-answer="catalogueOrigin"][data-fc-value="generic"]');if(await generic.count())await generic.click();await page.locator('[data-fc-answer="sourceContext"][data-fc-value="ready-to-eat"]').click();await settled(page);}
       if(query==='Chips'){
         // Generic Chips has a bounded, diverse shortlist, not a promised size.
         // The 703f230 baseline placed Medium fifth; verified retailer evidence

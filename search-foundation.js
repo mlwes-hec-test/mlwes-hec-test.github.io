@@ -390,7 +390,7 @@
     {id:'apple-dessert',parent:'dessert',related:['apple'],match:/\bapple (?:pie|crumble|cake|turnover|sauce|puree)\b/},
     {id:'composed-hash-brown',parent:'meal',related:['hash-brown'],match:/\bhash ?brown\b.*\b(?:quiche|meal|burger|muffin|wrap|breakfast|bowl)\b|\b(?:quiche|meal|burger|muffin|wrap|breakfast|bowl)\b.*\bhash ?brown\b/},
     {id:'composed-rice',parent:'meal',related:['rice'],match:/\b(?:fried rice|rice pudding|rice cake|risotto|sushi)\b|^rice .*\bwith\b/},
-    {id:'composed-chicken',parent:'meal',related:['chicken'],match:/\bchicken\b.*\b(?:pie|burger|nugget|soup|curry|pizza|wrap|salad|sandwich|flavoured|flavored|noodle|tender|popcorn)\b|\b(?:pie|soup|curry|pizza|salad)\b.*\bchicken\b/},
+    {id:'composed-chicken',parent:'meal',related:['chicken'],match:/\bchicken\b.*\b(?:pie|burger|nugget|soup|stock|broth|bouillon|curry|pizza|wrap|salad|sandwich|flavour|flavor|flavoured|flavored|noodle|tender|popcorn)\b|\b(?:pie|soup|stock|broth|bouillon|curry|pizza|salad)\b.*\bchicken\b/},
     {id:'yoghurt-containing-food',parent:'meal',related:['yoghurt'],match:/\b(?:yoghurt|yogurt)\b.*\b(?:coated|dressing|bar|cake|raisin)\b|\b(?:dressing|cake|raisin)\b.*\byog(?:h)?urt\b/}
   ]);
   const SEMANTIC_HEADS=Object.freeze([
@@ -412,6 +412,9 @@
     // category. Ingredient words in a proprietary name must not redefine it.
     const declared=food?.foodSourceId&&food?.sourceProvenance?.trustClass==='official-au-restaurant'&&food?.productSemantics?.type!=='configurable-bundle'&&FOOD_CONCEPT_REGISTRY[food?.sourceConceptId];
     if(declared)return {conceptId:food.sourceConceptId,parentId:declared.parent||'',related:[],form:declared.form,confidence:'high',evidence:'official-source-product-category'};
+    // AFCD's structured savoury-biscuit heading describes the complete food;
+    // later rice/corn/flavour words must not replace that cracker identity.
+    if(conceptReference(food)&&/^biscuit savoury$/.test(conceptNorm(String(food.name||'').split(',').slice(0,2).join(' '))))return {conceptId:'cracker',parentId:'',related:[],form:FOOD_CONCEPT_REGISTRY.cracker.form,confidence:'high',evidence:'source-head-and-food-form'};
     for(const compound of COMPOUND_CONCEPTS)if(compound.match.test(name))return {conceptId:compound.id,parentId:compound.parent,related:compound.related||[compound.parent],excluded:!!compound.excluded,confidence:'high',evidence:'compound-identity'};
     if(!conceptReference(food))for(const head of SEMANTIC_HEADS)if(head.name.test(name)||(food?.categories||[]).some(category=>head.categories.test(conceptNorm(category))))return {conceptId:head.id,parentId:'prepared-food',related:[],confidence:'high',evidence:'specific-semantic-head'};
     // In a composed dish, the ingredient word cannot redefine the dish's head.

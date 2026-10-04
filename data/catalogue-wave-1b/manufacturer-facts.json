@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "sourceType": "official-au-manufacturer",
+  "sourceId": "campbells-au",
+  "recordId": "NHj22P0BEMK27UsHVRzcX",
+  "provenance": {
+    "url": "https://www.campbellsanz.com/products/stock/chicken-1litre",
+    "finalUrl": "https://www.campbellsanz.com/products/stock/chicken-1litre",
+    "status": 200,
+    "retrievedAt": "2026-10-04T05:34:55.276Z",
+    "sha256": "96f3b10a1b847ffbfd8b40b19b66c0d23f96034ff8573012b29c0285a19b942c",
+    "bytes": 209735,
+    "contentType": "text/html; charset=utf-8"
+  },
+  "sourceContentUpdatedAt": "2024-03-25T10:33:04.171Z",
+  "nutritionContentUpdatedAt": "2024-03-18T06:55:35.654Z",
+  "dateNote": "Source CMS modification dates, not asserted formulation or publication dates.",
+  "title": "Chicken - 1 Litre",
+  "displayName": "Campbell's Real Stock Chicken 1litre",
+  "brand": "Campbell's",
+  "packLabel": "1litre",
+  "ingredients": "Chicken Stock (98%) (Water, Chicken, Carrots, Celery, Cabbage, Onions, Parsley, Sage Extract, Natural Antioxidant (Rosemary Extract)), Salt, Sugar, Glucose, Yeast Extract.",
+  "nutrition": {
+    "name": "stock > Chicken Original - 1litre",
+    "servingSize": "250ml",
+    "servesPerPackage": "4",
+    "energyPerServe": 87,
+    "energyPer100g": 35,
+    "proteinPerServe": 2.1,
+    "proteinPer100g": 0.8,
+    "fatPerServe": 0.1,
+    "fatPer100g": 0.1,
+    "saturatedFatPerServe": 0.1,
+    "saturatedFatPer100g": 0.1,
+    "carbohydratesPerServe": 2.9,
+    "carbohydratesPer100g": 1.1,
+    "sugarsPerServe": 2.8,
+    "sugarsPer100g": 1.1,
+    "sodiumPerServe": 1118,
+    "sodiumPer100g": 447
+  },
+  "australianRetailerLinks": [
+    {
+      "name": "Chicken 1L - AUS - WW",
+      "url": "https://www.woolworths.com.au/shop/productdetails/77750/campbell-s-real-stock-chicken-liquid-stock"
+    },
+    {
+      "name": "Chicken 1L - AUS - Coles",
+      "url": "https://www.coles.com.au/product/campbell's-real-stock-chicken-stock-1l-8157935"
+    },
+    {
+      "name": "Chicken1L - AUS - IGA",
+      "url": "https://www.igashop.com.au/product/campbells-real-chicken-liquid-stock-325484"
+    }
+  ],
+  "privateTestingApproved": false,
+  "publicReleaseReviewRequired": true
+}

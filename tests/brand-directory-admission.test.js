@@ -29,7 +29,7 @@ test('failed generated shard loading cannot substitute a cached or manufacturer-
 });
 
 test('every generated brand directory has exactly its admitted identities across all pages and categories',async()=>{
-  assert.deepEqual([B.index.entries.length,B.index.brands.length,B.index.categories.length],[7489,2736,20]);
+  assert.deepEqual([B.index.entries.length,B.index.brands.length,B.index.categories.length],[7491,2736,20]);
   for(const brand of B.index.brands){
     const expected=B.index.entries.filter(e=>e.brandKeys.includes(brand.key));
     const actual=[];
@@ -41,7 +41,7 @@ test('every generated brand directory has exactly its admitted identities across
 });
 
 test('priority counts, source spellings, Hash Browns membership and exact products remain admitted',async()=>{
-  for(const [key,count] of [['kelloggs',43],['mccain',108],['campbells',10],['nescafe',6]])assert.equal(B.directory(key).total,count);
+  for(const [key,count] of [['kelloggs',43],['mccain',108],['campbells',11],['nescafe',6]])assert.equal(B.directory(key).total,count);
   assert.equal(B.directory('pmu'),null);
   for(const query of ['McCain','Mccain','MCCAIN'])assert.equal(B.recognise(query).brand.key,'mccain');
   for(const [query,id] of [['McCain Hash Browns','off:9310174025084'],["Kellogg's Corn Flakes",'off:8801083672700'],["Campbell’s Chunky Beef & Veg",'off:9300644700702'],['Nescafé Café Nescafé Gold Original','off:93625302']])assert((await B.search(query)).foods.some(f=>C.canonicalKey(f)==='barcode:'+id.slice(4)),query);

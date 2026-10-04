@@ -42,7 +42,7 @@
     for(const category of foodCategories.values())postings.set(category.id,all.filter(group=>group.categories.has(category.id)));
     for(const group of all)for(const concept of group.commercialConcepts){const list=commercial.get(concept)||[];list.push(group);commercial.set(concept,list);}
     const searchPostings=new Map();
-    for(const group of searchable){const searchRows=group.ids.map(id=>rows.get(id));group.privateIdentity=searchRows.some(row=>conceptMembership(row,{retailer:registered}));group.searchNames=searchRows.flatMap(row=>[row.name,...(row.aliases||[])]).filter(Boolean).map(C.norm);const tokens=new Set(searchRows.flatMap(row=>searchTokens([row.name,row.brand,...(row.aliases||[]),row.barcode,...((retailer.collectionMode==='source-declared-store'||retailer.id==='aldi'&&retailer.collectionMode==='private-testing-evidence')?[...registered.aliases,...(row.conceptIds||[]).flatMap(id=>SEARCH.foodConceptRegistry[id]?.aliases||[id])]:[])].join(' '))));for(const token of tokens){const list=searchPostings.get(token)||new Set();list.add(group);searchPostings.set(token,list);}}
+    for(const group of searchable){const searchRows=group.ids.map(id=>rows.get(id));group.privateIdentity=searchRows.some(row=>conceptMembership(row,{retailer:registered}));group.searchNames=searchRows.flatMap(row=>[row.name,...(row.aliases||[])]).filter(Boolean).map(C.norm);const tokens=new Set(searchRows.flatMap(row=>searchTokens([row.name,row.brand,...(row.aliases||[]),row.barcode,...((retailer.collectionMode==='source-declared-store'||conceptMembership(row,{retailer:registered}))?[...registered.aliases,...(row.conceptIds||[]).flatMap(id=>SEARCH.foodConceptRegistry[id]?.aliases||[id])]:[])].join(' '))));for(const token of tokens){const list=searchPostings.get(token)||new Set();list.add(group);searchPostings.set(token,list);}}
     for(const [key,food] of loadedFoods)if(browseMembership(food,{retailer}).length)loadedFoods.delete(key);
     catalogues.set(retailer.id,{retailer:registered,selectableOnly,categories:foodCategories,rows,postings,commercial,searchPostings,loadRecords,cache:new Map()});revision++;
     return {retailerId:retailer.id,products:all.length,evidenceRows:rows.size};
@@ -50,9 +50,9 @@
   function unregisterCatalogue(id){if(catalogues.delete(id)){revision++;for(const [key,food] of loadedFoods)if(C.retailerMembership(food,id).length||C.sourceDeclaredRetailerMembership(food,id).length||C.privateLabelCollectionMembership(food,id).length)loadedFoods.delete(key);}}
   function commercialOptions(conceptId){return [...catalogues.values()].filter(value=>value.commercial.get(conceptId)?.length).map(value=>({id:value.retailer.id,label:value.retailer.name,count:value.commercial.get(conceptId).length}));}
   function conceptSourceQuestion(session){
-    // Hash Brown already has a complete source-context question, including
-    // packaged/frozen. Preserve that accepted source decision and Back path.
-    if(session.conceptId==='hash-brown')return null;
+    // Concepts with their own complete source chooser must not first be locked
+    // to generic-only records, which would empty their later restaurant branch.
+    if(SEARCH.foodConceptRegistry[session.conceptId]?.facets.includes('sourceContext'))return null;
     const known=session.known||{},options=commercialOptions(session.conceptId);
     const brandOptions=global.HECBrandCatalogue?.conceptBrands(session.conceptId)||[];
     if(known.breadSource==='brand'||known.catalogueSource==='brand')return {key:'brandIdentity',question:'Which brand?',options:brandOptions.map(b=>({value:b.key,label:`${b.name} (${b.count})`})),reason:'audited-concept-brand-membership'};
@@ -105,12 +105,14 @@
   }
   async function search(query,{offset=0,limit=PAGE_SIZE,isCurrent=()=>true}={}){
     const generation=revision,current=()=>isCurrent()&&generation===revision,tokens=[...new Set(searchTokens(query))],matches=[],normalisedQuery=C.norm(query),privateIntent=[...catalogues.values()].find(source=>source.retailer.aliases.some(alias=>normalisedQuery.startsWith(C.norm(alias)+' ')));
+    const productQuery=privateIntent?SEARCH.conceptNorm(C.queryIntent(query).productQuery):'',scopedConcept=privateIntent?Object.entries(SEARCH.foodConceptRegistry).find(([,concept])=>concept.aliases.some(alias=>SEARCH.conceptNorm(alias)===productQuery))?.[0]:null;
+    const scopedMatch=row=>!scopedConcept||SEARCH.conceptCompatibility(row,scopedConcept).compatible||SEARCH.foodConceptEvidence(row).conceptId==='unknown'&&(row.conceptIds||[]).includes(scopedConcept);
     const start=Math.max(0,Math.floor(Number(offset)||0)),size=Math.min(PAGE_SIZE,Math.max(1,Math.floor(Number(limit)||PAGE_SIZE)));
     if(!tokens.length||!current())return {query,total:0,offset:start,hasMore:false,foods:[]};
     for(const source of catalogues.values()){
       if(privateIntent&&source!==privateIntent)continue;
       const lists=tokens.map(token=>source.searchPostings.get(token));if(lists.some(list=>!list))continue;
-      const smallest=[...lists].sort((a,b)=>a.size-b.size)[0],normalised=C.norm(query);for(const group of smallest)if((!privateIntent||group.privateIdentity)&&lists.every(list=>list.has(group)))matches.push({source,group,score:group.searchNames.some(name=>name===normalised)?2:group.searchNames.some(name=>name.startsWith(normalised))?1:0});
+      const smallest=[...lists].sort((a,b)=>a.size-b.size)[0],normalised=C.norm(query);for(const group of smallest)if((!privateIntent||group.privateIdentity)&&lists.every(list=>list.has(group))&&group.ids.some(id=>scopedMatch(source.rows.get(id))))matches.push({source,group,score:group.searchNames.some(name=>name===normalised)?2:group.searchNames.some(name=>name.startsWith(normalised))?1:0});
     }
     matches.sort((a,b)=>b.score-a.score||a.group.key.localeCompare(b.group.key));const seen=new Set(),unique=matches.filter(m=>{if(seen.has(m.group.key))return false;seen.add(m.group.key);return true;});const selected=unique.slice(start,start+size),bySource=new Map(),foods=[];
     for(const {source,group} of selected){const groups=bySource.get(source)||[];groups.push(group);bySource.set(source,groups);}

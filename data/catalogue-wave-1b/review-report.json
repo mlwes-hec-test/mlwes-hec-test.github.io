@@ -1,0 +1,3154 @@
+{
+  "schemaVersion": 1,
+  "wave": "1B",
+  "startingHead": "73b6ec8186c56054244afb62c9c974c3c6d92fe6",
+  "candidateCount": 46,
+  "groups": {
+    "A": {
+      "reviewed": 15,
+      "newlyAdmitted": 0,
+      "previouslyAdmittedImproved": 0,
+      "recategorised": 0,
+      "remainsRestricted": 15,
+      "deferred": 0,
+      "canonicalOverlaps": 15
+    },
+    "B": {
+      "reviewed": 24,
+      "newlyAdmitted": 0,
+      "previouslyAdmittedImproved": 24,
+      "recategorised": 24,
+      "remainsRestricted": 0,
+      "deferred": 0,
+      "canonicalOverlaps": 24
+    },
+    "C": {
+      "reviewed": 4,
+      "newlyAdmitted": 1,
+      "previouslyAdmittedImproved": 0,
+      "recategorised": 0,
+      "remainsRestricted": 0,
+      "deferred": 3,
+      "canonicalOverlaps": 2
+    },
+    "D": {
+      "reviewed": 3,
+      "newlyAdmitted": 1,
+      "previouslyAdmittedImproved": 0,
+      "recategorised": 0,
+      "remainsRestricted": 0,
+      "deferred": 2,
+      "canonicalOverlaps": 3
+    }
+  },
+  "newCanonicalIdentities": 1,
+  "admitted": 2,
+  "reviews": [
+    {
+      "candidateId": "barcode:9300633209339",
+      "groups": [
+        "A"
+      ],
+      "canonicalKey": "barcode:9300633209339",
+      "name": "Woolworths Cracker Selection 250g",
+      "brand": "Woolworths",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": false,
+      "beforeStatus": "needs-nutrition-completion",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "disposition": "remains-restricted",
+      "reason": "source-conflict",
+      "additionalHolds": [
+        "source-conflict",
+        "unresolved-material-evidence"
+      ],
+      "beforeReason": "source-conflict",
+      "afterStatus": "needs-nutrition-completion",
+      "conflicts": [
+        {
+          "code": "pack-serving-count-conflict",
+          "field": "serving",
+          "severity": "material",
+          "evidence": {
+            "serve": {
+              "amount": 20,
+              "unit": "g"
+            },
+            "pack": {
+              "amount": 250,
+              "unit": "g"
+            },
+            "count": 12
+          }
+        }
+      ],
+      "evidence": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/355265",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/355265",
+        "retrievedAt": "2026-10-04T05:32:24.167Z",
+        "sha256": "94a0352c52d1a1b51d0c1d0f75410d6bfcb3051501e7c70a2ee20a0c926b37c6",
+        "responseBytes": 715701,
+        "contentType": "text/html; charset=utf-8"
+      }
+    },
+    {
+      "candidateId": "barcode:9300633350079",
+      "groups": [
+        "A"
+      ],
+      "canonicalKey": "barcode:9300633350079",
+      "name": "Woolworths Essentials Long Grain Rice 1kg",
+      "brand": "Woolworths Essentials",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": true,
+      "beforeStatus": "needs-nutrition-completion",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "disposition": "remains-restricted",
+      "reason": "identity-conflict",
+      "additionalHolds": [
+        "identity-conflict",
+        "unresolved-material-evidence"
+      ],
+      "beforeReason": "identity-conflict",
+      "afterStatus": "needs-nutrition-completion",
+      "conflicts": [
+        {
+          "code": "same-gtin-identity-conflict",
+          "field": "identity",
+          "severity": "material",
+          "resolution": "unresolved",
+          "fields": [
+            "brand"
+          ],
+          "evidence": {
+            "left": {
+              "recordId": "woolworths-au:35007",
+              "brand": "Woolworths Essentials",
+              "name": "Woolworths Essentials Long Grain Rice 1kg",
+              "barcode": "9300633350079",
+              "pack": {
+                "amount": 1000,
+                "unit": "g"
+              },
+              "physicalForm": "weight",
+              "variantAttributes": {
+                "packCount": null
+              },
+              "source": {
+                "sourceId": "woolworths-au-public",
+                "recordId": "35007",
+                "url": "https://www.woolworths.com.au/shop/productdetails/35007",
+                "trustClass": "official-au-retailer",
+                "trustRank": 2,
+                "retrievedAt": "2026-10-04T05:32:25.416Z",
+                "verifiedAt": null,
+                "publishedDate": null,
+                "page": null,
+                "sha256": "c25ff4122411cf3312b1cece41a281823911f1024d49c2b08c48ab0b002ee12e",
+                "market": "AU",
+                "sourceType": "packaged"
+              },
+              "titleAttributes": {
+                "family": "rice",
+                "pack": {
+                  "amount": 1000,
+                  "unit": "g"
+                }
+              }
+            },
+            "right": {
+              "recordId": "off:9300633350079",
+              "brand": "essentials",
+              "name": "Long Grain White Rice",
+              "barcode": "9300633350079",
+              "pack": "1 kg",
+              "physicalForm": "weight",
+              "variantAttributes": {},
+              "source": {
+                "sourceId": "off:9300633350079",
+                "recordId": "off:9300633350079",
+                "url": "http://world-en.openfoodfacts.org/product/9300633350079/long-grain-white-rice-essentials",
+                "trustClass": "open-food-facts-au",
+                "trustRank": 4,
+                "retrievedAt": null,
+                "verifiedAt": null,
+                "publishedDate": null,
+                "page": null,
+                "sha256": "dba1b5e10d4803e10ee2be6aa4d01d1a3f786a4f5c6747a30808ebaa533329a6",
+                "market": "AU",
+                "sourceType": "external-catalogue"
+              },
+              "titleAttributes": {
+                "family": "rice",
+                "riceType": "white"
+              }
+            }
+          }
+        },
+        {
+          "code": "same-gtin-identity-conflict",
+          "field": "identity",
+          "severity": "material",
+          "resolution": "unresolved",
+          "fields": [
+            "brand"
+          ],
+          "evidence": {
+            "left": {
+              "recordId": "woolworths-au:35007",
+              "brand": "Woolworths Essentials",
+              "name": "Woolworths Essentials Long Grain Rice 1kg",
+              "barcode": "9300633350079",
+              "pack": {
+                "amount": 1000,
+                "unit": "g"
+              },
+              "physicalForm": "weight",
+              "variantAttributes": {
+                "packCount": null
+              },
+              "source": {
+                "sourceId": "woolworths-au-public",
+                "recordId": "35007",
+                "url": "https://www.woolworths.com.au/shop/productdetails/35007",
+                "trustClass": "official-au-retailer",
+                "trustRank": 2,
+                "retrievedAt": "2026-09-12T12:26:42.553Z",
+                "verifiedAt": null,
+                "publishedDate": null,
+                "page": null,
+                "sha256": "cb3730569dc1aaddd9809efe28648706ebe8e005ef96ffe3e7b46ff8cc52bda8",
+                "market": "AU",
+                "sourceType": "packaged"
+              },
+              "titleAttributes": {
+                "family": "rice",
+                "pack": {
+                  "amount": 1000,
+                  "unit": "g"
+                }
+              }
+            },
+            "right": {
+              "recordId": "off:9300633350079",
+              "brand": "essentials",
+              "name": "Long Grain White Rice",
+              "barcode": "9300633350079",
+              "pack": "1 kg",
+              "physicalForm": "weight",
+              "variantAttributes": {},
+              "source": {
+                "sourceId": "off:9300633350079",
+                "recordId": "off:9300633350079",
+                "url": "http://world-en.openfoodfacts.org/product/9300633350079/long-grain-white-rice-essentials",
+                "trustClass": "open-food-facts-au",
+                "trustRank": 4,
+                "retrievedAt": null,
+                "verifiedAt": null,
+                "publishedDate": null,
+                "page": null,
+                "sha256": "dba1b5e10d4803e10ee2be6aa4d01d1a3f786a4f5c6747a30808ebaa533329a6",
+                "market": "AU",
+                "sourceType": "external-catalogue"
+              },
+              "titleAttributes": {
+                "family": "rice",
+                "riceType": "white"
+              }
+            }
+          }
+        }
+      ],
+      "evidence": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/35007",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/35007",
+        "retrievedAt": "2026-10-04T05:32:25.416Z",
+        "sha256": "c25ff4122411cf3312b1cece41a281823911f1024d49c2b08c48ab0b002ee12e",
+        "responseBytes": 743937,
+        "contentType": "text/html; charset=utf-8"
+      }
+    },
+    {
+      "candidateId": "barcode:9300633415266",
+      "groups": [
+        "A"
+      ],
+      "canonicalKey": "barcode:9300633415266",
+      "name": "Woolworths Peas 500g",
+      "brand": "Woolworths",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": false,
+      "beforeStatus": "needs-nutrition-completion",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "disposition": "remains-restricted",
+      "reason": "source-conflict",
+      "additionalHolds": [
+        "missing-required-fat",
+        "qualified-serving-bound-needs-review",
+        "source-conflict",
+        "unresolved-material-evidence"
+      ],
+      "beforeReason": "source-conflict",
+      "afterStatus": "needs-nutrition-completion",
+      "conflicts": [
+        {
+          "code": "pack-serving-count-conflict",
+          "field": "serving",
+          "severity": "material",
+          "evidence": {
+            "serve": {
+              "amount": 75,
+              "unit": "g"
+            },
+            "pack": {
+              "amount": 500,
+              "unit": "g"
+            },
+            "count": 6
+          }
+        }
+      ],
+      "evidence": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/754170",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/754170",
+        "retrievedAt": "2026-10-04T05:32:26.613Z",
+        "sha256": "f98bc0946e2b51f7dbf93c540576854825da046a3b6405e8814ef1e1cb11a1e8",
+        "responseBytes": 741737,
+        "contentType": "text/html; charset=utf-8"
+      }
+    },
+    {
+      "candidateId": "barcode:9300633417895",
+      "groups": [
+        "A"
+      ],
+      "canonicalKey": "barcode:9300633417895",
+      "name": "Woolworths Lightly Sparkling Spring Water 1.25L",
+      "brand": "Woolworths",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": false,
+      "beforeStatus": "needs-nutrition-completion",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "disposition": "remains-restricted",
+      "reason": "energy-missing",
+      "additionalHolds": [
+        "missing-required-calories",
+        "missing-required-protein",
+        "missing-required-carbs",
+        "missing-required-fat",
+        "energy-missing"
+      ],
+      "beforeReason": "energy-missing",
+      "afterStatus": "needs-nutrition-completion",
+      "conflicts": [],
+      "evidence": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/756086",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/756086",
+        "retrievedAt": "2026-10-04T05:32:27.878Z",
+        "sha256": "7e3b1261e57dbddb3ff17913f08b4031fe3e157334a9e72251a0e3e6d54742fe",
+        "responseBytes": 694972,
+        "contentType": "text/html; charset=utf-8"
+      }
+    },
+    {
+      "candidateId": "barcode:9300633744182",
+      "groups": [
+        "A"
+      ],
+      "canonicalKey": "barcode:9300633744182",
+      "name": "Woolworths Vanilla Ice Cream Sandwich 4 pack",
+      "brand": "Woolworths",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": true,
+      "beforeStatus": "needs-nutrition-completion",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "disposition": "remains-restricted",
+      "reason": "identity-conflict",
+      "additionalHolds": [
+        "identity-conflict",
+        "unresolved-material-evidence"
+      ],
+      "beforeReason": "identity-conflict",
+      "afterStatus": "needs-nutrition-completion",
+      "conflicts": [
+        {
+          "code": "same-gtin-identity-conflict",
+          "field": "identity",
+          "severity": "material",
+          "resolution": "unresolved",
+          "fields": [
+            "title-family",
+            "productFamily"
+          ],
+          "evidence": {
+            "left": {
+              "recordId": "woolworths-au:830211",
+              "brand": "Woolworths",
+              "name": "Woolworths Vanilla Ice Cream Sandwich 4 pack",
+              "barcode": "9300633744182",
+              "pack": "4 pack",
+              "physicalForm": "countable",
+              "variantAttributes": {
+                "packCount": 4
+              },
+              "source": {
+                "sourceId": "woolworths-au-public",
+                "recordId": "830211",
+                "url": "https://www.woolworths.com.au/shop/productdetails/830211",
+                "trustClass": "official-au-retailer",
+                "trustRank": 2,
+                "retrievedAt": "2026-10-04T05:32:28.926Z",
+                "verifiedAt": null,
+                "publishedDate": null,
+                "page": null,
+                "sha256": "49d4f1f2a25cb94978e289cb5f1edb91a89e8d4634b9a0b796e08ae4392fb25c",
+                "market": "AU",
+                "sourceType": "packaged"
+              },
+              "titleAttributes": {
+                "family": "sandwich",
+                "flavour": "vanilla",
+                "count": 4
+              }
+            },
+            "right": {
+              "recordId": "off:9300633744182",
+              "brand": "Woolworths",
+              "name": "Vanilla classic ice cream sandwhiches",
+              "barcode": "9300633744182",
+              "pack": null,
+              "physicalForm": "unknown",
+              "variantAttributes": {},
+              "source": {
+                "sourceId": "off:9300633744182",
+                "recordId": "off:9300633744182",
+                "url": "http://world-en.openfoodfacts.org/product/9300633744182/vanilla-classic-ice-cream-sandwhiches-woolworths",
+                "trustClass": "open-food-facts-au",
+                "trustRank": 4,
+                "retrievedAt": null,
+                "verifiedAt": null,
+                "publishedDate": null,
+                "page": null,
+                "sha256": "f7a195c26d0fd422ed6a4803b5370ac717b5d40a3fc446cb2bd5b17ced4a761a",
+                "market": "AU",
+                "sourceType": "external-catalogue"
+              },
+              "titleAttributes": {
+                "family": "frozen-dessert",
+                "flavour": "vanilla",
+                "dietaryVariant": "regular"
+              }
+            }
+          }
+        },
+        {
+          "code": "same-gtin-identity-conflict",
+          "field": "identity",
+          "severity": "material",
+          "resolution": "unresolved",
+          "fields": [
+            "title-family",
+            "productFamily"
+          ],
+          "evidence": {
+            "left": {
+              "recordId": "woolworths-au:830211",
+              "brand": "Woolworths",
+              "name": "Woolworths Vanilla Ice Cream Sandwich 4 pack",
+              "barcode": "9300633744182",
+              "pack": "4 pack",
+              "physicalForm": "countable",
+              "variantAttributes": {
+                "packCount": 4
+              },
+              "source": {
+                "sourceId": "woolworths-au-public",
+                "recordId": "830211",
+                "url": "https://www.woolworths.com.au/shop/productdetails/830211",
+                "trustClass": "official-au-retailer",
+                "trustRank": 2,
+                "retrievedAt": "2026-09-12T12:31:26.721Z",
+                "verifiedAt": null,
+                "publishedDate": null,
+                "page": null,
+                "sha256": "4034308b75e65bd35aab3f3ae07769a51033f33adaa719eaf70b5736aee3a0bf",
+                "market": "AU",
+                "sourceType": "packaged"
+              },
+              "titleAttributes": {
+                "family": "sandwich",
+                "flavour": "vanilla",
+                "count": 4
+              }
+            },
+            "right": {
+              "recordId": "off:9300633744182",
+              "brand": "Woolworths",
+              "name": "Vanilla classic ice cream sandwhiches",
+              "barcode": "9300633744182",
+              "pack": null,
+              "physicalForm": "unknown",
+              "variantAttributes": {},
+              "source": {
+                "sourceId": "off:9300633744182",
+                "recordId": "off:9300633744182",
+                "url": "http://world-en.openfoodfacts.org/product/9300633744182/vanilla-classic-ice-cream-sandwhiches-woolworths",
+                "trustClass": "open-food-facts-au",
+                "trustRank": 4,
+                "retrievedAt": null,
+                "verifiedAt": null,
+                "publishedDate": null,
+                "page": null,
+                "sha256": "f7a195c26d0fd422ed6a4803b5370ac717b5d40a3fc446cb2bd5b17ced4a761a",
+                "market": "AU",
+                "sourceType": "external-catalogue"
+              },
+              "titleAttributes": {
+                "family": "frozen-dessert",
+                "flavour": "vanilla",
+                "dietaryVariant": "regular"
+              }
+            }
+          }
+        }
+      ],
+      "evidence": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/830211",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/830211",
+        "retrievedAt": "2026-10-04T05:32:28.926Z",
+        "sha256": "49d4f1f2a25cb94978e289cb5f1edb91a89e8d4634b9a0b796e08ae4392fb25c",
+        "responseBytes": 747800,
+        "contentType": "text/html; charset=utf-8"
+      }
+    },
+    {
+      "candidateId": "barcode:9300633777401",
+      "groups": [
+        "A"
+      ],
+      "canonicalKey": "barcode:9300633777401",
+      "name": "Woolworths Plain Water Crackers 125g",
+      "brand": "Woolworths",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": false,
+      "beforeStatus": "needs-nutrition-completion",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "disposition": "remains-restricted",
+      "reason": "source-conflict",
+      "additionalHolds": [
+        "source-conflict",
+        "unresolved-material-evidence"
+      ],
+      "beforeReason": "source-conflict",
+      "afterStatus": "needs-nutrition-completion",
+      "conflicts": [
+        {
+          "code": "pack-serving-count-conflict",
+          "field": "serving",
+          "severity": "material",
+          "evidence": {
+            "serve": {
+              "amount": 12,
+              "unit": "g"
+            },
+            "pack": {
+              "amount": 125,
+              "unit": "g"
+            },
+            "count": 10
+          }
+        },
+        {
+          "code": "nutrition-serving-basis-conflict",
+          "field": "nutrition",
+          "nutrient": "satFat",
+          "severity": "material",
+          "evidence": {
+            "per100": 3.9,
+            "perServing": 1,
+            "serve": {
+              "amount": 12,
+              "unit": "g"
+            },
+            "expected": 0.46799999999999997
+          }
+        }
+      ],
+      "evidence": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/824365",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/824365",
+        "retrievedAt": "2026-10-04T05:32:29.854Z",
+        "sha256": "828c9be6e32fb7eb67f0b4135ee1a4afb5287260debdf011dc56654e5040206d",
+        "responseBytes": 748140,
+        "contentType": "text/html; charset=utf-8"
+      }
+    },
+    {
+      "candidateId": "barcode:9300633906603",
+      "groups": [
+        "A"
+      ],
+      "canonicalKey": "barcode:9300633906603",
+      "name": "Woolworths Tasty Cheese Slices 500g",
+      "brand": "Woolworths",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": false,
+      "beforeStatus": "needs-nutrition-completion",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "disposition": "remains-restricted",
+      "reason": "source-conflict",
+      "additionalHolds": [
+        "source-conflict",
+        "unresolved-material-evidence"
+      ],
+      "beforeReason": "source-conflict",
+      "afterStatus": "needs-nutrition-completion",
+      "conflicts": [
+        {
+          "code": "pack-serving-count-conflict",
+          "field": "serving",
+          "severity": "material",
+          "evidence": {
+            "serve": {
+              "amount": 16,
+              "unit": "g"
+            },
+            "pack": {
+              "amount": 500,
+              "unit": "g"
+            },
+            "count": 30
+          }
+        }
+      ],
+      "evidence": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/224941",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/224941",
+        "retrievedAt": "2026-10-04T05:32:30.782Z",
+        "sha256": "9ff871a40b40753f8438ca3ede16b0e888eaf34a77ac319c1f5fe0daa0b10cf3",
+        "responseBytes": 749146,
+        "contentType": "text/html; charset=utf-8"
+      }
+    },
+    {
+      "candidateId": "barcode:9300633935306",
+      "groups": [
+        "A"
+      ],
+      "canonicalKey": "barcode:9300633935306",
+      "name": "Woolworths Essentials Table Spread Soft And Spreadable 500g",
+      "brand": "Woolworths Essentials",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": true,
+      "beforeStatus": "needs-nutrition-completion",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "disposition": "remains-restricted",
+      "reason": "identity-conflict",
+      "additionalHolds": [
+        "missing-required-protein",
+        "missing-required-carbs",
+        "identity-conflict",
+        "unresolved-material-evidence"
+      ],
+      "beforeReason": "identity-conflict",
+      "afterStatus": "needs-nutrition-completion",
+      "conflicts": [
+        {
+          "code": "same-gtin-identity-conflict",
+          "field": "identity",
+          "severity": "material",
+          "resolution": "unresolved",
+          "fields": [
+            "brand"
+          ],
+          "evidence": {
+            "left": {
+              "recordId": "woolworths-au:93530",
+              "brand": "Woolworths Essentials",
+              "name": "Woolworths Essentials Table Spread Soft And Spreadable 500g",
+              "barcode": "9300633935306",
+              "pack": {
+                "amount": 500,
+                "unit": "g"
+              },
+              "physicalForm": "spread",
+              "variantAttributes": {
+                "packCount": null
+              },
+              "source": {
+                "sourceId": "woolworths-au-public",
+                "recordId": "93530",
+                "url": "https://www.woolworths.com.au/shop/productdetails/93530",
+                "trustClass": "official-au-retailer",
+                "trustRank": 2,
+                "retrievedAt": "2026-10-04T05:32:31.202Z",
+                "verifiedAt": null,
+                "publishedDate": null,
+                "page": null,
+                "sha256": "d5c5ba014aba0f28c91f3334364a6680d7cfeb2d851d7a840a4b224183002b5a",
+                "market": "AU",
+                "sourceType": "packaged"
+              },
+              "titleAttributes": {
+                "family": "margarine",
+                "pack": {
+                  "amount": 500,
+                  "unit": "g"
+                }
+              }
+            },
+            "right": {
+              "recordId": "off:9300633935306",
+              "brand": "woolworths",
+              "name": "Table Spread",
+              "barcode": "9300633935306",
+              "pack": "500g",
+              "physicalForm": "spread",
+              "variantAttributes": {},
+              "source": {
+                "sourceId": "off:9300633935306",
+                "recordId": "off:9300633935306",
+                "url": "http://world-en.openfoodfacts.org/product/9300633935306/table-spread-woolworths",
+                "trustClass": "open-food-facts-au",
+                "trustRank": 4,
+                "retrievedAt": null,
+                "verifiedAt": null,
+                "publishedDate": null,
+                "page": null,
+                "sha256": "f7a195c26d0fd422ed6a4803b5370ac717b5d40a3fc446cb2bd5b17ced4a761a",
+                "market": "AU",
+                "sourceType": "external-catalogue"
+              },
+              "titleAttributes": {
+                "family": "margarine"
+              }
+            }
+          }
+        },
+        {
+          "code": "same-gtin-identity-conflict",
+          "field": "identity",
+          "severity": "material",
+          "resolution": "unresolved",
+          "fields": [
+            "brand"
+          ],
+          "evidence": {
+            "left": {
+              "recordId": "woolworths-au:93530",
+              "brand": "Woolworths Essentials",
+              "name": "Woolworths Essentials Table Spread Soft And Spreadable 500g",
+              "barcode": "9300633935306",
+              "pack": {
+                "amount": 500,
+                "unit": "g"
+              },
+              "physicalForm": "spread",
+              "variantAttributes": {
+                "packCount": null
+              },
+              "source": {
+                "sourceId": "woolworths-au-public",
+                "recordId": "93530",
+                "url": "https://www.woolworths.com.au/shop/productdetails/93530",
+                "trustClass": "official-au-retailer",
+                "trustRank": 2,
+                "retrievedAt": "2026-09-12T12:26:37.168Z",
+                "verifiedAt": null,
+                "publishedDate": null,
+                "page": null,
+                "sha256": "ffa1873a5dc67b0db1ab63abbc4fc6625252ea7b397fb2d5662f16b06a5ef42b",
+                "market": "AU",
+                "sourceType": "packaged"
+              },
+              "titleAttributes": {
+                "family": "margarine",
+                "pack": {
+                  "amount": 500,
+                  "unit": "g"
+                }
+              }
+            },
+            "right": {
+              "recordId": "off:9300633935306",
+              "brand": "woolworths",
+              "name": "Table Spread",
+              "barcode": "9300633935306",
+              "pack": "500g",
+              "physicalForm": "spread",
+              "variantAttributes": {},
+              "source": {
+                "sourceId": "off:9300633935306",
+                "recordId": "off:9300633935306",
+                "url": "http://world-en.openfoodfacts.org/product/9300633935306/table-spread-woolworths",
+                "trustClass": "open-food-facts-au",
+                "trustRank": 4,
+                "retrievedAt": null,
+                "verifiedAt": null,
+                "publishedDate": null,
+                "page": null,
+                "sha256": "f7a195c26d0fd422ed6a4803b5370ac717b5d40a3fc446cb2bd5b17ced4a761a",
+                "market": "AU",
+                "sourceType": "external-catalogue"
+              },
+              "titleAttributes": {
+                "family": "margarine"
+              }
+            }
+          }
+        }
+      ],
+      "evidence": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/93530",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/93530",
+        "retrievedAt": "2026-10-04T05:32:31.202Z",
+        "sha256": "d5c5ba014aba0f28c91f3334364a6680d7cfeb2d851d7a840a4b224183002b5a",
+        "responseBytes": 709231,
+        "contentType": "text/html; charset=utf-8"
+      }
+    },
+    {
+      "candidateId": "barcode:9300633988098",
+      "groups": [
+        "A"
+      ],
+      "canonicalKey": "barcode:9300633988098",
+      "name": "Woolworths Tasty Cheese Block 500g",
+      "brand": "Woolworths",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": true,
+      "beforeStatus": "needs-nutrition-completion",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "disposition": "remains-restricted",
+      "reason": "identity-conflict",
+      "additionalHolds": [
+        "identity-conflict",
+        "unresolved-material-evidence"
+      ],
+      "beforeReason": "identity-conflict",
+      "afterStatus": "needs-nutrition-completion",
+      "conflicts": [
+        {
+          "code": "same-gtin-identity-conflict",
+          "field": "identity",
+          "severity": "material",
+          "resolution": "unresolved",
+          "fields": [
+            "brand"
+          ],
+          "evidence": {
+            "left": {
+              "recordId": "woolworths-au:310237",
+              "brand": "Woolworths",
+              "name": "Woolworths Tasty Cheese Block 500g",
+              "barcode": "9300633988098",
+              "pack": {
+                "amount": 500,
+                "unit": "g"
+              },
+              "physicalForm": "weight",
+              "variantAttributes": {
+                "packCount": null
+              },
+              "source": {
+                "sourceId": "woolworths-au-public",
+                "recordId": "310237",
+                "url": "https://www.woolworths.com.au/shop/productdetails/310237",
+                "trustClass": "official-au-retailer",
+                "trustRank": 2,
+                "retrievedAt": "2026-10-04T05:32:32.323Z",
+                "verifiedAt": null,
+                "publishedDate": null,
+                "page": null,
+                "sha256": "5de0b786d0f9ba282ff6021ab0519962faa312b5050c6784b0f38990ac43d14f",
+                "market": "AU",
+                "sourceType": "packaged"
+              },
+              "titleAttributes": {
+                "family": "cheese",
+                "cheeseType": "cheddar tasty",
+                "flavour": "flavoured",
+                "pack": {
+                  "amount": 500,
+                  "unit": "g"
+                }
+              }
+            },
+            "right": {
+              "recordId": "off:9300633988098",
+              "brand": "Woolworth",
+              "name": "Tasty cheese",
+              "barcode": "9300633988098",
+              "pack": null,
+              "physicalForm": "unknown",
+              "variantAttributes": {},
+              "source": {
+                "sourceId": "off:9300633988098",
+                "recordId": "off:9300633988098",
+                "url": "http://world-en.openfoodfacts.org/product/9300633988098/tasty-cheese-woolworth",
+                "trustClass": "open-food-facts-au",
+                "trustRank": 4,
+                "retrievedAt": null,
+                "verifiedAt": null,
+                "publishedDate": null,
+                "page": null,
+                "sha256": "1502037259a246c86ca2254ab2e22edb7334f103428bdd3a8a405208edc560f2",
+                "market": "AU",
+                "sourceType": "external-catalogue"
+              },
+              "titleAttributes": {
+                "family": "cheese",
+                "cheeseType": "cheddar tasty",
+                "flavour": "flavoured"
+              }
+            }
+          }
+        },
+        {
+          "code": "same-gtin-identity-conflict",
+          "field": "identity",
+          "severity": "material",
+          "resolution": "unresolved",
+          "fields": [
+            "brand"
+          ],
+          "evidence": {
+            "left": {
+              "recordId": "woolworths-au:310237",
+              "brand": "Woolworths",
+              "name": "Woolworths Tasty Cheese Block 500g",
+              "barcode": "9300633988098",
+              "pack": {
+                "amount": 500,
+                "unit": "g"
+              },
+              "physicalForm": "weight",
+              "variantAttributes": {
+                "packCount": null
+              },
+              "source": {
+                "sourceId": "woolworths-au-public",
+                "recordId": "310237",
+                "url": "https://www.woolworths.com.au/shop/productdetails/310237",
+                "trustClass": "official-au-retailer",
+                "trustRank": 2,
+                "retrievedAt": "2026-09-12T12:26:35.970Z",
+                "verifiedAt": null,
+                "publishedDate": null,
+                "page": null,
+                "sha256": "d46913816624987162d28e524724328709711b9500595faf936077feb4eeb654",
+                "market": "AU",
+                "sourceType": "packaged"
+              },
+              "titleAttributes": {
+                "family": "cheese",
+                "cheeseType": "cheddar tasty",
+                "flavour": "flavoured",
+                "pack": {
+                  "amount": 500,
+                  "unit": "g"
+                }
+              }
+            },
+            "right": {
+              "recordId": "off:9300633988098",
+              "brand": "Woolworth",
+              "name": "Tasty cheese",
+              "barcode": "9300633988098",
+              "pack": null,
+              "physicalForm": "unknown",
+              "variantAttributes": {},
+              "source": {
+                "sourceId": "off:9300633988098",
+                "recordId": "off:9300633988098",
+                "url": "http://world-en.openfoodfacts.org/product/9300633988098/tasty-cheese-woolworth",
+                "trustClass": "open-food-facts-au",
+                "trustRank": 4,
+                "retrievedAt": null,
+                "verifiedAt": null,
+                "publishedDate": null,
+                "page": null,
+                "sha256": "1502037259a246c86ca2254ab2e22edb7334f103428bdd3a8a405208edc560f2",
+                "market": "AU",
+                "sourceType": "external-catalogue"
+              },
+              "titleAttributes": {
+                "family": "cheese",
+                "cheeseType": "cheddar tasty",
+                "flavour": "flavoured"
+              }
+            }
+          }
+        }
+      ],
+      "evidence": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/310237",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/310237",
+        "retrievedAt": "2026-10-04T05:32:32.323Z",
+        "sha256": "5de0b786d0f9ba282ff6021ab0519962faa312b5050c6784b0f38990ac43d14f",
+        "responseBytes": 751140,
+        "contentType": "text/html; charset=utf-8"
+      }
+    },
+    {
+      "candidateId": "barcode:9339687253517",
+      "groups": [
+        "A"
+      ],
+      "canonicalKey": "barcode:9339687253517",
+      "name": "Woolworths Full Cream Milk 2L",
+      "brand": "Woolworths",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": true,
+      "beforeStatus": "needs-nutrition-completion",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "disposition": "remains-restricted",
+      "reason": "identity-conflict",
+      "additionalHolds": [
+        "identity-conflict",
+        "unresolved-material-evidence"
+      ],
+      "beforeReason": "identity-conflict",
+      "afterStatus": "needs-nutrition-completion",
+      "conflicts": [
+        {
+          "code": "same-gtin-identity-conflict",
+          "field": "identity",
+          "severity": "material",
+          "resolution": "unresolved",
+          "fields": [
+            "physical-form"
+          ],
+          "evidence": {
+            "left": {
+              "recordId": "woolworths-au:151547",
+              "brand": "Woolworths",
+              "name": "Woolworths Full Cream Milk 2L",
+              "barcode": "9339687253517",
+              "pack": {
+                "amount": 2000,
+                "unit": "mL"
+              },
+              "physicalForm": "liquid",
+              "variantAttributes": {
+                "packCount": null
+              },
+              "source": {
+                "sourceId": "woolworths-au-public",
+                "recordId": "151547",
+                "url": "https://www.woolworths.com.au/shop/productdetails/151547",
+                "trustClass": "official-au-retailer",
+                "trustRank": 2,
+                "retrievedAt": "2026-10-04T05:32:33.386Z",
+                "verifiedAt": null,
+                "publishedDate": null,
+                "page": null,
+                "sha256": "c9a6681f3a0312aac4253e3b48508537db9cedff9dde7480aefa1d8f0b35c559",
+                "market": "AU",
+                "sourceType": "packaged"
+              },
+              "titleAttributes": {
+                "family": "milk",
+                "fatLevel": "regular fat",
+                "pack": {
+                  "amount": 2000,
+                  "unit": "mL"
+                }
+              }
+            },
+            "right": {
+              "recordId": "off:9339687253517",
+              "brand": "Woolworths",
+              "name": "Full cream milk",
+              "barcode": "9339687253517",
+              "pack": null,
+              "physicalForm": "weight",
+              "variantAttributes": {},
+              "source": {
+                "sourceId": "off:9339687253517",
+                "recordId": "off:9339687253517",
+                "url": "http://world-en.openfoodfacts.org/product/9339687253517/full-cream-milk-woolworths",
+                "trustClass": "open-food-facts-au",
+                "trustRank": 4,
+                "retrievedAt": null,
+                "verifiedAt": null,
+                "publishedDate": null,
+                "page": null,
+                "sha256": "50b6ce1f04f1a161a0a3ee009e63a057c5d29d7ce42241186873d6061d8163c4",
+                "market": "AU",
+                "sourceType": "external-catalogue"
+              },
+              "titleAttributes": {
+                "family": "milk",
+                "fatLevel": "regular fat"
+              }
+            }
+          }
+        },
+        {
+          "code": "same-gtin-identity-conflict",
+          "field": "identity",
+          "severity": "material",
+          "resolution": "unresolved",
+          "fields": [
+            "physical-form"
+          ],
+          "evidence": {
+            "left": {
+              "recordId": "woolworths-au:151547",
+              "brand": "Woolworths",
+              "name": "Woolworths Full Cream Milk 2L",
+              "barcode": "9339687253517",
+              "pack": {
+                "amount": 2000,
+                "unit": "mL"
+              },
+              "physicalForm": "liquid",
+              "variantAttributes": {
+                "packCount": null
+              },
+              "source": {
+                "sourceId": "woolworths-au-public",
+                "recordId": "151547",
+                "url": "https://www.woolworths.com.au/shop/productdetails/151547",
+                "trustClass": "official-au-retailer",
+                "trustRank": 2,
+                "retrievedAt": "2026-09-12T12:26:34.288Z",
+                "verifiedAt": null,
+                "publishedDate": null,
+                "page": null,
+                "sha256": "da224e365cb668fd5e412b02927087aa021d5f9327ce34436c0bb2a772707fcd",
+                "market": "AU",
+                "sourceType": "packaged"
+              },
+              "titleAttributes": {
+                "family": "milk",
+                "fatLevel": "regular fat",
+                "pack": {
+                  "amount": 2000,
+                  "unit": "mL"
+                }
+              }
+            },
+            "right": {
+              "recordId": "off:9339687253517",
+              "brand": "Woolworths",
+              "name": "Full cream milk",
+              "barcode": "9339687253517",
+              "pack": null,
+              "physicalForm": "weight",
+              "variantAttributes": {},
+              "source": {
+                "sourceId": "off:9339687253517",
+                "recordId": "off:9339687253517",
+                "url": "http://world-en.openfoodfacts.org/product/9339687253517/full-cream-milk-woolworths",
+                "trustClass": "open-food-facts-au",
+                "trustRank": 4,
+                "retrievedAt": null,
+                "verifiedAt": null,
+                "publishedDate": null,
+                "page": null,
+                "sha256": "50b6ce1f04f1a161a0a3ee009e63a057c5d29d7ce42241186873d6061d8163c4",
+                "market": "AU",
+                "sourceType": "external-catalogue"
+              },
+              "titleAttributes": {
+                "family": "milk",
+                "fatLevel": "regular fat"
+              }
+            }
+          }
+        }
+      ],
+      "evidence": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/151547",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/151547",
+        "retrievedAt": "2026-10-04T05:32:33.386Z",
+        "sha256": "c9a6681f3a0312aac4253e3b48508537db9cedff9dde7480aefa1d8f0b35c559",
+        "responseBytes": 704911,
+        "contentType": "text/html; charset=utf-8"
+      }
+    },
+    {
+      "candidateId": "barcode:9339687336258",
+      "groups": [
+        "A"
+      ],
+      "canonicalKey": "barcode:9339687336258",
+      "name": "Woolworths White Sandwich Bread Loaf 700g",
+      "brand": "Woolworths",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": true,
+      "beforeStatus": "needs-nutrition-completion",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "disposition": "remains-restricted",
+      "reason": "identity-conflict",
+      "additionalHolds": [
+        "identity-conflict",
+        "unresolved-material-evidence"
+      ],
+      "beforeReason": "identity-conflict",
+      "afterStatus": "needs-nutrition-completion",
+      "conflicts": [
+        {
+          "code": "same-gtin-identity-conflict",
+          "field": "identity",
+          "severity": "material",
+          "resolution": "unresolved",
+          "fields": [
+            "brand"
+          ],
+          "evidence": {
+            "left": {
+              "recordId": "woolworths-au:277727",
+              "brand": "Woolworths",
+              "name": "Woolworths White Sandwich Bread Loaf 700g",
+              "barcode": "9339687336258",
+              "pack": {
+                "amount": 700,
+                "unit": "g"
+              },
+              "physicalForm": "sliced",
+              "variantAttributes": {
+                "packCount": null
+              },
+              "source": {
+                "sourceId": "woolworths-au-public",
+                "recordId": "277727",
+                "url": "https://www.woolworths.com.au/shop/productdetails/277727",
+                "trustClass": "official-au-retailer",
+                "trustRank": 2,
+                "retrievedAt": "2026-10-04T05:32:34.825Z",
+                "verifiedAt": null,
+                "publishedDate": null,
+                "page": null,
+                "sha256": "742b911f9ac16c7f52a629e5cdfcc444b5594aa308288a0b7c8903720c3e4238",
+                "market": "AU",
+                "sourceType": "packaged"
+              },
+              "titleAttributes": {
+                "family": "bread",
+                "breadType": "white",
+                "pack": {
+                  "amount": 700,
+                  "unit": "g"
+                }
+              }
+            },
+            "right": {
+              "recordId": "off:9339687336258",
+              "brand": "Woolworths Bakery",
+              "name": "White Sandwich Bread",
+              "barcode": "9339687336258",
+              "pack": null,
+              "physicalForm": "sliced",
+              "variantAttributes": {},
+              "source": {
+                "sourceId": "off:9339687336258",
+                "recordId": "off:9339687336258",
+                "url": "http://world-en.openfoodfacts.org/product/9339687336258/white-sandwich-bread-woolworths-bakery",
+                "trustClass": "open-food-facts-au",
+                "trustRank": 4,
+                "retrievedAt": null,
+                "verifiedAt": null,
+                "publishedDate": null,
+                "page": null,
+                "sha256": "f7a195c26d0fd422ed6a4803b5370ac717b5d40a3fc446cb2bd5b17ced4a761a",
+                "market": "AU",
+                "sourceType": "external-catalogue"
+              },
+              "titleAttributes": {
+                "family": "bread",
+                "breadType": "white"
+              }
+            }
+          }
+        },
+        {
+          "code": "same-gtin-identity-conflict",
+          "field": "identity",
+          "severity": "material",
+          "resolution": "unresolved",
+          "fields": [
+            "brand"
+          ],
+          "evidence": {
+            "left": {
+              "recordId": "woolworths-au:277727",
+              "brand": "Woolworths",
+              "name": "Woolworths White Sandwich Bread Loaf 700g",
+              "barcode": "9339687336258",
+              "pack": {
+                "amount": 700,
+                "unit": "g"
+              },
+              "physicalForm": "sliced",
+              "variantAttributes": {
+                "packCount": null
+              },
+              "source": {
+                "sourceId": "woolworths-au-public",
+                "recordId": "277727",
+                "url": "https://www.woolworths.com.au/shop/productdetails/277727",
+                "trustClass": "official-au-retailer",
+                "trustRank": 2,
+                "retrievedAt": "2026-09-12T12:26:33.871Z",
+                "verifiedAt": null,
+                "publishedDate": null,
+                "page": null,
+                "sha256": "662501287179d4193d9cea62a8f279ea6b033bc5539e81ed2043198f7cb5beaf",
+                "market": "AU",
+                "sourceType": "packaged"
+              },
+              "titleAttributes": {
+                "family": "bread",
+                "breadType": "white",
+                "pack": {
+                  "amount": 700,
+                  "unit": "g"
+                }
+              }
+            },
+            "right": {
+              "recordId": "off:9339687336258",
+              "brand": "Woolworths Bakery",
+              "name": "White Sandwich Bread",
+              "barcode": "9339687336258",
+              "pack": null,
+              "physicalForm": "sliced",
+              "variantAttributes": {},
+              "source": {
+                "sourceId": "off:9339687336258",
+                "recordId": "off:9339687336258",
+                "url": "http://world-en.openfoodfacts.org/product/9339687336258/white-sandwich-bread-woolworths-bakery",
+                "trustClass": "open-food-facts-au",
+                "trustRank": 4,
+                "retrievedAt": null,
+                "verifiedAt": null,
+                "publishedDate": null,
+                "page": null,
+                "sha256": "f7a195c26d0fd422ed6a4803b5370ac717b5d40a3fc446cb2bd5b17ced4a761a",
+                "market": "AU",
+                "sourceType": "external-catalogue"
+              },
+              "titleAttributes": {
+                "family": "bread",
+                "breadType": "white"
+              }
+            }
+          }
+        }
+      ],
+      "evidence": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/277727",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/277727",
+        "retrievedAt": "2026-10-04T05:32:34.825Z",
+        "sha256": "742b911f9ac16c7f52a629e5cdfcc444b5594aa308288a0b7c8903720c3e4238",
+        "responseBytes": 704223,
+        "contentType": "text/html; charset=utf-8"
+      }
+    },
+    {
+      "candidateId": "barcode:9339687341580",
+      "groups": [
+        "A"
+      ],
+      "canonicalKey": "barcode:9339687341580",
+      "name": "The Odd Bunch Carrots 1.5kg",
+      "brand": "The Odd Bunch",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": false,
+      "beforeStatus": "needs-nutrition-completion",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "disposition": "remains-restricted",
+      "reason": "energy-missing",
+      "additionalHolds": [
+        "missing-required-calories",
+        "missing-required-protein",
+        "missing-required-carbs",
+        "missing-required-fat",
+        "energy-missing"
+      ],
+      "beforeReason": "energy-missing",
+      "afterStatus": "needs-nutrition-completion",
+      "conflicts": [],
+      "evidence": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/288440",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/288440",
+        "retrievedAt": "2026-10-04T05:32:35.081Z",
+        "sha256": "867172ebea74e6d23072220f08a200ba2a49566f8703b435fbd325724eb930c5",
+        "responseBytes": 692212,
+        "contentType": "text/html; charset=utf-8"
+      }
+    },
+    {
+      "candidateId": "barcode:9339687357994",
+      "groups": [
+        "A"
+      ],
+      "canonicalKey": "barcode:9339687357994",
+      "name": "Woolworths Sea Salt Deli Style Potato Chips 175g",
+      "brand": "Woolworths",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": false,
+      "beforeStatus": "needs-nutrition-completion",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "disposition": "remains-restricted",
+      "reason": "energy-missing",
+      "additionalHolds": [
+        "missing-required-calories",
+        "missing-required-protein",
+        "missing-required-carbs",
+        "missing-required-fat",
+        "energy-missing"
+      ],
+      "beforeReason": "energy-missing",
+      "afterStatus": "needs-nutrition-completion",
+      "conflicts": [],
+      "evidence": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/396254",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/396254",
+        "retrievedAt": "2026-10-04T05:32:36.091Z",
+        "sha256": "9f323b3956f7934531114badbab8ea22ad93cb12d1413c1c676f899bc546cd2b",
+        "responseBytes": 730070,
+        "contentType": "text/html; charset=utf-8"
+      }
+    },
+    {
+      "candidateId": "barcode:9339687391479",
+      "groups": [
+        "A"
+      ],
+      "canonicalKey": "barcode:9339687391479",
+      "name": "Woolworths Australian Hash Browns 750g",
+      "brand": "Woolworths",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": true,
+      "beforeStatus": "needs-nutrition-completion",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "disposition": "remains-restricted",
+      "reason": "identity-conflict",
+      "additionalHolds": [
+        "identity-conflict",
+        "unresolved-material-evidence"
+      ],
+      "beforeReason": "identity-conflict",
+      "afterStatus": "needs-nutrition-completion",
+      "conflicts": [
+        {
+          "code": "same-gtin-identity-conflict",
+          "field": "identity",
+          "severity": "material",
+          "resolution": "unresolved",
+          "fields": [
+            "brand"
+          ],
+          "evidence": {
+            "left": {
+              "recordId": "woolworths-au:924103",
+              "brand": "Woolworths",
+              "name": "Woolworths Australian Hash Browns 750g",
+              "barcode": "9339687391479",
+              "pack": {
+                "amount": 750,
+                "unit": "g"
+              },
+              "physicalForm": "countable",
+              "variantAttributes": {
+                "packCount": null
+              },
+              "source": {
+                "sourceId": "woolworths-au-public",
+                "recordId": "924103",
+                "url": "https://www.woolworths.com.au/shop/productdetails/924103",
+                "trustClass": "official-au-retailer",
+                "trustRank": 2,
+                "retrievedAt": "2026-10-04T05:32:36.816Z",
+                "verifiedAt": null,
+                "publishedDate": null,
+                "page": null,
+                "sha256": "3d37d3315b9bf8532572b7148f79a172aba6723e4f845d98344dad5f712d2d70",
+                "market": "AU",
+                "sourceType": "packaged"
+              },
+              "titleAttributes": {
+                "family": "hash-brown",
+                "pack": {
+                  "amount": 750,
+                  "unit": "g"
+                }
+              }
+            },
+            "right": {
+              "recordId": "off:9339687391479",
+              "brand": "Australian Potatoes",
+              "name": "Hash Browns",
+              "barcode": "9339687391479",
+              "pack": null,
+              "physicalForm": "countable",
+              "variantAttributes": {},
+              "source": {
+                "sourceId": "off:9339687391479",
+                "recordId": "off:9339687391479",
+                "url": "http://world-en.openfoodfacts.org/product/9339687391479/hash-browns-australian-potatoes",
+                "trustClass": "open-food-facts-au",
+                "trustRank": 4,
+                "retrievedAt": null,
+                "verifiedAt": null,
+                "publishedDate": null,
+                "page": null,
+                "sha256": "f0bb4256e3f3aafbccebcc722693666dd846fd25752a3c911c73173b0078b926",
+                "market": "AU",
+                "sourceType": "external-catalogue"
+              },
+              "titleAttributes": {
+                "family": "hash-brown"
+              }
+            }
+          }
+        },
+        {
+          "code": "same-gtin-identity-conflict",
+          "field": "identity",
+          "severity": "material",
+          "resolution": "unresolved",
+          "fields": [
+            "brand"
+          ],
+          "evidence": {
+            "left": {
+              "recordId": "woolworths-au:924103",
+              "brand": "Woolworths",
+              "name": "Woolworths Australian Hash Browns 750g",
+              "barcode": "9339687391479",
+              "pack": {
+                "amount": 750,
+                "unit": "g"
+              },
+              "physicalForm": "countable",
+              "variantAttributes": {
+                "packCount": null
+              },
+              "source": {
+                "sourceId": "woolworths-au-public",
+                "recordId": "924103",
+                "url": "https://www.woolworths.com.au/shop/productdetails/924103",
+                "trustClass": "official-au-retailer",
+                "trustRank": 2,
+                "retrievedAt": "2026-09-12T12:26:39.987Z",
+                "verifiedAt": null,
+                "publishedDate": null,
+                "page": null,
+                "sha256": "7f60e85892b573daadfd95fcd8dc20271263495d1699f9bfa68502cf79d2cfc3",
+                "market": "AU",
+                "sourceType": "packaged"
+              },
+              "titleAttributes": {
+                "family": "hash-brown",
+                "pack": {
+                  "amount": 750,
+                  "unit": "g"
+                }
+              }
+            },
+            "right": {
+              "recordId": "off:9339687391479",
+              "brand": "Australian Potatoes",
+              "name": "Hash Browns",
+              "barcode": "9339687391479",
+              "pack": null,
+              "physicalForm": "countable",
+              "variantAttributes": {},
+              "source": {
+                "sourceId": "off:9339687391479",
+                "recordId": "off:9339687391479",
+                "url": "http://world-en.openfoodfacts.org/product/9339687391479/hash-browns-australian-potatoes",
+                "trustClass": "open-food-facts-au",
+                "trustRank": 4,
+                "retrievedAt": null,
+                "verifiedAt": null,
+                "publishedDate": null,
+                "page": null,
+                "sha256": "f0bb4256e3f3aafbccebcc722693666dd846fd25752a3c911c73173b0078b926",
+                "market": "AU",
+                "sourceType": "external-catalogue"
+              },
+              "titleAttributes": {
+                "family": "hash-brown"
+              }
+            }
+          }
+        }
+      ],
+      "evidence": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/924103",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/924103",
+        "retrievedAt": "2026-10-04T05:32:36.816Z",
+        "sha256": "3d37d3315b9bf8532572b7148f79a172aba6723e4f845d98344dad5f712d2d70",
+        "responseBytes": 745006,
+        "contentType": "text/html; charset=utf-8"
+      }
+    },
+    {
+      "candidateId": "barcode:9339687428700",
+      "groups": [
+        "A"
+      ],
+      "canonicalKey": "barcode:9339687428700",
+      "name": "Woolworths Orange Juice 2L",
+      "brand": "Woolworths",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": true,
+      "beforeStatus": "needs-nutrition-completion",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "disposition": "remains-restricted",
+      "reason": "identity-conflict",
+      "additionalHolds": [
+        "qualified-serving-bound-needs-review",
+        "identity-conflict",
+        "unresolved-material-evidence"
+      ],
+      "beforeReason": "identity-conflict",
+      "afterStatus": "needs-nutrition-completion",
+      "conflicts": [
+        {
+          "code": "same-gtin-identity-conflict",
+          "field": "identity",
+          "severity": "material",
+          "resolution": "unresolved",
+          "fields": [
+            "brand"
+          ],
+          "evidence": {
+            "left": {
+              "recordId": "woolworths-au:6033180",
+              "brand": "Woolworths",
+              "name": "Woolworths Orange Juice 2L",
+              "barcode": "9339687428700",
+              "pack": {
+                "amount": 2000,
+                "unit": "mL"
+              },
+              "physicalForm": "liquid",
+              "variantAttributes": {
+                "packCount": null
+              },
+              "source": {
+                "sourceId": "woolworths-au-public",
+                "recordId": "6033180",
+                "url": "https://www.woolworths.com.au/shop/productdetails/6033180",
+                "trustClass": "official-au-retailer",
+                "trustRank": 2,
+                "retrievedAt": "2026-10-04T05:32:37.827Z",
+                "verifiedAt": null,
+                "publishedDate": null,
+                "page": null,
+                "sha256": "987d627ae470a675b64665a8fb555800d0a00863394c451c9bf3b9aff0e82854",
+                "market": "AU",
+                "sourceType": "packaged"
+              },
+              "titleAttributes": {
+                "pack": {
+                  "amount": 2000,
+                  "unit": "mL"
+                }
+              }
+            },
+            "right": {
+              "recordId": "off:9339687428700",
+              "brand": "WW",
+              "name": "Orange Juice",
+              "barcode": "9339687428700",
+              "pack": null,
+              "physicalForm": "liquid",
+              "variantAttributes": {},
+              "source": {
+                "sourceId": "off:9339687428700",
+                "recordId": "off:9339687428700",
+                "url": "http://world-en.openfoodfacts.org/product/9339687428700/orange-juice-ww",
+                "trustClass": "open-food-facts-au",
+                "trustRank": 4,
+                "retrievedAt": null,
+                "verifiedAt": null,
+                "publishedDate": null,
+                "page": null,
+                "sha256": "ded06d6bbf516d3193cc93413edcfd3f58656f9f65ae9ff4642e5e30a8e5a556",
+                "market": "AU",
+                "sourceType": "external-catalogue"
+              },
+              "titleAttributes": {}
+            }
+          }
+        },
+        {
+          "code": "same-gtin-identity-conflict",
+          "field": "identity",
+          "severity": "material",
+          "resolution": "unresolved",
+          "fields": [
+            "brand"
+          ],
+          "evidence": {
+            "left": {
+              "recordId": "woolworths-au:6033180",
+              "brand": "Woolworths",
+              "name": "Woolworths Orange Juice 2L",
+              "barcode": "9339687428700",
+              "pack": {
+                "amount": 2000,
+                "unit": "mL"
+              },
+              "physicalForm": "liquid",
+              "variantAttributes": {
+                "packCount": null
+              },
+              "source": {
+                "sourceId": "woolworths-au-public",
+                "recordId": "6033180",
+                "url": "https://www.woolworths.com.au/shop/productdetails/6033180",
+                "trustClass": "official-au-retailer",
+                "trustRank": 2,
+                "retrievedAt": "2026-09-12T12:31:32.244Z",
+                "verifiedAt": null,
+                "publishedDate": null,
+                "page": null,
+                "sha256": "10352baad76ee583ef8079f1bb2fa579e723651ee95826900d3e58ae4873423d",
+                "market": "AU",
+                "sourceType": "packaged"
+              },
+              "titleAttributes": {
+                "pack": {
+                  "amount": 2000,
+                  "unit": "mL"
+                }
+              }
+            },
+            "right": {
+              "recordId": "off:9339687428700",
+              "brand": "WW",
+              "name": "Orange Juice",
+              "barcode": "9339687428700",
+              "pack": null,
+              "physicalForm": "liquid",
+              "variantAttributes": {},
+              "source": {
+                "sourceId": "off:9339687428700",
+                "recordId": "off:9339687428700",
+                "url": "http://world-en.openfoodfacts.org/product/9339687428700/orange-juice-ww",
+                "trustClass": "open-food-facts-au",
+                "trustRank": 4,
+                "retrievedAt": null,
+                "verifiedAt": null,
+                "publishedDate": null,
+                "page": null,
+                "sha256": "ded06d6bbf516d3193cc93413edcfd3f58656f9f65ae9ff4642e5e30a8e5a556",
+                "market": "AU",
+                "sourceType": "external-catalogue"
+              },
+              "titleAttributes": {}
+            }
+          }
+        }
+      ],
+      "evidence": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/6033180",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/6033180",
+        "retrievedAt": "2026-10-04T05:32:37.827Z",
+        "sha256": "987d627ae470a675b64665a8fb555800d0a00863394c451c9bf3b9aff0e82854",
+        "responseBytes": 743385,
+        "contentType": "text/html; charset=utf-8"
+      }
+    },
+    {
+      "candidateId": "barcode:0344643180294",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:0344643180294",
+      "name": "35hr Sourdough Loaf White",
+      "brand": "Woolworths Bakery",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": true,
+      "beforeStatus": "loggable-now",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "disposition": "recategorised",
+      "reason": "Shared food-family evidence supports classification",
+      "category": {
+        "id": "bread",
+        "conceptIds": [
+          "bread"
+        ],
+        "rule": "plain-bread-loaf"
+      },
+      "evidence": {
+        "source": {
+          "sourceId": "open-food-facts-au",
+          "recordId": "off:0344643180294",
+          "url": "http://world-en.openfoodfacts.org/product/0344643180294/35hr-sourdough-loaf-white-woolworths-bakery",
+          "trustClass": "open-food-facts-au",
+          "trustRank": 4,
+          "retrievedAt": null,
+          "verifiedAt": null,
+          "publishedDate": null,
+          "page": null,
+          "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+          "market": "AU",
+          "sourceType": "external-catalogue"
+        },
+        "baselineSha256": "0f8d41a7f8ecd6bd4cd00a308d99d4ec49c42c5809a4b885d83eea4d3a00b3ef"
+      },
+      "afterStatus": "loggable-now"
+    },
+    {
+      "candidateId": "barcode:0726436706810",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:0726436706810",
+      "name": "Macaroni Cheese",
+      "brand": "Woolworths",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": true,
+      "beforeStatus": "loggable-now",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "disposition": "recategorised",
+      "reason": "Shared food-family evidence supports classification",
+      "category": {
+        "id": "meals",
+        "conceptIds": [],
+        "rule": "pasta-meal"
+      },
+      "evidence": {
+        "source": {
+          "sourceId": "open-food-facts-au",
+          "recordId": "off:0726436706810",
+          "url": "http://world-en.openfoodfacts.org/product/0726436706810/macaroni-cheese-woolworths",
+          "trustClass": "open-food-facts-au",
+          "trustRank": 4,
+          "retrievedAt": null,
+          "verifiedAt": null,
+          "publishedDate": null,
+          "page": null,
+          "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+          "market": "AU",
+          "sourceType": "external-catalogue"
+        },
+        "baselineSha256": "7a632b890182b35847eff4c1695726c8533a14022a1ade4a8fc508dc308b9d6e"
+      },
+      "afterStatus": "loggable-now"
+    },
+    {
+      "candidateId": "barcode:9300633203061",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9300633203061",
+      "name": "Raw Buckwheat",
+      "brand": "macro wholefoods market",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": true,
+      "beforeStatus": "loggable-now",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "disposition": "recategorised",
+      "reason": "Shared food-family evidence supports classification",
+      "category": {
+        "id": "grains",
+        "conceptIds": [],
+        "rule": "buckwheat-grain"
+      },
+      "evidence": {
+        "source": {
+          "sourceId": "open-food-facts-au",
+          "recordId": "off:9300633203061",
+          "url": "http://world-en.openfoodfacts.org/product/9300633203061/raw-buckwheat-macro-wholefoods-market",
+          "trustClass": "open-food-facts-au",
+          "trustRank": 4,
+          "retrievedAt": null,
+          "verifiedAt": null,
+          "publishedDate": null,
+          "page": null,
+          "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+          "market": "AU",
+          "sourceType": "external-catalogue"
+        },
+        "baselineSha256": "cfec58bd5e1e604b698290a765ecbff363d608d8186864e1f85fc4942c587f80"
+      },
+      "afterStatus": "loggable-now"
+    },
+    {
+      "candidateId": "barcode:9300633467180",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9300633467180",
+      "name": "Turkish Rolls Plain 3pk",
+      "brand": "Woolworths Bakery",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": true,
+      "beforeStatus": "loggable-now",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "disposition": "recategorised",
+      "reason": "Shared food-family evidence supports classification",
+      "category": {
+        "id": "bread",
+        "conceptIds": [
+          "bread-roll"
+        ],
+        "rule": "plain-bread-roll"
+      },
+      "evidence": {
+        "source": {
+          "sourceId": "open-food-facts-au",
+          "recordId": "off:9300633467180",
+          "url": "http://world-en.openfoodfacts.org/product/9300633467180/turkish-rolls-plain-3pk-woolworths-bakery",
+          "trustClass": "open-food-facts-au",
+          "trustRank": 4,
+          "retrievedAt": null,
+          "verifiedAt": null,
+          "publishedDate": null,
+          "page": null,
+          "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+          "market": "AU",
+          "sourceType": "external-catalogue"
+        },
+        "baselineSha256": "805d6bafdd57f1362c4ae35da201a18610398c636474d81ad8d9d7ae99f186a4"
+      },
+      "afterStatus": "loggable-now"
+    },
+    {
+      "candidateId": "barcode:9300633682514",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9300633682514",
+      "name": "Soft Wholegrain Wraps",
+      "brand": "Woolworths",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": true,
+      "beforeStatus": "loggable-now",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "disposition": "recategorised",
+      "reason": "Shared food-family evidence supports classification",
+      "category": {
+        "id": "bread",
+        "conceptIds": [
+          "bread"
+        ],
+        "rule": "plain-flatbread-wrap"
+      },
+      "evidence": {
+        "source": {
+          "sourceId": "open-food-facts-au",
+          "recordId": "off:9300633682514",
+          "url": "http://world-en.openfoodfacts.org/product/9300633682514/soft-wholegrain-wraps-woolworths",
+          "trustClass": "open-food-facts-au",
+          "trustRank": 4,
+          "retrievedAt": null,
+          "verifiedAt": null,
+          "publishedDate": null,
+          "page": null,
+          "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+          "market": "AU",
+          "sourceType": "external-catalogue"
+        },
+        "baselineSha256": "df1f87f128a4e6bfcea2a6dfec5edbc8325b3565fe93f2bf903f448938e2f3be"
+      },
+      "afterStatus": "loggable-now"
+    },
+    {
+      "candidateId": "barcode:9300633906702",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9300633906702",
+      "name": "English Muffins",
+      "brand": "Woolworths Bakery",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": true,
+      "beforeStatus": "loggable-now",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "disposition": "recategorised",
+      "reason": "Shared food-family evidence supports classification",
+      "category": {
+        "id": "bread",
+        "conceptIds": [
+          "bread-roll"
+        ],
+        "rule": "plain-bread-roll"
+      },
+      "evidence": {
+        "source": {
+          "sourceId": "open-food-facts-au",
+          "recordId": "off:9300633906702",
+          "url": "http://world-en.openfoodfacts.org/product/9300633906702/english-muffins-woolworths-bakery",
+          "trustClass": "open-food-facts-au",
+          "trustRank": 4,
+          "retrievedAt": null,
+          "verifiedAt": null,
+          "publishedDate": null,
+          "page": null,
+          "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+          "market": "AU",
+          "sourceType": "external-catalogue"
+        },
+        "baselineSha256": "13c4738ba0698e4ade09a99ee0a2988c45cef53a1d5995faa001286c996c838c"
+      },
+      "afterStatus": "loggable-now"
+    },
+    {
+      "candidateId": "barcode:9300633980016",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9300633980016",
+      "name": "Australian Quick Oats",
+      "brand": "Woolworths",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": true,
+      "beforeStatus": "loggable-now",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "disposition": "recategorised",
+      "reason": "Shared food-family evidence supports classification",
+      "category": {
+        "id": "cereal",
+        "conceptIds": [
+          "cereal"
+        ],
+        "rule": "plain-breakfast-oats"
+      },
+      "evidence": {
+        "source": {
+          "sourceId": "open-food-facts-au",
+          "recordId": "off:9300633980016",
+          "url": "http://world-en.openfoodfacts.org/product/9300633980016/australian-quick-oats-woolworths",
+          "trustClass": "open-food-facts-au",
+          "trustRank": 4,
+          "retrievedAt": null,
+          "verifiedAt": null,
+          "publishedDate": null,
+          "page": null,
+          "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+          "market": "AU",
+          "sourceType": "external-catalogue"
+        },
+        "baselineSha256": "dee635ea2593216d3e3ea8ccac0891379d62f7b5957d31437345ef71989009e5"
+      },
+      "afterStatus": "loggable-now"
+    },
+    {
+      "candidateId": "barcode:9300633988630",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9300633988630",
+      "name": "Mild Salsa",
+      "brand": "Woolworths",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": true,
+      "beforeStatus": "loggable-now",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "disposition": "recategorised",
+      "reason": "Shared food-family evidence supports classification",
+      "category": {
+        "id": "sauces",
+        "conceptIds": [],
+        "rule": "marinade-or-salsa"
+      },
+      "evidence": {
+        "source": {
+          "sourceId": "open-food-facts-au",
+          "recordId": "off:9300633988630",
+          "url": "http://world-en.openfoodfacts.org/product/9300633988630/mild-salsa-woolworths",
+          "trustClass": "open-food-facts-au",
+          "trustRank": 4,
+          "retrievedAt": null,
+          "verifiedAt": null,
+          "publishedDate": null,
+          "page": null,
+          "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+          "market": "AU",
+          "sourceType": "external-catalogue"
+        },
+        "baselineSha256": "e627eec1552981a5bda4213aa51d0096cbac4b2ccd2b4416a709a1f7732e522e"
+      },
+      "afterStatus": "loggable-now"
+    },
+    {
+      "candidateId": "barcode:9339687167869",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9339687167869",
+      "name": "Crafted Sourdough Signature White Loaf",
+      "brand": "Woolworths Bakery",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": true,
+      "beforeStatus": "loggable-now",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "disposition": "recategorised",
+      "reason": "Shared food-family evidence supports classification",
+      "category": {
+        "id": "bread",
+        "conceptIds": [
+          "bread"
+        ],
+        "rule": "plain-bread-loaf"
+      },
+      "evidence": {
+        "source": {
+          "sourceId": "open-food-facts-au",
+          "recordId": "off:9339687167869",
+          "url": "http://world-en.openfoodfacts.org/product/9339687167869/crafted-sourdough-signature-white-loaf-woolworths-bakery",
+          "trustClass": "open-food-facts-au",
+          "trustRank": 4,
+          "retrievedAt": null,
+          "verifiedAt": null,
+          "publishedDate": null,
+          "page": null,
+          "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+          "market": "AU",
+          "sourceType": "external-catalogue"
+        },
+        "baselineSha256": "f82e116797b05159db9043a3ab1a8783098fd30d1d47b73aaa5017b234706196"
+      },
+      "afterStatus": "loggable-now"
+    },
+    {
+      "candidateId": "barcode:9339687168576",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9339687168576",
+      "name": "Soft Wholemeal Wraps",
+      "brand": "Woolworths",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": true,
+      "beforeStatus": "loggable-now",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "disposition": "recategorised",
+      "reason": "Shared food-family evidence supports classification",
+      "category": {
+        "id": "bread",
+        "conceptIds": [
+          "bread"
+        ],
+        "rule": "plain-flatbread-wrap"
+      },
+      "evidence": {
+        "source": {
+          "sourceId": "open-food-facts-au",
+          "recordId": "off:9339687168576",
+          "url": "http://world-en.openfoodfacts.org/product/9339687168576/soft-wholemeal-wraps-woolworths",
+          "trustClass": "open-food-facts-au",
+          "trustRank": 4,
+          "retrievedAt": null,
+          "verifiedAt": null,
+          "publishedDate": null,
+          "page": null,
+          "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+          "market": "AU",
+          "sourceType": "external-catalogue"
+        },
+        "baselineSha256": "6182978b8594037c6392418ded193df7acc7e123fd39c10d46feeff60307991e"
+      },
+      "afterStatus": "loggable-now"
+    },
+    {
+      "candidateId": "barcode:9339687209200",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9339687209200",
+      "name": "35hr Sourdough Mini Loaf Seeded",
+      "brand": "Woolworths",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": true,
+      "beforeStatus": "loggable-now",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "disposition": "recategorised",
+      "reason": "Shared food-family evidence supports classification",
+      "category": {
+        "id": "bread",
+        "conceptIds": [
+          "bread"
+        ],
+        "rule": "plain-bread-loaf"
+      },
+      "evidence": {
+        "source": {
+          "sourceId": "open-food-facts-au",
+          "recordId": "off:9339687209200",
+          "url": "http://world-en.openfoodfacts.org/product/9339687209200/35hr-sourdough-mini-loaf-seeded-woolworths",
+          "trustClass": "open-food-facts-au",
+          "trustRank": 4,
+          "retrievedAt": null,
+          "verifiedAt": null,
+          "publishedDate": null,
+          "page": null,
+          "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+          "market": "AU",
+          "sourceType": "external-catalogue"
+        },
+        "baselineSha256": "f716ac9fdbb9b6fd4ccdf647fd97fc1bc46f7a9d80fb1ae177defb1212b166fd"
+      },
+      "afterStatus": "loggable-now"
+    },
+    {
+      "candidateId": "barcode:9339687221820",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9339687221820",
+      "name": "Activated Buckwheat",
+      "brand": "Woolworths",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": true,
+      "beforeStatus": "loggable-now",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "disposition": "recategorised",
+      "reason": "Shared food-family evidence supports classification",
+      "category": {
+        "id": "grains",
+        "conceptIds": [],
+        "rule": "buckwheat-grain"
+      },
+      "evidence": {
+        "source": {
+          "sourceId": "open-food-facts-au",
+          "recordId": "off:9339687221820",
+          "url": "http://world-en.openfoodfacts.org/product/9339687221820/activated-buckwheat-woolworths",
+          "trustClass": "open-food-facts-au",
+          "trustRank": 4,
+          "retrievedAt": null,
+          "verifiedAt": null,
+          "publishedDate": null,
+          "page": null,
+          "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+          "market": "AU",
+          "sourceType": "external-catalogue"
+        },
+        "baselineSha256": "c43744460ce231126961642f4ee7b75a979f6bb1d4950224de8ad4b8f5d2028b"
+      },
+      "afterStatus": "loggable-now"
+    },
+    {
+      "candidateId": "barcode:9339687301454",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9339687301454",
+      "name": "Cranberry & Kale Slaw Kit",
+      "brand": "Woolworths",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": true,
+      "beforeStatus": "loggable-now",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "disposition": "recategorised",
+      "reason": "Shared food-family evidence supports classification",
+      "category": {
+        "id": "produce",
+        "conceptIds": [],
+        "rule": "slaw-kit"
+      },
+      "evidence": {
+        "source": {
+          "sourceId": "open-food-facts-au",
+          "recordId": "off:9339687301454",
+          "url": "http://world-en.openfoodfacts.org/product/9339687301454/cranberry-kale-slaw-kit-woolworths",
+          "trustClass": "open-food-facts-au",
+          "trustRank": 4,
+          "retrievedAt": null,
+          "verifiedAt": null,
+          "publishedDate": null,
+          "page": null,
+          "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+          "market": "AU",
+          "sourceType": "external-catalogue"
+        },
+        "baselineSha256": "c0f5128d6d26801ce26873c2abc86dc0a656836b6c089f2f3ce601a6703720ee"
+      },
+      "afterStatus": "loggable-now"
+    },
+    {
+      "candidateId": "barcode:9339687319367",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9339687319367",
+      "name": "Jumbo White Soft Rolls",
+      "brand": "Woolworths Bakery",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": true,
+      "beforeStatus": "loggable-now",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "disposition": "recategorised",
+      "reason": "Shared food-family evidence supports classification",
+      "category": {
+        "id": "bread",
+        "conceptIds": [
+          "bread-roll"
+        ],
+        "rule": "plain-bread-roll"
+      },
+      "evidence": {
+        "source": {
+          "sourceId": "open-food-facts-au",
+          "recordId": "off:9339687319367",
+          "url": "http://world-en.openfoodfacts.org/product/9339687319367/jumbo-white-soft-rolls-woolworths-bakery",
+          "trustClass": "open-food-facts-au",
+          "trustRank": 4,
+          "retrievedAt": null,
+          "verifiedAt": null,
+          "publishedDate": null,
+          "page": null,
+          "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+          "market": "AU",
+          "sourceType": "external-catalogue"
+        },
+        "baselineSha256": "cdc9ee79e3d9c3a77f895e96d0207c9b4b70ec5dfa5024cad1298007ce3150af"
+      },
+      "afterStatus": "loggable-now"
+    },
+    {
+      "candidateId": "barcode:9339687384419",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9339687384419",
+      "name": "Japanese Style Slaw Kit",
+      "brand": "Woolworths",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": true,
+      "beforeStatus": "loggable-now",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "disposition": "recategorised",
+      "reason": "Shared food-family evidence supports classification",
+      "category": {
+        "id": "produce",
+        "conceptIds": [],
+        "rule": "slaw-kit"
+      },
+      "evidence": {
+        "source": {
+          "sourceId": "open-food-facts-au",
+          "recordId": "off:9339687384419",
+          "url": "http://world-en.openfoodfacts.org/product/9339687384419/japanese-style-slaw-kit-woolworths",
+          "trustClass": "open-food-facts-au",
+          "trustRank": 4,
+          "retrievedAt": null,
+          "verifiedAt": null,
+          "publishedDate": null,
+          "page": null,
+          "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+          "market": "AU",
+          "sourceType": "external-catalogue"
+        },
+        "baselineSha256": "c130186a87691668121a01bd676bd137610192e584af87cf3eff386c8103b4d7"
+      },
+      "afterStatus": "loggable-now"
+    },
+    {
+      "candidateId": "barcode:9339687390588",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9339687390588",
+      "name": "Satay Marinade",
+      "brand": "Woolworths",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": true,
+      "beforeStatus": "loggable-now",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "disposition": "recategorised",
+      "reason": "Shared food-family evidence supports classification",
+      "category": {
+        "id": "sauces",
+        "conceptIds": [],
+        "rule": "marinade-or-salsa"
+      },
+      "evidence": {
+        "source": {
+          "sourceId": "open-food-facts-au",
+          "recordId": "off:9339687390588",
+          "url": "http://world-en.openfoodfacts.org/product/9339687390588/satay-marinade-woolworths",
+          "trustClass": "open-food-facts-au",
+          "trustRank": 4,
+          "retrievedAt": null,
+          "verifiedAt": null,
+          "publishedDate": null,
+          "page": null,
+          "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+          "market": "AU",
+          "sourceType": "external-catalogue"
+        },
+        "baselineSha256": "4bec375b53983e8cf138b01ac37a8c124a15426b05d129771b4b83bfd8f6f994"
+      },
+      "afterStatus": "loggable-now"
+    },
+    {
+      "candidateId": "barcode:9339687394630",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9339687394630",
+      "name": "Sweet & Smokey BBQ Marinade",
+      "brand": "Woolworths",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": true,
+      "beforeStatus": "loggable-now",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "disposition": "recategorised",
+      "reason": "Shared food-family evidence supports classification",
+      "category": {
+        "id": "sauces",
+        "conceptIds": [],
+        "rule": "marinade-or-salsa"
+      },
+      "evidence": {
+        "source": {
+          "sourceId": "open-food-facts-au",
+          "recordId": "off:9339687394630",
+          "url": "http://world-en.openfoodfacts.org/product/9339687394630/sweet-smokey-bbq-marinade-woolworths",
+          "trustClass": "open-food-facts-au",
+          "trustRank": 4,
+          "retrievedAt": null,
+          "verifiedAt": null,
+          "publishedDate": null,
+          "page": null,
+          "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+          "market": "AU",
+          "sourceType": "external-catalogue"
+        },
+        "baselineSha256": "d336c9b2c6be66f2fe112a24933267584bfa68ff86e2cf8f47e247ffd710f5aa"
+      },
+      "afterStatus": "loggable-now"
+    },
+    {
+      "candidateId": "barcode:9339687406623",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9339687406623",
+      "name": "Soft White Mini Loaf",
+      "brand": "Woolworths",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": true,
+      "beforeStatus": "loggable-now",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "disposition": "recategorised",
+      "reason": "Shared food-family evidence supports classification",
+      "category": {
+        "id": "bread",
+        "conceptIds": [
+          "bread"
+        ],
+        "rule": "plain-bread-loaf"
+      },
+      "evidence": {
+        "source": {
+          "sourceId": "open-food-facts-au",
+          "recordId": "off:9339687406623",
+          "url": "http://world-en.openfoodfacts.org/product/9339687406623/soft-white-mini-loaf-woolworths",
+          "trustClass": "open-food-facts-au",
+          "trustRank": 4,
+          "retrievedAt": null,
+          "verifiedAt": null,
+          "publishedDate": null,
+          "page": null,
+          "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+          "market": "AU",
+          "sourceType": "external-catalogue"
+        },
+        "baselineSha256": "443b39b1c50652f5b54de575fd9c6a73719320f17888ceff463a6653e8a34d79"
+      },
+      "afterStatus": "loggable-now"
+    },
+    {
+      "candidateId": "barcode:9339687423958",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9339687423958",
+      "name": "Soft White Large Wraps",
+      "brand": "Woolworths Bakery",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": true,
+      "beforeStatus": "loggable-now",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "disposition": "recategorised",
+      "reason": "Shared food-family evidence supports classification",
+      "category": {
+        "id": "bread",
+        "conceptIds": [
+          "bread"
+        ],
+        "rule": "plain-flatbread-wrap"
+      },
+      "evidence": {
+        "source": {
+          "sourceId": "open-food-facts-au",
+          "recordId": "off:9339687423958",
+          "url": "http://world-en.openfoodfacts.org/product/9339687423958/soft-white-large-wraps-woolworths-bakery",
+          "trustClass": "open-food-facts-au",
+          "trustRank": 4,
+          "retrievedAt": null,
+          "verifiedAt": null,
+          "publishedDate": null,
+          "page": null,
+          "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+          "market": "AU",
+          "sourceType": "external-catalogue"
+        },
+        "baselineSha256": "4323da76244e104ae4ecdfc8be0ff9486c47ce82ba93abbcac0fcc5af2436cfa"
+      },
+      "afterStatus": "loggable-now"
+    },
+    {
+      "candidateId": "barcode:9339687425532",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9339687425532",
+      "name": "Korean BBQ Marinade",
+      "brand": "Woolworths",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": true,
+      "beforeStatus": "loggable-now",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "disposition": "recategorised",
+      "reason": "Shared food-family evidence supports classification",
+      "category": {
+        "id": "sauces",
+        "conceptIds": [],
+        "rule": "marinade-or-salsa"
+      },
+      "evidence": {
+        "source": {
+          "sourceId": "open-food-facts-au",
+          "recordId": "off:9339687425532",
+          "url": "http://world-en.openfoodfacts.org/product/9339687425532/korean-bbq-marinade-woolworths",
+          "trustClass": "open-food-facts-au",
+          "trustRank": 4,
+          "retrievedAt": null,
+          "verifiedAt": null,
+          "publishedDate": null,
+          "page": null,
+          "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+          "market": "AU",
+          "sourceType": "external-catalogue"
+        },
+        "baselineSha256": "d50420b0dae03e51742625cc701a77e8124284604f0d60210632138b655d8377"
+      },
+      "afterStatus": "loggable-now"
+    },
+    {
+      "candidateId": "barcode:9339687443093",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9339687443093",
+      "name": "Spinach & Ricotta Cannelloni",
+      "brand": "Woolworths",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": true,
+      "beforeStatus": "loggable-now",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "disposition": "recategorised",
+      "reason": "Shared food-family evidence supports classification",
+      "category": {
+        "id": "meals",
+        "conceptIds": [],
+        "rule": "pasta-meal"
+      },
+      "evidence": {
+        "source": {
+          "sourceId": "open-food-facts-au",
+          "recordId": "off:9339687443093",
+          "url": "http://world-en.openfoodfacts.org/product/9339687443093/spinach-ricotta-cannelloni-woolworths",
+          "trustClass": "open-food-facts-au",
+          "trustRank": 4,
+          "retrievedAt": null,
+          "verifiedAt": null,
+          "publishedDate": null,
+          "page": null,
+          "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+          "market": "AU",
+          "sourceType": "external-catalogue"
+        },
+        "baselineSha256": "e81e4c70ac1d96251b75cce32276596b5aff77bb0ba98ab6ed93ec6d1d66ec59"
+      },
+      "afterStatus": "loggable-now"
+    },
+    {
+      "candidateId": "barcode:9339687443109",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9339687443109",
+      "name": "Mac And Cheese",
+      "brand": "Woolworths",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": true,
+      "beforeStatus": "loggable-now",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "disposition": "recategorised",
+      "reason": "Shared food-family evidence supports classification",
+      "category": {
+        "id": "meals",
+        "conceptIds": [],
+        "rule": "pasta-meal"
+      },
+      "evidence": {
+        "source": {
+          "sourceId": "open-food-facts-au",
+          "recordId": "off:9339687443109",
+          "url": "http://world-en.openfoodfacts.org/product/9339687443109/mac-and-cheese-woolworths",
+          "trustClass": "open-food-facts-au",
+          "trustRank": 4,
+          "retrievedAt": null,
+          "verifiedAt": null,
+          "publishedDate": null,
+          "page": null,
+          "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+          "market": "AU",
+          "sourceType": "external-catalogue"
+        },
+        "baselineSha256": "6206fc16b9afc5b00b47d6391ff14c021d0d4eb679055313c9d1026fa658f5ee"
+      },
+      "afterStatus": "loggable-now"
+    },
+    {
+      "candidateId": "barcode:9339687449194",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9339687449194",
+      "name": "White Flatbreads",
+      "brand": "Woolworths Bakery",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": true,
+      "beforeStatus": "loggable-now",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "disposition": "recategorised",
+      "reason": "Shared food-family evidence supports classification",
+      "category": {
+        "id": "bread",
+        "conceptIds": [
+          "bread"
+        ],
+        "rule": "plain-flatbread-wrap"
+      },
+      "evidence": {
+        "source": {
+          "sourceId": "open-food-facts-au",
+          "recordId": "off:9339687449194",
+          "url": "http://world-en.openfoodfacts.org/product/9339687449194/white-flatbreads-woolworths-bakery",
+          "trustClass": "open-food-facts-au",
+          "trustRank": 4,
+          "retrievedAt": null,
+          "verifiedAt": null,
+          "publishedDate": null,
+          "page": null,
+          "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+          "market": "AU",
+          "sourceType": "external-catalogue"
+        },
+        "baselineSha256": "a8f92f260dc25bbd71788a2eb4df416a0c7875a8d7265699ad52eaaa358ee379"
+      },
+      "afterStatus": "loggable-now"
+    },
+    {
+      "candidateId": "barcode:9339687449200",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9339687449200",
+      "name": "Wholemeal Flatbreads",
+      "brand": "Woolworths Bakery",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": true,
+      "beforeStatus": "loggable-now",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "disposition": "recategorised",
+      "reason": "Shared food-family evidence supports classification",
+      "category": {
+        "id": "bread",
+        "conceptIds": [
+          "bread"
+        ],
+        "rule": "plain-flatbread-wrap"
+      },
+      "evidence": {
+        "source": {
+          "sourceId": "open-food-facts-au",
+          "recordId": "off:9339687449200",
+          "url": "http://world-en.openfoodfacts.org/product/9339687449200/wholemeal-flatbreads-woolworths-bakery",
+          "trustClass": "open-food-facts-au",
+          "trustRank": 4,
+          "retrievedAt": null,
+          "verifiedAt": null,
+          "publishedDate": null,
+          "page": null,
+          "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+          "market": "AU",
+          "sourceType": "external-catalogue"
+        },
+        "baselineSha256": "4580499028ee5908deed26b4ac292e4477dfb7dba090180bd087d9743cc247ff"
+      },
+      "afterStatus": "loggable-now"
+    },
+    {
+      "candidateId": "woolworths-product:888136",
+      "groups": [
+        "C"
+      ],
+      "canonicalKey": "barcode:9300633556204",
+      "name": "Woolworths Skim Milk 1L",
+      "brand": "Woolworths",
+      "canonicalOverlap": false,
+      "previouslyOrdinary": false,
+      "beforeStatus": "not-catalogued",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "disposition": "deferred",
+      "reason": "qualified-serving-bound-needs-review",
+      "afterStatus": "loggable-now",
+      "conflicts": [],
+      "evidence": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/888136",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/888136",
+        "retrievedAt": "2026-10-04T05:32:38.033Z",
+        "sha256": "779629937ae41dd3404e2f39cea48ac9aa56095e25d1880f29887c066ddc2e36",
+        "responseBytes": 745612,
+        "contentType": "text/html; charset=utf-8"
+      }
+    },
+    {
+      "candidateId": "woolworths-product:86817",
+      "groups": [
+        "C"
+      ],
+      "canonicalKey": "barcode:9339687165339",
+      "name": "Woolworths High Protein Plain Yoghurt 900g",
+      "brand": "Woolworths",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": false,
+      "beforeStatus": "loggable-now",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "disposition": "deferred",
+      "reason": "missing-required-fat",
+      "afterStatus": "loggable-now",
+      "conflicts": [],
+      "evidence": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/86817",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/86817",
+        "retrievedAt": "2026-10-04T05:32:39.437Z",
+        "sha256": "9dc4b33249fbe39d368559fb163392f84e5539b39d71b08017ce68ffbcfe5216",
+        "responseBytes": 750387,
+        "contentType": "text/html; charset=utf-8"
+      }
+    },
+    {
+      "candidateId": "woolworths-product:768568",
+      "groups": [
+        "C"
+      ],
+      "canonicalKey": "barcode:9300633450410",
+      "name": "Woolworths Mixed Vegetables 1Kg",
+      "brand": "Woolworths",
+      "canonicalOverlap": false,
+      "previouslyOrdinary": false,
+      "beforeStatus": "not-catalogued",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "disposition": "admitted",
+      "reason": "Reliable AU identity, required nutrition and safe consumed measure; compatible canonical evidence",
+      "afterStatus": "loggable-now",
+      "evidence": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/768568",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/768568",
+        "retrievedAt": "2026-10-04T05:32:39.758Z",
+        "sha256": "48b58470b155bf601ab4184ae60296776339b7e347d79b4aa15b34f72a9c5511",
+        "responseBytes": 702945,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "nutritionSource": {
+        "sourceId": "woolworths-au-public",
+        "recordId": "768568",
+        "url": "https://www.woolworths.com.au/shop/productdetails/768568",
+        "trustClass": "official-au-retailer",
+        "trustRank": 2,
+        "retrievedAt": "2026-10-04T05:32:39.758Z",
+        "verifiedAt": null,
+        "publishedDate": null,
+        "page": null,
+        "sha256": "48b58470b155bf601ab4184ae60296776339b7e347d79b4aa15b34f72a9c5511",
+        "market": "AU",
+        "sourceType": "packaged"
+      },
+      "measures": [
+        {
+          "key": "serve",
+          "label": "Manufacturer serve (100 g)"
+        },
+        {
+          "key": "g",
+          "label": "g"
+        }
+      ],
+      "newCanonicalIdentity": true
+    },
+    {
+      "candidateId": "woolworths-product:93915",
+      "groups": [
+        "C"
+      ],
+      "canonicalKey": "barcode:9300633939151",
+      "name": "Woolworths Essentials Frozen Mixed Vegetables 1kg",
+      "brand": "Woolworths Essentials",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": false,
+      "beforeStatus": "needs-nutrition-completion",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "disposition": "deferred",
+      "reason": "identity-conflict; unresolved-material-evidence",
+      "afterStatus": "needs-nutrition-completion",
+      "conflicts": [
+        {
+          "code": "same-gtin-identity-conflict",
+          "field": "identity",
+          "severity": "material",
+          "resolution": "unresolved",
+          "fields": [
+            "brand"
+          ],
+          "evidence": {
+            "left": {
+              "recordId": "woolworths-au:93915",
+              "brand": "Woolworths Essentials",
+              "name": "Woolworths Essentials Frozen Mixed Vegetables 1kg",
+              "barcode": "9300633939151",
+              "pack": {
+                "amount": 1000,
+                "unit": "g"
+              },
+              "physicalForm": "weight",
+              "variantAttributes": {
+                "packCount": null
+              },
+              "source": {
+                "sourceId": "woolworths-au-public",
+                "recordId": "93915",
+                "url": "https://www.woolworths.com.au/shop/productdetails/93915",
+                "trustClass": "official-au-retailer",
+                "trustRank": 2,
+                "retrievedAt": "2026-10-04T05:32:40.699Z",
+                "verifiedAt": null,
+                "publishedDate": null,
+                "page": null,
+                "sha256": "be79ddbd11287099cc9d48273e58aa74643e4b739577ce20547b9c757055c20e",
+                "market": "AU",
+                "sourceType": "packaged"
+              },
+              "titleAttributes": {
+                "pack": {
+                  "amount": 1000,
+                  "unit": "g"
+                }
+              }
+            },
+            "right": {
+              "recordId": "off:9300633939151",
+              "brand": "Woolworths",
+              "name": "Mix veg",
+              "barcode": "9300633939151",
+              "pack": null,
+              "physicalForm": "unknown",
+              "variantAttributes": {},
+              "source": {
+                "sourceId": "off:9300633939151",
+                "recordId": "off:9300633939151",
+                "url": "http://world-en.openfoodfacts.org/product/9300633939151/mix-veg-woolworths",
+                "trustClass": "open-food-facts-au",
+                "trustRank": 4,
+                "retrievedAt": null,
+                "verifiedAt": null,
+                "publishedDate": null,
+                "page": null,
+                "sha256": "50b6ce1f04f1a161a0a3ee009e63a057c5d29d7ce42241186873d6061d8163c4",
+                "market": "AU",
+                "sourceType": "external-catalogue"
+              },
+              "titleAttributes": {}
+            }
+          }
+        }
+      ],
+      "evidence": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/93915",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/93915",
+        "retrievedAt": "2026-10-04T05:32:40.699Z",
+        "sha256": "be79ddbd11287099cc9d48273e58aa74643e4b739577ce20547b9c757055c20e",
+        "responseBytes": 748280,
+        "contentType": "text/html; charset=utf-8"
+      }
+    },
+    {
+      "candidateId": "woolworths-product:33835",
+      "groups": [
+        "D"
+      ],
+      "canonicalKey": "barcode:9300605114173",
+      "name": "Nescafe Blend 43 Instant Coffee Jar 150g",
+      "brand": "Nescafe",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": false,
+      "beforeStatus": "loggable-now",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "disposition": "deferred",
+      "reason": "independent-exact-product-nutrition-not-established; missing-required-calories; missing-required-protein; missing-required-carbs; missing-required-fat; portion-conversion-incomplete",
+      "afterStatus": "needs-nutrition-completion",
+      "conflicts": [],
+      "evidence": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/33835",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/33835",
+        "retrievedAt": "2026-10-04T05:32:40.928Z",
+        "sha256": "3cb6fc64a32573dea2cd6682b5cdb48c4c1ded655dea4640ff6daf17ce165e9c",
+        "responseBytes": 750710,
+        "contentType": "text/html; charset=utf-8"
+      }
+    },
+    {
+      "candidateId": "woolworths-product:702098",
+      "groups": [
+        "D"
+      ],
+      "canonicalKey": "barcode:9310055537224",
+      "name": "Kellogg's Corn Flakes Breakfast Cereal 380g",
+      "brand": "Kellogg's",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": false,
+      "beforeStatus": "needs-nutrition-completion",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "disposition": "deferred",
+      "reason": "independent-exact-product-nutrition-not-established; source-conflict; unresolved-material-evidence",
+      "afterStatus": "needs-nutrition-completion",
+      "conflicts": [
+        {
+          "code": "pack-serving-count-conflict",
+          "field": "serving",
+          "severity": "material",
+          "evidence": {
+            "serve": {
+              "amount": 35,
+              "unit": "g"
+            },
+            "pack": {
+              "amount": 380,
+              "unit": "g"
+            },
+            "count": 10
+          }
+        }
+      ],
+      "evidence": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/702098",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/702098",
+        "retrievedAt": "2026-10-04T05:32:41.807Z",
+        "sha256": "2809766246d64e5ce9b2026ee17f3a3729ada94d47117cc4cb3614e8e52d52b2",
+        "responseBytes": 710169,
+        "contentType": "text/html; charset=utf-8"
+      }
+    },
+    {
+      "candidateId": "woolworths-product:77750",
+      "groups": [
+        "D"
+      ],
+      "canonicalKey": "barcode:9300644043601",
+      "name": "Campbell's Real Stock Chicken 1L",
+      "brand": "Campbell's",
+      "canonicalOverlap": true,
+      "previouslyOrdinary": false,
+      "beforeStatus": "needs-nutrition-completion",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "disposition": "admitted",
+      "reason": "Reliable AU identity, required nutrition and safe consumed measure; compatible canonical evidence",
+      "afterStatus": "loggable-now",
+      "evidence": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/77750",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/77750",
+        "retrievedAt": "2026-10-04T05:32:42.799Z",
+        "sha256": "e8b217b089a3ccc2a67ab2a467b4bc3ec2caf5dfcedfd8a81ec53fdfef33d35b",
+        "responseBytes": 719996,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "nutritionSource": {
+        "sourceId": "campbells-au",
+        "recordId": "NHj22P0BEMK27UsHVRzcX",
+        "url": "https://www.campbellsanz.com/products/stock/chicken-1litre",
+        "trustClass": "official-au-manufacturer",
+        "trustRank": 1,
+        "retrievedAt": "2026-10-04T05:34:55.276Z",
+        "verifiedAt": null,
+        "publishedDate": null,
+        "page": null,
+        "sha256": "96f3b10a1b847ffbfd8b40b19b66c0d23f96034ff8573012b29c0285a19b942c",
+        "market": "AU",
+        "sourceType": "official-au-manufacturer"
+      },
+      "measures": [
+        {
+          "key": "mL",
+          "label": "mL"
+        },
+        {
+          "key": "cup",
+          "label": "Metric cup (250 mL)"
+        },
+        {
+          "key": "L",
+          "label": "Litres"
+        },
+        {
+          "key": "serve",
+          "label": "Manufacturer serve (250 mL)"
+        }
+      ],
+      "newCanonicalIdentity": false
+    }
+  ],
+  "admissions": [
+    {
+      "id": "woolworths-au:768568",
+      "canonicalKey": "barcode:9300633450410",
+      "brand": "Woolworths",
+      "name": "Woolworths Mixed Vegetables 1Kg"
+    },
+    {
+      "id": "manufacturer:campbells-au:NHj22P0BEMK27UsHVRzcX",
+      "canonicalKey": "barcode:9300644043601",
+      "brand": "Campbell's",
+      "name": "Campbell's Real Stock Chicken 1L"
+    }
+  ],
+  "inputHashes": {
+    "candidate-manifest.json": "f11e63ea5fb5063d699657038a0e655f51d06625c6d8a0a940d77e0d36d5ed01",
+    "baseline.json": "1b15500b9152c0429b24078435fe70403d7f0618c6ceda762a03d092d2000c02",
+    "baseline-peers.json": "5135e862f8c7839bd555ee7c446ef1ef1189849cfc7bc47fedf430cfe8f01d3a",
+    "public-products.json": "f7ba8a2e08f7689a2d799bb17dd137f1563549d6785f5db172defdba6247836b",
+    "capture-manifest.json": "efc5a273c9f27b6097d3a1b6392ef187c7c1799db8b9eba3fe2f026daa44a86d",
+    "manufacturer-capture.json": "d90ad6ef2cd531310777895cafb3594ae2a40d7476faf2c773a146bf821185c8",
+    "manufacturer-facts.json": "36d942879a9523d33dc4eac875d10e873009660a7744734419ecdd1a4bab3f94"
+  }
+}

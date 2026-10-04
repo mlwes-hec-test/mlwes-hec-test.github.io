@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "privateTestingApproved": true,
+  "publicReleaseReviewRequired": true,
+  "publicReleaseLicensingAdmissionGate": false,
+  "inputs": {
+    "candidate-manifest.json": "f11e63ea5fb5063d699657038a0e655f51d06625c6d8a0a940d77e0d36d5ed01",
+    "baseline.json": "1b15500b9152c0429b24078435fe70403d7f0618c6ceda762a03d092d2000c02",
+    "baseline-peers.json": "5135e862f8c7839bd555ee7c446ef1ef1189849cfc7bc47fedf430cfe8f01d3a",
+    "public-products.json": "f7ba8a2e08f7689a2d799bb17dd137f1563549d6785f5db172defdba6247836b",
+    "capture-manifest.json": "efc5a273c9f27b6097d3a1b6392ef187c7c1799db8b9eba3fe2f026daa44a86d",
+    "manufacturer-capture.json": "d90ad6ef2cd531310777895cafb3594ae2a40d7476faf2c773a146bf821185c8",
+    "manufacturer-facts.json": "36d942879a9523d33dc4eac875d10e873009660a7744734419ecdd1a4bab3f94"
+  },
+  "admission": "Existing canonical compatibility, required exact energy/protein/carbohydrate/fat, safe measured basis; no numeric replacement for unknowns.",
+  "categoryProjection": "Shared food-family rules applied only to the frozen reviewed candidate set.",
+  "sourcePrecedence": "Existing trust ordering; unresolved material identity conflicts always block; no automatic source replacement.",
+  "newEvidencePublicationDates": "Unknown unless explicitly supplied. Manufacturer CMS modification dates are retained separately."
+}

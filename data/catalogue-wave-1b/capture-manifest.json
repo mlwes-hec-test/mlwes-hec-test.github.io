@@ -1,0 +1,227 @@
+[
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/355265",
+    "retrievedAt": "2026-10-04T05:31:54.444Z",
+    "error": "fetch failed"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/355265",
+    "retrievedAt": "2026-10-04T05:32:24.167Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/355265",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 715701,
+    "sha256": "94a0352c52d1a1b51d0c1d0f75410d6bfcb3051501e7c70a2ee20a0c926b37c6",
+    "file": "94a0352c52d1a1b51d0c1d0f75410d6bfcb3051501e7c70a2ee20a0c926b37c6.html"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/35007",
+    "retrievedAt": "2026-10-04T05:32:25.416Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/35007",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 743937,
+    "sha256": "c25ff4122411cf3312b1cece41a281823911f1024d49c2b08c48ab0b002ee12e",
+    "file": "c25ff4122411cf3312b1cece41a281823911f1024d49c2b08c48ab0b002ee12e.html"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/754170",
+    "retrievedAt": "2026-10-04T05:32:26.613Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/754170",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 741737,
+    "sha256": "f98bc0946e2b51f7dbf93c540576854825da046a3b6405e8814ef1e1cb11a1e8",
+    "file": "f98bc0946e2b51f7dbf93c540576854825da046a3b6405e8814ef1e1cb11a1e8.html"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/756086",
+    "retrievedAt": "2026-10-04T05:32:27.878Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/756086",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 694972,
+    "sha256": "7e3b1261e57dbddb3ff17913f08b4031fe3e157334a9e72251a0e3e6d54742fe",
+    "file": "7e3b1261e57dbddb3ff17913f08b4031fe3e157334a9e72251a0e3e6d54742fe.html"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/830211",
+    "retrievedAt": "2026-10-04T05:32:28.926Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/830211",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 747800,
+    "sha256": "49d4f1f2a25cb94978e289cb5f1edb91a89e8d4634b9a0b796e08ae4392fb25c",
+    "file": "49d4f1f2a25cb94978e289cb5f1edb91a89e8d4634b9a0b796e08ae4392fb25c.html"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/824365",
+    "retrievedAt": "2026-10-04T05:32:29.854Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/824365",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 748140,
+    "sha256": "828c9be6e32fb7eb67f0b4135ee1a4afb5287260debdf011dc56654e5040206d",
+    "file": "828c9be6e32fb7eb67f0b4135ee1a4afb5287260debdf011dc56654e5040206d.html"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/224941",
+    "retrievedAt": "2026-10-04T05:32:30.782Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/224941",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 749146,
+    "sha256": "9ff871a40b40753f8438ca3ede16b0e888eaf34a77ac319c1f5fe0daa0b10cf3",
+    "file": "9ff871a40b40753f8438ca3ede16b0e888eaf34a77ac319c1f5fe0daa0b10cf3.html"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/93530",
+    "retrievedAt": "2026-10-04T05:32:31.202Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/93530",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 709231,
+    "sha256": "d5c5ba014aba0f28c91f3334364a6680d7cfeb2d851d7a840a4b224183002b5a",
+    "file": "d5c5ba014aba0f28c91f3334364a6680d7cfeb2d851d7a840a4b224183002b5a.html"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/310237",
+    "retrievedAt": "2026-10-04T05:32:32.323Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/310237",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 751140,
+    "sha256": "5de0b786d0f9ba282ff6021ab0519962faa312b5050c6784b0f38990ac43d14f",
+    "file": "5de0b786d0f9ba282ff6021ab0519962faa312b5050c6784b0f38990ac43d14f.html"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/151547",
+    "retrievedAt": "2026-10-04T05:32:33.386Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/151547",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 704911,
+    "sha256": "c9a6681f3a0312aac4253e3b48508537db9cedff9dde7480aefa1d8f0b35c559",
+    "file": "c9a6681f3a0312aac4253e3b48508537db9cedff9dde7480aefa1d8f0b35c559.html"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/277727",
+    "retrievedAt": "2026-10-04T05:32:34.825Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/277727",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 704223,
+    "sha256": "742b911f9ac16c7f52a629e5cdfcc444b5594aa308288a0b7c8903720c3e4238",
+    "file": "742b911f9ac16c7f52a629e5cdfcc444b5594aa308288a0b7c8903720c3e4238.html"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/288440",
+    "retrievedAt": "2026-10-04T05:32:35.081Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/288440",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 692212,
+    "sha256": "867172ebea74e6d23072220f08a200ba2a49566f8703b435fbd325724eb930c5",
+    "file": "867172ebea74e6d23072220f08a200ba2a49566f8703b435fbd325724eb930c5.html"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/396254",
+    "retrievedAt": "2026-10-04T05:32:36.091Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/396254",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 730070,
+    "sha256": "9f323b3956f7934531114badbab8ea22ad93cb12d1413c1c676f899bc546cd2b",
+    "file": "9f323b3956f7934531114badbab8ea22ad93cb12d1413c1c676f899bc546cd2b.html"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/924103",
+    "retrievedAt": "2026-10-04T05:32:36.816Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/924103",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 745006,
+    "sha256": "3d37d3315b9bf8532572b7148f79a172aba6723e4f845d98344dad5f712d2d70",
+    "file": "3d37d3315b9bf8532572b7148f79a172aba6723e4f845d98344dad5f712d2d70.html"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/6033180",
+    "retrievedAt": "2026-10-04T05:32:37.827Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/6033180",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 743385,
+    "sha256": "987d627ae470a675b64665a8fb555800d0a00863394c451c9bf3b9aff0e82854",
+    "file": "987d627ae470a675b64665a8fb555800d0a00863394c451c9bf3b9aff0e82854.html"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/888136",
+    "retrievedAt": "2026-10-04T05:32:38.033Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/888136",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 745612,
+    "sha256": "779629937ae41dd3404e2f39cea48ac9aa56095e25d1880f29887c066ddc2e36",
+    "file": "779629937ae41dd3404e2f39cea48ac9aa56095e25d1880f29887c066ddc2e36.html"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/86817",
+    "retrievedAt": "2026-10-04T05:32:39.437Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/86817",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 750387,
+    "sha256": "9dc4b33249fbe39d368559fb163392f84e5539b39d71b08017ce68ffbcfe5216",
+    "file": "9dc4b33249fbe39d368559fb163392f84e5539b39d71b08017ce68ffbcfe5216.html"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/768568",
+    "retrievedAt": "2026-10-04T05:32:39.758Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/768568",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 702945,
+    "sha256": "48b58470b155bf601ab4184ae60296776339b7e347d79b4aa15b34f72a9c5511",
+    "file": "48b58470b155bf601ab4184ae60296776339b7e347d79b4aa15b34f72a9c5511.html"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/93915",
+    "retrievedAt": "2026-10-04T05:32:40.699Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/93915",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 748280,
+    "sha256": "be79ddbd11287099cc9d48273e58aa74643e4b739577ce20547b9c757055c20e",
+    "file": "be79ddbd11287099cc9d48273e58aa74643e4b739577ce20547b9c757055c20e.html"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/33835",
+    "retrievedAt": "2026-10-04T05:32:40.928Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/33835",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 750710,
+    "sha256": "3cb6fc64a32573dea2cd6682b5cdb48c4c1ded655dea4640ff6daf17ce165e9c",
+    "file": "3cb6fc64a32573dea2cd6682b5cdb48c4c1ded655dea4640ff6daf17ce165e9c.html"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/702098",
+    "retrievedAt": "2026-10-04T05:32:41.807Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/702098",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 710169,
+    "sha256": "2809766246d64e5ce9b2026ee17f3a3729ada94d47117cc4cb3614e8e52d52b2",
+    "file": "2809766246d64e5ce9b2026ee17f3a3729ada94d47117cc4cb3614e8e52d52b2.html"
+  },
+  {
+    "url": "https://www.woolworths.com.au/shop/productdetails/77750",
+    "retrievedAt": "2026-10-04T05:32:42.799Z",
+    "finalUrl": "https://www.woolworths.com.au/shop/productdetails/77750",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 719996,
+    "sha256": "e8b217b089a3ccc2a67ab2a467b4bc3ec2caf5dfcedfd8a81ec53fdfef33d35b",
+    "file": "e8b217b089a3ccc2a67ab2a467b4bc3ec2caf5dfcedfd8a81ec53fdfef33d35b.html"
+  }
+]

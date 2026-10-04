@@ -754,7 +754,7 @@
         "status": "needs-nutrition-completion",
         "label": "Needs Nutrition Completion",
         "reasonCode": "energy-missing",
-        "message": "Complete this food’s nutrition and serving evidence before adding it to Diary.",
+        "message": "Energy is missing from the selected nutrition basis. Open Review Nutrition to complete it.",
         "actions": [
           {
             "id": "nutrition-panel",
@@ -1016,7 +1016,7 @@
         "status": "needs-nutrition-completion",
         "label": "Needs Nutrition Completion",
         "reasonCode": "energy-missing",
-        "message": "Complete this food’s nutrition and serving evidence before adding it to Diary.",
+        "message": "Energy is missing from the selected nutrition basis. Open Review Nutrition to complete it.",
         "actions": [
           {
             "id": "nutrition-panel",
@@ -1155,7 +1155,7 @@
         "status": "needs-nutrition-completion",
         "label": "Needs Nutrition Completion",
         "reasonCode": "energy-missing",
-        "message": "Complete this food’s nutrition and serving evidence before adding it to Diary.",
+        "message": "Energy is missing from the selected nutrition basis. Open Review Nutrition to complete it.",
         "actions": [
           {
             "id": "nutrition-panel",

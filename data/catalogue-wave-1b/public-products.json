@@ -1,0 +1,2620 @@
+{
+  "schemaVersion": 1,
+  "source": "Official Woolworths Australian public product HTML; factual extracts only",
+  "records": [
+    {
+      "sourceRecordId": "355265",
+      "provenance": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/355265",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/355265",
+        "retrievedAt": "2026-10-04T05:32:24.167Z",
+        "sha256": "94a0352c52d1a1b51d0c1d0f75410d6bfcb3051501e7c70a2ee20a0c926b37c6",
+        "responseBytes": 715701,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "product": {
+        "Stockcode": 355265,
+        "Barcode": "9300633209339",
+        "GtinFormat": 13,
+        "Name": "Woolworths Cracker Selection",
+        "DisplayName": "Woolworths Cracker Selection 250g",
+        "Brand": "Woolworths",
+        "Variety": "Selection",
+        "PackageSize": "250g",
+        "IsRanged": false,
+        "IsInStock": false,
+        "IsAvailable": false,
+        "IsPurchasable": false,
+        "AgeRestricted": false,
+        "IsTobacco": false,
+        "IsMarketProduct": false
+      },
+      "attributes": {
+        "PiesProductDepartmentsjson": "[{\"Id\":\"1_717445A\",\"Description\":\"Snacks & Confectionery\"}]",
+        "piesdepartmentnamesjson": "[\"Snacks & Confectionery\"]",
+        "piescategorynamesjson": "[\"Biscuits & Crackers\"]",
+        "piessubcategorynamesjson": "[\"Rice Cakes & Crispbread\",\"Crackers\"]",
+        "ingredients": "<p>Original Water Cracker: Enriched Wheat Flour (Wheat Flour, Niacin, Reduced Iron, Thiamin, Riboflavin, Folic Acid), Palm Oil, Salt, Original Melt Cracker: Enriched Wheat Flour (Wheat Flour, Niacin, Reduced Iron, Thiamin, Riboflavin, Folic Acid), Sunflower Oil, Sugar, Raising Agents (503, 500, 341), Barley Malt Extract, Salt, Natural Flavouring, Grain Cracker: Enriched Wheat Flour (Wheat Flour, Niacin, Reduced Iron, Thiamin, Riboflavin, Folic Acid), Whole Wheat Flour, Sunflower Oil, Mixed Grains (6%) (Cracked Wheat, Cracked Rye, Cracked Triticale, Cracked Barley, Millet, Linseeds, Oats), Wheat Germ, Sugar, Barley Malt Extract, Raising Agents (503, 500, 341), Salt, Oats, Molasses, Deactivated Yeast, Onion Powder, Ground Wheat Cracker: Enriched Wheat Flour (Wheat Flour, Niacin, Reduced Iron, Thiamin, Riboflavin, Folic Acid), Whole Wheat Flour, Sunflower Oil, Cracked Wheat (10%), Raising Agents (503, 500), Barley Malt Extract, Sea Salt, Natural Flavouring (Barley, Wheat), Yeast, Sesame Water Cracker: Enriched Wheat Flour (Wheat Flour, Niacin, Reduced Iron, Thiamin, Riboflavin, Folic Acid), Palm Oil, Sesame Seeds (4%), Salt, Sesame Wheat Cracker: Enriched Wheat Flour (Wheat Flour, Niacin, Reduced Iron, Thiamin, Riboflavin, Folic Acid), Whole Wheat Flour, Sunflower Oil, Palm Oil, Sesame Seeds (3%), Sea Salt, Deactivated Yeast, Sugar, Corn Starch, Natural Flavouring (Barley, Wheat), Sugar Cane Syrup, Onion Powder, Yeast</p><p><br/></p>",
+        "brand": "woolworths",
+        "nutritionalinformation": "{\"Name\":\"Nutritional Information\",\"Attributes\":[{\"Id\":702,\"Name\":\"Calcium Quantity Per 100g - Total - NIP\",\"Value\":\"41mg\",\"Description\":\"Calcium Quantity Per 100g - Total - NIP\",\"SortOrder\":71},{\"Id\":47,\"Name\":\"Calcium Quantity Per Serve - Total - NIP\",\"Value\":\"8.2mg\",\"Description\":\"Calcium Quantity Per Serve - Total - NIP\",\"SortOrder\":75},{\"Id\":705,\"Name\":\"Carbohydrate Quantity Per 100g - Total - NIP\",\"Value\":\"Approx. 63.8g\",\"Description\":\"Carbohydrate Quantity Per 100g - Total - NIP\",\"SortOrder\":83},{\"Id\":706,\"Name\":\"Carbohydrate Quantity Per Serve - Total - NIP\",\"Value\":\"Approx. 12.8g\",\"Description\":\"Carbohydrate Quantity Per Serve - Total - NIP\",\"SortOrder\":87},{\"Id\":714,\"Name\":\"Cholesterol Quantity Per 100g - Total - NIP\",\"Value\":\"1mg\",\"Description\":\"Cholesterol Quantity Per 100g - Total - NIP\",\"SortOrder\":111},{\"Id\":125,\"Name\":\"Cholesterol Quantity Per Serve - Total - NIP\",\"Value\":\"0.2mg\",\"Description\":\"Cholesterol Quantity Per Serve - Total - NIP\",\"SortOrder\":115},{\"Id\":191,\"Name\":\"Dietary Fibre Quantity Per 100g - Total - NIP\",\"Value\":\"Approx. 3.9g\",\"Description\":\"Dietary Fibre Quantity Per 100g - Total - NIP\",\"SortOrder\":175},{\"Id\":120,\"Name\":\"Dietary Fibre Quantity Per Serve - Total - NIP\",\"Value\":\"Approx. 0.8g\",\"Description\":\"Dietary Fibre Quantity Per Serve - Total - NIP\",\"SortOrder\":179},{\"Id\":759,\"Name\":\"Energy kJ Quantity Per 100g - Total - NIP\",\"Value\":\"Approx. 1780kJ\",\"Description\":\"Energy kJ Quantity Per 100g - Total - NIP\",\"SortOrder\":239},{\"Id\":760,\"Name\":\"Energy kJ Quantity Per Serve - Total - NIP\",\"Value\":\"Approx. 356kJ\",\"Description\":\"Energy kJ Quantity Per Serve - Total - NIP\",\"SortOrder\":243},{\"Id\":253,\"Name\":\"Fat Saturated Quantity Per 100g - Total - NIP\",\"Value\":\"Approx. 2.2g\",\"Description\":\"Fat Saturated Quantity Per 100g - Total - NIP\",\"SortOrder\":251},{\"Id\":258,\"Name\":\"Fat Saturated Quantity Per Serve - Total - NIP\",\"Value\":\"Approx. 0.4g\",\"Description\":\"Fat Saturated Quantity Per Serve - Total - NIP\",\"SortOrder\":255},{\"Id\":764,\"Name\":\"Fat Total Quantity Per 100g - Total - NIP\",\"Value\":\"Approx. 14.5g\",\"Description\":\"Fat Total Quantity Per 100g - Total - NIP\",\"SortOrder\":263},{\"Id\":166,\"Name\":\"Fat Total Quantity Per 100g - ValueWord - NIP\",\"Value\":\"14.5\",\"Description\":\"Fat Total Quantity Per 100g - ValueWord - NIP\",\"SortOrder\":264},{\"Id\":264,\"Name\":\"Fat Total Quantity Per Serve - Total - NIP\",\"Value\":\"Approx. 2.9g\",\"Description\":\"Fat Total Quantity Per Serve - Total - NIP\",\"SortOrder\":267},{\"Id\":402,\"Name\":\"Monounsaturated Quantity Per 100g - Total - NIP\",\"Value\":\"7.8g\",\"Description\":\"Monounsaturated Quantity Per 100g - Total - NIP\",\"SortOrder\":479},{\"Id\":834,\"Name\":\"Monounsaturated Quantity Per Serve - Total - NIP\",\"Value\":\"0.8g\",\"Description\":\"Monounsaturated Quantity Per Serve - Total - NIP\",\"SortOrder\":483},{\"Id\":434,\"Name\":\"Polyunsaturated Quantity Per 100g - Total - NIP\",\"Value\":\"3.0g\",\"Description\":\"Polyunsaturated Quantity Per 100g - Total - NIP\",\"SortOrder\":563},{\"Id\":435,\"Name\":\"Polyunsaturated Quantity Per Serve - Total - NIP\",\"Value\":\"0.3g\",\"Description\":\"Polyunsaturated Quantity Per Serve - Total - NIP\",\"SortOrder\":567},{\"Id\":443,\"Name\":\"Potassium Quantity Per 100g - Total - NIP\",\"Value\":\"156mg\",\"Description\":\"Potassium Quantity Per 100g - Total - NIP\",\"SortOrder\":575},{\"Id\":493,\"Name\":\"Potassium Quantity Per Serve - Total - NIP\",\"Value\":\"31.2mg\",\"Description\":\"Potassium Quantity Per Serve - Total - NIP\",\"SortOrder\":579},{\"Id\":878,\"Name\":\"Protein Quantity Per 100g - Total - NIP\",\"Value\":\"Approx. 7.6g\",\"Description\":\"Protein Quantity Per 100g - Total - NIP\",\"SortOrder\":587},{\"Id\":882,\"Name\":\"Protein Quantity Per Serve - Total - NIP\",\"Value\":\"Approx. 1.5g\",\"Description\":\"Protein Quantity Per Serve - Total - NIP\",\"SortOrder\":591},{\"Id\":477,\"Name\":\"Serving Size - Total - NIP\",\"Value\":\"20g\",\"Description\":\"Serving Size - Total - NIP\",\"SortOrder\":607},{\"Id\":544,\"Name\":\"Servings Per Pack - Total - NIP\",\"Value\":\"12\",\"Description\":\"Servings Per Pack - Total - NIP\",\"SortOrder\":611},{\"Id\":491,\"Name\":\"Sodium Quantity Per 100g - Total - NIP\",\"Value\":\"Approx. 516mg\",\"Description\":\"Sodium Quantity Per 100g - Total - NIP\",\"SortOrder\":623},{\"Id\":495,\"Name\":\"Sodium Quantity Per Serve - Total - NIP\",\"Value\":\"Approx. 103mg\",\"Description\":\"Sodium Quantity Per Serve - Total - NIP\",\"SortOrder\":627},{\"Id\":907,\"Name\":\"Sugars Quantity Per 100g - Prefix - NIP\",\"Value\":\"Approx. \",\"Description\":\"Sugars Quantity Per 100g - Prefix - NIP\",\"SortOrder\":645},{\"Id\":908,\"Name\":\"Sugars Quantity Per 100g - SuffixUnits - NIP\",\"Value\":\"g\",\"Description\":\"Sugars Quantity Per 100g - SuffixUnits - NIP\",\"SortOrder\":646},{\"Id\":909,\"Name\":\"Sugars Quantity Per 100g - Total - NIP\",\"Value\":\"Approx. 2.9g\",\"Description\":\"Sugars Quantity Per 100g - Total - NIP\",\"SortOrder\":647},{\"Id\":910,\"Name\":\"Sugars Quantity Per 100g - ValueWord - NIP\",\"Value\":\"2.9\",\"Description\":\"Sugars Quantity Per 100g - ValueWord - NIP\",\"SortOrder\":648},{\"Id\":504,\"Name\":\"Sugars Quantity Per Serve - Prefix - NIP\",\"Value\":\"Approx. \",\"Description\":\"Sugars Quantity Per Serve - Prefix - NIP\",\"SortOrder\":649},{\"Id\":911,\"Name\":\"Sugars Quantity Per Serve - SuffixUnits - NIP\",\"Value\":\"g\",\"Description\":\"Sugars Quantity Per Serve - SuffixUnits - NIP\",\"SortOrder\":650},{\"Id\":912,\"Name\":\"Sugars Quantity Per Serve - Total - NIP\",\"Value\":\"Approx. 0.6g\",\"Description\":\"Sugars Quantity Per Serve - Total - NIP\",\"SortOrder\":651},{\"Id\":572,\"Name\":\"Sugars Quantity Per Serve - ValueWord - NIP\",\"Value\":\"0.6\",\"Description\":\"Sugars Quantity Per Serve - ValueWord - NIP\",\"SortOrder\":652},{\"Id\":593,\"Name\":\"Trans Quantity Per 100g - Total - NIP\",\"Value\":\"<0.1g\",\"Description\":\"Trans Quantity Per 100g - Total - NIP\",\"SortOrder\":667},{\"Id\":510,\"Name\":\"Trans Quantity Per Serve - Total - NIP\",\"Value\":\"<0.1g\",\"Description\":\"Trans Quantity Per Serve - Total - NIP\",\"SortOrder\":671}]}"
+      },
+      "nutrition": [
+        {
+          "Name": "Energy",
+          "Values": {
+            "Quantity Per Serving": "Approx. 356kJ",
+            "Quantity Per 100g / 100mL": "Approx. 1780kJ"
+          },
+          "ServingSize": "20g",
+          "ServingsPerPack": "12"
+        },
+        {
+          "Name": "Protein",
+          "Values": {
+            "Quantity Per Serving": "Approx. 1.5g",
+            "Quantity Per 100g / 100mL": "Approx. 7.6g"
+          },
+          "ServingSize": "20g",
+          "ServingsPerPack": "12"
+        },
+        {
+          "Name": "Fat, Total",
+          "Values": {
+            "Quantity Per Serving": "Approx. 2.9g",
+            "Quantity Per 100g / 100mL": "Approx. 14.5g"
+          },
+          "ServingSize": "20g",
+          "ServingsPerPack": "12"
+        },
+        {
+          "Name": "– Saturated",
+          "Values": {
+            "Quantity Per Serving": "Approx. 0.4g",
+            "Quantity Per 100g / 100mL": "Approx. 2.2g"
+          },
+          "ServingSize": "20g",
+          "ServingsPerPack": "12"
+        },
+        {
+          "Name": "Carbohydrate",
+          "Values": {
+            "Quantity Per Serving": "Approx. 12.8g",
+            "Quantity Per 100g / 100mL": "Approx. 63.8g"
+          },
+          "ServingSize": "20g",
+          "ServingsPerPack": "12"
+        },
+        {
+          "Name": "– Sugars",
+          "Values": {
+            "Quantity Per Serving": "Approx. 0.6g",
+            "Quantity Per 100g / 100mL": "Approx. 2.9g"
+          },
+          "ServingSize": "20g",
+          "ServingsPerPack": "12"
+        },
+        {
+          "Name": "Dietary Fibre",
+          "Values": {
+            "Quantity Per Serving": "Approx. 0.8g",
+            "Quantity Per 100g / 100mL": "Approx. 3.9g"
+          },
+          "ServingSize": "20g",
+          "ServingsPerPack": "12"
+        },
+        {
+          "Name": "Sodium",
+          "Values": {
+            "Quantity Per Serving": "Approx. 103mg",
+            "Quantity Per 100g / 100mL": "Approx. 516mg"
+          },
+          "ServingSize": "20g",
+          "ServingsPerPack": "12"
+        }
+      ],
+      "countryOfOrigin": {
+        "PngImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/54e05d8d-b3a8-4944-9e7f-d92163299e8a.png",
+        "SvgImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/54e05d8d-b3a8-4944-9e7f-d92163299e8a.svg",
+        "AltText": "Made in Canada",
+        "CountryOfOrigin": "Canada",
+        "IngredientPercentage": "",
+        "Disclaimer": null
+      },
+      "availabilityContext": {
+        "storeSelected": false,
+        "accountUsed": false,
+        "listingState": "listed-at-retrieval",
+        "currentAvailability": "unknown",
+        "note": "Public product page evidenced. No-location stock/range flags do not establish nationwide availability or discontinuation."
+      }
+    },
+    {
+      "sourceRecordId": "35007",
+      "provenance": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/35007",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/35007",
+        "retrievedAt": "2026-10-04T05:32:25.416Z",
+        "sha256": "c25ff4122411cf3312b1cece41a281823911f1024d49c2b08c48ab0b002ee12e",
+        "responseBytes": 743937,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "product": {
+        "Stockcode": 35007,
+        "Barcode": "9300633350079",
+        "GtinFormat": 13,
+        "Name": "Woolworths Essentials Long Grain Rice Long Grain",
+        "DisplayName": "Woolworths Essentials Long Grain Rice 1kg",
+        "Brand": "Woolworths Essentials",
+        "Variety": "Long Grain",
+        "PackageSize": "1kg",
+        "IsRanged": true,
+        "IsInStock": true,
+        "IsAvailable": true,
+        "IsPurchasable": true,
+        "AgeRestricted": false,
+        "IsTobacco": false,
+        "IsMarketProduct": false
+      },
+      "attributes": {
+        "PiesProductDepartmentsjson": "[{\"Id\":\"1_39FD49C\",\"Description\":\"Pantry\"}]",
+        "piesdepartmentnamesjson": "[\"Pantry\"]",
+        "piescategorynamesjson": "[\"Pasta, Rice & Grains\"]",
+        "piessubcategorynamesjson": "[\"Rice\"]",
+        "ingredients": "Long Grain Rice",
+        "brand": "woolworths essentials",
+        "nutritionalinformation": "{\"Name\":\"Nutritional Information\",\"Attributes\":[{\"Id\":705,\"Name\":\"Carbohydrate Quantity Per 100g - Total - NIP\",\"Value\":\"74.0g\",\"Description\":\"Carbohydrate Quantity Per 100g - Total - NIP\",\"SortOrder\":83},{\"Id\":706,\"Name\":\"Carbohydrate Quantity Per Serve - Total - NIP\",\"Value\":\"51.8g\",\"Description\":\"Carbohydrate Quantity Per Serve - Total - NIP\",\"SortOrder\":87},{\"Id\":191,\"Name\":\"Dietary Fibre Quantity Per 100g - Total - NIP\",\"Value\":\"1.0g\",\"Description\":\"Dietary Fibre Quantity Per 100g - Total - NIP\",\"SortOrder\":175},{\"Id\":120,\"Name\":\"Dietary Fibre Quantity Per Serve - Total - NIP\",\"Value\":\"0.7g\",\"Description\":\"Dietary Fibre Quantity Per Serve - Total - NIP\",\"SortOrder\":179},{\"Id\":759,\"Name\":\"Energy kJ Quantity Per 100g - Total - NIP\",\"Value\":\"1420.0kJ\",\"Description\":\"Energy kJ Quantity Per 100g - Total - NIP\",\"SortOrder\":239},{\"Id\":760,\"Name\":\"Energy kJ Quantity Per Serve - Total - NIP\",\"Value\":\"994.0kJ\",\"Description\":\"Energy kJ Quantity Per Serve - Total - NIP\",\"SortOrder\":243},{\"Id\":253,\"Name\":\"Fat Saturated Quantity Per 100g - Total - NIP\",\"Value\":\"1.0g\",\"Description\":\"Fat Saturated Quantity Per 100g - Total - NIP\",\"SortOrder\":251},{\"Id\":258,\"Name\":\"Fat Saturated Quantity Per Serve - Total - NIP\",\"Value\":\"0.7g\",\"Description\":\"Fat Saturated Quantity Per Serve - Total - NIP\",\"SortOrder\":255},{\"Id\":764,\"Name\":\"Fat Total Quantity Per 100g - Total - NIP\",\"Value\":\"1.0g\",\"Description\":\"Fat Total Quantity Per 100g - Total - NIP\",\"SortOrder\":263},{\"Id\":166,\"Name\":\"Fat Total Quantity Per 100g - ValueWord - NIP\",\"Value\":\"1.0\",\"Description\":\"Fat Total Quantity Per 100g - ValueWord - NIP\",\"SortOrder\":264},{\"Id\":264,\"Name\":\"Fat Total Quantity Per Serve - Total - NIP\",\"Value\":\"0.7g\",\"Description\":\"Fat Total Quantity Per Serve - Total - NIP\",\"SortOrder\":267},{\"Id\":834,\"Name\":\"Monounsaturated Quantity Per Serve - Total - NIP\",\"Value\":\"<1.0g\",\"Description\":\"Monounsaturated Quantity Per Serve - Total - NIP\",\"SortOrder\":483},{\"Id\":435,\"Name\":\"Polyunsaturated Quantity Per Serve - Total - NIP\",\"Value\":\"<1.0g\",\"Description\":\"Polyunsaturated Quantity Per Serve - Total - NIP\",\"SortOrder\":567},{\"Id\":493,\"Name\":\"Potassium Quantity Per Serve - Total - NIP\",\"Value\":\"49mg\",\"Description\":\"Potassium Quantity Per Serve - Total - NIP\",\"SortOrder\":579},{\"Id\":878,\"Name\":\"Protein Quantity Per 100g - Total - NIP\",\"Value\":\"7.0g\",\"Description\":\"Protein Quantity Per 100g - Total - NIP\",\"SortOrder\":587},{\"Id\":882,\"Name\":\"Protein Quantity Per Serve - Total - NIP\",\"Value\":\"4.9g\",\"Description\":\"Protein Quantity Per Serve - Total - NIP\",\"SortOrder\":591},{\"Id\":477,\"Name\":\"Serving Size - Total - NIP\",\"Value\":\"70.0 G\",\"Description\":\"Serving Size - Total - NIP\",\"SortOrder\":607},{\"Id\":544,\"Name\":\"Servings Per Pack - Total - NIP\",\"Value\":\"14.0\",\"Description\":\"Servings Per Pack - Total - NIP\",\"SortOrder\":611},{\"Id\":491,\"Name\":\"Sodium Quantity Per 100g - Total - NIP\",\"Value\":\"5.0mg\",\"Description\":\"Sodium Quantity Per 100g - Total - NIP\",\"SortOrder\":623},{\"Id\":495,\"Name\":\"Sodium Quantity Per Serve - Total - NIP\",\"Value\":\"4.0mg\",\"Description\":\"Sodium Quantity Per Serve - Total - NIP\",\"SortOrder\":627},{\"Id\":908,\"Name\":\"Sugars Quantity Per 100g - SuffixUnits - NIP\",\"Value\":\"g\",\"Description\":\"Sugars Quantity Per 100g - SuffixUnits - NIP\",\"SortOrder\":646},{\"Id\":909,\"Name\":\"Sugars Quantity Per 100g - Total - NIP\",\"Value\":\"1.0g\",\"Description\":\"Sugars Quantity Per 100g - Total - NIP\",\"SortOrder\":647},{\"Id\":910,\"Name\":\"Sugars Quantity Per 100g - ValueWord - NIP\",\"Value\":\"1.0\",\"Description\":\"Sugars Quantity Per 100g - ValueWord - NIP\",\"SortOrder\":648},{\"Id\":911,\"Name\":\"Sugars Quantity Per Serve - SuffixUnits - NIP\",\"Value\":\"g\",\"Description\":\"Sugars Quantity Per Serve - SuffixUnits - NIP\",\"SortOrder\":650},{\"Id\":912,\"Name\":\"Sugars Quantity Per Serve - Total - NIP\",\"Value\":\"0.7g\",\"Description\":\"Sugars Quantity Per Serve - Total - NIP\",\"SortOrder\":651},{\"Id\":572,\"Name\":\"Sugars Quantity Per Serve - ValueWord - NIP\",\"Value\":\"0.7\",\"Description\":\"Sugars Quantity Per Serve - ValueWord - NIP\",\"SortOrder\":652},{\"Id\":510,\"Name\":\"Trans Quantity Per Serve - Total - NIP\",\"Value\":\"<1.0g\",\"Description\":\"Trans Quantity Per Serve - Total - NIP\",\"SortOrder\":671}]}"
+      },
+      "nutrition": [
+        {
+          "Name": "Energy",
+          "Values": {
+            "Quantity Per Serving": "994.0kJ",
+            "Quantity Per 100g / 100mL": "1420.0kJ"
+          },
+          "ServingSize": "70.0 G",
+          "ServingsPerPack": "14.0"
+        },
+        {
+          "Name": "Protein",
+          "Values": {
+            "Quantity Per Serving": "4.9g",
+            "Quantity Per 100g / 100mL": "7.0g"
+          },
+          "ServingSize": "70.0 G",
+          "ServingsPerPack": "14.0"
+        },
+        {
+          "Name": "Fat, Total",
+          "Values": {
+            "Quantity Per Serving": "0.7g",
+            "Quantity Per 100g / 100mL": "1.0g"
+          },
+          "ServingSize": "70.0 G",
+          "ServingsPerPack": "14.0"
+        },
+        {
+          "Name": "– Saturated",
+          "Values": {
+            "Quantity Per Serving": "0.7g",
+            "Quantity Per 100g / 100mL": "1.0g"
+          },
+          "ServingSize": "70.0 G",
+          "ServingsPerPack": "14.0"
+        },
+        {
+          "Name": "Carbohydrate",
+          "Values": {
+            "Quantity Per Serving": "51.8g",
+            "Quantity Per 100g / 100mL": "74.0g"
+          },
+          "ServingSize": "70.0 G",
+          "ServingsPerPack": "14.0"
+        },
+        {
+          "Name": "– Sugars",
+          "Values": {
+            "Quantity Per Serving": "0.7g",
+            "Quantity Per 100g / 100mL": "1.0g"
+          },
+          "ServingSize": "70.0 G",
+          "ServingsPerPack": "14.0"
+        },
+        {
+          "Name": "Dietary Fibre",
+          "Values": {
+            "Quantity Per Serving": "0.7g",
+            "Quantity Per 100g / 100mL": "1.0g"
+          },
+          "ServingSize": "70.0 G",
+          "ServingsPerPack": "14.0"
+        },
+        {
+          "Name": "Sodium",
+          "Values": {
+            "Quantity Per Serving": "4.0mg",
+            "Quantity Per 100g / 100mL": "5.0mg"
+          },
+          "ServingSize": "70.0 G",
+          "ServingsPerPack": "14.0"
+        }
+      ],
+      "countryOfOrigin": {
+        "PngImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/a09682fe-c769-4163-88cd-b722d38bace5.png",
+        "SvgImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/a09682fe-c769-4163-88cd-b722d38bace5.svg",
+        "AltText": "Product of Thailand",
+        "CountryOfOrigin": "Thailand",
+        "IngredientPercentage": "",
+        "Disclaimer": null
+      },
+      "availabilityContext": {
+        "storeSelected": false,
+        "accountUsed": false,
+        "listingState": "listed-at-retrieval",
+        "currentAvailability": "unknown",
+        "note": "Public product page evidenced. No-location stock/range flags do not establish nationwide availability or discontinuation."
+      }
+    },
+    {
+      "sourceRecordId": "754170",
+      "provenance": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/754170",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/754170",
+        "retrievedAt": "2026-10-04T05:32:26.613Z",
+        "sha256": "f98bc0946e2b51f7dbf93c540576854825da046a3b6405e8814ef1e1cb11a1e8",
+        "responseBytes": 741737,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "product": {
+        "Stockcode": 754170,
+        "Barcode": "9300633415266",
+        "GtinFormat": 13,
+        "Name": "Woolworths Peas",
+        "DisplayName": "Woolworths Peas 500g",
+        "Brand": "Woolworths",
+        "Variety": null,
+        "PackageSize": "500g",
+        "IsRanged": false,
+        "IsInStock": false,
+        "IsAvailable": false,
+        "IsPurchasable": false,
+        "AgeRestricted": false,
+        "IsTobacco": false,
+        "IsMarketProduct": false
+      },
+      "attributes": {
+        "PiesProductDepartmentsjson": "[{\"Id\":\"1_ACA2FC2\",\"Description\":\"Freezer\"}]",
+        "piesdepartmentnamesjson": "[\"Freezer\"]",
+        "piescategorynamesjson": "[\"Frozen Vegetables\",\"Frozen Gluten Free\"]",
+        "piessubcategorynamesjson": "[\"Beans & Peas\",\"Gluten Free\"]",
+        "ingredients": "Peas.",
+        "brand": "woolworths",
+        "nutritionalinformation": "{\"Name\":\"Nutritional Information\",\"Attributes\":[{\"Id\":705,\"Name\":\"Carbohydrate Quantity Per 100g - Total - NIP\",\"Value\":\"6.4g\",\"Description\":\"Carbohydrate Quantity Per 100g - Total - NIP\",\"SortOrder\":83},{\"Id\":706,\"Name\":\"Carbohydrate Quantity Per Serve - Total - NIP\",\"Value\":\"< 4.8g\",\"Description\":\"Carbohydrate Quantity Per Serve - Total - NIP\",\"SortOrder\":87},{\"Id\":191,\"Name\":\"Dietary Fibre Quantity Per 100g - Total - NIP\",\"Value\":\"5.2g\",\"Description\":\"Dietary Fibre Quantity Per 100g - Total - NIP\",\"SortOrder\":175},{\"Id\":120,\"Name\":\"Dietary Fibre Quantity Per Serve - Total - NIP\",\"Value\":\"3.9g\",\"Description\":\"Dietary Fibre Quantity Per Serve - Total - NIP\",\"SortOrder\":179},{\"Id\":759,\"Name\":\"Energy kJ Quantity Per 100g - Total - NIP\",\"Value\":\"247.0kJ\",\"Description\":\"Energy kJ Quantity Per 100g - Total - NIP\",\"SortOrder\":239},{\"Id\":760,\"Name\":\"Energy kJ Quantity Per Serve - Total - NIP\",\"Value\":\"185.0kJ\",\"Description\":\"Energy kJ Quantity Per Serve - Total - NIP\",\"SortOrder\":243},{\"Id\":253,\"Name\":\"Fat Saturated Quantity Per 100g - Total - NIP\",\"Value\":\"< 1.0g\",\"Description\":\"Fat Saturated Quantity Per 100g - Total - NIP\",\"SortOrder\":251},{\"Id\":258,\"Name\":\"Fat Saturated Quantity Per Serve - Total - NIP\",\"Value\":\"< 0.8g\",\"Description\":\"Fat Saturated Quantity Per Serve - Total - NIP\",\"SortOrder\":255},{\"Id\":764,\"Name\":\"Fat Total Quantity Per 100g - Total - NIP\",\"Value\":\"< 1.0g\",\"Description\":\"Fat Total Quantity Per 100g - Total - NIP\",\"SortOrder\":263},{\"Id\":166,\"Name\":\"Fat Total Quantity Per 100g - ValueWord - NIP\",\"Value\":\"1.0\",\"Description\":\"Fat Total Quantity Per 100g - ValueWord - NIP\",\"SortOrder\":264},{\"Id\":264,\"Name\":\"Fat Total Quantity Per Serve - Total - NIP\",\"Value\":\"< 0.8g\",\"Description\":\"Fat Total Quantity Per Serve - Total - NIP\",\"SortOrder\":267},{\"Id\":493,\"Name\":\"Potassium Quantity Per Serve - Total - NIP\",\"Value\":\"201mg\",\"Description\":\"Potassium Quantity Per Serve - Total - NIP\",\"SortOrder\":579},{\"Id\":878,\"Name\":\"Protein Quantity Per 100g - Total - NIP\",\"Value\":\"4.8g\",\"Description\":\"Protein Quantity Per 100g - Total - NIP\",\"SortOrder\":587},{\"Id\":882,\"Name\":\"Protein Quantity Per Serve - Total - NIP\",\"Value\":\"3.6g\",\"Description\":\"Protein Quantity Per Serve - Total - NIP\",\"SortOrder\":591},{\"Id\":477,\"Name\":\"Serving Size - Total - NIP\",\"Value\":\"75.0 G\",\"Description\":\"Serving Size - Total - NIP\",\"SortOrder\":607},{\"Id\":544,\"Name\":\"Servings Per Pack - Total - NIP\",\"Value\":\"6.0\",\"Description\":\"Servings Per Pack - Total - NIP\",\"SortOrder\":611},{\"Id\":491,\"Name\":\"Sodium Quantity Per 100g - Total - NIP\",\"Value\":\"< 5.0mg\",\"Description\":\"Sodium Quantity Per 100g - Total - NIP\",\"SortOrder\":623},{\"Id\":495,\"Name\":\"Sodium Quantity Per Serve - Total - NIP\",\"Value\":\"< 4.0mg\",\"Description\":\"Sodium Quantity Per Serve - Total - NIP\",\"SortOrder\":627},{\"Id\":908,\"Name\":\"Sugars Quantity Per 100g - SuffixUnits - NIP\",\"Value\":\"g\",\"Description\":\"Sugars Quantity Per 100g - SuffixUnits - NIP\",\"SortOrder\":646},{\"Id\":909,\"Name\":\"Sugars Quantity Per 100g - Total - NIP\",\"Value\":\"2.7g\",\"Description\":\"Sugars Quantity Per 100g - Total - NIP\",\"SortOrder\":647},{\"Id\":910,\"Name\":\"Sugars Quantity Per 100g - ValueWord - NIP\",\"Value\":\"2.7\",\"Description\":\"Sugars Quantity Per 100g - ValueWord - NIP\",\"SortOrder\":648},{\"Id\":911,\"Name\":\"Sugars Quantity Per Serve - SuffixUnits - NIP\",\"Value\":\"g\",\"Description\":\"Sugars Quantity Per Serve - SuffixUnits - NIP\",\"SortOrder\":650},{\"Id\":912,\"Name\":\"Sugars Quantity Per Serve - Total - NIP\",\"Value\":\"2.0g\",\"Description\":\"Sugars Quantity Per Serve - Total - NIP\",\"SortOrder\":651},{\"Id\":572,\"Name\":\"Sugars Quantity Per Serve - ValueWord - NIP\",\"Value\":\"2.0\",\"Description\":\"Sugars Quantity Per Serve - ValueWord - NIP\",\"SortOrder\":652}]}"
+      },
+      "nutrition": [
+        {
+          "Name": "Energy",
+          "Values": {
+            "Quantity Per Serving": "185.0kJ",
+            "Quantity Per 100g / 100mL": "247.0kJ"
+          },
+          "ServingSize": "75.0 G",
+          "ServingsPerPack": "6.0"
+        },
+        {
+          "Name": "Protein",
+          "Values": {
+            "Quantity Per Serving": "3.6g",
+            "Quantity Per 100g / 100mL": "4.8g"
+          },
+          "ServingSize": "75.0 G",
+          "ServingsPerPack": "6.0"
+        },
+        {
+          "Name": "Fat, Total",
+          "Values": {
+            "Quantity Per Serving": "< 0.8g",
+            "Quantity Per 100g / 100mL": "< 1.0g"
+          },
+          "ServingSize": "75.0 G",
+          "ServingsPerPack": "6.0"
+        },
+        {
+          "Name": "– Saturated",
+          "Values": {
+            "Quantity Per Serving": "< 0.8g",
+            "Quantity Per 100g / 100mL": "< 1.0g"
+          },
+          "ServingSize": "75.0 G",
+          "ServingsPerPack": "6.0"
+        },
+        {
+          "Name": "Carbohydrate",
+          "Values": {
+            "Quantity Per Serving": "< 4.8g",
+            "Quantity Per 100g / 100mL": "6.4g"
+          },
+          "ServingSize": "75.0 G",
+          "ServingsPerPack": "6.0"
+        },
+        {
+          "Name": "– Sugars",
+          "Values": {
+            "Quantity Per Serving": "2.0g",
+            "Quantity Per 100g / 100mL": "2.7g"
+          },
+          "ServingSize": "75.0 G",
+          "ServingsPerPack": "6.0"
+        },
+        {
+          "Name": "Dietary Fibre",
+          "Values": {
+            "Quantity Per Serving": "3.9g",
+            "Quantity Per 100g / 100mL": "5.2g"
+          },
+          "ServingSize": "75.0 G",
+          "ServingsPerPack": "6.0"
+        },
+        {
+          "Name": "Sodium",
+          "Values": {
+            "Quantity Per Serving": "< 4.0mg",
+            "Quantity Per 100g / 100mL": "< 5.0mg"
+          },
+          "ServingSize": "75.0 G",
+          "ServingsPerPack": "6.0"
+        }
+      ],
+      "countryOfOrigin": {
+        "PngImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/2be2151c-42e8-48db-b72d-084b90b08b12.png",
+        "SvgImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/2be2151c-42e8-48db-b72d-084b90b08b12.svg",
+        "AltText": "Australian Grown",
+        "CountryOfOrigin": "Australian",
+        "IngredientPercentage": "100",
+        "Disclaimer": null
+      },
+      "availabilityContext": {
+        "storeSelected": false,
+        "accountUsed": false,
+        "listingState": "listed-at-retrieval",
+        "currentAvailability": "unknown",
+        "note": "Public product page evidenced. No-location stock/range flags do not establish nationwide availability or discontinuation."
+      }
+    },
+    {
+      "sourceRecordId": "756086",
+      "provenance": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/756086",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/756086",
+        "retrievedAt": "2026-10-04T05:32:27.878Z",
+        "sha256": "7e3b1261e57dbddb3ff17913f08b4031fe3e157334a9e72251a0e3e6d54742fe",
+        "responseBytes": 694972,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "product": {
+        "Stockcode": 756086,
+        "Barcode": "9300633417895",
+        "GtinFormat": 13,
+        "Name": "Woolworths Lightly Sparkling Spring Water",
+        "DisplayName": "Woolworths Lightly Sparkling Spring Water 1.25L",
+        "Brand": "Woolworths",
+        "Variety": "Spring Water",
+        "PackageSize": "1.25L",
+        "IsRanged": false,
+        "IsInStock": false,
+        "IsAvailable": false,
+        "IsPurchasable": false,
+        "AgeRestricted": false,
+        "IsTobacco": false,
+        "IsMarketProduct": false
+      },
+      "attributes": {
+        "PiesProductDepartmentsjson": "[{\"Id\":\"1_5AF3A0A\",\"Description\":\"Drinks\"}]",
+        "piesdepartmentnamesjson": "[\"Drinks\"]",
+        "piescategorynamesjson": "[\"Water\"]",
+        "piessubcategorynamesjson": "[\"Sparkling Water\"]",
+        "ingredients": "Lightly Carbonated Spring Water.",
+        "brand": "woolworths",
+        "nutritionalinformation": "{\"Name\":\"Nutritional Information\",\"Attributes\":[{\"Id\":493,\"Name\":\"Potassium Quantity Per Serve - Total - NIP\",\"Value\":\"5mg\",\"Description\":\"Potassium Quantity Per Serve - Total - NIP\",\"SortOrder\":579},{\"Id\":908,\"Name\":\"Sugars Quantity Per 100g - SuffixUnits - NIP\",\"Value\":\"g\",\"Description\":\"Sugars Quantity Per 100g - SuffixUnits - NIP\",\"SortOrder\":646},{\"Id\":911,\"Name\":\"Sugars Quantity Per Serve - SuffixUnits - NIP\",\"Value\":\"g\",\"Description\":\"Sugars Quantity Per Serve - SuffixUnits - NIP\",\"SortOrder\":650}]}"
+      },
+      "nutrition": [
+        {
+          "Name": "Energy",
+          "Values": {
+            "Quantity Per Serving": "-",
+            "Quantity Per 100g / 100mL": "-"
+          },
+          "ServingSize": null,
+          "ServingsPerPack": null
+        },
+        {
+          "Name": "Protein",
+          "Values": {
+            "Quantity Per Serving": "-",
+            "Quantity Per 100g / 100mL": "-"
+          },
+          "ServingSize": null,
+          "ServingsPerPack": null
+        },
+        {
+          "Name": "Fat, Total",
+          "Values": {
+            "Quantity Per Serving": "-",
+            "Quantity Per 100g / 100mL": "-"
+          },
+          "ServingSize": null,
+          "ServingsPerPack": null
+        },
+        {
+          "Name": "– Saturated",
+          "Values": {
+            "Quantity Per Serving": "-",
+            "Quantity Per 100g / 100mL": "-"
+          },
+          "ServingSize": null,
+          "ServingsPerPack": null
+        },
+        {
+          "Name": "Carbohydrate",
+          "Values": {
+            "Quantity Per Serving": "-",
+            "Quantity Per 100g / 100mL": "-"
+          },
+          "ServingSize": null,
+          "ServingsPerPack": null
+        },
+        {
+          "Name": "– Sugars",
+          "Values": {
+            "Quantity Per Serving": "-",
+            "Quantity Per 100g / 100mL": "-"
+          },
+          "ServingSize": null,
+          "ServingsPerPack": null
+        },
+        {
+          "Name": "Dietary Fibre",
+          "Values": {
+            "Quantity Per Serving": "-",
+            "Quantity Per 100g / 100mL": "-"
+          },
+          "ServingSize": null,
+          "ServingsPerPack": null
+        },
+        {
+          "Name": "Sodium",
+          "Values": {
+            "Quantity Per Serving": "-",
+            "Quantity Per 100g / 100mL": "-"
+          },
+          "ServingSize": null,
+          "ServingsPerPack": null
+        }
+      ],
+      "countryOfOrigin": {
+        "PngImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/b8206f01-a2f1-433d-bc3f-dd9b73ccf085.png",
+        "SvgImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/b8206f01-a2f1-433d-bc3f-dd9b73ccf085.svg",
+        "AltText": "Product of Australia",
+        "CountryOfOrigin": "Australia",
+        "IngredientPercentage": "100",
+        "Disclaimer": null
+      },
+      "availabilityContext": {
+        "storeSelected": false,
+        "accountUsed": false,
+        "listingState": "listed-at-retrieval",
+        "currentAvailability": "unknown",
+        "note": "Public product page evidenced. No-location stock/range flags do not establish nationwide availability or discontinuation."
+      }
+    },
+    {
+      "sourceRecordId": "830211",
+      "provenance": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/830211",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/830211",
+        "retrievedAt": "2026-10-04T05:32:28.926Z",
+        "sha256": "49d4f1f2a25cb94978e289cb5f1edb91a89e8d4634b9a0b796e08ae4392fb25c",
+        "responseBytes": 747800,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "product": {
+        "Stockcode": 830211,
+        "Barcode": "9300633744182",
+        "GtinFormat": 13,
+        "Name": "Woolworths Vanilla Ice Cream Sandwich",
+        "DisplayName": "Woolworths Vanilla Ice Cream Sandwich 4 pack",
+        "Brand": "Woolworths",
+        "Variety": "Ice Cream Sandwich",
+        "PackageSize": "4 pack",
+        "IsRanged": false,
+        "IsInStock": false,
+        "IsAvailable": false,
+        "IsPurchasable": false,
+        "AgeRestricted": false,
+        "IsTobacco": false,
+        "IsMarketProduct": false
+      },
+      "attributes": {
+        "PiesProductDepartmentsjson": "[{\"Id\":\"1_ACA2FC2\",\"Description\":\"Freezer\"}]",
+        "piesdepartmentnamesjson": "[\"Freezer\"]",
+        "piescategorynamesjson": "[\"Ice Cream\"]",
+        "piessubcategorynamesjson": "[\"Ice Cream Sticks & Cones\"]",
+        "ingredients": "Ice Cream (68%) (Milk, Liquid Sugar (Sugar, Water), Cream (Milk) (20%), Maltodextrin, Milk Solids, Emulsifier (471), Thickeners (Guar Gum, Carrageenan), Natural Flavour), Biscuit (32%) (Wheat Flour, Sugar, Palm Oil, Molasses, Rice Syrup, Salt, Raising Agent (Sodium Carbonate), Colour (Caramel I), Emulsifier (Lecithin (Soy))), Vanilla Ice Cream includes 10% Milk Fat minimum",
+        "brand": "woolworths",
+        "nutritionalinformation": "{\"Name\":\"Nutritional Information\",\"Attributes\":[{\"Id\":705,\"Name\":\"Carbohydrate Quantity Per 100g - Total - NIP\",\"Value\":\"41.7g\",\"Description\":\"Carbohydrate Quantity Per 100g - Total - NIP\",\"SortOrder\":83},{\"Id\":706,\"Name\":\"Carbohydrate Quantity Per Serve - Total - NIP\",\"Value\":\"27.5g\",\"Description\":\"Carbohydrate Quantity Per Serve - Total - NIP\",\"SortOrder\":87},{\"Id\":125,\"Name\":\"Cholesterol Quantity Per Serve - Total - NIP\",\"Value\":\"16.5mg\",\"Description\":\"Cholesterol Quantity Per Serve - Total - NIP\",\"SortOrder\":115},{\"Id\":191,\"Name\":\"Dietary Fibre Quantity Per 100g - Total - NIP\",\"Value\":\"1.0g\",\"Description\":\"Dietary Fibre Quantity Per 100g - Total - NIP\",\"SortOrder\":175},{\"Id\":120,\"Name\":\"Dietary Fibre Quantity Per Serve - Total - NIP\",\"Value\":\"0.7g\",\"Description\":\"Dietary Fibre Quantity Per Serve - Total - NIP\",\"SortOrder\":179},{\"Id\":759,\"Name\":\"Energy kJ Quantity Per 100g - Total - NIP\",\"Value\":\"1160.0kJ\",\"Description\":\"Energy kJ Quantity Per 100g - Total - NIP\",\"SortOrder\":239},{\"Id\":760,\"Name\":\"Energy kJ Quantity Per Serve - Total - NIP\",\"Value\":\"766.0kJ\",\"Description\":\"Energy kJ Quantity Per Serve - Total - NIP\",\"SortOrder\":243},{\"Id\":253,\"Name\":\"Fat Saturated Quantity Per 100g - Total - NIP\",\"Value\":\"6.3g\",\"Description\":\"Fat Saturated Quantity Per 100g - Total - NIP\",\"SortOrder\":251},{\"Id\":258,\"Name\":\"Fat Saturated Quantity Per Serve - Total - NIP\",\"Value\":\"4.2g\",\"Description\":\"Fat Saturated Quantity Per Serve - Total - NIP\",\"SortOrder\":255},{\"Id\":764,\"Name\":\"Fat Total Quantity Per 100g - Total - NIP\",\"Value\":\"10.0g\",\"Description\":\"Fat Total Quantity Per 100g - Total - NIP\",\"SortOrder\":263},{\"Id\":166,\"Name\":\"Fat Total Quantity Per 100g - ValueWord - NIP\",\"Value\":\"10.0\",\"Description\":\"Fat Total Quantity Per 100g - ValueWord - NIP\",\"SortOrder\":264},{\"Id\":264,\"Name\":\"Fat Total Quantity Per Serve - Total - NIP\",\"Value\":\"6.6g\",\"Description\":\"Fat Total Quantity Per Serve - Total - NIP\",\"SortOrder\":267},{\"Id\":834,\"Name\":\"Monounsaturated Quantity Per Serve - Total - NIP\",\"Value\":\"2.27g\",\"Description\":\"Monounsaturated Quantity Per Serve - Total - NIP\",\"SortOrder\":483},{\"Id\":435,\"Name\":\"Polyunsaturated Quantity Per Serve - Total - NIP\",\"Value\":\"0.32g\",\"Description\":\"Polyunsaturated Quantity Per Serve - Total - NIP\",\"SortOrder\":567},{\"Id\":493,\"Name\":\"Potassium Quantity Per Serve - Total - NIP\",\"Value\":\"141.24mg\",\"Description\":\"Potassium Quantity Per Serve - Total - NIP\",\"SortOrder\":579},{\"Id\":878,\"Name\":\"Protein Quantity Per 100g - Total - NIP\",\"Value\":\"4.1g\",\"Description\":\"Protein Quantity Per 100g - Total - NIP\",\"SortOrder\":587},{\"Id\":882,\"Name\":\"Protein Quantity Per Serve - Total - NIP\",\"Value\":\"2.7g\",\"Description\":\"Protein Quantity Per Serve - Total - NIP\",\"SortOrder\":591},{\"Id\":477,\"Name\":\"Serving Size - Total - NIP\",\"Value\":\"66.0 G\",\"Description\":\"Serving Size - Total - NIP\",\"SortOrder\":607},{\"Id\":544,\"Name\":\"Servings Per Pack - Total - NIP\",\"Value\":\"4.0\",\"Description\":\"Servings Per Pack - Total - NIP\",\"SortOrder\":611},{\"Id\":491,\"Name\":\"Sodium Quantity Per 100g - Total - NIP\",\"Value\":\"199.0mg\",\"Description\":\"Sodium Quantity Per 100g - Total - NIP\",\"SortOrder\":623},{\"Id\":495,\"Name\":\"Sodium Quantity Per Serve - Total - NIP\",\"Value\":\"131.0mg\",\"Description\":\"Sodium Quantity Per Serve - Total - NIP\",\"SortOrder\":627},{\"Id\":908,\"Name\":\"Sugars Quantity Per 100g - SuffixUnits - NIP\",\"Value\":\"g\",\"Description\":\"Sugars Quantity Per 100g - SuffixUnits - NIP\",\"SortOrder\":646},{\"Id\":909,\"Name\":\"Sugars Quantity Per 100g - Total - NIP\",\"Value\":\"23.6g\",\"Description\":\"Sugars Quantity Per 100g - Total - NIP\",\"SortOrder\":647},{\"Id\":910,\"Name\":\"Sugars Quantity Per 100g - ValueWord - NIP\",\"Value\":\"23.6\",\"Description\":\"Sugars Quantity Per 100g - ValueWord - NIP\",\"SortOrder\":648},{\"Id\":911,\"Name\":\"Sugars Quantity Per Serve - SuffixUnits - NIP\",\"Value\":\"g\",\"Description\":\"Sugars Quantity Per Serve - SuffixUnits - NIP\",\"SortOrder\":650},{\"Id\":912,\"Name\":\"Sugars Quantity Per Serve - Total - NIP\",\"Value\":\"15.6g\",\"Description\":\"Sugars Quantity Per Serve - Total - NIP\",\"SortOrder\":651},{\"Id\":572,\"Name\":\"Sugars Quantity Per Serve - ValueWord - NIP\",\"Value\":\"15.6\",\"Description\":\"Sugars Quantity Per Serve - ValueWord - NIP\",\"SortOrder\":652},{\"Id\":510,\"Name\":\"Trans Quantity Per Serve - Total - NIP\",\"Value\":\"<1g\",\"Description\":\"Trans Quantity Per Serve - Total - NIP\",\"SortOrder\":671}]}"
+      },
+      "nutrition": [
+        {
+          "Name": "Energy",
+          "Values": {
+            "Quantity Per Serving": "766.0kJ",
+            "Quantity Per 100g / 100mL": "1160.0kJ"
+          },
+          "ServingSize": "66.0 G",
+          "ServingsPerPack": "4.0"
+        },
+        {
+          "Name": "Protein",
+          "Values": {
+            "Quantity Per Serving": "2.7g",
+            "Quantity Per 100g / 100mL": "4.1g"
+          },
+          "ServingSize": "66.0 G",
+          "ServingsPerPack": "4.0"
+        },
+        {
+          "Name": "Fat, Total",
+          "Values": {
+            "Quantity Per Serving": "6.6g",
+            "Quantity Per 100g / 100mL": "10.0g"
+          },
+          "ServingSize": "66.0 G",
+          "ServingsPerPack": "4.0"
+        },
+        {
+          "Name": "– Saturated",
+          "Values": {
+            "Quantity Per Serving": "4.2g",
+            "Quantity Per 100g / 100mL": "6.3g"
+          },
+          "ServingSize": "66.0 G",
+          "ServingsPerPack": "4.0"
+        },
+        {
+          "Name": "Carbohydrate",
+          "Values": {
+            "Quantity Per Serving": "27.5g",
+            "Quantity Per 100g / 100mL": "41.7g"
+          },
+          "ServingSize": "66.0 G",
+          "ServingsPerPack": "4.0"
+        },
+        {
+          "Name": "– Sugars",
+          "Values": {
+            "Quantity Per Serving": "15.6g",
+            "Quantity Per 100g / 100mL": "23.6g"
+          },
+          "ServingSize": "66.0 G",
+          "ServingsPerPack": "4.0"
+        },
+        {
+          "Name": "Dietary Fibre",
+          "Values": {
+            "Quantity Per Serving": "0.7g",
+            "Quantity Per 100g / 100mL": "1.0g"
+          },
+          "ServingSize": "66.0 G",
+          "ServingsPerPack": "4.0"
+        },
+        {
+          "Name": "Sodium",
+          "Values": {
+            "Quantity Per Serving": "131.0mg",
+            "Quantity Per 100g / 100mL": "199.0mg"
+          },
+          "ServingSize": "66.0 G",
+          "ServingsPerPack": "4.0"
+        }
+      ],
+      "countryOfOrigin": {
+        "PngImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/1ef3bc88-1e3f-4ca3-b3e0-8b0bb67f0ac2.png",
+        "SvgImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/1ef3bc88-1e3f-4ca3-b3e0-8b0bb67f0ac2.svg",
+        "AltText": "Made in Australia from at least 65% Australian ingredients",
+        "CountryOfOrigin": "Australia",
+        "IngredientPercentage": "65",
+        "Disclaimer": null
+      },
+      "availabilityContext": {
+        "storeSelected": false,
+        "accountUsed": false,
+        "listingState": "listed-at-retrieval",
+        "currentAvailability": "unknown",
+        "note": "Public product page evidenced. No-location stock/range flags do not establish nationwide availability or discontinuation."
+      }
+    },
+    {
+      "sourceRecordId": "824365",
+      "provenance": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/824365",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/824365",
+        "retrievedAt": "2026-10-04T05:32:29.854Z",
+        "sha256": "828c9be6e32fb7eb67f0b4135ee1a4afb5287260debdf011dc56654e5040206d",
+        "responseBytes": 748140,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "product": {
+        "Stockcode": 824365,
+        "Barcode": "9300633777401",
+        "GtinFormat": 13,
+        "Name": "Woolworths Plain Water Crackers",
+        "DisplayName": "Woolworths Plain Water Crackers 125g",
+        "Brand": "Woolworths",
+        "Variety": "Crackers",
+        "PackageSize": "125g",
+        "IsRanged": true,
+        "IsInStock": true,
+        "IsAvailable": true,
+        "IsPurchasable": true,
+        "AgeRestricted": false,
+        "IsTobacco": false,
+        "IsMarketProduct": false
+      },
+      "attributes": {
+        "PiesProductDepartmentsjson": "[{\"Id\":\"1_717445A\",\"Description\":\"Snacks & Confectionery\"}]",
+        "piesdepartmentnamesjson": "[\"Snacks & Confectionery\"]",
+        "piescategorynamesjson": "[\"Biscuits & Crackers\"]",
+        "piessubcategorynamesjson": "[\"Rice Cakes & Crispbread\",\"Crackers\"]",
+        "ingredients": "Wheat Flour, Vegetable Fats and Oils (Palm Oil, Antioxidant (307b)), Salt, Raising Agent (Sodium Carbonate).",
+        "brand": "woolworths",
+        "nutritionalinformation": "{\"Name\":\"Nutritional Information\",\"Attributes\":[{\"Id\":705,\"Name\":\"Carbohydrate Quantity Per 100g - Total - NIP\",\"Value\":\"76.2g\",\"Description\":\"Carbohydrate Quantity Per 100g - Total - NIP\",\"SortOrder\":83},{\"Id\":706,\"Name\":\"Carbohydrate Quantity Per Serve - Total - NIP\",\"Value\":\"9.1g\",\"Description\":\"Carbohydrate Quantity Per Serve - Total - NIP\",\"SortOrder\":87},{\"Id\":125,\"Name\":\"Cholesterol Quantity Per Serve - Total - NIP\",\"Value\":\"0.36mg\",\"Description\":\"Cholesterol Quantity Per Serve - Total - NIP\",\"SortOrder\":115},{\"Id\":191,\"Name\":\"Dietary Fibre Quantity Per 100g - Total - NIP\",\"Value\":\"3.5g\",\"Description\":\"Dietary Fibre Quantity Per 100g - Total - NIP\",\"SortOrder\":175},{\"Id\":120,\"Name\":\"Dietary Fibre Quantity Per Serve - Total - NIP\",\"Value\":\"< 1.0g\",\"Description\":\"Dietary Fibre Quantity Per Serve - Total - NIP\",\"SortOrder\":179},{\"Id\":759,\"Name\":\"Energy kJ Quantity Per 100g - Total - NIP\",\"Value\":\"1760.0kJ\",\"Description\":\"Energy kJ Quantity Per 100g - Total - NIP\",\"SortOrder\":239},{\"Id\":760,\"Name\":\"Energy kJ Quantity Per Serve - Total - NIP\",\"Value\":\"212.0kJ\",\"Description\":\"Energy kJ Quantity Per Serve - Total - NIP\",\"SortOrder\":243},{\"Id\":253,\"Name\":\"Fat Saturated Quantity Per 100g - Total - NIP\",\"Value\":\"3.9g\",\"Description\":\"Fat Saturated Quantity Per 100g - Total - NIP\",\"SortOrder\":251},{\"Id\":258,\"Name\":\"Fat Saturated Quantity Per Serve - Total - NIP\",\"Value\":\"1.0g\",\"Description\":\"Fat Saturated Quantity Per Serve - Total - NIP\",\"SortOrder\":255},{\"Id\":764,\"Name\":\"Fat Total Quantity Per 100g - Total - NIP\",\"Value\":\"8.3g\",\"Description\":\"Fat Total Quantity Per 100g - Total - NIP\",\"SortOrder\":263},{\"Id\":166,\"Name\":\"Fat Total Quantity Per 100g - ValueWord - NIP\",\"Value\":\"8.3\",\"Description\":\"Fat Total Quantity Per 100g - ValueWord - NIP\",\"SortOrder\":264},{\"Id\":264,\"Name\":\"Fat Total Quantity Per Serve - Total - NIP\",\"Value\":\"< 1.0g\",\"Description\":\"Fat Total Quantity Per Serve - Total - NIP\",\"SortOrder\":267},{\"Id\":834,\"Name\":\"Monounsaturated Quantity Per Serve - Total - NIP\",\"Value\":\"0.28g\",\"Description\":\"Monounsaturated Quantity Per Serve - Total - NIP\",\"SortOrder\":483},{\"Id\":435,\"Name\":\"Polyunsaturated Quantity Per Serve - Total - NIP\",\"Value\":\"0.13g\",\"Description\":\"Polyunsaturated Quantity Per Serve - Total - NIP\",\"SortOrder\":567},{\"Id\":493,\"Name\":\"Potassium Quantity Per Serve - Total - NIP\",\"Value\":\"18.19mg\",\"Description\":\"Potassium Quantity Per Serve - Total - NIP\",\"SortOrder\":579},{\"Id\":878,\"Name\":\"Protein Quantity Per 100g - Total - NIP\",\"Value\":\"7.9g\",\"Description\":\"Protein Quantity Per 100g - Total - NIP\",\"SortOrder\":587},{\"Id\":882,\"Name\":\"Protein Quantity Per Serve - Total - NIP\",\"Value\":\"< 1.0g\",\"Description\":\"Protein Quantity Per Serve - Total - NIP\",\"SortOrder\":591},{\"Id\":477,\"Name\":\"Serving Size - Total - NIP\",\"Value\":\"12.0 G\",\"Description\":\"Serving Size - Total - NIP\",\"SortOrder\":607},{\"Id\":544,\"Name\":\"Servings Per Pack - Total - NIP\",\"Value\":\"10.0\",\"Description\":\"Servings Per Pack - Total - NIP\",\"SortOrder\":611},{\"Id\":491,\"Name\":\"Sodium Quantity Per 100g - Total - NIP\",\"Value\":\"505.0mg\",\"Description\":\"Sodium Quantity Per 100g - Total - NIP\",\"SortOrder\":623},{\"Id\":495,\"Name\":\"Sodium Quantity Per Serve - Total - NIP\",\"Value\":\"61.0mg\",\"Description\":\"Sodium Quantity Per Serve - Total - NIP\",\"SortOrder\":627},{\"Id\":908,\"Name\":\"Sugars Quantity Per 100g - SuffixUnits - NIP\",\"Value\":\"g\",\"Description\":\"Sugars Quantity Per 100g - SuffixUnits - NIP\",\"SortOrder\":646},{\"Id\":909,\"Name\":\"Sugars Quantity Per 100g - Total - NIP\",\"Value\":\"2.3g\",\"Description\":\"Sugars Quantity Per 100g - Total - NIP\",\"SortOrder\":647},{\"Id\":910,\"Name\":\"Sugars Quantity Per 100g - ValueWord - NIP\",\"Value\":\"2.3\",\"Description\":\"Sugars Quantity Per 100g - ValueWord - NIP\",\"SortOrder\":648},{\"Id\":504,\"Name\":\"Sugars Quantity Per Serve - Prefix - NIP\",\"Value\":\"<\",\"Description\":\"Sugars Quantity Per Serve - Prefix - NIP\",\"SortOrder\":649},{\"Id\":911,\"Name\":\"Sugars Quantity Per Serve - SuffixUnits - NIP\",\"Value\":\"g\",\"Description\":\"Sugars Quantity Per Serve - SuffixUnits - NIP\",\"SortOrder\":650},{\"Id\":912,\"Name\":\"Sugars Quantity Per Serve - Total - NIP\",\"Value\":\"< 1.0g\",\"Description\":\"Sugars Quantity Per Serve - Total - NIP\",\"SortOrder\":651},{\"Id\":572,\"Name\":\"Sugars Quantity Per Serve - ValueWord - NIP\",\"Value\":\"1.0\",\"Description\":\"Sugars Quantity Per Serve - ValueWord - NIP\",\"SortOrder\":652},{\"Id\":593,\"Name\":\"Trans Quantity Per 100g - Total - NIP\",\"Value\":\"1.0g\",\"Description\":\"Trans Quantity Per 100g - Total - NIP\",\"SortOrder\":667},{\"Id\":510,\"Name\":\"Trans Quantity Per Serve - Total - NIP\",\"Value\":\"<0.1g\",\"Description\":\"Trans Quantity Per Serve - Total - NIP\",\"SortOrder\":671}]}"
+      },
+      "nutrition": [
+        {
+          "Name": "Energy",
+          "Values": {
+            "Quantity Per Serving": "212.0kJ",
+            "Quantity Per 100g / 100mL": "1760.0kJ"
+          },
+          "ServingSize": "12.0 G",
+          "ServingsPerPack": "10.0"
+        },
+        {
+          "Name": "Protein",
+          "Values": {
+            "Quantity Per Serving": "< 1.0g",
+            "Quantity Per 100g / 100mL": "7.9g"
+          },
+          "ServingSize": "12.0 G",
+          "ServingsPerPack": "10.0"
+        },
+        {
+          "Name": "Fat, Total",
+          "Values": {
+            "Quantity Per Serving": "< 1.0g",
+            "Quantity Per 100g / 100mL": "8.3g"
+          },
+          "ServingSize": "12.0 G",
+          "ServingsPerPack": "10.0"
+        },
+        {
+          "Name": "– Saturated",
+          "Values": {
+            "Quantity Per Serving": "1.0g",
+            "Quantity Per 100g / 100mL": "3.9g"
+          },
+          "ServingSize": "12.0 G",
+          "ServingsPerPack": "10.0"
+        },
+        {
+          "Name": "Carbohydrate",
+          "Values": {
+            "Quantity Per Serving": "9.1g",
+            "Quantity Per 100g / 100mL": "76.2g"
+          },
+          "ServingSize": "12.0 G",
+          "ServingsPerPack": "10.0"
+        },
+        {
+          "Name": "– Sugars",
+          "Values": {
+            "Quantity Per Serving": "< 1.0g",
+            "Quantity Per 100g / 100mL": "2.3g"
+          },
+          "ServingSize": "12.0 G",
+          "ServingsPerPack": "10.0"
+        },
+        {
+          "Name": "Dietary Fibre",
+          "Values": {
+            "Quantity Per Serving": "< 1.0g",
+            "Quantity Per 100g / 100mL": "3.5g"
+          },
+          "ServingSize": "12.0 G",
+          "ServingsPerPack": "10.0"
+        },
+        {
+          "Name": "Sodium",
+          "Values": {
+            "Quantity Per Serving": "61.0mg",
+            "Quantity Per 100g / 100mL": "505.0mg"
+          },
+          "ServingSize": "12.0 G",
+          "ServingsPerPack": "10.0"
+        }
+      ],
+      "countryOfOrigin": {
+        "PngImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/e1423c06-0cf0-4ee3-a1dc-60089d205439.png",
+        "SvgImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/e1423c06-0cf0-4ee3-a1dc-60089d205439.svg",
+        "AltText": "Made in Australia from at least 94% Australian ingredients",
+        "CountryOfOrigin": "Australia",
+        "IngredientPercentage": "94",
+        "Disclaimer": null
+      },
+      "availabilityContext": {
+        "storeSelected": false,
+        "accountUsed": false,
+        "listingState": "listed-at-retrieval",
+        "currentAvailability": "unknown",
+        "note": "Public product page evidenced. No-location stock/range flags do not establish nationwide availability or discontinuation."
+      }
+    },
+    {
+      "sourceRecordId": "224941",
+      "provenance": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/224941",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/224941",
+        "retrievedAt": "2026-10-04T05:32:30.782Z",
+        "sha256": "9ff871a40b40753f8438ca3ede16b0e888eaf34a77ac319c1f5fe0daa0b10cf3",
+        "responseBytes": 749146,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "product": {
+        "Stockcode": 224941,
+        "Barcode": "9300633906603",
+        "GtinFormat": 13,
+        "Name": "Woolworths Tasty Cheese Slices",
+        "DisplayName": "Woolworths Tasty Cheese Slices 500g",
+        "Brand": "Woolworths",
+        "Variety": null,
+        "PackageSize": "500g",
+        "IsRanged": true,
+        "IsInStock": true,
+        "IsAvailable": true,
+        "IsPurchasable": true,
+        "AgeRestricted": false,
+        "IsTobacco": false,
+        "IsMarketProduct": false
+      },
+      "attributes": {
+        "PiesProductDepartmentsjson": "[{\"Id\":\"1_90E697B\",\"Description\":\"Back to School\"},{\"Id\":\"1_6E4F4E4\",\"Description\":\"Dairy, Eggs & Fridge\"},{\"Id\":\"1_9E92C35\",\"Description\":\"Lunch Box\"}]",
+        "piesdepartmentnamesjson": "[\"Back to School\",\"Dairy, Eggs & Fridge\",\"Lunch Box\"]",
+        "piescategorynamesjson": "[\"Sandwich Ingredients\",\"Cheese\",\"Sandwich Ingredients\"]",
+        "piessubcategorynamesjson": "[\"Cheese Slices & Blocks\",\"Sliced Cheese\",\"Cheese Slices & Blocks\"]",
+        "ingredients": "Milk, Salt, Starter Culture (Milk), Enzyme (Non An imal Rennet)",
+        "brand": "woolworths",
+        "nutritionalinformation": "{\"Name\":\"Nutritional Information\",\"Attributes\":[{\"Id\":705,\"Name\":\"Carbohydrate Quantity Per 100g - Total - NIP\",\"Value\":\"1.0g\",\"Description\":\"Carbohydrate Quantity Per 100g - Total - NIP\",\"SortOrder\":83},{\"Id\":706,\"Name\":\"Carbohydrate Quantity Per Serve - Total - NIP\",\"Value\":\"0.2g\",\"Description\":\"Carbohydrate Quantity Per Serve - Total - NIP\",\"SortOrder\":87},{\"Id\":125,\"Name\":\"Cholesterol Quantity Per Serve - Total - NIP\",\"Value\":\"20.58mg\",\"Description\":\"Cholesterol Quantity Per Serve - Total - NIP\",\"SortOrder\":115},{\"Id\":759,\"Name\":\"Energy kJ Quantity Per 100g - Total - NIP\",\"Value\":\"1670.0kJ\",\"Description\":\"Energy kJ Quantity Per 100g - Total - NIP\",\"SortOrder\":239},{\"Id\":760,\"Name\":\"Energy kJ Quantity Per Serve - Total - NIP\",\"Value\":\"267.0kJ\",\"Description\":\"Energy kJ Quantity Per Serve - Total - NIP\",\"SortOrder\":243},{\"Id\":253,\"Name\":\"Fat Saturated Quantity Per 100g - Total - NIP\",\"Value\":\"23.6g\",\"Description\":\"Fat Saturated Quantity Per 100g - Total - NIP\",\"SortOrder\":251},{\"Id\":258,\"Name\":\"Fat Saturated Quantity Per Serve - Total - NIP\",\"Value\":\"3.8g\",\"Description\":\"Fat Saturated Quantity Per Serve - Total - NIP\",\"SortOrder\":255},{\"Id\":764,\"Name\":\"Fat Total Quantity Per 100g - Total - NIP\",\"Value\":\"33.3g\",\"Description\":\"Fat Total Quantity Per 100g - Total - NIP\",\"SortOrder\":263},{\"Id\":166,\"Name\":\"Fat Total Quantity Per 100g - ValueWord - NIP\",\"Value\":\"33.3\",\"Description\":\"Fat Total Quantity Per 100g - ValueWord - NIP\",\"SortOrder\":264},{\"Id\":264,\"Name\":\"Fat Total Quantity Per Serve - Total - NIP\",\"Value\":\"5.3g\",\"Description\":\"Fat Total Quantity Per Serve - Total - NIP\",\"SortOrder\":267},{\"Id\":834,\"Name\":\"Monounsaturated Quantity Per Serve - Total - NIP\",\"Value\":\"1.48g\",\"Description\":\"Monounsaturated Quantity Per Serve - Total - NIP\",\"SortOrder\":483},{\"Id\":435,\"Name\":\"Polyunsaturated Quantity Per Serve - Total - NIP\",\"Value\":\"0.22g\",\"Description\":\"Polyunsaturated Quantity Per Serve - Total - NIP\",\"SortOrder\":567},{\"Id\":493,\"Name\":\"Potassium Quantity Per Serve - Total - NIP\",\"Value\":\"16.17mg\",\"Description\":\"Potassium Quantity Per Serve - Total - NIP\",\"SortOrder\":579},{\"Id\":878,\"Name\":\"Protein Quantity Per 100g - Total - NIP\",\"Value\":\"25.3g\",\"Description\":\"Protein Quantity Per 100g - Total - NIP\",\"SortOrder\":587},{\"Id\":882,\"Name\":\"Protein Quantity Per Serve - Total - NIP\",\"Value\":\"4.0g\",\"Description\":\"Protein Quantity Per Serve - Total - NIP\",\"SortOrder\":591},{\"Id\":477,\"Name\":\"Serving Size - Total - NIP\",\"Value\":\"16.0 G\",\"Description\":\"Serving Size - Total - NIP\",\"SortOrder\":607},{\"Id\":544,\"Name\":\"Servings Per Pack - Total - NIP\",\"Value\":\"30.0\",\"Description\":\"Servings Per Pack - Total - NIP\",\"SortOrder\":611},{\"Id\":491,\"Name\":\"Sodium Quantity Per 100g - Total - NIP\",\"Value\":\"679.0mg\",\"Description\":\"Sodium Quantity Per 100g - Total - NIP\",\"SortOrder\":623},{\"Id\":495,\"Name\":\"Sodium Quantity Per Serve - Total - NIP\",\"Value\":\"109.0mg\",\"Description\":\"Sodium Quantity Per Serve - Total - NIP\",\"SortOrder\":627},{\"Id\":908,\"Name\":\"Sugars Quantity Per 100g - SuffixUnits - NIP\",\"Value\":\"g\",\"Description\":\"Sugars Quantity Per 100g - SuffixUnits - NIP\",\"SortOrder\":646},{\"Id\":909,\"Name\":\"Sugars Quantity Per 100g - Total - NIP\",\"Value\":\"1.0g\",\"Description\":\"Sugars Quantity Per 100g - Total - NIP\",\"SortOrder\":647},{\"Id\":910,\"Name\":\"Sugars Quantity Per 100g - ValueWord - NIP\",\"Value\":\"1.0\",\"Description\":\"Sugars Quantity Per 100g - ValueWord - NIP\",\"SortOrder\":648},{\"Id\":911,\"Name\":\"Sugars Quantity Per Serve - SuffixUnits - NIP\",\"Value\":\"g\",\"Description\":\"Sugars Quantity Per Serve - SuffixUnits - NIP\",\"SortOrder\":650},{\"Id\":912,\"Name\":\"Sugars Quantity Per Serve - Total - NIP\",\"Value\":\"0.2g\",\"Description\":\"Sugars Quantity Per Serve - Total - NIP\",\"SortOrder\":651},{\"Id\":572,\"Name\":\"Sugars Quantity Per Serve - ValueWord - NIP\",\"Value\":\"0.2\",\"Description\":\"Sugars Quantity Per Serve - ValueWord - NIP\",\"SortOrder\":652},{\"Id\":510,\"Name\":\"Trans Quantity Per Serve - Total - NIP\",\"Value\":\"<1g\",\"Description\":\"Trans Quantity Per Serve - Total - NIP\",\"SortOrder\":671}]}"
+      },
+      "nutrition": [
+        {
+          "Name": "Energy",
+          "Values": {
+            "Quantity Per Serving": "267.0kJ",
+            "Quantity Per 100g / 100mL": "1670.0kJ"
+          },
+          "ServingSize": "16.0 G",
+          "ServingsPerPack": "30.0"
+        },
+        {
+          "Name": "Protein",
+          "Values": {
+            "Quantity Per Serving": "4.0g",
+            "Quantity Per 100g / 100mL": "25.3g"
+          },
+          "ServingSize": "16.0 G",
+          "ServingsPerPack": "30.0"
+        },
+        {
+          "Name": "Fat, Total",
+          "Values": {
+            "Quantity Per Serving": "5.3g",
+            "Quantity Per 100g / 100mL": "33.3g"
+          },
+          "ServingSize": "16.0 G",
+          "ServingsPerPack": "30.0"
+        },
+        {
+          "Name": "– Saturated",
+          "Values": {
+            "Quantity Per Serving": "3.8g",
+            "Quantity Per 100g / 100mL": "23.6g"
+          },
+          "ServingSize": "16.0 G",
+          "ServingsPerPack": "30.0"
+        },
+        {
+          "Name": "Carbohydrate",
+          "Values": {
+            "Quantity Per Serving": "0.2g",
+            "Quantity Per 100g / 100mL": "1.0g"
+          },
+          "ServingSize": "16.0 G",
+          "ServingsPerPack": "30.0"
+        },
+        {
+          "Name": "– Sugars",
+          "Values": {
+            "Quantity Per Serving": "0.2g",
+            "Quantity Per 100g / 100mL": "1.0g"
+          },
+          "ServingSize": "16.0 G",
+          "ServingsPerPack": "30.0"
+        },
+        {
+          "Name": "Dietary Fibre",
+          "Values": {
+            "Quantity Per Serving": "-",
+            "Quantity Per 100g / 100mL": "-"
+          },
+          "ServingSize": "16.0 G",
+          "ServingsPerPack": "30.0"
+        },
+        {
+          "Name": "Sodium",
+          "Values": {
+            "Quantity Per Serving": "109.0mg",
+            "Quantity Per 100g / 100mL": "679.0mg"
+          },
+          "ServingSize": "16.0 G",
+          "ServingsPerPack": "30.0"
+        }
+      ],
+      "countryOfOrigin": {
+        "PngImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/7ad66c14-c4f8-4d84-bbee-bfc13617a206.png",
+        "SvgImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/7ad66c14-c4f8-4d84-bbee-bfc13617a206.svg",
+        "AltText": "Made in Australia from at least 98% Australian ingredients",
+        "CountryOfOrigin": "Australia",
+        "IngredientPercentage": "98",
+        "Disclaimer": null
+      },
+      "availabilityContext": {
+        "storeSelected": false,
+        "accountUsed": false,
+        "listingState": "listed-at-retrieval",
+        "currentAvailability": "unknown",
+        "note": "Public product page evidenced. No-location stock/range flags do not establish nationwide availability or discontinuation."
+      }
+    },
+    {
+      "sourceRecordId": "93530",
+      "provenance": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/93530",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/93530",
+        "retrievedAt": "2026-10-04T05:32:31.202Z",
+        "sha256": "d5c5ba014aba0f28c91f3334364a6680d7cfeb2d851d7a840a4b224183002b5a",
+        "responseBytes": 709231,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "product": {
+        "Stockcode": 93530,
+        "Barcode": "9300633935306",
+        "GtinFormat": 13,
+        "Name": "Woolworths Essentials Table Spread Soft And Spreadable",
+        "DisplayName": "Woolworths Essentials Table Spread Soft And Spreadable 500g",
+        "Brand": "Woolworths Essentials",
+        "Variety": "Soft And Spreadable",
+        "PackageSize": "500g",
+        "IsRanged": false,
+        "IsInStock": false,
+        "IsAvailable": false,
+        "IsPurchasable": false,
+        "AgeRestricted": false,
+        "IsTobacco": false,
+        "IsMarketProduct": false
+      },
+      "attributes": {
+        "PiesProductDepartmentsjson": "[{\"Id\":\"1_6E4F4E4\",\"Description\":\"Dairy, Eggs & Fridge\"},{\"Id\":\"1_90E697B\",\"Description\":\"Back to School\"},{\"Id\":\"1_9E92C35\",\"Description\":\"Lunch Box\"}]",
+        "piesdepartmentnamesjson": "[\"Dairy, Eggs & Fridge\",\"Back to School\",\"Lunch Box\"]",
+        "piescategorynamesjson": "[\"Eggs, Butter & Margarine\",\"Sandwich Ingredients\",\"Sandwich Ingredients\"]",
+        "piessubcategorynamesjson": "[\"Butter & Margarine\",\"Spreads\",\"Spreads\"]",
+        "ingredients": "Vegetable Oils (Canola Oil, Fully Hydrogenated Vegetable Oil), Water, Salt, Emulsifier (471, Lecithin (Soy)), Preservative (Potassium Sorbate), Acidity Regulator (Citric Acid), Vitamins (Vitamin A, Vitamin D), Natural Colour (Carotene), Natural Flavour.",
+        "brand": "woolworths essentials",
+        "nutritionalinformation": "{\"Name\":\"Nutritional Information\",\"Attributes\":[{\"Id\":705,\"Name\":\"Carbohydrate Quantity Per 100g - Total - NIP\",\"Value\":\"< 1.0g\",\"Description\":\"Carbohydrate Quantity Per 100g - Total - NIP\",\"SortOrder\":83},{\"Id\":706,\"Name\":\"Carbohydrate Quantity Per Serve - Total - NIP\",\"Value\":\"0.1g\",\"Description\":\"Carbohydrate Quantity Per Serve - Total - NIP\",\"SortOrder\":87},{\"Id\":759,\"Name\":\"Energy kJ Quantity Per 100g - Total - NIP\",\"Value\":\"1920.0kJ\",\"Description\":\"Energy kJ Quantity Per 100g - Total - NIP\",\"SortOrder\":239},{\"Id\":760,\"Name\":\"Energy kJ Quantity Per Serve - Total - NIP\",\"Value\":\"192.0kJ\",\"Description\":\"Energy kJ Quantity Per Serve - Total - NIP\",\"SortOrder\":243},{\"Id\":253,\"Name\":\"Fat Saturated Quantity Per 100g - Total - NIP\",\"Value\":\"11.9g\",\"Description\":\"Fat Saturated Quantity Per 100g - Total - NIP\",\"SortOrder\":251},{\"Id\":258,\"Name\":\"Fat Saturated Quantity Per Serve - Total - NIP\",\"Value\":\"1.2g\",\"Description\":\"Fat Saturated Quantity Per Serve - Total - NIP\",\"SortOrder\":255},{\"Id\":764,\"Name\":\"Fat Total Quantity Per 100g - Total - NIP\",\"Value\":\"52.0g\",\"Description\":\"Fat Total Quantity Per 100g - Total - NIP\",\"SortOrder\":263},{\"Id\":166,\"Name\":\"Fat Total Quantity Per 100g - ValueWord - NIP\",\"Value\":\"52.0\",\"Description\":\"Fat Total Quantity Per 100g - ValueWord - NIP\",\"SortOrder\":264},{\"Id\":264,\"Name\":\"Fat Total Quantity Per Serve - Total - NIP\",\"Value\":\"5.2g\",\"Description\":\"Fat Total Quantity Per Serve - Total - NIP\",\"SortOrder\":267},{\"Id\":402,\"Name\":\"Monounsaturated Quantity Per 100g - Total - NIP\",\"Value\":\"27.4g\",\"Description\":\"Monounsaturated Quantity Per 100g - Total - NIP\",\"SortOrder\":479},{\"Id\":834,\"Name\":\"Monounsaturated Quantity Per Serve - Total - NIP\",\"Value\":\"16.65g\",\"Description\":\"Monounsaturated Quantity Per Serve - Total - NIP\",\"SortOrder\":483},{\"Id\":434,\"Name\":\"Polyunsaturated Quantity Per 100g - Total - NIP\",\"Value\":\"12.5g\",\"Description\":\"Polyunsaturated Quantity Per 100g - Total - NIP\",\"SortOrder\":563},{\"Id\":435,\"Name\":\"Polyunsaturated Quantity Per Serve - Total - NIP\",\"Value\":\"26.15g\",\"Description\":\"Polyunsaturated Quantity Per Serve - Total - NIP\",\"SortOrder\":567},{\"Id\":493,\"Name\":\"Potassium Quantity Per Serve - Total - NIP\",\"Value\":\"24mg\",\"Description\":\"Potassium Quantity Per Serve - Total - NIP\",\"SortOrder\":579},{\"Id\":878,\"Name\":\"Protein Quantity Per 100g - Total - NIP\",\"Value\":\"< 1.0g\",\"Description\":\"Protein Quantity Per 100g - Total - NIP\",\"SortOrder\":587},{\"Id\":882,\"Name\":\"Protein Quantity Per Serve - Total - NIP\",\"Value\":\"< 0.1g\",\"Description\":\"Protein Quantity Per Serve - Total - NIP\",\"SortOrder\":591},{\"Id\":477,\"Name\":\"Serving Size - Total - NIP\",\"Value\":\"10.0 G\",\"Description\":\"Serving Size - Total - NIP\",\"SortOrder\":607},{\"Id\":544,\"Name\":\"Servings Per Pack - Total - NIP\",\"Value\":\"50.0\",\"Description\":\"Servings Per Pack - Total - NIP\",\"SortOrder\":611},{\"Id\":491,\"Name\":\"Sodium Quantity Per 100g - Total - NIP\",\"Value\":\"350.0mg\",\"Description\":\"Sodium Quantity Per 100g - Total - NIP\",\"SortOrder\":623},{\"Id\":495,\"Name\":\"Sodium Quantity Per Serve - Total - NIP\",\"Value\":\"35.0mg\",\"Description\":\"Sodium Quantity Per Serve - Total - NIP\",\"SortOrder\":627},{\"Id\":907,\"Name\":\"Sugars Quantity Per 100g - Prefix - NIP\",\"Value\":\"<\",\"Description\":\"Sugars Quantity Per 100g - Prefix - NIP\",\"SortOrder\":645},{\"Id\":908,\"Name\":\"Sugars Quantity Per 100g - SuffixUnits - NIP\",\"Value\":\"g\",\"Description\":\"Sugars Quantity Per 100g - SuffixUnits - NIP\",\"SortOrder\":646},{\"Id\":909,\"Name\":\"Sugars Quantity Per 100g - Total - NIP\",\"Value\":\"< 1.0g\",\"Description\":\"Sugars Quantity Per 100g - Total - NIP\",\"SortOrder\":647},{\"Id\":910,\"Name\":\"Sugars Quantity Per 100g - ValueWord - NIP\",\"Value\":\"1.0\",\"Description\":\"Sugars Quantity Per 100g - ValueWord - NIP\",\"SortOrder\":648},{\"Id\":504,\"Name\":\"Sugars Quantity Per Serve - Prefix - NIP\",\"Value\":\"<\",\"Description\":\"Sugars Quantity Per Serve - Prefix - NIP\",\"SortOrder\":649},{\"Id\":911,\"Name\":\"Sugars Quantity Per Serve - SuffixUnits - NIP\",\"Value\":\"g\",\"Description\":\"Sugars Quantity Per Serve - SuffixUnits - NIP\",\"SortOrder\":650},{\"Id\":912,\"Name\":\"Sugars Quantity Per Serve - Total - NIP\",\"Value\":\"< 0.1g\",\"Description\":\"Sugars Quantity Per Serve - Total - NIP\",\"SortOrder\":651},{\"Id\":572,\"Name\":\"Sugars Quantity Per Serve - ValueWord - NIP\",\"Value\":\"0.1\",\"Description\":\"Sugars Quantity Per Serve - ValueWord - NIP\",\"SortOrder\":652},{\"Id\":593,\"Name\":\"Trans Quantity Per 100g - Total - NIP\",\"Value\":\"1.0g\",\"Description\":\"Trans Quantity Per 100g - Total - NIP\",\"SortOrder\":667},{\"Id\":510,\"Name\":\"Trans Quantity Per Serve - Total - NIP\",\"Value\":\"<0.1g\",\"Description\":\"Trans Quantity Per Serve - Total - NIP\",\"SortOrder\":671}]}"
+      },
+      "nutrition": [
+        {
+          "Name": "Energy",
+          "Values": {
+            "Quantity Per Serving": "192.0kJ",
+            "Quantity Per 100g / 100mL": "1920.0kJ"
+          },
+          "ServingSize": "10.0 G",
+          "ServingsPerPack": "50.0"
+        },
+        {
+          "Name": "Protein",
+          "Values": {
+            "Quantity Per Serving": "< 0.1g",
+            "Quantity Per 100g / 100mL": "< 1.0g"
+          },
+          "ServingSize": "10.0 G",
+          "ServingsPerPack": "50.0"
+        },
+        {
+          "Name": "Fat, Total",
+          "Values": {
+            "Quantity Per Serving": "5.2g",
+            "Quantity Per 100g / 100mL": "52.0g"
+          },
+          "ServingSize": "10.0 G",
+          "ServingsPerPack": "50.0"
+        },
+        {
+          "Name": "– Saturated",
+          "Values": {
+            "Quantity Per Serving": "1.2g",
+            "Quantity Per 100g / 100mL": "11.9g"
+          },
+          "ServingSize": "10.0 G",
+          "ServingsPerPack": "50.0"
+        },
+        {
+          "Name": "Carbohydrate",
+          "Values": {
+            "Quantity Per Serving": "0.1g",
+            "Quantity Per 100g / 100mL": "< 1.0g"
+          },
+          "ServingSize": "10.0 G",
+          "ServingsPerPack": "50.0"
+        },
+        {
+          "Name": "– Sugars",
+          "Values": {
+            "Quantity Per Serving": "< 0.1g",
+            "Quantity Per 100g / 100mL": "< 1.0g"
+          },
+          "ServingSize": "10.0 G",
+          "ServingsPerPack": "50.0"
+        },
+        {
+          "Name": "Dietary Fibre",
+          "Values": {
+            "Quantity Per Serving": "-",
+            "Quantity Per 100g / 100mL": "-"
+          },
+          "ServingSize": "10.0 G",
+          "ServingsPerPack": "50.0"
+        },
+        {
+          "Name": "Sodium",
+          "Values": {
+            "Quantity Per Serving": "35.0mg",
+            "Quantity Per 100g / 100mL": "350.0mg"
+          },
+          "ServingSize": "10.0 G",
+          "ServingsPerPack": "50.0"
+        }
+      ],
+      "countryOfOrigin": {
+        "PngImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/94b80d8d-870e-46ab-892c-3d0592f81c93.png",
+        "SvgImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/94b80d8d-870e-46ab-892c-3d0592f81c93.svg",
+        "AltText": "Made in Australia from at least 90% Australian ingredients",
+        "CountryOfOrigin": "Australia",
+        "IngredientPercentage": "90",
+        "Disclaimer": null
+      },
+      "availabilityContext": {
+        "storeSelected": false,
+        "accountUsed": false,
+        "listingState": "listed-at-retrieval",
+        "currentAvailability": "unknown",
+        "note": "Public product page evidenced. No-location stock/range flags do not establish nationwide availability or discontinuation."
+      }
+    },
+    {
+      "sourceRecordId": "310237",
+      "provenance": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/310237",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/310237",
+        "retrievedAt": "2026-10-04T05:32:32.323Z",
+        "sha256": "5de0b786d0f9ba282ff6021ab0519962faa312b5050c6784b0f38990ac43d14f",
+        "responseBytes": 751140,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "product": {
+        "Stockcode": 310237,
+        "Barcode": "9300633988098",
+        "GtinFormat": 13,
+        "Name": "Woolworths Tasty Cheese Block",
+        "DisplayName": "Woolworths Tasty Cheese Block 500g",
+        "Brand": "Woolworths",
+        "Variety": null,
+        "PackageSize": "500g",
+        "IsRanged": true,
+        "IsInStock": true,
+        "IsAvailable": true,
+        "IsPurchasable": true,
+        "AgeRestricted": false,
+        "IsTobacco": false,
+        "IsMarketProduct": false
+      },
+      "attributes": {
+        "PiesProductDepartmentsjson": "[{\"Id\":\"1_90E697B\",\"Description\":\"Back to School\"},{\"Id\":\"1_9E92C35\",\"Description\":\"Lunch Box\"},{\"Id\":\"1_6E4F4E4\",\"Description\":\"Dairy, Eggs & Fridge\"}]",
+        "piesdepartmentnamesjson": "[\"Back to School\",\"Lunch Box\",\"Dairy, Eggs & Fridge\"]",
+        "piescategorynamesjson": "[\"Sandwich Ingredients\",\"Sandwich Ingredients\",\"Cheese\"]",
+        "piessubcategorynamesjson": "[\"Cheese Slices & Blocks\",\"Cheese Slices & Blocks\",\"Block Cheese\"]",
+        "ingredients": "Pasteurised Milk, Salt, Starter Culture (Milk), No n Animal Rennet",
+        "brand": "woolworths",
+        "nutritionalinformation": "{\"Name\":\"Nutritional Information\",\"Attributes\":[{\"Id\":705,\"Name\":\"Carbohydrate Quantity Per 100g - Total - NIP\",\"Value\":\"0.5g\",\"Description\":\"Carbohydrate Quantity Per 100g - Total - NIP\",\"SortOrder\":83},{\"Id\":706,\"Name\":\"Carbohydrate Quantity Per Serve - Total - NIP\",\"Value\":\"0.1g\",\"Description\":\"Carbohydrate Quantity Per Serve - Total - NIP\",\"SortOrder\":87},{\"Id\":125,\"Name\":\"Cholesterol Quantity Per Serve - Total - NIP\",\"Value\":\"27mg\",\"Description\":\"Cholesterol Quantity Per Serve - Total - NIP\",\"SortOrder\":115},{\"Id\":759,\"Name\":\"Energy kJ Quantity Per 100g - Total - NIP\",\"Value\":\"1650.0kJ\",\"Description\":\"Energy kJ Quantity Per 100g - Total - NIP\",\"SortOrder\":239},{\"Id\":760,\"Name\":\"Energy kJ Quantity Per Serve - Total - NIP\",\"Value\":\"412.0kJ\",\"Description\":\"Energy kJ Quantity Per Serve - Total - NIP\",\"SortOrder\":243},{\"Id\":253,\"Name\":\"Fat Saturated Quantity Per 100g - Total - NIP\",\"Value\":\"21.8g\",\"Description\":\"Fat Saturated Quantity Per 100g - Total - NIP\",\"SortOrder\":251},{\"Id\":258,\"Name\":\"Fat Saturated Quantity Per Serve - Total - NIP\",\"Value\":\"5.4g\",\"Description\":\"Fat Saturated Quantity Per Serve - Total - NIP\",\"SortOrder\":255},{\"Id\":764,\"Name\":\"Fat Total Quantity Per 100g - Total - NIP\",\"Value\":\"32.7g\",\"Description\":\"Fat Total Quantity Per 100g - Total - NIP\",\"SortOrder\":263},{\"Id\":166,\"Name\":\"Fat Total Quantity Per 100g - ValueWord - NIP\",\"Value\":\"32.7\",\"Description\":\"Fat Total Quantity Per 100g - ValueWord - NIP\",\"SortOrder\":264},{\"Id\":264,\"Name\":\"Fat Total Quantity Per Serve - Total - NIP\",\"Value\":\"8.2g\",\"Description\":\"Fat Total Quantity Per Serve - Total - NIP\",\"SortOrder\":267},{\"Id\":834,\"Name\":\"Monounsaturated Quantity Per Serve - Total - NIP\",\"Value\":\"1.9g\",\"Description\":\"Monounsaturated Quantity Per Serve - Total - NIP\",\"SortOrder\":483},{\"Id\":435,\"Name\":\"Polyunsaturated Quantity Per Serve - Total - NIP\",\"Value\":\"0.2g\",\"Description\":\"Polyunsaturated Quantity Per Serve - Total - NIP\",\"SortOrder\":567},{\"Id\":493,\"Name\":\"Potassium Quantity Per Serve - Total - NIP\",\"Value\":\"18.25mg\",\"Description\":\"Potassium Quantity Per Serve - Total - NIP\",\"SortOrder\":579},{\"Id\":878,\"Name\":\"Protein Quantity Per 100g - Total - NIP\",\"Value\":\"25.5g\",\"Description\":\"Protein Quantity Per 100g - Total - NIP\",\"SortOrder\":587},{\"Id\":882,\"Name\":\"Protein Quantity Per Serve - Total - NIP\",\"Value\":\"6.4g\",\"Description\":\"Protein Quantity Per Serve - Total - NIP\",\"SortOrder\":591},{\"Id\":477,\"Name\":\"Serving Size - Total - NIP\",\"Value\":\"25.0 G\",\"Description\":\"Serving Size - Total - NIP\",\"SortOrder\":607},{\"Id\":544,\"Name\":\"Servings Per Pack - Total - NIP\",\"Value\":\"20.0\",\"Description\":\"Servings Per Pack - Total - NIP\",\"SortOrder\":611},{\"Id\":491,\"Name\":\"Sodium Quantity Per 100g - Total - NIP\",\"Value\":\"652.0mg\",\"Description\":\"Sodium Quantity Per 100g - Total - NIP\",\"SortOrder\":623},{\"Id\":495,\"Name\":\"Sodium Quantity Per Serve - Total - NIP\",\"Value\":\"163.0mg\",\"Description\":\"Sodium Quantity Per Serve - Total - NIP\",\"SortOrder\":627},{\"Id\":908,\"Name\":\"Sugars Quantity Per 100g - SuffixUnits - NIP\",\"Value\":\"g\",\"Description\":\"Sugars Quantity Per 100g - SuffixUnits - NIP\",\"SortOrder\":646},{\"Id\":909,\"Name\":\"Sugars Quantity Per 100g - Total - NIP\",\"Value\":\"0.5g\",\"Description\":\"Sugars Quantity Per 100g - Total - NIP\",\"SortOrder\":647},{\"Id\":910,\"Name\":\"Sugars Quantity Per 100g - ValueWord - NIP\",\"Value\":\"0.5\",\"Description\":\"Sugars Quantity Per 100g - ValueWord - NIP\",\"SortOrder\":648},{\"Id\":911,\"Name\":\"Sugars Quantity Per Serve - SuffixUnits - NIP\",\"Value\":\"g\",\"Description\":\"Sugars Quantity Per Serve - SuffixUnits - NIP\",\"SortOrder\":650},{\"Id\":912,\"Name\":\"Sugars Quantity Per Serve - Total - NIP\",\"Value\":\"0.1g\",\"Description\":\"Sugars Quantity Per Serve - Total - NIP\",\"SortOrder\":651},{\"Id\":572,\"Name\":\"Sugars Quantity Per Serve - ValueWord - NIP\",\"Value\":\"0.1\",\"Description\":\"Sugars Quantity Per Serve - ValueWord - NIP\",\"SortOrder\":652},{\"Id\":510,\"Name\":\"Trans Quantity Per Serve - Total - NIP\",\"Value\":\"Approx. 1g\",\"Description\":\"Trans Quantity Per Serve - Total - NIP\",\"SortOrder\":671}]}"
+      },
+      "nutrition": [
+        {
+          "Name": "Energy",
+          "Values": {
+            "Quantity Per Serving": "412.0kJ",
+            "Quantity Per 100g / 100mL": "1650.0kJ"
+          },
+          "ServingSize": "25.0 G",
+          "ServingsPerPack": "20.0"
+        },
+        {
+          "Name": "Protein",
+          "Values": {
+            "Quantity Per Serving": "6.4g",
+            "Quantity Per 100g / 100mL": "25.5g"
+          },
+          "ServingSize": "25.0 G",
+          "ServingsPerPack": "20.0"
+        },
+        {
+          "Name": "Fat, Total",
+          "Values": {
+            "Quantity Per Serving": "8.2g",
+            "Quantity Per 100g / 100mL": "32.7g"
+          },
+          "ServingSize": "25.0 G",
+          "ServingsPerPack": "20.0"
+        },
+        {
+          "Name": "– Saturated",
+          "Values": {
+            "Quantity Per Serving": "5.4g",
+            "Quantity Per 100g / 100mL": "21.8g"
+          },
+          "ServingSize": "25.0 G",
+          "ServingsPerPack": "20.0"
+        },
+        {
+          "Name": "Carbohydrate",
+          "Values": {
+            "Quantity Per Serving": "0.1g",
+            "Quantity Per 100g / 100mL": "0.5g"
+          },
+          "ServingSize": "25.0 G",
+          "ServingsPerPack": "20.0"
+        },
+        {
+          "Name": "– Sugars",
+          "Values": {
+            "Quantity Per Serving": "0.1g",
+            "Quantity Per 100g / 100mL": "0.5g"
+          },
+          "ServingSize": "25.0 G",
+          "ServingsPerPack": "20.0"
+        },
+        {
+          "Name": "Dietary Fibre",
+          "Values": {
+            "Quantity Per Serving": "-",
+            "Quantity Per 100g / 100mL": "-"
+          },
+          "ServingSize": "25.0 G",
+          "ServingsPerPack": "20.0"
+        },
+        {
+          "Name": "Sodium",
+          "Values": {
+            "Quantity Per Serving": "163.0mg",
+            "Quantity Per 100g / 100mL": "652.0mg"
+          },
+          "ServingSize": "25.0 G",
+          "ServingsPerPack": "20.0"
+        }
+      ],
+      "countryOfOrigin": {
+        "PngImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/7ad66c14-c4f8-4d84-bbee-bfc13617a206.png",
+        "SvgImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/7ad66c14-c4f8-4d84-bbee-bfc13617a206.svg",
+        "AltText": "Made in Australia from at least 98% Australian ingredients",
+        "CountryOfOrigin": "Australia",
+        "IngredientPercentage": "98",
+        "Disclaimer": null
+      },
+      "availabilityContext": {
+        "storeSelected": false,
+        "accountUsed": false,
+        "listingState": "listed-at-retrieval",
+        "currentAvailability": "unknown",
+        "note": "Public product page evidenced. No-location stock/range flags do not establish nationwide availability or discontinuation."
+      }
+    },
+    {
+      "sourceRecordId": "151547",
+      "provenance": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/151547",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/151547",
+        "retrievedAt": "2026-10-04T05:32:33.386Z",
+        "sha256": "c9a6681f3a0312aac4253e3b48508537db9cedff9dde7480aefa1d8f0b35c559",
+        "responseBytes": 704911,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "product": {
+        "Stockcode": 151547,
+        "Barcode": "9339687253517",
+        "GtinFormat": 13,
+        "Name": "Woolworths Full Cream Milk",
+        "DisplayName": "Woolworths Full Cream Milk 2L",
+        "Brand": "Woolworths",
+        "Variety": null,
+        "PackageSize": "2L",
+        "IsRanged": false,
+        "IsInStock": false,
+        "IsAvailable": false,
+        "IsPurchasable": false,
+        "AgeRestricted": false,
+        "IsTobacco": false,
+        "IsMarketProduct": false
+      },
+      "attributes": {
+        "PiesProductDepartmentsjson": "[{\"Id\":\"1_6E4F4E4\",\"Description\":\"Dairy, Eggs & Fridge\"}]",
+        "piesdepartmentnamesjson": "[\"Dairy, Eggs & Fridge\"]",
+        "piescategorynamesjson": "[\"Milk\"]",
+        "piessubcategorynamesjson": "[\"Full Cream Milk\"]",
+        "ingredients": "Pasteurised and Homogenised Full Cream Milk",
+        "brand": "woolworths",
+        "nutritionalinformation": "{\"Name\":\"Nutritional Information\",\"Attributes\":[{\"Id\":702,\"Name\":\"Calcium Quantity Per 100g - Total - NIP\",\"Value\":\"Approx.117mg\",\"Description\":\"Calcium Quantity Per 100g - Total - NIP\",\"SortOrder\":71},{\"Id\":47,\"Name\":\"Calcium Quantity Per Serve - Total - NIP\",\"Value\":\"Approx.293mg\",\"Description\":\"Calcium Quantity Per Serve - Total - NIP\",\"SortOrder\":75},{\"Id\":705,\"Name\":\"Carbohydrate Quantity Per 100g - Total - NIP\",\"Value\":\"4.80g\",\"Description\":\"Carbohydrate Quantity Per 100g - Total - NIP\",\"SortOrder\":83},{\"Id\":706,\"Name\":\"Carbohydrate Quantity Per Serve - Total - NIP\",\"Value\":\"12.00g\",\"Description\":\"Carbohydrate Quantity Per Serve - Total - NIP\",\"SortOrder\":87},{\"Id\":759,\"Name\":\"Energy kJ Quantity Per 100g - Total - NIP\",\"Value\":\"264.00kJ\",\"Description\":\"Energy kJ Quantity Per 100g - Total - NIP\",\"SortOrder\":239},{\"Id\":760,\"Name\":\"Energy kJ Quantity Per Serve - Total - NIP\",\"Value\":\"660.00kJ\",\"Description\":\"Energy kJ Quantity Per Serve - Total - NIP\",\"SortOrder\":243},{\"Id\":253,\"Name\":\"Fat Saturated Quantity Per 100g - Total - NIP\",\"Value\":\"2.20g\",\"Description\":\"Fat Saturated Quantity Per 100g - Total - NIP\",\"SortOrder\":251},{\"Id\":258,\"Name\":\"Fat Saturated Quantity Per Serve - Total - NIP\",\"Value\":\"5.50g\",\"Description\":\"Fat Saturated Quantity Per Serve - Total - NIP\",\"SortOrder\":255},{\"Id\":764,\"Name\":\"Fat Total Quantity Per 100g - Total - NIP\",\"Value\":\"3.40g\",\"Description\":\"Fat Total Quantity Per 100g - Total - NIP\",\"SortOrder\":263},{\"Id\":166,\"Name\":\"Fat Total Quantity Per 100g - ValueWord - NIP\",\"Value\":\"3.40\",\"Description\":\"Fat Total Quantity Per 100g - ValueWord - NIP\",\"SortOrder\":264},{\"Id\":264,\"Name\":\"Fat Total Quantity Per Serve - Total - NIP\",\"Value\":\"8.50g\",\"Description\":\"Fat Total Quantity Per Serve - Total - NIP\",\"SortOrder\":267},{\"Id\":878,\"Name\":\"Protein Quantity Per 100g - Total - NIP\",\"Value\":\"3.30g\",\"Description\":\"Protein Quantity Per 100g - Total - NIP\",\"SortOrder\":587},{\"Id\":882,\"Name\":\"Protein Quantity Per Serve - Total - NIP\",\"Value\":\"8.20g\",\"Description\":\"Protein Quantity Per Serve - Total - NIP\",\"SortOrder\":591},{\"Id\":477,\"Name\":\"Serving Size - Total - NIP\",\"Value\":\"250.00ml\",\"Description\":\"Serving Size - Total - NIP\",\"SortOrder\":607},{\"Id\":544,\"Name\":\"Servings Per Pack - Total - NIP\",\"Value\":\"8.00\",\"Description\":\"Servings Per Pack - Total - NIP\",\"SortOrder\":611},{\"Id\":491,\"Name\":\"Sodium Quantity Per 100g - Total - NIP\",\"Value\":\"44.00mg\",\"Description\":\"Sodium Quantity Per 100g - Total - NIP\",\"SortOrder\":623},{\"Id\":495,\"Name\":\"Sodium Quantity Per Serve - Total - NIP\",\"Value\":\"110.00mg\",\"Description\":\"Sodium Quantity Per Serve - Total - NIP\",\"SortOrder\":627},{\"Id\":907,\"Name\":\"Sugars Quantity Per 100g - Prefix - NIP\",\"Value\":\"Approx.\",\"Description\":\"Sugars Quantity Per 100g - Prefix - NIP\",\"SortOrder\":645},{\"Id\":908,\"Name\":\"Sugars Quantity Per 100g - SuffixUnits - NIP\",\"Value\":\"g\",\"Description\":\"Sugars Quantity Per 100g - SuffixUnits - NIP\",\"SortOrder\":646},{\"Id\":909,\"Name\":\"Sugars Quantity Per 100g - Total - NIP\",\"Value\":\"4.80g\",\"Description\":\"Sugars Quantity Per 100g - Total - NIP\",\"SortOrder\":647},{\"Id\":910,\"Name\":\"Sugars Quantity Per 100g - ValueWord - NIP\",\"Value\":\"4.80\",\"Description\":\"Sugars Quantity Per 100g - ValueWord - NIP\",\"SortOrder\":648},{\"Id\":504,\"Name\":\"Sugars Quantity Per Serve - Prefix - NIP\",\"Value\":\"Approx.\",\"Description\":\"Sugars Quantity Per Serve - Prefix - NIP\",\"SortOrder\":649},{\"Id\":911,\"Name\":\"Sugars Quantity Per Serve - SuffixUnits - NIP\",\"Value\":\"g\",\"Description\":\"Sugars Quantity Per Serve - SuffixUnits - NIP\",\"SortOrder\":650},{\"Id\":912,\"Name\":\"Sugars Quantity Per Serve - Total - NIP\",\"Value\":\"12.00g\",\"Description\":\"Sugars Quantity Per Serve - Total - NIP\",\"SortOrder\":651},{\"Id\":572,\"Name\":\"Sugars Quantity Per Serve - ValueWord - NIP\",\"Value\":\"12.00\",\"Description\":\"Sugars Quantity Per Serve - ValueWord - NIP\",\"SortOrder\":652},{\"Id\":593,\"Name\":\"Trans Quantity Per 100g - Total - NIP\",\"Value\":\"<1g\",\"Description\":\"Trans Quantity Per 100g - Total - NIP\",\"SortOrder\":667},{\"Id\":510,\"Name\":\"Trans Quantity Per Serve - Total - NIP\",\"Value\":\"<1g\",\"Description\":\"Trans Quantity Per Serve - Total - NIP\",\"SortOrder\":671}]}"
+      },
+      "nutrition": [
+        {
+          "Name": "Energy",
+          "Values": {
+            "Quantity Per Serving": "660.00kJ",
+            "Quantity Per 100g / 100mL": "264.00kJ"
+          },
+          "ServingSize": "250.00ml",
+          "ServingsPerPack": "8.00"
+        },
+        {
+          "Name": "Protein",
+          "Values": {
+            "Quantity Per Serving": "8.20g",
+            "Quantity Per 100g / 100mL": "3.30g"
+          },
+          "ServingSize": "250.00ml",
+          "ServingsPerPack": "8.00"
+        },
+        {
+          "Name": "Fat, Total",
+          "Values": {
+            "Quantity Per Serving": "8.50g",
+            "Quantity Per 100g / 100mL": "3.40g"
+          },
+          "ServingSize": "250.00ml",
+          "ServingsPerPack": "8.00"
+        },
+        {
+          "Name": "– Saturated",
+          "Values": {
+            "Quantity Per Serving": "5.50g",
+            "Quantity Per 100g / 100mL": "2.20g"
+          },
+          "ServingSize": "250.00ml",
+          "ServingsPerPack": "8.00"
+        },
+        {
+          "Name": "Carbohydrate",
+          "Values": {
+            "Quantity Per Serving": "12.00g",
+            "Quantity Per 100g / 100mL": "4.80g"
+          },
+          "ServingSize": "250.00ml",
+          "ServingsPerPack": "8.00"
+        },
+        {
+          "Name": "– Sugars",
+          "Values": {
+            "Quantity Per Serving": "12.00g",
+            "Quantity Per 100g / 100mL": "4.80g"
+          },
+          "ServingSize": "250.00ml",
+          "ServingsPerPack": "8.00"
+        },
+        {
+          "Name": "Dietary Fibre",
+          "Values": {
+            "Quantity Per Serving": "-",
+            "Quantity Per 100g / 100mL": "-"
+          },
+          "ServingSize": "250.00ml",
+          "ServingsPerPack": "8.00"
+        },
+        {
+          "Name": "Sodium",
+          "Values": {
+            "Quantity Per Serving": "110.00mg",
+            "Quantity Per 100g / 100mL": "44.00mg"
+          },
+          "ServingSize": "250.00ml",
+          "ServingsPerPack": "8.00"
+        }
+      ],
+      "countryOfOrigin": {
+        "PngImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/b8206f01-a2f1-433d-bc3f-dd9b73ccf085.png",
+        "SvgImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/b8206f01-a2f1-433d-bc3f-dd9b73ccf085.svg",
+        "AltText": "Product of Australia",
+        "CountryOfOrigin": "Australia",
+        "IngredientPercentage": "100",
+        "Disclaimer": null
+      },
+      "availabilityContext": {
+        "storeSelected": false,
+        "accountUsed": false,
+        "listingState": "listed-at-retrieval",
+        "currentAvailability": "unknown",
+        "note": "Public product page evidenced. No-location stock/range flags do not establish nationwide availability or discontinuation."
+      }
+    },
+    {
+      "sourceRecordId": "277727",
+      "provenance": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/277727",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/277727",
+        "retrievedAt": "2026-10-04T05:32:34.825Z",
+        "sha256": "742b911f9ac16c7f52a629e5cdfcc444b5594aa308288a0b7c8903720c3e4238",
+        "responseBytes": 704223,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "product": {
+        "Stockcode": 277727,
+        "Barcode": "9339687336258",
+        "GtinFormat": 13,
+        "Name": "Woolworths White Sandwich Bread Loaf",
+        "DisplayName": "Woolworths White Sandwich Bread Loaf 700g",
+        "Brand": "Woolworths",
+        "Variety": "Loaf",
+        "PackageSize": "700g",
+        "IsRanged": false,
+        "IsInStock": false,
+        "IsAvailable": false,
+        "IsPurchasable": false,
+        "AgeRestricted": false,
+        "IsTobacco": false,
+        "IsMarketProduct": false
+      },
+      "attributes": {
+        "PiesProductDepartmentsjson": "[{\"Id\":\"1_DEB537E\",\"Description\":\"Bakery\"},{\"Id\":\"1_9E92C35\",\"Description\":\"Lunch Box\"},{\"Id\":\"1_90E697B\",\"Description\":\"Back to School\"}]",
+        "piesdepartmentnamesjson": "[\"Bakery\",\"Lunch Box\",\"Back to School\"]",
+        "piescategorynamesjson": "[\"Packaged Bread & Bakery\",\"Sandwich Ingredients\",\"Sandwich Ingredients\"]",
+        "piessubcategorynamesjson": "[\"Packaged Bread\",\"Bread & Wraps\",\"Bread & Wraps\"]",
+        "ingredients": "Wheat Flour, Water, Yeast, Vinegar, lodised Salt, Canola Oil, Fermented Wheat Flour, Soy Flour, Emul sifiers (481, 472e), Vitamins (Thiamin, Folic Acid ), Processing Aid (Wheat)",
+        "brand": "woolworths",
+        "nutritionalinformation": "{\"Name\":\"Nutritional Information\",\"Attributes\":[{\"Id\":705,\"Name\":\"Carbohydrate Quantity Per 100g - Total - NIP\",\"Value\":\"48.1g\",\"Description\":\"Carbohydrate Quantity Per 100g - Total - NIP\",\"SortOrder\":83},{\"Id\":706,\"Name\":\"Carbohydrate Quantity Per Serve - Total - NIP\",\"Value\":\"31.7g\",\"Description\":\"Carbohydrate Quantity Per Serve - Total - NIP\",\"SortOrder\":87},{\"Id\":191,\"Name\":\"Dietary Fibre Quantity Per 100g - Total - NIP\",\"Value\":\"3.6g\",\"Description\":\"Dietary Fibre Quantity Per 100g - Total - NIP\",\"SortOrder\":175},{\"Id\":120,\"Name\":\"Dietary Fibre Quantity Per Serve - Total - NIP\",\"Value\":\"2.4g\",\"Description\":\"Dietary Fibre Quantity Per Serve - Total - NIP\",\"SortOrder\":179},{\"Id\":759,\"Name\":\"Energy kJ Quantity Per 100g - Total - NIP\",\"Value\":\"1090.0kJ\",\"Description\":\"Energy kJ Quantity Per 100g - Total - NIP\",\"SortOrder\":239},{\"Id\":760,\"Name\":\"Energy kJ Quantity Per Serve - Total - NIP\",\"Value\":\"719.0kJ\",\"Description\":\"Energy kJ Quantity Per Serve - Total - NIP\",\"SortOrder\":243},{\"Id\":253,\"Name\":\"Fat Saturated Quantity Per 100g - Total - NIP\",\"Value\":\"1.0g\",\"Description\":\"Fat Saturated Quantity Per 100g - Total - NIP\",\"SortOrder\":251},{\"Id\":258,\"Name\":\"Fat Saturated Quantity Per Serve - Total - NIP\",\"Value\":\"0.7g\",\"Description\":\"Fat Saturated Quantity Per Serve - Total - NIP\",\"SortOrder\":255},{\"Id\":764,\"Name\":\"Fat Total Quantity Per 100g - Total - NIP\",\"Value\":\"2.8g\",\"Description\":\"Fat Total Quantity Per 100g - Total - NIP\",\"SortOrder\":263},{\"Id\":166,\"Name\":\"Fat Total Quantity Per 100g - ValueWord - NIP\",\"Value\":\"2.8\",\"Description\":\"Fat Total Quantity Per 100g - ValueWord - NIP\",\"SortOrder\":264},{\"Id\":264,\"Name\":\"Fat Total Quantity Per Serve - Total - NIP\",\"Value\":\"1.8g\",\"Description\":\"Fat Total Quantity Per Serve - Total - NIP\",\"SortOrder\":267},{\"Id\":878,\"Name\":\"Protein Quantity Per 100g - Total - NIP\",\"Value\":\"8.3g\",\"Description\":\"Protein Quantity Per 100g - Total - NIP\",\"SortOrder\":587},{\"Id\":882,\"Name\":\"Protein Quantity Per Serve - Total - NIP\",\"Value\":\"5.5g\",\"Description\":\"Protein Quantity Per Serve - Total - NIP\",\"SortOrder\":591},{\"Id\":477,\"Name\":\"Serving Size - Total - NIP\",\"Value\":\"66.0 G\",\"Description\":\"Serving Size - Total - NIP\",\"SortOrder\":607},{\"Id\":544,\"Name\":\"Servings Per Pack - Total - NIP\",\"Value\":\"10.5\",\"Description\":\"Servings Per Pack - Total - NIP\",\"SortOrder\":611},{\"Id\":491,\"Name\":\"Sodium Quantity Per 100g - Total - NIP\",\"Value\":\"380.0mg\",\"Description\":\"Sodium Quantity Per 100g - Total - NIP\",\"SortOrder\":623},{\"Id\":495,\"Name\":\"Sodium Quantity Per Serve - Total - NIP\",\"Value\":\"251.0mg\",\"Description\":\"Sodium Quantity Per Serve - Total - NIP\",\"SortOrder\":627},{\"Id\":908,\"Name\":\"Sugars Quantity Per 100g - SuffixUnits - NIP\",\"Value\":\"g\",\"Description\":\"Sugars Quantity Per 100g - SuffixUnits - NIP\",\"SortOrder\":646},{\"Id\":909,\"Name\":\"Sugars Quantity Per 100g - Total - NIP\",\"Value\":\"3.6g\",\"Description\":\"Sugars Quantity Per 100g - Total - NIP\",\"SortOrder\":647},{\"Id\":910,\"Name\":\"Sugars Quantity Per 100g - ValueWord - NIP\",\"Value\":\"3.6\",\"Description\":\"Sugars Quantity Per 100g - ValueWord - NIP\",\"SortOrder\":648},{\"Id\":911,\"Name\":\"Sugars Quantity Per Serve - SuffixUnits - NIP\",\"Value\":\"g\",\"Description\":\"Sugars Quantity Per Serve - SuffixUnits - NIP\",\"SortOrder\":650},{\"Id\":912,\"Name\":\"Sugars Quantity Per Serve - Total - NIP\",\"Value\":\"2.4g\",\"Description\":\"Sugars Quantity Per Serve - Total - NIP\",\"SortOrder\":651},{\"Id\":572,\"Name\":\"Sugars Quantity Per Serve - ValueWord - NIP\",\"Value\":\"2.4\",\"Description\":\"Sugars Quantity Per Serve - ValueWord - NIP\",\"SortOrder\":652}]}"
+      },
+      "nutrition": [
+        {
+          "Name": "Energy",
+          "Values": {
+            "Quantity Per Serving": "719.0kJ",
+            "Quantity Per 100g / 100mL": "1090.0kJ"
+          },
+          "ServingSize": "66.0 G",
+          "ServingsPerPack": "10.5"
+        },
+        {
+          "Name": "Protein",
+          "Values": {
+            "Quantity Per Serving": "5.5g",
+            "Quantity Per 100g / 100mL": "8.3g"
+          },
+          "ServingSize": "66.0 G",
+          "ServingsPerPack": "10.5"
+        },
+        {
+          "Name": "Fat, Total",
+          "Values": {
+            "Quantity Per Serving": "1.8g",
+            "Quantity Per 100g / 100mL": "2.8g"
+          },
+          "ServingSize": "66.0 G",
+          "ServingsPerPack": "10.5"
+        },
+        {
+          "Name": "– Saturated",
+          "Values": {
+            "Quantity Per Serving": "0.7g",
+            "Quantity Per 100g / 100mL": "1.0g"
+          },
+          "ServingSize": "66.0 G",
+          "ServingsPerPack": "10.5"
+        },
+        {
+          "Name": "Carbohydrate",
+          "Values": {
+            "Quantity Per Serving": "31.7g",
+            "Quantity Per 100g / 100mL": "48.1g"
+          },
+          "ServingSize": "66.0 G",
+          "ServingsPerPack": "10.5"
+        },
+        {
+          "Name": "– Sugars",
+          "Values": {
+            "Quantity Per Serving": "2.4g",
+            "Quantity Per 100g / 100mL": "3.6g"
+          },
+          "ServingSize": "66.0 G",
+          "ServingsPerPack": "10.5"
+        },
+        {
+          "Name": "Dietary Fibre",
+          "Values": {
+            "Quantity Per Serving": "2.4g",
+            "Quantity Per 100g / 100mL": "3.6g"
+          },
+          "ServingSize": "66.0 G",
+          "ServingsPerPack": "10.5"
+        },
+        {
+          "Name": "Sodium",
+          "Values": {
+            "Quantity Per Serving": "251.0mg",
+            "Quantity Per 100g / 100mL": "380.0mg"
+          },
+          "ServingSize": "66.0 G",
+          "ServingsPerPack": "10.5"
+        }
+      ],
+      "countryOfOrigin": {
+        "PngImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/7ad66c14-c4f8-4d84-bbee-bfc13617a206.png",
+        "SvgImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/7ad66c14-c4f8-4d84-bbee-bfc13617a206.svg",
+        "AltText": "Made in Australia from at least 98% Australian ingredients",
+        "CountryOfOrigin": "Australia",
+        "IngredientPercentage": "98",
+        "Disclaimer": null
+      },
+      "availabilityContext": {
+        "storeSelected": false,
+        "accountUsed": false,
+        "listingState": "listed-at-retrieval",
+        "currentAvailability": "unknown",
+        "note": "Public product page evidenced. No-location stock/range flags do not establish nationwide availability or discontinuation."
+      }
+    },
+    {
+      "sourceRecordId": "288440",
+      "provenance": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/288440",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/288440",
+        "retrievedAt": "2026-10-04T05:32:35.081Z",
+        "sha256": "867172ebea74e6d23072220f08a200ba2a49566f8703b435fbd325724eb930c5",
+        "responseBytes": 692212,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "product": {
+        "Stockcode": 288440,
+        "Barcode": "9339687341580",
+        "GtinFormat": 13,
+        "Name": "The Odd Bunch Carrots",
+        "DisplayName": "The Odd Bunch Carrots 1.5kg",
+        "Brand": "The Odd Bunch",
+        "Variety": null,
+        "PackageSize": "1.5kg",
+        "IsRanged": true,
+        "IsInStock": true,
+        "IsAvailable": true,
+        "IsPurchasable": true,
+        "AgeRestricted": false,
+        "IsTobacco": false,
+        "IsMarketProduct": false
+      },
+      "attributes": {
+        "PiesProductDepartmentsjson": "[{\"Id\":\"1_90E697B\",\"Description\":\"Back to School\"},{\"Id\":\"1_9E92C35\",\"Description\":\"Lunch Box\"},{\"Id\":\"1-E5BEE36E\",\"Description\":\"Fruit & Veg\"}]",
+        "piesdepartmentnamesjson": "[\"Back to School\",\"Lunch Box\",\"Fruit & Veg\"]",
+        "piescategorynamesjson": "[\"Fruit & Veg\",\"Salad\",\"Fruit & Veg\",\"Snacking\",\"Vegetables\"]",
+        "piessubcategorynamesjson": "[\"Snacking Vegetables\",\"Beetroot & Carrot\",\"Snacking Vegetables\",\"Snacking\",\"Prepacked Vegetables\",\"Carrots, Onions & Root Veg\"]",
+        "brand": "the odd bunch"
+      },
+      "nutrition": [],
+      "countryOfOrigin": {
+        "PngImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/b30db8e7-2a70-43c8-8115-b2d6e0805210.png",
+        "SvgImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/b30db8e7-2a70-43c8-8115-b2d6e0805210.svg",
+        "AltText": "Grown in Australia",
+        "CountryOfOrigin": "Australia",
+        "IngredientPercentage": "100",
+        "Disclaimer": null
+      },
+      "availabilityContext": {
+        "storeSelected": false,
+        "accountUsed": false,
+        "listingState": "listed-at-retrieval",
+        "currentAvailability": "unknown",
+        "note": "Public product page evidenced. No-location stock/range flags do not establish nationwide availability or discontinuation."
+      }
+    },
+    {
+      "sourceRecordId": "396254",
+      "provenance": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/396254",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/396254",
+        "retrievedAt": "2026-10-04T05:32:36.091Z",
+        "sha256": "9f323b3956f7934531114badbab8ea22ad93cb12d1413c1c676f899bc546cd2b",
+        "responseBytes": 730070,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "product": {
+        "Stockcode": 396254,
+        "Barcode": "9339687357994",
+        "GtinFormat": 13,
+        "Name": "Woolworths Sea Salt Deli Style Potato Chips",
+        "DisplayName": "Woolworths Sea Salt Deli Style Potato Chips 175g",
+        "Brand": "Woolworths",
+        "Variety": "Potato Chips",
+        "PackageSize": "175g",
+        "IsRanged": true,
+        "IsInStock": true,
+        "IsAvailable": true,
+        "IsPurchasable": true,
+        "AgeRestricted": false,
+        "IsTobacco": false,
+        "IsMarketProduct": false
+      },
+      "attributes": {
+        "PiesProductDepartmentsjson": "[{\"Id\":\"1_717445A\",\"Description\":\"Snacks & Confectionery\"}]",
+        "piesdepartmentnamesjson": "[\"Snacks & Confectionery\"]",
+        "piescategorynamesjson": "[\"Chips\"]",
+        "piessubcategorynamesjson": "[\"Chips Sharing\"]",
+        "ingredients": "Potato (73%), Vegetable Oil, Salt (1.2%).",
+        "brand": "woolworths"
+      },
+      "nutrition": [],
+      "countryOfOrigin": {
+        "PngImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/f44863d6-3888-4e00-9c27-f52d9d975a5e.png",
+        "SvgImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/f44863d6-3888-4e00-9c27-f52d9d975a5e.svg",
+        "AltText": "Made in Australia from at least 93% Australian ingredients",
+        "CountryOfOrigin": "Australia",
+        "IngredientPercentage": "93",
+        "Disclaimer": null
+      },
+      "availabilityContext": {
+        "storeSelected": false,
+        "accountUsed": false,
+        "listingState": "listed-at-retrieval",
+        "currentAvailability": "unknown",
+        "note": "Public product page evidenced. No-location stock/range flags do not establish nationwide availability or discontinuation."
+      }
+    },
+    {
+      "sourceRecordId": "924103",
+      "provenance": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/924103",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/924103",
+        "retrievedAt": "2026-10-04T05:32:36.816Z",
+        "sha256": "3d37d3315b9bf8532572b7148f79a172aba6723e4f845d98344dad5f712d2d70",
+        "responseBytes": 745006,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "product": {
+        "Stockcode": 924103,
+        "Barcode": "9339687391479",
+        "GtinFormat": 13,
+        "Name": "Woolworths Australian Hash Browns",
+        "DisplayName": "Woolworths Australian Hash Browns 750g",
+        "Brand": "Woolworths",
+        "Variety": null,
+        "PackageSize": "750g",
+        "IsRanged": false,
+        "IsInStock": false,
+        "IsAvailable": false,
+        "IsPurchasable": false,
+        "AgeRestricted": false,
+        "IsTobacco": false,
+        "IsMarketProduct": false
+      },
+      "attributes": {
+        "PiesProductDepartmentsjson": "[{\"Id\":\"1_ACA2FC2\",\"Description\":\"Freezer\"}]",
+        "piesdepartmentnamesjson": "[\"Freezer\"]",
+        "piescategorynamesjson": "[\"Chips & Wedges\"]",
+        "piessubcategorynamesjson": "[\"Hashbrowns\"]",
+        "ingredients": "Potato (74%), Water, Starches (Tapioca, Potato, Corn), Canola Oil, Thickeners (Cellulose, Xanthan Gum, Guar Gum), Salt, Mineral Salt (450), Dextrose (Maize).",
+        "brand": "woolworths",
+        "nutritionalinformation": "{\"Name\":\"Nutritional Information\",\"Attributes\":[{\"Id\":705,\"Name\":\"Carbohydrate Quantity Per 100g - Total - NIP\",\"Value\":\"20.6g\",\"Description\":\"Carbohydrate Quantity Per 100g - Total - NIP\",\"SortOrder\":83},{\"Id\":706,\"Name\":\"Carbohydrate Quantity Per Serve - Total - NIP\",\"Value\":\"15.4g\",\"Description\":\"Carbohydrate Quantity Per Serve - Total - NIP\",\"SortOrder\":87},{\"Id\":191,\"Name\":\"Dietary Fibre Quantity Per 100g - Total - NIP\",\"Value\":\"1.5g\",\"Description\":\"Dietary Fibre Quantity Per 100g - Total - NIP\",\"SortOrder\":175},{\"Id\":120,\"Name\":\"Dietary Fibre Quantity Per Serve - Total - NIP\",\"Value\":\"1.1g\",\"Description\":\"Dietary Fibre Quantity Per Serve - Total - NIP\",\"SortOrder\":179},{\"Id\":759,\"Name\":\"Energy kJ Quantity Per 100g - Total - NIP\",\"Value\":\"585.0kJ\",\"Description\":\"Energy kJ Quantity Per 100g - Total - NIP\",\"SortOrder\":239},{\"Id\":760,\"Name\":\"Energy kJ Quantity Per Serve - Total - NIP\",\"Value\":\"439.0kJ\",\"Description\":\"Energy kJ Quantity Per Serve - Total - NIP\",\"SortOrder\":243},{\"Id\":253,\"Name\":\"Fat Saturated Quantity Per 100g - Total - NIP\",\"Value\":\"1.0g\",\"Description\":\"Fat Saturated Quantity Per 100g - Total - NIP\",\"SortOrder\":251},{\"Id\":258,\"Name\":\"Fat Saturated Quantity Per Serve - Total - NIP\",\"Value\":\"< 0.8g\",\"Description\":\"Fat Saturated Quantity Per Serve - Total - NIP\",\"SortOrder\":255},{\"Id\":764,\"Name\":\"Fat Total Quantity Per 100g - Total - NIP\",\"Value\":\"5.1g\",\"Description\":\"Fat Total Quantity Per 100g - Total - NIP\",\"SortOrder\":263},{\"Id\":166,\"Name\":\"Fat Total Quantity Per 100g - ValueWord - NIP\",\"Value\":\"5.1\",\"Description\":\"Fat Total Quantity Per 100g - ValueWord - NIP\",\"SortOrder\":264},{\"Id\":264,\"Name\":\"Fat Total Quantity Per Serve - Total - NIP\",\"Value\":\"3.8g\",\"Description\":\"Fat Total Quantity Per Serve - Total - NIP\",\"SortOrder\":267},{\"Id\":878,\"Name\":\"Protein Quantity Per 100g - Total - NIP\",\"Value\":\"2.0g\",\"Description\":\"Protein Quantity Per 100g - Total - NIP\",\"SortOrder\":587},{\"Id\":882,\"Name\":\"Protein Quantity Per Serve - Total - NIP\",\"Value\":\"1.5g\",\"Description\":\"Protein Quantity Per Serve - Total - NIP\",\"SortOrder\":591},{\"Id\":477,\"Name\":\"Serving Size - Total - NIP\",\"Value\":\"75.0 G\",\"Description\":\"Serving Size - Total - NIP\",\"SortOrder\":607},{\"Id\":544,\"Name\":\"Servings Per Pack - Total - NIP\",\"Value\":\"10.0\",\"Description\":\"Servings Per Pack - Total - NIP\",\"SortOrder\":611},{\"Id\":491,\"Name\":\"Sodium Quantity Per 100g - Total - NIP\",\"Value\":\"364.0mg\",\"Description\":\"Sodium Quantity Per 100g - Total - NIP\",\"SortOrder\":623},{\"Id\":495,\"Name\":\"Sodium Quantity Per Serve - Total - NIP\",\"Value\":\"273.0mg\",\"Description\":\"Sodium Quantity Per Serve - Total - NIP\",\"SortOrder\":627},{\"Id\":909,\"Name\":\"Sugars Quantity Per 100g - Total - NIP\",\"Value\":\"1.0g\",\"Description\":\"Sugars Quantity Per 100g - Total - NIP\",\"SortOrder\":647},{\"Id\":910,\"Name\":\"Sugars Quantity Per 100g - ValueWord - NIP\",\"Value\":\"1.0\",\"Description\":\"Sugars Quantity Per 100g - ValueWord - NIP\",\"SortOrder\":648},{\"Id\":504,\"Name\":\"Sugars Quantity Per Serve - Prefix - NIP\",\"Value\":\"<\",\"Description\":\"Sugars Quantity Per Serve - Prefix - NIP\",\"SortOrder\":649},{\"Id\":912,\"Name\":\"Sugars Quantity Per Serve - Total - NIP\",\"Value\":\"< 0.8g\",\"Description\":\"Sugars Quantity Per Serve - Total - NIP\",\"SortOrder\":651},{\"Id\":572,\"Name\":\"Sugars Quantity Per Serve - ValueWord - NIP\",\"Value\":\"0.8\",\"Description\":\"Sugars Quantity Per Serve - ValueWord - NIP\",\"SortOrder\":652},{\"Id\":593,\"Name\":\"Trans Quantity Per 100g - Total - NIP\",\"Value\":\"1.0g\",\"Description\":\"Trans Quantity Per 100g - Total - NIP\",\"SortOrder\":667}]}"
+      },
+      "nutrition": [
+        {
+          "Name": "Energy",
+          "Values": {
+            "Quantity Per Serving": "439.0kJ",
+            "Quantity Per 100g / 100mL": "585.0kJ"
+          },
+          "ServingSize": "75.0 G",
+          "ServingsPerPack": "10.0"
+        },
+        {
+          "Name": "Protein",
+          "Values": {
+            "Quantity Per Serving": "1.5g",
+            "Quantity Per 100g / 100mL": "2.0g"
+          },
+          "ServingSize": "75.0 G",
+          "ServingsPerPack": "10.0"
+        },
+        {
+          "Name": "Fat, Total",
+          "Values": {
+            "Quantity Per Serving": "3.8g",
+            "Quantity Per 100g / 100mL": "5.1g"
+          },
+          "ServingSize": "75.0 G",
+          "ServingsPerPack": "10.0"
+        },
+        {
+          "Name": "– Saturated",
+          "Values": {
+            "Quantity Per Serving": "< 0.8g",
+            "Quantity Per 100g / 100mL": "1.0g"
+          },
+          "ServingSize": "75.0 G",
+          "ServingsPerPack": "10.0"
+        },
+        {
+          "Name": "Carbohydrate",
+          "Values": {
+            "Quantity Per Serving": "15.4g",
+            "Quantity Per 100g / 100mL": "20.6g"
+          },
+          "ServingSize": "75.0 G",
+          "ServingsPerPack": "10.0"
+        },
+        {
+          "Name": "– Sugars",
+          "Values": {
+            "Quantity Per Serving": "< 0.8g",
+            "Quantity Per 100g / 100mL": "1.0g"
+          },
+          "ServingSize": "75.0 G",
+          "ServingsPerPack": "10.0"
+        },
+        {
+          "Name": "Dietary Fibre",
+          "Values": {
+            "Quantity Per Serving": "1.1g",
+            "Quantity Per 100g / 100mL": "1.5g"
+          },
+          "ServingSize": "75.0 G",
+          "ServingsPerPack": "10.0"
+        },
+        {
+          "Name": "Sodium",
+          "Values": {
+            "Quantity Per Serving": "273.0mg",
+            "Quantity Per 100g / 100mL": "364.0mg"
+          },
+          "ServingSize": "75.0 G",
+          "ServingsPerPack": "10.0"
+        }
+      ],
+      "countryOfOrigin": {
+        "PngImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/e1423c06-0cf0-4ee3-a1dc-60089d205439.png",
+        "SvgImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/e1423c06-0cf0-4ee3-a1dc-60089d205439.svg",
+        "AltText": "Made in Australia from at least 94% Australian ingredients",
+        "CountryOfOrigin": "Australia",
+        "IngredientPercentage": "94",
+        "Disclaimer": null
+      },
+      "availabilityContext": {
+        "storeSelected": false,
+        "accountUsed": false,
+        "listingState": "listed-at-retrieval",
+        "currentAvailability": "unknown",
+        "note": "Public product page evidenced. No-location stock/range flags do not establish nationwide availability or discontinuation."
+      }
+    },
+    {
+      "sourceRecordId": "6033180",
+      "provenance": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/6033180",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/6033180",
+        "retrievedAt": "2026-10-04T05:32:37.827Z",
+        "sha256": "987d627ae470a675b64665a8fb555800d0a00863394c451c9bf3b9aff0e82854",
+        "responseBytes": 743385,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "product": {
+        "Stockcode": 6033180,
+        "Barcode": "9339687428700",
+        "GtinFormat": 13,
+        "Name": "Woolworths Orange Juice",
+        "DisplayName": "Woolworths Orange Juice 2L",
+        "Brand": "Woolworths",
+        "Variety": null,
+        "PackageSize": "2L",
+        "IsRanged": true,
+        "IsInStock": true,
+        "IsAvailable": true,
+        "IsPurchasable": true,
+        "AgeRestricted": false,
+        "IsTobacco": false,
+        "IsMarketProduct": false
+      },
+      "attributes": {
+        "PiesProductDepartmentsjson": "[{\"Id\":\"1_5AF3A0A\",\"Description\":\"Drinks\"},{\"Id\":\"1_6E4F4E4\",\"Description\":\"Dairy, Eggs & Fridge\"}]",
+        "piesdepartmentnamesjson": "[\"Drinks\",\"Dairy, Eggs & Fridge\"]",
+        "piescategorynamesjson": "[\"Chilled Drinks\",\"Cordials, Juices & Iced Teas\",\"Chilled Juices & Drinks\"]",
+        "piessubcategorynamesjson": "[\"Chilled Juices, Iced Teas & Iced Coffee\",\"Chilled Juices\",\"Grab & go drinks\"]",
+        "ingredients": "Reconstituted Orange Juice (99.9%), Preservative ( Potassium Sorbate), Natural Flavour.",
+        "brand": "woolworths",
+        "nutritionalinformation": "{\"Name\":\"Nutritional Information\",\"Attributes\":[{\"Id\":705,\"Name\":\"Carbohydrate Quantity Per 100g - Total - NIP\",\"Value\":\"7.8g\",\"Description\":\"Carbohydrate Quantity Per 100g - Total - NIP\",\"SortOrder\":83},{\"Id\":706,\"Name\":\"Carbohydrate Quantity Per Serve - Total - NIP\",\"Value\":\"< 19.5g\",\"Description\":\"Carbohydrate Quantity Per Serve - Total - NIP\",\"SortOrder\":87},{\"Id\":191,\"Name\":\"Dietary Fibre Quantity Per 100g - Total - NIP\",\"Value\":\"1.0g\",\"Description\":\"Dietary Fibre Quantity Per 100g - Total - NIP\",\"SortOrder\":175},{\"Id\":120,\"Name\":\"Dietary Fibre Quantity Per Serve - Total - NIP\",\"Value\":\"2.5g\",\"Description\":\"Dietary Fibre Quantity Per Serve - Total - NIP\",\"SortOrder\":179},{\"Id\":759,\"Name\":\"Energy kJ Quantity Per 100g - Total - NIP\",\"Value\":\"160.0kJ\",\"Description\":\"Energy kJ Quantity Per 100g - Total - NIP\",\"SortOrder\":239},{\"Id\":760,\"Name\":\"Energy kJ Quantity Per Serve - Total - NIP\",\"Value\":\"400.0kJ\",\"Description\":\"Energy kJ Quantity Per Serve - Total - NIP\",\"SortOrder\":243},{\"Id\":253,\"Name\":\"Fat Saturated Quantity Per 100g - Total - NIP\",\"Value\":\"< 0.1g\",\"Description\":\"Fat Saturated Quantity Per 100g - Total - NIP\",\"SortOrder\":251},{\"Id\":258,\"Name\":\"Fat Saturated Quantity Per Serve - Total - NIP\",\"Value\":\"< 0.2g\",\"Description\":\"Fat Saturated Quantity Per Serve - Total - NIP\",\"SortOrder\":255},{\"Id\":764,\"Name\":\"Fat Total Quantity Per 100g - Total - NIP\",\"Value\":\"0.2g\",\"Description\":\"Fat Total Quantity Per 100g - Total - NIP\",\"SortOrder\":263},{\"Id\":166,\"Name\":\"Fat Total Quantity Per 100g - ValueWord - NIP\",\"Value\":\"0.2\",\"Description\":\"Fat Total Quantity Per 100g - ValueWord - NIP\",\"SortOrder\":264},{\"Id\":264,\"Name\":\"Fat Total Quantity Per Serve - Total - NIP\",\"Value\":\"0.5g\",\"Description\":\"Fat Total Quantity Per Serve - Total - NIP\",\"SortOrder\":267},{\"Id\":878,\"Name\":\"Protein Quantity Per 100g - Total - NIP\",\"Value\":\"0.7g\",\"Description\":\"Protein Quantity Per 100g - Total - NIP\",\"SortOrder\":587},{\"Id\":882,\"Name\":\"Protein Quantity Per Serve - Total - NIP\",\"Value\":\"1.8g\",\"Description\":\"Protein Quantity Per Serve - Total - NIP\",\"SortOrder\":591},{\"Id\":477,\"Name\":\"Serving Size - Total - NIP\",\"Value\":\"250.0 ML\",\"Description\":\"Serving Size - Total - NIP\",\"SortOrder\":607},{\"Id\":544,\"Name\":\"Servings Per Pack - Total - NIP\",\"Value\":\"8.0\",\"Description\":\"Servings Per Pack - Total - NIP\",\"SortOrder\":611},{\"Id\":491,\"Name\":\"Sodium Quantity Per 100g - Total - NIP\",\"Value\":\"< 5.0mg\",\"Description\":\"Sodium Quantity Per 100g - Total - NIP\",\"SortOrder\":623},{\"Id\":495,\"Name\":\"Sodium Quantity Per Serve - Total - NIP\",\"Value\":\"< 12.0mg\",\"Description\":\"Sodium Quantity Per Serve - Total - NIP\",\"SortOrder\":627},{\"Id\":909,\"Name\":\"Sugars Quantity Per 100g - Total - NIP\",\"Value\":\"5.0g\",\"Description\":\"Sugars Quantity Per 100g - Total - NIP\",\"SortOrder\":647},{\"Id\":910,\"Name\":\"Sugars Quantity Per 100g - ValueWord - NIP\",\"Value\":\"5.0\",\"Description\":\"Sugars Quantity Per 100g - ValueWord - NIP\",\"SortOrder\":648},{\"Id\":912,\"Name\":\"Sugars Quantity Per Serve - Total - NIP\",\"Value\":\"12.5g\",\"Description\":\"Sugars Quantity Per Serve - Total - NIP\",\"SortOrder\":651},{\"Id\":572,\"Name\":\"Sugars Quantity Per Serve - ValueWord - NIP\",\"Value\":\"12.5\",\"Description\":\"Sugars Quantity Per Serve - ValueWord - NIP\",\"SortOrder\":652}]}"
+      },
+      "nutrition": [
+        {
+          "Name": "Energy",
+          "Values": {
+            "Quantity Per Serving": "400.0kJ",
+            "Quantity Per 100g / 100mL": "160.0kJ"
+          },
+          "ServingSize": "250.0 ML",
+          "ServingsPerPack": "8.0"
+        },
+        {
+          "Name": "Protein",
+          "Values": {
+            "Quantity Per Serving": "1.8g",
+            "Quantity Per 100g / 100mL": "0.7g"
+          },
+          "ServingSize": "250.0 ML",
+          "ServingsPerPack": "8.0"
+        },
+        {
+          "Name": "Fat, Total",
+          "Values": {
+            "Quantity Per Serving": "0.5g",
+            "Quantity Per 100g / 100mL": "0.2g"
+          },
+          "ServingSize": "250.0 ML",
+          "ServingsPerPack": "8.0"
+        },
+        {
+          "Name": "– Saturated",
+          "Values": {
+            "Quantity Per Serving": "< 0.2g",
+            "Quantity Per 100g / 100mL": "< 0.1g"
+          },
+          "ServingSize": "250.0 ML",
+          "ServingsPerPack": "8.0"
+        },
+        {
+          "Name": "Carbohydrate",
+          "Values": {
+            "Quantity Per Serving": "< 19.5g",
+            "Quantity Per 100g / 100mL": "7.8g"
+          },
+          "ServingSize": "250.0 ML",
+          "ServingsPerPack": "8.0"
+        },
+        {
+          "Name": "– Sugars",
+          "Values": {
+            "Quantity Per Serving": "12.5g",
+            "Quantity Per 100g / 100mL": "5.0g"
+          },
+          "ServingSize": "250.0 ML",
+          "ServingsPerPack": "8.0"
+        },
+        {
+          "Name": "Dietary Fibre",
+          "Values": {
+            "Quantity Per Serving": "2.5g",
+            "Quantity Per 100g / 100mL": "1.0g"
+          },
+          "ServingSize": "250.0 ML",
+          "ServingsPerPack": "8.0"
+        },
+        {
+          "Name": "Sodium",
+          "Values": {
+            "Quantity Per Serving": "< 12.0mg",
+            "Quantity Per 100g / 100mL": "< 5.0mg"
+          },
+          "ServingSize": "250.0 ML",
+          "ServingsPerPack": "8.0"
+        }
+      ],
+      "countryOfOrigin": {
+        "PngImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/25c45110-1b08-4a90-8dde-a7d81c173d59.png",
+        "SvgImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/25c45110-1b08-4a90-8dde-a7d81c173d59.svg",
+        "AltText": "Made in Australia from at least 99% Australian ingredients",
+        "CountryOfOrigin": "Australia",
+        "IngredientPercentage": "99",
+        "Disclaimer": null
+      },
+      "availabilityContext": {
+        "storeSelected": false,
+        "accountUsed": false,
+        "listingState": "listed-at-retrieval",
+        "currentAvailability": "unknown",
+        "note": "Public product page evidenced. No-location stock/range flags do not establish nationwide availability or discontinuation."
+      }
+    },
+    {
+      "sourceRecordId": "888136",
+      "provenance": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/888136",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/888136",
+        "retrievedAt": "2026-10-04T05:32:38.033Z",
+        "sha256": "779629937ae41dd3404e2f39cea48ac9aa56095e25d1880f29887c066ddc2e36",
+        "responseBytes": 745612,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "product": {
+        "Stockcode": 888136,
+        "Barcode": "9300633556204",
+        "GtinFormat": 13,
+        "Name": "Woolworths Skim Milk",
+        "DisplayName": "Woolworths Skim Milk 1L",
+        "Brand": "Woolworths",
+        "Variety": "Milk",
+        "PackageSize": "1L",
+        "IsRanged": false,
+        "IsInStock": false,
+        "IsAvailable": false,
+        "IsPurchasable": false,
+        "AgeRestricted": false,
+        "IsTobacco": false,
+        "IsMarketProduct": false
+      },
+      "attributes": {
+        "PiesProductDepartmentsjson": "[{\"Id\":\"1_6E4F4E4\",\"Description\":\"Dairy, Eggs & Fridge\"}]",
+        "piesdepartmentnamesjson": "[\"Dairy, Eggs & Fridge\"]",
+        "piescategorynamesjson": "[\"Milk\"]",
+        "piessubcategorynamesjson": "[\"Skim & Reduced Fat Milk\"]",
+        "ingredients": "Pasteurised and Homogenised Skim Milk.",
+        "brand": "woolworths",
+        "nutritionalinformation": "{\"Name\":\"Nutritional Information\",\"Attributes\":[{\"Id\":702,\"Name\":\"Calcium Quantity Per 100g - Total - NIP\",\"Value\":\"118.0mg\",\"Description\":\"Calcium Quantity Per 100g - Total - NIP\",\"SortOrder\":71},{\"Id\":47,\"Name\":\"Calcium Quantity Per Serve - Total - NIP\",\"Value\":\"295.0mg\",\"Description\":\"Calcium Quantity Per Serve - Total - NIP\",\"SortOrder\":75},{\"Id\":705,\"Name\":\"Carbohydrate Quantity Per 100g - Total - NIP\",\"Value\":\"5.0g\",\"Description\":\"Carbohydrate Quantity Per 100g - Total - NIP\",\"SortOrder\":83},{\"Id\":706,\"Name\":\"Carbohydrate Quantity Per Serve - Total - NIP\",\"Value\":\"12.5g\",\"Description\":\"Carbohydrate Quantity Per Serve - Total - NIP\",\"SortOrder\":87},{\"Id\":125,\"Name\":\"Cholesterol Quantity Per Serve - Total - NIP\",\"Value\":\"7.53mg\",\"Description\":\"Cholesterol Quantity Per Serve - Total - NIP\",\"SortOrder\":115},{\"Id\":759,\"Name\":\"Energy kJ Quantity Per 100g - Total - NIP\",\"Value\":\"150.0kJ\",\"Description\":\"Energy kJ Quantity Per 100g - Total - NIP\",\"SortOrder\":239},{\"Id\":760,\"Name\":\"Energy kJ Quantity Per Serve - Total - NIP\",\"Value\":\"375.0kJ\",\"Description\":\"Energy kJ Quantity Per Serve - Total - NIP\",\"SortOrder\":243},{\"Id\":253,\"Name\":\"Fat Saturated Quantity Per 100g - Total - NIP\",\"Value\":\"1.0g\",\"Description\":\"Fat Saturated Quantity Per 100g - Total - NIP\",\"SortOrder\":251},{\"Id\":258,\"Name\":\"Fat Saturated Quantity Per Serve - Total - NIP\",\"Value\":\"< 2.5g\",\"Description\":\"Fat Saturated Quantity Per Serve - Total - NIP\",\"SortOrder\":255},{\"Id\":764,\"Name\":\"Fat Total Quantity Per 100g - Total - NIP\",\"Value\":\"1.0g\",\"Description\":\"Fat Total Quantity Per 100g - Total - NIP\",\"SortOrder\":263},{\"Id\":166,\"Name\":\"Fat Total Quantity Per 100g - ValueWord - NIP\",\"Value\":\"1.0\",\"Description\":\"Fat Total Quantity Per 100g - ValueWord - NIP\",\"SortOrder\":264},{\"Id\":264,\"Name\":\"Fat Total Quantity Per Serve - Total - NIP\",\"Value\":\"< 2.5g\",\"Description\":\"Fat Total Quantity Per Serve - Total - NIP\",\"SortOrder\":267},{\"Id\":834,\"Name\":\"Monounsaturated Quantity Per Serve - Total - NIP\",\"Value\":\"0.08g\",\"Description\":\"Monounsaturated Quantity Per Serve - Total - NIP\",\"SortOrder\":483},{\"Id\":493,\"Name\":\"Potassium Quantity Per Serve - Total - NIP\",\"Value\":\"411.61mg\",\"Description\":\"Potassium Quantity Per Serve - Total - NIP\",\"SortOrder\":579},{\"Id\":878,\"Name\":\"Protein Quantity Per 100g - Total - NIP\",\"Value\":\"3.6g\",\"Description\":\"Protein Quantity Per 100g - Total - NIP\",\"SortOrder\":587},{\"Id\":882,\"Name\":\"Protein Quantity Per Serve - Total - NIP\",\"Value\":\"9.0g\",\"Description\":\"Protein Quantity Per Serve - Total - NIP\",\"SortOrder\":591},{\"Id\":477,\"Name\":\"Serving Size - Total - NIP\",\"Value\":\"250.0 ML\",\"Description\":\"Serving Size - Total - NIP\",\"SortOrder\":607},{\"Id\":544,\"Name\":\"Servings Per Pack - Total - NIP\",\"Value\":\"4.0\",\"Description\":\"Servings Per Pack - Total - NIP\",\"SortOrder\":611},{\"Id\":491,\"Name\":\"Sodium Quantity Per 100g - Total - NIP\",\"Value\":\"43.0mg\",\"Description\":\"Sodium Quantity Per 100g - Total - NIP\",\"SortOrder\":623},{\"Id\":495,\"Name\":\"Sodium Quantity Per Serve - Total - NIP\",\"Value\":\"108.0mg\",\"Description\":\"Sodium Quantity Per Serve - Total - NIP\",\"SortOrder\":627},{\"Id\":908,\"Name\":\"Sugars Quantity Per 100g - SuffixUnits - NIP\",\"Value\":\"g\",\"Description\":\"Sugars Quantity Per 100g - SuffixUnits - NIP\",\"SortOrder\":646},{\"Id\":909,\"Name\":\"Sugars Quantity Per 100g - Total - NIP\",\"Value\":\"5.0g\",\"Description\":\"Sugars Quantity Per 100g - Total - NIP\",\"SortOrder\":647},{\"Id\":910,\"Name\":\"Sugars Quantity Per 100g - ValueWord - NIP\",\"Value\":\"5.0\",\"Description\":\"Sugars Quantity Per 100g - ValueWord - NIP\",\"SortOrder\":648},{\"Id\":911,\"Name\":\"Sugars Quantity Per Serve - SuffixUnits - NIP\",\"Value\":\"g\",\"Description\":\"Sugars Quantity Per Serve - SuffixUnits - NIP\",\"SortOrder\":650},{\"Id\":912,\"Name\":\"Sugars Quantity Per Serve - Total - NIP\",\"Value\":\"12.5g\",\"Description\":\"Sugars Quantity Per Serve - Total - NIP\",\"SortOrder\":651},{\"Id\":572,\"Name\":\"Sugars Quantity Per Serve - ValueWord - NIP\",\"Value\":\"12.5\",\"Description\":\"Sugars Quantity Per Serve - ValueWord - NIP\",\"SortOrder\":652},{\"Id\":593,\"Name\":\"Trans Quantity Per 100g - Total - NIP\",\"Value\":\"1.0g\",\"Description\":\"Trans Quantity Per 100g - Total - NIP\",\"SortOrder\":667},{\"Id\":510,\"Name\":\"Trans Quantity Per Serve - Total - NIP\",\"Value\":\"<0.3g\",\"Description\":\"Trans Quantity Per Serve - Total - NIP\",\"SortOrder\":671}]}"
+      },
+      "nutrition": [
+        {
+          "Name": "Energy",
+          "Values": {
+            "Quantity Per Serving": "375.0kJ",
+            "Quantity Per 100g / 100mL": "150.0kJ"
+          },
+          "ServingSize": "250.0 ML",
+          "ServingsPerPack": "4.0"
+        },
+        {
+          "Name": "Protein",
+          "Values": {
+            "Quantity Per Serving": "9.0g",
+            "Quantity Per 100g / 100mL": "3.6g"
+          },
+          "ServingSize": "250.0 ML",
+          "ServingsPerPack": "4.0"
+        },
+        {
+          "Name": "Fat, Total",
+          "Values": {
+            "Quantity Per Serving": "< 2.5g",
+            "Quantity Per 100g / 100mL": "1.0g"
+          },
+          "ServingSize": "250.0 ML",
+          "ServingsPerPack": "4.0"
+        },
+        {
+          "Name": "– Saturated",
+          "Values": {
+            "Quantity Per Serving": "< 2.5g",
+            "Quantity Per 100g / 100mL": "1.0g"
+          },
+          "ServingSize": "250.0 ML",
+          "ServingsPerPack": "4.0"
+        },
+        {
+          "Name": "Carbohydrate",
+          "Values": {
+            "Quantity Per Serving": "12.5g",
+            "Quantity Per 100g / 100mL": "5.0g"
+          },
+          "ServingSize": "250.0 ML",
+          "ServingsPerPack": "4.0"
+        },
+        {
+          "Name": "– Sugars",
+          "Values": {
+            "Quantity Per Serving": "12.5g",
+            "Quantity Per 100g / 100mL": "5.0g"
+          },
+          "ServingSize": "250.0 ML",
+          "ServingsPerPack": "4.0"
+        },
+        {
+          "Name": "Dietary Fibre",
+          "Values": {
+            "Quantity Per Serving": "-",
+            "Quantity Per 100g / 100mL": "-"
+          },
+          "ServingSize": "250.0 ML",
+          "ServingsPerPack": "4.0"
+        },
+        {
+          "Name": "Sodium",
+          "Values": {
+            "Quantity Per Serving": "108.0mg",
+            "Quantity Per 100g / 100mL": "43.0mg"
+          },
+          "ServingSize": "250.0 ML",
+          "ServingsPerPack": "4.0"
+        }
+      ],
+      "countryOfOrigin": {
+        "PngImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/b8206f01-a2f1-433d-bc3f-dd9b73ccf085.png",
+        "SvgImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/b8206f01-a2f1-433d-bc3f-dd9b73ccf085.svg",
+        "AltText": "Product of Australia",
+        "CountryOfOrigin": "Australia",
+        "IngredientPercentage": "100",
+        "Disclaimer": null
+      },
+      "availabilityContext": {
+        "storeSelected": false,
+        "accountUsed": false,
+        "listingState": "listed-at-retrieval",
+        "currentAvailability": "unknown",
+        "note": "Public product page evidenced. No-location stock/range flags do not establish nationwide availability or discontinuation."
+      }
+    },
+    {
+      "sourceRecordId": "86817",
+      "provenance": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/86817",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/86817",
+        "retrievedAt": "2026-10-04T05:32:39.437Z",
+        "sha256": "9dc4b33249fbe39d368559fb163392f84e5539b39d71b08017ce68ffbcfe5216",
+        "responseBytes": 750387,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "product": {
+        "Stockcode": 86817,
+        "Barcode": "9339687165339",
+        "GtinFormat": 13,
+        "Name": "Woolworths High Protein Plain Yoghurt",
+        "DisplayName": "Woolworths High Protein Plain Yoghurt 900g",
+        "Brand": "Woolworths",
+        "Variety": null,
+        "PackageSize": "900g",
+        "IsRanged": true,
+        "IsInStock": true,
+        "IsAvailable": true,
+        "IsPurchasable": true,
+        "AgeRestricted": false,
+        "IsTobacco": false,
+        "IsMarketProduct": false
+      },
+      "attributes": {
+        "PiesProductDepartmentsjson": "[{\"Id\":\"1_6E4F4E4\",\"Description\":\"Dairy, Eggs & Fridge\"}]",
+        "piesdepartmentnamesjson": "[\"Dairy, Eggs & Fridge\"]",
+        "piescategorynamesjson": "[\"Yoghurt\",\"High Protein\"]",
+        "piessubcategorynamesjson": "[\"High Protein Yoghurt\",\"Protein Yoghurts\"]",
+        "ingredients": "Skim Milk, Skim Milk Solids, Lactic Starter Cultures (Milk) (including S. thermophilus, L. acidophilus, Bifidobacterium, L. casei).",
+        "brand": "woolworths",
+        "nutritionalinformation": "{\"Name\":\"Nutritional Information\",\"Attributes\":[{\"Id\":702,\"Name\":\"Calcium Quantity Per 100g - Total - NIP\",\"Value\":\"133.0mg\",\"Description\":\"Calcium Quantity Per 100g - Total - NIP\",\"SortOrder\":71},{\"Id\":47,\"Name\":\"Calcium Quantity Per Serve - Total - NIP\",\"Value\":\"266.0mg\",\"Description\":\"Calcium Quantity Per Serve - Total - NIP\",\"SortOrder\":75},{\"Id\":705,\"Name\":\"Carbohydrate Quantity Per 100g - Total - NIP\",\"Value\":\"4.9g\",\"Description\":\"Carbohydrate Quantity Per 100g - Total - NIP\",\"SortOrder\":83},{\"Id\":706,\"Name\":\"Carbohydrate Quantity Per Serve - Total - NIP\",\"Value\":\"9.8g\",\"Description\":\"Carbohydrate Quantity Per Serve - Total - NIP\",\"SortOrder\":87},{\"Id\":759,\"Name\":\"Energy kJ Quantity Per 100g - Total - NIP\",\"Value\":\"251.0kJ\",\"Description\":\"Energy kJ Quantity Per 100g - Total - NIP\",\"SortOrder\":239},{\"Id\":760,\"Name\":\"Energy kJ Quantity Per Serve - Total - NIP\",\"Value\":\"502.0kJ\",\"Description\":\"Energy kJ Quantity Per Serve - Total - NIP\",\"SortOrder\":243},{\"Id\":253,\"Name\":\"Fat Saturated Quantity Per 100g - Total - NIP\",\"Value\":\"< 1.0g\",\"Description\":\"Fat Saturated Quantity Per 100g - Total - NIP\",\"SortOrder\":251},{\"Id\":258,\"Name\":\"Fat Saturated Quantity Per Serve - Total - NIP\",\"Value\":\"< 2.0g\",\"Description\":\"Fat Saturated Quantity Per Serve - Total - NIP\",\"SortOrder\":255},{\"Id\":764,\"Name\":\"Fat Total Quantity Per 100g - Total - NIP\",\"Value\":\"< 1.0g\",\"Description\":\"Fat Total Quantity Per 100g - Total - NIP\",\"SortOrder\":263},{\"Id\":166,\"Name\":\"Fat Total Quantity Per 100g - ValueWord - NIP\",\"Value\":\"1.0\",\"Description\":\"Fat Total Quantity Per 100g - ValueWord - NIP\",\"SortOrder\":264},{\"Id\":264,\"Name\":\"Fat Total Quantity Per Serve - Total - NIP\",\"Value\":\"< 2.0g\",\"Description\":\"Fat Total Quantity Per Serve - Total - NIP\",\"SortOrder\":267},{\"Id\":878,\"Name\":\"Protein Quantity Per 100g - Total - NIP\",\"Value\":\"9.4g\",\"Description\":\"Protein Quantity Per 100g - Total - NIP\",\"SortOrder\":587},{\"Id\":882,\"Name\":\"Protein Quantity Per Serve - Total - NIP\",\"Value\":\"18.8g\",\"Description\":\"Protein Quantity Per Serve - Total - NIP\",\"SortOrder\":591},{\"Id\":477,\"Name\":\"Serving Size - Total - NIP\",\"Value\":\"200.0 G\",\"Description\":\"Serving Size - Total - NIP\",\"SortOrder\":607},{\"Id\":544,\"Name\":\"Servings Per Pack - Total - NIP\",\"Value\":\"4.5\",\"Description\":\"Servings Per Pack - Total - NIP\",\"SortOrder\":611},{\"Id\":491,\"Name\":\"Sodium Quantity Per 100g - Total - NIP\",\"Value\":\"37.0mg\",\"Description\":\"Sodium Quantity Per 100g - Total - NIP\",\"SortOrder\":623},{\"Id\":495,\"Name\":\"Sodium Quantity Per Serve - Total - NIP\",\"Value\":\"74.0mg\",\"Description\":\"Sodium Quantity Per Serve - Total - NIP\",\"SortOrder\":627},{\"Id\":908,\"Name\":\"Sugars Quantity Per 100g - SuffixUnits - NIP\",\"Value\":\"g\",\"Description\":\"Sugars Quantity Per 100g - SuffixUnits - NIP\",\"SortOrder\":646},{\"Id\":909,\"Name\":\"Sugars Quantity Per 100g - Total - NIP\",\"Value\":\"4.0g\",\"Description\":\"Sugars Quantity Per 100g - Total - NIP\",\"SortOrder\":647},{\"Id\":910,\"Name\":\"Sugars Quantity Per 100g - ValueWord - NIP\",\"Value\":\"4.0\",\"Description\":\"Sugars Quantity Per 100g - ValueWord - NIP\",\"SortOrder\":648},{\"Id\":911,\"Name\":\"Sugars Quantity Per Serve - SuffixUnits - NIP\",\"Value\":\"g\",\"Description\":\"Sugars Quantity Per Serve - SuffixUnits - NIP\",\"SortOrder\":650},{\"Id\":912,\"Name\":\"Sugars Quantity Per Serve - Total - NIP\",\"Value\":\"8.0g\",\"Description\":\"Sugars Quantity Per Serve - Total - NIP\",\"SortOrder\":651},{\"Id\":572,\"Name\":\"Sugars Quantity Per Serve - ValueWord - NIP\",\"Value\":\"8.0\",\"Description\":\"Sugars Quantity Per Serve - ValueWord - NIP\",\"SortOrder\":652},{\"Id\":593,\"Name\":\"Trans Quantity Per 100g - Total - NIP\",\"Value\":\"0.1g\",\"Description\":\"Trans Quantity Per 100g - Total - NIP\",\"SortOrder\":667},{\"Id\":510,\"Name\":\"Trans Quantity Per Serve - Total - NIP\",\"Value\":\"<0.1g\",\"Description\":\"Trans Quantity Per Serve - Total - NIP\",\"SortOrder\":671}]}"
+      },
+      "nutrition": [
+        {
+          "Name": "Energy",
+          "Values": {
+            "Quantity Per Serving": "502.0kJ",
+            "Quantity Per 100g / 100mL": "251.0kJ"
+          },
+          "ServingSize": "200.0 G",
+          "ServingsPerPack": "4.5"
+        },
+        {
+          "Name": "Protein",
+          "Values": {
+            "Quantity Per Serving": "18.8g",
+            "Quantity Per 100g / 100mL": "9.4g"
+          },
+          "ServingSize": "200.0 G",
+          "ServingsPerPack": "4.5"
+        },
+        {
+          "Name": "Fat, Total",
+          "Values": {
+            "Quantity Per Serving": "< 2.0g",
+            "Quantity Per 100g / 100mL": "< 1.0g"
+          },
+          "ServingSize": "200.0 G",
+          "ServingsPerPack": "4.5"
+        },
+        {
+          "Name": "– Saturated",
+          "Values": {
+            "Quantity Per Serving": "< 2.0g",
+            "Quantity Per 100g / 100mL": "< 1.0g"
+          },
+          "ServingSize": "200.0 G",
+          "ServingsPerPack": "4.5"
+        },
+        {
+          "Name": "Carbohydrate",
+          "Values": {
+            "Quantity Per Serving": "9.8g",
+            "Quantity Per 100g / 100mL": "4.9g"
+          },
+          "ServingSize": "200.0 G",
+          "ServingsPerPack": "4.5"
+        },
+        {
+          "Name": "– Sugars",
+          "Values": {
+            "Quantity Per Serving": "8.0g",
+            "Quantity Per 100g / 100mL": "4.0g"
+          },
+          "ServingSize": "200.0 G",
+          "ServingsPerPack": "4.5"
+        },
+        {
+          "Name": "Dietary Fibre",
+          "Values": {
+            "Quantity Per Serving": "-",
+            "Quantity Per 100g / 100mL": "-"
+          },
+          "ServingSize": "200.0 G",
+          "ServingsPerPack": "4.5"
+        },
+        {
+          "Name": "Sodium",
+          "Values": {
+            "Quantity Per Serving": "74.0mg",
+            "Quantity Per 100g / 100mL": "37.0mg"
+          },
+          "ServingSize": "200.0 G",
+          "ServingsPerPack": "4.5"
+        }
+      ],
+      "countryOfOrigin": {
+        "PngImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/25c45110-1b08-4a90-8dde-a7d81c173d59.png",
+        "SvgImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/25c45110-1b08-4a90-8dde-a7d81c173d59.svg",
+        "AltText": "Made in Australia from at least 99% Australian ingredients",
+        "CountryOfOrigin": "Australia",
+        "IngredientPercentage": "99",
+        "Disclaimer": null
+      },
+      "availabilityContext": {
+        "storeSelected": false,
+        "accountUsed": false,
+        "listingState": "listed-at-retrieval",
+        "currentAvailability": "unknown",
+        "note": "Public product page evidenced. No-location stock/range flags do not establish nationwide availability or discontinuation."
+      }
+    },
+    {
+      "sourceRecordId": "768568",
+      "provenance": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/768568",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/768568",
+        "retrievedAt": "2026-10-04T05:32:39.758Z",
+        "sha256": "48b58470b155bf601ab4184ae60296776339b7e347d79b4aa15b34f72a9c5511",
+        "responseBytes": 702945,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "product": {
+        "Stockcode": 768568,
+        "Barcode": "9300633450410",
+        "GtinFormat": 13,
+        "Name": "Woolworths Mixed Vegetables",
+        "DisplayName": "Woolworths Mixed Vegetables 1Kg",
+        "Brand": "Woolworths",
+        "Variety": null,
+        "PackageSize": "1Kg",
+        "IsRanged": false,
+        "IsInStock": false,
+        "IsAvailable": false,
+        "IsPurchasable": false,
+        "AgeRestricted": false,
+        "IsTobacco": false,
+        "IsMarketProduct": false
+      },
+      "attributes": {
+        "PiesProductDepartmentsjson": "[{\"Id\":\"1_ACA2FC2\",\"Description\":\"Freezer\"}]",
+        "piesdepartmentnamesjson": "[\"Freezer\"]",
+        "piescategorynamesjson": "[\"Frozen Vegetables\"]",
+        "piessubcategorynamesjson": "[\"Mixed Vegetables\"]",
+        "ingredients": "Mixed Vegetables (Peas, Corn Kernels, Diced Carrots, Green Beans, Diced Potatoes),<br>",
+        "nutritionalinformation": "{\"Name\":\"Nutritional Information\",\"Attributes\":[{\"Id\":705,\"Name\":\"Carbohydrate Quantity Per 100g - Total - NIP\",\"Value\":\"7.6g\",\"Description\":\"Carbohydrate Quantity Per 100g - Total - NIP\",\"SortOrder\":83},{\"Id\":706,\"Name\":\"Carbohydrate Quantity Per Serve - Total - NIP\",\"Value\":\"7.6g\",\"Description\":\"Carbohydrate Quantity Per Serve - Total - NIP\",\"SortOrder\":87},{\"Id\":759,\"Name\":\"Energy kJ Quantity Per 100g - Total - NIP\",\"Value\":\"217kJ\",\"Description\":\"Energy kJ Quantity Per 100g - Total - NIP\",\"SortOrder\":239},{\"Id\":760,\"Name\":\"Energy kJ Quantity Per Serve - Total - NIP\",\"Value\":\"217kJ\",\"Description\":\"Energy kJ Quantity Per Serve - Total - NIP\",\"SortOrder\":243},{\"Id\":253,\"Name\":\"Fat Saturated Quantity Per 100g - Total - NIP\",\"Value\":\"0.1g\",\"Description\":\"Fat Saturated Quantity Per 100g - Total - NIP\",\"SortOrder\":251},{\"Id\":258,\"Name\":\"Fat Saturated Quantity Per Serve - Total - NIP\",\"Value\":\"0.1g\",\"Description\":\"Fat Saturated Quantity Per Serve - Total - NIP\",\"SortOrder\":255},{\"Id\":764,\"Name\":\"Fat Total Quantity Per 100g - Total - NIP\",\"Value\":\"0.5g\",\"Description\":\"Fat Total Quantity Per 100g - Total - NIP\",\"SortOrder\":263},{\"Id\":264,\"Name\":\"Fat Total Quantity Per Serve - Total - NIP\",\"Value\":\"0.5g\",\"Description\":\"Fat Total Quantity Per Serve - Total - NIP\",\"SortOrder\":267},{\"Id\":878,\"Name\":\"Protein Quantity Per 100g - Total - NIP\",\"Value\":\"2.5g\",\"Description\":\"Protein Quantity Per 100g - Total - NIP\",\"SortOrder\":587},{\"Id\":882,\"Name\":\"Protein Quantity Per Serve - Total - NIP\",\"Value\":\"2.5g\",\"Description\":\"Protein Quantity Per Serve - Total - NIP\",\"SortOrder\":591},{\"Id\":477,\"Name\":\"Serving Size - Total - NIP\",\"Value\":\"100g\",\"Description\":\"Serving Size - Total - NIP\",\"SortOrder\":607},{\"Id\":544,\"Name\":\"Servings Per Pack - Total - NIP\",\"Value\":\"10\",\"Description\":\"Servings Per Pack - Total - NIP\",\"SortOrder\":611},{\"Id\":491,\"Name\":\"Sodium Quantity Per 100g - Total - NIP\",\"Value\":\"11mg\",\"Description\":\"Sodium Quantity Per 100g - Total - NIP\",\"SortOrder\":623},{\"Id\":495,\"Name\":\"Sodium Quantity Per Serve - Total - NIP\",\"Value\":\"11mg\",\"Description\":\"Sodium Quantity Per Serve - Total - NIP\",\"SortOrder\":627},{\"Id\":907,\"Name\":\"Sugars Quantity Per 100g - Prefix - NIP\",\"Value\":\"\",\"Description\":\"Sugars Quantity Per 100g - Prefix - NIP\",\"SortOrder\":645},{\"Id\":908,\"Name\":\"Sugars Quantity Per 100g - SuffixUnits - NIP\",\"Value\":\"g\",\"Description\":\"Sugars Quantity Per 100g - SuffixUnits - NIP\",\"SortOrder\":646},{\"Id\":909,\"Name\":\"Sugars Quantity Per 100g - Total - NIP\",\"Value\":\"4.4g\",\"Description\":\"Sugars Quantity Per 100g - Total - NIP\",\"SortOrder\":647},{\"Id\":910,\"Name\":\"Sugars Quantity Per 100g - ValueWord - NIP\",\"Value\":\"4.4\",\"Description\":\"Sugars Quantity Per 100g - ValueWord - NIP\",\"SortOrder\":648},{\"Id\":504,\"Name\":\"Sugars Quantity Per Serve - Prefix - NIP\",\"Value\":\"\",\"Description\":\"Sugars Quantity Per Serve - Prefix - NIP\",\"SortOrder\":649},{\"Id\":911,\"Name\":\"Sugars Quantity Per Serve - SuffixUnits - NIP\",\"Value\":\"g\",\"Description\":\"Sugars Quantity Per Serve - SuffixUnits - NIP\",\"SortOrder\":650},{\"Id\":912,\"Name\":\"Sugars Quantity Per Serve - Total - NIP\",\"Value\":\"4.4g\",\"Description\":\"Sugars Quantity Per Serve - Total - NIP\",\"SortOrder\":651},{\"Id\":572,\"Name\":\"Sugars Quantity Per Serve - ValueWord - NIP\",\"Value\":\"4.4\",\"Description\":\"Sugars Quantity Per Serve - ValueWord - NIP\",\"SortOrder\":652}]}"
+      },
+      "nutrition": [
+        {
+          "Name": "Energy",
+          "Values": {
+            "Quantity Per Serving": "217kJ",
+            "Quantity Per 100g / 100mL": "217kJ"
+          },
+          "ServingSize": "100g",
+          "ServingsPerPack": "10"
+        },
+        {
+          "Name": "Protein",
+          "Values": {
+            "Quantity Per Serving": "2.5g",
+            "Quantity Per 100g / 100mL": "2.5g"
+          },
+          "ServingSize": "100g",
+          "ServingsPerPack": "10"
+        },
+        {
+          "Name": "Fat, Total",
+          "Values": {
+            "Quantity Per Serving": "0.5g",
+            "Quantity Per 100g / 100mL": "0.5g"
+          },
+          "ServingSize": "100g",
+          "ServingsPerPack": "10"
+        },
+        {
+          "Name": "– Saturated",
+          "Values": {
+            "Quantity Per Serving": "0.1g",
+            "Quantity Per 100g / 100mL": "0.1g"
+          },
+          "ServingSize": "100g",
+          "ServingsPerPack": "10"
+        },
+        {
+          "Name": "Carbohydrate",
+          "Values": {
+            "Quantity Per Serving": "7.6g",
+            "Quantity Per 100g / 100mL": "7.6g"
+          },
+          "ServingSize": "100g",
+          "ServingsPerPack": "10"
+        },
+        {
+          "Name": "– Sugars",
+          "Values": {
+            "Quantity Per Serving": "4.4g",
+            "Quantity Per 100g / 100mL": "4.4g"
+          },
+          "ServingSize": "100g",
+          "ServingsPerPack": "10"
+        },
+        {
+          "Name": "Dietary Fibre",
+          "Values": {
+            "Quantity Per Serving": "-",
+            "Quantity Per 100g / 100mL": "-"
+          },
+          "ServingSize": "100g",
+          "ServingsPerPack": "10"
+        },
+        {
+          "Name": "Sodium",
+          "Values": {
+            "Quantity Per Serving": "11mg",
+            "Quantity Per 100g / 100mL": "11mg"
+          },
+          "ServingSize": "100g",
+          "ServingsPerPack": "10"
+        }
+      ],
+      "countryOfOrigin": {
+        "PngImageFile": null,
+        "SvgImageFile": null,
+        "AltText": null,
+        "CountryOfOrigin": null,
+        "IngredientPercentage": null,
+        "Disclaimer": null
+      },
+      "availabilityContext": {
+        "storeSelected": false,
+        "accountUsed": false,
+        "listingState": "listed-at-retrieval",
+        "currentAvailability": "unknown",
+        "note": "Public product page evidenced. No-location stock/range flags do not establish nationwide availability or discontinuation."
+      }
+    },
+    {
+      "sourceRecordId": "93915",
+      "provenance": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/93915",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/93915",
+        "retrievedAt": "2026-10-04T05:32:40.699Z",
+        "sha256": "be79ddbd11287099cc9d48273e58aa74643e4b739577ce20547b9c757055c20e",
+        "responseBytes": 748280,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "product": {
+        "Stockcode": 93915,
+        "Barcode": "9300633939151",
+        "GtinFormat": 13,
+        "Name": "Woolworths Essentials Frozen Mixed Vegetables",
+        "DisplayName": "Woolworths Essentials Frozen Mixed Vegetables 1kg",
+        "Brand": "Woolworths Essentials",
+        "Variety": "Mixed Vegetables",
+        "PackageSize": "1kg",
+        "IsRanged": true,
+        "IsInStock": true,
+        "IsAvailable": true,
+        "IsPurchasable": true,
+        "AgeRestricted": false,
+        "IsTobacco": false,
+        "IsMarketProduct": false
+      },
+      "attributes": {
+        "PiesProductDepartmentsjson": "[{\"Id\":\"1_ACA2FC2\",\"Description\":\"Freezer\"}]",
+        "piesdepartmentnamesjson": "[\"Freezer\"]",
+        "piescategorynamesjson": "[\"Frozen Gluten Free\",\"Frozen Vegetables\"]",
+        "piessubcategorynamesjson": "[\"Gluten Free\",\"Mixed Vegetables\"]",
+        "ingredients": "Carrot, Peas, Broccoli Stem, Potato",
+        "brand": "woolworths essentials",
+        "nutritionalinformation": "{\"Name\":\"Nutritional Information\",\"Attributes\":[{\"Id\":705,\"Name\":\"Carbohydrate Quantity Per 100g - Total - NIP\",\"Value\":\"6.2g\",\"Description\":\"Carbohydrate Quantity Per 100g - Total - NIP\",\"SortOrder\":83},{\"Id\":706,\"Name\":\"Carbohydrate Quantity Per Serve - Total - NIP\",\"Value\":\"4.6g\",\"Description\":\"Carbohydrate Quantity Per Serve - Total - NIP\",\"SortOrder\":87},{\"Id\":191,\"Name\":\"Dietary Fibre Quantity Per 100g - Total - NIP\",\"Value\":\"3.3g\",\"Description\":\"Dietary Fibre Quantity Per 100g - Total - NIP\",\"SortOrder\":175},{\"Id\":120,\"Name\":\"Dietary Fibre Quantity Per Serve - Total - NIP\",\"Value\":\"2.5g\",\"Description\":\"Dietary Fibre Quantity Per Serve - Total - NIP\",\"SortOrder\":179},{\"Id\":759,\"Name\":\"Energy kJ Quantity Per 100g - Total - NIP\",\"Value\":\"187.0kJ\",\"Description\":\"Energy kJ Quantity Per 100g - Total - NIP\",\"SortOrder\":239},{\"Id\":760,\"Name\":\"Energy kJ Quantity Per Serve - Total - NIP\",\"Value\":\"140.0kJ\",\"Description\":\"Energy kJ Quantity Per Serve - Total - NIP\",\"SortOrder\":243},{\"Id\":253,\"Name\":\"Fat Saturated Quantity Per 100g - Total - NIP\",\"Value\":\"0.0g\",\"Description\":\"Fat Saturated Quantity Per 100g - Total - NIP\",\"SortOrder\":251},{\"Id\":258,\"Name\":\"Fat Saturated Quantity Per Serve - Total - NIP\",\"Value\":\"0.0g\",\"Description\":\"Fat Saturated Quantity Per Serve - Total - NIP\",\"SortOrder\":255},{\"Id\":764,\"Name\":\"Fat Total Quantity Per 100g - Total - NIP\",\"Value\":\"0.3g\",\"Description\":\"Fat Total Quantity Per 100g - Total - NIP\",\"SortOrder\":263},{\"Id\":166,\"Name\":\"Fat Total Quantity Per 100g - ValueWord - NIP\",\"Value\":\"0.3\",\"Description\":\"Fat Total Quantity Per 100g - ValueWord - NIP\",\"SortOrder\":264},{\"Id\":264,\"Name\":\"Fat Total Quantity Per Serve - Total - NIP\",\"Value\":\"0.2g\",\"Description\":\"Fat Total Quantity Per Serve - Total - NIP\",\"SortOrder\":267},{\"Id\":834,\"Name\":\"Monounsaturated Quantity Per Serve - Total - NIP\",\"Value\":\"0.01g\",\"Description\":\"Monounsaturated Quantity Per Serve - Total - NIP\",\"SortOrder\":483},{\"Id\":435,\"Name\":\"Polyunsaturated Quantity Per Serve - Total - NIP\",\"Value\":\"0.03g\",\"Description\":\"Polyunsaturated Quantity Per Serve - Total - NIP\",\"SortOrder\":567},{\"Id\":493,\"Name\":\"Potassium Quantity Per Serve - Total - NIP\",\"Value\":\"193.49mg\",\"Description\":\"Potassium Quantity Per Serve - Total - NIP\",\"SortOrder\":579},{\"Id\":878,\"Name\":\"Protein Quantity Per 100g - Total - NIP\",\"Value\":\"2.6g\",\"Description\":\"Protein Quantity Per 100g - Total - NIP\",\"SortOrder\":587},{\"Id\":882,\"Name\":\"Protein Quantity Per Serve - Total - NIP\",\"Value\":\"2.0g\",\"Description\":\"Protein Quantity Per Serve - Total - NIP\",\"SortOrder\":591},{\"Id\":477,\"Name\":\"Serving Size - Total - NIP\",\"Value\":\"75.0 G\",\"Description\":\"Serving Size - Total - NIP\",\"SortOrder\":607},{\"Id\":544,\"Name\":\"Servings Per Pack - Total - NIP\",\"Value\":\"13.0\",\"Description\":\"Servings Per Pack - Total - NIP\",\"SortOrder\":611},{\"Id\":491,\"Name\":\"Sodium Quantity Per 100g - Total - NIP\",\"Value\":\"22.3mg\",\"Description\":\"Sodium Quantity Per 100g - Total - NIP\",\"SortOrder\":623},{\"Id\":495,\"Name\":\"Sodium Quantity Per Serve - Total - NIP\",\"Value\":\"17.0mg\",\"Description\":\"Sodium Quantity Per Serve - Total - NIP\",\"SortOrder\":627},{\"Id\":908,\"Name\":\"Sugars Quantity Per 100g - SuffixUnits - NIP\",\"Value\":\"g\",\"Description\":\"Sugars Quantity Per 100g - SuffixUnits - NIP\",\"SortOrder\":646},{\"Id\":909,\"Name\":\"Sugars Quantity Per 100g - Total - NIP\",\"Value\":\"2.2g\",\"Description\":\"Sugars Quantity Per 100g - Total - NIP\",\"SortOrder\":647},{\"Id\":910,\"Name\":\"Sugars Quantity Per 100g - ValueWord - NIP\",\"Value\":\"2.2\",\"Description\":\"Sugars Quantity Per 100g - ValueWord - NIP\",\"SortOrder\":648},{\"Id\":911,\"Name\":\"Sugars Quantity Per Serve - SuffixUnits - NIP\",\"Value\":\"g\",\"Description\":\"Sugars Quantity Per Serve - SuffixUnits - NIP\",\"SortOrder\":650},{\"Id\":912,\"Name\":\"Sugars Quantity Per Serve - Total - NIP\",\"Value\":\"1.6g\",\"Description\":\"Sugars Quantity Per Serve - Total - NIP\",\"SortOrder\":651},{\"Id\":572,\"Name\":\"Sugars Quantity Per Serve - ValueWord - NIP\",\"Value\":\"1.6\",\"Description\":\"Sugars Quantity Per Serve - ValueWord - NIP\",\"SortOrder\":652},{\"Id\":510,\"Name\":\"Trans Quantity Per Serve - Total - NIP\",\"Value\":\"0.04mg\",\"Description\":\"Trans Quantity Per Serve - Total - NIP\",\"SortOrder\":671}]}"
+      },
+      "nutrition": [
+        {
+          "Name": "Energy",
+          "Values": {
+            "Quantity Per Serving": "140.0kJ",
+            "Quantity Per 100g / 100mL": "187.0kJ"
+          },
+          "ServingSize": "75.0 G",
+          "ServingsPerPack": "13.0"
+        },
+        {
+          "Name": "Protein",
+          "Values": {
+            "Quantity Per Serving": "2.0g",
+            "Quantity Per 100g / 100mL": "2.6g"
+          },
+          "ServingSize": "75.0 G",
+          "ServingsPerPack": "13.0"
+        },
+        {
+          "Name": "Fat, Total",
+          "Values": {
+            "Quantity Per Serving": "0.2g",
+            "Quantity Per 100g / 100mL": "0.3g"
+          },
+          "ServingSize": "75.0 G",
+          "ServingsPerPack": "13.0"
+        },
+        {
+          "Name": "– Saturated",
+          "Values": {
+            "Quantity Per Serving": "0.0g",
+            "Quantity Per 100g / 100mL": "0.0g"
+          },
+          "ServingSize": "75.0 G",
+          "ServingsPerPack": "13.0"
+        },
+        {
+          "Name": "Carbohydrate",
+          "Values": {
+            "Quantity Per Serving": "4.6g",
+            "Quantity Per 100g / 100mL": "6.2g"
+          },
+          "ServingSize": "75.0 G",
+          "ServingsPerPack": "13.0"
+        },
+        {
+          "Name": "– Sugars",
+          "Values": {
+            "Quantity Per Serving": "1.6g",
+            "Quantity Per 100g / 100mL": "2.2g"
+          },
+          "ServingSize": "75.0 G",
+          "ServingsPerPack": "13.0"
+        },
+        {
+          "Name": "Dietary Fibre",
+          "Values": {
+            "Quantity Per Serving": "2.5g",
+            "Quantity Per 100g / 100mL": "3.3g"
+          },
+          "ServingSize": "75.0 G",
+          "ServingsPerPack": "13.0"
+        },
+        {
+          "Name": "Sodium",
+          "Values": {
+            "Quantity Per Serving": "17.0mg",
+            "Quantity Per 100g / 100mL": "22.3mg"
+          },
+          "ServingSize": "75.0 G",
+          "ServingsPerPack": "13.0"
+        }
+      ],
+      "countryOfOrigin": {
+        "PngImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/2be2151c-42e8-48db-b72d-084b90b08b12.png",
+        "SvgImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/2be2151c-42e8-48db-b72d-084b90b08b12.svg",
+        "AltText": "Australian Grown",
+        "CountryOfOrigin": "Australian",
+        "IngredientPercentage": "100",
+        "Disclaimer": null
+      },
+      "availabilityContext": {
+        "storeSelected": false,
+        "accountUsed": false,
+        "listingState": "listed-at-retrieval",
+        "currentAvailability": "unknown",
+        "note": "Public product page evidenced. No-location stock/range flags do not establish nationwide availability or discontinuation."
+      }
+    },
+    {
+      "sourceRecordId": "33835",
+      "provenance": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/33835",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/33835",
+        "retrievedAt": "2026-10-04T05:32:40.928Z",
+        "sha256": "3cb6fc64a32573dea2cd6682b5cdb48c4c1ded655dea4640ff6daf17ce165e9c",
+        "responseBytes": 750710,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "product": {
+        "Stockcode": 33835,
+        "Barcode": "9300605114173",
+        "GtinFormat": 13,
+        "Name": "Nescafe Blend 43 Instant Coffee Jar",
+        "DisplayName": "Nescafe Blend 43 Instant Coffee Jar 150g",
+        "Brand": "Nescafe",
+        "Variety": "Instant Coffee Jar",
+        "PackageSize": "150g",
+        "IsRanged": true,
+        "IsInStock": true,
+        "IsAvailable": true,
+        "IsPurchasable": true,
+        "AgeRestricted": false,
+        "IsTobacco": false,
+        "IsMarketProduct": false
+      },
+      "attributes": {
+        "PiesProductDepartmentsjson": "[{\"Id\":\"1_39FD49C\",\"Description\":\"Pantry\"},{\"Id\":\"1_5AF3A0A\",\"Description\":\"Drinks\"}]",
+        "piesdepartmentnamesjson": "[\"Pantry\",\"Drinks\"]",
+        "piescategorynamesjson": "[\"Tea & Coffee\",\"Coffee\"]",
+        "piessubcategorynamesjson": "[\"Instant & Flavoured Coffee\",\"Instant & Flavoured Coffee\"]",
+        "ingredients": "<p>100% Natural Coffee Beans.  Soluble Coffee.</p>",
+        "brand": "nescafe"
+      },
+      "nutrition": [],
+      "countryOfOrigin": {
+        "PngImageFile": null,
+        "SvgImageFile": null,
+        "AltText": "Made in Australia from Imported Coffee beans",
+        "CountryOfOrigin": "",
+        "IngredientPercentage": "",
+        "Disclaimer": null
+      },
+      "availabilityContext": {
+        "storeSelected": false,
+        "accountUsed": false,
+        "listingState": "listed-at-retrieval",
+        "currentAvailability": "unknown",
+        "note": "Public product page evidenced. No-location stock/range flags do not establish nationwide availability or discontinuation."
+      }
+    },
+    {
+      "sourceRecordId": "702098",
+      "provenance": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/702098",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/702098",
+        "retrievedAt": "2026-10-04T05:32:41.807Z",
+        "sha256": "2809766246d64e5ce9b2026ee17f3a3729ada94d47117cc4cb3614e8e52d52b2",
+        "responseBytes": 710169,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "product": {
+        "Stockcode": 702098,
+        "Barcode": "9310055537224",
+        "GtinFormat": 13,
+        "Name": "Kellogg's Corn Flakes Breakfast Cereal",
+        "DisplayName": "Kellogg's Corn Flakes Breakfast Cereal 380g",
+        "Brand": "Kellogg's",
+        "Variety": "Breakfast Cereal",
+        "PackageSize": "380g",
+        "IsRanged": true,
+        "IsInStock": true,
+        "IsAvailable": true,
+        "IsPurchasable": true,
+        "AgeRestricted": false,
+        "IsTobacco": false,
+        "IsMarketProduct": false
+      },
+      "attributes": {
+        "PiesProductDepartmentsjson": "[{\"Id\":\"1_9E92C35\",\"Description\":\"Lunch Box\"},{\"Id\":\"1_39FD49C\",\"Description\":\"Pantry\"},{\"Id\":\"1_90E697B\",\"Description\":\"Back to School\"}]",
+        "piesdepartmentnamesjson": "[\"Lunch Box\",\"Pantry\",\"Back to School\"]",
+        "piescategorynamesjson": "[\"Breakfast & Spreads\",\"Breakfast\"]",
+        "piessubcategorynamesjson": "[\"Breakfast Cereal\",\"Cereals\"]",
+        "ingredients": "Corn (90%), sugar, salt, barley malt extract, vitamins (vitamin E, niacin, vitamin B6, riboflavin, folate), minerals (iron, zinc oxide).",
+        "brand": "kellogg's",
+        "nutritionalinformation": "{\"Name\":\"Nutritional Information\",\"Attributes\":[{\"Id\":705,\"Name\":\"Carbohydrate Quantity Per 100g - Total - NIP\",\"Value\":\"81.4g\",\"Description\":\"Carbohydrate Quantity Per 100g - Total - NIP\",\"SortOrder\":83},{\"Id\":706,\"Name\":\"Carbohydrate Quantity Per Serve - Total - NIP\",\"Value\":\"28.5g\",\"Description\":\"Carbohydrate Quantity Per Serve - Total - NIP\",\"SortOrder\":87},{\"Id\":191,\"Name\":\"Dietary Fibre Quantity Per 100g - Total - NIP\",\"Value\":\"4.2g\",\"Description\":\"Dietary Fibre Quantity Per 100g - Total - NIP\",\"SortOrder\":175},{\"Id\":120,\"Name\":\"Dietary Fibre Quantity Per Serve - Total - NIP\",\"Value\":\"1.5g\",\"Description\":\"Dietary Fibre Quantity Per Serve - Total - NIP\",\"SortOrder\":179},{\"Id\":759,\"Name\":\"Energy kJ Quantity Per 100g - Total - NIP\",\"Value\":\"1620.0kJ\",\"Description\":\"Energy kJ Quantity Per 100g - Total - NIP\",\"SortOrder\":239},{\"Id\":760,\"Name\":\"Energy kJ Quantity Per Serve - Total - NIP\",\"Value\":\"567.0kJ\",\"Description\":\"Energy kJ Quantity Per Serve - Total - NIP\",\"SortOrder\":243},{\"Id\":253,\"Name\":\"Fat Saturated Quantity Per 100g - Total - NIP\",\"Value\":\"0.3g\",\"Description\":\"Fat Saturated Quantity Per 100g - Total - NIP\",\"SortOrder\":251},{\"Id\":258,\"Name\":\"Fat Saturated Quantity Per Serve - Total - NIP\",\"Value\":\"0.1g\",\"Description\":\"Fat Saturated Quantity Per Serve - Total - NIP\",\"SortOrder\":255},{\"Id\":764,\"Name\":\"Fat Total Quantity Per 100g - Total - NIP\",\"Value\":\"1.8g\",\"Description\":\"Fat Total Quantity Per 100g - Total - NIP\",\"SortOrder\":263},{\"Id\":166,\"Name\":\"Fat Total Quantity Per 100g - ValueWord - NIP\",\"Value\":\"1.8\",\"Description\":\"Fat Total Quantity Per 100g - ValueWord - NIP\",\"SortOrder\":264},{\"Id\":264,\"Name\":\"Fat Total Quantity Per Serve - Total - NIP\",\"Value\":\"0.6g\",\"Description\":\"Fat Total Quantity Per Serve - Total - NIP\",\"SortOrder\":267},{\"Id\":878,\"Name\":\"Protein Quantity Per 100g - Total - NIP\",\"Value\":\"7.9g\",\"Description\":\"Protein Quantity Per 100g - Total - NIP\",\"SortOrder\":587},{\"Id\":882,\"Name\":\"Protein Quantity Per Serve - Total - NIP\",\"Value\":\"2.8g\",\"Description\":\"Protein Quantity Per Serve - Total - NIP\",\"SortOrder\":591},{\"Id\":477,\"Name\":\"Serving Size - Total - NIP\",\"Value\":\"35.0 G\",\"Description\":\"Serving Size - Total - NIP\",\"SortOrder\":607},{\"Id\":544,\"Name\":\"Servings Per Pack - Total - NIP\",\"Value\":\"10.0\",\"Description\":\"Servings Per Pack - Total - NIP\",\"SortOrder\":611},{\"Id\":491,\"Name\":\"Sodium Quantity Per 100g - Total - NIP\",\"Value\":\"535.0mg\",\"Description\":\"Sodium Quantity Per 100g - Total - NIP\",\"SortOrder\":623},{\"Id\":495,\"Name\":\"Sodium Quantity Per Serve - Total - NIP\",\"Value\":\"187.0mg\",\"Description\":\"Sodium Quantity Per Serve - Total - NIP\",\"SortOrder\":627},{\"Id\":908,\"Name\":\"Sugars Quantity Per 100g - SuffixUnits - NIP\",\"Value\":\"g\",\"Description\":\"Sugars Quantity Per 100g - SuffixUnits - NIP\",\"SortOrder\":646},{\"Id\":909,\"Name\":\"Sugars Quantity Per 100g - Total - NIP\",\"Value\":\"8.9g\",\"Description\":\"Sugars Quantity Per 100g - Total - NIP\",\"SortOrder\":647},{\"Id\":910,\"Name\":\"Sugars Quantity Per 100g - ValueWord - NIP\",\"Value\":\"8.9\",\"Description\":\"Sugars Quantity Per 100g - ValueWord - NIP\",\"SortOrder\":648},{\"Id\":911,\"Name\":\"Sugars Quantity Per Serve - SuffixUnits - NIP\",\"Value\":\"g\",\"Description\":\"Sugars Quantity Per Serve - SuffixUnits - NIP\",\"SortOrder\":650},{\"Id\":912,\"Name\":\"Sugars Quantity Per Serve - Total - NIP\",\"Value\":\"3.1g\",\"Description\":\"Sugars Quantity Per Serve - Total - NIP\",\"SortOrder\":651},{\"Id\":572,\"Name\":\"Sugars Quantity Per Serve - ValueWord - NIP\",\"Value\":\"3.1\",\"Description\":\"Sugars Quantity Per Serve - ValueWord - NIP\",\"SortOrder\":652},{\"Id\":540,\"Name\":\"Vitamin B2 Quantity Per 100g - Total - NIP\",\"Value\":\"1.21mg\",\"Description\":\"Vitamin B2 Quantity Per 100g - Total - NIP\",\"SortOrder\":731},{\"Id\":931,\"Name\":\"Vitamin B2 Quantity Per Serve - Total - NIP\",\"Value\":\"0.42mg\",\"Description\":\"Vitamin B2 Quantity Per Serve - Total - NIP\",\"SortOrder\":735}]}"
+      },
+      "nutrition": [
+        {
+          "Name": "Energy",
+          "Values": {
+            "Quantity Per Serving": "567.0kJ",
+            "Quantity Per 100g / 100mL": "1620.0kJ"
+          },
+          "ServingSize": "35.0 G",
+          "ServingsPerPack": "10.0"
+        },
+        {
+          "Name": "Protein",
+          "Values": {
+            "Quantity Per Serving": "2.8g",
+            "Quantity Per 100g / 100mL": "7.9g"
+          },
+          "ServingSize": "35.0 G",
+          "ServingsPerPack": "10.0"
+        },
+        {
+          "Name": "Fat, Total",
+          "Values": {
+            "Quantity Per Serving": "0.6g",
+            "Quantity Per 100g / 100mL": "1.8g"
+          },
+          "ServingSize": "35.0 G",
+          "ServingsPerPack": "10.0"
+        },
+        {
+          "Name": "– Saturated",
+          "Values": {
+            "Quantity Per Serving": "0.1g",
+            "Quantity Per 100g / 100mL": "0.3g"
+          },
+          "ServingSize": "35.0 G",
+          "ServingsPerPack": "10.0"
+        },
+        {
+          "Name": "Carbohydrate",
+          "Values": {
+            "Quantity Per Serving": "28.5g",
+            "Quantity Per 100g / 100mL": "81.4g"
+          },
+          "ServingSize": "35.0 G",
+          "ServingsPerPack": "10.0"
+        },
+        {
+          "Name": "– Sugars",
+          "Values": {
+            "Quantity Per Serving": "3.1g",
+            "Quantity Per 100g / 100mL": "8.9g"
+          },
+          "ServingSize": "35.0 G",
+          "ServingsPerPack": "10.0"
+        },
+        {
+          "Name": "Dietary Fibre",
+          "Values": {
+            "Quantity Per Serving": "1.5g",
+            "Quantity Per 100g / 100mL": "4.2g"
+          },
+          "ServingSize": "35.0 G",
+          "ServingsPerPack": "10.0"
+        },
+        {
+          "Name": "Sodium",
+          "Values": {
+            "Quantity Per Serving": "187.0mg",
+            "Quantity Per 100g / 100mL": "535.0mg"
+          },
+          "ServingSize": "35.0 G",
+          "ServingsPerPack": "10.0"
+        }
+      ],
+      "countryOfOrigin": {
+        "PngImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/25c45110-1b08-4a90-8dde-a7d81c173d59.png",
+        "SvgImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/25c45110-1b08-4a90-8dde-a7d81c173d59.svg",
+        "AltText": "Made in Australia from at least 99% Australian ingredients",
+        "CountryOfOrigin": "Australia",
+        "IngredientPercentage": "99",
+        "Disclaimer": null
+      },
+      "availabilityContext": {
+        "storeSelected": false,
+        "accountUsed": false,
+        "listingState": "listed-at-retrieval",
+        "currentAvailability": "unknown",
+        "note": "Public product page evidenced. No-location stock/range flags do not establish nationwide availability or discontinuation."
+      }
+    },
+    {
+      "sourceRecordId": "77750",
+      "provenance": {
+        "sourceId": "woolworths-au-public",
+        "trustClass": "official-au-retailer",
+        "market": "AU",
+        "url": "https://www.woolworths.com.au/shop/productdetails/77750",
+        "finalUrl": "https://www.woolworths.com.au/shop/productdetails/77750",
+        "retrievedAt": "2026-10-04T05:32:42.799Z",
+        "sha256": "e8b217b089a3ccc2a67ab2a467b4bc3ec2caf5dfcedfd8a81ec53fdfef33d35b",
+        "responseBytes": 719996,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "product": {
+        "Stockcode": 77750,
+        "Barcode": "9300644043601",
+        "GtinFormat": 13,
+        "Name": "Campbell's Real Stock Chicken Liquid Stock",
+        "DisplayName": "Campbell's Real Stock Chicken 1L",
+        "Brand": "Campbell's",
+        "Variety": "Liquid Stock",
+        "PackageSize": "1L",
+        "IsRanged": true,
+        "IsInStock": true,
+        "IsAvailable": true,
+        "IsPurchasable": true,
+        "AgeRestricted": false,
+        "IsTobacco": false,
+        "IsMarketProduct": false
+      },
+      "attributes": {
+        "PiesProductDepartmentsjson": "[{\"Id\":\"1_39FD49C\",\"Description\":\"Pantry\"}]",
+        "piesdepartmentnamesjson": "[\"Pantry\"]",
+        "piescategorynamesjson": "[\"Cooking Sauces & Recipe Bases\"]",
+        "piessubcategorynamesjson": "[\"Stock & Gravy\"]",
+        "ingredients": "Chicken Stock (98%) (Water, Chicken, Carrots, Celery, Cabbage, Onions, Parsley, Sage Extract, Natural Antioxidant (Rosemary Extract)), Salt, Sugar, Glucose, Yeast Extract.",
+        "brand": "campbell's",
+        "nutritionalinformation": "{\"Name\":\"Nutritional Information\",\"Attributes\":[{\"Id\":705,\"Name\":\"Carbohydrate Quantity Per 100g - Total - NIP\",\"Value\":\"1.1g\",\"Description\":\"Carbohydrate Quantity Per 100g - Total - NIP\",\"SortOrder\":83},{\"Id\":706,\"Name\":\"Carbohydrate Quantity Per Serve - Total - NIP\",\"Value\":\"2.8g\",\"Description\":\"Carbohydrate Quantity Per Serve - Total - NIP\",\"SortOrder\":87},{\"Id\":191,\"Name\":\"Dietary Fibre Quantity Per 100g - Total - NIP\",\"Value\":\"0.0g\",\"Description\":\"Dietary Fibre Quantity Per 100g - Total - NIP\",\"SortOrder\":175},{\"Id\":120,\"Name\":\"Dietary Fibre Quantity Per Serve - Total - NIP\",\"Value\":\"0.0g\",\"Description\":\"Dietary Fibre Quantity Per Serve - Total - NIP\",\"SortOrder\":179},{\"Id\":759,\"Name\":\"Energy kJ Quantity Per 100g - Total - NIP\",\"Value\":\"35.0kJ\",\"Description\":\"Energy kJ Quantity Per 100g - Total - NIP\",\"SortOrder\":239},{\"Id\":760,\"Name\":\"Energy kJ Quantity Per Serve - Total - NIP\",\"Value\":\"88.0kJ\",\"Description\":\"Energy kJ Quantity Per Serve - Total - NIP\",\"SortOrder\":243},{\"Id\":253,\"Name\":\"Fat Saturated Quantity Per 100g - Total - NIP\",\"Value\":\"0.1g\",\"Description\":\"Fat Saturated Quantity Per 100g - Total - NIP\",\"SortOrder\":251},{\"Id\":258,\"Name\":\"Fat Saturated Quantity Per Serve - Total - NIP\",\"Value\":\"0.2g\",\"Description\":\"Fat Saturated Quantity Per Serve - Total - NIP\",\"SortOrder\":255},{\"Id\":764,\"Name\":\"Fat Total Quantity Per 100g - Total - NIP\",\"Value\":\"0.1g\",\"Description\":\"Fat Total Quantity Per 100g - Total - NIP\",\"SortOrder\":263},{\"Id\":166,\"Name\":\"Fat Total Quantity Per 100g - ValueWord - NIP\",\"Value\":\"0.1\",\"Description\":\"Fat Total Quantity Per 100g - ValueWord - NIP\",\"SortOrder\":264},{\"Id\":264,\"Name\":\"Fat Total Quantity Per Serve - Total - NIP\",\"Value\":\"0.2g\",\"Description\":\"Fat Total Quantity Per Serve - Total - NIP\",\"SortOrder\":267},{\"Id\":402,\"Name\":\"Monounsaturated Quantity Per 100g - Total - NIP\",\"Value\":\"0.0g\",\"Description\":\"Monounsaturated Quantity Per 100g - Total - NIP\",\"SortOrder\":479},{\"Id\":834,\"Name\":\"Monounsaturated Quantity Per Serve - Total - NIP\",\"Value\":\"0.15g\",\"Description\":\"Monounsaturated Quantity Per Serve - Total - NIP\",\"SortOrder\":483},{\"Id\":434,\"Name\":\"Polyunsaturated Quantity Per 100g - Total - NIP\",\"Value\":\"0.0g\",\"Description\":\"Polyunsaturated Quantity Per 100g - Total - NIP\",\"SortOrder\":563},{\"Id\":435,\"Name\":\"Polyunsaturated Quantity Per Serve - Total - NIP\",\"Value\":\"0.03g\",\"Description\":\"Polyunsaturated Quantity Per Serve - Total - NIP\",\"SortOrder\":567},{\"Id\":493,\"Name\":\"Potassium Quantity Per Serve - Total - NIP\",\"Value\":\"12.5mg\",\"Description\":\"Potassium Quantity Per Serve - Total - NIP\",\"SortOrder\":579},{\"Id\":878,\"Name\":\"Protein Quantity Per 100g - Total - NIP\",\"Value\":\"0.8g\",\"Description\":\"Protein Quantity Per 100g - Total - NIP\",\"SortOrder\":587},{\"Id\":882,\"Name\":\"Protein Quantity Per Serve - Total - NIP\",\"Value\":\"2.0g\",\"Description\":\"Protein Quantity Per Serve - Total - NIP\",\"SortOrder\":591},{\"Id\":477,\"Name\":\"Serving Size - Total - NIP\",\"Value\":\"250.0 ML\",\"Description\":\"Serving Size - Total - NIP\",\"SortOrder\":607},{\"Id\":544,\"Name\":\"Servings Per Pack - Total - NIP\",\"Value\":\"4.0\",\"Description\":\"Servings Per Pack - Total - NIP\",\"SortOrder\":611},{\"Id\":491,\"Name\":\"Sodium Quantity Per 100g - Total - NIP\",\"Value\":\"447.0mg\",\"Description\":\"Sodium Quantity Per 100g - Total - NIP\",\"SortOrder\":623},{\"Id\":495,\"Name\":\"Sodium Quantity Per Serve - Total - NIP\",\"Value\":\"1120.0mg\",\"Description\":\"Sodium Quantity Per Serve - Total - NIP\",\"SortOrder\":627},{\"Id\":908,\"Name\":\"Sugars Quantity Per 100g - SuffixUnits - NIP\",\"Value\":\"g\",\"Description\":\"Sugars Quantity Per 100g - SuffixUnits - NIP\",\"SortOrder\":646},{\"Id\":909,\"Name\":\"Sugars Quantity Per 100g - Total - NIP\",\"Value\":\"1.1g\",\"Description\":\"Sugars Quantity Per 100g - Total - NIP\",\"SortOrder\":647},{\"Id\":910,\"Name\":\"Sugars Quantity Per 100g - ValueWord - NIP\",\"Value\":\"1.1\",\"Description\":\"Sugars Quantity Per 100g - ValueWord - NIP\",\"SortOrder\":648},{\"Id\":911,\"Name\":\"Sugars Quantity Per Serve - SuffixUnits - NIP\",\"Value\":\"g\",\"Description\":\"Sugars Quantity Per Serve - SuffixUnits - NIP\",\"SortOrder\":650},{\"Id\":912,\"Name\":\"Sugars Quantity Per Serve - Total - NIP\",\"Value\":\"2.8g\",\"Description\":\"Sugars Quantity Per Serve - Total - NIP\",\"SortOrder\":651},{\"Id\":572,\"Name\":\"Sugars Quantity Per Serve - ValueWord - NIP\",\"Value\":\"2.8\",\"Description\":\"Sugars Quantity Per Serve - ValueWord - NIP\",\"SortOrder\":652},{\"Id\":593,\"Name\":\"Trans Quantity Per 100g - Total - NIP\",\"Value\":\"0.0g\",\"Description\":\"Trans Quantity Per 100g - Total - NIP\",\"SortOrder\":667},{\"Id\":510,\"Name\":\"Trans Quantity Per Serve - Total - NIP\",\"Value\":\"21.4mg\",\"Description\":\"Trans Quantity Per Serve - Total - NIP\",\"SortOrder\":671}]}"
+      },
+      "nutrition": [
+        {
+          "Name": "Energy",
+          "Values": {
+            "Quantity Per Serving": "88.0kJ",
+            "Quantity Per 100g / 100mL": "35.0kJ"
+          },
+          "ServingSize": "250.0 ML",
+          "ServingsPerPack": "4.0"
+        },
+        {
+          "Name": "Protein",
+          "Values": {
+            "Quantity Per Serving": "2.0g",
+            "Quantity Per 100g / 100mL": "0.8g"
+          },
+          "ServingSize": "250.0 ML",
+          "ServingsPerPack": "4.0"
+        },
+        {
+          "Name": "Fat, Total",
+          "Values": {
+            "Quantity Per Serving": "0.2g",
+            "Quantity Per 100g / 100mL": "0.1g"
+          },
+          "ServingSize": "250.0 ML",
+          "ServingsPerPack": "4.0"
+        },
+        {
+          "Name": "– Saturated",
+          "Values": {
+            "Quantity Per Serving": "0.2g",
+            "Quantity Per 100g / 100mL": "0.1g"
+          },
+          "ServingSize": "250.0 ML",
+          "ServingsPerPack": "4.0"
+        },
+        {
+          "Name": "Carbohydrate",
+          "Values": {
+            "Quantity Per Serving": "2.8g",
+            "Quantity Per 100g / 100mL": "1.1g"
+          },
+          "ServingSize": "250.0 ML",
+          "ServingsPerPack": "4.0"
+        },
+        {
+          "Name": "– Sugars",
+          "Values": {
+            "Quantity Per Serving": "2.8g",
+            "Quantity Per 100g / 100mL": "1.1g"
+          },
+          "ServingSize": "250.0 ML",
+          "ServingsPerPack": "4.0"
+        },
+        {
+          "Name": "Dietary Fibre",
+          "Values": {
+            "Quantity Per Serving": "0.0g",
+            "Quantity Per 100g / 100mL": "0.0g"
+          },
+          "ServingSize": "250.0 ML",
+          "ServingsPerPack": "4.0"
+        },
+        {
+          "Name": "Sodium",
+          "Values": {
+            "Quantity Per Serving": "1120.0mg",
+            "Quantity Per 100g / 100mL": "447.0mg"
+          },
+          "ServingSize": "250.0 ML",
+          "ServingsPerPack": "4.0"
+        }
+      ],
+      "countryOfOrigin": {
+        "PngImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/25c45110-1b08-4a90-8dde-a7d81c173d59.png",
+        "SvgImageFile": "https://cdn0.woolworths.media/content/countryoforiginlabelling/25c45110-1b08-4a90-8dde-a7d81c173d59.svg",
+        "AltText": "Made in Australia from at least 99% Australian ingredients",
+        "CountryOfOrigin": "Australia",
+        "IngredientPercentage": "99",
+        "Disclaimer": null
+      },
+      "availabilityContext": {
+        "storeSelected": false,
+        "accountUsed": false,
+        "listingState": "listed-at-retrieval",
+        "currentAvailability": "unknown",
+        "note": "Public product page evidenced. No-location stock/range flags do not establish nationwide availability or discontinuation."
+      }
+    }
+  ]
+}

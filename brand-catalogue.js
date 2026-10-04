@@ -25,7 +25,7 @@
     const retailer=global.HECRetailerCatalogue||(typeof require==='function'?require('./retailer-catalogue'):null);
     const foods=await Promise.all(rows.map(async e=>{
       const food=found.get(e.id);
-      if(!food||food.barcode!==e.barcode||!['audited-first-wave','audited-round-two'].includes(food.brandAdmission?.status)||!C.productEligibility(food).addability.normalLoggingAllowed)throw Error('Brand admission mismatch: '+e.id);
+      if(!food||food.barcode!==e.barcode||!['audited-first-wave','audited-round-two','audited-wave-1b'].includes(food.brandAdmission?.status)||!C.productEligibility(food).addability.normalLoggingAllowed)throw Error('Brand admission mismatch: '+e.id);
       // Resolve only this admitted GTIN through the retailer's indexed canonical
       // evidence group. Source precedence must not depend on prior browsing.
       const evidence=retailer&&e.barcode?await retailer.search(e.barcode,{isCurrent}):null;

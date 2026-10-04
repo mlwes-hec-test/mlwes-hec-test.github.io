@@ -1,0 +1,889 @@
+{
+  "schemaVersion": 1,
+  "wave": "1B",
+  "startingHead": "73b6ec8186c56054244afb62c9c974c3c6d92fe6",
+  "selection": "Frozen before ingestion/admission. GTIN reconciliation may consolidate candidates, never silently expand this list.",
+  "ceiling": 60,
+  "groupLimits": {
+    "A": 15,
+    "B": 24,
+    "C": 12,
+    "D": 9
+  },
+  "candidates": [
+    {
+      "candidateId": "barcode:9300633209339",
+      "groups": [
+        "A"
+      ],
+      "canonicalKey": "barcode:9300633209339",
+      "recordId": "woolworths-au:355265",
+      "gtin": "9300633209339",
+      "name": "Woolworths Cracker Selection 250g",
+      "brand": "Woolworths",
+      "sourceUrl": "https://www.woolworths.com.au/shop/productdetails/355265",
+      "reason": "source-conflict",
+      "before": {
+        "eligibility": "needs-nutrition-completion",
+        "categoryId": null,
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "309a727742ffc920a308381272c6d41684a446456c4db5b2d59063776db7eba1",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:9300633350079",
+      "groups": [
+        "A"
+      ],
+      "canonicalKey": "barcode:9300633350079",
+      "recordId": "woolworths-au:35007",
+      "gtin": "9300633350079",
+      "name": "Woolworths Essentials Long Grain Rice 1kg",
+      "brand": "Woolworths Essentials",
+      "sourceUrl": "https://www.woolworths.com.au/shop/productdetails/35007",
+      "reason": "identity-conflict",
+      "before": {
+        "eligibility": "needs-nutrition-completion",
+        "categoryId": null,
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "80364f6f0c58e481a46db9c114fb99c251e3ca473baa675e3d817e18822b4390",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:9300633415266",
+      "groups": [
+        "A"
+      ],
+      "canonicalKey": "barcode:9300633415266",
+      "recordId": "woolworths-au:754170",
+      "gtin": "9300633415266",
+      "name": "Woolworths Peas 500g",
+      "brand": "Woolworths",
+      "sourceUrl": "https://www.woolworths.com.au/shop/productdetails/754170",
+      "reason": "source-conflict",
+      "before": {
+        "eligibility": "needs-nutrition-completion",
+        "categoryId": null,
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "2cad0cc00f1dc435328a2cf1eb6ea904fbe728e97a8f43608ecb196eca438268",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:9300633417895",
+      "groups": [
+        "A"
+      ],
+      "canonicalKey": "barcode:9300633417895",
+      "recordId": "woolworths-au:756086",
+      "gtin": "9300633417895",
+      "name": "Woolworths Lightly Sparkling Spring Water 1.25L",
+      "brand": "Woolworths",
+      "sourceUrl": "https://www.woolworths.com.au/shop/productdetails/756086",
+      "reason": "energy-missing",
+      "before": {
+        "eligibility": "needs-nutrition-completion",
+        "categoryId": null,
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "e145d1a9956cbc93bb8b72fcffdd786ed8a4f8179f146d8b3dddcd58ef1be87c",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:9300633744182",
+      "groups": [
+        "A"
+      ],
+      "canonicalKey": "barcode:9300633744182",
+      "recordId": "woolworths-au:830211",
+      "gtin": "9300633744182",
+      "name": "Woolworths Vanilla Ice Cream Sandwich 4 pack",
+      "brand": "Woolworths",
+      "sourceUrl": "https://www.woolworths.com.au/shop/productdetails/830211",
+      "reason": "identity-conflict",
+      "before": {
+        "eligibility": "needs-nutrition-completion",
+        "categoryId": "desserts",
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "a5472e4c045ad2797ce3ad2d161b78dea7562e02fcd79722fb970edfab04662e",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:9300633777401",
+      "groups": [
+        "A"
+      ],
+      "canonicalKey": "barcode:9300633777401",
+      "recordId": "woolworths-au:824365",
+      "gtin": "9300633777401",
+      "name": "Woolworths Plain Water Crackers 125g",
+      "brand": "Woolworths",
+      "sourceUrl": "https://www.woolworths.com.au/shop/productdetails/824365",
+      "reason": "source-conflict",
+      "before": {
+        "eligibility": "needs-nutrition-completion",
+        "categoryId": null,
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "423fbfd296287909de4d6462f9c765baa287518be01a9e896c8aaa00ebd2cdf1",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:9300633906603",
+      "groups": [
+        "A"
+      ],
+      "canonicalKey": "barcode:9300633906603",
+      "recordId": "woolworths-au:224941",
+      "gtin": "9300633906603",
+      "name": "Woolworths Tasty Cheese Slices 500g",
+      "brand": "Woolworths",
+      "sourceUrl": "https://www.woolworths.com.au/shop/productdetails/224941",
+      "reason": "source-conflict",
+      "before": {
+        "eligibility": "needs-nutrition-completion",
+        "categoryId": null,
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "d5250a9edef3d6f86e3298ca66644d62dc985a5e300e7f789c20e1118e440d84",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:9300633935306",
+      "groups": [
+        "A"
+      ],
+      "canonicalKey": "barcode:9300633935306",
+      "recordId": "woolworths-au:93530",
+      "gtin": "9300633935306",
+      "name": "Woolworths Essentials Table Spread Soft And Spreadable 500g",
+      "brand": "Woolworths Essentials",
+      "sourceUrl": "https://www.woolworths.com.au/shop/productdetails/93530",
+      "reason": "identity-conflict",
+      "before": {
+        "eligibility": "needs-nutrition-completion",
+        "categoryId": null,
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "db3438153540865b38e50673aae9527ca3497ee108c0e64c43514e095f0ddce9",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:9300633988098",
+      "groups": [
+        "A"
+      ],
+      "canonicalKey": "barcode:9300633988098",
+      "recordId": "woolworths-au:310237",
+      "gtin": "9300633988098",
+      "name": "Woolworths Tasty Cheese Block 500g",
+      "brand": "Woolworths",
+      "sourceUrl": "https://www.woolworths.com.au/shop/productdetails/310237",
+      "reason": "identity-conflict",
+      "before": {
+        "eligibility": "needs-nutrition-completion",
+        "categoryId": null,
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "7563917958e55253f4b61017c9836fd9b23a169ab382902b89428cff5e3c9c51",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:9339687253517",
+      "groups": [
+        "A"
+      ],
+      "canonicalKey": "barcode:9339687253517",
+      "recordId": "woolworths-au:151547",
+      "gtin": "9339687253517",
+      "name": "Woolworths Full Cream Milk 2L",
+      "brand": "Woolworths",
+      "sourceUrl": "https://www.woolworths.com.au/shop/productdetails/151547",
+      "reason": "identity-conflict",
+      "before": {
+        "eligibility": "needs-nutrition-completion",
+        "categoryId": null,
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "acb2765cb189cd2790b5aba721e0d309886e1edd847cf24954201e328f5c01a4",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:9339687336258",
+      "groups": [
+        "A"
+      ],
+      "canonicalKey": "barcode:9339687336258",
+      "recordId": "woolworths-au:277727",
+      "gtin": "9339687336258",
+      "name": "Woolworths White Sandwich Bread Loaf 700g",
+      "brand": "Woolworths",
+      "sourceUrl": "https://www.woolworths.com.au/shop/productdetails/277727",
+      "reason": "identity-conflict",
+      "before": {
+        "eligibility": "needs-nutrition-completion",
+        "categoryId": null,
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "11e22fc24a5d6db4a900109e4aad4f412108f86b08e490ce75727865fb62df35",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:9339687341580",
+      "groups": [
+        "A"
+      ],
+      "canonicalKey": "barcode:9339687341580",
+      "recordId": "woolworths-au:288440",
+      "gtin": "9339687341580",
+      "name": "The Odd Bunch Carrots 1.5kg",
+      "brand": "The Odd Bunch",
+      "sourceUrl": "https://www.woolworths.com.au/shop/productdetails/288440",
+      "reason": "energy-missing",
+      "before": {
+        "eligibility": "needs-nutrition-completion",
+        "categoryId": null,
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "07a923893995630746e63ff6f76ef714ebe6759998afdcc332db308e8ea720bf",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:9339687357994",
+      "groups": [
+        "A"
+      ],
+      "canonicalKey": "barcode:9339687357994",
+      "recordId": "woolworths-au:396254",
+      "gtin": "9339687357994",
+      "name": "Woolworths Sea Salt Deli Style Potato Chips 175g",
+      "brand": "Woolworths",
+      "sourceUrl": "https://www.woolworths.com.au/shop/productdetails/396254",
+      "reason": "energy-missing",
+      "before": {
+        "eligibility": "needs-nutrition-completion",
+        "categoryId": null,
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "7ec2cc755e01601cf0447ab6d061e5a62fb2f841b363e75649fff45ccf0e1462",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:9339687391479",
+      "groups": [
+        "A"
+      ],
+      "canonicalKey": "barcode:9339687391479",
+      "recordId": "woolworths-au:924103",
+      "gtin": "9339687391479",
+      "name": "Woolworths Australian Hash Browns 750g",
+      "brand": "Woolworths",
+      "sourceUrl": "https://www.woolworths.com.au/shop/productdetails/924103",
+      "reason": "identity-conflict",
+      "before": {
+        "eligibility": "needs-nutrition-completion",
+        "categoryId": null,
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "25aff817653d6ddaadf2961aaacafb694a3a1f2c0dd5a6187455c4893e598846",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:9339687428700",
+      "groups": [
+        "A"
+      ],
+      "canonicalKey": "barcode:9339687428700",
+      "recordId": "woolworths-au:6033180",
+      "gtin": "9339687428700",
+      "name": "Woolworths Orange Juice 2L",
+      "brand": "Woolworths",
+      "sourceUrl": "https://www.woolworths.com.au/shop/productdetails/6033180",
+      "reason": "identity-conflict",
+      "before": {
+        "eligibility": "needs-nutrition-completion",
+        "categoryId": null,
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "f77f5505ae0baa7a724ed49b386c37058d822afc64064f0fb64521499bf3a955",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:0344643180294",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:0344643180294",
+      "recordId": "off:0344643180294",
+      "gtin": "0344643180294",
+      "name": "35hr Sourdough Loaf White",
+      "brand": "Woolworths Bakery",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/0344643180294/35hr-sourdough-loaf-white-woolworths-bakery",
+      "reason": "High-confidence food-family/category review",
+      "before": {
+        "eligibility": "loggable-now",
+        "categoryId": "other-food",
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "0f8d41a7f8ecd6bd4cd00a308d99d4ec49c42c5809a4b885d83eea4d3a00b3ef",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:0726436706810",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:0726436706810",
+      "recordId": "off:0726436706810",
+      "gtin": "0726436706810",
+      "name": "Macaroni Cheese",
+      "brand": "Woolworths",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/0726436706810/macaroni-cheese-woolworths",
+      "reason": "High-confidence food-family/category review",
+      "before": {
+        "eligibility": "loggable-now",
+        "categoryId": "other-food",
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "7a632b890182b35847eff4c1695726c8533a14022a1ade4a8fc508dc308b9d6e",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:9300633203061",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9300633203061",
+      "recordId": "off:9300633203061",
+      "gtin": "9300633203061",
+      "name": "Raw Buckwheat",
+      "brand": "macro wholefoods market",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9300633203061/raw-buckwheat-macro-wholefoods-market",
+      "reason": "High-confidence food-family/category review",
+      "before": {
+        "eligibility": "loggable-now",
+        "categoryId": "other-food",
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "cfec58bd5e1e604b698290a765ecbff363d608d8186864e1f85fc4942c587f80",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:9300633467180",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9300633467180",
+      "recordId": "off:9300633467180",
+      "gtin": "9300633467180",
+      "name": "Turkish Rolls Plain 3pk",
+      "brand": "Woolworths Bakery",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9300633467180/turkish-rolls-plain-3pk-woolworths-bakery",
+      "reason": "High-confidence food-family/category review",
+      "before": {
+        "eligibility": "loggable-now",
+        "categoryId": "other-food",
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "805d6bafdd57f1362c4ae35da201a18610398c636474d81ad8d9d7ae99f186a4",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:9300633682514",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9300633682514",
+      "recordId": "off:9300633682514",
+      "gtin": "9300633682514",
+      "name": "Soft Wholegrain Wraps",
+      "brand": "Woolworths",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9300633682514/soft-wholegrain-wraps-woolworths",
+      "reason": "High-confidence food-family/category review",
+      "before": {
+        "eligibility": "loggable-now",
+        "categoryId": "other-food",
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "df1f87f128a4e6bfcea2a6dfec5edbc8325b3565fe93f2bf903f448938e2f3be",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:9300633906702",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9300633906702",
+      "recordId": "off:9300633906702",
+      "gtin": "9300633906702",
+      "name": "English Muffins",
+      "brand": "Woolworths Bakery",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9300633906702/english-muffins-woolworths-bakery",
+      "reason": "High-confidence food-family/category review",
+      "before": {
+        "eligibility": "loggable-now",
+        "categoryId": "other-food",
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "13c4738ba0698e4ade09a99ee0a2988c45cef53a1d5995faa001286c996c838c",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:9300633980016",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9300633980016",
+      "recordId": "off:9300633980016",
+      "gtin": "9300633980016",
+      "name": "Australian Quick Oats",
+      "brand": "Woolworths",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9300633980016/australian-quick-oats-woolworths",
+      "reason": "High-confidence food-family/category review",
+      "before": {
+        "eligibility": "loggable-now",
+        "categoryId": "other-food",
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "dee635ea2593216d3e3ea8ccac0891379d62f7b5957d31437345ef71989009e5",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:9300633988630",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9300633988630",
+      "recordId": "off:9300633988630",
+      "gtin": "9300633988630",
+      "name": "Mild Salsa",
+      "brand": "Woolworths",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9300633988630/mild-salsa-woolworths",
+      "reason": "High-confidence food-family/category review",
+      "before": {
+        "eligibility": "loggable-now",
+        "categoryId": "other-food",
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "e627eec1552981a5bda4213aa51d0096cbac4b2ccd2b4416a709a1f7732e522e",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:9339687167869",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9339687167869",
+      "recordId": "off:9339687167869",
+      "gtin": "9339687167869",
+      "name": "Crafted Sourdough Signature White Loaf",
+      "brand": "Woolworths Bakery",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9339687167869/crafted-sourdough-signature-white-loaf-woolworths-bakery",
+      "reason": "High-confidence food-family/category review",
+      "before": {
+        "eligibility": "loggable-now",
+        "categoryId": "other-food",
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "f82e116797b05159db9043a3ab1a8783098fd30d1d47b73aaa5017b234706196",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:9339687168576",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9339687168576",
+      "recordId": "off:9339687168576",
+      "gtin": "9339687168576",
+      "name": "Soft Wholemeal Wraps",
+      "brand": "Woolworths",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9339687168576/soft-wholemeal-wraps-woolworths",
+      "reason": "High-confidence food-family/category review",
+      "before": {
+        "eligibility": "loggable-now",
+        "categoryId": "other-food",
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "6182978b8594037c6392418ded193df7acc7e123fd39c10d46feeff60307991e",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:9339687209200",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9339687209200",
+      "recordId": "off:9339687209200",
+      "gtin": "9339687209200",
+      "name": "35hr Sourdough Mini Loaf Seeded",
+      "brand": "Woolworths",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9339687209200/35hr-sourdough-mini-loaf-seeded-woolworths",
+      "reason": "High-confidence food-family/category review",
+      "before": {
+        "eligibility": "loggable-now",
+        "categoryId": "other-food",
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "f716ac9fdbb9b6fd4ccdf647fd97fc1bc46f7a9d80fb1ae177defb1212b166fd",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:9339687221820",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9339687221820",
+      "recordId": "off:9339687221820",
+      "gtin": "9339687221820",
+      "name": "Activated Buckwheat",
+      "brand": "Woolworths",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9339687221820/activated-buckwheat-woolworths",
+      "reason": "High-confidence food-family/category review",
+      "before": {
+        "eligibility": "loggable-now",
+        "categoryId": "other-food",
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "c43744460ce231126961642f4ee7b75a979f6bb1d4950224de8ad4b8f5d2028b",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:9339687301454",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9339687301454",
+      "recordId": "off:9339687301454",
+      "gtin": "9339687301454",
+      "name": "Cranberry & Kale Slaw Kit",
+      "brand": "Woolworths",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9339687301454/cranberry-kale-slaw-kit-woolworths",
+      "reason": "High-confidence food-family/category review",
+      "before": {
+        "eligibility": "loggable-now",
+        "categoryId": "other-food",
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "c0f5128d6d26801ce26873c2abc86dc0a656836b6c089f2f3ce601a6703720ee",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:9339687319367",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9339687319367",
+      "recordId": "off:9339687319367",
+      "gtin": "9339687319367",
+      "name": "Jumbo White Soft Rolls",
+      "brand": "Woolworths Bakery",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9339687319367/jumbo-white-soft-rolls-woolworths-bakery",
+      "reason": "High-confidence food-family/category review",
+      "before": {
+        "eligibility": "loggable-now",
+        "categoryId": "other-food",
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "cdc9ee79e3d9c3a77f895e96d0207c9b4b70ec5dfa5024cad1298007ce3150af",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:9339687384419",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9339687384419",
+      "recordId": "off:9339687384419",
+      "gtin": "9339687384419",
+      "name": "Japanese Style Slaw Kit",
+      "brand": "Woolworths",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9339687384419/japanese-style-slaw-kit-woolworths",
+      "reason": "High-confidence food-family/category review",
+      "before": {
+        "eligibility": "loggable-now",
+        "categoryId": "other-food",
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "c130186a87691668121a01bd676bd137610192e584af87cf3eff386c8103b4d7",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:9339687390588",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9339687390588",
+      "recordId": "off:9339687390588",
+      "gtin": "9339687390588",
+      "name": "Satay Marinade",
+      "brand": "Woolworths",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9339687390588/satay-marinade-woolworths",
+      "reason": "High-confidence food-family/category review",
+      "before": {
+        "eligibility": "loggable-now",
+        "categoryId": "other-food",
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "4bec375b53983e8cf138b01ac37a8c124a15426b05d129771b4b83bfd8f6f994",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:9339687394630",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9339687394630",
+      "recordId": "off:9339687394630",
+      "gtin": "9339687394630",
+      "name": "Sweet & Smokey BBQ Marinade",
+      "brand": "Woolworths",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9339687394630/sweet-smokey-bbq-marinade-woolworths",
+      "reason": "High-confidence food-family/category review",
+      "before": {
+        "eligibility": "loggable-now",
+        "categoryId": "other-food",
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "d336c9b2c6be66f2fe112a24933267584bfa68ff86e2cf8f47e247ffd710f5aa",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:9339687406623",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9339687406623",
+      "recordId": "off:9339687406623",
+      "gtin": "9339687406623",
+      "name": "Soft White Mini Loaf",
+      "brand": "Woolworths",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9339687406623/soft-white-mini-loaf-woolworths",
+      "reason": "High-confidence food-family/category review",
+      "before": {
+        "eligibility": "loggable-now",
+        "categoryId": "other-food",
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "443b39b1c50652f5b54de575fd9c6a73719320f17888ceff463a6653e8a34d79",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:9339687423958",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9339687423958",
+      "recordId": "off:9339687423958",
+      "gtin": "9339687423958",
+      "name": "Soft White Large Wraps",
+      "brand": "Woolworths Bakery",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9339687423958/soft-white-large-wraps-woolworths-bakery",
+      "reason": "High-confidence food-family/category review",
+      "before": {
+        "eligibility": "loggable-now",
+        "categoryId": "other-food",
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "4323da76244e104ae4ecdfc8be0ff9486c47ce82ba93abbcac0fcc5af2436cfa",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:9339687425532",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9339687425532",
+      "recordId": "off:9339687425532",
+      "gtin": "9339687425532",
+      "name": "Korean BBQ Marinade",
+      "brand": "Woolworths",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9339687425532/korean-bbq-marinade-woolworths",
+      "reason": "High-confidence food-family/category review",
+      "before": {
+        "eligibility": "loggable-now",
+        "categoryId": "other-food",
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "d50420b0dae03e51742625cc701a77e8124284604f0d60210632138b655d8377",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:9339687443093",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9339687443093",
+      "recordId": "off:9339687443093",
+      "gtin": "9339687443093",
+      "name": "Spinach & Ricotta Cannelloni",
+      "brand": "Woolworths",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9339687443093/spinach-ricotta-cannelloni-woolworths",
+      "reason": "High-confidence food-family/category review",
+      "before": {
+        "eligibility": "loggable-now",
+        "categoryId": "other-food",
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "e81e4c70ac1d96251b75cce32276596b5aff77bb0ba98ab6ed93ec6d1d66ec59",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:9339687443109",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9339687443109",
+      "recordId": "off:9339687443109",
+      "gtin": "9339687443109",
+      "name": "Mac And Cheese",
+      "brand": "Woolworths",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9339687443109/mac-and-cheese-woolworths",
+      "reason": "High-confidence food-family/category review",
+      "before": {
+        "eligibility": "loggable-now",
+        "categoryId": "other-food",
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "6206fc16b9afc5b00b47d6391ff14c021d0d4eb679055313c9d1026fa658f5ee",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:9339687449194",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9339687449194",
+      "recordId": "off:9339687449194",
+      "gtin": "9339687449194",
+      "name": "White Flatbreads",
+      "brand": "Woolworths Bakery",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9339687449194/white-flatbreads-woolworths-bakery",
+      "reason": "High-confidence food-family/category review",
+      "before": {
+        "eligibility": "loggable-now",
+        "categoryId": "other-food",
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "a8f92f260dc25bbd71788a2eb4df416a0c7875a8d7265699ad52eaaa358ee379",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "barcode:9339687449200",
+      "groups": [
+        "B"
+      ],
+      "canonicalKey": "barcode:9339687449200",
+      "recordId": "off:9339687449200",
+      "gtin": "9339687449200",
+      "name": "Wholemeal Flatbreads",
+      "brand": "Woolworths Bakery",
+      "sourceUrl": "http://world-en.openfoodfacts.org/product/9339687449200/wholemeal-flatbreads-woolworths-bakery",
+      "reason": "High-confidence food-family/category review",
+      "before": {
+        "eligibility": "loggable-now",
+        "categoryId": "other-food",
+        "visibleHouseBrand": true
+      },
+      "baselineSha256": "4580499028ee5908deed26b4ac292e4477dfb7dba090180bd087d9743cc247ff",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "woolworths-product:888136",
+      "groups": [
+        "C"
+      ],
+      "sourceRecordId": "888136",
+      "name": "Woolworths Skim Milk 1L",
+      "proposedCategoryId": "milk",
+      "physicalForm": "liquid",
+      "sourceUrl": "https://www.woolworths.com.au/shop/productdetails/888136",
+      "reason": "Thin genuine house-brand family; identity/GTIN and evidence review required",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "woolworths-product:86817",
+      "groups": [
+        "C"
+      ],
+      "sourceRecordId": "86817",
+      "name": "Woolworths High Protein Plain Yoghurt",
+      "proposedCategoryId": "yoghurt",
+      "physicalForm": "semi-solid",
+      "sourceUrl": "https://www.woolworths.com.au/shop/productdetails/86817",
+      "reason": "Thin genuine house-brand family; identity/GTIN and evidence review required",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "woolworths-product:768568",
+      "groups": [
+        "C"
+      ],
+      "sourceRecordId": "768568",
+      "name": "Woolworths Mixed Vegetables 1kg",
+      "proposedCategoryId": "frozen-vegetables",
+      "physicalForm": "weight",
+      "sourceUrl": "https://www.woolworths.com.au/shop/productdetails/768568",
+      "reason": "Thin genuine house-brand family; identity/GTIN and evidence review required",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "woolworths-product:93915",
+      "groups": [
+        "C"
+      ],
+      "sourceRecordId": "93915",
+      "name": "Woolworths Essentials Frozen Mixed Vegetables 1kg",
+      "proposedCategoryId": "frozen-vegetables",
+      "physicalForm": "weight",
+      "sourceUrl": "https://www.woolworths.com.au/shop/productdetails/93915",
+      "reason": "Thin genuine house-brand family; identity/GTIN and evidence review required",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "woolworths-product:33835",
+      "groups": [
+        "D"
+      ],
+      "sourceRecordId": "33835",
+      "name": "Nescafe Blend 43 Instant Coffee Jar 150g",
+      "brand": "Nescafe",
+      "proposedCategoryId": "drinks",
+      "physicalForm": "powder",
+      "sourceUrl": "https://www.woolworths.com.au/shop/productdetails/33835",
+      "reason": "Independent brand: official retailer discovery only; independent nutrition required",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "woolworths-product:702098",
+      "groups": [
+        "D"
+      ],
+      "sourceRecordId": "702098",
+      "name": "Kellogg's Corn Flakes Breakfast Cereal 380g",
+      "brand": "Kellogg's",
+      "proposedCategoryId": "cereal",
+      "physicalForm": "weight",
+      "sourceUrl": "https://www.woolworths.com.au/shop/productdetails/702098",
+      "reason": "Independent brand: official retailer discovery only; independent nutrition required",
+      "decision": "pending-review"
+    },
+    {
+      "candidateId": "woolworths-product:77750",
+      "groups": [
+        "D"
+      ],
+      "sourceRecordId": "77750",
+      "name": "Campbell's Real Stock Chicken 1L",
+      "brand": "Campbell's",
+      "proposedCategoryId": "canned",
+      "physicalForm": "liquid",
+      "sourceUrl": "https://www.woolworths.com.au/shop/productdetails/77750",
+      "reason": "Independent brand: official retailer discovery only; independent nutrition required",
+      "decision": "pending-review"
+    }
+  ]
+}

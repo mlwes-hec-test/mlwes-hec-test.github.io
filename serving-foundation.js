@@ -180,6 +180,9 @@
     if(hasConcept(/^(?:biscuit|cracker|bar|roll|wafer|nugget|patty|croquette|dumpling|cookie|pastry|cake)$/)||/\b\d+(?:\.\d+)?\s*(?:pieces?|biscuits?|crackers?|bars?|rolls?|burgers?|items?)\b/.test(serving))return result('countable','identity-category-or-source-count');
     if(hasConcept(/^(?:bread|sliced bread|slice|sliced food)$/)||/^bread\b/.test(name)||/\b\d+(?:\.\d+)?\s*slices?\b/.test(serving))return result('sliced','identity-or-source-slice');
     const categories=(food?.categories||[]).map(norm),powdered=categories.some(value=>/\bpowder(?:ed|s)?\b/.test(value));
+    // A dry preparation is a solid even when its broad ancestry is beverages.
+    // "Prepared/from powder" describes the finished drink and must stay distinct.
+    if(/\bdry (?:powder|granules)\b/.test(name)&&! /\b(?:prepared|reconstituted|from)\b/.test(name))return result('weight','explicit-dry-preparation');
     if(powdered)return result('weight','specific-powder-category');
     // Instant coffee preparations describe the dry product, even when broad
     // beverage categories also describe the drink made from it.

@@ -1,0 +1,364 @@
+{
+  "schemaVersion": 1,
+  "wave": "1B",
+  "verifiedAt": "2026-10-04T06:52:17.626Z",
+  "scope": "SOURCE only; local intercepted synthetic browser contexts",
+  "preflight": {
+    "canonicalRepository": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32",
+    "branch": "alpha-0.6.33",
+    "head": "73b6ec8186c56054244afb62c9c974c3c6d92fe6",
+    "parent": "a3dff29da32f27601f28385badb6c072a73963f1",
+    "subject": "Improve Product Capture manual fallback",
+    "cleanTree": true,
+    "generation": "ff6fa0c2de9cbfa6b09cace9"
+  },
+  "release": {
+    "version": "0.6.33",
+    "generation": "1b0f0697e7c18b04f732ded9",
+    "manifestSha256": "426b228a4de946882390f1bafe8fd330facd71c3f1ab10737bc11136e6c7da92"
+  },
+  "accounting": {
+    "manifestSha256": "f11e63ea5fb5063d699657038a0e655f51d06625c6d8a0a940d77e0d36d5ed01",
+    "candidates": 46,
+    "groups": {
+      "A": {
+        "reviewed": 15,
+        "newlyAdmitted": 0,
+        "previouslyAdmittedImproved": 0,
+        "recategorised": 0,
+        "remainsRestricted": 15,
+        "deferred": 0,
+        "canonicalOverlaps": 15
+      },
+      "B": {
+        "reviewed": 24,
+        "newlyAdmitted": 0,
+        "previouslyAdmittedImproved": 24,
+        "recategorised": 24,
+        "remainsRestricted": 0,
+        "deferred": 0,
+        "canonicalOverlaps": 24
+      },
+      "C": {
+        "reviewed": 4,
+        "newlyAdmitted": 1,
+        "previouslyAdmittedImproved": 0,
+        "recategorised": 0,
+        "remainsRestricted": 0,
+        "deferred": 3,
+        "canonicalOverlaps": 2
+      },
+      "D": {
+        "reviewed": 3,
+        "newlyAdmitted": 1,
+        "previouslyAdmittedImproved": 0,
+        "recategorised": 0,
+        "remainsRestricted": 0,
+        "deferred": 2,
+        "canonicalOverlaps": 3
+      }
+    },
+    "newCanonicalIdentities": 1,
+    "canonicalOverlaps": 44,
+    "collapsedAdmissionEvidenceRepresentations": 2,
+    "distinctMaterialConflictBlocks": 14,
+    "existingRestrictionsBefore": {
+      "identity": 8,
+      "source": 4,
+      "missingEnergy": 3
+    },
+    "existingRestrictionsAfter": {
+      "identity": 8,
+      "source": 4,
+      "missingEnergy": 3
+    }
+  },
+  "catalogues": {
+    "woolworths": {
+      "before": {
+        "browse": 362,
+        "loggable": 347,
+        "restricted": 15,
+        "otherFood": 69
+      },
+      "after": {
+        "browse": 363,
+        "loggable": 348,
+        "restricted": 15,
+        "otherFood": 45
+      }
+    },
+    "brand": {
+      "beforeProducts": 7489,
+      "afterProducts": 7491,
+      "brandKeys": 2736
+    },
+    "colesBrowse": 417,
+    "aldiBrowse": 222
+  },
+  "sourceAcceptance": {
+    "pass": 1051,
+    "exitCode": 0,
+    "testFiles": 50,
+    "testPlanSha256": "93a2a94c32904bfdf6cffed641e5e460d57238bfde65416e7247e0445270b586",
+    "tests": 1051,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0,
+    "duration_ms": 538251.1115,
+    "receipt": {
+      "path": "C:\\Users\\mlwes\\.codex\\visualizations\\2026\\10\\04\\01a104bb-d39f-78e3-9a48-28d130355f8e\\hec-wave1b\\accepted-source.tap",
+      "sha256": "757c39538531274d7691541f39eb44593dcc18428c5faf8bc45b08d46209dc63"
+    }
+  },
+  "browserAcceptance": {
+    "pass": true,
+    "exitCode": 0,
+    "conceptFirstScreens": 27,
+    "conceptGuidedFlows": 25,
+    "additionalReviewFlows": 6,
+    "viewports": [
+      {
+        "width": 390,
+        "height": 844
+      },
+      {
+        "width": 320,
+        "height": 568
+      }
+    ],
+    "diagnostics": [
+      {
+        "applicationRequests": 723,
+        "fulfilledLocally": 723,
+        "liveFallthrough": 0,
+        "requiredAssetMisses": 0,
+        "pageErrors": 0,
+        "failedAssets": 0,
+        "externalRequests": 0
+      },
+      {
+        "applicationRequests": 145,
+        "fulfilledLocally": 145,
+        "liveFallthrough": 0,
+        "requiredAssetMisses": 0,
+        "pageErrors": 0,
+        "failedAssets": 0,
+        "externalRequests": 0
+      }
+    ],
+    "receipt": {
+      "path": "C:\\Users\\mlwes\\.codex\\visualizations\\2026\\10\\04\\01a104bb-d39f-78e3-9a48-28d130355f8e\\hec-wave1b\\accepted-browser\\wave-1b-rendered.json",
+      "sha256": "4ac39fb2c930af870cd236c141f5abfd86f16e7de48d429d77b849ccb809beb1"
+    },
+    "additionalReviews": [
+      {
+        "id": "afcd-f003017",
+        "brand": "Australian Food Composition Database",
+        "name": "Coffee, black, from instant coffee powder",
+        "unit": "mL",
+        "amount": 250,
+        "preview": "View Nutrition Details\n5 Cal · 20 kJ",
+        "reviewCount": 1
+      },
+      {
+        "id": "afcd-f009796",
+        "brand": "Australian Food Composition Database",
+        "name": "Coffee, flat white/latte/cappuccino, from ground coffee beans, with regular fat cow's milk",
+        "unit": "mL",
+        "amount": 250,
+        "preview": "View Nutrition Details\n119 Cal · 499 kJ",
+        "reviewCount": 1
+      },
+      {
+        "id": "off:8801083672700",
+        "gtin": "8801083672700",
+        "brand": "Kellogg's",
+        "name": "Corn Flakes",
+        "unit": "g",
+        "amount": 35,
+        "preview": "View Nutrition Details\n136 Cal · 566 kJ",
+        "reviewCount": 1
+      },
+      {
+        "id": "woolworths-au:321220",
+        "gtin": "9300633989934",
+        "brand": "Woolworths",
+        "name": "Woolworths Rolled Traditional Oats 750g",
+        "unit": "g",
+        "amount": 35,
+        "preview": "View Nutrition Details\n133 Cal · 557 kJ",
+        "reviewCount": 1
+      },
+      {
+        "id": "woolworths-au:768568",
+        "gtin": "9300633450410",
+        "brand": "Woolworths",
+        "name": "Woolworths Mixed Vegetables 1Kg",
+        "unit": "g",
+        "amount": 100,
+        "preview": "View Nutrition Details\n52 Cal · 217 kJ",
+        "reviewCount": 1
+      },
+      {
+        "id": "manufacturer:campbells-au:NHj22P0BEMK27UsHVRzcX",
+        "gtin": "9300644043601",
+        "brand": "Campbell's",
+        "name": "Campbell's Real Stock Chicken 1L",
+        "unit": "mL",
+        "amount": 250,
+        "preview": "View Nutrition Details\n21 Cal · 87 kJ",
+        "reviewCount": 1
+      }
+    ],
+    "limitation": "The broader Flat White list retains an existing flatbread lexical match below prepared coffee; prepared-beverage identity, weight-versus-liquid safety and one Review were verified."
+  },
+  "focusedAcceptance": [
+    {
+      "tests": 99,
+      "pass": 99,
+      "fail": 0,
+      "receipt": {
+        "path": "C:\\Users\\mlwes\\.codex\\visualizations\\2026\\10\\04\\01a104bb-d39f-78e3-9a48-28d130355f8e\\hec-wave1b\\focused-green.log",
+        "sha256": "aea63ccf59bfbb8def013ab13b5d656f2a4840e2d8f62a8933e3ad7879e25f58"
+      }
+    },
+    {
+      "tests": 64,
+      "pass": 64,
+      "fail": 0,
+      "receipt": {
+        "path": "C:\\Users\\mlwes\\.codex\\visualizations\\2026\\10\\04\\01a104bb-d39f-78e3-9a48-28d130355f8e\\hec-wave1b\\focused-acceptance-repairs.tap",
+        "sha256": "259df95021abf7a4bd2e6f6a4b02ff96843524d5f6c74b8b412cc5d2aee97100"
+      }
+    },
+    {
+      "tests": 35,
+      "pass": 35,
+      "fail": 0,
+      "receipt": {
+        "path": "C:\\Users\\mlwes\\.codex\\visualizations\\2026\\10\\04\\01a104bb-d39f-78e3-9a48-28d130355f8e\\hec-wave1b\\focused-source-context.log",
+        "sha256": "063a7d0a59ee7c4ef8ce6d02a326e6749ca9a138d524c9ef2bb6815a268c9ceb"
+      }
+    },
+    {
+      "tests": 7,
+      "pass": 7,
+      "fail": 0,
+      "receipt": {
+        "path": "C:\\Users\\mlwes\\.codex\\visualizations\\2026\\10\\04\\01a104bb-d39f-78e3-9a48-28d130355f8e\\hec-wave1b\\focused-prefix-final.tap",
+        "sha256": "771420f4abb160e1f636138790766eb0a2f957645552e949975f895a99714de1"
+      }
+    },
+    {
+      "browserReviews": 6,
+      "pass": true,
+      "receipt": {
+        "path": "C:\\Users\\mlwes\\.codex\\visualizations\\2026\\10\\04\\01a104bb-d39f-78e3-9a48-28d130355f8e\\hec-wave1b\\focused-browser-repair.log",
+        "sha256": "ea3a44baf700fb87d62404ce32567e6ba13750da58e92f0d3eeb624a508462a9"
+      }
+    },
+    {
+      "browserFlows": 10,
+      "pass": true,
+      "receipt": {
+        "path": "C:\\Users\\mlwes\\.codex\\visualizations\\2026\\10\\04\\01a104bb-d39f-78e3-9a48-28d130355f8e\\hec-wave1b\\focused-tail-fixed.json",
+        "sha256": "bf9323363b41475b396b5ceac96ba642f78800b96e4cd138d1e2adce277ec8c8"
+      }
+    }
+  ],
+  "earlierFailures": {
+    "firstSourceRun": {
+      "tests": 1048,
+      "pass": 1040,
+      "fail": 8,
+      "receipt": {
+        "path": "C:\\Users\\mlwes\\.codex\\visualizations\\2026\\10\\04\\01a104bb-d39f-78e3-9a48-28d130355f8e\\hec-wave1b\\acceptance-source.tap",
+        "sha256": "d9a031e84c87547e2da6e92c0c0c802bb716338ba81ba55ebc686af6cbb8e234"
+      }
+    },
+    "repairs": [
+      "Query-ownership harness supplied its current concept-membership dependency and now asserts no silent error.",
+      "Legacy prefix audit follows the current audited directory and incomplete-product suppression, while retaining stale-query ownership and Review checks.",
+      "Shared concept source-context handling prevents an earlier generic-only filter emptying a restaurant branch.",
+      "Structured AFCD savoury-biscuit heading supplies the generic Crackers flow without editing AFCD data.",
+      "Standalone builder exports are initialized before its adapter dependency runs.",
+      "Focused checks also corrected source-count/category projections, serialization/numeric/session assertions and independent manufacturer serving-cache isolation."
+    ]
+  },
+  "safety": {
+    "sameGtinMaterialConflictsBlock": true,
+    "differentGtinsRemainDistinct": true,
+    "nutritionNotAveraged": true,
+    "unknownFibrePreservedForBothAdmissions": true,
+    "retailerPresenceIsNotOwnership": true,
+    "independentManufacturerNutritionForThirdParty": true,
+    "publicReleaseReviewRequired": true
+  },
+  "generationChecks": {
+    "woolworthsOfflineOutputsTwiceByteEqual": true,
+    "brandOfflineOutputsTwiceByteEqual": true,
+    "standaloneWoolworthsCheck": true,
+    "indexShardHashesAndCanonicalUniqueness": true,
+    "releaseCoherence": true,
+    "committedFactualInputsSufficientForOfflineGeneration": true
+  },
+  "protectedData": {
+    "checkedAt": "2026-10-04T06:42:39.631Z",
+    "branch": "alpha-0.6.33",
+    "head": "73b6ec8186c56054244afb62c9c974c3c6d92fe6",
+    "protectedTrackedFiles": 2533,
+    "offTrackedFiles": 2436,
+    "changedProtected": [],
+    "sourcePins": [
+      {
+        "file": "data/open-food-facts-au/manifest.json",
+        "sha256": "b1e5d58b660cb4d36192ec898bef95f1cfcdbaed9d374be4cc10820450981e42",
+        "unchanged": true
+      },
+      {
+        "file": "afcd-release-3.json",
+        "sha256": "d729c6ea5bf1014724bde5d4038e995cd79059824cebab9f32b52ed4671560dd",
+        "unchanged": true
+      },
+      {
+        "file": "australian-catalogue-data.js",
+        "sha256": "05ab1f75ed98a2c6bdafeff48d51f68b8f57124502d9d4f10846c448d92f3d68",
+        "unchanged": true
+      },
+      {
+        "file": "mcdonalds-au-catalogue-data.js",
+        "sha256": "8390eac90e11a94ecf436412dbe6cea328ab4e40844a43d9e2c0c1beebf70c50",
+        "unchanged": true
+      },
+      {
+        "file": "kfc-au-catalogue-data.js",
+        "sha256": "473e071cf68b18fd75481ea4def01166ee7b1237eecc0e56fa5a408e79305201",
+        "unchanged": true
+      },
+      {
+        "file": "kfc-au-supplement-data.js",
+        "sha256": "af33ffc60656c8cd391c35251c88e8c372188fd641a1e9636baeef3a1b64d595",
+        "unchanged": true
+      }
+    ]
+  },
+  "futureInterface": "Canonical key + source record ID, capture/check/review dates, evidence hash, disposition/reason codes, unresolved conflict state, field provenance and explicit consumed nutrient denominator. CMS modification dates remain separate. Freshness rechecks never auto-clear material conflicts.",
+  "gitGate": {
+    "expectedParent": "73b6ec8186c56054244afb62c9c974c3c6d92fe6",
+    "authorisedCommits": 1,
+    "subject": "Complete Woolworths catalogue foundation",
+    "note": "Commit SHA and post-commit status are reported in the final chat because a committed file cannot contain its own commit hash."
+  },
+  "boundaries": {
+    "pushPerformed": false,
+    "testDeploymentPerformed": false,
+    "myDataInspectedOrDeployed": false,
+    "personalBrowserStorageOrBackupsAccessed": false,
+    "realPersonalDataAccessed": false,
+    "testCheckpointUserSupplied": "aee6f71aafe6f7133f86f0ab39990443f516307e",
+    "myDataCheckpointUserSupplied": "d6658886df5b8a3335cafbd4aaaa42904fedbeb0"
+  },
+  "recommendation": "Green for Myron/Mal SOURCE review and consideration of a separate guarded TEST deployment; this job performs no deployment."
+}

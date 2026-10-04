@@ -4,7 +4,7 @@ const indices=Object.fromEntries(['aldi','woolworths','coles'].map(k=>[k,require
 const brandFoods=B.index.files.flatMap(s=>require('../data/brand-au/'+s.path).records),byId=new Map(brandFoods.map(f=>[f.id,f]));
 async function all(id,options={}){const foods=[];for(let offset=0;;offset+=20){const p=await R.page(id,{...options,offset});foods.push(...p.foods);if(!p.hasMore)break;}return foods;}
 test('ordinary supermarket browse is relationship-gated, current or uncertain, never sale or provenance alone',async()=>{
- for(const [id,total]of [['aldi',222],['woolworths',362],['coles',417]]){const foods=await all(id);assert.equal(foods.length,total);assert.equal(new Set(foods.map(C.canonicalKey)).size,total);for(const f of foods){const family=audit.rows.find(r=>r.retailer===id&&r.key===C.brandKey(f.brand));assert(family?.relationshipVerified,f.brand);assert.notEqual(family.status,'legacy');}assert(!foods.some(f=>['pepsi','cocacola','kelloggs','mccain','birdseye','johnwest'].includes(C.brandKey(f.brand))));}
+ for(const [id,total]of [['aldi',222],['woolworths',363],['coles',417]]){const foods=await all(id);assert.equal(foods.length,total);assert.equal(new Set(foods.map(C.canonicalKey)).size,total);for(const f of foods){const family=audit.rows.find(r=>r.retailer===id&&r.key===C.brandKey(f.brand));assert(family?.relationshipVerified,f.brand);assert.notEqual(family.status,'legacy');}assert(!foods.some(f=>['pepsi','cocacola','kelloggs','mccain','birdseye','johnwest'].includes(C.brandKey(f.brand))));}
  const original=indices.aldi.entries.find(e=>C.brandKey(e.brand)==='pepsi');assert(original,'independent evidence retained');assert(C.sourceDeclaredRetailerMembership(original,'aldi').length);
 });
 test('independent and legacy products retain useful global search and canonical identity',async()=>{
@@ -27,7 +27,7 @@ test('Jewel/Gem aliases resolve one canonical product, preserve authentic names 
 });
 test('all accepted source identity, nutrition, measure and evidence facts remain byte-equivalent',()=>{
  const hash=f=>crypto.createHash('sha256').update(JSON.stringify(Object.fromEntries(baseline.fields.filter(k=>f[k]!==undefined).map(k=>[k,f[k]])))).digest('hex');
- for(const [kind,old,foods]of [['brand',baseline.brandRecords,brandFoods],...Object.entries(indices).map(([id,i])=>[id,baseline.retailers[id].records,i.files.flatMap(s=>require('../data/'+id+'-au/'+s.path).records)])]){assert.equal(foods.length,old.length,kind);const map=new Map(foods.map(f=>[f.id,f]));for(const f of old)assert.equal(hash(map.get(f.id)),f.coreSha256,kind+' '+f.id);}
- assert.equal(B.index.entries.length,7489);assert.equal(B.index.brands.length,2736);
+ for(const [kind,old,foods]of [['brand',baseline.brandRecords,brandFoods],...Object.entries(indices).map(([id,i])=>[id,baseline.retailers[id].records,i.files.flatMap(s=>require('../data/'+id+'-au/'+s.path).records)])]){assert.equal(foods.length,old.length+(['brand','woolworths'].includes(kind)?2:0),kind);const map=new Map(foods.map(f=>[f.id,f]));for(const f of old)assert.equal(hash(map.get(f.id)),f.coreSha256,kind+' '+f.id);}
+ assert.equal(B.index.entries.length,7491);assert.equal(B.index.brands.length,2736);
 });
 test('protected McCain review still resolves its canonical alias and accepted energy',async()=>{const f=(await R.search('McCain Hash Browns')).foods.find(f=>f.barcode==='9310174025084');assert.equal(f.id,'woolworths-au:98299');assert.equal(Math.round(f.nutrients.calories*f.units.g*75),130);assert.equal(Math.round(f.nutrients.energyKj*f.units.g*75),543);});
