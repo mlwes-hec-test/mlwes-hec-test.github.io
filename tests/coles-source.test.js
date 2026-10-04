@@ -9,13 +9,13 @@ test('all Coles source rows reproduce from pinned, attributable OFF bytes withou
 });
 test('reviewed collection directory is lazy, paged and excludes restricted rows',async()=>{
   const reads=[];A.register(index,{loadJSON:async f=>{reads.push(f);return require('../data/coles-au/'+f);}});
-  const d=R.directory('coles');assert.equal(d.total,860);assert.equal(d.categories.length,19);assert.equal(reads.length,0);assert.equal(d.retailer.collectionMode,'private-testing-evidence');
+  const d=R.directory('coles');assert.equal(d.total,417);assert.equal(d.categories.length,19);assert.equal(reads.length,0);assert.equal(d.retailer.collectionMode,'private-testing-evidence');
   const a=await R.page('coles'),b=await R.page('coles',{offset:20});assert.equal(a.foods.length,20);assert.equal(b.foods.length,20);assert(a.hasMore);assert(b.hasMore);
   assert.equal(new Set([...a.foods,...b.foods].map(f=>f.id)).size,40);for(const f of [...a.foods,...b.foods])assert.equal(C.productEligibility(f).addability.normalLoggingAllowed,true);
   assert(!a.foods.concat(b.foods).some(f=>rows.find(r=>r.food.id===f.id)?.food.browseEligible===false));
 });
-test('guided Coles bread uses reviewed source-declared brand identity without claiming retailer verification',async()=>{
-  const result=await R.page('coles',{scope:'commercial-identity',conceptId:'bread'});assert(result.total>3);assert(result.foods.every(f=>C.brandKey(f.brand)==='coles'));assert(result.foods.every(f=>C.commercialIdentityMembership(R.entity('coles'),f).reason==='source-declared-private-label-identity'));
+test('guided Coles bread uses evidenced house families and separately retained retailer or collection relationships',async()=>{
+  const result=await R.page('coles',{scope:'commercial-identity',conceptId:'bread'});assert(result.total>3);assert(result.foods.every(f=>index.retailer.houseBrandFamilies.some(h=>h.key===C.brandKey(f.brand)&&h.evidenceIds.length)));assert(result.foods.every(f=>require('../scripts/catalogue-round-two').membership(f,'coles').length>0));
   assert(!C.commercialIdentityMembership(R.entity('coles'),O.toFood(rows[0].record)).matches);
 });
 test('synthetic national-brand, missing-pin, foreign-source and wrong-record claims cannot enter the collection',()=>{

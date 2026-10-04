@@ -1,0 +1,374 @@
+{
+  "schemaVersion": 1,
+  "wave": "2A",
+  "startingHead": "5df00e23f038bc22814290f5ce8497b7625c1db7",
+  "groupLimits": {
+    "A": 15,
+    "B": 30,
+    "C": 10,
+    "D": 5
+  },
+  "maximumIdentities": 60,
+  "selection": "11 retained exclusions; all 22 high-confidence Coles fallback heads supported by the bounded semantic rule set; four thin-family candidates; two independent branded identities. Counts are ceilings, not quotas.",
+  "candidates": [
+    {
+      "group": "A",
+      "canonicalKey": "barcode:9300601000562",
+      "name": "White Long Grain Rice",
+      "brand": "coles",
+      "baselineSha256": "d23d7636b413cf3b869f8c97c0120799ee83b2c7412926d737e4f04cfc105bca",
+      "reason": "dry-versus-prepared-nutrition-state-not-preserved",
+      "candidateId": "2A-A-01"
+    },
+    {
+      "group": "A",
+      "canonicalKey": "barcode:9300601186945",
+      "name": "Full Cream Milk",
+      "brand": "coles",
+      "baselineSha256": "d13168e7f52147886f86af700027d874c4a31a66362e2abb49574d1226bad163",
+      "reason": "liquid-serving-reported-in-grams-no-mass-volume-conversion-evidenced",
+      "candidateId": "2A-A-02"
+    },
+    {
+      "group": "A",
+      "canonicalKey": "barcode:9300601274475",
+      "name": "Wholemeal sandwich loaf",
+      "brand": "Coles",
+      "baselineSha256": "23bc5ac18ceeba21d322b3a3cf2c8c99d6196dbea4ac8da28aaa6566668a4692",
+      "reason": "nutrition-review-required",
+      "candidateId": "2A-A-03"
+    },
+    {
+      "group": "A",
+      "canonicalKey": "barcode:9300601340828",
+      "name": "Corn Kernels",
+      "brand": "Coles",
+      "baselineSha256": "278d677665aeaeaeccb6818064f15ad10cd58ce58edd3551a52d32a3a9ceee4f",
+      "reason": "drained-versus-packed-nutrition-basis-unresolved",
+      "candidateId": "2A-A-04"
+    },
+    {
+      "group": "A",
+      "canonicalKey": "barcode:9300601416158",
+      "name": "Baked beans in tomato sauce",
+      "brand": "Coles",
+      "baselineSha256": "72b07b72c4754d41bfc6bf660a77903fb8011f527cf9b7de1e8678dd10a4f30c",
+      "reason": "energy-missing",
+      "candidateId": "2A-A-05"
+    },
+    {
+      "group": "A",
+      "canonicalKey": "barcode:9300601931316",
+      "name": "Rosemary Crackers",
+      "brand": "Coles",
+      "baselineSha256": "fec6562b99f97c26b5dda6548174899fc62c50cf796ecd29efbd9313923b6167",
+      "reason": "fractional-cracker-count-needs-package-confirmation",
+      "candidateId": "2A-A-06"
+    },
+    {
+      "group": "A",
+      "canonicalKey": "barcode:9310645091334",
+      "name": "Fragrant Jasmine Rice",
+      "brand": "Coles",
+      "baselineSha256": "3e2816b202d5d5d052ccdd4bbb927dc1380788c0c867cbf974ca778062a575c9",
+      "reason": "dry-versus-prepared-nutrition-state-not-preserved",
+      "candidateId": "2A-A-07"
+    },
+    {
+      "group": "A",
+      "canonicalKey": "barcode:9310645247205",
+      "name": "Spaghetti",
+      "brand": "Coles",
+      "baselineSha256": "ad26dce572b4ea6a0f4da0621f2efacf72ddf0e9577e925234f82f25bad30823",
+      "reason": "energy-missing",
+      "candidateId": "2A-A-08"
+    },
+    {
+      "group": "A",
+      "canonicalKey": "barcode:9310645254142",
+      "name": "Soft Wholemeal Sandwich Loaf",
+      "brand": "Coles",
+      "baselineSha256": "f1766e91c6c2503278eb7cd7d8595054fa756325443f885b5408d50c7fb3c016",
+      "reason": "energy-missing",
+      "candidateId": "2A-A-09"
+    },
+    {
+      "group": "A",
+      "canonicalKey": "barcode:9310645357898",
+      "name": "Australian Sweet Potato Rustic Style Straight Cut Chips in a Crispy Batter",
+      "brand": "coles",
+      "baselineSha256": "176832a23c763bb6429584231f2717ac492c7f5b4ed4d0f0adc15fb9fc7bccee",
+      "reason": "source-category-crisps-versus-apparent-frozen-product-needs-confirmation",
+      "candidateId": "2A-A-10"
+    },
+    {
+      "group": "A",
+      "canonicalKey": "barcode:9310645442310",
+      "name": "Simply Steam Frozen Mixed Veg",
+      "brand": "Coles",
+      "baselineSha256": "4931e69edf6710e0f103b3c9e3b7a1186e8b032db35bcffaa0fa386998f1f400",
+      "reason": "nutrition-review-required",
+      "candidateId": "2A-A-11"
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:0222421617784",
+      "name": "Bone In Rib Eye",
+      "brand": "Coles",
+      "baselineSha256": "6460fd175b8cd708290f37fe3e3811b20f021c7f62b0b38ebf3b271200e4b5e1",
+      "reason": "Other Packaged Food; review product-head semantics",
+      "candidateId": "2A-B-12"
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:0223408214033",
+      "name": "Australian Sirloin Backstrap",
+      "brand": "Coles",
+      "baselineSha256": "323e36fb8c8b0cdcd70471bdd4d0e0cf86c2cde6c89c4b1169cc57573f5928ce",
+      "reason": "Other Packaged Food; review product-head semantics",
+      "candidateId": "2A-B-13"
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:0224203717477",
+      "name": "Ham Hock",
+      "brand": "Coles",
+      "baselineSha256": "65ea7c0d564a885bf9e75ce28b9d4c1bc739e3e0c3efced812935ee89ae04031",
+      "reason": "Other Packaged Food; review product-head semantics",
+      "candidateId": "2A-B-14"
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:0224324423769",
+      "name": "Slow Cook Brisket",
+      "brand": "Coles",
+      "baselineSha256": "6cf04dde5f7d04d49ccee148a6a35ca3a1f45be1103ef78db08840a7ebade77b",
+      "reason": "Other Packaged Food; review product-head semantics",
+      "candidateId": "2A-B-15"
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:0224406114783",
+      "name": "Corned Silverside",
+      "brand": "Coles",
+      "baselineSha256": "f4ed5490e15af024c8bb845862f835a6a8d769669c3cf86c7130f511d4e3358b",
+      "reason": "Other Packaged Food; review product-head semantics",
+      "candidateId": "2A-B-16"
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:0224406811408",
+      "name": "Corned Silverside Salt Reduced",
+      "brand": "Coles",
+      "baselineSha256": "bc84ad64b8dcbb794be325b364d0914abbb4568972fd736f728f945fc5ccd013",
+      "reason": "Other Packaged Food; review product-head semantics",
+      "candidateId": "2A-B-17"
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:0224693135843",
+      "name": "Picnic Ham Off The Bone",
+      "brand": "Coles",
+      "baselineSha256": "3307a3c96216816c415e30d99756de8a489574a115932f9b6308ef2c0e56b9fc",
+      "reason": "Other Packaged Food; review product-head semantics",
+      "candidateId": "2A-B-18"
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:9300601352036",
+      "name": "Soft Round Rolls",
+      "brand": "Coles",
+      "baselineSha256": "96fc67afdc92dd7ea7479845ed79b5f1c3a63b06b9ff4d6862ab163a04335215",
+      "reason": "Other Packaged Food; review product-head semantics",
+      "candidateId": "2A-B-19"
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:9300601431700",
+      "name": "Cherry Bocconcini",
+      "brand": "Coles",
+      "baselineSha256": "bf6ffa677c500bee25c0eb42ca7ce924e5963bed6edcafe763364d294d276c4b",
+      "reason": "Other Packaged Food; review product-head semantics",
+      "candidateId": "2A-B-20"
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:9310645217383",
+      "name": "Sliced English Style Ham",
+      "brand": "coles",
+      "baselineSha256": "2f82117e9fc248de6cfb915dd041d99577f82cb802ee734bf31fb797682bd6e2",
+      "reason": "Other Packaged Food; review product-head semantics",
+      "candidateId": "2A-B-21"
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:9310645291666",
+      "name": "Soft White Wraps",
+      "brand": "Coles Simply",
+      "baselineSha256": "b266a3834f44cfea9ee3bcde1003c36bb95078ca9ac96d1645b7f09496fedddb",
+      "reason": "Other Packaged Food; review product-head semantics",
+      "candidateId": "2A-B-22"
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:9310645308142",
+      "name": "Brioche Classic Rolls",
+      "brand": "Coles",
+      "baselineSha256": "aa4f3eba8c3848cbb5187f0562ce469237125e4cc9aa1e954edbb1d22987edb0",
+      "reason": "Other Packaged Food; review product-head semantics",
+      "candidateId": "2A-B-23"
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:9310645319285",
+      "name": "Grass Fed New York Strip Steak",
+      "brand": "Coles",
+      "baselineSha256": "cedba840981c2365f6a2c1d919d22ea8a32ccc422a54806ec8c9b14a16e1bf5d",
+      "reason": "Other Packaged Food; review product-head semantics",
+      "candidateId": "2A-B-24"
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:9310645343143",
+      "name": "Soft white wraps",
+      "brand": "Coles",
+      "baselineSha256": "d41dcf24f93933a2d6e17a1fb0d1f9be3e586c917192c76d4f80bfd5a8a43cc4",
+      "reason": "Other Packaged Food; review product-head semantics",
+      "candidateId": "2A-B-25"
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:9310645357881",
+      "name": "Asian Style Salad",
+      "brand": "Coles",
+      "baselineSha256": "b303d6948cb0dd72f3bd17d0e2c2a71764e3f99f5aa00de64e992f652f140ef5",
+      "reason": "Other Packaged Food; review product-head semantics",
+      "candidateId": "2A-B-26"
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:9310645404530",
+      "name": "Breakfast Marmalade",
+      "brand": "Coles",
+      "baselineSha256": "619df1132cd577902afdb593bd3c93044d6ade88ed34e332c13bc179577ba440",
+      "reason": "Other Packaged Food; review product-head semantics",
+      "candidateId": "2A-B-27"
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:9310645412085",
+      "name": "Casserole Steak",
+      "brand": "Coles",
+      "baselineSha256": "79a1f0f5d093db6d5b10e992e69a57672f0977fe3346c87886ca9aeda5a03e2e",
+      "reason": "Other Packaged Food; review product-head semantics",
+      "candidateId": "2A-B-28"
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:9310645414461",
+      "name": "French Fries",
+      "brand": "Coles",
+      "baselineSha256": "4d00d79ead7137cf5aca5a6503caa86785e638566eb3ff5e4a4aa3ba65985cb7",
+      "reason": "Other Packaged Food; review product-head semantics",
+      "candidateId": "2A-B-29"
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:9310645421988",
+      "name": "Cheese Supreme Corn Chips",
+      "brand": "Coles",
+      "baselineSha256": "ddcdf802fbf48bde782e53268e270bc1ef7e421bac4089d9973b2120cdbee1a0",
+      "reason": "Other Packaged Food; review product-head semantics",
+      "candidateId": "2A-B-30"
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:9310645487878",
+      "name": "Beetroot Fetta And Walnut Salad",
+      "brand": "Coles Kitchen",
+      "baselineSha256": "1a1f35070adad6a01b195a7b24f39b9ac53f5a381ed0e880311994d406c98427",
+      "reason": "Other Packaged Food; review product-head semantics",
+      "candidateId": "2A-B-31"
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:9310645488363",
+      "name": "Pickle Slaw",
+      "brand": "Coles",
+      "baselineSha256": "7df60ed38dcb90a72534599c25c9a1a33070f8a37eac4731bc48a0fe5fe664a3",
+      "reason": "Other Packaged Food; review product-head semantics",
+      "candidateId": "2A-B-32"
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:9310645490700",
+      "name": "Shaker salads Japanese Style",
+      "brand": "Coles",
+      "baselineSha256": "55f50850fdf9a0f8d2190165b12430102e51c35595670951dcdbffc7c94d3f6f",
+      "reason": "Other Packaged Food; review product-head semantics",
+      "candidateId": "2A-B-33"
+    },
+    {
+      "group": "C",
+      "reason": "Thin everyday family; exact pack/panel compatibility required",
+      "canonicalKey": "barcode:9300601017003",
+      "name": "Tasty Cheddar Slices 500g",
+      "brand": "Coles",
+      "url": "https://www.coles.com.au/browse/dairy-eggs-fridge/cheese/sliced-cheese",
+      "offRef": "co-04:104",
+      "proposedCategoryId": "cheese",
+      "candidateId": "2A-C-34"
+    },
+    {
+      "group": "C",
+      "reason": "Thin everyday family; exact pack/panel compatibility required",
+      "canonicalKey": "barcode:9310645103341",
+      "name": "Greek Style Natural Yoghurt 1kg",
+      "brand": "Coles",
+      "url": "https://www.coles.com.au/product/coles-greek-style-natural-yoghurt-1kg-2273478",
+      "offRef": "co-02:601",
+      "proposedCategoryId": "yoghurt",
+      "candidateId": "2A-C-35"
+    },
+    {
+      "group": "C",
+      "reason": "Thin everyday family; exact pack/panel compatibility required",
+      "canonicalKey": "source:coles-au:1499158",
+      "name": "Mixed Vegetables 1kg",
+      "brand": "Coles",
+      "url": "https://www.coles.com.au/product/coles-mixed-vegetables-1kg-1499158",
+      "proposedCategoryId": "frozen-vegetables",
+      "candidateId": "2A-C-36"
+    },
+    {
+      "group": "C",
+      "reason": "Thin everyday family; exact pack/panel compatibility required",
+      "canonicalKey": "source:coles-au:9052681",
+      "name": "Dairy Full Cream Milk 1L",
+      "brand": "Coles",
+      "url": "https://www.coles.com.au/product/coles-dairy-full-cream-milk-1l-9052681",
+      "proposedCategoryId": "milk",
+      "candidateId": "2A-C-37"
+    },
+    {
+      "group": "D",
+      "canonicalKey": "barcode:9300652805048",
+      "name": "Weet-Bix 575g",
+      "brand": "Sanitarium",
+      "url": "https://www.coles.com.au/browse/bonus-entry-products/weet-bix",
+      "offRef": "sa-00:705",
+      "reason": "Australian retailer discovery with suspect legacy panel",
+      "candidateId": "2A-D-38"
+    },
+    {
+      "group": "D",
+      "canonicalKey": "supplemental:mccain-au:products-categories-potato-speedy-solutions-air-fryer-straight-cut-750g",
+      "name": "Air Fryer Straight Cut 750g",
+      "brand": "McCain",
+      "url": "https://www.coles.com.au/brands/mccain-2777273841",
+      "reason": "Existing manufacturer canonical record; independent retailer-presence enrichment",
+      "baselineSha256": "e4f889799d941a90f2955a980bcb4bfb08046c3b0b457f6559b1ada2c086e482",
+      "candidateId": "2A-D-39"
+    }
+  ]
+}

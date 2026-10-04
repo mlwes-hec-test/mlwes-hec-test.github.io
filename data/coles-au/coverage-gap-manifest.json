@@ -425,7 +425,7 @@
         "status": "needs-nutrition-completion",
         "label": "Needs Nutrition Completion",
         "reasonCode": "energy-missing",
-        "message": "We found the exact product, but its nutrition is incomplete or needs review. Read the Nutrition Panel, scan/update the barcode, or enter nutrition manually.",
+        "message": "Energy is missing from the selected nutrition basis. Open Review Nutrition to complete it.",
         "actions": [
           {
             "id": "nutrition-panel",
@@ -1680,7 +1680,7 @@
         "status": "needs-nutrition-completion",
         "label": "Needs Nutrition Completion",
         "reasonCode": "energy-missing",
-        "message": "We found the exact product, but its nutrition is incomplete or needs review. Read the Nutrition Panel, scan/update the barcode, or enter nutrition manually.",
+        "message": "Energy is missing from the selected nutrition basis. Open Review Nutrition to complete it.",
         "actions": [
           {
             "id": "nutrition-panel",
@@ -1913,7 +1913,7 @@
         "status": "needs-nutrition-completion",
         "label": "Needs Nutrition Completion",
         "reasonCode": "energy-missing",
-        "message": "We found the exact product, but its nutrition is incomplete or needs review. Read the Nutrition Panel, scan/update the barcode, or enter nutrition manually.",
+        "message": "Energy is missing from the selected nutrition basis. Open Review Nutrition to complete it.",
         "actions": [
           {
             "id": "nutrition-panel",

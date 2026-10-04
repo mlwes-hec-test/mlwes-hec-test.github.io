@@ -1,0 +1,1225 @@
+{
+  "pass": true,
+  "generation": "92b2d9e3b79ed004eb4c91d2",
+  "scenarios": [
+    {
+      "query": "Coffee",
+      "choices": [
+        {
+          "id": "afcd-f003017",
+          "name": "Coffee, black, from instant coffee powder",
+          "brand": "Australian Food Composition Database",
+          "eligible": true,
+          "group": "best",
+          "form": "liquid"
+        },
+        {
+          "id": "afcd-f003018",
+          "name": "Coffee, black, from instant coffee powder, decaffeinated",
+          "brand": "Australian Food Composition Database",
+          "eligible": true,
+          "group": "best",
+          "form": "liquid"
+        },
+        {
+          "id": "afcd-f003041",
+          "name": "Coffee, espresso, from ground coffee beans",
+          "brand": "Australian Food Composition Database",
+          "eligible": true,
+          "group": "best",
+          "form": "liquid"
+        },
+        {
+          "id": "afcd-f009796",
+          "name": "Coffee, flat white/latte/cappuccino, from ground coffee beans, with regular fat cow's milk",
+          "brand": "Australian Food Composition Database",
+          "eligible": true,
+          "group": "best",
+          "form": "liquid"
+        },
+        {
+          "id": "afcd-f003060",
+          "name": "Coffee, instant, dry powder or granules",
+          "brand": "Australian Food Composition Database",
+          "eligible": true,
+          "group": "best",
+          "form": "weight"
+        },
+        {
+          "id": "afcd-f003061",
+          "name": "Coffee, instant, dry powder or granules, decaffeinated",
+          "brand": "Australian Food Composition Database",
+          "eligible": true,
+          "group": "best",
+          "form": "weight"
+        },
+        {
+          "id": "afcd-f003065",
+          "name": "Coffee, long black, from ground coffee beans",
+          "brand": "Australian Food Composition Database",
+          "eligible": true,
+          "group": "best",
+          "form": "liquid"
+        },
+        {
+          "id": "afcd-f003014",
+          "name": "Coffee mix, with beverage whitener & sugar, dry powder",
+          "brand": "Australian Food Composition Database",
+          "eligible": true,
+          "group": "best",
+          "form": "weight"
+        },
+        {
+          "id": "afcd-f003084",
+          "name": "Coffee, prepared from coffee mix with sugar & whitener, no added milk",
+          "brand": "Australian Food Composition Database",
+          "eligible": true,
+          "group": "best",
+          "form": "liquid"
+        },
+        {
+          "id": "cappuccino",
+          "name": "Cappuccino With Light Milk",
+          "brand": "Café Estimate",
+          "eligible": true,
+          "group": "best",
+          "form": "liquid"
+        },
+        {
+          "id": "food-source:mcdonalds-au:coffee-frappe-large",
+          "name": "Coffee Frappé",
+          "brand": "McDonald's Australia",
+          "eligible": true,
+          "group": "restaurant",
+          "form": "liquid"
+        },
+        {
+          "id": "food-source:hungry-jacks-au:jacks-cafe-coffee-mocha-large-lactose-free",
+          "name": "Jack's Café Coffee Mocha Large Lactose Free",
+          "brand": "Hungry Jack's Australia",
+          "eligible": true,
+          "group": "restaurant",
+          "form": "liquid"
+        },
+        {
+          "id": "food-source:hungry-jacks-au:jacks-cafe-coffee-mocha-large-skim-milk",
+          "name": "Jack's Café Coffee Mocha Large Skim Milk",
+          "brand": "Hungry Jack's Australia",
+          "eligible": true,
+          "group": "restaurant",
+          "form": "liquid"
+        },
+        {
+          "id": "food-source:hungry-jacks-au:jacks-cafe-coffee-mocha-medium-lactose-free",
+          "name": "Jack's Café Coffee Mocha Medium Lactose Free",
+          "brand": "Hungry Jack's Australia",
+          "eligible": true,
+          "group": "restaurant",
+          "form": "liquid"
+        },
+        {
+          "id": "food-source:hungry-jacks-au:jacks-cafe-coffee-mocha-medium-oat-milk",
+          "name": "Jack's Café Coffee Mocha Medium Oat Milk",
+          "brand": "Hungry Jack's Australia",
+          "eligible": true,
+          "group": "restaurant",
+          "form": "liquid"
+        },
+        {
+          "id": "food-source:hungry-jacks-au:jacks-cafe-coffee-mocha-medium-skim-milk",
+          "name": "Jack's Café Coffee Mocha Medium Skim Milk",
+          "brand": "Hungry Jack's Australia",
+          "eligible": true,
+          "group": "restaurant",
+          "form": "liquid"
+        },
+        {
+          "id": "food-source:hungry-jacks-au:jacks-cafe-coffee-mocha-small",
+          "name": "Jack's Café Coffee Mocha Small",
+          "brand": "Hungry Jack's Australia",
+          "eligible": true,
+          "group": "restaurant",
+          "form": "liquid"
+        },
+        {
+          "id": "food-source:hungry-jacks-au:jacks-cafe-coffee-mocha-small-lactose-free",
+          "name": "Jack's Café Coffee Mocha Small Lactose Free",
+          "brand": "Hungry Jack's Australia",
+          "eligible": true,
+          "group": "restaurant",
+          "form": "liquid"
+        },
+        {
+          "id": "food-source:hungry-jacks-au:jacks-cafe-coffee-mocha-small-oat-milk",
+          "name": "Jack's Café Coffee Mocha Small Oat Milk",
+          "brand": "Hungry Jack's Australia",
+          "eligible": true,
+          "group": "restaurant",
+          "form": "liquid"
+        },
+        {
+          "id": "food-source:hungry-jacks-au:jacks-cafe-coffee-mocha-small-skim",
+          "name": "Jack's Café Coffee Mocha Small Skim",
+          "brand": "Hungry Jack's Australia",
+          "eligible": true,
+          "group": "restaurant",
+          "form": "liquid"
+        },
+        {
+          "id": "food-source:mcdonalds-au:deluxe-caramel-flavoured-iced-coffee:large",
+          "name": "Large Deluxe Caramel Flavoured Iced Coffee",
+          "brand": "McDonald's Australia",
+          "eligible": true,
+          "group": "restaurant",
+          "form": "liquid"
+        },
+        {
+          "id": "food-source:mcdonalds-au:deluxe-hazelnut-flavoured-iced-coffee:large",
+          "name": "Large Deluxe Hazelnut Flavoured Iced Coffee",
+          "brand": "McDonald's Australia",
+          "eligible": true,
+          "group": "restaurant",
+          "form": "liquid"
+        },
+        {
+          "id": "food-source:mcdonalds-au:deluxe-vanilla-flavoured-iced-coffee:large",
+          "name": "Large Deluxe Vanilla Flavoured Iced Coffee",
+          "brand": "McDonald's Australia",
+          "eligible": true,
+          "group": "restaurant",
+          "form": "liquid"
+        },
+        {
+          "id": "food-source:mcdonalds-au:deluxe-caramel-flavoured-iced-coffee:medium",
+          "name": "Medium Deluxe Caramel Flavoured Iced Coffee",
+          "brand": "McDonald's Australia",
+          "eligible": true,
+          "group": "restaurant",
+          "form": "liquid"
+        },
+        {
+          "id": "food-source:mcdonalds-au:deluxe-hazelnut-flavoured-iced-coffee:medium",
+          "name": "Medium Deluxe Hazelnut Flavoured Iced Coffee",
+          "brand": "McDonald's Australia",
+          "eligible": true,
+          "group": "restaurant",
+          "form": "liquid"
+        },
+        {
+          "id": "food-source:mcdonalds-au:deluxe-vanilla-flavoured-iced-coffee:medium",
+          "name": "Medium Deluxe Vanilla Flavoured Iced Coffee",
+          "brand": "McDonald's Australia",
+          "eligible": true,
+          "group": "restaurant",
+          "form": "liquid"
+        },
+        {
+          "id": "food-source:mcdonalds-au:deluxe-caramel-flavoured-iced-coffee:small",
+          "name": "Small Deluxe Caramel Flavoured Iced Coffee",
+          "brand": "McDonald's Australia",
+          "eligible": true,
+          "group": "restaurant",
+          "form": "liquid"
+        },
+        {
+          "id": "food-source:mcdonalds-au:deluxe-hazelnut-flavoured-iced-coffee:small",
+          "name": "Small Deluxe Hazelnut Flavoured Iced Coffee",
+          "brand": "McDonald's Australia",
+          "eligible": true,
+          "group": "restaurant",
+          "form": "liquid"
+        },
+        {
+          "id": "food-source:mcdonalds-au:deluxe-vanilla-flavoured-iced-coffee:small",
+          "name": "Small Deluxe Vanilla Flavoured Iced Coffee",
+          "brand": "McDonald's Australia",
+          "eligible": true,
+          "group": "restaurant",
+          "form": "liquid"
+        },
+        {
+          "id": "food-source:hungry-jacks-au:jacks-cafe-coffee-mocha-large-oat-milk",
+          "name": "Jack's Café Coffee Mocha Large Oat Milk",
+          "brand": "Hungry Jack's Australia",
+          "eligible": false,
+          "group": "completion",
+          "form": "liquid"
+        }
+      ]
+    },
+    {
+      "query": "Flat White",
+      "choices": [
+        {
+          "id": "afcd-f009796",
+          "name": "Coffee, flat white/latte/cappuccino, from ground coffee beans, with regular fat cow's milk",
+          "brand": "Australian Food Composition Database",
+          "eligible": true,
+          "group": "best",
+          "form": "liquid"
+        },
+        {
+          "id": "afcd-f001401",
+          "name": "Bread, flat (pita or Lebanese), white, commercial",
+          "brand": "Australian Food Composition Database",
+          "eligible": true,
+          "group": "best",
+          "form": "sliced"
+        },
+        {
+          "id": "food-source:mcdonalds-au:flat-white:large",
+          "name": "Large Flat White",
+          "brand": "McDonald's Australia",
+          "eligible": true,
+          "group": "restaurant",
+          "form": "liquid"
+        },
+        {
+          "id": "food-source:mcdonalds-au:flat-white:medium",
+          "name": "Medium Flat White",
+          "brand": "McDonald's Australia",
+          "eligible": true,
+          "group": "restaurant",
+          "form": "liquid"
+        },
+        {
+          "id": "food-source:mcdonalds-au:flat-white:small",
+          "name": "Small Flat White",
+          "brand": "McDonald's Australia",
+          "eligible": true,
+          "group": "restaurant",
+          "form": "liquid"
+        },
+        {
+          "id": "food-source:hungry-jacks-au:jacks-cafe-flat-white-large",
+          "name": "Jack's Café Flat White Large Lactose Free",
+          "brand": "Hungry Jack's Australia",
+          "eligible": true,
+          "group": "restaurant",
+          "form": "liquid"
+        },
+        {
+          "id": "food-source:hungry-jacks-au:jacks-cafe-flat-white-large-oat",
+          "name": "Jack's Café Flat White Large Oat Milk",
+          "brand": "Hungry Jack's Australia",
+          "eligible": true,
+          "group": "restaurant",
+          "form": "liquid"
+        },
+        {
+          "id": "food-source:hungry-jacks-au:jacks-cafe-flat-white-medium-lactose-free",
+          "name": "Jack's Café Flat White Medium Lactose Free",
+          "brand": "Hungry Jack's Australia",
+          "eligible": true,
+          "group": "restaurant",
+          "form": "liquid"
+        },
+        {
+          "id": "food-source:hungry-jacks-au:jacks-cafe-flat-white-medium-oat-milk",
+          "name": "Jack's Café Flat White Medium Oat Milk",
+          "brand": "Hungry Jack's Australia",
+          "eligible": true,
+          "group": "restaurant",
+          "form": "liquid"
+        },
+        {
+          "id": "food-source:hungry-jacks-au:jacks-cafe-flat-white-medium-skim",
+          "name": "Jack's Café Flat White Medium Skim",
+          "brand": "Hungry Jack's Australia",
+          "eligible": true,
+          "group": "restaurant",
+          "form": "liquid"
+        },
+        {
+          "id": "food-source:hungry-jacks-au:jacks-cafe-flat-white-small",
+          "name": "Jack's Café Flat White Small",
+          "brand": "Hungry Jack's Australia",
+          "eligible": true,
+          "group": "restaurant",
+          "form": "liquid"
+        },
+        {
+          "id": "food-source:hungry-jacks-au:jacks-cafe-flat-white-small-lactose-free",
+          "name": "Jack's Café Flat White Small Lactose Free",
+          "brand": "Hungry Jack's Australia",
+          "eligible": true,
+          "group": "restaurant",
+          "form": "liquid"
+        },
+        {
+          "id": "food-source:hungry-jacks-au:jacks-cafe-flat-white-small-oat",
+          "name": "Jack's Café Flat White Small Oat Milk",
+          "brand": "Hungry Jack's Australia",
+          "eligible": true,
+          "group": "restaurant",
+          "form": "liquid"
+        },
+        {
+          "id": "food-source:hungry-jacks-au:jacks-cafe-flat-white-small-skim",
+          "name": "Jack's Café Flat White Small Skim",
+          "brand": "Hungry Jack's Australia",
+          "eligible": true,
+          "group": "restaurant",
+          "form": "liquid"
+        },
+        {
+          "id": "food-source:hungry-jacks-au:jacks-cafe-flat-white-large-skim",
+          "name": "Jack's Café Flat White Large Skim",
+          "brand": "Hungry Jack's Australia",
+          "eligible": false,
+          "group": "completion",
+          "form": "liquid"
+        }
+      ]
+    },
+    {
+      "query": "Kellogg's Corn Flakes",
+      "choices": [
+        {
+          "id": "off:8801083672700",
+          "name": "Corn Flakes",
+          "brand": "Kellogg's",
+          "eligible": true,
+          "group": "best",
+          "form": "weight"
+        },
+        {
+          "id": "off:9310055536340",
+          "name": "Corn Flakes",
+          "brand": "Kellogg's",
+          "eligible": true,
+          "group": "broader",
+          "form": "weight"
+        },
+        {
+          "id": "off:9310055105805",
+          "name": "Corn flakes encrusted with nuts and honey",
+          "brand": "Kellogg's",
+          "eligible": true,
+          "group": "broader",
+          "form": "weight"
+        },
+        {
+          "id": "off:9310055102361",
+          "name": "Corn Flakes Mini Package",
+          "brand": "Kellogg's",
+          "eligible": true,
+          "group": "broader",
+          "form": "weight"
+        },
+        {
+          "id": "off:9310055536579",
+          "name": "Crunchy Nut Corn Flakes",
+          "brand": "Kellogg's",
+          "eligible": true,
+          "group": "broader",
+          "form": "weight"
+        }
+      ]
+    },
+    {
+      "query": "Woolworths cereal",
+      "choices": [
+        {
+          "id": "woolworths-au:321220",
+          "name": "Woolworths Rolled Traditional Oats 750g",
+          "brand": "Woolworths",
+          "eligible": true,
+          "group": "packaged",
+          "form": "weight"
+        },
+        {
+          "id": "off:9300633980016",
+          "name": "Australian Quick Oats",
+          "brand": "Woolworths",
+          "eligible": true,
+          "group": "broader",
+          "form": "unknown"
+        },
+        {
+          "id": "off:9339687411153",
+          "name": "Honey Cinnamon Muesli",
+          "brand": "Woolworths",
+          "eligible": true,
+          "group": "broader",
+          "form": "unknown"
+        },
+        {
+          "id": "off:9339687389889",
+          "name": "Organic Australian Quick Oats",
+          "brand": "macro",
+          "eligible": true,
+          "group": "broader",
+          "form": "weight"
+        },
+        {
+          "id": "off:9300633226275",
+          "name": "Organic Australian Rolled Oats",
+          "brand": "Macro Wholefoods Market",
+          "eligible": true,
+          "group": "broader",
+          "form": "weight"
+        }
+      ]
+    }
+  ],
+  "reviews": [
+    {
+      "id": "afcd-f003017",
+      "brand": "Australian Food Composition Database",
+      "name": "Coffee, black, from instant coffee powder",
+      "unit": "mL",
+      "amount": 250,
+      "preview": "View Nutrition Details\n5 Cal · 20 kJ",
+      "reviewCount": 1
+    },
+    {
+      "id": "afcd-f009796",
+      "brand": "Australian Food Composition Database",
+      "name": "Coffee, flat white/latte/cappuccino, from ground coffee beans, with regular fat cow's milk",
+      "unit": "mL",
+      "amount": 250,
+      "preview": "View Nutrition Details\n119 Cal · 499 kJ",
+      "reviewCount": 1
+    },
+    {
+      "id": "off:8801083672700",
+      "gtin": "8801083672700",
+      "brand": "Kellogg's",
+      "name": "Corn Flakes",
+      "unit": "g",
+      "amount": 35,
+      "preview": "View Nutrition Details\n136 Cal · 566 kJ",
+      "reviewCount": 1
+    },
+    {
+      "id": "woolworths-au:321220",
+      "gtin": "9300633989934",
+      "brand": "Woolworths",
+      "name": "Woolworths Rolled Traditional Oats 750g",
+      "unit": "g",
+      "amount": 35,
+      "preview": "View Nutrition Details\n133 Cal · 557 kJ",
+      "reviewCount": 1
+    },
+    {
+      "id": "woolworths-au:768568",
+      "gtin": "9300633450410",
+      "brand": "Woolworths",
+      "name": "Woolworths Mixed Vegetables 1Kg",
+      "unit": "g",
+      "amount": 100,
+      "preview": "View Nutrition Details\n52 Cal · 217 kJ",
+      "reviewCount": 1
+    },
+    {
+      "id": "manufacturer:campbells-au:NHj22P0BEMK27UsHVRzcX",
+      "gtin": "9300644043601",
+      "brand": "Campbell's",
+      "name": "Campbell's Real Stock Chicken 1L",
+      "unit": "mL",
+      "amount": 250,
+      "preview": "View Nutrition Details\n21 Cal · 87 kJ",
+      "reviewCount": 1
+    }
+  ],
+  "diagnostic": {
+    "sameOriginRequests": 125,
+    "localFulfilled": 125,
+    "localResponses": 125,
+    "optionalLocalMisses": {
+      "count": 0
+    },
+    "requiredAssetMisses": {
+      "count": 0
+    },
+    "liveFallthrough": 0,
+    "pageErrors": {
+      "count": 0
+    },
+    "consoleErrors": {
+      "count": 0
+    },
+    "warnings": {
+      "count": 1
+    },
+    "failedAssets": {
+      "count": 0
+    },
+    "external": {
+      "count": 0
+    },
+    "routes": {
+      "count": 125
+    }
+  },
+  "concepts": {
+    "pass": true,
+    "baseline": false,
+    "browser": "Microsoft Edge",
+    "version": "154.0.4258.53",
+    "failures": [],
+    "contexts": [
+      {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "diagnostic": {
+          "sameOriginRequests": 722,
+          "localFulfilled": 722,
+          "localResponses": 722,
+          "optionalLocalMisses": {
+            "count": 0
+          },
+          "requiredAssetMisses": {
+            "count": 0
+          },
+          "liveFallthrough": 0,
+          "pageErrors": {
+            "count": 0
+          },
+          "consoleErrors": {
+            "count": 0
+          },
+          "warnings": {
+            "count": 1
+          },
+          "failedAssets": {
+            "count": 0
+          },
+          "external": {
+            "count": 0
+          },
+          "routes": {
+            "count": 722
+          }
+        },
+        "scenarios": [
+          {
+            "query": "Bread",
+            "failures": [],
+            "screen": {}
+          },
+          {
+            "query": "Milk",
+            "failures": [],
+            "screen": {}
+          },
+          {
+            "query": "Big Mac",
+            "failures": [],
+            "screen": {}
+          },
+          {
+            "query": "Cheeseburger",
+            "failures": [],
+            "screen": {}
+          },
+          {
+            "query": "Hash Brown",
+            "failures": [],
+            "screen": {}
+          },
+          {
+            "query": "Flora ProActiv Light",
+            "failures": [],
+            "screen": {}
+          },
+          {
+            "query": "Whole meal bread",
+            "failures": [],
+            "screen": {}
+          },
+          {
+            "query": "Wholemeal bread",
+            "failures": [],
+            "screen": {}
+          },
+          {
+            "query": "White bread",
+            "failures": [],
+            "screen": {}
+          },
+          {
+            "query": "Cow milk",
+            "failures": [],
+            "screen": {}
+          },
+          {
+            "query": "Oat milk",
+            "failures": [],
+            "screen": {}
+          },
+          {
+            "query": "Skim milk",
+            "failures": [],
+            "screen": {}
+          },
+          {
+            "query": "Lactose-free milk",
+            "failures": [],
+            "screen": {}
+          },
+          {
+            "query": "Cheese",
+            "failures": [],
+            "screen": {}
+          },
+          {
+            "query": "Yoghurt",
+            "failures": [],
+            "screen": {}
+          },
+          {
+            "query": "Cereal",
+            "failures": [],
+            "screen": {}
+          },
+          {
+            "query": "Sausages",
+            "failures": [],
+            "screen": {}
+          },
+          {
+            "query": "Chips",
+            "failures": [],
+            "screen": {}
+          },
+          {
+            "query": "Fries",
+            "failures": [],
+            "screen": {}
+          },
+          {
+            "query": "Chicken",
+            "failures": [],
+            "screen": {}
+          },
+          {
+            "query": "Apple",
+            "failures": [],
+            "screen": {}
+          },
+          {
+            "query": "Crackers",
+            "failures": [],
+            "screen": {}
+          },
+          {
+            "query": "Margarine",
+            "failures": [],
+            "screen": {}
+          },
+          {
+            "query": "Burger",
+            "failures": [],
+            "screen": {}
+          },
+          {
+            "query": "Rice",
+            "failures": [],
+            "screen": {}
+          },
+          {
+            "query": "Eggs",
+            "failures": [],
+            "screen": {}
+          },
+          {
+            "query": "KFC Wicked Wings",
+            "failures": [],
+            "screen": {}
+          }
+        ],
+        "flows": [
+          {
+            "query": "Bread",
+            "product": "Bread, from wholemeal flour",
+            "measures": [
+              {
+                "key": "regularSlice",
+                "label": "Regular slice (40 g)\n›"
+              },
+              {
+                "key": "thickSlice",
+                "label": "Thick slice (about 45 g)\n›"
+              },
+              {
+                "key": "g",
+                "label": "g\n›"
+              }
+            ],
+            "review": {
+              "amount": "2",
+              "unit": "regularSlice",
+              "summary": "You Are Adding: 2 Regular Slices · 80 g total\n190 Cal · 794 kJ · Will be added only after you confirm Add to Diary."
+            },
+            "diarySaved": true
+          },
+          {
+            "query": "Whole meal bread",
+            "product": "Bread, from wholemeal flour",
+            "measures": [
+              {
+                "key": "regularSlice",
+                "label": "Regular slice (40 g)\n›"
+              },
+              {
+                "key": "thickSlice",
+                "label": "Thick slice (about 45 g)\n›"
+              },
+              {
+                "key": "g",
+                "label": "g\n›"
+              }
+            ],
+            "review": {
+              "amount": "2",
+              "unit": "regularSlice",
+              "summary": "You Are Adding: 2 Regular Slices · 80 g total\n190 Cal · 794 kJ · Will be added only after you confirm Add to Diary."
+            },
+            "diarySaved": false
+          },
+          {
+            "query": "White bread",
+            "product": "Bread, from white flour",
+            "measures": [
+              {
+                "key": "regularSlice",
+                "label": "Regular slice (40 g)\n›"
+              },
+              {
+                "key": "thickSlice",
+                "label": "Thick slice (about 45 g)\n›"
+              },
+              {
+                "key": "g",
+                "label": "g\n›"
+              }
+            ],
+            "review": {
+              "amount": "2",
+              "unit": "regularSlice",
+              "summary": "You Are Adding: 2 Regular Slices · 80 g total\n201 Cal · 840 kJ · Will be added only after you confirm Add to Diary."
+            },
+            "diarySaved": false
+          },
+          {
+            "query": "Milk",
+            "product": "Milk, cow, fluid, regular fat (~3.5%)",
+            "measures": [
+              {
+                "key": "mL",
+                "label": "mL\n›"
+              },
+              {
+                "key": "cup",
+                "label": "Metric cup (250 mL)\n›"
+              }
+            ],
+            "review": {
+              "amount": "250",
+              "unit": "mL",
+              "summary": "You Are Adding: 250 mL · 250 mL total\n166 Cal · 695 kJ · Will be added only after you confirm Add to Diary."
+            },
+            "diarySaved": true
+          },
+          {
+            "query": "Cow milk",
+            "product": "Milk, cow, fluid, regular fat (~3.5%)",
+            "measures": [
+              {
+                "key": "mL",
+                "label": "mL\n›"
+              },
+              {
+                "key": "cup",
+                "label": "Metric cup (250 mL)\n›"
+              }
+            ],
+            "review": {
+              "amount": "250",
+              "unit": "mL",
+              "summary": "You Are Adding: 250 mL · 250 mL total\n166 Cal · 695 kJ · Will be added only after you confirm Add to Diary."
+            },
+            "diarySaved": false
+          },
+          {
+            "query": "Oat milk",
+            "product": "Oat beverage, fluid, unfortified",
+            "measures": [
+              {
+                "key": "mL",
+                "label": "mL\n›"
+              },
+              {
+                "key": "cup",
+                "label": "Metric cup (250 mL)\n›"
+              }
+            ],
+            "review": {
+              "amount": "250",
+              "unit": "mL",
+              "summary": "You Are Adding: 250 mL · 250 mL total\n140 Cal · 588 kJ · Will be added only after you confirm Add to Diary."
+            },
+            "diarySaved": false
+          },
+          {
+            "query": "Cheese",
+            "product": "Cheese, cheddar, natural, regular fat",
+            "measures": [
+              {
+                "key": "slice",
+                "label": "Slice (20 g)\n›"
+              },
+              {
+                "key": "standardServe",
+                "label": "2 Slices Hard Cheese (40 g)\n›"
+              },
+              {
+                "key": "g",
+                "label": "g\n›"
+              }
+            ],
+            "review": {
+              "amount": "2",
+              "unit": "slice",
+              "summary": "You Are Adding: 2 Slices · 40 g total\n161 Cal · 674 kJ · Will be added only after you confirm Add to Diary."
+            },
+            "diarySaved": false
+          },
+          {
+            "query": "Yoghurt",
+            "product": "Yoghurt, almond based, flavoured",
+            "measures": [
+              {
+                "key": "threeQuarterCup",
+                "label": "¾ Cup Yoghurt (200 g)\n›"
+              },
+              {
+                "key": "g",
+                "label": "g\n›"
+              }
+            ],
+            "review": {
+              "amount": "2",
+              "unit": "threeQuarterCup",
+              "summary": "You Are Adding: 2 ¾ Cup Yoghurts · 400 g total\n367 Cal · 1,536 kJ · Will be added only after you confirm Add to Diary."
+            },
+            "diarySaved": false
+          },
+          {
+            "query": "Cereal",
+            "product": "Breakfast cereal, whole wheat, biscuit, no added sugar, unfortified",
+            "measures": [],
+            "review": {
+              "amount": "2",
+              "unit": "g",
+              "summary": "You Are Adding: 2 g · 2 g total\n7 Cal · 29 kJ · Will be added only after you confirm Add to Diary."
+            },
+            "diarySaved": false
+          },
+          {
+            "query": "Sausages",
+            "product": "Sausage, beef, fried, no added fat",
+            "measures": [
+              {
+                "key": "sausage",
+                "label": "Sausage (about 75 g)\n›"
+              },
+              {
+                "key": "thinSausage",
+                "label": "Long Thin Sausage (about 73 g)\n›"
+              },
+              {
+                "key": "thickSausage",
+                "label": "Long Thick Sausage (about 101 g)\n›"
+              },
+              {
+                "key": "cocktailSausage",
+                "label": "Cocktail / Small Sausage (about 38 g)\n›"
+              },
+              {
+                "key": "g",
+                "label": "g\n›"
+              }
+            ],
+            "review": {
+              "amount": "2",
+              "unit": "sausage",
+              "summary": "You Are Adding: 2 Sausages · 150 g total\n370 Cal · 1,546 kJ · Will be added only after you confirm Add to Diary."
+            },
+            "diarySaved": false
+          },
+          {
+            "query": "Hash Brown",
+            "product": "Hash Brown",
+            "measures": [
+              {
+                "key": "item",
+                "label": "Item (58 g)\n›"
+              },
+              {
+                "key": "g",
+                "label": "g\n›"
+              }
+            ],
+            "review": {
+              "amount": "2",
+              "unit": "item",
+              "summary": "You Are Adding: 2 Items · 116 g total\n327 Cal · 1,370 kJ · Will be added only after you confirm Add to Diary."
+            },
+            "diarySaved": true
+          },
+          {
+            "query": "Chips",
+            "product": "Potato, fries, fast food outlet, deep fried, monounsaturated oil, salted",
+            "measures": [],
+            "review": {
+              "amount": "2",
+              "unit": "g",
+              "summary": "You Are Adding: 2 g · 2 g total\n6 Cal · 26 kJ · Will be added only after you confirm Add to Diary."
+            },
+            "diarySaved": false
+          },
+          {
+            "query": "Fries",
+            "product": "Potato, fries, fast food outlet, deep fried, monounsaturated oil, salted",
+            "measures": [],
+            "review": {
+              "amount": "2",
+              "unit": "g",
+              "summary": "You Are Adding: 2 g · 2 g total\n6 Cal · 26 kJ · Will be added only after you confirm Add to Diary."
+            },
+            "diarySaved": false
+          },
+          {
+            "query": "Chicken",
+            "product": "Chicken, breast, lean flesh, fried, no added fat",
+            "measures": [
+              {
+                "key": "standardServe",
+                "label": "Cooked Lean Poultry — Australian standard serve (80 g)\n›"
+              },
+              {
+                "key": "g",
+                "label": "g\n›"
+              }
+            ],
+            "review": {
+              "amount": "2",
+              "unit": "standardServe",
+              "summary": "You Are Adding: 2 Cooked Lean Poultry — Australian Standard Serves · 160 g total\n254 Cal · 1,061 kJ · Will be added only after you confirm Add to Diary."
+            },
+            "diarySaved": false
+          },
+          {
+            "query": "Apple",
+            "product": "Apple, fuji, unpeeled, raw",
+            "measures": [
+              {
+                "key": "item",
+                "label": "Item (150 g)\n›"
+              },
+              {
+                "key": "g",
+                "label": "g\n›"
+              }
+            ],
+            "review": {
+              "amount": "2",
+              "unit": "item",
+              "summary": "You Are Adding: 2 Items · 300 g total\n176 Cal · 736 kJ · Will be added only after you confirm Add to Diary."
+            },
+            "diarySaved": false
+          },
+          {
+            "query": "Crackers",
+            "product": "Biscuit, savoury, rice cracker, plain",
+            "measures": [],
+            "review": {
+              "amount": "2",
+              "unit": "g",
+              "summary": "You Are Adding: 2 g · 2 g total\n8 Cal · 33 kJ · Will be added only after you confirm Add to Diary."
+            },
+            "diarySaved": false
+          },
+          {
+            "query": "Margarine",
+            "product": "Margarine spread, monounsaturated, reduced fat (~55%) & salt (sodium 380 mg/100 g)",
+            "measures": [
+              {
+                "key": "tsp",
+                "label": "Teaspoon (5 g)\n›"
+              },
+              {
+                "key": "tbsp",
+                "label": "Tablespoon (19 g)\n›"
+              },
+              {
+                "key": "g",
+                "label": "g\n›"
+              }
+            ],
+            "review": {
+              "amount": "2",
+              "unit": "tsp",
+              "summary": "You Are Adding: 2 Teaspoons · 10 g total\n46 Cal · 192 kJ · Will be added only after you confirm Add to Diary."
+            },
+            "diarySaved": false
+          },
+          {
+            "query": "Burger",
+            "product": "Hamburger",
+            "measures": [],
+            "review": {
+              "amount": "2",
+              "unit": "burger",
+              "summary": "You Are Adding: 2 Burgers\n570 Cal · 2,384 kJ · Will be added only after you confirm Add to Diary."
+            },
+            "diarySaved": false
+          },
+          {
+            "query": "Rice",
+            "product": "Rice, brown, boiled, no added salt",
+            "measures": [],
+            "review": {
+              "amount": "2",
+              "unit": "g",
+              "summary": "You Are Adding: 2 g · 2 g total\n3 Cal · 14 kJ · Will be added only after you confirm Add to Diary."
+            },
+            "diarySaved": false
+          },
+          {
+            "query": "Eggs",
+            "product": "Egg, chicken, whole, hard-boiled",
+            "measures": [
+              {
+                "key": "largeEgg",
+                "label": "Large Egg (about 45 g)\n›"
+              },
+              {
+                "key": "mediumEgg",
+                "label": "Medium Egg (about 37 g)\n›"
+              },
+              {
+                "key": "smallEgg",
+                "label": "Small Egg (about 31 g)\n›"
+              },
+              {
+                "key": "xLargeEgg",
+                "label": "X-Large Egg (about 52 g)\n›"
+              },
+              {
+                "key": "jumboEgg",
+                "label": "Jumbo Egg (about 59 g)\n›"
+              },
+              {
+                "key": "kingEgg",
+                "label": "King-Size Egg (about 64 g)\n›"
+              },
+              {
+                "key": "g",
+                "label": "g\n›"
+              }
+            ],
+            "review": {
+              "amount": "2",
+              "unit": "largeEgg",
+              "summary": "You Are Adding: 2 Large Eggs · 90 g total\n122 Cal · 512 kJ · Will be added only after you confirm Add to Diary."
+            },
+            "diarySaved": false
+          },
+          {
+            "query": "Big Mac",
+            "product": "Big Mac",
+            "measures": [],
+            "review": {
+              "amount": "2",
+              "unit": "burger",
+              "summary": "You Are Adding: 2 Burgers\n1,242 Cal · 5,200 kJ · Will be added only after you confirm Add to Diary."
+            },
+            "diarySaved": true
+          },
+          {
+            "query": "Cheeseburger",
+            "product": "Cheeseburger",
+            "measures": [],
+            "review": {
+              "amount": "2",
+              "unit": "burger",
+              "summary": "You Are Adding: 2 Burgers\n644 Cal · 2,694 kJ · Will be added only after you confirm Add to Diary."
+            },
+            "diarySaved": false
+          },
+          {
+            "query": "Flora ProActiv Light",
+            "product": "Flora ProActiv Light",
+            "measures": [
+              {
+                "key": "tsp",
+                "label": "Teaspoon (5 g)\n›"
+              },
+              {
+                "key": "tbsp",
+                "label": "Tablespoon (19 g)\n›"
+              },
+              {
+                "key": "serve",
+                "label": "Manufacturer serve (10 g)\n›"
+              },
+              {
+                "key": "g",
+                "label": "g\n›"
+              }
+            ],
+            "review": {
+              "amount": "5",
+              "unit": "g",
+              "summary": "You Are Adding: 5 g · 5 g total\n19 Cal · 77 kJ · Will be added only after you confirm Add to Diary."
+            },
+            "diarySaved": true
+          },
+          {
+            "query": "McCain hash browns",
+            "product": "McCain Hash Browns Shredded 750g",
+            "measures": [
+              {
+                "key": "serve",
+                "label": "Manufacturer serve (75 g)\n›"
+              },
+              {
+                "key": "g",
+                "label": "g\n›"
+              }
+            ],
+            "review": {
+              "amount": "2",
+              "unit": "serve",
+              "summary": "You Are Adding: 2 Serves · 150 g total\n260 Cal · 1,086 kJ · Will be added only after you confirm Add to Diary."
+            },
+            "diarySaved": false
+          },
+          {
+            "query": "Helga's wholemeal",
+            "product": "Traditional Wholemeal Bread",
+            "measures": [],
+            "review": {
+              "amount": "2",
+              "unit": "g",
+              "summary": "You Are Adding: 2 g · 2 g total\n5 Cal · 20 kJ · Will be added only after you confirm Add to Diary."
+            },
+            "diarySaved": false
+          }
+        ]
+      }
+    ]
+  },
+  "storage": {
+    "format": "Readable summary; lossless full evidence retained alongside",
+    "fullReport": "wave-1b-rendered.json.gz",
+    "fullSha256": "e3cc790008fbe05c7a7b19793a06514ca37936e85218f6ef14bb0e18e42a9b38",
+    "fullBytes": 59730715
+  }
+}

@@ -44,4 +44,33 @@ function reviewedFamily(food){
   if(/\b(?:turkish rolls|white soft rolls|english muffins)\b/.test(name))return result('bread',['bread-roll'],'plain-bread-roll');
   return null;
 }
-module.exports={classify,reviewedFamily};
+// Conservative fallback-only projection. Whole product heads and preparation
+// context outrank ingredients. No brand, retailer, GTIN or individual identity.
+function fallbackFamily(food){
+  const name=C.norm(food.name||food.product_name),tags=C.norm([...(food.categories||[]),...(food.sourceCategories||[]),food.sourceCategoryTags||'',food.preparationContext||''].join(' '));
+  const result=(id,conceptIds,rule)=>({id,conceptIds,rule});
+  if(/\b(?:recipe base|seasoning mix|stuffing|filling|filled|containing|meal kit|protein bar|cereal bar|chocolate|soup|stock|broth)\b/.test(name))return null;
+  // Corn/tortilla chips are snacks even when cheese/chicken describes flavour.
+  if(/\b(?:corn|tortilla) chips\b/.test(name)&&! /\b(?:with|salad|meal|nachos|dip|salsa|guacamole|kit)\b/.test(name)&&! /\band\b.*\b(?:corn|tortilla) chips\b/.test(name))return result('snacks',[],'corn-tortilla-chip-head');
+  if(/\b(?:salad|slaw) dressing\b/.test(name))return null;
+  if(/\b(?:salad|slaw)(?: kit)?$/.test(name)||/^shaker salads? (?:[a-z]+ )*style$/.test(name)){
+    if(!/\b(?:sandwich|wrap|roll|flavou?red|flavour|sauce|seasoning|powder)\b/.test(name))return result('produce',[],'prepared-salad-head');
+  }
+  if(/\b(?:chips|fries|wedges)\b/.test(name)&&! /\b(?:crisps|snack|corn|tortilla|chicken|fish|burger|meal|with|cheese|broccoli|cauliflower|apple|coconut)\b/.test(name)){
+    const frozen=/\b(?:frozen|oven|air fryer)\b/.test(name+' '+tags);
+    const cutHead=/^(?:(?:frozen|oven|potato|australian|straight|crinkle|thick|thin|steak|shoestring|cut) )*(?:chips|fries)$/.test(name)&&/\b(?:straight cut|shoestring)\b/.test(name)&&/^(?:weight|solid-weight)$/.test(food.physicalForm||'');
+    if(frozen||cutHead||/^(?:frozen )?french fries$/.test(name))return result('frozen-potato',['potato'],'potato-cut-and-preparation');
+  }
+  if(/\b(?:flavou?red|flavour|flavor|snack|chips|fries|wedges|crisps|bites|croquettes|pie|pasta|rice|pizza|sauce|dressing|dip|soup|bar|curry|meal|sandwich|bread|stuffing)\b/.test(name))return null;
+  if(/^(?:(?:light|reduced fat|tasty|processed|natural|cheddar|cheese|burger) )*(?:cheese slices|cheddar slices|cheese burger slices|sliced cheese)$/.test(name)||/^(?:cherry|mini|traditional) bocconcini$/.test(name))return result('cheese',['cheese'],'explicit-cheese-form');
+  if(/^(?:[a-z]+ )*(?:marmalade|jam|aioli|marinade)$/.test(name)&&! /\b(?:with|in|coated)\b/.test(name))return result(/\b(?:jam|marmalade)$/.test(name)?'spreads':'sauces',[],'preserve-condiment-head');
+  if(/^(?:(?:soft|large|mini|white|wholemeal|wholegrain|plain|spinach|herb|and) )*(?:wraps|flatbreads)$/.test(name)&&! /\b(?:with|filled)\b/.test(name))return result('bread',['bread'],'unfilled-flatbread-wrap');
+  if(/^(?:(?:soft|round|white|wholemeal|brioche|classic|plain) )+rolls$/.test(name))return result('bread',['bread-roll'],'plain-bread-roll-form');
+  // Meat/fish cuts must describe the product, not a flavoured snack or meal.
+  if(/\b(?:with|and)\b/.test(name))return null;
+  if(/^(?:(?:grass fed|australian|new york|strip|casserole|rump|sirloin|beef|rib eye|bone in|sharing|flat iron) )+steak$/.test(name)||/^(?:bone in )?rib eye$/.test(name)||/^(?:australian )?sirloin backstrap$/.test(name)||/^(?:slow cook )?brisket$/.test(name)||/^corned silverside(?: salt reduced)?$/.test(name))return result('protein',[],'whole-meat-cut');
+  if(/^(?:(?:sliced|english style|picnic|boneless|leg|deli|double smoked|smoked|off the bone) )*ham(?: (?:hock|steaks|off the bone|sliced|double smoked))*$/.test(name))return result('protein',[],'ham-product-head');
+  if(/^(?:(?:smoked|responsibly sourced) )*(?:rainbow trout|barramundi|salmon) (?:fillets|portions)(?: boneless)?(?: with skin on)?$/.test(name))return result('protein',[],'fish-species-and-cut');
+  return null;
+}
+module.exports={classify,reviewedFamily,fallbackFamily};

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "privateTestingApproved": true,
+  "publicReleaseReviewRequired": true,
+  "publicReleaseLicensingAdmissionGate": false,
+  "noNutritionChanges": true,
+  "noCanonicalMinting": true,
+  "inputs": {
+    "candidate-manifest.json": "b5a2aa511a64b403d46ac09dd879ba5f8991f32190912d098556f2d99cf4e00d",
+    "baseline.json": "b14cb78984f277da8688bae58271e790a5b6f94ec718e1357309875dc96ec6ba",
+    "baseline-records.json": "5d7280a28676e7d209956f30b97766ced4f43d49881ef20c6f569e280cc88368",
+    "baseline-peers.json": "087efce4316b1f747ca98b36054fd40f5c95375880cd992fed1dae634a069dab",
+    "reviewed-evidence.json": "9e596a96733b2abd286d830375e80d4f662f58c6494133758188e318ecb22647",
+    "protected-files.json": "884cd9db6f362f632af9dd66e5d3a810cf3b53aa026b0021257f71f156d8b224"
+  }
+}

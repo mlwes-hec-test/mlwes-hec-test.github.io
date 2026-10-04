@@ -1,0 +1,1402 @@
+{
+  "schemaVersion": 1,
+  "generation": "92b2d9e3b79ed004eb4c91d2",
+  "version": "0.6.33",
+  "retailers": {
+    "coles": {
+      "visible": 417,
+      "loggable": 417,
+      "restricted": 0,
+      "categories": [
+        {
+          "id": "bread",
+          "label": "Bread & Bakery",
+          "count": 27
+        },
+        {
+          "id": "milk",
+          "label": "Milk",
+          "count": 4
+        },
+        {
+          "id": "yoghurt",
+          "label": "Yoghurt",
+          "count": 7
+        },
+        {
+          "id": "cheese",
+          "label": "Cheese",
+          "count": 16
+        },
+        {
+          "id": "cereal",
+          "label": "Breakfast Cereal",
+          "count": 7
+        },
+        {
+          "id": "spreads",
+          "label": "Spreads & Margarine",
+          "count": 8
+        },
+        {
+          "id": "biscuits",
+          "label": "Crackers & Biscuits",
+          "count": 11
+        },
+        {
+          "id": "snacks",
+          "label": "Snack Foods",
+          "count": 34
+        },
+        {
+          "id": "sauces",
+          "label": "Sauces & Condiments",
+          "count": 14
+        },
+        {
+          "id": "protein",
+          "label": "Meat & Protein",
+          "count": 100
+        },
+        {
+          "id": "desserts",
+          "label": "Desserts & Ice Cream",
+          "count": 33
+        },
+        {
+          "id": "drinks",
+          "label": "Non-alcoholic Drinks",
+          "count": 3
+        },
+        {
+          "id": "canned",
+          "label": "Baked Beans & Canned Food",
+          "count": 16
+        },
+        {
+          "id": "grains",
+          "label": "Rice, Pasta & Grains",
+          "count": 39
+        },
+        {
+          "id": "frozen-potato",
+          "label": "Frozen Potato Products",
+          "count": 1
+        },
+        {
+          "id": "produce",
+          "label": "Packaged Fruit & Vegetables",
+          "count": 19
+        },
+        {
+          "id": "meals",
+          "label": "Prepared Meals",
+          "count": 8
+        },
+        {
+          "id": "pizza",
+          "label": "Pizza & Savoury Snacks",
+          "count": 6
+        },
+        {
+          "id": "other-food",
+          "label": "Other Packaged Food",
+          "count": 64
+        }
+      ],
+      "houseBrandFamilies": 15,
+      "otherPackagedFood": 64,
+      "changes": [
+        {
+          "canonicalKey": "barcode:0222421617784",
+          "name": "Bone In Rib Eye",
+          "brand": "Coles",
+          "before": "other-food",
+          "after": "protein",
+          "evidence": {
+            "wave": "2A",
+            "rule": "whole-meat-cut",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:0222421617784",
+              "url": "http://world-en.openfoodfacts.org/product/0222421617784/bone-in-rib-eye-coles",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "candidateId": "2A-B-12",
+            "projectionOnly": true
+          }
+        },
+        {
+          "canonicalKey": "barcode:0223408214033",
+          "name": "Australian Sirloin Backstrap",
+          "brand": "Coles",
+          "before": "other-food",
+          "after": "protein",
+          "evidence": {
+            "wave": "2A",
+            "rule": "whole-meat-cut",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:0223408214033",
+              "url": "http://world-en.openfoodfacts.org/product/0223408214033/australian-sirloin-backstrap-coles",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "candidateId": "2A-B-13",
+            "projectionOnly": true
+          }
+        },
+        {
+          "canonicalKey": "barcode:0224203717477",
+          "name": "Ham Hock",
+          "brand": "Coles",
+          "before": "other-food",
+          "after": "protein",
+          "evidence": {
+            "wave": "2A",
+            "rule": "ham-product-head",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:0224203717477",
+              "url": "http://world-en.openfoodfacts.org/product/0224203717477/ham-hock-coles",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "candidateId": "2A-B-14",
+            "projectionOnly": true
+          }
+        },
+        {
+          "canonicalKey": "barcode:0224324423769",
+          "name": "Slow Cook Brisket",
+          "brand": "Coles",
+          "before": "other-food",
+          "after": "protein",
+          "evidence": {
+            "wave": "2A",
+            "rule": "whole-meat-cut",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:0224324423769",
+              "url": "http://world-en.openfoodfacts.org/product/0224324423769/slow-cook-brisket-coles",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "candidateId": "2A-B-15",
+            "projectionOnly": true
+          }
+        },
+        {
+          "canonicalKey": "barcode:0224406114783",
+          "name": "Corned Silverside",
+          "brand": "Coles",
+          "before": "other-food",
+          "after": "protein",
+          "evidence": {
+            "wave": "2A",
+            "rule": "whole-meat-cut",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:0224406114783",
+              "url": "http://world-en.openfoodfacts.org/product/0224406114783/corned-silverside-coles",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "candidateId": "2A-B-16",
+            "projectionOnly": true
+          }
+        },
+        {
+          "canonicalKey": "barcode:0224406811408",
+          "name": "Corned Silverside Salt Reduced",
+          "brand": "Coles",
+          "before": "other-food",
+          "after": "protein",
+          "evidence": {
+            "wave": "2A",
+            "rule": "whole-meat-cut",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:0224406811408",
+              "url": "http://world-en.openfoodfacts.org/product/0224406811408/corned-silverside-salt-reduced-coles",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "candidateId": "2A-B-17",
+            "projectionOnly": true
+          }
+        },
+        {
+          "canonicalKey": "barcode:0224693135843",
+          "name": "Picnic Ham Off The Bone",
+          "brand": "Coles",
+          "before": "other-food",
+          "after": "protein",
+          "evidence": {
+            "wave": "2A",
+            "rule": "ham-product-head",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:0224693135843",
+              "url": "http://world-en.openfoodfacts.org/product/0224693135843/picnic-ham-off-the-bone-coles",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "candidateId": "2A-B-18",
+            "projectionOnly": true
+          }
+        },
+        {
+          "canonicalKey": "barcode:9300601352036",
+          "name": "Soft Round Rolls",
+          "brand": "Coles",
+          "before": "other-food",
+          "after": "bread",
+          "evidence": {
+            "wave": "2A",
+            "rule": "plain-bread-roll-form",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:9300601352036",
+              "url": "http://world-en.openfoodfacts.org/product/9300601352036/soft-round-rolls-coles",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "candidateId": "2A-B-19",
+            "projectionOnly": true
+          }
+        },
+        {
+          "canonicalKey": "barcode:9300601431700",
+          "name": "Cherry Bocconcini",
+          "brand": "Coles",
+          "before": "other-food",
+          "after": "cheese",
+          "evidence": {
+            "wave": "2A",
+            "rule": "explicit-cheese-form",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:9300601431700",
+              "url": "http://world-en.openfoodfacts.org/product/9300601431700/cherry-bocconcini-coles",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "candidateId": "2A-B-20",
+            "projectionOnly": true
+          }
+        },
+        {
+          "canonicalKey": "barcode:9310645217383",
+          "name": "Sliced English Style Ham",
+          "brand": "coles",
+          "before": "other-food",
+          "after": "protein",
+          "evidence": {
+            "wave": "2A",
+            "rule": "ham-product-head",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:9310645217383",
+              "url": "http://world-en.openfoodfacts.org/product/9310645217383/sliced-english-style-ham-coles",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "candidateId": "2A-B-21",
+            "projectionOnly": true
+          }
+        },
+        {
+          "canonicalKey": "barcode:9310645291666",
+          "name": "Soft White Wraps",
+          "brand": "Coles Simply",
+          "before": "other-food",
+          "after": "bread",
+          "evidence": {
+            "wave": "2A",
+            "rule": "unfilled-flatbread-wrap",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:9310645291666",
+              "url": "http://world-en.openfoodfacts.org/product/9310645291666/soft-white-wraps-coles-simply",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "candidateId": "2A-B-22",
+            "projectionOnly": true
+          }
+        },
+        {
+          "canonicalKey": "barcode:9310645308142",
+          "name": "Brioche Classic Rolls",
+          "brand": "Coles",
+          "before": "other-food",
+          "after": "bread",
+          "evidence": {
+            "wave": "2A",
+            "rule": "plain-bread-roll-form",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:9310645308142",
+              "url": "http://world-en.openfoodfacts.org/product/9310645308142/brioche-classic-rolls-coles",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "candidateId": "2A-B-23",
+            "projectionOnly": true
+          }
+        },
+        {
+          "canonicalKey": "barcode:9310645319285",
+          "name": "Grass Fed New York Strip Steak",
+          "brand": "Coles",
+          "before": "other-food",
+          "after": "protein",
+          "evidence": {
+            "wave": "2A",
+            "rule": "whole-meat-cut",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:9310645319285",
+              "url": "http://world-en.openfoodfacts.org/product/9310645319285/grass-fed-new-york-strip-steak-coles",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "candidateId": "2A-B-24",
+            "projectionOnly": true
+          }
+        },
+        {
+          "canonicalKey": "barcode:9310645343143",
+          "name": "Soft white wraps",
+          "brand": "Coles",
+          "before": "other-food",
+          "after": "bread",
+          "evidence": {
+            "wave": "2A",
+            "rule": "unfilled-flatbread-wrap",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:9310645343143",
+              "url": "http://world-en.openfoodfacts.org/product/9310645343143/soft-white-wraps-coles",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "candidateId": "2A-B-25",
+            "projectionOnly": true
+          }
+        },
+        {
+          "canonicalKey": "barcode:9310645357881",
+          "name": "Asian Style Salad",
+          "brand": "Coles",
+          "before": "other-food",
+          "after": "produce",
+          "evidence": {
+            "wave": "2A",
+            "rule": "prepared-salad-head",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:9310645357881",
+              "url": "http://world-en.openfoodfacts.org/product/9310645357881/asian-style-salad-coles",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "candidateId": "2A-B-26",
+            "projectionOnly": true
+          }
+        },
+        {
+          "canonicalKey": "barcode:9310645404530",
+          "name": "Breakfast Marmalade",
+          "brand": "Coles",
+          "before": "other-food",
+          "after": "spreads",
+          "evidence": {
+            "wave": "2A",
+            "rule": "preserve-condiment-head",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:9310645404530",
+              "url": "http://world-en.openfoodfacts.org/product/9310645404530/breakfast-marmalade-coles",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "candidateId": "2A-B-27",
+            "projectionOnly": true
+          }
+        },
+        {
+          "canonicalKey": "barcode:9310645412085",
+          "name": "Casserole Steak",
+          "brand": "Coles",
+          "before": "other-food",
+          "after": "protein",
+          "evidence": {
+            "wave": "2A",
+            "rule": "whole-meat-cut",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:9310645412085",
+              "url": "http://world-en.openfoodfacts.org/product/9310645412085/casserole-steak-coles",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "candidateId": "2A-B-28",
+            "projectionOnly": true
+          }
+        },
+        {
+          "canonicalKey": "barcode:9310645414461",
+          "name": "French Fries",
+          "brand": "Coles",
+          "before": "other-food",
+          "after": "frozen-potato",
+          "evidence": {
+            "wave": "2A",
+            "rule": "potato-cut-and-preparation",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:9310645414461",
+              "url": "http://world-en.openfoodfacts.org/product/9310645414461/french-fries-coles",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "candidateId": "2A-B-29",
+            "projectionOnly": true
+          }
+        },
+        {
+          "canonicalKey": "barcode:9310645421988",
+          "name": "Cheese Supreme Corn Chips",
+          "brand": "Coles",
+          "before": "other-food",
+          "after": "snacks",
+          "evidence": {
+            "wave": "2A",
+            "rule": "corn-tortilla-chip-head",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:9310645421988",
+              "url": "http://world-en.openfoodfacts.org/product/9310645421988/cheese-supreme-corn-chips-coles",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "candidateId": "2A-B-30",
+            "projectionOnly": true
+          }
+        },
+        {
+          "canonicalKey": "barcode:9310645488363",
+          "name": "Pickle Slaw",
+          "brand": "Coles",
+          "before": "other-food",
+          "after": "produce",
+          "evidence": {
+            "wave": "2A",
+            "rule": "prepared-salad-head",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:9310645488363",
+              "url": "http://world-en.openfoodfacts.org/product/9310645488363/pickle-slaw-coles",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "candidateId": "2A-B-32",
+            "projectionOnly": true
+          }
+        },
+        {
+          "canonicalKey": "barcode:9310645490700",
+          "name": "Shaker salads Japanese Style",
+          "brand": "Coles",
+          "before": "other-food",
+          "after": "produce",
+          "evidence": {
+            "wave": "2A",
+            "rule": "prepared-salad-head",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:9310645490700",
+              "url": "http://world-en.openfoodfacts.org/product/9310645490700/shaker-salads-japanese-style-coles",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "candidateId": "2A-B-33",
+            "projectionOnly": true
+          }
+        },
+        {
+          "canonicalKey": "barcode:9310645487878",
+          "name": "Beetroot Fetta And Walnut Salad",
+          "brand": "Coles Kitchen",
+          "before": "other-food",
+          "after": "produce",
+          "evidence": {
+            "wave": "2A",
+            "rule": "prepared-salad-head",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:9310645487878",
+              "url": "http://world-en.openfoodfacts.org/product/9310645487878/beetroot-fetta-and-walnut-salad-coles-kitchen",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "candidateId": "2A-B-31",
+            "projectionOnly": true
+          }
+        }
+      ]
+    },
+    "woolworths": {
+      "visible": 363,
+      "loggable": 348,
+      "restricted": 15,
+      "categories": [
+        {
+          "id": "bread",
+          "label": "Bread & Bakery",
+          "count": 35
+        },
+        {
+          "id": "milk",
+          "label": "Milk",
+          "count": 9
+        },
+        {
+          "id": "yoghurt",
+          "label": "Yoghurt",
+          "count": 7
+        },
+        {
+          "id": "cheese",
+          "label": "Cheese",
+          "count": 13
+        },
+        {
+          "id": "cereal",
+          "label": "Breakfast Cereal",
+          "count": 5
+        },
+        {
+          "id": "canned",
+          "label": "Baked Beans & Canned Food",
+          "count": 14
+        },
+        {
+          "id": "grains",
+          "label": "Rice, Pasta & Grains",
+          "count": 30
+        },
+        {
+          "id": "spreads",
+          "label": "Spreads & Margarine",
+          "count": 7
+        },
+        {
+          "id": "biscuits",
+          "label": "Crackers & Biscuits",
+          "count": 17
+        },
+        {
+          "id": "snacks",
+          "label": "Snack Foods",
+          "count": 27
+        },
+        {
+          "id": "frozen-vegetables",
+          "label": "Frozen Vegetables",
+          "count": 2
+        },
+        {
+          "id": "frozen-potato",
+          "label": "Frozen Potato Products",
+          "count": 2
+        },
+        {
+          "id": "sauces",
+          "label": "Sauces & Condiments",
+          "count": 9
+        },
+        {
+          "id": "drinks",
+          "label": "Non-alcoholic Drinks",
+          "count": 5
+        },
+        {
+          "id": "desserts",
+          "label": "Desserts & Ice Cream",
+          "count": 26
+        },
+        {
+          "id": "produce",
+          "label": "Packaged Fruit & Vegetables",
+          "count": 21
+        },
+        {
+          "id": "protein",
+          "label": "Meat & Protein",
+          "count": 78
+        },
+        {
+          "id": "meals",
+          "label": "Prepared Meals",
+          "count": 15
+        },
+        {
+          "id": "pizza",
+          "label": "Pizza & Savoury Snacks",
+          "count": 4
+        },
+        {
+          "id": "other-food",
+          "label": "Other Packaged Food",
+          "count": 37
+        }
+      ],
+      "houseBrandFamilies": 11,
+      "otherPackagedFood": 37,
+      "changes": [
+        {
+          "canonicalKey": "barcode:9315596009636",
+          "name": "Mexican Style Salad",
+          "brand": "Woolworths",
+          "before": "other-food",
+          "after": "produce",
+          "evidence": {
+            "wave": "2A",
+            "rule": "prepared-salad-head",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:9315596009636",
+              "url": "http://world-en.openfoodfacts.org/product/9315596009636/mexican-style-salad-woolworths",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "projectionOnly": true
+          }
+        },
+        {
+          "canonicalKey": "barcode:9339687013456",
+          "name": "Barramundi Portions",
+          "brand": "Woolworths",
+          "before": "other-food",
+          "after": "protein",
+          "evidence": {
+            "wave": "2A",
+            "rule": "fish-species-and-cut",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:9339687013456",
+              "url": "http://world-en.openfoodfacts.org/product/9339687013456/barramundi-portions-woolworths",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "projectionOnly": true
+          }
+        },
+        {
+          "canonicalKey": "barcode:9339687171156",
+          "name": "Macro Organic Corn Chips Spicy BBQ",
+          "brand": "Macro Wholefoods Market",
+          "before": "other-food",
+          "after": "snacks",
+          "evidence": {
+            "wave": "2A",
+            "rule": "corn-tortilla-chip-head",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:9339687171156",
+              "url": "http://world-en.openfoodfacts.org/product/9339687171156/macro-organic-corn-chips-spicy-bbq-macro-wholefoods-market",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "projectionOnly": true
+          }
+        },
+        {
+          "canonicalKey": "barcode:9339687343751",
+          "name": "Greek Salad",
+          "brand": "Woolworths",
+          "before": "other-food",
+          "after": "produce",
+          "evidence": {
+            "wave": "2A",
+            "rule": "prepared-salad-head",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:9339687343751",
+              "url": "http://world-en.openfoodfacts.org/product/9339687343751/greek-salad-woolworths",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "projectionOnly": true
+          }
+        },
+        {
+          "canonicalKey": "barcode:9339687380596",
+          "name": "Straight Cut Chips",
+          "brand": "Woolworths",
+          "before": "other-food",
+          "after": "frozen-potato",
+          "evidence": {
+            "wave": "2A",
+            "rule": "potato-cut-and-preparation",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:9339687380596",
+              "url": "http://world-en.openfoodfacts.org/product/9339687380596/straight-cut-chips-woolworths",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "projectionOnly": true
+          }
+        },
+        {
+          "canonicalKey": "barcode:9339687424047",
+          "name": "Corn Chips",
+          "brand": "Woolworths",
+          "before": "other-food",
+          "after": "snacks",
+          "evidence": {
+            "wave": "2A",
+            "rule": "corn-tortilla-chip-head",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:9339687424047",
+              "url": "http://world-en.openfoodfacts.org/product/9339687424047/corn-chips-woolworths",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "projectionOnly": true
+          }
+        },
+        {
+          "canonicalKey": "barcode:9339687429899",
+          "name": "Vitality Salad",
+          "brand": "Woolworths",
+          "before": "other-food",
+          "after": "produce",
+          "evidence": {
+            "wave": "2A",
+            "rule": "prepared-salad-head",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:9339687429899",
+              "url": "http://world-en.openfoodfacts.org/product/9339687429899/vitality-salad-woolworths",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "projectionOnly": true
+          }
+        },
+        {
+          "canonicalKey": "barcode:9339687433513",
+          "name": "Cheese Burger Slices",
+          "brand": "Woolworths",
+          "before": "other-food",
+          "after": "cheese",
+          "evidence": {
+            "wave": "2A",
+            "rule": "explicit-cheese-form",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:9339687433513",
+              "url": "http://world-en.openfoodfacts.org/product/9339687433513/cheese-burger-slices-woolworths",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "projectionOnly": true
+          }
+        }
+      ]
+    },
+    "aldi": {
+      "visible": 222,
+      "loggable": 222,
+      "restricted": 0,
+      "categories": [
+        {
+          "id": "bread",
+          "label": "Bread & Bakery",
+          "count": 14
+        },
+        {
+          "id": "yoghurt",
+          "label": "Yoghurt",
+          "count": 10
+        },
+        {
+          "id": "cheese",
+          "label": "Cheese",
+          "count": 24
+        },
+        {
+          "id": "cereal",
+          "label": "Breakfast Cereal",
+          "count": 9
+        },
+        {
+          "id": "biscuits",
+          "label": "Crackers & Biscuits",
+          "count": 12
+        },
+        {
+          "id": "snacks",
+          "label": "Snack Foods",
+          "count": 28
+        },
+        {
+          "id": "sauces",
+          "label": "Sauces & Condiments",
+          "count": 10
+        },
+        {
+          "id": "produce",
+          "label": "Packaged Fruit & Vegetables",
+          "count": 3
+        },
+        {
+          "id": "protein",
+          "label": "Meat & Protein",
+          "count": 40
+        },
+        {
+          "id": "canned",
+          "label": "Baked Beans & Canned Food",
+          "count": 8
+        },
+        {
+          "id": "grains",
+          "label": "Rice, Pasta & Grains",
+          "count": 5
+        },
+        {
+          "id": "spreads",
+          "label": "Spreads & Margarine",
+          "count": 10
+        },
+        {
+          "id": "frozen-potato",
+          "label": "Frozen Potato Products",
+          "count": 1
+        },
+        {
+          "id": "meals",
+          "label": "Prepared Meals",
+          "count": 2
+        },
+        {
+          "id": "pizza",
+          "label": "Pizza & Savoury Snacks",
+          "count": 4
+        },
+        {
+          "id": "other-food",
+          "label": "Other Packaged Food",
+          "count": 42
+        }
+      ],
+      "houseBrandFamilies": 32,
+      "otherPackagedFood": 42,
+      "changes": [
+        {
+          "canonicalKey": "barcode:2101822009252",
+          "name": "Boneless Leg Ham (Double Smoked)",
+          "brand": "Berg",
+          "before": "other-food",
+          "after": "protein",
+          "evidence": {
+            "wave": "2A",
+            "rule": "ham-product-head",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:2101822009252",
+              "url": "http://world-en.openfoodfacts.org/product/2101822009252/boneless-leg-ham-double-smoked-berg",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "projectionOnly": true
+          }
+        },
+        {
+          "canonicalKey": "barcode:4061459089103",
+          "name": "Spinach & Herb Wraps",
+          "brand": "Bakers Life",
+          "before": "other-food",
+          "after": "bread",
+          "evidence": {
+            "wave": "2A",
+            "rule": "unfilled-flatbread-wrap",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:4061459089103",
+              "url": "http://world-en.openfoodfacts.org/product/4061459089103/spinach-herb-wraps-bakers-life",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "projectionOnly": true
+          }
+        },
+        {
+          "canonicalKey": "barcode:4061459390209",
+          "name": "Garlic Aioli",
+          "brand": "Colway",
+          "before": "other-food",
+          "after": "sauces",
+          "evidence": {
+            "wave": "2A",
+            "rule": "preserve-condiment-head",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:4061459390209",
+              "url": "http://world-en.openfoodfacts.org/product/4061459390209/garlic-aioli-colway",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "projectionOnly": true
+          }
+        },
+        {
+          "canonicalKey": "barcode:4061461640675",
+          "name": "Smoked Rainbow Trout Fillets",
+          "brand": "Ocean Rise",
+          "before": "other-food",
+          "after": "protein",
+          "evidence": {
+            "wave": "2A",
+            "rule": "fish-species-and-cut",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:4061461640675",
+              "url": "http://world-en.openfoodfacts.org/product/4061461640675/smoked-rainbow-trout-fillets-ocean-rise",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "projectionOnly": true
+          }
+        },
+        {
+          "canonicalKey": "barcode:4061461699109",
+          "name": "Ham Steaks",
+          "brand": "BERG",
+          "before": "other-food",
+          "after": "protein",
+          "evidence": {
+            "wave": "2A",
+            "rule": "ham-product-head",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:4061461699109",
+              "url": "http://world-en.openfoodfacts.org/product/4061461699109/ham-steaks-berg",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "projectionOnly": true
+          }
+        },
+        {
+          "canonicalKey": "barcode:4061462000027",
+          "name": "Orange Marmalade",
+          "brand": "Grandessa",
+          "before": "other-food",
+          "after": "spreads",
+          "evidence": {
+            "wave": "2A",
+            "rule": "preserve-condiment-head",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:4061462000027",
+              "url": "http://world-en.openfoodfacts.org/product/4061462000027/orange-marmalade-grandessa",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "projectionOnly": true
+          }
+        },
+        {
+          "canonicalKey": "barcode:4061462223785",
+          "name": "Responsibly Sourced Barramundi Portions",
+          "brand": "Ocean Royale",
+          "before": "other-food",
+          "after": "protein",
+          "evidence": {
+            "wave": "2A",
+            "rule": "fish-species-and-cut",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:4061462223785",
+              "url": "http://world-en.openfoodfacts.org/product/4061462223785/responsibly-sourced-barramundi-portions-ocean-royale",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "projectionOnly": true
+          }
+        },
+        {
+          "canonicalKey": "barcode:4078700856162",
+          "name": "Deli Ham Off the Bone Sliced",
+          "brand": "Berg",
+          "before": "other-food",
+          "after": "protein",
+          "evidence": {
+            "wave": "2A",
+            "rule": "ham-product-head",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:4078700856162",
+              "url": "http://world-en.openfoodfacts.org/product/4078700856162/deli-ham-off-the-bone-sliced-berg",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "projectionOnly": true
+          }
+        },
+        {
+          "canonicalKey": "barcode:4088700109557",
+          "name": "Large Wholegrain Wraps",
+          "brand": "Bakers Life",
+          "before": "other-food",
+          "after": "bread",
+          "evidence": {
+            "wave": "2A",
+            "rule": "unfilled-flatbread-wrap",
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:4088700109557",
+              "url": "http://world-en.openfoodfacts.org/product/4088700109557/large-wholegrain-wraps-bakers-life",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            },
+            "projectionOnly": true
+          }
+        }
+      ]
+    }
+  },
+  "global": {
+    "canonicalIdentities": 7491,
+    "brands": 2736,
+    "categoryChanges": 66
+  },
+  "protectedFiles": {
+    "checked": 2461,
+    "unchanged": 2461
+  },
+  "review": {
+    "A": {
+      "reviewed": 11,
+      "newlyAdmitted": 0,
+      "existingCanonicalImproved": 0,
+      "recategorised": 0,
+      "restricted": 11,
+      "deferredRejected": 0,
+      "canonicalOverlaps": 11,
+      "duplicateEvidenceCollapsed": 0
+    },
+    "B": {
+      "reviewed": 22,
+      "newlyAdmitted": 0,
+      "existingCanonicalImproved": 0,
+      "recategorised": 22,
+      "restricted": 0,
+      "deferredRejected": 0,
+      "canonicalOverlaps": 22,
+      "duplicateEvidenceCollapsed": 0
+    },
+    "C": {
+      "reviewed": 4,
+      "newlyAdmitted": 0,
+      "existingCanonicalImproved": 0,
+      "recategorised": 0,
+      "restricted": 0,
+      "deferredRejected": 4,
+      "canonicalOverlaps": 2,
+      "duplicateEvidenceCollapsed": 0
+    },
+    "D": {
+      "reviewed": 2,
+      "newlyAdmitted": 0,
+      "existingCanonicalImproved": 1,
+      "recategorised": 0,
+      "restricted": 0,
+      "deferredRejected": 1,
+      "canonicalOverlaps": 2,
+      "duplicateEvidenceCollapsed": 2
+    }
+  }
+}

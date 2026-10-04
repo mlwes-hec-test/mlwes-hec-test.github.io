@@ -1,0 +1,449 @@
+{
+  "records": [
+    {
+      "id": "supplemental:mccain-au:products-categories-potato-speedy-solutions-air-fryer-straight-cut-750g",
+      "canonicalId": "supplemental:mccain-au:products-categories-potato-speedy-solutions-air-fryer-straight-cut-750g",
+      "measureEvidencePolicy": "source-and-published-standard-only",
+      "recordType": "packaged",
+      "sourceCatalogueId": "mccain-au",
+      "sourceId": "products/categories/potato/speedy-solutions/air-fryer-straight-cut-750g",
+      "name": "Air Fryer Straight Cut 750g",
+      "brand": "McCain",
+      "market": "AU",
+      "country": "Australia",
+      "category": "Frozen Potato Products",
+      "categoryMemberships": [
+        "Frozen potato products"
+      ],
+      "familyId": "mccain:speedy-solutions",
+      "familyName": "speedy-solutions",
+      "productFamily": "speedy-solutions",
+      "aliases": [
+        "Air Fryer Straight Cut 750g"
+      ],
+      "barcode": null,
+      "pack": {
+        "amount": 750,
+        "text": "Air Fryer Straight Cut 750g",
+        "unit": "g"
+      },
+      "packageSize": "750 g",
+      "servingsPerPack": 7.5,
+      "currentState": "listed-at-retrieval",
+      "manufacturerServing": {
+        "amount": 100,
+        "text": "100g",
+        "unit": "g"
+      },
+      "sourceServingEvidence": {
+        "amount": 100,
+        "text": "100g",
+        "unit": "g"
+      },
+      "sourceNutritionEvidence": {
+        "per100": {
+          "carbs": "22.7 g",
+          "energyKj": "575 kJ (137 Cal)",
+          "fat": "3.6 g",
+          "protein": "2.2 g",
+          "satFat": "LESS THAN 1.0 g",
+          "sodium": "33 mg",
+          "sugar": "LESS THAN 1.0 g"
+        },
+        "perServing": {
+          "carbs": "22.7 g",
+          "energyKj": "575 kJ (137 Cal)",
+          "fat": "3.6 g",
+          "protein": "2.2 g",
+          "satFat": "LESS THAN 1.0 g",
+          "sodium": "33 mg",
+          "sugar": "LESS THAN 1.0 g"
+        }
+      },
+      "nutrients": {
+        "energyKj": 575,
+        "calories": 137.4,
+        "protein": 2.2,
+        "carbs": 22.7,
+        "fat": 3.6,
+        "satFat": null,
+        "fibre": null,
+        "sugar": null,
+        "sodium": 33
+      },
+      "nutritionPer100": {
+        "energyKj": 575,
+        "calories": 137.4,
+        "protein": 2.2,
+        "carbs": 22.7,
+        "fat": 3.6,
+        "satFat": null,
+        "fibre": null,
+        "sugar": null,
+        "sodium": 33
+      },
+      "nutritionPer100Unit": "g",
+      "defaultUnit": "serve",
+      "defaultAmount": 1,
+      "units": {
+        "serve": 1,
+        "g": 0.01
+      },
+      "unitLabels": {
+        "serve": "Manufacturer serve (100 g)",
+        "g": "g"
+      },
+      "serving": "Source serving 100 g",
+      "verified": true,
+      "verificationStatus": "verified",
+      "nutritionStatus": "partial",
+      "loggable": true,
+      "source": "Official Australian manufacturer nutrition · checked 2026-09-08",
+      "sourceUrl": "https://www.mccain.com.au/products/categories/potato/speedy-solutions/air-fryer-straight-cut-750g/",
+      "sourceProvenance": {
+        "sourceId": "mccain-au",
+        "recordId": "products/categories/potato/speedy-solutions/air-fryer-straight-cut-750g",
+        "trustClass": "official-au-manufacturer",
+        "url": "https://www.mccain.com.au/products/categories/potato/speedy-solutions/air-fryer-straight-cut-750g/",
+        "retrievedAt": "2026-09-08T07:52:13.487155+00:00",
+        "verifiedAt": "2026-09-08",
+        "sha256": "2708a4d96ece7c118a52952742e8c5aa5253e40d0702609e2ff7e6241836d3d8",
+        "publishedDate": null,
+        "page": null
+      },
+      "evidenceConflicts": [],
+      "evidenceFlags": [],
+      "rawSourceReference": {
+        "id": "products/categories/potato/speedy-solutions/air-fryer-straight-cut-750g",
+        "sourceId": "mccain-au"
+      },
+      "score": 6,
+      "productSemantics": {
+        "type": "packaged-serving",
+        "confidence": "high",
+        "source": "explicit-metadata"
+      },
+      "semanticType": "packaged-serving",
+      "semanticSource": "explicit-metadata",
+      "servingPolicy": {
+        "semanticType": "packaged-serving",
+        "semanticSource": "explicit-metadata",
+        "confidence": "high",
+        "nutritionBasis": "per-serve",
+        "defaultAmount": 1,
+        "defaultUnit": "serve",
+        "allowedUnits": [
+          "serve",
+          "g"
+        ],
+        "allowedUnitFamily": "package",
+        "foodGroupUnitEligibility": {
+          "allowed": false,
+          "reason": "no-explicit-food-group-measure"
+        },
+        "naturalServingDisplay": "Source serving 100 g",
+        "countMeaningful": false,
+        "sizePartOfIdentity": false,
+        "reviewOnly": false,
+        "partialEditingSafe": true,
+        "loggable": true
+      },
+      "servingDefaultUnit": "serve",
+      "lockedServingUnit": "serve",
+      "fractionUnits": [
+        "serve"
+      ],
+      "nutritionBasis": {
+        "semanticBasis": "per-serve"
+      },
+      "semanticResolution": {
+        "autoResolved": false,
+        "before": {
+          "amount": 1,
+          "unit": "serve",
+          "label": "Manufacturer serve (100 g)",
+          "serving": "Source serving 100 g"
+        },
+        "after": {
+          "amount": 1,
+          "unit": "serve",
+          "label": "Manufacturer serve (100 g)",
+          "serving": "Source serving 100 g"
+        },
+        "rule": "explicit-metadata"
+      },
+      "unitOrigins": {
+        "serve": {
+          "key": "serve",
+          "label": "Manufacturer serve (100 g)",
+          "multiplier": 1,
+          "source": "Explicit manufacturer serving",
+          "sourceType": "product-metadata",
+          "confidence": "package-explicit",
+          "portionPreset": true,
+          "sourceLabel": "Manufacturer serve (100 g)",
+          "id": "serve",
+          "displayLabel": "Manufacturer serve (100 g)",
+          "singularLabel": "manufacturer serve",
+          "pluralLabel": "manufacturer serves",
+          "physicalFamily": "manufacturer",
+          "conversionToBase": {
+            "baseUnit": "g",
+            "baseQuantity": 100,
+            "basis": "nutrition-base conversion"
+          },
+          "conversionBasis": "nutrition-base conversion",
+          "applicability": "packaged-single-serving",
+          "provenance": "manufacturer",
+          "displayPriority": 30,
+          "quickAmounts": [
+            0.25,
+            0.5,
+            0.75,
+            1
+          ],
+          "origin": "Explicit manufacturer serving"
+        },
+        "g": {
+          "key": "g",
+          "label": "g",
+          "multiplier": 0.01,
+          "source": "Explicit manufacturer serving",
+          "sourceType": "product-metadata",
+          "confidence": "package-explicit",
+          "portionPreset": false,
+          "sourceLabel": "g",
+          "id": "g",
+          "displayLabel": "g",
+          "singularLabel": "g",
+          "pluralLabel": "g",
+          "physicalFamily": "weight",
+          "conversionToBase": {
+            "baseUnit": "g",
+            "baseQuantity": 1,
+            "basis": "nutrition-base conversion"
+          },
+          "conversionBasis": "nutrition-base conversion",
+          "applicability": "packaged-single-serving",
+          "provenance": "manufacturer",
+          "displayPriority": 90,
+          "quickAmounts": [],
+          "origin": "Explicit manufacturer serving"
+        }
+      },
+      "servingFoundationSource": "Explicit package serving data",
+      "servingMeasureVersion": "0.6.33",
+      "sourceMeasureMetadata": {
+        "units": {
+          "serve": 1,
+          "g": 0.01
+        },
+        "labels": {
+          "serve": "Manufacturer serve (100 g)",
+          "g": "g"
+        },
+        "origins": {},
+        "manufacturerServing": {
+          "amount": 100,
+          "text": "100g",
+          "unit": "g"
+        },
+        "nutritionBasis": null
+      },
+      "allowedUnits": [
+        "serve",
+        "g"
+      ],
+      "quarantinedMeasures": [],
+      "nutritionBasisConflict": false,
+      "retailerMemberships": [],
+      "privateLabelCollections": [],
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "roundTwoProvenance": {
+        "trustClass": "official-au-manufacturer",
+        "sourceId": "mccain-au",
+        "recordId": "/products/categories/potato/speedy-solutions/air-fryer-straight-cut-750g/",
+        "url": "https://www.mccain.com.au/products/categories/potato/speedy-solutions/air-fryer-straight-cut-750g/",
+        "retrievedAt": "2026-09-17T17:00:47.890046+00:00",
+        "checkedAt": "2026-09-18",
+        "sha256": "2708a4d96ece7c118a52952742e8c5aa5253e40d0702609e2ff7e6241836d3d8",
+        "privateTestingApproved": true,
+        "publicReleaseReviewRequired": true
+      },
+      "categoryId": "frozen-potato",
+      "sourceBrands": "McCain",
+      "sourceBrandTokens": [
+        {
+          "key": "mccain",
+          "name": "McCain"
+        }
+      ],
+      "conceptIds": [
+        "potato"
+      ],
+      "brandAdmission": {
+        "status": "audited-round-two",
+        "evidenceSha256": "2708a4d96ece7c118a52952742e8c5aa5253e40d0702609e2ff7e6241836d3d8"
+      },
+      "browseEligible": true
+    }
+  ],
+  "protectedOFF": [
+    {
+      "canonicalKey": "barcode:9300601017003",
+      "file": "data/open-food-facts-au/products/co-04.json",
+      "row": 104,
+      "sha256": "88e775068810e45830c257ec54f79cef13bfd828b85b33ef8319e49af912e7c4",
+      "record": {
+        "barcode": "9300601017003",
+        "brand": "Coles",
+        "brandKey": "coles",
+        "categories": [
+          "Dairies",
+          "Fermented foods",
+          "Fermented milk products",
+          "Cheeses",
+          "Cow cheeses",
+          "Cheeses from the United Kingdom",
+          "Cheeses from England",
+          "Cheddar cheese"
+        ],
+        "countries": [
+          "en:australia"
+        ],
+        "genericName": "",
+        "id": "off:9300601017003",
+        "lastModified": "2026-05-14T04:30:50Z",
+        "market": "AU",
+        "name": "Tasty Cheddar Slices",
+        "nutrients": {
+          "calories": 393.790403,
+          "carbs": 1,
+          "energyKj": 1753,
+          "fat": 35.4,
+          "fibre": 1,
+          "protein": 24.6,
+          "salt": 1.6875,
+          "saturatedFat": 25.3,
+          "sodium": 0.675,
+          "sugars": 1
+        },
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "complete",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "500g",
+        "recordType": "external-catalogue",
+        "servingQuantity": 21,
+        "servingSize": "1 slice (21 g)",
+        "source": "Open Food Facts",
+        "sourceId": "off:9300601017003",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/9300601017003/tasty-cheddar-slices-coles"
+      }
+    },
+    {
+      "canonicalKey": "barcode:9310645103341",
+      "file": "data/open-food-facts-au/products/co-02.json",
+      "row": 601,
+      "sha256": "5d7e80ec976e8f9417593df99a12983a35f04c264ffa43c9ad9a519b9bca8f46",
+      "record": {
+        "barcode": "9310645103341",
+        "brand": "coles",
+        "brandKey": "coles",
+        "categories": [
+          "Dairies",
+          "Fermented foods",
+          "Fermented milk products",
+          "Desserts",
+          "Dairy desserts",
+          "Fermented dairy desserts",
+          "Yogurts",
+          "Greek-style yogurts"
+        ],
+        "countries": [
+          "en:australia"
+        ],
+        "genericName": "",
+        "id": "off:9310645103341",
+        "lastModified": "2026-05-04T09:24:50Z",
+        "market": "AU",
+        "name": "Greek style natural yoghurt",
+        "nutrients": {
+          "calories": 69.471,
+          "carbs": 5.12,
+          "energyKj": 515.2,
+          "fat": 9.28,
+          "fibre": 0.8,
+          "protein": 4.8,
+          "salt": 0.14,
+          "saturatedFat": 6.64,
+          "sodium": 0.056,
+          "sugars": 4.64
+        },
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "complete",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "1kg",
+        "recordType": "external-catalogue",
+        "servingQuantity": 125,
+        "servingSize": "1 portion (125 g)",
+        "source": "Open Food Facts",
+        "sourceId": "off:9310645103341",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/9310645103341/greek-style-natural-yoghurt-coles"
+      }
+    },
+    {
+      "canonicalKey": "barcode:9300652805048",
+      "file": "data/open-food-facts-au/products/sa-00.json",
+      "row": 705,
+      "sha256": "eb2954eafe92ed0b97298eea6442eb7b2934f3fb32b950ae820a572e2e63cfa5",
+      "record": {
+        "barcode": "9300652805048",
+        "brand": "Sanitarium",
+        "brandKey": "sanitarium",
+        "categories": [
+          "Plant-based foods and beverages",
+          "Plant-based foods",
+          "Breakfasts",
+          "Cereals and potatoes",
+          "Cereals and their products",
+          "Breakfast cereals"
+        ],
+        "countries": [
+          "en:australia",
+          "en:france"
+        ],
+        "genericName": "",
+        "id": "off:9300652805048",
+        "lastModified": "2026-05-13T22:23:20Z",
+        "market": "AU",
+        "name": "Weet-Bix",
+        "nutrients": {
+          "calories": 366.666667,
+          "carbs": 20.4,
+          "energyKj": 584,
+          "fat": 3.8,
+          "fibre": 4,
+          "protein": 3.8,
+          "salt": 0.21,
+          "saturatedFat": 0.1,
+          "sodium": 0.084,
+          "sugars": 0.9
+        },
+        "nutritionBasis": "per-100g-off-csv",
+        "nutritionCompleteness": "complete",
+        "provenanceClass": "australian-external-catalogue",
+        "quantity": "575 g",
+        "recordType": "external-catalogue",
+        "servingQuantity": 31,
+        "servingSize": "1 serving (31 g)",
+        "source": "Open Food Facts",
+        "sourceId": "off:9300652805048",
+        "sourceScope": "Australia",
+        "sourceUrl": "http://world-en.openfoodfacts.org/product/9300652805048/weet-bix-sanitarium"
+      }
+    }
+  ]
+}

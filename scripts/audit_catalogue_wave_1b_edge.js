@@ -31,4 +31,4 @@ async function run(outputDirectory,{conceptFlows=true}={}){
  finally{await browser.close();fs.writeFileSync(path.join(outputDirectory,'wave-1b-rendered.json'),JSON.stringify(report,null,2)+'\n');}
 }
 if(require.main===module)run(process.argv[2],{conceptFlows:!process.argv.includes('--focused')}).then(r=>console.log(JSON.stringify({pass:r.pass,queries:r.scenarios.length,reviews:r.reviews.length,conceptScenarios:r.concepts?.contexts[0].scenarios.length,conceptFlows:r.concepts?.contexts[0].flows.length}))).catch(e=>{console.error(e);process.exitCode=1;});
-module.exports={run};
+module.exports={run,rows,review};

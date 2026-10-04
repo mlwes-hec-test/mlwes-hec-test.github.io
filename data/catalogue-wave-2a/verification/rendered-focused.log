@@ -1,0 +1,13 @@
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+'mL' !== 'g'
+
+    at Object.review (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\scripts\audit_catalogue_wave_1b_edge.js:9:200)
+    at async run (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\scripts\audit_catalogue_wave_2a_edge.js:25:24) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 'mL',
+  expected: 'g',
+  operator: 'strictEqual',
+  diff: 'simple'
+}

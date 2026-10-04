@@ -1,0 +1,669 @@
+{
+  "pass": true,
+  "baseline": false,
+  "browser": "Microsoft Edge",
+  "version": "154.0.4258.53",
+  "failures": [],
+  "contexts": [
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "diagnostic": {
+        "sameOriginRequests": 722,
+        "localFulfilled": 722,
+        "localResponses": 722,
+        "optionalLocalMisses": {
+          "count": 0
+        },
+        "requiredAssetMisses": {
+          "count": 0
+        },
+        "liveFallthrough": 0,
+        "pageErrors": {
+          "count": 0
+        },
+        "consoleErrors": {
+          "count": 0
+        },
+        "warnings": {
+          "count": 1
+        },
+        "failedAssets": {
+          "count": 0
+        },
+        "external": {
+          "count": 0
+        },
+        "routes": {
+          "count": 722
+        }
+      },
+      "scenarios": [
+        {
+          "query": "Bread",
+          "failures": [],
+          "screen": {}
+        },
+        {
+          "query": "Milk",
+          "failures": [],
+          "screen": {}
+        },
+        {
+          "query": "Big Mac",
+          "failures": [],
+          "screen": {}
+        },
+        {
+          "query": "Cheeseburger",
+          "failures": [],
+          "screen": {}
+        },
+        {
+          "query": "Hash Brown",
+          "failures": [],
+          "screen": {}
+        },
+        {
+          "query": "Flora ProActiv Light",
+          "failures": [],
+          "screen": {}
+        },
+        {
+          "query": "Whole meal bread",
+          "failures": [],
+          "screen": {}
+        },
+        {
+          "query": "Wholemeal bread",
+          "failures": [],
+          "screen": {}
+        },
+        {
+          "query": "White bread",
+          "failures": [],
+          "screen": {}
+        },
+        {
+          "query": "Cow milk",
+          "failures": [],
+          "screen": {}
+        },
+        {
+          "query": "Oat milk",
+          "failures": [],
+          "screen": {}
+        },
+        {
+          "query": "Skim milk",
+          "failures": [],
+          "screen": {}
+        },
+        {
+          "query": "Lactose-free milk",
+          "failures": [],
+          "screen": {}
+        },
+        {
+          "query": "Cheese",
+          "failures": [],
+          "screen": {}
+        },
+        {
+          "query": "Yoghurt",
+          "failures": [],
+          "screen": {}
+        },
+        {
+          "query": "Cereal",
+          "failures": [],
+          "screen": {}
+        },
+        {
+          "query": "Sausages",
+          "failures": [],
+          "screen": {}
+        },
+        {
+          "query": "Chips",
+          "failures": [],
+          "screen": {}
+        },
+        {
+          "query": "Fries",
+          "failures": [],
+          "screen": {}
+        },
+        {
+          "query": "Chicken",
+          "failures": [],
+          "screen": {}
+        },
+        {
+          "query": "Apple",
+          "failures": [],
+          "screen": {}
+        },
+        {
+          "query": "Crackers",
+          "failures": [],
+          "screen": {}
+        },
+        {
+          "query": "Margarine",
+          "failures": [],
+          "screen": {}
+        },
+        {
+          "query": "Burger",
+          "failures": [],
+          "screen": {}
+        },
+        {
+          "query": "Rice",
+          "failures": [],
+          "screen": {}
+        },
+        {
+          "query": "Eggs",
+          "failures": [],
+          "screen": {}
+        },
+        {
+          "query": "KFC Wicked Wings",
+          "failures": [],
+          "screen": {}
+        }
+      ],
+      "flows": [
+        {
+          "query": "Bread",
+          "product": "Bread, from wholemeal flour",
+          "measures": [
+            {
+              "key": "regularSlice",
+              "label": "Regular slice (40 g)\n›"
+            },
+            {
+              "key": "thickSlice",
+              "label": "Thick slice (about 45 g)\n›"
+            },
+            {
+              "key": "g",
+              "label": "g\n›"
+            }
+          ],
+          "review": {
+            "amount": "2",
+            "unit": "regularSlice",
+            "summary": "You Are Adding: 2 Regular Slices · 80 g total\n190 Cal · 794 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diarySaved": true
+        },
+        {
+          "query": "Whole meal bread",
+          "product": "Bread, from wholemeal flour",
+          "measures": [
+            {
+              "key": "regularSlice",
+              "label": "Regular slice (40 g)\n›"
+            },
+            {
+              "key": "thickSlice",
+              "label": "Thick slice (about 45 g)\n›"
+            },
+            {
+              "key": "g",
+              "label": "g\n›"
+            }
+          ],
+          "review": {
+            "amount": "2",
+            "unit": "regularSlice",
+            "summary": "You Are Adding: 2 Regular Slices · 80 g total\n190 Cal · 794 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diarySaved": false
+        },
+        {
+          "query": "White bread",
+          "product": "Bread, from white flour",
+          "measures": [
+            {
+              "key": "regularSlice",
+              "label": "Regular slice (40 g)\n›"
+            },
+            {
+              "key": "thickSlice",
+              "label": "Thick slice (about 45 g)\n›"
+            },
+            {
+              "key": "g",
+              "label": "g\n›"
+            }
+          ],
+          "review": {
+            "amount": "2",
+            "unit": "regularSlice",
+            "summary": "You Are Adding: 2 Regular Slices · 80 g total\n201 Cal · 840 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diarySaved": false
+        },
+        {
+          "query": "Milk",
+          "product": "Milk, cow, fluid, regular fat (~3.5%)",
+          "measures": [
+            {
+              "key": "mL",
+              "label": "mL\n›"
+            },
+            {
+              "key": "cup",
+              "label": "Metric cup (250 mL)\n›"
+            }
+          ],
+          "review": {
+            "amount": "250",
+            "unit": "mL",
+            "summary": "You Are Adding: 250 mL · 250 mL total\n166 Cal · 695 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diarySaved": true
+        },
+        {
+          "query": "Cow milk",
+          "product": "Milk, cow, fluid, regular fat (~3.5%)",
+          "measures": [
+            {
+              "key": "mL",
+              "label": "mL\n›"
+            },
+            {
+              "key": "cup",
+              "label": "Metric cup (250 mL)\n›"
+            }
+          ],
+          "review": {
+            "amount": "250",
+            "unit": "mL",
+            "summary": "You Are Adding: 250 mL · 250 mL total\n166 Cal · 695 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diarySaved": false
+        },
+        {
+          "query": "Oat milk",
+          "product": "Oat beverage, fluid, unfortified",
+          "measures": [
+            {
+              "key": "mL",
+              "label": "mL\n›"
+            },
+            {
+              "key": "cup",
+              "label": "Metric cup (250 mL)\n›"
+            }
+          ],
+          "review": {
+            "amount": "250",
+            "unit": "mL",
+            "summary": "You Are Adding: 250 mL · 250 mL total\n140 Cal · 588 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diarySaved": false
+        },
+        {
+          "query": "Cheese",
+          "product": "Cheese, cheddar, natural, regular fat",
+          "measures": [
+            {
+              "key": "slice",
+              "label": "Slice (20 g)\n›"
+            },
+            {
+              "key": "standardServe",
+              "label": "2 Slices Hard Cheese (40 g)\n›"
+            },
+            {
+              "key": "g",
+              "label": "g\n›"
+            }
+          ],
+          "review": {
+            "amount": "2",
+            "unit": "slice",
+            "summary": "You Are Adding: 2 Slices · 40 g total\n161 Cal · 674 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diarySaved": false
+        },
+        {
+          "query": "Yoghurt",
+          "product": "Yoghurt, almond based, flavoured",
+          "measures": [
+            {
+              "key": "threeQuarterCup",
+              "label": "¾ Cup Yoghurt (200 g)\n›"
+            },
+            {
+              "key": "g",
+              "label": "g\n›"
+            }
+          ],
+          "review": {
+            "amount": "2",
+            "unit": "threeQuarterCup",
+            "summary": "You Are Adding: 2 ¾ Cup Yoghurts · 400 g total\n367 Cal · 1,536 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diarySaved": false
+        },
+        {
+          "query": "Cereal",
+          "product": "Breakfast cereal, whole wheat, biscuit, no added sugar, unfortified",
+          "measures": [],
+          "review": {
+            "amount": "2",
+            "unit": "g",
+            "summary": "You Are Adding: 2 g · 2 g total\n7 Cal · 29 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diarySaved": false
+        },
+        {
+          "query": "Sausages",
+          "product": "Sausage, beef, fried, no added fat",
+          "measures": [
+            {
+              "key": "sausage",
+              "label": "Sausage (about 75 g)\n›"
+            },
+            {
+              "key": "thinSausage",
+              "label": "Long Thin Sausage (about 73 g)\n›"
+            },
+            {
+              "key": "thickSausage",
+              "label": "Long Thick Sausage (about 101 g)\n›"
+            },
+            {
+              "key": "cocktailSausage",
+              "label": "Cocktail / Small Sausage (about 38 g)\n›"
+            },
+            {
+              "key": "g",
+              "label": "g\n›"
+            }
+          ],
+          "review": {
+            "amount": "2",
+            "unit": "sausage",
+            "summary": "You Are Adding: 2 Sausages · 150 g total\n370 Cal · 1,546 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diarySaved": false
+        },
+        {
+          "query": "Hash Brown",
+          "product": "Hash Brown",
+          "measures": [
+            {
+              "key": "item",
+              "label": "Item (58 g)\n›"
+            },
+            {
+              "key": "g",
+              "label": "g\n›"
+            }
+          ],
+          "review": {
+            "amount": "2",
+            "unit": "item",
+            "summary": "You Are Adding: 2 Items · 116 g total\n327 Cal · 1,370 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diarySaved": true
+        },
+        {
+          "query": "Chips",
+          "product": "Potato, fries, fast food outlet, deep fried, monounsaturated oil, salted",
+          "measures": [],
+          "review": {
+            "amount": "2",
+            "unit": "g",
+            "summary": "You Are Adding: 2 g · 2 g total\n6 Cal · 26 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diarySaved": false
+        },
+        {
+          "query": "Fries",
+          "product": "Potato, fries, fast food outlet, deep fried, monounsaturated oil, salted",
+          "measures": [],
+          "review": {
+            "amount": "2",
+            "unit": "g",
+            "summary": "You Are Adding: 2 g · 2 g total\n6 Cal · 26 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diarySaved": false
+        },
+        {
+          "query": "Chicken",
+          "product": "Chicken, breast, lean flesh, fried, no added fat",
+          "measures": [
+            {
+              "key": "standardServe",
+              "label": "Cooked Lean Poultry — Australian standard serve (80 g)\n›"
+            },
+            {
+              "key": "g",
+              "label": "g\n›"
+            }
+          ],
+          "review": {
+            "amount": "2",
+            "unit": "standardServe",
+            "summary": "You Are Adding: 2 Cooked Lean Poultry — Australian Standard Serves · 160 g total\n254 Cal · 1,061 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diarySaved": false
+        },
+        {
+          "query": "Apple",
+          "product": "Apple, fuji, unpeeled, raw",
+          "measures": [
+            {
+              "key": "item",
+              "label": "Item (150 g)\n›"
+            },
+            {
+              "key": "g",
+              "label": "g\n›"
+            }
+          ],
+          "review": {
+            "amount": "2",
+            "unit": "item",
+            "summary": "You Are Adding: 2 Items · 300 g total\n176 Cal · 736 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diarySaved": false
+        },
+        {
+          "query": "Crackers",
+          "product": "Biscuit, savoury, rice cracker, plain",
+          "measures": [],
+          "review": {
+            "amount": "2",
+            "unit": "g",
+            "summary": "You Are Adding: 2 g · 2 g total\n8 Cal · 33 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diarySaved": false
+        },
+        {
+          "query": "Margarine",
+          "product": "Margarine spread, monounsaturated, reduced fat (~55%) & salt (sodium 380 mg/100 g)",
+          "measures": [
+            {
+              "key": "tsp",
+              "label": "Teaspoon (5 g)\n›"
+            },
+            {
+              "key": "tbsp",
+              "label": "Tablespoon (19 g)\n›"
+            },
+            {
+              "key": "g",
+              "label": "g\n›"
+            }
+          ],
+          "review": {
+            "amount": "2",
+            "unit": "tsp",
+            "summary": "You Are Adding: 2 Teaspoons · 10 g total\n46 Cal · 192 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diarySaved": false
+        },
+        {
+          "query": "Burger",
+          "product": "Hamburger",
+          "measures": [],
+          "review": {
+            "amount": "2",
+            "unit": "burger",
+            "summary": "You Are Adding: 2 Burgers\n570 Cal · 2,384 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diarySaved": false
+        },
+        {
+          "query": "Rice",
+          "product": "Rice, brown, boiled, no added salt",
+          "measures": [],
+          "review": {
+            "amount": "2",
+            "unit": "g",
+            "summary": "You Are Adding: 2 g · 2 g total\n3 Cal · 14 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diarySaved": false
+        },
+        {
+          "query": "Eggs",
+          "product": "Egg, chicken, whole, hard-boiled",
+          "measures": [
+            {
+              "key": "largeEgg",
+              "label": "Large Egg (about 45 g)\n›"
+            },
+            {
+              "key": "mediumEgg",
+              "label": "Medium Egg (about 37 g)\n›"
+            },
+            {
+              "key": "smallEgg",
+              "label": "Small Egg (about 31 g)\n›"
+            },
+            {
+              "key": "xLargeEgg",
+              "label": "X-Large Egg (about 52 g)\n›"
+            },
+            {
+              "key": "jumboEgg",
+              "label": "Jumbo Egg (about 59 g)\n›"
+            },
+            {
+              "key": "kingEgg",
+              "label": "King-Size Egg (about 64 g)\n›"
+            },
+            {
+              "key": "g",
+              "label": "g\n›"
+            }
+          ],
+          "review": {
+            "amount": "2",
+            "unit": "largeEgg",
+            "summary": "You Are Adding: 2 Large Eggs · 90 g total\n122 Cal · 512 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diarySaved": false
+        },
+        {
+          "query": "Big Mac",
+          "product": "Big Mac",
+          "measures": [],
+          "review": {
+            "amount": "2",
+            "unit": "burger",
+            "summary": "You Are Adding: 2 Burgers\n1,242 Cal · 5,200 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diarySaved": true
+        },
+        {
+          "query": "Cheeseburger",
+          "product": "Cheeseburger",
+          "measures": [],
+          "review": {
+            "amount": "2",
+            "unit": "burger",
+            "summary": "You Are Adding: 2 Burgers\n644 Cal · 2,694 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diarySaved": false
+        },
+        {
+          "query": "Flora ProActiv Light",
+          "product": "Flora ProActiv Light",
+          "measures": [
+            {
+              "key": "tsp",
+              "label": "Teaspoon (5 g)\n›"
+            },
+            {
+              "key": "tbsp",
+              "label": "Tablespoon (19 g)\n›"
+            },
+            {
+              "key": "serve",
+              "label": "Manufacturer serve (10 g)\n›"
+            },
+            {
+              "key": "g",
+              "label": "g\n›"
+            }
+          ],
+          "review": {
+            "amount": "5",
+            "unit": "g",
+            "summary": "You Are Adding: 5 g · 5 g total\n19 Cal · 77 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diarySaved": true
+        },
+        {
+          "query": "McCain hash browns",
+          "product": "McCain Hash Browns Shredded 750g",
+          "measures": [
+            {
+              "key": "serve",
+              "label": "Manufacturer serve (75 g)\n›"
+            },
+            {
+              "key": "g",
+              "label": "g\n›"
+            }
+          ],
+          "review": {
+            "amount": "2",
+            "unit": "serve",
+            "summary": "You Are Adding: 2 Serves · 150 g total\n260 Cal · 1,086 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diarySaved": false
+        },
+        {
+          "query": "Helga's wholemeal",
+          "product": "Traditional Wholemeal Bread",
+          "measures": [],
+          "review": {
+            "amount": "2",
+            "unit": "g",
+            "summary": "You Are Adding: 2 g · 2 g total\n5 Cal · 20 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diarySaved": false
+        }
+      ]
+    }
+  ],
+  "storage": {
+    "format": "Readable summary; lossless full evidence retained alongside",
+    "fullReport": "food-concepts.json.gz",
+    "fullSha256": "29eb7320da06e652266bcca3d18edb9a821bcfaa820e95842074669b23f61c1c",
+    "fullBytes": 56647729
+  }
+}

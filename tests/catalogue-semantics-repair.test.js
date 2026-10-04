@@ -26,7 +26,7 @@ test('Jewel/Gem aliases resolve one canonical product, preserve authentic names 
  const direct=await B.search('Seasons Pride Potato Gems');assert.equal(direct.foods.length,1);assert.equal(direct.foods[0].barcode,'4061463000316');assert.deepEqual(C.potatoBiteAliases('Jewels chocolate'),[]);assert.deepEqual(C.potatoBiteAliases('Gem lettuce'),[]);
 });
 test('all accepted source identity, nutrition, measure and evidence facts remain byte-equivalent',()=>{
- const hash=f=>crypto.createHash('sha256').update(JSON.stringify(Object.fromEntries(baseline.fields.filter(k=>f[k]!==undefined).map(k=>[k,f[k]])))).digest('hex');
+ const hash=food=>{const f=structuredClone(food);if(f.catalogueReview?.wave==='2A'&&f.catalogueReview.disposition==='improved')f.retailerMemberships=f.retailerMemberships.filter(m=>m.evidence?.sourceId!=='coles-au-wave-2a');return crypto.createHash('sha256').update(JSON.stringify(Object.fromEntries(baseline.fields.filter(k=>f[k]!==undefined).map(k=>[k,f[k]])))).digest('hex');};
  for(const [kind,old,foods]of [['brand',baseline.brandRecords,brandFoods],...Object.entries(indices).map(([id,i])=>[id,baseline.retailers[id].records,i.files.flatMap(s=>require('../data/'+id+'-au/'+s.path).records)])]){assert.equal(foods.length,old.length+(['brand','woolworths'].includes(kind)?2:0),kind);const map=new Map(foods.map(f=>[f.id,f]));for(const f of old)assert.equal(hash(map.get(f.id)),f.coreSha256,kind+' '+f.id);}
  assert.equal(B.index.entries.length,7491);assert.equal(B.index.brands.length,2736);
 });

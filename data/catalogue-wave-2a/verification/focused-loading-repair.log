@@ -1,0 +1,14 @@
+✔ every actual retailer category and house brand has eligible products and settles with exactly those identities (4314.7452ms)
+✔ stale category, stale brand and empty intersection settle empty without offering zero choices (1.2412ms)
+✔ unresolved adapter is bounded; late result cannot refill caches or overwrite retry (29.7488ms)
+✔ shard deadline aborts stalled read, evicts rejected promise and allows real retry (29.1862ms)
+✔ loader rejection and catalogue replacement terminate as errors (5.6871ms)
+✔ timeout from an old request cannot finish a newer request (27.3594ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4608.3753

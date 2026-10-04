@@ -16,9 +16,10 @@ test('all 15 existing restrictions survive fresh evidence and runtime hydration'
  for(const c of input.manifest.candidates.filter(c=>c.groups.includes('A'))){counts[c.reason]=(counts[c.reason]||0)+1;const r=rows.find(r=>r.candidateId===c.candidateId),f=foods.find(f=>C.canonicalKey(f)===r.canonicalKey);assert(f);assert.equal(r.disposition,'remains-restricted');assert(!C.canLog(f));assert.equal(r.beforeStatus,r.afterStatus);if(c.reason==='identity-conflict')assert(C.sourceConflicts(f).some(c=>c.code==='same-gtin-identity-conflict'));if(c.reason==='energy-missing')assert.equal(f.nutrients.calories,null);}
  assert.deepEqual(counts,{'source-conflict':4,'identity-conflict':8,'energy-missing':3});assert.equal(foods.filter(f=>!C.canLog(f)).length,15);
 });
-test('24 enrolled category corrections use shared semantics; 45 safe fallbacks remain',async()=>{
+test('24 Wave 1B corrections survive; Wave 2A accounts for later shared fallback changes',async()=>{
  const foods=await all('woolworths');assert.equal(foods.length,363);assert.equal(foods.filter(C.canLog).length,348);
- assert.equal(R.directory('woolworths').categories.find(c=>c.id==='other-food').count,45);
+ const later=require('../data/catalogue-wave-2a/baseline.json').retailers.woolworths.identities.filter(f=>f.categoryId==='other-food').filter(f=>require('../data/woolworths-au/wave-2a-report.json').changes.some(c=>c.canonicalKey===f.key));
+ assert.equal(later.length,8);assert.equal(R.directory('woolworths').categories.find(c=>c.id==='other-food').count,45-later.length);
  for(const r of rows.filter(r=>r.groups.includes('B'))){const f=foods.find(f=>C.canonicalKey(f)===r.canonicalKey),prior=input.baseline.candidates.find(f=>C.canonicalKey(f)===r.canonicalKey);assert.deepEqual(r.category,SEM.reviewedFamily(prior));assert.equal(f.browseCategoryId,r.category.id);for(const k of ['nutrients','units','sourceProvenance','barcode','brand'])assert.deepEqual(f[k],prior[k],r.name+' '+k);}
 });
 test('shared category rules are retailer-neutral and reject misleading ingredients and forms',()=>{

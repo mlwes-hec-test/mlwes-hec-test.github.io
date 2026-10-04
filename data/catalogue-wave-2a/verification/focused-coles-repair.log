@@ -1,0 +1,20 @@
+✔ all Coles source rows reproduce from pinned, attributable OFF bytes without changing the protected layer (1782.079ms)
+✔ reviewed collection directory is lazy, paged and excludes restricted rows (307.5577ms)
+✔ guided Coles bread uses evidenced house families and separately retained retailer or collection relationships (189.7609ms)
+✔ synthetic national-brand, missing-pin, foreign-source and wrong-record claims cannot enter the collection (135.056ms)
+✔ compatible same-GTIN OFF hydration retains one identity and the separate collection provenance (119.1188ms)
+✔ synthetic compatible cross-retailer evidence keeps memberships separate and never manufactures Coles listing evidence (133.7751ms)
+✔ synthetic same-GTIN brand/pack/form conflicts remain blocked after re-canonicalisation (147.6004ms)
+✔ missing and conflicting real nutrition remains restricted; unknown optional nutrients stay unknown (136.7655ms)
+✔ source natural bread slices and mL drink amounts retain one confirmation and unchanged nutrition (130.3934ms)
+✔ late Coles requests cannot replace Woolworths or generic query ownership (316.0109ms)
+✔ changed hydrated collection evidence fails closed and cannot silently admit a different source (305.5613ms)
+✔ generic intent and existing OFF identifiers remain unchanged (153.0527ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4481.7764
