@@ -1,0 +1,222 @@
+HEC Product Capture manual fallback / polish — SOURCE only
+2026-10-04 | Visible version 0.6.33
+
+1. Verified starting state
+Canonical Git root:
+C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32
+The workspace's HEC Develpoment path resolves to that canonical Git root.
+Branch: alpha-0.6.33
+HEAD: a3dff29da32f27601f28385badb6c072a73963f1
+Direct parent: 0b54a8d9d0b1d6d63f3654acb5decedb8ccd1a1e
+Subject: Improve noisy iPhone panel metadata mapping
+Tree: clean before editing. Version: 0.6.33.
+SOURCE generation: 4ecbd4c95fcbe7e6f32e8162.
+No starting-state mismatch was found.
+
+2. Enter Panel Manually before repair
+The control had an event listener and revealed the existing form. It always
+focused Product Name. On a new draft, beginProductPanel also scheduled a
+requestAnimationFrame that subsequently scrolled/focused Take Photo. The new
+production browser test reproduced actual focus=take-scan-photo after manual
+entry, explaining why the control could appear ineffective. This is evidence
+about current SOURCE, not a reconstruction of the earlier physical build.
+
+3. Files changed
+alpha06.js — manual entry, focus, guidance, field markings, null-safe adapters.
+capture-foundation.js — validation wording only; recognition code unchanged.
+index.html — existing form copy, manual guidance, column controls placement,
+optional-column label, mobile input modes, and generated release identity.
+styles.css — Product Capture targets, required-field border and scroll margin.
+release-manifest.json — deterministic generated output.
+service-worker.js — deterministic generated release identity; template unchanged.
+tests/manual-capture.test.js — 27 focused data and workflow tests.
+tests/manual-capture-rendered.test.js — 4 production browser workflow tests.
+tests/noisy-iphone-v56-rendered.test.js — open column details only when closed;
+manual entry now opens them. Existing value and reachability assertions remain.
+PRODUCT_CAPTURE_MANUAL_FALLBACK_REPORT.txt — this report.
+
+4. Final manual-entry behaviour
+Enter Panel Manually opens the existing editable form, shows packet-entry
+guidance, opens Serving details and column controls, and scrolls/focuses an
+unresolved required field. Name, column choice/unit, energy, incomplete serving
+details, preparation or source choice take priority over optional nutrients.
+If required fields are complete, it selects a blank nutrient in table order
+(main nutrients before optional nutrients), or the package confirmation.
+The deferred photo focus is ignored once manual entry is active, the draft has
+changed, or navigation has suspended it. No new screen or modal was introduced.
+
+5. Prefill preservation
+Switching to manual entry does not parse, clear or replace the current form.
+Product name, brand, barcode, serving, count, nutrition and preparation survive.
+Identity already obtained from the front of a packet is retained during initial
+panel setup. Trusted baseline cells retained after an unread OCR cell are no
+longer marked as invalid just because that separate extraction was uncertain.
+
+6. Manual-only workflow
+The synthetic Example Crackers fixture entered all supplied values through
+real form controls: 25 g, 8 servings/pack, 4 crackers/serve; per-serve energy
+420 kJ / 100 Cal and per-100 energy 1680 kJ / 400 Cal, with all specified main
+nutrients. Values and the serving relationship survive private save, Review
+and Diary. Four crackers log 100 Cal and 120 mg sodium. No OCR or text-reparse
+action is used. This fixture exists only in tests/disposable browser storage.
+
+7. Partial OCR plus manual completion
+Mocked OCR returns only 67 g / 2 slices. Both survive the manual handoff. The
+user explicitly chooses the printed basis, then enters 10.5 servings/pack,
+697 kJ / 166 Cal and 255 mg sodium per serve, and 1040 kJ / 243 Cal and
+380 mg sodium per 100 g. Both printed columns survive save and reopening.
+Other nutrients remain null. Extraction evidence still shows the original
+missing energy. Partial nutrient completeness is retained. No product-specific
+runtime logic was added.
+
+8. Private/barcode baseline
+A synthetic confirmed private sachet food and a mocked barcode lookup retain
+12.5 g / 1 sachet, water-only preparation, 47 Cal and an explicit fat zero.
+The controls remain editable. Missing protein, sodium and printed kJ start
+blank. A manual sodium change is saved only by the explicit save action.
+Prior private evidence, the catalogue baseline and the checked model remain
+distinct. The observed barcode source object is unchanged by manual editing.
+
+9. Unknown versus zero
+The model/save layer already represented missing nutrients as null. The form
+adapter and active barcode adapter could convert whitespace to zero. They now
+use trimmed input / the existing finite-or-null helper. Non-numeric barcode
+values also remain unknown. Surrounding whitespace preserves manual qualifiers.
+For every non-energy nutrient, both bases are tested with undefined, null,
+empty string, whitespace, numeric zero and string zero through JSON save,
+Review reconstruction and Diary snapshots. Energy has separate blank/zero gate
+tests. Rendered tests verify whitespace calcium/protein remains null and typed
+iron/sodium/fat zero remains numeric zero. OCR sparse merge tests retain this
+distinction. Blank printed energy cells remain null in nutritionBasis; the
+existing explicit derivation of the other energy unit for Diary is preserved
+and identified by energy provenance. No missing printed column is fabricated.
+
+10. Energy validation
+The existing sufficient-energy and package-confirmation gates remain enforced.
+Whitespace energy cannot enable Save/Add. A genuine zero can. Guidance names
+the selected basis and asks for kJ or Cal from the packet. With no chosen
+basis, it first asks for Per Serve or Per 100 g / mL. Required fields use the
+existing brown/orange treatment and link to the review message. A known item
+count is not marked invalid when only its unit needs completion.
+
+11. Per-serve / per-100 handling
+The column controls sit before the nutrition table and remain open during
+manual entry. Both columns stay independently editable and stored. A wholly
+blank panel no longer defaults to an unsubstantiated per-100 selection. Existing
+energy-bearing models retain their supported selection. Per-100 g and mL are
+covered. Optional nutrients remain in their existing section.
+
+12. Prepared references
+Manual Per 100 mL As Prepared remains separate from the dry per-serving food.
+The main and optional column headers and accessible input labels identify that
+reference. The 47 Cal dry sachet / 32 Cal prepared reference test saves/reopens
+both without treating the reference as dry-product energy or a water amount.
+Selecting the prepared reference for dry-food energy remains blocked. Existing
+unresolved prepared-reference evidence and no-decimal-guessing tests still run.
+
+13. Serving details
+Manual entry opens Serving details, with Items Per Serve and Item Unit visible.
+The summary shows the current relationship, including crackers, slices and
+sachets. Incomplete count/unit pairs retain clear validation guidance.
+
+14. Recognised text
+Show Recognised Text stays collapsible and closed after a photo read. Its
+button now reads Retry Fill From Text (Optional), with text explaining it is
+a reference/retry aid. Normal photo and manual workflows do not require it.
+Successful or partial reads explain prefilled values and manual completion.
+An empty read asks the user to enter packet values without an OCR lecture.
+
+15. Cancel / Back
+Existing Cancel and navigation semantics are retained. Cancel from saved-food
+review returns to My Foods without changing the saved record. Back returns to
+the preceding Library, leaves edits only in the in-memory draft, and offers
+Resume/New when capture is reopened. Resume preserves unfinished input; Cancel
+still discards it without writing the private food. No autosave was added.
+
+16. My Foods
+Manual-only, partial OCR and private-baseline scenarios save and reopen through
+the production UI. Both printed bases, unknowns, zeroes and serving details
+survive. Source catalogue records are not mutated.
+
+17. Diary
+The manual-only fixture reaches amount selection, final Review and stored
+Diary with its natural cracker unit. Existing capture/qualifier regressions
+cover natural-unit scaling, saved-food reopen, snapshot reconstruction, water
+preparation and historical versus Today date provenance. Daily Progress and
+Meal Planning aggregation were not redesigned.
+
+18. Mobile and accessibility
+Production SOURCE is rendered in isolated Edge at 390 x 844 and 320 x 568.
+Tests cover manual action, stable focus, editable fields, serving details,
+column selection, precise missing-energy guidance, optional nutrients and
+Save/Add reachability. A 330-pixel viewport height simulates reduced keyboard
+space for typing and action reachability. There is no material horizontal
+overflow. Touched text inputs, selects, buttons and details summaries have
+44-pixel minimum heights; checkbox labels retain their larger tap surfaces.
+Fields retain visible or accessible labels. Screenshots are visually checked.
+This is browser automation, not physical iPhone or native keyboard acceptance.
+Final-generation screenshot directories:
+C:\Users\mlwes\AppData\Local\Temp\hec-manual-390-Q72xEW
+C:\Users\mlwes\AppData\Local\Temp\hec-manual-320-YE7FO8
+
+19. Focused verification
+343 / 343 non-rendered tests passed, zero failures/skips.
+17 / 17 rendered tests passed, zero failures/skips.
+Total: 360 unique focused tests passed (343 non-rendered + 17 rendered).
+After the full campaign, one focus-order line was changed to follow the visual
+table order before optional nutrients. The non-rendered campaign was rerun on
+the final generation; the four manual rendered workflows were also rerun with
+an added assertion that missing Protein receives focus before optional Calcium.
+Focus-order follow-up result: 4 / 4 passed, zero failures/skips.
+Includes the 27 new data tests and 4 new rendered workflow tests.
+Non-rendered log:
+C:\Users\mlwes\AppData\Local\Temp\hec-manual-fallback-focused-final.txt
+Rendered log:
+C:\Users\mlwes\AppData\Local\Temp\hec-manual-fallback-rendered-final.txt
+Focus-order follow-up log:
+C:\Users\mlwes\AppData\Local\Temp\hec-manual-fallback-focus-followup.txt
+Campaigns cover capture/scan, barcode/private serving reuse, energy and basis
+validation, qualifiers, date provenance, private save and Diary snapshots,
+release/update lifecycle and installation isolation. SOURCE assets are served
+by local interception; same-origin live fallthrough is asserted zero. External
+requests are blocked or explicitly mocked. No live deployment is exercised.
+node --check passes for changed runtime/test JavaScript and the generated
+worker. git diff --check passes. The tests use synthetic profiles and food.
+
+Non-rendered command:
+node --test tests/manual-capture.test.js tests/noisy-iphone-v56.test.js tests/real-iphone-panel.test.js tests/physical-panel-repair.test.js tests/post-v52-capture.test.js tests/shared-product-capture.test.js tests/saved-nutrition-review.test.js tests/product-capture-pipeline.test.js tests/release-coherence.test.js tests/release-update-lifecycle.test.js tests/physical-iphone-follow-up.test.js tests/physical-iphone-search-serving-corrections.test.js tests/product-serving-semantics.test.js tests/barcode-confirmation.test.js tests/dual-install-isolation.test.js tests/stage8c-barcode-panel.test.js
+Rendered command:
+node --test --test-concurrency=1 tests/manual-capture-rendered.test.js tests/noisy-iphone-v56-rendered.test.js tests/real-iphone-panel-rendered.test.js tests/physical-panel-repair-rendered.test.js tests/post-v52-capture-rendered.test.js tests/shared-product-capture-rendered.test.js tests/nutrient-qualifier-review-rendered.test.js
+
+20. Release generation
+Normal deterministic command: node scripts/build_release.js
+Before: 4ecbd4c95fcbe7e6f32e8162
+After: ff6fa0c2de9cbfa6b09cace9
+node scripts/build_release.js --check passes. Version remains 0.6.33.
+No generation identifier was manually edited. No PWA protocol was changed.
+
+21–24. Local SOURCE commit
+Exactly one new local commit is authorised after all focused gates pass.
+Direct parent: a3dff29da32f27601f28385badb6c072a73963f1
+Subject: Improve Product Capture manual fallback
+The final chat report records its SHA and the post-commit git status; a commit
+cannot include its own SHA. No amend, push, deployment or subsequent work.
+
+25. Remaining limitations
+Physical iPhone camera, Safari/Home Screen and native keyboard acceptance remain
+unverified. Recognition accuracy is unchanged; the packet is authoritative.
+Photo retention/reference remains as previously implemented. No image-retention
+system, catalogue expansion, aggregate nutrition redesign or unrelated UX fix
+was added. Pre-existing explicit Try Again clears the extraction attempt;
+Enter Panel Manually preserves it.
+
+26. Scope and protected state
+No OCR refinement work was started. No OCR engine, fuzzy rule, image processing
+or product-specific parser was changed. Nothing pushed or deployed.
+TEST remains untouched at the supplied v57 state:
+a7240c15cd10216839a6202d93b8b38985231c42.
+My Data remains protected and untouched at the supplied state:
+120714d2d31bdc610039dbe70ce0fb6d3c9df6e0.
+Those deployment SHAs were supplied in the brief, not independently queried.
+No personal data or backups were accessed. Only SOURCE and disposable synthetic
+test artefacts were used. Work stops after the one local commit and report.

@@ -1536,9 +1536,9 @@ function parseNutritionPanel(text){
 const ALPHA0631_OCR_FIELDS={energyKj:"ocr-energy-kj",calcium:"ocr-calcium",iron:"ocr-iron",potassium:"ocr-potassium",calories:"ocr-calories",protein:"ocr-protein",carbs:"ocr-carbs",fat:"ocr-fat",satFat:"ocr-sat-fat",fibre:"ocr-fibre",sugar:"ocr-sugar",sodium:"ocr-sodium"};
 const ALPHA08_OCR100_FIELDS={energyKj:"ocr100-energy-kj",calcium:"ocr100-calcium",iron:"ocr100-iron",potassium:"ocr100-potassium",calories:"ocr100-calories",protein:"ocr100-protein",carbs:"ocr100-carbs",fat:"ocr100-fat",satFat:"ocr100-sat-fat",fibre:"ocr100-fibre",sugar:"ocr100-sugar",sodium:"ocr100-sodium"};
 function alpha08SetOcrValues(fields,values={},qualifiers={},energySources={}){Object.entries(fields).forEach(([key,id])=>{const input=by(id);if(!input)return;const value=values[key],q=qualifiers[key];input.value=q?q.operator+q.limit:value==null?'':energySources[key]?.startsWith('derived')?Number(Number(value).toFixed(2)):value;input.dataset.displayed=input.value;input.dataset.precise=value==null?'':String(value);input.dataset.energySource=energySources[key]||'';input.title=energySources[key]?.startsWith('derived')?'Calculated from the other energy unit; not packet-read.':'';});}
-function alpha08Qualifiers(fields){return Object.fromEntries(Object.entries(fields).flatMap(([key,id])=>{const match=by(id)?.value.match(/^([<≤])\s*(\d+(?:[.,]\d+)?)$/);return match?[[key,{operator:match[1],limit:Number(match[2].replace(',','.'))}]]:[];}));}
-function alpha08EnergySources(fields){return Object.fromEntries(['calories','energyKj'].filter(key=>by(fields[key])?.value).map(key=>[key,by(fields[key]).dataset.energySource||'manual']));}
-function alpha08ReadOcrValues(fields){return Object.fromEntries(Object.entries(fields).map(([key,id])=>{const input=by(id),value=input?.value;return [key,value===undefined||value===''||/^[<≤]/.test(value)?null:Number(input.dataset.precise&&value===input.dataset.displayed?input.dataset.precise:value.replace(',','.'))];}));}
+function alpha08Qualifiers(fields){return Object.fromEntries(Object.entries(fields).flatMap(([key,id])=>{const match=by(id)?.value.trim().match(/^([<≤])\s*(\d+(?:[.,]\d+)?)$/);return match?[[key,{operator:match[1],limit:Number(match[2].replace(',','.'))}]]:[];}));}
+function alpha08EnergySources(fields){return Object.fromEntries(['calories','energyKj'].filter(key=>by(fields[key])?.value.trim()).map(key=>[key,by(fields[key]).dataset.energySource||'manual']));}
+function alpha08ReadOcrValues(fields){return Object.fromEntries(Object.entries(fields).map(([key,id])=>{const input=by(id),value=input?.value.trim();return [key,value===undefined||value===''||/^[<≤]/.test(value)?null:Number(input.dataset.precise&&value===input.dataset.displayed?input.dataset.precise:value.replace(',','.'))];}));}
 
 function applyCaptureModel(model){
   model=X8.guidePanelModel(model,{food:{name:by('ocr-food-name').value,category:productCapture?.catalogueFood?.category}});
@@ -1549,7 +1549,7 @@ function applyCaptureModel(model){
   by('ocr-preparation-options').open=model.waterPreparation===true;
   by('ocr-preparation-liquid').value=model.preparationEvidence?.liquid==='unknown'?'':model.preparationEvidence?.liquid||'';
   by('ocr-serving-details').open=!!model.servingCount||X8.servingAttention(model)||model.servingUnit==='g'&&!!model.servingAmount;
-  if(!model.selectedBasis)by('ocr-selected-basis').value=X8.chosenBasis(model);
+  if(!model.selectedBasis)by('ocr-selected-basis').value=['perServing','per100'].some(basis=>['energyKj','calories'].some(key=>model[basis][key]!==null))?X8.chosenBasis(model):'';
 }
 function selectCaptureValues(choice){
   if(!productCapture)return;
@@ -1594,14 +1594,17 @@ function alpha08UpdateOcrReview(){
     if(!productCapture.choice){status.ready=false;status.missing.push('barcode-panel-choice');}
   }else box.classList.add('hidden');
   const identity=productCapture?.barcode?X8.privateIdentityStatus({name:by('ocr-food-name').value,brand:by('ocr-food-brand').value,barcode:productCapture.barcode}):{ready:true};if(!identity.ready){status.ready=false;status.missing.push('product-identity');}
-  by('ocr-advanced').open=!model.selectedBasis||(model.selectedBasis==='per100'&&!model.per100Unit)||!!status.discrepancies.length||status.missing.some(key=>['prepared-reference','basis-unit-conflict'].includes(key));
+  by('ocr-advanced').open=!!productCapture?.manualEntry||!model.selectedBasis||(model.selectedBasis==='per100'&&!model.per100Unit)||!!status.discrepancies.length||status.missing.some(key=>['prepared-reference','basis-unit-conflict'].includes(key));
   const guidance=X8.basisGuidance(model);by('capture-basis-guidance').textContent=guidance;by('capture-basis-guidance').classList.toggle('hidden',!guidance);
   const derived=[];for(const [basis,label] of [['perServing','Per Serve'],['per100','Per 100']])for(const [key,source] of Object.entries(model.energyProvenance?.[basis]||{}))if(source.startsWith('derived'))derived.push(label+' '+(key==='calories'?'Cal':'kJ'));
   const selected=model[X8.chosenBasis(model)]||{},missingEnergy=['energyKj','calories'].some(key=>selected[key]==null)&&['energyKj','calories'].some(key=>selected[key]!=null);
   by('capture-energy-guidance').textContent=derived.length?derived.join(' and ')+' calculated from the other energy unit. Enter the printed value if the packet shows it.':missingEnergy?'Only one energy unit is supplied. HEC will calculate the other for Diary. Enter both if the packet prints both.':'';
+  if(status.missing.includes('energy'))by('capture-energy-guidance').textContent=model.selectedBasis?X8.validationMessage({missing:['energy']},model):'Choose Per Serve or Per 100 g / mL, then enter energy from that printed column (kJ or Cal).';
   const servingAttention=X8.servingAttention(model);by('ocr-serving-summary').textContent=servingAttention?'Serving details need your attention':model.servingCount>0?'Serving details · '+model.servingCount+' '+(X8.countUnits().find(item=>item.id===model.servingCountUnit)?.[model.servingCount===1?'singularLabel':'pluralLabel']||model.servingCountUnit)+' per serve':'Serving details';
   if(servingAttention)by('ocr-serving-details').open=true;
-  by('ocr-100-column').textContent='Per 100 '+(model.per100Unit||model.servingUnit||'g / mL')+(model.per100Context==='as-prepared'?' As Prepared':'');
+  const columnLabel='Per 100 '+(model.per100Unit||model.servingUnit||'g / mL')+(model.per100Context==='as-prepared'?' As Prepared':'');
+  by('ocr-100-column').textContent=columnLabel;by('ocr-optional-100-column').textContent=columnLabel;
+  for(const id of Object.values(ALPHA08_OCR100_FIELDS)){const field=by(id);field.setAttribute('aria-label',field.getAttribute('aria-label').replace(/per 100.*$/i,columnLabel.toLowerCase()));}
   const waterAllowed=X8.waterPreparationAllowed(model);by('ocr-preparation-options').classList.toggle('hidden',!waterAllowed);
   if(!waterAllowed)by('ocr-water-preparation').checked=false;
   by('ocr-water-preparation-help').classList.toggle('hidden',!waterAllowed||!by('ocr-water-preparation').checked);
@@ -1612,7 +1615,29 @@ function alpha08UpdateOcrReview(){
   by('ocr-preparation-additions').classList.toggle('hidden',!preparedDrink||!['milk','other'].includes(model.preparationEvidence.liquid));
   by('ocr-discrepancy-confirm-row').classList.toggle('hidden',!status.discrepancies.length);
   by('ocr-review-status').innerHTML=(status.ready?'<strong>Ready To Save</strong><p>Your checked nutrition supports a Diary amount. Nothing is logged until final Review.</p>':'<strong>Review Still Required</strong><p>'+esc(X8.validationMessage(status,model).replace('Check barcode panel choice.','Choose the panel or barcode values for your private My Food.'))+'</p>')+(servingAttention?'<button type="button" class="secondary" data-capture-attention="ocr-serving-count-unit">Review serving details</button>':'')+(status.missing.includes('preparation-liquid')?'<button type="button" class="secondary" data-capture-attention="ocr-preparation-liquid">Confirm preparation</button>':'');
+  const required=captureRequiredFields(status,model);
+  qa('#ocr-review input, #ocr-review select').forEach(field=>{field.classList.toggle('capture-required',required.includes(field.id));if(required.includes(field.id))field.setAttribute('aria-describedby','ocr-review-status');});
   setCaptureActionState('ocr',{save:status.ready,add:status.ready,both:status.ready});return {model,status};
+}
+
+function captureRequiredFields(status,model){
+  const energy=model.selectedBasis==='perServing'?['ocr-energy-kj','ocr-calories']:['ocr100-energy-kj','ocr100-calories'];
+  const fields={name:['ocr-food-name'],'product-identity':['ocr-food-name'],basis:['ocr-selected-basis'],'per100-unit':['ocr-per100-unit'],'serving-size':['ocr-serving-amount','ocr-serving-unit'],energy,'energy-unit-conflict':energy,'serving-count':['ocr-serving-count','ocr-serving-count-unit'],'preparation-liquid':['ocr-preparation-liquid'],'prepared-reference':['ocr-selected-basis'],'basis-unit-conflict':['ocr-selected-basis','ocr-per100-unit'],'barcode-panel-choice':['capture-value-choice']};
+  fields['serving-size']=[...(model.servingAmount>0?[]:['ocr-serving-amount']),...(['g','mL'].includes(model.servingUnit)?[]:['ocr-serving-unit'])];
+  fields['serving-count']=[...(model.servingCount>0?[]:['ocr-serving-count']),...(X8.countUnits().some(unit=>unit.id===model.servingCountUnit)?[]:['ocr-serving-count-unit'])];
+  return [...new Set(Object.keys(fields).filter(key=>status.missing.includes(key)&&(key!=='energy'||model.selectedBasis)).flatMap(key=>fields[key]))];
+}
+
+function enterPanelManually(){
+  if(!productCapture?.panelStarted)beginProductPanel(scanBarcodeFood);
+  productCapture.manualEntry=true;
+  by('ocr-review').classList.remove('hidden');by('capture-manual-guidance').classList.remove('hidden');
+  by('ocr-serving-details').open=true;
+  const {model,status}=alpha08UpdateOcrReview(),required=captureRequiredFields(status,model);
+  const fields=model.selectedBasis==='perServing'?ALPHA0631_OCR_FIELDS:ALPHA08_OCR100_FIELDS;
+  const target=by(required[0])||qa('#ocr-review .capture-nutrition-table input').find(field=>Object.values(fields).includes(field.id)&&!field.value.trim())||by('ocr-package-confirmed');
+  const details=target.closest('details');if(details)details.open=true;
+  target.scrollIntoView({block:'center'});target.focus({preventScroll:true});
 }
 
 function alpha0631ScaleOcrReview(){
@@ -1642,11 +1667,13 @@ function fillOcrReview(parsed){
   by('ocr-package-confirmed').checked=false;by('ocr-discrepancy-confirmed').checked=false;
   const uncertainNames=[...new Set(qa('#ocr-review input[aria-invalid="true"]').map(input=>input.getAttribute('aria-label')||input.id))];
   const useful=['perServing','per100'].some(basis=>Object.values(parsed[basis]).some(value=>value!==null)||Object.keys(parsed.qualifiers?.[basis]||{}).length),metadata=parsed.servingsPerPack!==null||parsed.servingAmount!==null||parsed.servingCount!==null||!!parsed.preparedReference;
-  by('capture-field-issues').textContent=(parsed.issues?.length&&(useful||metadata)?useful?'Some panel values were read. ':'Some serving or pack details were read. ':'')+(parsed.issues?.length?'Check '+(uncertainNames.join(', ')||'the printed column headings and energy')+' against the packet. Uncertain values are left blank.':'Review the extracted values against the packet.');
+  by('capture-field-issues').textContent=(useful||metadata?(useful?'Some panel values were read. ':'Some serving or pack details were read. ')+'HEC filled what it could read confidently. Check these values against the packet and enter anything missing.':'HEC could not read enough of this panel. Enter the values from the packet below.')+(uncertainNames.length?' Check the marked fields: '+uncertainNames.join(', ')+'.':'');
   by('ocr-review').classList.remove('hidden');qa('.ocr-raw-details').forEach(node=>node.open=false);
   if(productCapture.catalogueFood){
     applyCaptureModel(productCapture.panelModel);
-    by('capture-field-issues').textContent=useful?'Panel readings are shown where available. Missing readings retain saved values where the serving and units match. Check the comparison and marked fields before confirming.':metadata?'Some serving or pack details were read. Check those details; unreadable nutrition remains unchanged. Enter missing energy from the packet to continue.':'No usable nutrition was read. Existing values are intact. Keep them after checking the packet, edit fields, Try Again, or Cancel.';
+    // A trusted baseline that fills an unread cell is not an invalid value.
+    qa('#ocr-review input[aria-invalid="true"]').filter(input=>input.value.trim()).forEach(input=>{input.setAttribute('aria-invalid','false');input.placeholder='';});
+    by('capture-field-issues').textContent=useful?'Panel readings are shown where available. Missing readings retain saved values where the serving and units match. Check the comparison and marked fields before confirming.':metadata?'Some serving or pack details were read. Check those details; unreadable nutrition remains unchanged. Enter missing energy from the packet to continue.':'HEC could not read enough of this panel. Existing values are intact. Check them against the packet and enter any missing values below.';
     if(uncertainNames.length)by('capture-field-issues').textContent+=' Check: '+uncertainNames.join(', ')+'.';
   }
   showPreparedReferenceGuidance(parsed);
@@ -3734,7 +3761,7 @@ s23Naturalise=function(source,w){
 // package serve when the source does not actually provide serving mass/volume.
 // If an explicit package serving is present, per-serving nutrition is retained
 // and grams/mL scale from that exact package quantity.
-function s24OffNu(nu,key,suffix){const v=nu?.[`${key}_${suffix}`];return v===undefined||v===null||v===''?null:Number(v);}
+function s24OffNu(nu,key,suffix){return P8.finiteOrNull(nu?.[`${key}_${suffix}`]);}
 function s24OffEnergy(nu,suffix){let kcal=s24OffNu(nu,'energy-kcal',suffix);if(kcal===null){const kj=s24OffNu(nu,'energy-kj',suffix);if(kj!==null)kcal=kj/4.184;}return kcal;}
 makeOpenFoodFactsFood=function(product){
   const nu=product.nutriments||{},servingText=String(product.serving_size||'').trim();
@@ -4459,7 +4486,7 @@ function resetProductCapture(){
   by('ocr-serving-details').open=false;by('ocr-preparation-liquid').value='';
   qa('#scan-centre input, #scan-centre textarea').forEach(input=>{if(input.type==='checkbox')input.checked=false;else input.value='';});
   ['ocr-serving-unit','ocr-per100-unit','ocr-selected-basis','ocr-serving-count-unit'].forEach(id=>by(id).value='');
-  ['ocr-review','scan-review-card','ocr-progress','ocr-front-preview','capture-resume','capture-comparison'].forEach(id=>by(id)?.classList.add('hidden'));
+  ['ocr-review','scan-review-card','ocr-progress','ocr-front-preview','capture-resume','capture-comparison','capture-manual-guidance'].forEach(id=>by(id)?.classList.add('hidden'));
   by('capture-comparison').innerHTML='';delete by('capture-comparison').dataset.signature;
   by('scan-preview').className='scan-preview empty-state';by('scan-preview').textContent='No Image Selected Yet.';
   by('scan-food-preview').innerHTML='';const frontUrl=by('ocr-front-preview').querySelector('img')?.src;if(frontUrl?.startsWith('blob:'))URL.revokeObjectURL(frontUrl);by('ocr-front-preview').innerHTML='';by('ocr-front-status').textContent='';
@@ -4472,14 +4499,15 @@ function beginProductPanel(food=null,{force=false,savedReview=false}={}){
   const saved=(ext.customFoods||[]).find(item=>food&&item.id===food.id)||(barcode&&(ext.customFoods||[]).find(item=>item.barcode===barcode));
   const catalogue=food||productCapture?.catalogueFood||null;
   productCapture={...newCaptureDraft(),...(productCapture||{}),id:saved?.id||productCapture?.id||uid('panel'),barcode,catalogueFood:catalogue?clone(catalogue):null,existingPrivate:saved?clone(saved):null,savedReview:savedReview||!!productCapture?.savedReview,choice:catalogue?'':'panel',panelStarted:true,suspended:false,replacesSavedId:!saved&&food&&ext.savedFoodIds.includes(food.id)?food.id:null};
-  by('scan-barcode-input').value=barcode;by('ocr-food-name').value=saved?.name||food?.name||'';by('ocr-food-brand').value=saved?.brand||food?.brand||'';
+  by('scan-barcode-input').value=barcode;by('ocr-food-name').value=saved?.name||food?.name||by('ocr-food-name').value;by('ocr-food-brand').value=saved?.brand||food?.brand||by('ocr-food-brand').value;
   by('ocr-pack-size').value=saved?.packageSize||food?.packageSize||food?.packageQuantity||'';by('ocr-ingredients').value=saved?.ingredients||food?.ingredients||'';
   const existing=saved||food,model=existing?X8.reviewModelFor(existing):X8.parseNutritionPanel('').model;
   fillOcrReview({...model,model,ingredients:existing?.ingredients||'',detected:{perServing:Object.values(model.perServing).some(v=>v!==null),per100:Object.values(model.per100).some(v=>v!==null)},issues:[]});
   productCapture.extracted=null;by('ocr-per100-context').value=model.per100Context||'product';by('ocr-water-preparation').checked=existing?.preparation?.type==='water'||model.waterPreparation===true;
   if(!productCapture.savedReview)by('ocr-review').classList.add('hidden');
+  by('capture-field-issues').textContent=existing?'Existing values are shown below. Check them against the packet and enter anything missing.':'Enter values from the packet. Leave any nutrient that is not stated blank.';
   if(productCapture.savedReview)by('capture-field-issues').textContent='Your existing saved nutrition is shown. Photograph the current panel, or check and edit these values against the packet.';
-  alpha08UpdateOcrReview();ext.ui.scanMode='label';saveExt();updateScanModeUI();requestAnimationFrame(()=>{by('scan-photo-capture').scrollIntoView({block:'start'});by('take-scan-photo').focus({preventScroll:true});});
+  alpha08UpdateOcrReview();ext.ui.scanMode='label';saveExt();updateScanModeUI();const draft=productCapture;requestAnimationFrame(()=>{if(productCapture!==draft||draft.manualEntry||draft.suspended)return;by('scan-photo-capture').scrollIntoView({block:'start'});by('take-scan-photo').focus({preventScroll:true});});
 }
 const captureStartCamera=startBarcodeCamera;startBarcodeCamera=async function(){if(productCapture?.suspended)return;return captureStartCamera();};
 const captureModeUI=updateScanModeUI;
@@ -4509,7 +4537,7 @@ by('capture-retry').addEventListener('click',()=>{
   resetProductCapture();if(identity){productCapture={id:identity.id,barcode:identity.barcode,catalogueFood:identity.catalogueFood,replacesSavedId:identity.replacesSavedId,savedReview:identity.savedReview,destination:identity.destination};beginProductPanel(identity.catalogueFood);}
   ext.ui.scanMode='label';updateScanModeUI();by('ocr-progress').classList.remove('hidden');by('ocr-progress').textContent='New reading attempt — choose or photograph the panel again. Previous OCR values have been cleared.';by('scan-photo-capture').scrollIntoView({block:'start'});
 });
-by('capture-manual').addEventListener('click',()=>{if(!productCapture?.panelStarted)beginProductPanel(scanBarcodeFood);by('ocr-review').classList.remove('hidden');alpha08UpdateOcrReview();by('ocr-review').scrollIntoView({block:'start'});by('ocr-food-name').focus({preventScroll:true});});
+by('capture-manual').addEventListener('click',enterPanelManually);
 by('capture-parse-text').addEventListener('click',()=>fillOcrReview(parseNutritionPanel(by('ocr-text').value)));
 
 document.addEventListener('click',event=>{
