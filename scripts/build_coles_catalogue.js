@@ -47,5 +47,5 @@ function outputs(){
   out['coverage-gap-manifest.json']=JSON.stringify(report,null,2)+'\n';return require('./catalogue-round-three').augment(require('./catalogue-round-two').augment(out,'coles'),'coles');
 }
 function build({check=false}={}){const out=outputs();for(const [relative,raw] of Object.entries(out)){const file=path.resolve(base,relative);if(check){if(!fs.existsSync(file)||fs.readFileSync(file,'utf8')!==raw)throw Error('Stale generated Coles output: '+relative);}else{fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,raw);}}return JSON.parse(out['coverage-gap-manifest.json']);}
-if(require.main===module){const report=build({check:process.argv.includes('--check')});console.log(JSON.stringify({records:report.rawEvidenceRows,loggableNow:report.loggableNow,browse:report.ordinaryBrowseProducts,restricted:report.incompleteOrRestricted,categories:report.categories}));}
 module.exports={derive,outputs,build,validGtin};
+if(require.main===module){const report=build({check:process.argv.includes('--check')});console.log(JSON.stringify({records:report.rawEvidenceRows,loggableNow:report.loggableNow,browse:report.ordinaryBrowseProducts,restricted:report.incompleteOrRestricted,categories:report.categories}));}

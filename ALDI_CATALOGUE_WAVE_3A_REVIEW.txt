@@ -1,0 +1,259 @@
+HEC AUSTRALIAN FOOD CATALOGUE — WAVE 3A SOURCE REVIEW
+4 October 2026 | Application version 0.6.33
+
+1. SOURCE PREFLIGHT
+Repository: C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32
+Branch: alpha-0.6.33
+Starting HEAD: 428603dabd96ea9ebde3ee85ba11d82a97ed83fd
+Starting subject: Improve Coles catalogue categories and evidence
+Starting parent: 5df00e23f038bc22814290f5ce8497b7625c1db7
+Starting release: 92b2d9e3b79ed004eb4c91d2
+Canonical directory verified; starting working tree clean before edits.
+All changes use the correctly spelled canonical SOURCE path. No state reset,
+stash, checkout, merge, pull or amendment was used.
+
+2. FRESH BASELINE
+Aldi retained adapter: 297 canonical identities, comprising 222 verified
+house-label identities and 75 independent evidence identities excluded from
+house-brand browse. All 222 house products were visible/loggable; zero visible
+restricted. There were 16 occupied categories, 32 families and 42 Other products.
+221 of the 222 house identities already overlapped the global brand index.
+The pre-existing Specially Selected Romana pasta sauce global gap is unchanged.
+
+Baseline category counts: Bread 14; Yoghurt 10; Cheese 24; Cereal 9; Crackers &
+Biscuits 12; Snacks 28; Sauces 10; Packaged Fruit & Vegetables 3; Meat & Protein
+40; Canned 8; Rice/Pasta/Grains 5; Spreads 10; Frozen Potato 1; Prepared Meals 2;
+Pizza & Savoury Snacks 4; Other 42. Milk and Frozen Vegetables were absent.
+Thin families included Elmsbury 1, Eltora 1, Sweet Haven 1, Seasons Pride 2,
+GoldenVale 2, Snackers Market 2 and White Mill 2. Bakers Life 13, Damora 10,
+Hillcrest 16, Ocean Royale 10, Westacre 5 and Westacre Dairy 17 were verified
+against existing SOURCE relationships; names were not treated as ownership proof.
+
+Separate retained exclusion inventory: 2,738 associated nonvisible identities,
+of which 1,193 have previously verified family keys. This is an inventory, not
+a claim that every identity was reviewed or has a nutrition restriction.
+
+3. MANIFEST AND ACCOUNTING
+39 distinct reviewed identities, frozen before admission; ceiling 70.
+Group limits respected: A 15/15, B 17/30, C 5/20, D 2/5.
+
+Group  Reviewed  New canonical  Existing improved  Recategorised  Held  Deferred  Overlaps  Duplicate evidence
+A      15        0              0                  0              15    0         15        0
+B      17        0              17                 17             0     0         17        0
+C      5         0              2                  0              0     3         2         2
+D      2         1              0                  0              0     1         0         0
+TOTAL  39        1              19                 17             15    4         34        2
+
+39 = 1 new canonical + 19 existing improved + 15 held + 4 deferred.
+The 17 recategorisations are a subset of 19 improvements, not extra dispositions.
+Three products become newly loggable: two existing frozen identity-only records
+and one genuinely new canonical identity. Possible unresolved overlaps remain
+separate from the 34 confirmed overlaps.
+
+4. KNOWN INCOMPLETE / EXCLUDED IDENTITIES
+15 reviewed, zero resolved, all 15 retained held. Cases cover Seasons Pride
+Hash Browns, Sweet Potato Chips and Onion Rings; Bakers Life Raisin Sliced Toast,
+English Muffins and Soft White Sandwich Bread; Brooklea Natural Yogurt; Damora
+Crispetts; Hillcrest Wheat Biscuits and Fruity Bursts; Ocean Royale Atlantic Salmon;
+Elmsbury Family Beef Pie; Westacre Tasty Cheese; Farmdale Full Cream 1L; and
+Market Fare Green Beans. Exact GTINs, raw peers and individual reasons are in
+data/catalogue-wave-3a/review-report.json and candidate-manifest.json.
+
+Reasons include missing required macros/energy, energy disagreement over the
+existing five-percent source-review tolerance, contradictory panels, OFF quality
+errors and missing safe nutrition/preparation basis. Shared canLog alone does not
+override a stricter retained source-review exclusion. A fresh Hash Browns package
+did not conclusively join the conflicting retained GTIN; qualified values remain
+unknown. New Farmdale/Market Fare family evidence does not complete the held
+1L milk or Green Beans product nutrition. No hold was silently cleared.
+
+5. SHARED CATEGORY CLEANUP
+17 of 42 Aldi fallback identities reviewed and moved; 25 remain Other.
+Moves: 2 plain sourdough breads, 5 whole cheese forms, 3 coated/oil-preserved fish
+products, 3 crisps/pretzel snacks, 2 antipasto vegetables, 1 vegetable dip and
+1 spring-roll product. Existing categories are reused, including Meat & Protein
+for fish and Pizza & Savoury Snacks for spring rolls.
+
+Rules describe whole-product forms and reject ingredient/flavour/compound traps;
+there are no brand, retailer or GTIN classifier exceptions. The same rules were
+tested for Aldi, Woolworths, Coles and independent brands.
+Woolworths: Pitted Kalamata Olives 9339687097630 -> Packaged Fruit & Vegetables.
+Coles: spring rolls 9310645278254 and 9310645278261 -> Pizza & Savoury Snacks;
+Sliced Black Olives 9310645484396 -> Packaged Fruit & Vegetables.
+Pacific West Cocktail Spring Rolls 9323015006685 also changes in the retained
+Coles evidence projection, while remaining outside Coles house-brand browse.
+Global: 30 canonical category projections changed. Across all four adapters,
+52 existing record projections changed: Aldi 17, global 30, Coles 4, Woolworths 1.
+Only categoryId, browseCategoryId, category, conceptIds and categoryEvidence may
+differ. Every existing identity, nutrient, measure, ownership and source fact is
+verified unchanged. Full identity-by-identity ledger: final-report.json and each
+adapter's wave-3a-report.json.
+
+6. ALDI PRIVATE-LABEL DEPTH
+Five reviewed. Two existing canonical identities completed and admitted to Aldi:
+- Farmdale Full Cream Milk 3L, GTIN 4088700028285.
+- Market Fare Mixed Vegetables 1kg, GTIN 4088700137154, prepared by boiling.
+Official Australian Aldi package images supply exact GTIN, pack, serving, panel
+and explicit registered-trademark wording for ALDI Stores. Matching frozen OFF
+records have empty nutrition, so no incompatible old values were overwritten.
+Both families are new browse routes. Capture dates, raw wording, hashes and
+field provenance are retained; local/nationwide stock is unknown.
+
+Three deferred: Elmsbury 6 Meat Pies 900g (reference/rotated identifier not joined
+conclusively); Seasons Pride Bubble n Squeak 620g (unresolved exact GTIN, pack
+variant and preparation relationship); Seasons Pride Corn Fritters 500g (no
+readable exact GTIN and incomplete older same-title evidence). No inferred
+pie/pattie/fritter counts or substitute canonical identities were created.
+
+7. INDEPENDENT DISCOVERY
+Two reviewed. Pepsi Max 2L, GTIN 9313820004518, admitted globally under the
+consumer brand Pepsi Max. Verified Australian package identity/panel and
+independent official Pepsi Max manufacturer corroboration support the decision.
+Small manufacturer/package rounding differences were retained and checked for
+compatibility; the package's 250mL serving is not replaced by a general 375mL
+manufacturer-page serving. Exact source rounding facts remain in reviewed evidence.
+Aldi listing/presence is separate from nutrition and ownership. There are zero
+Aldi private-label collections or commercial ownership identities for Pepsi Max;
+it never enters Aldi house-brand browse.
+
+Vegemite 370g deferred: materially different retailer/manufacturer panels and a
+qualified fat value do not establish an exact compatible formulation. No averaging.
+The direct Pepsi manufacturer fetch returned 403; that response is retained as
+unusable, with the separately recorded manufacturer web-reader facts identified
+as such. It is never represented as a successful HTTP nutrition capture.
+
+8. CANONICAL IDENTITY
+One new canonical identity, 19 reviewed existing identities improved, 34 confirmed
+overlaps and two duplicate frozen identity-only evidence records collapsed into
+their exact canonical keys. All 588 frozen product shards and four generated
+indexes were checked for admission overlap. Frozen payloads are unchanged.
+Global indexed products: 7,491 -> 7,494; consumer-brand keys: 2,736 -> 2,737.
+This is three new index projections but only one new canonical identity.
+All unresolved source/formulation conflicts remain retained and unadmitted.
+
+9. NUTRITION / SERVING / PHYSICAL FORM
+Farmdale milk: per 100mL 259kJ/62Cal; 250mL manufacturer serve and metric cup;
+250mL review rounds to 648kJ/155Cal. Missing fibre remains null/Not Available.
+Market Fare vegetables: explicitly prepared by boiling and drained; weigh the
+prepared portion. Per 100g/manufacturer serve 268kJ/64Cal. Only grams and an
+evidenced manufacturer serve; no mL, cup or guessed piece measure.
+Pepsi Max: package per 100mL 2kJ, with Cal derived explicitly from kJ; 250mL
+review rounds to 5kJ/1Cal. True printed zero fat/saturated fat/sugar/fibre remains
+zero. Original absent Cal remains null in raw panel evidence. mL, metric cup and
+250mL manufacturer serve are supported. No branded nutrients filled from AFCD.
+
+Wave 1B vegetables 9300633450410 retain 100g, 52Cal/217kJ and fibre unavailable.
+Campbell's stock 9300644043601 remains independent/global, with mL, 250mL metric
+cup/manufacturer serve, 21Cal/87kJ and fibre unavailable. McCain Air Fryer Straight
+Cut 750g remains global McCain with separate Coles presence and unchanged facts.
+Sanitarium Weet-Bix 575g stays deferred.
+
+10. FRESH FINAL RETAILER COUNTS
+Retailer     Visible  Loggable  Restricted  Categories  Families  Other
+Aldi         224      224       0           18          34        25
+Woolworths   363      348       15          20          11        36
+Coles        417      417       0           19          15        61
+Woolworths Bread stays 35. Aldi category changes from baseline: Bread 14->16,
+Cheese 24->29, Snacks 28->31, Sauces 10->11, Produce 3->5, Protein 40->43,
+Pizza/Savoury 4->5, Milk 0->1, Frozen Vegetables 0->1, Other 42->25.
+Other Aldi categories are unchanged. Woolworths Produce gains one; Coles
+Produce gains one and Pizza/Savoury gains two. Totals reconcile.
+
+11. SEARCH / GUIDED RESOLUTION
+27 concept screens and 25 complete concept flows passed, plus six prior-product
+reviews and eight new-wave reviews over 12 query/family scenarios. Coverage
+includes Bread, Milk, Hash Brown, Coffee/Flat White, Sausage, Cereal, Crackers,
+Yoghurt, Chicken, Cheese, Frozen Chips/Vegetables, Salad, Fish/Seafood, exact
+Damora/Farmdale/Market Fare/Pepsi Max products, Bakers Life, Seasons Pride and
+Hillcrest. One Review, natural units, required amount entry, eligibility and
+incomplete suppression were checked in isolated local SOURCE browser contexts.
+Seafood has no loggable choices in both the exact accepted SOURCE and Wave 3A.
+Fish works; this unchanged alias gap is recorded for later search work. Exact
+accepted-SOURCE comparisons also prove unchanged frozen-fries incomplete results
+and lower-ranked Flat White/flatbread noise. No search redesign was attempted.
+
+12. RETAILER LOADING / NAVIGATION
+All 120 category, All Items and house-brand routes across the three retailers
+passed, including all 53 Aldi routes, Other, Seasons Pride, Elmsbury and both new
+families. Empty category/brand choices settle empty. Injected stalled requests
+settled into retry in 15.341s; rejected requests in 57ms. Both retries recovered
+10 yoghurt products. Six held yoghurt requests completed after Back and choosing
+Cheese; the final context and result remained Cheese. No indefinite spinner.
+The original historical stall trigger is still not claimed to have been identified.
+
+13. PROTECTED DATA
+2,470 baseline-protected file hashes unchanged: frozen Australian OFF, AFCD/AUSNUT,
+restaurant payloads, established raw/policy evidence and deployment overlays.
+Three additional Woolworths raw captures match accepted Git blob bytes exactly.
+Remote HEAD read-only checks confirm TEST v60 e18aa2e167e2b1c4da928a7b9a6b9e90d6702cfe
+and MY DATA v15 d6658886df5b8a3335cafbd4aaaa42904fedbeb0. No deployment repository
+writes, personal browser profiles, personal storage or backups were used.
+
+14. VALIDATION
+Focused: 89 tests, 89 pass, zero failures, on release 8306466fcc410bf3cf384ae7.
+Includes identity/conflict, ownership, unknowns, measures, semantic negatives,
+all four deterministic catalogue builders, index hashes and protected bytes.
+Rendered: passed; scope and counts above. Full diagnostic evidence is retained
+losslessly as hash-verified gzip beside readable summaries and screenshots.
+Complete SOURCE acceptance: one 54-file run, 1,109 tests; initially 1,102 passed
+and seven obsolete test expectations failed. No cancelled/skipped tests. Only
+the four affected test files were updated and rerun (63 distinct tests), followed
+by final passing reruns of their two remaining assertion repairs (7 and 25 tests).
+All 63 affected tests now have passing final results; zero unresolved failures.
+Combined acceptance covers all 1,109 tests. No application bytes changed and no
+second complete run was performed. Original result and all targeted logs remain
+in verification/acceptance-result.json and acceptance-resolution.json.
+
+15. FAILURES AND FIXES
+Initial focused failures identified an omitted existing brand-admission marker
+and a stale intermediate release generation; fixed before final checks. The new
+marker was added to the existing hydration gate without weakening eligibility.
+A Coles builder circular-export issue was fixed by exporting before its CLI build.
+Pepsi's initial consumer-brand projection used Pepsi; package/source identity
+and exact search established Pepsi Max, and the evidence/projection was corrected.
+A Seafood browser expectation exposed the unchanged accepted-SOURCE alias gap;
+the assertion now requires an exact baseline comparison, not fabricated results.
+The delayed-navigation harness initially closed/fell through requests before all
+responses settled, causing an already-handled route error. Explicit request gates
+and settlement fix the harness; production loading code was not changed.
+The complete run also exposed stale counts, a first-wave-only Aldi provenance
+assumption, a manufacturer-only fallback assertion and the historical family
+audit's unverified Farmdale/Market Fare state. Tests now preserve historical
+facts while explicitly verifying the new, pinned package/trademark evidence.
+Two intermediate repair assertions were corrected to recognise the established
+family-level relationship model and the new evidence separately. All failed
+logs are retained; production gates were not weakened and the complete SOURCE
+suite was run once.
+
+16. COMMIT CHECKPOINT
+Intended single local SOURCE commit subject: Complete Aldi catalogue foundation
+Required parent: 428603dabd96ea9ebde3ee85ba11d82a97ed83fd
+Release generation: 8306466fcc410bf3cf384ae7; visible version 0.6.33.
+The resulting commit SHA and post-commit clean-tree proof are supplied in the
+final chat report; a commit cannot embed its own SHA in its tracked content.
+
+17. DEPLOYMENT / PERSONAL DATA
+SOURCE only. No push, no TEST deployment and no MY DATA deployment/promotion.
+TEST v60 and MY DATA v15 remain at the protected SHAs above. All browser checks
+use disposable profiles and local SOURCE interception; the TEST banner in
+screenshots is the isolated test fixture, not evidence of a deployed change.
+
+18. BACKLOG / NEXT WAVE
+Retailer catalogue internal search/filter remains a future shared UX improvement.
+Remaining Aldi gaps: 25 Other products, all 15 reviewed holds, deferred thin-family
+products, further evidence-led category/family depth and the pre-existing global
+pasta-sauce overlap gap. Seasons Pride remains 2 and Elmsbury remains 1.
+Next: IGA, including Supa IGA/Super IGA identity/alias handling and verified
+private-label relationships; assortment discovery never implies ownership.
+Later: Friendly Grocer, smaller independent/regional retailers, and major
+national-brand/manufacturer evidence waves. The Google AI grocery list remains
+discovery ideas only. No IGA implementation, completion queue or freshness
+scheduler was built. Canonical keys, source/check dates, hashes, currentness,
+conflicts, private-testing status and public-release-review flags are retained.
+
+19. RECOMMENDATION
+Safe for Myron/Mal SOURCE review and a separately authorised TEST deployment,
+subject to the final commit/clean-tree confirmation supplied in chat. This is
+private-testing catalogue evidence; public-release source/licensing review
+remains explicitly required. TEST still needs physical founder review after
+any later authorised deployment. Do not promote to MY DATA in this wave.

@@ -1,0 +1,347 @@
+{
+  "capturedAt": "2026-10-04T10:27:06.053Z",
+  "scope": "Seven enrolled source identities and one corroboration for an enrolled retained hold",
+  "records": [
+    {
+      "id": "3A-C-33",
+      "url": "https://www.aldi.com.au/product/farmdale-full-cream-milk-3l-000000000000398894",
+      "retrievedAt": "2026-10-04T10:26:40.774Z",
+      "status": 200,
+      "file": "evidence/3A-C-33.html.gz",
+      "sha256": "36d5c307238143e706fb9884f1b500cb5b5340ad220d4adbdeeeb1c4e4f56a51",
+      "hashBasis": "uncompressed-public-response-bytes",
+      "lastModified": null,
+      "images": [
+        {
+          "label": "Front shot 1, Product image, Enlarge image",
+          "url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/864/0fc1211c-ed08-4a72-a234-56a9e132cac6/Full%20Cream%20Milk%203L",
+          "status": 200,
+          "file": "evidence/3A-C-33-1.jpg",
+          "sha256": "3f549bab7dff67713399453450ca62e20d05521e184c7f881ef7e4240bf03fc0"
+        },
+        {
+          "label": "Front shot 2, Product image, Enlarge image",
+          "url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/864/b36672bd-8c1f-4ab3-9ee3-2a78f8d7ce29/Full%20Cream%20Milk%203L",
+          "status": 200,
+          "file": "evidence/3A-C-33-2.jpg",
+          "sha256": "89a5d4fcd1da883b1dce4b9b8232895232912af988780051303e4e02c85b8013"
+        },
+        {
+          "label": "Nutrients 1, Product image, Enlarge image",
+          "url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/864/0cee19ad-c277-4c44-8539-07904ca1c5ad/Full%20Cream%20Milk%203L",
+          "status": 200,
+          "file": "evidence/3A-C-33-3.jpg",
+          "sha256": "bb940497d54969cb6f8a9973019416843bb7574bf59f3bd1169558b4fecd20a3"
+        }
+      ],
+      "highResolution": {
+        "url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/1500/b36672bd-8c1f-4ab3-9ee3-2a78f8d7ce29/Full%20Cream%20Milk%203L",
+        "file": "evidence/3A-C-33-2-1500.jpg",
+        "status": 200,
+        "sha256": "71263418eddc60a2e2fa3456d0a2dd08ba5e410f53ea392ad33fe9e48ad722a6",
+        "basis": "Page image URL template with published maxWidth 1500"
+      }
+    },
+    {
+      "id": "3A-C-34",
+      "url": "https://www.aldi.com.au/product/market-fare-mixed-vegetables-1kg-000000000000365539",
+      "retrievedAt": "2026-10-04T10:26:43.821Z",
+      "status": 200,
+      "file": "evidence/3A-C-34.html.gz",
+      "sha256": "56c4d8e7dbf132bc1e110dfcf7597875c7ba6728f3395e94fe112045dafa9a08",
+      "hashBasis": "uncompressed-public-response-bytes",
+      "lastModified": null,
+      "images": [
+        {
+          "label": "Front shot 1, Product image, Enlarge image",
+          "url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/864/1854d0fc-6713-4712-a021-b5bcebbf1881/Mixed%20Vegetables%201kg",
+          "status": 200,
+          "file": "evidence/3A-C-34-1.jpg",
+          "sha256": "e66ca4a1fffa00d0b17d7e0a9938de72c2e5b877f9241cb5929e293a5efce1e7"
+        },
+        {
+          "label": "Front shot 2, Product image, Enlarge image",
+          "url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/864/c114b2ef-364e-4742-a9bb-be7f20b84194/Mixed%20Vegetables%201kg",
+          "status": 200,
+          "file": "evidence/3A-C-34-2.jpg",
+          "sha256": "859c95ea34bb990dd5c19a38f85ac8522081cf7cc7ed422c52e67411952c17d4"
+        },
+        {
+          "label": "Nutrients 1, Product image, Enlarge image",
+          "url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/864/1ae64eee-2c50-4f0c-a1a7-0d3feaebc2a5/Mixed%20Vegetables%201kg",
+          "status": 200,
+          "file": "evidence/3A-C-34-3.jpg",
+          "sha256": "4215f78cc6745ffe5a01813ad19e84365e4343e058f6f3fa9c438e325281f8e6"
+        }
+      ],
+      "highResolution": {
+        "url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/1500/c114b2ef-364e-4742-a9bb-be7f20b84194/Mixed%20Vegetables%201kg",
+        "file": "evidence/3A-C-34-2-1500.jpg",
+        "status": 200,
+        "sha256": "b18da276e187a560eb16f0e6a526da622dcceb45007eb8e00c1d5054f4b1375e",
+        "basis": "Page image URL template with published maxWidth 1500"
+      }
+    },
+    {
+      "id": "3A-C-35",
+      "url": "https://www.aldi.com.au/product/elmsbury-meat-pies-6-pack-900g-000000000000366728",
+      "retrievedAt": "2026-10-04T10:26:47.228Z",
+      "status": 200,
+      "file": "evidence/3A-C-35.html.gz",
+      "sha256": "6b15f95b12361621f4df0f0bd09c5c401fa9b7214891a6762c6dfa46a0ee5410",
+      "hashBasis": "uncompressed-public-response-bytes",
+      "lastModified": null,
+      "images": [
+        {
+          "label": "Front shot 1, Product image, Enlarge image",
+          "url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/864/3b7fe1c1-0d7f-4c7d-9193-3c66d5643b44/Meat%20Pies%206%20Pack%20900g",
+          "status": 200,
+          "file": "evidence/3A-C-35-1.jpg",
+          "sha256": "86d8e1ded155cf68a86f49bf5e33104a9d15a7d02eb6ece9a3cabc8e9e810696"
+        },
+        {
+          "label": "Front shot 2, Product image, Enlarge image",
+          "url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/864/76655924-54d2-4996-8a6b-ff78395281a4/Meat%20Pies%206%20Pack%20900g",
+          "status": 200,
+          "file": "evidence/3A-C-35-2.jpg",
+          "sha256": "60a7b9dfc49430c6004715a548ef52f901c5e5d7cee63ca8153fde0d95406204"
+        },
+        {
+          "label": "Front shot 3, Product image, Enlarge image",
+          "url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/864/f5327f57-d0a7-44d6-a838-0ba28d183174/Meat%20Pies%206%20Pack%20900g",
+          "status": 200,
+          "file": "evidence/3A-C-35-3.jpg",
+          "sha256": "69a85d5ac7f4f260fbf13255f79ee4bf6d8d077d9606d51ebe88db7cc9ff5afa"
+        },
+        {
+          "label": "Front shot 4, Product image, Enlarge image",
+          "url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/864/5101fafd-aa3f-43fb-9394-97e9e20eb62a/Meat%20Pies%206%20Pack%20900g",
+          "status": 200,
+          "file": "evidence/3A-C-35-4.jpg",
+          "sha256": "f64cf414dd5c574fedb2abdfb2fa1a5c237ca9ad275f61b4e11c713c92f206f6"
+        },
+        {
+          "label": "Nutrients 1, Product image, Enlarge image",
+          "url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/864/6041b91f-1bc4-4604-a9eb-e92f3e7014bd/Meat%20Pies%206%20Pack%20900g",
+          "status": 200,
+          "file": "evidence/3A-C-35-5.jpg",
+          "sha256": "6908e35e01f7673f35f74a26e36d48b5478f4e2711cbc556ffbfd11764d70090"
+        }
+      ],
+      "highResolution": {
+        "url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/1500/76655924-54d2-4996-8a6b-ff78395281a4/Meat%20Pies%206%20Pack%20900g",
+        "file": "evidence/3A-C-35-2-1500.jpg",
+        "status": 200,
+        "sha256": "8f012be60dc997825475ae7666fb3845e887e929ced7d90c0760c69299fb6326",
+        "basis": "Page image URL template with published maxWidth 1500"
+      }
+    },
+    {
+      "id": "3A-C-36",
+      "url": "https://www.aldi.com.au/product/seasons-pride-bubble-n-squeak-620g-000000000365218001",
+      "retrievedAt": "2026-10-04T10:26:51.786Z",
+      "status": 200,
+      "file": "evidence/3A-C-36.html.gz",
+      "sha256": "58895896dba3337b53352744850decf3446a029cc8f780c9653e789b45daa39a",
+      "hashBasis": "uncompressed-public-response-bytes",
+      "lastModified": null,
+      "images": [
+        {
+          "label": "Front shot 1, Product image, Enlarge image",
+          "url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/864/a2701fa2-9f9f-439a-9215-57ee6e4d8a79/Bubble%20n%20Squeak%20620g",
+          "status": 200,
+          "file": "evidence/3A-C-36-1.jpg",
+          "sha256": "7cc015d74a2c83d3e9be073cc0e5ed683d641b79471e99feff26d43c029695ef"
+        },
+        {
+          "label": "Front shot 2, Product image, Enlarge image",
+          "url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/864/7d06740b-26c0-42ef-8d75-3a117ca4c5bd/Bubble%20n%20Squeak%20620g",
+          "status": 200,
+          "file": "evidence/3A-C-36-2.jpg",
+          "sha256": "79ba0105466693425513d64e199db4e83ce5ebc42373ce438f698eaf648be7a6"
+        },
+        {
+          "label": "Nutrients 1, Product image, Enlarge image",
+          "url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/864/201b25cc-8687-4a84-9097-a93a5cafb014/Bubble%20n%20Squeak%20620g",
+          "status": 200,
+          "file": "evidence/3A-C-36-3.jpg",
+          "sha256": "dfe6b80d52316202b2c707b21cec24ba67435c3e65c6e1a190a78b327e4f498c"
+        }
+      ],
+      "highResolution": {
+        "url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/1500/7d06740b-26c0-42ef-8d75-3a117ca4c5bd/Bubble%20n%20Squeak%20620g",
+        "file": "evidence/3A-C-36-2-1500.jpg",
+        "status": 200,
+        "sha256": "7d5e238dcb76ea4284b2ff51815a29eb0b0f1b42e75d37db9884605694313402",
+        "basis": "Page image URL template with published maxWidth 1500"
+      }
+    },
+    {
+      "id": "3A-C-37",
+      "url": "https://www.aldi.com.au/product/seasons-pride-corn-fritters-500g-000000000365218002",
+      "retrievedAt": "2026-10-04T10:26:56.066Z",
+      "status": 200,
+      "file": "evidence/3A-C-37.html.gz",
+      "sha256": "f3e31fe1ba3db834415c6f4939ccc5d933b84c191b9e46d804730afafb26ae2d",
+      "hashBasis": "uncompressed-public-response-bytes",
+      "lastModified": null,
+      "images": [
+        {
+          "label": "Front shot 1, Product image, Enlarge image",
+          "url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/864/580c965d-45ec-4fe1-8d89-6dfab8f340ec/Corn%20Fritters%20500g",
+          "status": 200,
+          "file": "evidence/3A-C-37-1.jpg",
+          "sha256": "0aa794b7ceb1456993013fb30669ea1825cbdf3b70bfde7d509d7c47b7ee7f03"
+        },
+        {
+          "label": "Front shot 2, Product image, Enlarge image",
+          "url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/864/a0600851-5b01-4861-a87e-43bc0b513893/Corn%20Fritters%20500g",
+          "status": 200,
+          "file": "evidence/3A-C-37-2.jpg",
+          "sha256": "54aaba8d1c952ec66caa6681e13a0d0d1c5290c5b7abb11b373709c89a2d9bbf"
+        },
+        {
+          "label": "Nutrients 1, Product image, Enlarge image",
+          "url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/864/ba86f7dd-104c-4362-b26a-b25cffc75ca8/Corn%20Fritters%20500g",
+          "status": 200,
+          "file": "evidence/3A-C-37-3.jpg",
+          "sha256": "013b09bc39b7b0739ca6abb53b7fb47b4f098cbd234863fe53cff315b24a1e3a"
+        }
+      ],
+      "highResolution": {
+        "url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/1500/a0600851-5b01-4861-a87e-43bc0b513893/Corn%20Fritters%20500g",
+        "file": "evidence/3A-C-37-2-1500.jpg",
+        "status": 200,
+        "sha256": "917638ca3c84b83ca0afe4aad57dd4069182f84a183cef03c3beefb2777faa4f",
+        "basis": "Page image URL template with published maxWidth 1500"
+      }
+    },
+    {
+      "id": "3A-D-38",
+      "url": "https://www.aldi.com.au/product/vegemite-vegemite-370g-000000000000370431",
+      "retrievedAt": "2026-10-04T10:26:59.031Z",
+      "status": 200,
+      "file": "evidence/3A-D-38.html.gz",
+      "sha256": "a8cc6aa928b9b632551815f30f18ee5b96dddd3ce986fc71cf5a9c096b013ee0",
+      "hashBasis": "uncompressed-public-response-bytes",
+      "lastModified": null,
+      "images": [
+        {
+          "label": "Front shot 1, Product image, Enlarge image",
+          "url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/864/337da526-9930-4295-ba56-962abbf61e72/Vegemite%20370g",
+          "status": 200,
+          "file": "evidence/3A-D-38-1.jpg",
+          "sha256": "3514b3bf57d87eb8ec32477342c1216e1def7980bfe31c0a5a58338907acbe0d"
+        },
+        {
+          "label": "Front shot 2, Product image, Enlarge image",
+          "url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/864/1b1eb00a-2abc-4d5c-b032-05611d579aab/Vegemite%20370g",
+          "status": 200,
+          "file": "evidence/3A-D-38-2.jpg",
+          "sha256": "892645147fb1bccd6b7e758b8d121854ac66acab96f28e043f8603bdca9f0903"
+        },
+        {
+          "label": "Front shot 3, Product image, Enlarge image",
+          "url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/864/538bd908-cb44-451e-95bd-890cedfc9b06/Vegemite%20370g",
+          "status": 200,
+          "file": "evidence/3A-D-38-3.jpg",
+          "sha256": "e45d75f4c99b707df4157d26c4f04a149741ca4b21358e56ffc2b0df805a0de4"
+        },
+        {
+          "label": "Nutrients 1, Product image, Enlarge image",
+          "url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/864/27226edc-8218-4308-8a14-724838defd90/Vegemite%20370g",
+          "status": 200,
+          "file": "evidence/3A-D-38-4.jpg",
+          "sha256": "473cd2346662429dbcbd9451ecd73843113e47234c0fcdf7fe7f39cce5bfa368"
+        }
+      ],
+      "highResolution": {
+        "url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/1500/1b1eb00a-2abc-4d5c-b032-05611d579aab/Vegemite%20370g",
+        "file": "evidence/3A-D-38-2-1500.jpg",
+        "status": 200,
+        "sha256": "79b50316d0e6994cc843ffdbe0523accfd77ceb5ff1b438ab439d4c8472d1f31",
+        "basis": "Page image URL template with published maxWidth 1500"
+      }
+    },
+    {
+      "id": "3A-D-39",
+      "url": "https://www.aldi.com.au/product/pepsi-max-pepsi-max-2l-000000000000367148",
+      "retrievedAt": "2026-10-04T10:27:02.716Z",
+      "status": 200,
+      "file": "evidence/3A-D-39.html.gz",
+      "sha256": "a4c0bd832ba539a73e1d46795289ddf7fa5180e909ace2cc2daca908d3a8dbbb",
+      "hashBasis": "uncompressed-public-response-bytes",
+      "lastModified": null,
+      "images": [
+        {
+          "label": "Front shot 1, Product image, Enlarge image",
+          "url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/864/ae829e45-c49b-40c1-a41c-0eec87f6bba9/Pepsi%20Max%202L",
+          "status": 200,
+          "file": "evidence/3A-D-39-1.jpg",
+          "sha256": "855261b6f6ebfc595f2ea653427ac51df8fad69d68f5bb9ceb6b32955f4c4c6d"
+        },
+        {
+          "label": "Front shot 2, Product image, Enlarge image",
+          "url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/864/a6efcc19-8d34-49d8-8f32-e3c08c43fe70/Pepsi%20Max%202L",
+          "status": 200,
+          "file": "evidence/3A-D-39-2.jpg",
+          "sha256": "53ac8e9fc94db4edfd6df20db5ad24ee39bf438074162f23fa273a53288f451f"
+        },
+        {
+          "label": "Nutrients 1, Product image, Enlarge image",
+          "url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/864/5cea33b8-baed-4088-9512-efd66ef6ad79/Pepsi%20Max%202L",
+          "status": 200,
+          "file": "evidence/3A-D-39-3.jpg",
+          "sha256": "385b9c2c91e82188f31114a11c405f287c572bc9e41deeaa05c77e7f817f14b1"
+        }
+      ],
+      "highResolution": {
+        "url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/1500/a6efcc19-8d34-49d8-8f32-e3c08c43fe70/Pepsi%20Max%202L",
+        "file": "evidence/3A-D-39-2-1500.jpg",
+        "status": 200,
+        "sha256": "06857f8c472ec007225d34aa6971786148797a364315048f581c27e1de13c4fa",
+        "basis": "Page image URL template with published maxWidth 1500"
+      }
+    },
+    {
+      "id": "3A-A-hash-browns",
+      "url": "https://www.aldi.com.au/product/seasons-pride-hash-browns-1kg-000000000000621236",
+      "retrievedAt": "2026-10-04T10:27:04.265Z",
+      "status": 200,
+      "file": "evidence/3A-A-hash-browns.html.gz",
+      "sha256": "e22ee787d588c2e3e2c56921b67a65b6619989db3d974a98ff4b7cc769e4f5c9",
+      "hashBasis": "uncompressed-public-response-bytes",
+      "lastModified": null,
+      "images": [
+        {
+          "label": "Front shot 1, Product image, Enlarge image",
+          "url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/864/7ce80559-9f49-40c2-b89e-07181c5f2728/Hash%20Browns%201kg",
+          "status": 200,
+          "file": "evidence/3A-A-hash-browns-1.jpg",
+          "sha256": "40c2fe9f9b8ad8207a83a2439416edc0c52a186e97911147f58232249f8bb199"
+        },
+        {
+          "label": "Front shot 2, Product image, Enlarge image",
+          "url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/864/3739e9c0-863e-4ad1-b357-c21eaf99d2d0/Hash%20Browns%201kg",
+          "status": 200,
+          "file": "evidence/3A-A-hash-browns-2.jpg",
+          "sha256": "96745f06be4b661e048cb0205959aa4edcf683f193c5c83de0beb4a14b2003d4"
+        },
+        {
+          "label": "Nutrients 1, Product image, Enlarge image",
+          "url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/864/a6d91f0d-7758-4e05-bd0b-cd936ba21bbc/Hash%20Browns%201kg",
+          "status": 200,
+          "file": "evidence/3A-A-hash-browns-3.jpg",
+          "sha256": "bb66f69948f7c0941233f0cd69ab5001f1ab8395f46c2953bce74b4f63bc4ef9"
+        }
+      ],
+      "highResolution": {
+        "url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/1500/3739e9c0-863e-4ad1-b357-c21eaf99d2d0/Hash%20Browns%201kg",
+        "file": "evidence/3A-A-hash-browns-2-1500.jpg",
+        "status": 200,
+        "sha256": "6d48848c106eb5697979d04f7c3c7f1889c0d14f518e132a13e7d105d537f6f9",
+        "basis": "Page image URL template with published maxWidth 1500"
+      }
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+AssertionError [ERR_ASSERTION]: Pepsi Max 2L
+    at run (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\scripts\audit_catalogue_wave_3a_edge.js:12:65) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: undefined,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}

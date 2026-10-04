@@ -16,10 +16,10 @@ test('all 15 existing restrictions survive fresh evidence and runtime hydration'
  for(const c of input.manifest.candidates.filter(c=>c.groups.includes('A'))){counts[c.reason]=(counts[c.reason]||0)+1;const r=rows.find(r=>r.candidateId===c.candidateId),f=foods.find(f=>C.canonicalKey(f)===r.canonicalKey);assert(f);assert.equal(r.disposition,'remains-restricted');assert(!C.canLog(f));assert.equal(r.beforeStatus,r.afterStatus);if(c.reason==='identity-conflict')assert(C.sourceConflicts(f).some(c=>c.code==='same-gtin-identity-conflict'));if(c.reason==='energy-missing')assert.equal(f.nutrients.calories,null);}
  assert.deepEqual(counts,{'source-conflict':4,'identity-conflict':8,'energy-missing':3});assert.equal(foods.filter(f=>!C.canLog(f)).length,15);
 });
-test('24 Wave 1B corrections survive; Wave 2A accounts for later shared fallback changes',async()=>{
+test('24 Wave 1B corrections survive; Waves 2A and 3A account for later shared fallback changes',async()=>{
  const foods=await all('woolworths');assert.equal(foods.length,363);assert.equal(foods.filter(C.canLog).length,348);
- const later=require('../data/catalogue-wave-2a/baseline.json').retailers.woolworths.identities.filter(f=>f.categoryId==='other-food').filter(f=>require('../data/woolworths-au/wave-2a-report.json').changes.some(c=>c.canonicalKey===f.key));
- assert.equal(later.length,8);assert.equal(R.directory('woolworths').categories.find(c=>c.id==='other-food').count,45-later.length);
+ const changes=[...require('../data/woolworths-au/wave-2a-report.json').changes,...require('../data/woolworths-au/wave-3a-report.json').changes],later=require('../data/catalogue-wave-2a/baseline.json').retailers.woolworths.identities.filter(f=>f.categoryId==='other-food').filter(f=>changes.some(c=>c.canonicalKey===f.key));
+ assert.equal(later.length,9);assert.equal(R.directory('woolworths').categories.find(c=>c.id==='other-food').count,45-later.length);
  for(const r of rows.filter(r=>r.groups.includes('B'))){const f=foods.find(f=>C.canonicalKey(f)===r.canonicalKey),prior=input.baseline.candidates.find(f=>C.canonicalKey(f)===r.canonicalKey);assert.deepEqual(r.category,SEM.reviewedFamily(prior));assert.equal(f.browseCategoryId,r.category.id);for(const k of ['nutrients','units','sourceProvenance','barcode','brand'])assert.deepEqual(f[k],prior[k],r.name+' '+k);}
 });
 test('shared category rules are retailer-neutral and reject misleading ingredients and forms',()=>{
@@ -75,7 +75,7 @@ test('deferred candidates cannot gain a Wave 1B admission or bypass existing res
  for(const code of ['9300633939151','9310055537224'])assert(rows.find(r=>r.canonicalKey==='barcode:'+code).reason.includes('unresolved-material-evidence'));
 });
 test('global index/shard hashes, canonical uniqueness and brand counts reconcile',()=>{
- assert.equal(B.index.entries.length,7491);assert.equal(B.index.brands.length,2736);assert.equal(new Set(B.index.entries.map(C.canonicalKey)).size,7491);
+ assert.equal(B.index.entries.length,7494);assert.equal(B.index.brands.length,2737);assert.equal(new Set(B.index.entries.map(C.canonicalKey)).size,7494);
  for(const [kind,index]of [['brand',B.index],...Object.entries(indices)]){const records=new Map();for(const shard of index.files){const bytes=fs.readFileSync(path.resolve(__dirname,'../data/'+kind+'-au',shard.path));assert.equal(X.hash(bytes),shard.sha256);const data=JSON.parse(bytes);assert.equal(data.records.length,shard.records);for(const f of data.records)records.set(f.id,f);}for(const entry of index.entries){assert(records.has(entry.id));assert.equal(C.canonicalKey(records.get(entry.id)),C.canonicalKey(entry));}}
 });
 test('new evidence cannot override a material same-GTIN identity or formulation conflict',()=>{

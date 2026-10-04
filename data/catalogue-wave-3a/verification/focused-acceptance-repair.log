@@ -1,0 +1,104 @@
+✔ frozen pool is pinned and the reviewed projection rebuilds byte-identically (1959.8886ms)
+✔ retailers register once in the established deterministic order (150.4194ms)
+✖ directory counts and All Items are deterministic and lazy (196.5715ms)
+✔ every retained first-wave record preserves Australia-only community evidence, source brand and attribution (128.5976ms)
+✔ all 705 retained exclusions and lexical rejects remain outside the production index (88.3837ms)
+✔ community provenance cannot be fabricated from names, brand, partial store text, foreign country or missing pins (90.9046ms)
+✔ tampered hydrated community evidence fails closed (154.0858ms)
+✔ guided bread is limited to its approved Aldi concept (110.0281ms)
+✔ guided yoghurt is limited to its approved Aldi concept (89.845ms)
+✔ guided cheese is limited to its approved Aldi concept (106.8123ms)
+✔ guided cereal is limited to its approved Aldi concept (87.3408ms)
+✔ retailer-aware Aldi bread uses the food concept even without bread in the source title (90.9812ms)
+✔ cancellation clears Aldi ownership and preserves generic Bread intent (67.6043ms)
+✔ all 20 existing protected OFF GTIN records merge compatibly without changing brand or nutrition (382.4892ms)
+✔ incompatible same-GTIN identity remains blocked through repeated canonicalisation (93.2394ms)
+✔ bread slices preserves identity, amount conversion and one final Review (95.6259ms)
+✔ liquid Pepsi preserves identity, amount conversion and one final Review (90.0604ms)
+✔ gram cheese preserves identity, amount conversion and one final Review (96.1841ms)
+✔ muesli serve preserves identity, amount conversion and one final Review (102.5982ms)
+✔ gram yoghurt preserves identity, amount conversion and one final Review (85.7803ms)
+✔ unknown values stay unknown; explicit water zeroes remain zero; packs never create count measures (78.2413ms)
+✔ bounded Woolworths and Coles regressions retain their roots and accepted catalogues (157.228ms)
+✔ submitted retailer product filter keeps approved concept evidence across either merge order (123.3182ms)
+✔ shared concept source choices expose covered retailers without altering generic-only concepts (71.6259ms)
+✔ retailer search uses registered food-concept aliases before title matching (113.7165ms)
+✔ every generated record passes identity, GTIN, AU, nutrition, conflicts and unknown preservation (9734.3906ms)
+✔ all admitted source tokens meet reproducible tiers without merging companies or sub-brands (8057.2735ms)
+✔ the wave adds no duplicate OFF identity and retains existing retailer evidence (1545.0778ms)
+✔ known solids never gain liquid measures in the complete generated wave (1842.36ms)
+✔ brand plus exact product outranks lexical extensions and incomplete records never enter brand browse (579.1465ms)
+✔ brand browse is bounded, category scoped, and all pages cover the complete brand (87.0521ms)
+✔ generic food and retailer intent cannot become an exact-brand catalogue query (1.7848ms)
+✔ a complete indexed brand outranks a shorter registered brand prefix (18.6611ms)
+✔ concept Brand Name options contain accepted relevant products only (239.9759ms)
+✔ source tokens allow secondary explicit brand membership without ownership inference (0.4707ms)
+✔ cancelled asynchronous queries cannot hand off foods (1.5265ms)
+✔ decorated brand sorting preserves the existing complete ranking order (118.8382ms)
+✔ cached raw OFF rows cannot bypass audited brand admission (60.2895ms)
+✔ representative real products retain one amount-to-Review conversion (34.846ms)
+✖ ordinary supermarket browse is relationship-gated, current or uncertain, never sale or provenance alone (407.9214ms)
+✔ independent and legacy products retain useful global search and canonical identity (253.2767ms)
+✔ retailer Brands navigation reaches Seasons Pride and Elmsbury, with category intersection (6.2734ms)
+✔ compound foods outrank ingredient and broad cake tokens in projected categories and concepts (3.244ms)
+✔ Jewel/Gem aliases resolve one canonical product, preserve authentic names and exact branded intent (12.0473ms)
+✔ all accepted source identity, nutrition, measure and evidence facts remain byte-equivalent (1465.6328ms)
+✔ protected McCain review still resolves its canonical alias and accepted energy (1.4341ms)
+✔ fixed manifest is bounded, canonical-distinct and all decisions reconcile (8.8559ms)
+✔ all 15 existing restrictions survive fresh evidence and runtime hydration (488.3549ms)
+✔ 24 Wave 1B corrections survive; Waves 2A and 3A account for later shared fallback changes (261.3304ms)
+✔ shared category rules are retailer-neutral and reject misleading ingredients and forms (0.9987ms)
+✔ stock and flavour cues never hijack chicken, while ordinary chicken remains compatible (3.132ms)
+✔ retailer concept queries retrieve evidenced families without lexical cereal in every title (61.7697ms)
+✔ dry preparation words take precedence over beverage ancestry without changing prepared drinks (5.5327ms)
+✔ structured Australian savoury biscuits provide generic Crackers without admitting sweet biscuits (17.7097ms)
+✔ concepts with a source-context chooser cannot be pre-filtered to generic records (0.4132ms)
+✔ new admissions have complete required nutrients and preserve unknown fibre (2.9643ms)
+✔ physical form and explicit serving support one amount handoff with no pack-derived units (20.5408ms)
+✔ independent consumer brand and retailer presence remain separate throughout global hydration (238.6163ms)
+✔ deferred candidates cannot gain a Wave 1B admission or bypass existing restrictions (0.3942ms)
+✔ global index/shard hashes, canonical uniqueness and brand counts reconcile (1047.4213ms)
+✔ new evidence cannot override a material same-GTIN identity or formulation conflict (14.6303ms)
+✔ Woolworths outputs regenerate byte-for-byte offline without replacing source evidence (5484.7502ms)
+✔ the standalone Woolworths builder check resolves its adapter dependency without a circular-export failure (3853.6601ms)
+ℹ tests 63
+ℹ suites 0
+ℹ pass 61
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 24416.2954
+
+✖ failing tests:
+
+test at tests\aldi-source.test.js:9:1
+✖ directory counts and All Items are deterministic and lazy (196.5715ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert(page.foods.every(f=>C.privateLabelCollectionMembership(f,'aldi').length===1))
+  
+      at TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\aldi-source.test.js:9:570)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\catalogue-semantics-repair.test.js:6:1
+✖ ordinary supermarket browse is relationship-gated, current or uncertain, never sale or provenance alone (407.9214ms)
+  AssertionError [ERR_ASSERTION]: Farmdale
+      at TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\catalogue-semantics-repair.test.js:7:304)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

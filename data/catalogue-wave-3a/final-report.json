@@ -1,0 +1,1818 @@
+{
+  "schemaVersion": 1,
+  "generation": "8306466fcc410bf3cf384ae7",
+  "version": "0.6.33",
+  "retailers": {
+    "aldi": {
+      "visible": 224,
+      "loggable": 224,
+      "restricted": 0,
+      "categories": [
+        {
+          "id": "bread",
+          "label": "Bread & Bakery",
+          "count": 16
+        },
+        {
+          "id": "yoghurt",
+          "label": "Yoghurt",
+          "count": 10
+        },
+        {
+          "id": "cheese",
+          "label": "Cheese",
+          "count": 29
+        },
+        {
+          "id": "cereal",
+          "label": "Breakfast Cereal",
+          "count": 9
+        },
+        {
+          "id": "biscuits",
+          "label": "Crackers & Biscuits",
+          "count": 12
+        },
+        {
+          "id": "snacks",
+          "label": "Snack Foods",
+          "count": 31
+        },
+        {
+          "id": "sauces",
+          "label": "Sauces & Condiments",
+          "count": 11
+        },
+        {
+          "id": "produce",
+          "label": "Packaged Fruit & Vegetables",
+          "count": 5
+        },
+        {
+          "id": "protein",
+          "label": "Meat & Protein",
+          "count": 43
+        },
+        {
+          "id": "milk",
+          "label": "Milk",
+          "count": 1
+        },
+        {
+          "id": "canned",
+          "label": "Baked Beans & Canned Food",
+          "count": 8
+        },
+        {
+          "id": "grains",
+          "label": "Rice, Pasta & Grains",
+          "count": 5
+        },
+        {
+          "id": "spreads",
+          "label": "Spreads & Margarine",
+          "count": 10
+        },
+        {
+          "id": "frozen-vegetables",
+          "label": "Frozen Vegetables",
+          "count": 1
+        },
+        {
+          "id": "frozen-potato",
+          "label": "Frozen Potato Products",
+          "count": 1
+        },
+        {
+          "id": "meals",
+          "label": "Prepared Meals",
+          "count": 2
+        },
+        {
+          "id": "pizza",
+          "label": "Pizza & Savoury Snacks",
+          "count": 5
+        },
+        {
+          "id": "other-food",
+          "label": "Other Packaged Food",
+          "count": 25
+        }
+      ],
+      "houseBrandFamilies": 34,
+      "brands": [
+        {
+          "key": "bakerslife",
+          "name": "Bakers Life",
+          "count": 13
+        },
+        {
+          "key": "belmontbiscuitco",
+          "name": "Belmont Biscuit Co",
+          "count": 3
+        },
+        {
+          "key": "berg",
+          "name": "Berg",
+          "count": 8
+        },
+        {
+          "key": "brooklea",
+          "name": "Brooklea",
+          "count": 10
+        },
+        {
+          "key": "choceur",
+          "name": "Choceur",
+          "count": 11
+        },
+        {
+          "key": "colway",
+          "name": "Colway",
+          "count": 7
+        },
+        {
+          "key": "dairyfine",
+          "name": "Dairy Fine",
+          "count": 6
+        },
+        {
+          "key": "damora",
+          "name": "Damora",
+          "count": 10
+        },
+        {
+          "key": "delioriginals",
+          "name": "Deli Originals",
+          "count": 6
+        },
+        {
+          "key": "elmsbury",
+          "name": "Elmsbury",
+          "count": 1
+        },
+        {
+          "key": "eltora",
+          "name": "Eltora",
+          "count": 1
+        },
+        {
+          "key": "emporiumselection",
+          "name": "EMPORIUM SELECTION",
+          "count": 8
+        },
+        {
+          "key": "farmdale",
+          "name": "Farmdale",
+          "count": 1
+        },
+        {
+          "key": "farmwood",
+          "name": "Farmwood",
+          "count": 3
+        },
+        {
+          "key": "goldenvale",
+          "name": "GoldenVale",
+          "count": 2
+        },
+        {
+          "key": "grandessa",
+          "name": "Grandessa",
+          "count": 4
+        },
+        {
+          "key": "hillcrest",
+          "name": "hillcrest",
+          "count": 16
+        },
+        {
+          "key": "internationalcuisine",
+          "name": "International Cuisine",
+          "count": 8
+        },
+        {
+          "key": "marketfare",
+          "name": "Market Fare",
+          "count": 1
+        },
+        {
+          "key": "moserroth",
+          "name": "MOSER ROTH",
+          "count": 6
+        },
+        {
+          "key": "oceanrise",
+          "name": "Ocean Rise",
+          "count": 18
+        },
+        {
+          "key": "oceanroyale",
+          "name": "Ocean royale",
+          "count": 10
+        },
+        {
+          "key": "ohsonatural",
+          "name": "Oh So Natural",
+          "count": 8
+        },
+        {
+          "key": "seasonspride",
+          "name": "Seasons Pride",
+          "count": 2
+        },
+        {
+          "key": "snackersmarket",
+          "name": "SNACKERS MARKET",
+          "count": 2
+        },
+        {
+          "key": "speciallyselected",
+          "name": "Specially Selected",
+          "count": 6
+        },
+        {
+          "key": "sprinters",
+          "name": "Sprinters",
+          "count": 7
+        },
+        {
+          "key": "sweethaven",
+          "name": "Sweet Haven",
+          "count": 1
+        },
+        {
+          "key": "thefreshsaladco",
+          "name": "The Fresh Salad Co",
+          "count": 3
+        },
+        {
+          "key": "urbaneats",
+          "name": "Urban Eats",
+          "count": 10
+        },
+        {
+          "key": "westacre",
+          "name": "Westacre",
+          "count": 5
+        },
+        {
+          "key": "westacredairy",
+          "name": "Westacre Dairy",
+          "count": 17
+        },
+        {
+          "key": "whitemill",
+          "name": "White Mill",
+          "count": 2
+        },
+        {
+          "key": "worldkitchen",
+          "name": "World Kitchen",
+          "count": 8
+        }
+      ],
+      "otherPackagedFood": 25,
+      "changes": [
+        {
+          "canonicalKey": "barcode:4088700198728",
+          "name": "Vegetable spring rolls",
+          "brand": "Urban eats",
+          "before": "other-food",
+          "after": "pizza",
+          "evidence": {
+            "wave": "3A",
+            "rule": "spring-roll-product",
+            "projectionOnly": true,
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:4088700198728",
+              "url": "http://world-en.openfoodfacts.org/product/4088700198728/vegetable-spring-rolls-urban-eats",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            }
+          }
+        },
+        {
+          "canonicalKey": "barcode:4061461640736",
+          "name": "Smoked Rainbow Trout Fillets In Truffle Flavoured Oil",
+          "brand": "OceanRise",
+          "before": "other-food",
+          "after": "protein",
+          "evidence": {
+            "wave": "3A",
+            "rule": "fish-fillets-in-oil",
+            "projectionOnly": true,
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:4061461640736",
+              "url": "http://world-en.openfoodfacts.org/product/4061461640736/smoked-rainbow-trout-fillets-in-truffle-flavoured-oil-oceanrise",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            }
+          }
+        },
+        {
+          "canonicalKey": "barcode:4061462020650",
+          "name": "Southern Blue Whiting Classic Crumbs",
+          "brand": "Ocean Royale",
+          "before": "other-food",
+          "after": "protein",
+          "evidence": {
+            "wave": "3A",
+            "rule": "coated-fish-product",
+            "projectionOnly": true,
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:4061462020650",
+              "url": "http://world-en.openfoodfacts.org/product/4061462020650/southern-blue-whiting-classic-crumbs-ocean-royale",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            }
+          }
+        },
+        {
+          "canonicalKey": "barcode:4061462197710",
+          "name": "Crisps Sea Salt",
+          "brand": "Damora",
+          "before": "other-food",
+          "after": "snacks",
+          "evidence": {
+            "wave": "3A",
+            "rule": "crisp-or-pretzel-snack",
+            "projectionOnly": true,
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:4061462197710",
+              "url": "http://world-en.openfoodfacts.org/product/4061462197710/crisps-sea-salt-damora",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            }
+          }
+        },
+        {
+          "canonicalKey": "barcode:4061462230264",
+          "name": "Crisps Sweet Chilli & Sour Cream",
+          "brand": "DAMORA",
+          "before": "other-food",
+          "after": "snacks",
+          "evidence": {
+            "wave": "3A",
+            "rule": "crisp-or-pretzel-snack",
+            "projectionOnly": true,
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:4061462230264",
+              "url": "http://world-en.openfoodfacts.org/product/4061462230264/crisps-sweet-chilli-sour-cream-damora",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            }
+          }
+        },
+        {
+          "canonicalKey": "barcode:4061462270932",
+          "name": "Pecorino Romano",
+          "brand": "Emporium Selection",
+          "before": "other-food",
+          "after": "cheese",
+          "evidence": {
+            "wave": "3A",
+            "rule": "whole-cheese-style",
+            "projectionOnly": true,
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:4061462270932",
+              "url": "http://world-en.openfoodfacts.org/product/4061462270932/pecorino-romano-emporium-selection",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            }
+          }
+        },
+        {
+          "canonicalKey": "barcode:4061462623004",
+          "name": "Grilled Artichokes",
+          "brand": "Deli Originals",
+          "before": "other-food",
+          "after": "produce",
+          "evidence": {
+            "wave": "3A",
+            "rule": "antipasto-vegetable",
+            "projectionOnly": true,
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:4061462623004",
+              "url": "http://world-en.openfoodfacts.org/product/4061462623004/grilled-artichokes-deli-originals",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            }
+          }
+        },
+        {
+          "canonicalKey": "barcode:4061463342751",
+          "name": "Pitted Kalamata Olives",
+          "brand": "Deli Originals",
+          "before": "other-food",
+          "after": "produce",
+          "evidence": {
+            "wave": "3A",
+            "rule": "antipasto-vegetable",
+            "projectionOnly": true,
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:4061463342751",
+              "url": "http://world-en.openfoodfacts.org/product/4061463342751/pitted-kalamata-olives-deli-originals",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            }
+          }
+        },
+        {
+          "canonicalKey": "barcode:4061464721135",
+          "name": "Tempura Barramundi",
+          "brand": "Ocean Royale",
+          "before": "other-food",
+          "after": "protein",
+          "evidence": {
+            "wave": "3A",
+            "rule": "coated-fish-product",
+            "projectionOnly": true,
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:4061464721135",
+              "url": "http://world-en.openfoodfacts.org/product/4061464721135/tempura-barramundi-ocean-royale",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            }
+          }
+        },
+        {
+          "canonicalKey": "barcode:4061464747678",
+          "name": "Mexican Blend Cheese",
+          "brand": "Westacre Dairy",
+          "before": "other-food",
+          "after": "cheese",
+          "evidence": {
+            "wave": "3A",
+            "rule": "whole-cheese-style",
+            "projectionOnly": true,
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:4061464747678",
+              "url": "http://world-en.openfoodfacts.org/product/4061464747678/mexican-blend-cheese-westacre-dairy",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            }
+          }
+        },
+        {
+          "canonicalKey": "barcode:4069365476444",
+          "name": "Roasted Beetroot Dip",
+          "brand": "Deli Originals",
+          "before": "other-food",
+          "after": "sauces",
+          "evidence": {
+            "wave": "3A",
+            "rule": "vegetable-dip-product",
+            "projectionOnly": true,
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:4069365476444",
+              "url": "http://world-en.openfoodfacts.org/product/4069365476444/roasted-beetroot-dip-deli-originals",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            }
+          }
+        },
+        {
+          "canonicalKey": "barcode:4088700038994",
+          "name": "Pretzel Twists",
+          "brand": "Sprinters",
+          "before": "other-food",
+          "after": "snacks",
+          "evidence": {
+            "wave": "3A",
+            "rule": "crisp-or-pretzel-snack",
+            "projectionOnly": true,
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:4088700038994",
+              "url": "http://world-en.openfoodfacts.org/product/4088700038994/pretzel-twists-sprinters",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            }
+          }
+        },
+        {
+          "canonicalKey": "barcode:4088700055625",
+          "name": "Artisan White Sourdough",
+          "brand": "Bakers Life",
+          "before": "other-food",
+          "after": "bread",
+          "evidence": {
+            "wave": "3A",
+            "rule": "plain-sourdough-bread",
+            "projectionOnly": true,
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:4088700055625",
+              "url": "http://world-en.openfoodfacts.org/product/4088700055625/artisan-white-sourdough-bakers-life",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            }
+          }
+        },
+        {
+          "canonicalKey": "barcode:4088700157039",
+          "name": "Colby Cheese Block",
+          "brand": "Westacre Dairy",
+          "before": "other-food",
+          "after": "cheese",
+          "evidence": {
+            "wave": "3A",
+            "rule": "whole-cheese-style",
+            "projectionOnly": true,
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:4088700157039",
+              "url": "http://world-en.openfoodfacts.org/product/4088700157039/colby-cheese-block-westacre-dairy",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            }
+          }
+        },
+        {
+          "canonicalKey": "barcode:4088700157060",
+          "name": "Fetta Cheese",
+          "brand": "EMPORIUM SELECTION",
+          "before": "other-food",
+          "after": "cheese",
+          "evidence": {
+            "wave": "3A",
+            "rule": "whole-cheese-style",
+            "projectionOnly": true,
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:4088700157060",
+              "url": "http://world-en.openfoodfacts.org/product/4088700157060/fetta-cheese-emporium-selection",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            }
+          }
+        },
+        {
+          "canonicalKey": "barcode:4088700207109",
+          "name": "White sourdough",
+          "brand": "Bakers Life",
+          "before": "other-food",
+          "after": "bread",
+          "evidence": {
+            "wave": "3A",
+            "rule": "plain-sourdough-bread",
+            "projectionOnly": true,
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:4088700207109",
+              "url": "http://world-en.openfoodfacts.org/product/4088700207109/white-sourdough-bakers-life",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            }
+          }
+        },
+        {
+          "canonicalKey": "barcode:4088700355213",
+          "name": "Grana Padano PDO Cheese Flaked",
+          "brand": "Emporium Selection",
+          "before": "other-food",
+          "after": "cheese",
+          "evidence": {
+            "wave": "3A",
+            "rule": "whole-cheese-style",
+            "projectionOnly": true,
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:4088700355213",
+              "url": "http://world-en.openfoodfacts.org/product/4088700355213/grana-padano-pdo-cheese-flaked-emporium-selection",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            }
+          }
+        }
+      ]
+    },
+    "woolworths": {
+      "visible": 363,
+      "loggable": 348,
+      "restricted": 15,
+      "categories": [
+        {
+          "id": "bread",
+          "label": "Bread & Bakery",
+          "count": 35
+        },
+        {
+          "id": "milk",
+          "label": "Milk",
+          "count": 9
+        },
+        {
+          "id": "yoghurt",
+          "label": "Yoghurt",
+          "count": 7
+        },
+        {
+          "id": "cheese",
+          "label": "Cheese",
+          "count": 13
+        },
+        {
+          "id": "cereal",
+          "label": "Breakfast Cereal",
+          "count": 5
+        },
+        {
+          "id": "canned",
+          "label": "Baked Beans & Canned Food",
+          "count": 14
+        },
+        {
+          "id": "grains",
+          "label": "Rice, Pasta & Grains",
+          "count": 30
+        },
+        {
+          "id": "spreads",
+          "label": "Spreads & Margarine",
+          "count": 7
+        },
+        {
+          "id": "biscuits",
+          "label": "Crackers & Biscuits",
+          "count": 17
+        },
+        {
+          "id": "snacks",
+          "label": "Snack Foods",
+          "count": 27
+        },
+        {
+          "id": "frozen-vegetables",
+          "label": "Frozen Vegetables",
+          "count": 2
+        },
+        {
+          "id": "frozen-potato",
+          "label": "Frozen Potato Products",
+          "count": 2
+        },
+        {
+          "id": "sauces",
+          "label": "Sauces & Condiments",
+          "count": 9
+        },
+        {
+          "id": "drinks",
+          "label": "Non-alcoholic Drinks",
+          "count": 5
+        },
+        {
+          "id": "desserts",
+          "label": "Desserts & Ice Cream",
+          "count": 26
+        },
+        {
+          "id": "produce",
+          "label": "Packaged Fruit & Vegetables",
+          "count": 22
+        },
+        {
+          "id": "protein",
+          "label": "Meat & Protein",
+          "count": 78
+        },
+        {
+          "id": "meals",
+          "label": "Prepared Meals",
+          "count": 15
+        },
+        {
+          "id": "pizza",
+          "label": "Pizza & Savoury Snacks",
+          "count": 4
+        },
+        {
+          "id": "other-food",
+          "label": "Other Packaged Food",
+          "count": 36
+        }
+      ],
+      "houseBrandFamilies": 11,
+      "brands": [
+        {
+          "key": "essentials",
+          "name": "Essentials",
+          "count": 1
+        },
+        {
+          "key": "farmersown",
+          "name": "Farmers Own",
+          "count": 1
+        },
+        {
+          "key": "macro",
+          "name": "macro",
+          "count": 13
+        },
+        {
+          "key": "macrowholefoods",
+          "name": "Macro Wholefoods",
+          "count": 1
+        },
+        {
+          "key": "macrowholefoodsmarket",
+          "name": "macro WHOLEFOODS MARKET",
+          "count": 16
+        },
+        {
+          "key": "theoddbunch",
+          "name": "The Odd Bunch",
+          "count": 2
+        },
+        {
+          "key": "thomasdux",
+          "name": "Thomas dux",
+          "count": 2
+        },
+        {
+          "key": "woolworths",
+          "name": "Woolworths",
+          "count": 283
+        },
+        {
+          "key": "woolworthsbakery",
+          "name": "Woolworths Bakery",
+          "count": 38
+        },
+        {
+          "key": "woolworthsessentials",
+          "name": "Woolworths Essentials",
+          "count": 5
+        },
+        {
+          "key": "woolworthsmacro",
+          "name": "Woolworths Macro",
+          "count": 1
+        }
+      ],
+      "otherPackagedFood": 36,
+      "changes": [
+        {
+          "canonicalKey": "barcode:9339687097630",
+          "name": "Pitted kalamata olives",
+          "brand": "Woolworths",
+          "before": "other-food",
+          "after": "produce",
+          "evidence": {
+            "wave": "3A",
+            "rule": "antipasto-vegetable",
+            "projectionOnly": true,
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:9339687097630",
+              "url": "http://world-en.openfoodfacts.org/product/9339687097630/pitted-kalamata-olives-woolworths",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            }
+          }
+        }
+      ]
+    },
+    "coles": {
+      "visible": 417,
+      "loggable": 417,
+      "restricted": 0,
+      "categories": [
+        {
+          "id": "bread",
+          "label": "Bread & Bakery",
+          "count": 27
+        },
+        {
+          "id": "milk",
+          "label": "Milk",
+          "count": 4
+        },
+        {
+          "id": "yoghurt",
+          "label": "Yoghurt",
+          "count": 7
+        },
+        {
+          "id": "cheese",
+          "label": "Cheese",
+          "count": 16
+        },
+        {
+          "id": "cereal",
+          "label": "Breakfast Cereal",
+          "count": 7
+        },
+        {
+          "id": "spreads",
+          "label": "Spreads & Margarine",
+          "count": 8
+        },
+        {
+          "id": "biscuits",
+          "label": "Crackers & Biscuits",
+          "count": 11
+        },
+        {
+          "id": "snacks",
+          "label": "Snack Foods",
+          "count": 34
+        },
+        {
+          "id": "sauces",
+          "label": "Sauces & Condiments",
+          "count": 14
+        },
+        {
+          "id": "protein",
+          "label": "Meat & Protein",
+          "count": 100
+        },
+        {
+          "id": "desserts",
+          "label": "Desserts & Ice Cream",
+          "count": 33
+        },
+        {
+          "id": "drinks",
+          "label": "Non-alcoholic Drinks",
+          "count": 3
+        },
+        {
+          "id": "canned",
+          "label": "Baked Beans & Canned Food",
+          "count": 16
+        },
+        {
+          "id": "grains",
+          "label": "Rice, Pasta & Grains",
+          "count": 39
+        },
+        {
+          "id": "frozen-potato",
+          "label": "Frozen Potato Products",
+          "count": 1
+        },
+        {
+          "id": "produce",
+          "label": "Packaged Fruit & Vegetables",
+          "count": 20
+        },
+        {
+          "id": "meals",
+          "label": "Prepared Meals",
+          "count": 8
+        },
+        {
+          "id": "pizza",
+          "label": "Pizza & Savoury Snacks",
+          "count": 8
+        },
+        {
+          "id": "other-food",
+          "label": "Other Packaged Food",
+          "count": 61
+        }
+      ],
+      "houseBrandFamilies": 15,
+      "brands": [
+        {
+          "key": "colesperform",
+          "name": "Cole’s Perform",
+          "count": 7
+        },
+        {
+          "key": "coles",
+          "name": "coles",
+          "count": 322
+        },
+        {
+          "key": "colesasia",
+          "name": "Coles Asia",
+          "count": 4
+        },
+        {
+          "key": "colesfinest",
+          "name": "Coles Finest",
+          "count": 19
+        },
+        {
+          "key": "colesfreerange",
+          "name": "Coles Free Range",
+          "count": 1
+        },
+        {
+          "key": "colesimfreefrom",
+          "name": "coles Imfree from",
+          "count": 1
+        },
+        {
+          "key": "coleskitchen",
+          "name": "coles Kitchen",
+          "count": 35
+        },
+        {
+          "key": "colesmadeeasy",
+          "name": "coles made easy",
+          "count": 3
+        },
+        {
+          "key": "colessimply",
+          "name": "coles Simply",
+          "count": 10
+        },
+        {
+          "key": "coleswellnessroad",
+          "name": "Coles- Wellness Road",
+          "count": 4
+        },
+        {
+          "key": "cucinamatese",
+          "name": "Cucina Matese",
+          "count": 5
+        },
+        {
+          "key": "graze",
+          "name": "Graze",
+          "count": 1
+        },
+        {
+          "key": "natureskitchen",
+          "name": "Natures kitchen",
+          "count": 3
+        },
+        {
+          "key": "thesweetporiumco",
+          "name": "The Sweetporium Co",
+          "count": 1
+        },
+        {
+          "key": "urbancoffeeculture",
+          "name": "Urban Coffee Culture",
+          "count": 1
+        }
+      ],
+      "otherPackagedFood": 61,
+      "changes": [
+        {
+          "canonicalKey": "barcode:9310645278254",
+          "name": "Vegetable Spring Rolls",
+          "brand": "coles",
+          "before": "other-food",
+          "after": "pizza",
+          "evidence": {
+            "wave": "3A",
+            "rule": "spring-roll-product",
+            "projectionOnly": true,
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:9310645278254",
+              "url": "http://world-en.openfoodfacts.org/product/9310645278254/vegetable-spring-rolls-coles",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            }
+          }
+        },
+        {
+          "canonicalKey": "barcode:9310645278261",
+          "name": "Vegetable spring rolls",
+          "brand": "Coles",
+          "before": "other-food",
+          "after": "pizza",
+          "evidence": {
+            "wave": "3A",
+            "rule": "spring-roll-product",
+            "projectionOnly": true,
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:9310645278261",
+              "url": "http://world-en.openfoodfacts.org/product/9310645278261/vegetable-spring-rolls-coles",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            }
+          }
+        },
+        {
+          "canonicalKey": "barcode:9310645484396",
+          "name": "Sliced Black Olives",
+          "brand": "coles Simply",
+          "before": "other-food",
+          "after": "produce",
+          "evidence": {
+            "wave": "3A",
+            "rule": "antipasto-vegetable",
+            "projectionOnly": true,
+            "source": {
+              "sourceId": "open-food-facts-au",
+              "recordId": "off:9310645484396",
+              "url": "http://world-en.openfoodfacts.org/product/9310645484396/sliced-black-olives-coles-simply",
+              "trustClass": "open-food-facts-au",
+              "trustRank": 4,
+              "retrievedAt": null,
+              "verifiedAt": null,
+              "publishedDate": null,
+              "page": null,
+              "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+              "market": "AU",
+              "sourceType": "external-catalogue"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "global": {
+    "canonicalIdentities": 7494,
+    "brands": 2737,
+    "categoryChanges": 30
+  },
+  "review": {
+    "A": {
+      "reviewed": 15,
+      "newCanonicalAdmitted": 0,
+      "existingCanonicalImproved": 0,
+      "recategorised": 0,
+      "restricted": 15,
+      "deferredRejected": 0,
+      "canonicalOverlaps": 15,
+      "duplicateEvidenceCollapsed": 0
+    },
+    "B": {
+      "reviewed": 17,
+      "newCanonicalAdmitted": 0,
+      "existingCanonicalImproved": 17,
+      "recategorised": 17,
+      "restricted": 0,
+      "deferredRejected": 0,
+      "canonicalOverlaps": 17,
+      "duplicateEvidenceCollapsed": 0
+    },
+    "C": {
+      "reviewed": 5,
+      "newCanonicalAdmitted": 0,
+      "existingCanonicalImproved": 2,
+      "recategorised": 0,
+      "restricted": 0,
+      "deferredRejected": 3,
+      "canonicalOverlaps": 2,
+      "duplicateEvidenceCollapsed": 2
+    },
+    "D": {
+      "reviewed": 2,
+      "newCanonicalAdmitted": 1,
+      "existingCanonicalImproved": 0,
+      "recategorised": 0,
+      "restricted": 0,
+      "deferredRejected": 1,
+      "canonicalOverlaps": 0,
+      "duplicateEvidenceCollapsed": 0
+    }
+  },
+  "protectedFiles": {
+    "checked": 2470,
+    "unchanged": 2470
+  },
+  "projectionDiff": [
+    {
+      "file": "data/aldi-au/products/round-three-001.json",
+      "id": "off:4061461640736",
+      "canonicalKey": "barcode:4061461640736",
+      "fields": [
+        "category",
+        "categoryId",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/aldi-au/products/round-three-001.json",
+      "id": "off:4061462020650",
+      "canonicalKey": "barcode:4061462020650",
+      "fields": [
+        "category",
+        "categoryId",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/aldi-au/products/round-three-001.json",
+      "id": "off:4061462197710",
+      "canonicalKey": "barcode:4061462197710",
+      "fields": [
+        "category",
+        "categoryId",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/aldi-au/products/round-three-002.json",
+      "id": "off:4061462230264",
+      "canonicalKey": "barcode:4061462230264",
+      "fields": [
+        "category",
+        "categoryId",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/aldi-au/products/round-three-002.json",
+      "id": "off:4061462270932",
+      "canonicalKey": "barcode:4061462270932",
+      "fields": [
+        "category",
+        "categoryId",
+        "conceptIds",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/aldi-au/products/round-three-002.json",
+      "id": "off:4061462623004",
+      "canonicalKey": "barcode:4061462623004",
+      "fields": [
+        "category",
+        "categoryId",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/aldi-au/products/round-three-003.json",
+      "id": "off:4061463342751",
+      "canonicalKey": "barcode:4061463342751",
+      "fields": [
+        "category",
+        "categoryId",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/aldi-au/products/round-three-003.json",
+      "id": "off:4061464721135",
+      "canonicalKey": "barcode:4061464721135",
+      "fields": [
+        "category",
+        "categoryId",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/aldi-au/products/round-three-003.json",
+      "id": "off:4061464747678",
+      "canonicalKey": "barcode:4061464747678",
+      "fields": [
+        "category",
+        "categoryId",
+        "conceptIds",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/aldi-au/products/round-three-005.json",
+      "id": "off:4069365476444",
+      "canonicalKey": "barcode:4069365476444",
+      "fields": [
+        "category",
+        "categoryId",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/aldi-au/products/round-three-006.json",
+      "id": "off:4088700038994",
+      "canonicalKey": "barcode:4088700038994",
+      "fields": [
+        "category",
+        "categoryId",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/aldi-au/products/round-three-006.json",
+      "id": "off:4088700055625",
+      "canonicalKey": "barcode:4088700055625",
+      "fields": [
+        "category",
+        "categoryId",
+        "conceptIds",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/aldi-au/products/round-three-008.json",
+      "id": "off:4088700157039",
+      "canonicalKey": "barcode:4088700157039",
+      "fields": [
+        "category",
+        "categoryId",
+        "conceptIds",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/aldi-au/products/round-three-008.json",
+      "id": "off:4088700157060",
+      "canonicalKey": "barcode:4088700157060",
+      "fields": [
+        "category",
+        "categoryId",
+        "conceptIds",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/aldi-au/products/round-three-009.json",
+      "id": "off:4088700207109",
+      "canonicalKey": "barcode:4088700207109",
+      "fields": [
+        "category",
+        "categoryId",
+        "conceptIds",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/aldi-au/products/round-three-010.json",
+      "id": "off:4088700355213",
+      "canonicalKey": "barcode:4088700355213",
+      "fields": [
+        "category",
+        "categoryId",
+        "conceptIds",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/aldi-au/products/round-two-003.json",
+      "id": "off:4088700198728",
+      "canonicalKey": "barcode:4088700198728",
+      "fields": [
+        "category",
+        "categoryId",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/brand-au/products/round-two-039.json",
+      "id": "off:4061461640736",
+      "canonicalKey": "barcode:4061461640736",
+      "fields": [
+        "category",
+        "categoryId",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/brand-au/products/round-two-039.json",
+      "id": "off:4061462020650",
+      "canonicalKey": "barcode:4061462020650",
+      "fields": [
+        "category",
+        "categoryId",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/brand-au/products/round-two-039.json",
+      "id": "off:4061462197710",
+      "canonicalKey": "barcode:4061462197710",
+      "fields": [
+        "category",
+        "categoryId",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/brand-au/products/round-two-039.json",
+      "id": "off:4061462230264",
+      "canonicalKey": "barcode:4061462230264",
+      "fields": [
+        "category",
+        "categoryId",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/brand-au/products/round-two-040.json",
+      "id": "off:4061462270932",
+      "canonicalKey": "barcode:4061462270932",
+      "fields": [
+        "category",
+        "categoryId",
+        "conceptIds",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/brand-au/products/round-two-040.json",
+      "id": "off:4061462623004",
+      "canonicalKey": "barcode:4061462623004",
+      "fields": [
+        "category",
+        "categoryId",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/brand-au/products/round-two-041.json",
+      "id": "off:4061463342751",
+      "canonicalKey": "barcode:4061463342751",
+      "fields": [
+        "category",
+        "categoryId",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/brand-au/products/round-two-043.json",
+      "id": "off:4061464721135",
+      "canonicalKey": "barcode:4061464721135",
+      "fields": [
+        "category",
+        "categoryId",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/brand-au/products/round-two-043.json",
+      "id": "off:4061464747678",
+      "canonicalKey": "barcode:4061464747678",
+      "fields": [
+        "category",
+        "categoryId",
+        "conceptIds",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/brand-au/products/round-two-046.json",
+      "id": "off:4069365476444",
+      "canonicalKey": "barcode:4069365476444",
+      "fields": [
+        "category",
+        "categoryId",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/brand-au/products/round-two-047.json",
+      "id": "off:4088700038994",
+      "canonicalKey": "barcode:4088700038994",
+      "fields": [
+        "category",
+        "categoryId",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/brand-au/products/round-two-048.json",
+      "id": "off:4088700055625",
+      "canonicalKey": "barcode:4088700055625",
+      "fields": [
+        "category",
+        "categoryId",
+        "conceptIds",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/brand-au/products/round-two-051.json",
+      "id": "off:4088700157039",
+      "canonicalKey": "barcode:4088700157039",
+      "fields": [
+        "category",
+        "categoryId",
+        "conceptIds",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/brand-au/products/round-two-051.json",
+      "id": "off:4088700157060",
+      "canonicalKey": "barcode:4088700157060",
+      "fields": [
+        "category",
+        "categoryId",
+        "conceptIds",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/brand-au/products/round-two-052.json",
+      "id": "off:4088700198728",
+      "canonicalKey": "barcode:4088700198728",
+      "fields": [
+        "category",
+        "categoryId",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/brand-au/products/round-two-052.json",
+      "id": "off:4088700207109",
+      "canonicalKey": "barcode:4088700207109",
+      "fields": [
+        "category",
+        "categoryId",
+        "conceptIds",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/brand-au/products/round-two-053.json",
+      "id": "off:4088700355213",
+      "canonicalKey": "barcode:4088700355213",
+      "fields": [
+        "category",
+        "categoryId",
+        "conceptIds",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/brand-au/products/round-two-104.json",
+      "id": "off:9300725012847",
+      "canonicalKey": "barcode:9300725012847",
+      "fields": [
+        "category",
+        "categoryId",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/brand-au/products/round-two-112.json",
+      "id": "off:9310023146045",
+      "canonicalKey": "barcode:9310023146045",
+      "fields": [
+        "category",
+        "categoryId",
+        "conceptIds",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/brand-au/products/round-two-125.json",
+      "id": "off:9310228002528",
+      "canonicalKey": "barcode:9310228002528",
+      "fields": [
+        "category",
+        "categoryId",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/brand-au/products/round-two-134.json",
+      "id": "off:9310645278254",
+      "canonicalKey": "barcode:9310645278254",
+      "fields": [
+        "category",
+        "categoryId",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/brand-au/products/round-two-134.json",
+      "id": "off:9310645278261",
+      "canonicalKey": "barcode:9310645278261",
+      "fields": [
+        "category",
+        "categoryId",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/brand-au/products/round-two-141.json",
+      "id": "off:9310645484396",
+      "canonicalKey": "barcode:9310645484396",
+      "fields": [
+        "category",
+        "categoryId",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/brand-au/products/round-two-160.json",
+      "id": "off:9315822002394",
+      "canonicalKey": "barcode:9315822002394",
+      "fields": [
+        "category",
+        "categoryId",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/brand-au/products/round-two-160.json",
+      "id": "off:9315822019293",
+      "canonicalKey": "barcode:9315822019293",
+      "fields": [
+        "category",
+        "categoryId",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/brand-au/products/round-two-160.json",
+      "id": "off:9315822019866",
+      "canonicalKey": "barcode:9315822019866",
+      "fields": [
+        "category",
+        "categoryId",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/brand-au/products/round-two-171.json",
+      "id": "off:9322662048123",
+      "canonicalKey": "barcode:9322662048123",
+      "fields": [
+        "category",
+        "categoryId",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/brand-au/products/round-two-172.json",
+      "id": "off:9323015006685",
+      "canonicalKey": "barcode:9323015006685",
+      "fields": [
+        "category",
+        "categoryId",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/brand-au/products/round-two-196.json",
+      "id": "off:9339687097630",
+      "canonicalKey": "barcode:9339687097630",
+      "fields": [
+        "category",
+        "categoryId",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/brand-au/products/round-two-252.json",
+      "id": "off:9357061000007",
+      "canonicalKey": "barcode:9357061000007",
+      "fields": [
+        "category",
+        "categoryId",
+        "conceptIds",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/coles-au/products/round-three-001.json",
+      "id": "off:9310645484396",
+      "canonicalKey": "barcode:9310645484396",
+      "fields": [
+        "category",
+        "categoryId",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/coles-au/products/round-two-023.json",
+      "id": "off:9310645278254",
+      "canonicalKey": "barcode:9310645278254",
+      "fields": [
+        "category",
+        "categoryId",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/coles-au/products/round-two-023.json",
+      "id": "off:9310645278261",
+      "canonicalKey": "barcode:9310645278261",
+      "fields": [
+        "category",
+        "categoryId",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/coles-au/products/round-two-036.json",
+      "id": "off:9323015006685",
+      "canonicalKey": "barcode:9323015006685",
+      "fields": [
+        "category",
+        "categoryId",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    },
+    {
+      "file": "data/woolworths-au/products/round-two-029.json",
+      "id": "off:9339687097630",
+      "canonicalKey": "barcode:9339687097630",
+      "fields": [
+        "category",
+        "categoryId",
+        "browseCategoryId",
+        "categoryEvidence"
+      ]
+    }
+  ]
+}

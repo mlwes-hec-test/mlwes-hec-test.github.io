@@ -1,0 +1,21 @@
+Wave 3A query Frozen Chips
+Wave 3A query Frozen Vegetables
+Wave 3A query Salad
+Wave 3A query Fish
+Wave 3A query Seafood
+Wave 3A query Damora Crisps Sea Salt
+Wave 3A query Farmdale Full Cream Milk 3L
+Wave 3A query Market Fare Mixed Vegetables
+Wave 3A query Pepsi Max 2L
+Wave 3A late navigation
+node:internal/process/promises:394
+    triggerUncaughtException(err, true /* fromPromise */);
+    ^
+
+route.fulfill: Route is already handled!
+    at C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\scripts\audit_physical_form_measures_edge.js:28:161 {
+  log: [],
+  name: 'Error'
+}
+
+Node.js v24.19.0

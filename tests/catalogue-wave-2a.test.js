@@ -16,7 +16,7 @@ test('all retained Coles exclusions remain excluded with exact nutrition and ser
  assert.equal(foods.length,417);assert(foods.every(C.canLog));
 });
 test('all reviewed category moves preserve identity, nutrition, unknowns, serving and provenance',async()=>{
- for(const kind of ['coles','woolworths','aldi']){const foods=await all(kind),byKey=new Map(foods.map(f=>[C.canonicalKey(f),f]));for(const old of input.baseline[kind].other){const f=byKey.get(C.canonicalKey(old)),category=SEM.fallbackFamily(old);assert(f);for(const k of ['id','barcode','brand','name','nutrients','units','unitLabels','sourceProvenance','sourceNutritionBasis','manufacturerServing','retailerMemberships','privateLabelCollections'])assert.deepEqual(f[k],old[k],kind+' '+old.name+' '+k);assert.equal(f.browseCategoryId||f.categoryId,category?.id||'other-food');}}
+ for(const kind of ['coles','woolworths','aldi']){const foods=await all(kind),byKey=new Map(foods.map(f=>[C.canonicalKey(f),f]));for(const old of input.baseline[kind].other){const f=byKey.get(C.canonicalKey(old)),category=SEM.fallbackFamily(old)||SEM.additionalFallbackFamily(old);assert(f);for(const k of ['id','barcode','brand','name','nutrients','units','unitLabels','sourceProvenance','sourceNutritionBasis','manufacturerServing','retailerMemberships','privateLabelCollections'])assert.deepEqual(f[k],old[k],kind+' '+old.name+' '+k);assert.equal(f.browseCategoryId||f.categoryId,category?.id||'other-food');}}
 });
 test('shared product-head rules are retailer-neutral and reject compounds and ambiguous fragments',()=>{
  const positives=[['French Fries','frozen-potato'],['Straight Cut Chips','frozen-potato'],['Frozen Potato Wedges','frozen-potato'],['Cheese Supreme Corn Chips','snacks'],['Chicken Flavoured Corn Chips','snacks'],['Greek Salad','produce'],['Pickle Slaw','produce'],['Cheese Burger Slices','cheese'],['Garlic Aioli','sauces'],['Orange Marmalade','spreads'],['Soft White Wraps','bread'],['Ham Hock','protein'],['Smoked Rainbow Trout Fillets','protein']];
@@ -24,9 +24,9 @@ test('shared product-head rules are retailer-neutral and reject compounds and am
  for(const brand of ['Coles','Woolworths','Aldi','Independent Foods']){for(const [name,id]of positives)assert.equal(SEM.fallbackFamily({brand,name,physicalForm:'solid-weight'})?.id,id,brand+' '+name);for(const name of negatives)assert.equal(SEM.fallbackFamily({brand,name,physicalForm:'solid-weight'}),null,brand+' '+name);}
 });
 test('Coles/Woolworths/Aldi counts, category deltas and every moved house identity reconcile',async()=>{
- for(const [kind,visible,loggable,restricted,other,moved]of [['coles',417,417,0,64,22],['woolworths',363,348,15,37,8],['aldi',222,222,0,42,9]]){
+ for(const [kind,visible,loggable,restricted,other,moved]of [['coles',417,417,0,61,25],['woolworths',363,348,15,36,9],['aldi',224,224,0,25,26]]){
   const foods=await all(kind),dir=R.directory(kind),prior=baseline.retailers[kind];assert.equal(foods.length,visible);assert.equal(foods.filter(C.canLog).length,loggable);assert.equal(foods.filter(f=>!C.canLog(f)).length,restricted);assert.equal(dir.categories.find(c=>c.id==='other-food').count,other);
-  const changes=prior.identities.filter(p=>p.categoryId!==(foods.find(f=>C.canonicalKey(f)===p.key)?.browseCategoryId||foods.find(f=>C.canonicalKey(f)===p.key)?.categoryId));assert.equal(changes.length,moved);for(const c of changes){assert.equal(c.categoryId,'other-food');assert(require('../data/'+kind+'-au/wave-2a-report.json').changes.some(r=>r.canonicalKey===c.key));}
+  const changes=prior.identities.filter(p=>p.categoryId!==(foods.find(f=>C.canonicalKey(f)===p.key)?.browseCategoryId||foods.find(f=>C.canonicalKey(f)===p.key)?.categoryId));assert.equal(changes.length,moved);for(const c of changes){assert.equal(c.categoryId,'other-food');assert([...require('../data/'+kind+'-au/wave-2a-report.json').changes,...require('../data/'+kind+'-au/wave-3a-report.json').changes].some(r=>r.canonicalKey===c.key));}
   assert.equal(new Set(foods.map(C.canonicalKey)).size,visible);assert(foods.every(f=>indices[kind].retailer.houseBrandFamilies.some(h=>h.key===C.brandKey(f.brand))));
  }
  assert.equal(R.directory('woolworths').categories.find(c=>c.id==='bread').count,35);
@@ -39,7 +39,7 @@ test('independent McCain discovery improves the existing global canonical record
  const measures=S.servingMeasureProfile(f).measures;assert(measures.some(m=>m.key==='g'));assert(measures.some(m=>m.key==='serve'));assert(!measures.some(m=>['mL','L','cup','piece','pack'].includes(m.key)));const session=G.createSession([f],f.name,{intent:{kind:'exact-product'}});G.selectMeasure(session,'g');G.selectAmount(session,100);assert.equal(session.stage,G.stages.CONFIRMATION);assert.equal(Math.round(session.nutrition.calories),137);
 });
 test('thin-family and second independent discovery holds never create substitute canonical identities',()=>{
- const keys=new Set(B.index.entries.map(C.canonicalKey));for(const r of report.reviews.filter(r=>r.disposition==='deferred')){assert(!r.privateTestingApproved);assert(r.reason.length>20);assert(!keys.has(r.canonicalKey));}assert.equal(keys.size,7491);assert.equal(B.index.brands.length,2736);
+ const keys=new Set(B.index.entries.map(C.canonicalKey));for(const r of report.reviews.filter(r=>r.disposition==='deferred')){assert(!r.privateTestingApproved);assert(r.reason.length>20);assert(!keys.has(r.canonicalKey));}assert.equal(keys.size,7494);assert.equal(B.index.brands.length,2737);
 });
 test('accepted Woolworths vegetables and Campbell stock retain exact logged energy and missing fibre',async()=>{
  const veg=(await all('woolworths')).find(f=>f.barcode==='9300633450410'),stock=(await B.search("Campbell's Real Stock Chicken")).foods.find(f=>f.barcode==='9300644043601');

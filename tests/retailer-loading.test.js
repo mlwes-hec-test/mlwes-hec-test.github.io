@@ -2,7 +2,7 @@
 const test=require('node:test'),assert=require('node:assert/strict'),R=require('../retailer-catalogue'),adapter=require('../retailer-source'),F=require('./fixtures/retailer-catalogue');
 const fixture=()=>F.fixture({retailerId:'example-grocer',name:'Example Grocer',extraProducts:0});
 test('every actual retailer category and house brand has eligible products and settles with exactly those identities',async()=>{
- const expected={aldi:{visible:222,loggable:222,restricted:0,categories:16,brands:32},woolworths:{visible:363,loggable:348,restricted:15,categories:20,brands:11},coles:{visible:417,loggable:417,restricted:0,categories:19,brands:15}};
+ const expected={aldi:{visible:224,loggable:224,restricted:0,categories:18,brands:34},woolworths:{visible:363,loggable:348,restricted:15,categories:20,brands:11},coles:{visible:417,loggable:417,restricted:0,categories:19,brands:15}};
  const r=await require('../scripts/audit_retailer_loading').run();
  assert.deepEqual(r.retailers,expected);
  // Wave 2A adds Coles' occupied frozen-potato category. Every category,

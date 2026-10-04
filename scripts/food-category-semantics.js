@@ -73,4 +73,18 @@ function fallbackFamily(food){
   if(/^(?:(?:smoked|responsibly sourced) )*(?:rainbow trout|barramundi|salmon) (?:fillets|portions)(?: boneless)?(?: with skin on)?$/.test(name))return result('protein',[],'fish-species-and-cut');
   return null;
 }
-module.exports={classify,reviewedFamily,fallbackFamily};
+// Additional whole-product fallback forms. Shared across every retailer and
+// independent brands; source identity strings are never runtime exceptions.
+function additionalFallbackFamily(food){
+  const name=C.norm(food.name||food.product_name),result=(id,conceptIds,rule)=>({id,conceptIds,rule});
+  if(/^(?:vegetable|pork|chicken|beef|mini|cocktail|[0-9]+)(?: (?:vegetable|pork|chicken|beef|mini|cocktail))* spring rolls$/.test(name))return result('pizza',[],'spring-roll-product');
+  if(/^(?:smoked )?(?:rainbow trout|salmon) fillets in (?:[a-z]+ )*(?:flavoured )?oil$/.test(name))return result('protein',[],'fish-fillets-in-oil');
+  if(/^(?:southern blue )?whiting (?:classic crumbs|crumbed|fillets)$/.test(name)||/^(?:tempura|crumbed|battered) (?:barramundi|whiting|hake|hoki|fish)(?: fillets)?$/.test(name))return result('protein',[],'coated-fish-product');
+  if(/^(?:potato )?crisps(?: (?:sea salt|original|salted|sweet chilli and sour cream|salt and vinegar))?$/.test(name)||/^(?:salted |mini )?pretzel (?:twists|sticks)$/.test(name))return result('snacks',[],'crisp-or-pretzel-snack');
+  if(/^(?:pecorino romano|fetta cheese|feta cheese|(?:colby|cheddar|tasty) cheese block|(?:mexican|pizza) blend cheese|grana padano(?: pdo)? cheese flaked)$/.test(name))return result('cheese',['cheese'],'whole-cheese-style');
+  if(/^(?:grilled|marinated) artichokes$/.test(name)||/^(?:pitted |sliced )?(?:kalamata|green|black) olives$/.test(name))return result('produce',[],'antipasto-vegetable');
+  if(/^(?:roasted )?(?:beetroot|eggplant|capsicum) dip$/.test(name))return result('sauces',[],'vegetable-dip-product');
+  if(/^(?:artisan |artisan style )?(?:white|wholemeal|rye|multigrain) sourdough$/.test(name))return result('bread',['bread'],'plain-sourdough-bread');
+  return null;
+}
+module.exports={classify,reviewedFamily,fallbackFamily,additionalFallbackFamily};

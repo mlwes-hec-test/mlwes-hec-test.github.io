@@ -1,0 +1,2448 @@
+{
+  "pass": true,
+  "baseline": false,
+  "browser": "Microsoft Edge",
+  "version": "154.0.4258.53",
+  "contexts": [
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "diagnostic": {
+        "sameOriginRequests": 723,
+        "localFulfilled": 723,
+        "localResponses": 723,
+        "optionalLocalMisses": {
+          "count": 0
+        },
+        "requiredAssetMisses": {
+          "count": 0
+        },
+        "liveFallthrough": 0,
+        "pageErrors": {
+          "count": 0
+        },
+        "consoleErrors": {
+          "count": 0
+        },
+        "warnings": {
+          "count": 1
+        },
+        "failedAssets": {
+          "count": 0
+        },
+        "external": {
+          "count": 0
+        },
+        "routes": {
+          "count": 723
+        }
+      },
+      "scenarios": [
+        {
+          "query": "Bread",
+          "failures": []
+        },
+        {
+          "query": "Milk",
+          "failures": []
+        },
+        {
+          "query": "Big Mac",
+          "failures": []
+        },
+        {
+          "query": "Cheeseburger",
+          "failures": []
+        },
+        {
+          "query": "Hash Brown",
+          "failures": []
+        },
+        {
+          "query": "Flora ProActiv Light",
+          "failures": []
+        },
+        {
+          "query": "Whole meal bread",
+          "failures": []
+        },
+        {
+          "query": "Wholemeal bread",
+          "failures": []
+        },
+        {
+          "query": "White bread",
+          "failures": []
+        },
+        {
+          "query": "Cow milk",
+          "failures": []
+        },
+        {
+          "query": "Oat milk",
+          "failures": []
+        },
+        {
+          "query": "Skim milk",
+          "failures": []
+        },
+        {
+          "query": "Lactose-free milk",
+          "failures": []
+        },
+        {
+          "query": "Cheese",
+          "failures": []
+        },
+        {
+          "query": "Yoghurt",
+          "failures": []
+        },
+        {
+          "query": "Cereal",
+          "failures": []
+        },
+        {
+          "query": "Sausages",
+          "failures": []
+        },
+        {
+          "query": "Chips",
+          "failures": []
+        },
+        {
+          "query": "Fries",
+          "failures": []
+        },
+        {
+          "query": "Chicken",
+          "failures": []
+        },
+        {
+          "query": "Apple",
+          "failures": []
+        },
+        {
+          "query": "Crackers",
+          "failures": []
+        },
+        {
+          "query": "Margarine",
+          "failures": []
+        },
+        {
+          "query": "Burger",
+          "failures": []
+        },
+        {
+          "query": "Rice",
+          "failures": []
+        },
+        {
+          "query": "Eggs",
+          "failures": []
+        },
+        {
+          "query": "KFC Wicked Wings",
+          "failures": []
+        }
+      ],
+      "flows": [
+        {
+          "query": "Bread",
+          "identity": {
+            "steps": [
+              {
+                "key": "breadOrigin",
+                "choice": {
+                  "key": "breadOrigin",
+                  "value": "home",
+                  "label": "Home Made\n›"
+                }
+              },
+              {
+                "key": "breadType",
+                "choice": {
+                  "key": "breadType",
+                  "value": "Wholemeal",
+                  "label": "Wholemeal\n›"
+                }
+              },
+              {
+                "product": "Bread, from wholemeal flour\nAustralian Food Composition Database · Australian AFCD · Source reference: Reference Values per 100 g · Loggable now · choose an amount\nChoose",
+                "id": "afcd-f001553"
+              }
+            ],
+            "state": {
+              "query": "Bread",
+              "stage": "serving-measure",
+              "state": "exact-product",
+              "product": "Bread, from wholemeal flour",
+              "selectedMeasure": "",
+              "measureAutoSelected": false,
+              "destination": {
+                "date": "2026-10-04",
+                "meal": ""
+              }
+            }
+          },
+          "measures": [
+            {
+              "key": "regularSlice",
+              "label": "Regular slice (40 g)\n›"
+            },
+            {
+              "key": "thickSlice",
+              "label": "Thick slice (about 45 g)\n›"
+            },
+            {
+              "key": "g",
+              "label": "g\n›"
+            }
+          ],
+          "review": {
+            "amount": "2",
+            "unit": "regularSlice",
+            "summary": "You Are Adding: 2 Regular Slices · 80 g total\n190 Cal · 794 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diary": {
+            "id": "entry-5238c228-98e6-4c8b-a112-250d206ead0f",
+            "foodId": "afcd-f001553",
+            "name": "Bread, from wholemeal flour",
+            "brand": "Australian Food Composition Database",
+            "date": "2026-10-04",
+            "meal": "Lunch",
+            "status": "eaten",
+            "amount": 2,
+            "unit": "regularSlice",
+            "unitLabel": "Regular Slice (40 g)",
+            "metricEquivalent": {
+              "value": 80,
+              "unit": "g"
+            },
+            "consumedPortion": {
+              "measureId": "regularSlice",
+              "measureLabel": "Regular slice (40 g)",
+              "amount": 2,
+              "baseQuantity": 80,
+              "baseUnit": "g",
+              "conversion": {
+                "perMeasureQuantity": 40,
+                "baseUnit": "g",
+                "nutritionMultiplier": 0.4,
+                "basis": "nutrition-base conversion"
+              },
+              "conversionProvenance": {
+                "source": "Australian Dietary Guidelines · Eat for Health standard serves",
+                "sourceType": "guideline",
+                "sourceReference": "",
+                "sourceUrl": "",
+                "retrievedDate": "",
+                "derivation": "",
+                "confidence": "authoritative-standard-serve",
+                "applicability": "sliced",
+                "provenance": "Australian reference"
+              },
+              "sourceServing": null,
+              "nutritionBasis": {
+                "semanticBasis": "per-100-g"
+              }
+            },
+            "time": "21:00",
+            "notes": "",
+            "nutrients": {
+              "calories": 189.84000000000003,
+              "protein": 8.32,
+              "carbs": 31.360000000000003,
+              "fat": 2,
+              "satFat": 0.31200000000000006,
+              "fibre": 5.5200000000000005,
+              "sugar": 2.5600000000000005,
+              "addedSugar": 0,
+              "freeSugar": 0,
+              "sodium": 334.40000000000003
+            },
+            "foodGroups": {
+              "vegetables": 0,
+              "fruit": 0,
+              "grains": 1.6,
+              "proteinFoods": 0,
+              "dairy": 0
+            },
+            "foodGroupAttribution": "classified",
+            "waterMl": 31.360000000000003,
+            "hydrationType": "food",
+            "score": 7,
+            "source": "Food Standards Australia New Zealand · AFCD Release 3",
+            "variantSelections": {},
+            "foodSnapshot": {
+              "snapshotVersion": "0.6.33",
+              "foodId": "afcd-f001553",
+              "canonicalId": "F001553",
+              "sourceId": "F001553",
+              "foodSourceId": "",
+              "sourceItemId": "",
+              "sourceVariantId": "",
+              "familyId": "",
+              "familyName": "",
+              "variantLabel": "",
+              "itemStatus": "",
+              "nutritionStatus": "",
+              "loggable": true,
+              "categoryMemberships": [],
+              "promotionalStatus": "",
+              "limitedTime": false,
+              "catalogueVersion": "",
+              "catalogueCheckedAt": "",
+              "sourceLastCheckedDate": "",
+              "lastSeenAt": "",
+              "effectiveDate": "",
+              "sourceUrl": "",
+              "provenance": null,
+              "energySource": null,
+              "calorieSource": null,
+              "nutritionFreshness": null,
+              "sourceConflict": null,
+              "officialCurrentIdentity": false,
+              "sourceAnomalies": [],
+              "usageScope": "",
+              "licenceStatus": "",
+              "productionApproved": false,
+              "licensing": null,
+              "barcode": "",
+              "name": "Bread, from wholemeal flour",
+              "brand": "Australian Food Composition Database",
+              "country": "Australia",
+              "market": "AU",
+              "source": "Food Standards Australia New Zealand · AFCD Release 3",
+              "verified": true,
+              "verificationStatus": "verified",
+              "captureEvidence": null,
+              "ingredients": "Commercially prepared, sliced or unsliced bread made from wheat flour containing all the milled constituents of the wheat grain. Contains added folic acid, iodine and thiamin.",
+              "serving": "Regular slice (40 g)",
+              "manufacturerServing": null,
+              "nutritionBasis": {
+                "semanticBasis": "per-100-g"
+              },
+              "preparation": null,
+              "nutrientQualifiers": {},
+              "consumedPortion": {
+                "measureId": "regularSlice",
+                "measureLabel": "Regular slice (40 g)",
+                "amount": 2,
+                "baseQuantity": 80,
+                "baseUnit": "g",
+                "conversion": {
+                  "perMeasureQuantity": 40,
+                  "baseUnit": "g",
+                  "nutritionMultiplier": 0.4,
+                  "basis": "nutrition-base conversion"
+                },
+                "conversionProvenance": {
+                  "source": "Australian Dietary Guidelines · Eat for Health standard serves",
+                  "sourceType": "guideline",
+                  "sourceReference": "",
+                  "sourceUrl": "",
+                  "retrievedDate": "",
+                  "derivation": "",
+                  "confidence": "authoritative-standard-serve",
+                  "applicability": "sliced",
+                  "provenance": "Australian reference"
+                },
+                "sourceServing": null,
+                "nutritionBasis": {
+                  "semanticBasis": "per-100-g"
+                }
+              },
+              "selection": {
+                "amount": 2,
+                "unit": "regularSlice",
+                "unitLabel": "Regular Slice (40 g)"
+              },
+              "nutrients": {
+                "energyKj": null,
+                "calories": 189.84000000000003,
+                "protein": 8.32,
+                "carbs": 31.360000000000003,
+                "fat": 2,
+                "satFat": 0.31200000000000006,
+                "fibre": 5.5200000000000005,
+                "sugar": 2.5600000000000005,
+                "sodium": 334.40000000000003,
+                "calcium": null,
+                "iron": null,
+                "potassium": null
+              },
+              "loggedAt": "2026-10-04T11:00:23.253Z"
+            },
+            "localDate": "2026-10-04",
+            "timeZone": "Australia/Brisbane",
+            "createdAt": "2026-10-04T11:00:23.253Z",
+            "updatedAt": "2026-10-04T11:00:23.253Z"
+          }
+        },
+        {
+          "query": "Whole meal bread",
+          "identity": {
+            "steps": [
+              {
+                "key": "breadOrigin",
+                "choice": {
+                  "key": "breadOrigin",
+                  "value": "home",
+                  "label": "Home Made\n›"
+                }
+              },
+              {
+                "product": "Bread, from wholemeal flour\nAustralian Food Composition Database · Australian AFCD · Source reference: Reference Values per 100 g · Loggable now · choose an amount\nChoose",
+                "id": "afcd-f001553"
+              }
+            ],
+            "state": {
+              "query": "Whole meal bread",
+              "stage": "serving-measure",
+              "state": "exact-product",
+              "product": "Bread, from wholemeal flour",
+              "selectedMeasure": "",
+              "measureAutoSelected": false,
+              "destination": {
+                "date": "2026-10-04",
+                "meal": "Lunch"
+              }
+            }
+          },
+          "measures": [
+            {
+              "key": "regularSlice",
+              "label": "Regular slice (40 g)\n›"
+            },
+            {
+              "key": "thickSlice",
+              "label": "Thick slice (about 45 g)\n›"
+            },
+            {
+              "key": "g",
+              "label": "g\n›"
+            }
+          ],
+          "review": {
+            "amount": "2",
+            "unit": "regularSlice",
+            "summary": "You Are Adding: 2 Regular Slices · 80 g total\n190 Cal · 794 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diary": null
+        },
+        {
+          "query": "White bread",
+          "identity": {
+            "steps": [
+              {
+                "key": "breadOrigin",
+                "choice": {
+                  "key": "breadOrigin",
+                  "value": "home",
+                  "label": "Home Made\n›"
+                }
+              },
+              {
+                "product": "Bread, from white flour\nAustralian Food Composition Database · Australian AFCD · Source reference: Reference Values per 100 g · Loggable now · choose an amount\nChoose",
+                "id": "afcd-f001463"
+              }
+            ],
+            "state": {
+              "query": "White bread",
+              "stage": "serving-measure",
+              "state": "exact-product",
+              "product": "Bread, from white flour",
+              "selectedMeasure": "",
+              "measureAutoSelected": false,
+              "destination": {
+                "date": "2026-10-04",
+                "meal": "Lunch"
+              }
+            }
+          },
+          "measures": [
+            {
+              "key": "regularSlice",
+              "label": "Regular slice (40 g)\n›"
+            },
+            {
+              "key": "thickSlice",
+              "label": "Thick slice (about 45 g)\n›"
+            },
+            {
+              "key": "g",
+              "label": "g\n›"
+            }
+          ],
+          "review": {
+            "amount": "2",
+            "unit": "regularSlice",
+            "summary": "You Are Adding: 2 Regular Slices · 80 g total\n201 Cal · 840 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diary": null
+        },
+        {
+          "query": "Milk",
+          "identity": {
+            "steps": [
+              {
+                "key": "catalogueOrigin",
+                "choice": {
+                  "key": "catalogueOrigin",
+                  "value": "generic",
+                  "label": "Generic Australian food\n›"
+                }
+              },
+              {
+                "key": "milkSource",
+                "choice": {
+                  "key": "milkSource",
+                  "value": "Cow",
+                  "label": "Cow\n›"
+                }
+              },
+              {
+                "key": "fatLevel",
+                "choice": {
+                  "key": "fatLevel",
+                  "value": "Regular fat",
+                  "label": "Regular fat\n›"
+                }
+              },
+              {
+                "key": "lactose",
+                "choice": {
+                  "key": "lactose",
+                  "value": "Standard lactose",
+                  "label": "Standard lactose\n›"
+                }
+              },
+              {
+                "key": "functionalStyle",
+                "choice": {
+                  "key": "functionalStyle",
+                  "value": "Standard",
+                  "label": "Standard\n›"
+                }
+              },
+              {
+                "product": "Milk, cow, fluid, regular fat (~3.5%)\nAustralian Food Composition Database · Australian AFCD · Source reference: Reference Values per 100 g · Loggable now · choose an amount\nChoose",
+                "id": "afcd-f005634"
+              }
+            ],
+            "state": {
+              "query": "Milk",
+              "stage": "serving-measure",
+              "state": "exact-product",
+              "product": "Milk, cow, fluid, regular fat (~3.5%)",
+              "selectedMeasure": "",
+              "measureAutoSelected": false,
+              "destination": {
+                "date": "2026-10-04",
+                "meal": "Lunch"
+              }
+            }
+          },
+          "measures": [
+            {
+              "key": "mL",
+              "label": "mL\n›"
+            },
+            {
+              "key": "cup",
+              "label": "Metric cup (250 mL)\n›"
+            }
+          ],
+          "review": {
+            "amount": "250",
+            "unit": "mL",
+            "summary": "You Are Adding: 250 mL · 250 mL total\n166 Cal · 695 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diary": {
+            "id": "entry-90540efb-bbdd-44b7-929a-f8d760b4e6a0",
+            "foodId": "afcd-f005634",
+            "name": "Milk, cow, fluid, regular fat (~3.5%)",
+            "brand": "Australian Food Composition Database",
+            "date": "2026-10-04",
+            "meal": "Lunch",
+            "status": "eaten",
+            "amount": 250,
+            "unit": "mL",
+            "unitLabel": "mL",
+            "metricEquivalent": {
+              "value": 250,
+              "unit": "mL"
+            },
+            "consumedPortion": {
+              "measureId": "mL",
+              "measureLabel": "mL",
+              "amount": 250,
+              "baseQuantity": 250,
+              "baseUnit": "mL",
+              "conversion": {
+                "perMeasureQuantity": 1,
+                "baseUnit": "mL",
+                "nutritionMultiplier": 0.0103,
+                "basis": "physical measure conversion"
+              },
+              "conversionProvenance": {
+                "source": "source-product-metadata",
+                "sourceType": "product-metadata",
+                "sourceReference": "",
+                "sourceUrl": "",
+                "retrievedDate": "",
+                "derivation": "",
+                "confidence": "source-product-metadata",
+                "applicability": "liquid",
+                "provenance": "manufacturer"
+              },
+              "sourceServing": null,
+              "nutritionBasis": {
+                "semanticBasis": "per-100-g"
+              }
+            },
+            "time": "21:00",
+            "notes": "",
+            "nutrients": {
+              "calories": 166.0875,
+              "protein": 8.4975,
+              "carbs": 13.905000000000001,
+              "fat": 8.755,
+              "satFat": 5.8709999999999996,
+              "fibre": 0,
+              "sugar": 13.905000000000001,
+              "addedSugar": 0,
+              "freeSugar": 0,
+              "sodium": 90.125
+            },
+            "foodGroups": {
+              "vegetables": 0,
+              "fruit": 0,
+              "grains": 0,
+              "proteinFoods": 0,
+              "dairy": 0
+            },
+            "foodGroupAttribution": "unavailable",
+            "waterMl": 226.8575,
+            "hydrationType": "drink",
+            "score": 7,
+            "source": "Food Standards Australia New Zealand · AFCD Release 3",
+            "variantSelections": {},
+            "foodSnapshot": {
+              "snapshotVersion": "0.6.33",
+              "foodId": "afcd-f005634",
+              "canonicalId": "F005634",
+              "sourceId": "F005634",
+              "foodSourceId": "",
+              "sourceItemId": "",
+              "sourceVariantId": "",
+              "familyId": "",
+              "familyName": "",
+              "variantLabel": "",
+              "itemStatus": "",
+              "nutritionStatus": "",
+              "loggable": true,
+              "categoryMemberships": [],
+              "promotionalStatus": "",
+              "limitedTime": false,
+              "catalogueVersion": "",
+              "catalogueCheckedAt": "",
+              "sourceLastCheckedDate": "",
+              "lastSeenAt": "",
+              "effectiveDate": "",
+              "sourceUrl": "",
+              "provenance": null,
+              "energySource": null,
+              "calorieSource": null,
+              "nutritionFreshness": null,
+              "sourceConflict": null,
+              "officialCurrentIdentity": false,
+              "sourceAnomalies": [],
+              "usageScope": "",
+              "licenceStatus": "",
+              "productionApproved": false,
+              "licensing": null,
+              "barcode": "",
+              "name": "Milk, cow, fluid, regular fat (~3.5%)",
+              "brand": "Australian Food Composition Database",
+              "country": "Australia",
+              "market": "AU",
+              "source": "Food Standards Australia New Zealand · AFCD Release 3",
+              "verified": true,
+              "verificationStatus": "verified",
+              "captureEvidence": null,
+              "ingredients": "Australian produced regular fat cows milk. Supplied with a minimum fat content of 3.2 g milk fat/100 g.",
+              "serving": "100 g reference",
+              "manufacturerServing": null,
+              "nutritionBasis": {
+                "semanticBasis": "per-100-g"
+              },
+              "preparation": null,
+              "nutrientQualifiers": {},
+              "consumedPortion": {
+                "measureId": "mL",
+                "measureLabel": "mL",
+                "amount": 250,
+                "baseQuantity": 250,
+                "baseUnit": "mL",
+                "conversion": {
+                  "perMeasureQuantity": 1,
+                  "baseUnit": "mL",
+                  "nutritionMultiplier": 0.0103,
+                  "basis": "physical measure conversion"
+                },
+                "conversionProvenance": {
+                  "source": "source-product-metadata",
+                  "sourceType": "product-metadata",
+                  "sourceReference": "",
+                  "sourceUrl": "",
+                  "retrievedDate": "",
+                  "derivation": "",
+                  "confidence": "source-product-metadata",
+                  "applicability": "liquid",
+                  "provenance": "manufacturer"
+                },
+                "sourceServing": null,
+                "nutritionBasis": {
+                  "semanticBasis": "per-100-g"
+                }
+              },
+              "selection": {
+                "amount": 250,
+                "unit": "mL",
+                "unitLabel": "mL"
+              },
+              "nutrients": {
+                "energyKj": null,
+                "calories": 166.0875,
+                "protein": 8.4975,
+                "carbs": 13.905000000000001,
+                "fat": 8.755,
+                "satFat": 5.8709999999999996,
+                "fibre": 0,
+                "sugar": 13.905000000000001,
+                "sodium": 90.125,
+                "calcium": null,
+                "iron": null,
+                "potassium": null
+              },
+              "loggedAt": "2026-10-04T11:00:29.362Z"
+            },
+            "localDate": "2026-10-04",
+            "timeZone": "Australia/Brisbane",
+            "createdAt": "2026-10-04T11:00:29.362Z",
+            "updatedAt": "2026-10-04T11:00:29.362Z"
+          }
+        },
+        {
+          "query": "Cow milk",
+          "identity": {
+            "steps": [
+              {
+                "key": "catalogueOrigin",
+                "choice": {
+                  "key": "catalogueOrigin",
+                  "value": "generic",
+                  "label": "Generic Australian food\n›"
+                }
+              },
+              {
+                "key": "fatLevel",
+                "choice": {
+                  "key": "fatLevel",
+                  "value": "Regular fat",
+                  "label": "Regular fat\n›"
+                }
+              },
+              {
+                "key": "lactose",
+                "choice": {
+                  "key": "lactose",
+                  "value": "Standard lactose",
+                  "label": "Standard lactose\n›"
+                }
+              },
+              {
+                "key": "functionalStyle",
+                "choice": {
+                  "key": "functionalStyle",
+                  "value": "Standard",
+                  "label": "Standard\n›"
+                }
+              },
+              {
+                "product": "Milk, cow, fluid, regular fat (~3.5%)\nAustralian Food Composition Database · Australian AFCD · Source reference: Reference Values per 100 g · Loggable now · choose an amount\nChoose",
+                "id": "afcd-f005634"
+              }
+            ],
+            "state": {
+              "query": "Cow milk",
+              "stage": "serving-measure",
+              "state": "exact-product",
+              "product": "Milk, cow, fluid, regular fat (~3.5%)",
+              "selectedMeasure": "",
+              "measureAutoSelected": false,
+              "destination": {
+                "date": "2026-10-04",
+                "meal": "Lunch"
+              }
+            }
+          },
+          "measures": [
+            {
+              "key": "mL",
+              "label": "mL\n›"
+            },
+            {
+              "key": "cup",
+              "label": "Metric cup (250 mL)\n›"
+            }
+          ],
+          "review": {
+            "amount": "250",
+            "unit": "mL",
+            "summary": "You Are Adding: 250 mL · 250 mL total\n166 Cal · 695 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diary": null
+        },
+        {
+          "query": "Oat milk",
+          "identity": {
+            "steps": [
+              {
+                "key": "catalogueOrigin",
+                "choice": {
+                  "key": "catalogueOrigin",
+                  "value": "generic",
+                  "label": "Generic Australian food\n›"
+                }
+              },
+              {
+                "key": "fortification",
+                "choice": {
+                  "key": "fortification",
+                  "value": "Unfortified",
+                  "label": "Unfortified\n›"
+                }
+              }
+            ],
+            "state": {
+              "query": "Oat milk",
+              "stage": "serving-measure",
+              "state": "exact-product",
+              "product": "Oat beverage, fluid, unfortified",
+              "selectedMeasure": "",
+              "measureAutoSelected": false,
+              "destination": {
+                "date": "2026-10-04",
+                "meal": "Lunch"
+              }
+            }
+          },
+          "measures": [
+            {
+              "key": "mL",
+              "label": "mL\n›"
+            },
+            {
+              "key": "cup",
+              "label": "Metric cup (250 mL)\n›"
+            }
+          ],
+          "review": {
+            "amount": "250",
+            "unit": "mL",
+            "summary": "You Are Adding: 250 mL · 250 mL total\n140 Cal · 588 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diary": null
+        },
+        {
+          "query": "Cheese",
+          "identity": {
+            "steps": [
+              {
+                "key": "catalogueOrigin",
+                "choice": {
+                  "key": "catalogueOrigin",
+                  "value": "generic",
+                  "label": "Generic Australian food\n›"
+                }
+              },
+              {
+                "key": "cheeseType",
+                "choice": {
+                  "key": "cheeseType",
+                  "value": "Cheddar / tasty",
+                  "label": "Cheddar / tasty\n›"
+                }
+              },
+              {
+                "product": "Cheese, cheddar, natural, regular fat\nAustralian Food Composition Database · Australian AFCD · Source reference: Reference Values per 100 g · Loggable now · choose an amount\nChoose",
+                "id": "afcd-f002414"
+              }
+            ],
+            "state": {
+              "query": "Cheese",
+              "stage": "serving-measure",
+              "state": "exact-product",
+              "product": "Cheese, cheddar, natural, regular fat",
+              "selectedMeasure": "",
+              "measureAutoSelected": false,
+              "destination": {
+                "date": "2026-10-04",
+                "meal": "Lunch"
+              }
+            }
+          },
+          "measures": [
+            {
+              "key": "slice",
+              "label": "Slice (20 g)\n›"
+            },
+            {
+              "key": "standardServe",
+              "label": "2 Slices Hard Cheese (40 g)\n›"
+            },
+            {
+              "key": "g",
+              "label": "g\n›"
+            }
+          ],
+          "review": {
+            "amount": "2",
+            "unit": "slice",
+            "summary": "You Are Adding: 2 Slices · 40 g total\n161 Cal · 674 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diary": null
+        },
+        {
+          "query": "Yoghurt",
+          "identity": {
+            "steps": [
+              {
+                "key": "catalogueOrigin",
+                "choice": {
+                  "key": "catalogueOrigin",
+                  "value": "generic",
+                  "label": "Generic Australian food\n›"
+                }
+              },
+              {
+                "key": "yoghurtType",
+                "choice": {
+                  "key": "yoghurtType",
+                  "value": "Plant-based",
+                  "label": "Plant-based\n›"
+                }
+              },
+              {
+                "product": "Yoghurt, almond based, flavoured\nAustralian Food Composition Database · Australian AFCD · Source reference: Reference Values per 100 g · Loggable now · choose an amount\nChoose",
+                "id": "afcd-f009797"
+              }
+            ],
+            "state": {
+              "query": "Yoghurt",
+              "stage": "serving-measure",
+              "state": "exact-product",
+              "product": "Yoghurt, almond based, flavoured",
+              "selectedMeasure": "",
+              "measureAutoSelected": false,
+              "destination": {
+                "date": "2026-10-04",
+                "meal": "Lunch"
+              }
+            }
+          },
+          "measures": [
+            {
+              "key": "threeQuarterCup",
+              "label": "¾ Cup Yoghurt (200 g)\n›"
+            },
+            {
+              "key": "g",
+              "label": "g\n›"
+            }
+          ],
+          "review": {
+            "amount": "2",
+            "unit": "threeQuarterCup",
+            "summary": "You Are Adding: 2 ¾ Cup Yoghurts · 400 g total\n367 Cal · 1,536 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diary": null
+        },
+        {
+          "query": "Cereal",
+          "identity": {
+            "steps": [
+              {
+                "key": "catalogueOrigin",
+                "choice": {
+                  "key": "catalogueOrigin",
+                  "value": "generic",
+                  "label": "Generic Australian food\n›"
+                }
+              },
+              {
+                "key": "cerealType",
+                "choice": {
+                  "key": "cerealType",
+                  "value": "Wheat biscuits",
+                  "label": "Wheat biscuits\n›"
+                }
+              },
+              {
+                "product": "Breakfast cereal, whole wheat, biscuit, no added sugar, unfortified\nAustralian Food Composition Database · Australian AFCD · Source reference: Reference Values per 100 g · Loggable now · choose an amount\nChoose",
+                "id": "afcd-f001849"
+              }
+            ],
+            "state": {
+              "query": "Cereal",
+              "stage": "consumption-amount",
+              "state": "exact-product",
+              "product": "Breakfast cereal, whole wheat, biscuit, no added sugar, unfortified",
+              "selectedMeasure": "g",
+              "measureAutoSelected": true,
+              "destination": {
+                "date": "2026-10-04",
+                "meal": "Lunch"
+              }
+            }
+          },
+          "measures": [],
+          "review": {
+            "amount": "2",
+            "unit": "g",
+            "summary": "You Are Adding: 2 g · 2 g total\n7 Cal · 29 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diary": null
+        },
+        {
+          "query": "Sausages",
+          "identity": {
+            "steps": [
+              {
+                "key": "catalogueOrigin",
+                "choice": {
+                  "key": "catalogueOrigin",
+                  "value": "generic",
+                  "label": "Generic Australian food\n›"
+                }
+              },
+              {
+                "key": "meatType",
+                "choice": {
+                  "key": "meatType",
+                  "value": "Beef",
+                  "label": "Beef\n›"
+                }
+              },
+              {
+                "key": "preparation",
+                "choice": {
+                  "key": "preparation",
+                  "value": "Fried",
+                  "label": "Fried\n›"
+                }
+              }
+            ],
+            "state": {
+              "query": "Sausages",
+              "stage": "serving-measure",
+              "state": "exact-product",
+              "product": "Sausage, beef, fried, no added fat",
+              "selectedMeasure": "",
+              "measureAutoSelected": false,
+              "destination": {
+                "date": "2026-10-04",
+                "meal": "Lunch"
+              }
+            }
+          },
+          "measures": [
+            {
+              "key": "sausage",
+              "label": "Sausage (about 75 g)\n›"
+            },
+            {
+              "key": "thinSausage",
+              "label": "Long Thin Sausage (about 73 g)\n›"
+            },
+            {
+              "key": "thickSausage",
+              "label": "Long Thick Sausage (about 101 g)\n›"
+            },
+            {
+              "key": "cocktailSausage",
+              "label": "Cocktail / Small Sausage (about 38 g)\n›"
+            },
+            {
+              "key": "g",
+              "label": "g\n›"
+            }
+          ],
+          "review": {
+            "amount": "2",
+            "unit": "sausage",
+            "summary": "You Are Adding: 2 Sausages · 150 g total\n370 Cal · 1,546 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diary": null
+        },
+        {
+          "query": "Hash Brown",
+          "identity": {
+            "steps": [
+              {
+                "key": "sourceContext",
+                "choice": {
+                  "key": "sourceContext",
+                  "value": "ready-to-eat",
+                  "label": "Restaurant / Ready-to-Eat\n›"
+                }
+              },
+              {
+                "product": "Hash Brown\nHungry Jack's Australia · Source reference: 1 official Item (58 g) · Loggable now · choose an amount\nChoose",
+                "id": "food-source:hungry-jacks-au:hash-brown"
+              }
+            ],
+            "state": {
+              "query": "Hash Brown",
+              "stage": "serving-measure",
+              "state": "exact-product",
+              "product": "Hash Brown",
+              "selectedMeasure": "",
+              "measureAutoSelected": false,
+              "destination": {
+                "date": "2026-10-04",
+                "meal": "Lunch"
+              }
+            }
+          },
+          "measures": [
+            {
+              "key": "item",
+              "label": "Item (58 g)\n›"
+            },
+            {
+              "key": "g",
+              "label": "g\n›"
+            }
+          ],
+          "review": {
+            "amount": "2",
+            "unit": "item",
+            "summary": "You Are Adding: 2 Items · 116 g total\n327 Cal · 1,370 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diary": {
+            "id": "entry-2dbcc263-6f34-452f-ad81-f59816b6154d",
+            "foodId": "food-source:hungry-jacks-au:hash-brown",
+            "name": "Hash Brown",
+            "brand": "Hungry Jack's Australia",
+            "date": "2026-10-04",
+            "meal": "Lunch",
+            "status": "eaten",
+            "amount": 2,
+            "unit": "item",
+            "unitLabel": "Item (58 g)",
+            "metricEquivalent": {
+              "value": 116,
+              "unit": "g"
+            },
+            "consumedPortion": {
+              "measureId": "item",
+              "measureLabel": "Item (58 g)",
+              "amount": 2,
+              "baseQuantity": 116,
+              "baseUnit": "g",
+              "conversion": {
+                "perMeasureQuantity": 58,
+                "baseUnit": "g",
+                "nutritionMultiplier": 1,
+                "basis": "nutrition-base conversion"
+              },
+              "conversionProvenance": {
+                "source": "Explicit manufacturer serving",
+                "sourceType": "product-metadata",
+                "sourceReference": "",
+                "sourceUrl": "",
+                "retrievedDate": "",
+                "derivation": "",
+                "confidence": "package-explicit",
+                "applicability": "countable",
+                "provenance": "manufacturer"
+              },
+              "sourceServing": {
+                "amount": 58,
+                "text": "58 g",
+                "unit": "g"
+              },
+              "nutritionBasis": {
+                "semanticBasis": "per-item"
+              }
+            },
+            "time": "21:00",
+            "notes": "",
+            "nutrients": {
+              "calories": 327.4,
+              "protein": 2.8,
+              "carbs": 30.4,
+              "fat": 22,
+              "satFat": 2.6,
+              "fibre": null,
+              "sugar": 0.6,
+              "addedSugar": null,
+              "freeSugar": null,
+              "sodium": 488,
+              "energyKj": 1370
+            },
+            "foodGroups": {
+              "vegetables": 0,
+              "fruit": 0,
+              "grains": 0,
+              "proteinFoods": 0,
+              "dairy": 0
+            },
+            "foodGroupAttribution": "unavailable",
+            "waterMl": null,
+            "hydrationType": "food",
+            "score": 6,
+            "source": "Official Australian restaurant nutrition · checked 2026-09-12",
+            "variantSelections": {},
+            "foodSnapshot": {
+              "snapshotVersion": "0.6.33",
+              "foodId": "food-source:hungry-jacks-au:hash-brown",
+              "canonicalId": "food-source:hungry-jacks-au:hash-brown",
+              "sourceId": "Hash Brown",
+              "foodSourceId": "hungry-jacks-au",
+              "sourceItemId": "hash-brown",
+              "sourceVariantId": "",
+              "familyId": "hungryjacksaustralia:hash-brown",
+              "familyName": "Hash Brown",
+              "variantLabel": "",
+              "itemStatus": "current",
+              "nutritionStatus": "partial",
+              "loggable": true,
+              "categoryMemberships": [
+                "Breakfast"
+              ],
+              "promotionalStatus": "",
+              "limitedTime": false,
+              "catalogueVersion": "",
+              "catalogueCheckedAt": "",
+              "sourceLastCheckedDate": "",
+              "lastSeenAt": "",
+              "effectiveDate": "",
+              "sourceUrl": "https://www.hungryjacks.com.au/Upload/HJ/Media/Media/Nutritional-Guide-1-September-2026-Final-Breakfast-Nutritionals-32.pdf",
+              "provenance": null,
+              "energySource": null,
+              "calorieSource": null,
+              "nutritionFreshness": null,
+              "sourceConflict": null,
+              "officialCurrentIdentity": false,
+              "sourceAnomalies": [],
+              "usageScope": "",
+              "licenceStatus": "",
+              "productionApproved": false,
+              "licensing": null,
+              "barcode": "",
+              "name": "Hash Brown",
+              "brand": "Hungry Jack's Australia",
+              "country": "Australia",
+              "market": "AU",
+              "source": "Official Australian restaurant nutrition · checked 2026-09-12",
+              "verified": true,
+              "verificationStatus": "verified",
+              "captureEvidence": null,
+              "ingredients": "",
+              "serving": "1 official Item (58 g)",
+              "manufacturerServing": {
+                "amount": 58,
+                "text": "58 g",
+                "unit": "g"
+              },
+              "nutritionBasis": {
+                "semanticBasis": "per-item"
+              },
+              "preparation": null,
+              "nutrientQualifiers": {},
+              "consumedPortion": {
+                "measureId": "item",
+                "measureLabel": "Item (58 g)",
+                "amount": 2,
+                "baseQuantity": 116,
+                "baseUnit": "g",
+                "conversion": {
+                  "perMeasureQuantity": 58,
+                  "baseUnit": "g",
+                  "nutritionMultiplier": 1,
+                  "basis": "nutrition-base conversion"
+                },
+                "conversionProvenance": {
+                  "source": "Explicit manufacturer serving",
+                  "sourceType": "product-metadata",
+                  "sourceReference": "",
+                  "sourceUrl": "",
+                  "retrievedDate": "",
+                  "derivation": "",
+                  "confidence": "package-explicit",
+                  "applicability": "countable",
+                  "provenance": "manufacturer"
+                },
+                "sourceServing": {
+                  "amount": 58,
+                  "text": "58 g",
+                  "unit": "g"
+                },
+                "nutritionBasis": {
+                  "semanticBasis": "per-item"
+                }
+              },
+              "selection": {
+                "amount": 2,
+                "unit": "item",
+                "unitLabel": "Item (58 g)"
+              },
+              "nutrients": {
+                "energyKj": 1370,
+                "calories": 327.4,
+                "protein": 2.8,
+                "carbs": 30.4,
+                "fat": 22,
+                "satFat": 2.6,
+                "fibre": null,
+                "sugar": 0.6,
+                "sodium": 488,
+                "calcium": null,
+                "iron": null,
+                "potassium": null
+              },
+              "loggedAt": "2026-10-04T11:00:42.904Z"
+            },
+            "localDate": "2026-10-04",
+            "timeZone": "Australia/Brisbane",
+            "createdAt": "2026-10-04T11:00:42.904Z",
+            "updatedAt": "2026-10-04T11:00:42.904Z"
+          }
+        },
+        {
+          "query": "Chips",
+          "identity": {
+            "steps": [
+              {
+                "key": "catalogueOrigin",
+                "choice": {
+                  "key": "catalogueOrigin",
+                  "value": "generic",
+                  "label": "Generic Australian food\n›"
+                }
+              },
+              {
+                "key": "chipType",
+                "choice": {
+                  "key": "chipType",
+                  "value": "Thin fries",
+                  "label": "Thin fries\n›"
+                }
+              },
+              {
+                "product": "Potato, fries, fast food outlet, deep fried, monounsaturated oil, salted\nAustralian Food Composition Database · Australian AFCD · Source reference: Reference Values per 100 g · Loggable now · choose an amount\nChoose",
+                "id": "afcd-f007269"
+              }
+            ],
+            "state": {
+              "query": "Chips",
+              "stage": "consumption-amount",
+              "state": "exact-product",
+              "product": "Potato, fries, fast food outlet, deep fried, monounsaturated oil, salted",
+              "selectedMeasure": "g",
+              "measureAutoSelected": true,
+              "destination": {
+                "date": "2026-10-04",
+                "meal": "Lunch"
+              }
+            }
+          },
+          "measures": [],
+          "review": {
+            "amount": "2",
+            "unit": "g",
+            "summary": "You Are Adding: 2 g · 2 g total\n6 Cal · 26 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diary": null
+        },
+        {
+          "query": "Fries",
+          "identity": {
+            "steps": [
+              {
+                "key": "catalogueOrigin",
+                "choice": {
+                  "key": "catalogueOrigin",
+                  "value": "generic",
+                  "label": "Generic Australian food\n›"
+                }
+              },
+              {
+                "key": "preparation",
+                "choice": {
+                  "key": "preparation",
+                  "value": "Fried",
+                  "label": "Fried\n›"
+                }
+              },
+              {
+                "product": "Potato, fries, fast food outlet, deep fried, monounsaturated oil, salted\nAustralian Food Composition Database · Australian AFCD · Source reference: Reference Values per 100 g · Loggable now · choose an amount\nChoose",
+                "id": "afcd-f007269"
+              }
+            ],
+            "state": {
+              "query": "Fries",
+              "stage": "consumption-amount",
+              "state": "exact-product",
+              "product": "Potato, fries, fast food outlet, deep fried, monounsaturated oil, salted",
+              "selectedMeasure": "g",
+              "measureAutoSelected": true,
+              "destination": {
+                "date": "2026-10-04",
+                "meal": "Lunch"
+              }
+            }
+          },
+          "measures": [],
+          "review": {
+            "amount": "2",
+            "unit": "g",
+            "summary": "You Are Adding: 2 g · 2 g total\n6 Cal · 26 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diary": null
+        },
+        {
+          "query": "Chicken",
+          "identity": {
+            "steps": [
+              {
+                "key": "catalogueOrigin",
+                "choice": {
+                  "key": "catalogueOrigin",
+                  "value": "generic",
+                  "label": "Generic Australian food\n›"
+                }
+              },
+              {
+                "key": "chickenCut",
+                "choice": {
+                  "key": "chickenCut",
+                  "value": "Breast",
+                  "label": "Breast\n›"
+                }
+              },
+              {
+                "key": "preparation",
+                "choice": {
+                  "key": "preparation",
+                  "value": "Fried",
+                  "label": "Fried\n›"
+                }
+              }
+            ],
+            "state": {
+              "query": "Chicken",
+              "stage": "serving-measure",
+              "state": "exact-product",
+              "product": "Chicken, breast, lean flesh, fried, no added fat",
+              "selectedMeasure": "",
+              "measureAutoSelected": false,
+              "destination": {
+                "date": "2026-10-04",
+                "meal": "Lunch"
+              }
+            }
+          },
+          "measures": [
+            {
+              "key": "standardServe",
+              "label": "Cooked Lean Poultry — Australian standard serve (80 g)\n›"
+            },
+            {
+              "key": "g",
+              "label": "g\n›"
+            }
+          ],
+          "review": {
+            "amount": "2",
+            "unit": "standardServe",
+            "summary": "You Are Adding: 2 Cooked Lean Poultry — Australian Standard Serves · 160 g total\n254 Cal · 1,061 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diary": null
+        },
+        {
+          "query": "Apple",
+          "identity": {
+            "steps": [
+              {
+                "key": "catalogueOrigin",
+                "choice": {
+                  "key": "catalogueOrigin",
+                  "value": "generic",
+                  "label": "Generic Australian food\n›"
+                }
+              },
+              {
+                "product": "Apple, fuji, unpeeled, raw\nAustralian Food Composition Database · Australian AFCD · Source reference: Reference Values per 100 g · Loggable now · choose an amount\nChoose",
+                "id": "afcd-f000091"
+              }
+            ],
+            "state": {
+              "query": "Apple",
+              "stage": "serving-measure",
+              "state": "exact-product",
+              "product": "Apple, fuji, unpeeled, raw",
+              "selectedMeasure": "",
+              "measureAutoSelected": false,
+              "destination": {
+                "date": "2026-10-04",
+                "meal": "Lunch"
+              }
+            }
+          },
+          "measures": [
+            {
+              "key": "item",
+              "label": "Item (150 g)\n›"
+            },
+            {
+              "key": "g",
+              "label": "g\n›"
+            }
+          ],
+          "review": {
+            "amount": "2",
+            "unit": "item",
+            "summary": "You Are Adding: 2 Items · 300 g total\n176 Cal · 736 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diary": null
+        },
+        {
+          "query": "Crackers",
+          "identity": {
+            "steps": [
+              {
+                "key": "catalogueOrigin",
+                "choice": {
+                  "key": "catalogueOrigin",
+                  "value": "generic",
+                  "label": "Generic Australian food\n›"
+                }
+              },
+              {
+                "key": "crackerType",
+                "choice": {
+                  "key": "crackerType",
+                  "value": "Rice crackers",
+                  "label": "Rice crackers\n›"
+                }
+              },
+              {
+                "product": "Biscuit, savoury, rice cracker, plain\nAustralian Food Composition Database · Australian AFCD · Source reference: Reference Values per 100 g · Loggable now · choose an amount\nChoose",
+                "id": "afcd-f001152"
+              }
+            ],
+            "state": {
+              "query": "Crackers",
+              "stage": "consumption-amount",
+              "state": "exact-product",
+              "product": "Biscuit, savoury, rice cracker, plain",
+              "selectedMeasure": "g",
+              "measureAutoSelected": true,
+              "destination": {
+                "date": "2026-10-04",
+                "meal": "Lunch"
+              }
+            }
+          },
+          "measures": [],
+          "review": {
+            "amount": "2",
+            "unit": "g",
+            "summary": "You Are Adding: 2 g · 2 g total\n8 Cal · 33 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diary": null
+        },
+        {
+          "query": "Margarine",
+          "identity": {
+            "steps": [
+              {
+                "key": "catalogueOrigin",
+                "choice": {
+                  "key": "catalogueOrigin",
+                  "value": "generic",
+                  "label": "Generic Australian food\n›"
+                }
+              },
+              {
+                "key": "oilType",
+                "choice": {
+                  "key": "oilType",
+                  "value": "Monounsaturated",
+                  "label": "Monounsaturated\n›"
+                }
+              },
+              {
+                "key": "spreadFat",
+                "choice": {
+                  "key": "spreadFat",
+                  "value": "Reduced fat",
+                  "label": "Reduced fat\n›"
+                }
+              },
+              {
+                "key": "saltLevel",
+                "choice": {
+                  "key": "saltLevel",
+                  "value": "Reduced salt",
+                  "label": "Reduced salt\n›"
+                }
+              }
+            ],
+            "state": {
+              "query": "Margarine",
+              "stage": "serving-measure",
+              "state": "exact-product",
+              "product": "Margarine spread, monounsaturated, reduced fat (~55%) & salt (sodium 380 mg/100 g)",
+              "selectedMeasure": "",
+              "measureAutoSelected": false,
+              "destination": {
+                "date": "2026-10-04",
+                "meal": "Lunch"
+              }
+            }
+          },
+          "measures": [
+            {
+              "key": "tsp",
+              "label": "Teaspoon (5 g)\n›"
+            },
+            {
+              "key": "tbsp",
+              "label": "Tablespoon (19 g)\n›"
+            },
+            {
+              "key": "g",
+              "label": "g\n›"
+            }
+          ],
+          "review": {
+            "amount": "2",
+            "unit": "tsp",
+            "summary": "You Are Adding: 2 Teaspoons · 10 g total\n46 Cal · 192 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diary": null
+        },
+        {
+          "query": "Burger",
+          "identity": {
+            "steps": [
+              {
+                "key": "sourceContext",
+                "choice": {
+                  "key": "sourceContext",
+                  "value": "ready-to-eat",
+                  "label": "Restaurant / Ready-to-Eat\n›"
+                }
+              },
+              {
+                "product": "Hamburger\nHungry Jack's Australia · Source reference: 1 official Burger · Loggable now · choose an amount\nChoose",
+                "id": "food-source:hungry-jacks-au:hamburger"
+              }
+            ],
+            "state": {
+              "query": "Burger",
+              "stage": "consumption-amount",
+              "state": "exact-product",
+              "product": "Hamburger",
+              "selectedMeasure": "burger",
+              "measureAutoSelected": true,
+              "destination": {
+                "date": "2026-10-04",
+                "meal": "Lunch"
+              }
+            }
+          },
+          "measures": [],
+          "review": {
+            "amount": "2",
+            "unit": "burger",
+            "summary": "You Are Adding: 2 Burgers\n570 Cal · 2,384 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diary": null
+        },
+        {
+          "query": "Rice",
+          "identity": {
+            "steps": [
+              {
+                "key": "catalogueOrigin",
+                "choice": {
+                  "key": "catalogueOrigin",
+                  "value": "generic",
+                  "label": "Generic Australian food\n›"
+                }
+              },
+              {
+                "key": "riceType",
+                "choice": {
+                  "key": "riceType",
+                  "value": "Brown",
+                  "label": "Brown\n›"
+                }
+              },
+              {
+                "key": "preparation",
+                "choice": {
+                  "key": "preparation",
+                  "value": "Boiled",
+                  "label": "Boiled\n›"
+                }
+              }
+            ],
+            "state": {
+              "query": "Rice",
+              "stage": "consumption-amount",
+              "state": "exact-product",
+              "product": "Rice, brown, boiled, no added salt",
+              "selectedMeasure": "g",
+              "measureAutoSelected": true,
+              "destination": {
+                "date": "2026-10-04",
+                "meal": "Lunch"
+              }
+            }
+          },
+          "measures": [],
+          "review": {
+            "amount": "2",
+            "unit": "g",
+            "summary": "You Are Adding: 2 g · 2 g total\n3 Cal · 14 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diary": null
+        },
+        {
+          "query": "Eggs",
+          "identity": {
+            "steps": [
+              {
+                "key": "catalogueOrigin",
+                "choice": {
+                  "key": "catalogueOrigin",
+                  "value": "generic",
+                  "label": "Generic Australian food\n›"
+                }
+              },
+              {
+                "key": "preparation",
+                "choice": {
+                  "key": "preparation",
+                  "value": "Boiled",
+                  "label": "Boiled\n›"
+                }
+              },
+              {
+                "key": "eggPart",
+                "choice": {
+                  "key": "eggPart",
+                  "value": "Whole",
+                  "label": "Whole\n›"
+                }
+              },
+              {
+                "product": "Egg, chicken, whole, hard-boiled\nAustralian Food Composition Database · Australian AFCD · Source reference: Reference Values per 100 g · Loggable now · choose an amount\nChoose",
+                "id": "afcd-f003721"
+              }
+            ],
+            "state": {
+              "query": "Eggs",
+              "stage": "serving-measure",
+              "state": "exact-product",
+              "product": "Egg, chicken, whole, hard-boiled",
+              "selectedMeasure": "",
+              "measureAutoSelected": false,
+              "destination": {
+                "date": "2026-10-04",
+                "meal": "Lunch"
+              }
+            }
+          },
+          "measures": [
+            {
+              "key": "largeEgg",
+              "label": "Large Egg (about 45 g)\n›"
+            },
+            {
+              "key": "mediumEgg",
+              "label": "Medium Egg (about 37 g)\n›"
+            },
+            {
+              "key": "smallEgg",
+              "label": "Small Egg (about 31 g)\n›"
+            },
+            {
+              "key": "xLargeEgg",
+              "label": "X-Large Egg (about 52 g)\n›"
+            },
+            {
+              "key": "jumboEgg",
+              "label": "Jumbo Egg (about 59 g)\n›"
+            },
+            {
+              "key": "kingEgg",
+              "label": "King-Size Egg (about 64 g)\n›"
+            },
+            {
+              "key": "g",
+              "label": "g\n›"
+            }
+          ],
+          "review": {
+            "amount": "2",
+            "unit": "largeEgg",
+            "summary": "You Are Adding: 2 Large Eggs · 90 g total\n122 Cal · 512 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diary": null
+        },
+        {
+          "query": "Big Mac",
+          "identity": {
+            "steps": [
+              {
+                "product": "Big Mac\nMcDonald's Australia · Source reference: 1 burger · Loggable now · choose an amount\nChoose",
+                "id": "food-source:mcdonalds-au:big-mac"
+              }
+            ],
+            "state": {
+              "query": "Big Mac",
+              "stage": "consumption-amount",
+              "state": "exact-product",
+              "product": "Big Mac",
+              "selectedMeasure": "burger",
+              "measureAutoSelected": true,
+              "destination": {
+                "date": "2026-10-04",
+                "meal": "Lunch"
+              }
+            }
+          },
+          "measures": [],
+          "review": {
+            "amount": "2",
+            "unit": "burger",
+            "summary": "You Are Adding: 2 Burgers\n1,242 Cal · 5,200 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diary": {
+            "id": "entry-d0262075-643d-4c06-87aa-0ce492a17f7f",
+            "foodId": "food-source:mcdonalds-au:big-mac",
+            "name": "Big Mac",
+            "brand": "McDonald's Australia",
+            "date": "2026-10-04",
+            "meal": "Lunch",
+            "status": "eaten",
+            "amount": 2,
+            "unit": "burger",
+            "unitLabel": "Burger",
+            "metricEquivalent": null,
+            "consumedPortion": {
+              "measureId": "burger",
+              "measureLabel": "Burger",
+              "amount": 2,
+              "baseQuantity": 2,
+              "baseUnit": "count",
+              "conversion": {
+                "perMeasureQuantity": 1,
+                "baseUnit": "count",
+                "nutritionMultiplier": 1,
+                "basis": "source count conversion"
+              },
+              "conversionProvenance": {
+                "source": "source-product-metadata",
+                "sourceType": "product-metadata",
+                "sourceReference": "",
+                "sourceUrl": "",
+                "retrievedDate": "",
+                "derivation": "",
+                "confidence": "source-product-metadata",
+                "applicability": "countable",
+                "provenance": "manufacturer"
+              },
+              "sourceServing": null,
+              "nutritionBasis": {
+                "perServing": {
+                  "energyKj": 2600,
+                  "calories": 621,
+                  "protein": 28.7,
+                  "fat": 34.4,
+                  "satFat": 13.8,
+                  "carbs": 46.5,
+                  "sugar": 8,
+                  "sodium": 1119
+                },
+                "per100": {
+                  "energyKj": 1070,
+                  "calories": 255,
+                  "protein": 11.8,
+                  "fat": 14.1,
+                  "satFat": 5.7,
+                  "carbs": 19.1,
+                  "sugar": 3.3,
+                  "sodium": 459
+                },
+                "servingAmount": null,
+                "servingUnit": "",
+                "servingText": "1 burger",
+                "manufacturerServing": false,
+                "semanticBasis": "per-item"
+              }
+            },
+            "time": "21:01",
+            "notes": "",
+            "nutrients": {
+              "calories": 1242,
+              "protein": 57.4,
+              "carbs": 93,
+              "fat": 68.8,
+              "satFat": 27.6,
+              "fibre": null,
+              "sugar": 16,
+              "addedSugar": null,
+              "freeSugar": null,
+              "sodium": 2238,
+              "energyKj": 5200
+            },
+            "foodGroups": {
+              "vegetables": 0,
+              "fruit": 0,
+              "grains": 0,
+              "proteinFoods": 0,
+              "dairy": 0
+            },
+            "foodGroupAttribution": "unavailable",
+            "waterMl": 0,
+            "hydrationType": "food",
+            "score": 6,
+            "source": "Official McDonald's Australia menu nutrition · checked 2026-08-26",
+            "variantSelections": {},
+            "foodSnapshot": {
+              "snapshotVersion": "0.6.33",
+              "foodId": "food-source:mcdonalds-au:big-mac",
+              "canonicalId": "food-source:mcdonalds-au:big-mac",
+              "sourceId": "mcdonalds-au:big-mac",
+              "foodSourceId": "mcdonalds-au",
+              "sourceItemId": "big-mac",
+              "sourceVariantId": "",
+              "familyId": "big-mac",
+              "familyName": "Big Mac",
+              "variantLabel": "",
+              "itemStatus": "current",
+              "nutritionStatus": "complete",
+              "loggable": true,
+              "categoryMemberships": [
+                "Burgers",
+                "Beef",
+                "All Day"
+              ],
+              "promotionalStatus": "standard",
+              "limitedTime": false,
+              "catalogueVersion": "mcdonalds-au-2026-08-26-founder-trial.1",
+              "catalogueCheckedAt": "2026-08-26T17:01:32+10:00",
+              "sourceLastCheckedDate": "2026-08-26",
+              "lastSeenAt": "2026-08-26T17:01:32+10:00",
+              "effectiveDate": "2026-08-26",
+              "sourceUrl": "https://www.mcdonalds.com/au/en-au/menu/beef/big-mac.html",
+              "provenance": {
+                "publisher": "McDonald's Australia",
+                "url": "https://www.mcdonalds.com/au/en-au/menu/beef/big-mac.html",
+                "referenceType": "Official current Australian menu product nutrition table",
+                "tableBasis": "Avg Qty / Serve and Per 100g or 100mL"
+              },
+              "energySource": null,
+              "calorieSource": null,
+              "nutritionFreshness": null,
+              "sourceConflict": null,
+              "officialCurrentIdentity": true,
+              "sourceAnomalies": [],
+              "usageScope": "development/founder-trial",
+              "licenceStatus": "no-affirmative-production-catalogue-reuse-licence-granted",
+              "productionApproved": false,
+              "licensing": {
+                "usageScope": "development/founder-trial",
+                "licenceStatus": "no-affirmative-production-catalogue-reuse-licence-granted",
+                "productionApproved": false,
+                "inheritedFromSource": true
+              },
+              "barcode": "",
+              "name": "Big Mac",
+              "brand": "McDonald's Australia",
+              "country": "Australia",
+              "market": "AU",
+              "source": "Official McDonald's Australia menu nutrition · checked 2026-08-26",
+              "verified": true,
+              "verificationStatus": "official-source",
+              "captureEvidence": null,
+              "ingredients": "",
+              "serving": "1 burger",
+              "manufacturerServing": null,
+              "nutritionBasis": {
+                "perServing": {
+                  "energyKj": 2600,
+                  "calories": 621,
+                  "protein": 28.7,
+                  "fat": 34.4,
+                  "satFat": 13.8,
+                  "carbs": 46.5,
+                  "sugar": 8,
+                  "sodium": 1119
+                },
+                "per100": {
+                  "energyKj": 1070,
+                  "calories": 255,
+                  "protein": 11.8,
+                  "fat": 14.1,
+                  "satFat": 5.7,
+                  "carbs": 19.1,
+                  "sugar": 3.3,
+                  "sodium": 459
+                },
+                "servingAmount": null,
+                "servingUnit": "",
+                "servingText": "1 burger",
+                "manufacturerServing": false,
+                "semanticBasis": "per-item"
+              },
+              "preparation": null,
+              "nutrientQualifiers": {},
+              "consumedPortion": {
+                "measureId": "burger",
+                "measureLabel": "Burger",
+                "amount": 2,
+                "baseQuantity": 2,
+                "baseUnit": "count",
+                "conversion": {
+                  "perMeasureQuantity": 1,
+                  "baseUnit": "count",
+                  "nutritionMultiplier": 1,
+                  "basis": "source count conversion"
+                },
+                "conversionProvenance": {
+                  "source": "source-product-metadata",
+                  "sourceType": "product-metadata",
+                  "sourceReference": "",
+                  "sourceUrl": "",
+                  "retrievedDate": "",
+                  "derivation": "",
+                  "confidence": "source-product-metadata",
+                  "applicability": "countable",
+                  "provenance": "manufacturer"
+                },
+                "sourceServing": null,
+                "nutritionBasis": {
+                  "perServing": {
+                    "energyKj": 2600,
+                    "calories": 621,
+                    "protein": 28.7,
+                    "fat": 34.4,
+                    "satFat": 13.8,
+                    "carbs": 46.5,
+                    "sugar": 8,
+                    "sodium": 1119
+                  },
+                  "per100": {
+                    "energyKj": 1070,
+                    "calories": 255,
+                    "protein": 11.8,
+                    "fat": 14.1,
+                    "satFat": 5.7,
+                    "carbs": 19.1,
+                    "sugar": 3.3,
+                    "sodium": 459
+                  },
+                  "servingAmount": null,
+                  "servingUnit": "",
+                  "servingText": "1 burger",
+                  "manufacturerServing": false,
+                  "semanticBasis": "per-item"
+                }
+              },
+              "selection": {
+                "amount": 2,
+                "unit": "burger",
+                "unitLabel": "Burger"
+              },
+              "nutrients": {
+                "energyKj": 5200,
+                "calories": 1242,
+                "protein": 57.4,
+                "carbs": 93,
+                "fat": 68.8,
+                "satFat": 27.6,
+                "fibre": null,
+                "sugar": 16,
+                "sodium": 2238,
+                "calcium": null,
+                "iron": null,
+                "potassium": null
+              },
+              "loggedAt": "2026-10-04T11:01:05.761Z"
+            },
+            "localDate": "2026-10-04",
+            "timeZone": "Australia/Brisbane",
+            "createdAt": "2026-10-04T11:01:05.761Z",
+            "updatedAt": "2026-10-04T11:01:05.761Z"
+          }
+        },
+        {
+          "query": "Cheeseburger",
+          "identity": {
+            "steps": [
+              {
+                "product": "Cheeseburger\nHungry Jack's Australia · Source reference: 1 official Burger · Loggable now · choose an amount\nChoose",
+                "id": "food-source:hungry-jacks-au:cheeseburger"
+              }
+            ],
+            "state": {
+              "query": "Cheeseburger",
+              "stage": "consumption-amount",
+              "state": "exact-product",
+              "product": "Cheeseburger",
+              "selectedMeasure": "burger",
+              "measureAutoSelected": true,
+              "destination": {
+                "date": "2026-10-04",
+                "meal": "Lunch"
+              }
+            }
+          },
+          "measures": [],
+          "review": {
+            "amount": "2",
+            "unit": "burger",
+            "summary": "You Are Adding: 2 Burgers\n644 Cal · 2,694 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diary": null
+        },
+        {
+          "query": "Flora ProActiv Light",
+          "identity": {
+            "steps": [
+              {
+                "product": "Flora ProActiv Light\nFlora · Verified Packaged Food · Source reference: 1 serve (10 g) · Loggable now · choose an amount\nChoose",
+                "id": "flora-proactiv-light-au-official"
+              }
+            ],
+            "state": {
+              "query": "Flora ProActiv Light",
+              "stage": "serving-measure",
+              "state": "exact-product",
+              "product": "Flora ProActiv Light",
+              "selectedMeasure": "",
+              "measureAutoSelected": false,
+              "destination": {
+                "date": "2026-10-04",
+                "meal": "Lunch"
+              }
+            }
+          },
+          "measures": [
+            {
+              "key": "tsp",
+              "label": "Teaspoon (5 g)\n›"
+            },
+            {
+              "key": "tbsp",
+              "label": "Tablespoon (19 g)\n›"
+            },
+            {
+              "key": "serve",
+              "label": "Manufacturer serve (10 g)\n›"
+            },
+            {
+              "key": "g",
+              "label": "g\n›"
+            }
+          ],
+          "review": {
+            "amount": "5",
+            "unit": "g",
+            "summary": "You Are Adding: 5 g · 5 g total\n19 Cal · 77 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diary": {
+            "id": "entry-0fca5bfa-cf4f-4687-b123-c7c88f16ce3d",
+            "foodId": "flora-proactiv-light-au-official",
+            "name": "Flora ProActiv Light",
+            "brand": "Flora",
+            "date": "2026-10-04",
+            "meal": "Lunch",
+            "status": "eaten",
+            "amount": 5,
+            "unit": "g",
+            "unitLabel": "g",
+            "metricEquivalent": {
+              "value": 5,
+              "unit": "g"
+            },
+            "consumedPortion": {
+              "measureId": "g",
+              "measureLabel": "g",
+              "amount": 5,
+              "baseQuantity": 5,
+              "baseUnit": "g",
+              "conversion": {
+                "perMeasureQuantity": 1,
+                "baseUnit": "g",
+                "nutritionMultiplier": 0.1,
+                "basis": "nutrition-base conversion"
+              },
+              "conversionProvenance": {
+                "source": "Explicit manufacturer serving",
+                "sourceType": "product-metadata",
+                "sourceReference": "",
+                "sourceUrl": "",
+                "retrievedDate": "",
+                "derivation": "",
+                "confidence": "package-explicit",
+                "applicability": "spread",
+                "provenance": "manufacturer"
+              },
+              "sourceServing": {
+                "amount": 10,
+                "unit": "g"
+              },
+              "nutritionBasis": {
+                "semanticBasis": "per-serve"
+              }
+            },
+            "time": "21:01",
+            "notes": "",
+            "nutrients": {
+              "calories": 18.5,
+              "protein": null,
+              "carbs": null,
+              "fat": 2.05,
+              "satFat": 0.45,
+              "fibre": null,
+              "sugar": null,
+              "addedSugar": null,
+              "freeSugar": null,
+              "sodium": 18,
+              "energyKj": 77,
+              "plantSterols": 0.4
+            },
+            "foodGroups": {
+              "vegetables": 0,
+              "fruit": 0,
+              "grains": 0,
+              "proteinFoods": 0,
+              "dairy": 0
+            },
+            "foodGroupAttribution": "unavailable",
+            "waterMl": 2.5,
+            "hydrationType": "food",
+            "score": 7,
+            "source": "Official Flora ProActiv Australia Product Page · checked 2026-08-29",
+            "variantSelections": {},
+            "foodSnapshot": {
+              "snapshotVersion": "0.6.33",
+              "foodId": "flora-proactiv-light-au-official",
+              "canonicalId": "packaged:flora-proactiv-light-au",
+              "sourceId": "flora-proactiv-light-au",
+              "foodSourceId": "",
+              "sourceItemId": "",
+              "sourceVariantId": "",
+              "familyId": "",
+              "familyName": "",
+              "variantLabel": "",
+              "itemStatus": "",
+              "nutritionStatus": "",
+              "loggable": true,
+              "categoryMemberships": [],
+              "promotionalStatus": "",
+              "limitedTime": false,
+              "catalogueVersion": "",
+              "catalogueCheckedAt": "",
+              "sourceLastCheckedDate": "",
+              "lastSeenAt": "",
+              "effectiveDate": "",
+              "sourceUrl": "https://www.pro-activ.com/en-au/products/flora-proactiv-light",
+              "provenance": null,
+              "energySource": null,
+              "calorieSource": null,
+              "nutritionFreshness": null,
+              "sourceConflict": null,
+              "officialCurrentIdentity": false,
+              "sourceAnomalies": [
+                "Fibre is not published, and protein, carbohydrate and sugars below 0.1 g per serve remain unavailable rather than being converted to exact zero values."
+              ],
+              "usageScope": "",
+              "licenceStatus": "",
+              "productionApproved": false,
+              "licensing": null,
+              "barcode": "",
+              "name": "Flora ProActiv Light",
+              "brand": "Flora",
+              "country": "Australia",
+              "market": "AU",
+              "source": "Official Flora ProActiv Australia Product Page · checked 2026-08-29",
+              "verified": true,
+              "verificationStatus": "verified",
+              "captureEvidence": null,
+              "ingredients": "Water, vegetable oils, phytosterol esters (8% plant sterols), salt, potato starch, emulsifiers (471, soy lecithin), milk solids, lactic acid, preservative (202), natural flavours, vitamins A and D, beta-carotene",
+              "serving": "1 serve (10 g)",
+              "manufacturerServing": {
+                "amount": 10,
+                "unit": "g"
+              },
+              "nutritionBasis": {
+                "semanticBasis": "per-serve"
+              },
+              "preparation": null,
+              "nutrientQualifiers": {},
+              "consumedPortion": {
+                "measureId": "g",
+                "measureLabel": "g",
+                "amount": 5,
+                "baseQuantity": 5,
+                "baseUnit": "g",
+                "conversion": {
+                  "perMeasureQuantity": 1,
+                  "baseUnit": "g",
+                  "nutritionMultiplier": 0.1,
+                  "basis": "nutrition-base conversion"
+                },
+                "conversionProvenance": {
+                  "source": "Explicit manufacturer serving",
+                  "sourceType": "product-metadata",
+                  "sourceReference": "",
+                  "sourceUrl": "",
+                  "retrievedDate": "",
+                  "derivation": "",
+                  "confidence": "package-explicit",
+                  "applicability": "spread",
+                  "provenance": "manufacturer"
+                },
+                "sourceServing": {
+                  "amount": 10,
+                  "unit": "g"
+                },
+                "nutritionBasis": {
+                  "semanticBasis": "per-serve"
+                }
+              },
+              "selection": {
+                "amount": 5,
+                "unit": "g",
+                "unitLabel": "g"
+              },
+              "nutrients": {
+                "energyKj": 77,
+                "calories": 18.5,
+                "protein": null,
+                "carbs": null,
+                "fat": 2.05,
+                "satFat": 0.45,
+                "fibre": null,
+                "sugar": null,
+                "sodium": 18,
+                "calcium": null,
+                "iron": null,
+                "potassium": null
+              },
+              "loggedAt": "2026-10-04T11:01:09.162Z"
+            },
+            "localDate": "2026-10-04",
+            "timeZone": "Australia/Brisbane",
+            "createdAt": "2026-10-04T11:01:09.162Z",
+            "updatedAt": "2026-10-04T11:01:09.162Z"
+          }
+        },
+        {
+          "query": "McCain hash browns",
+          "identity": {
+            "steps": [
+              {
+                "product": "McCain Hash Browns Shredded 750g\nMcCain · Verified Packaged Food · Pack: 750g · Barcode 9310174025084 · Source reference: Source serving 75g; retail pack 750g · Loggable now · choose an amount\nChoose",
+                "id": "woolworths-au:98299"
+              }
+            ],
+            "state": {
+              "query": "McCain hash browns",
+              "stage": "serving-measure",
+              "state": "exact-product",
+              "product": "McCain Hash Browns Shredded 750g",
+              "selectedMeasure": "",
+              "measureAutoSelected": false,
+              "destination": {
+                "date": "2026-10-04",
+                "meal": "Lunch"
+              }
+            }
+          },
+          "measures": [
+            {
+              "key": "serve",
+              "label": "Manufacturer serve (75 g)\n›"
+            },
+            {
+              "key": "g",
+              "label": "g\n›"
+            }
+          ],
+          "review": {
+            "amount": "2",
+            "unit": "serve",
+            "summary": "You Are Adding: 2 Serves · 150 g total\n260 Cal · 1,086 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diary": null
+        },
+        {
+          "query": "Helga's wholemeal",
+          "identity": {
+            "steps": [
+              {
+                "product": "Traditional Wholemeal Bread\nHelga's · Open Food Facts AU · Source reference: Nutrition reference per 100 g · Loggable now · choose an amount\nChoose",
+                "id": "off:9310128002499"
+              }
+            ],
+            "state": {
+              "query": "Helga's wholemeal",
+              "stage": "consumption-amount",
+              "state": "exact-product",
+              "product": "Traditional Wholemeal Bread",
+              "selectedMeasure": "g",
+              "measureAutoSelected": true,
+              "destination": {
+                "date": "2026-10-04",
+                "meal": "Lunch"
+              }
+            }
+          },
+          "measures": [],
+          "review": {
+            "amount": "2",
+            "unit": "g",
+            "summary": "You Are Adding: 2 g · 2 g total\n5 Cal · 20 kJ · Will be added only after you confirm Add to Diary."
+          },
+          "diary": null
+        }
+      ]
+    }
+  ],
+  "failures": [],
+  "outputDirectory": "data\\catalogue-wave-3a\\verification\\rendered\\wave-1b-regression\\concepts",
+  "storage": {
+    "format": "Readable summary; lossless full evidence retained alongside",
+    "fullReport": "food-concepts.json.gz",
+    "fullSha256": "3df2a2d60e4e20ba543db0abec6ee01a55d3bcbe556c5114687e00a939794f8b",
+    "fullBytes": 56652845
+  }
+}

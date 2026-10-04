@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "generation": "8306466fcc410bf3cf384ae7",
+  "completeRuns": 1,
+  "originalCompleteRun": {
+    "pass": false,
+    "tests": 1109,
+    "passed": 1102,
+    "failed": 7,
+    "resultFile": "acceptance-result.json",
+    "logSha256": "92b302dfbb5960c4f5371acbc9b12d786334062e48fc4949a09c1bc869308de6"
+  },
+  "failures": [
+    {
+      "file": "tests/aldi-source.test.js",
+      "count": 3,
+      "reason": "Legacy 87-item/13-category Aldi and 860-item Coles counts; first-wave-only community provenance incorrectly applied to the complete later house catalogue."
+    },
+    {
+      "file": "tests/brand-catalogue.test.js",
+      "count": 1,
+      "reason": "Manufacturer-only fallback did not recognise the newly reviewed, exact package-evidenced Wave 3A admissions."
+    },
+    {
+      "file": "tests/catalogue-semantics-repair.test.js",
+      "count": 2,
+      "reason": "Pre-wave Aldi/global counts and historical family audit did not account for the two newly evidenced trademark relationships."
+    },
+    {
+      "file": "tests/catalogue-wave-1b.test.js",
+      "count": 1,
+      "reason": "Other count subtracted only eight Wave 2A changes and omitted the documented Wave 3A olives move."
+    }
+  ],
+  "repair": "Test assertions only. Preserve all 20 original community records and byte-equivalent older facts; exact-match new admissions against pinned reviewed evidence; verify current family relationships using retained original or new package evidence. Two intermediate repair assertions were corrected to recognise historical family-level proof and the new trademark evidence without rewriting historical audit files.",
+  "focusedRuns": [
+    {
+      "file": "focused-acceptance-repair.log",
+      "tests": 63,
+      "passed": 61,
+      "failed": 2,
+      "sha256": "713ee3baf205d995779774dd28f87c881d4eff2f3c4bd3916404fabc4f446171"
+    },
+    {
+      "file": "focused-family-evidence-repair.log",
+      "tests": 7,
+      "passed": 7,
+      "failed": 0,
+      "sha256": "6ad96ede51c7c7d3b5b679edbb2df2bb3d4c6064ee8df4c8b20cd8cec97982ff"
+    },
+    {
+      "file": "focused-aldi-source-repair.log",
+      "tests": 25,
+      "passed": 25,
+      "failed": 0,
+      "sha256": "8e1fc517ba65fa94b5e44ba664669dade66fe78f1c175532e5a32cbf617cf1c2"
+    }
+  ],
+  "applicationChangesAfterCompleteRun": false,
+  "remainingFailures": 0,
+  "combinedAcceptance": {
+    "pass": true,
+    "uniqueTests": 1109,
+    "repairedFileUniqueTests": 63,
+    "method": "One complete 54-file run (1102 passed; seven stale expectations failed), followed by a targeted four-file 63-test run and final passing reruns of only its two still-failing files (7 and 25 tests). All 63 affected tests now have passing final results. Original failures preserved; no second broad run."
+  },
+  "testedFileHashes": {
+    "tests/catalogue-wave-1b.test.js": "fe4bcb51349577210cb0bc7562a770a495b87a8168319db5fde5339e91312a35",
+    "tests/same-gtin-identity-safety.test.js": "0d7849a947558e4b7a34d08703a84896d93ae466b6ec5412aec658e1f668bd0e",
+    "tests/retailer-architecture.test.js": "c8b534aa21152a2562563c47e4799b18422d167eb5ee60a4525c46e7b5aeadd9",
+    "tests/retailer-loading.test.js": "1dbcd4b8eade93caca165c0a4a0754c37cfcb6cfb0ef68845d7be46263df8204",
+    "tests/woolworths-source.test.js": "c8c2b53d98052851a6050097b4ae961f11ee0a48230d112487a885ccfa7e8c9d",
+    "tests/catalogue-semantics-repair.test.js": "f0668a2b86d31dfdb199993bfa4c1e4b0376667d9fb6c021b7397e2a2ca4639c",
+    "tests/catalogue-round-two.test.js": "3414a2be06878bb7f8ccdf6267c90a749ba726816759bfa98a6e1cf158f1ae41",
+    "tests/catalogue-round-three.test.js": "97c1b371ae730c8977537d03ba87037eb668ddc7e8ca0d7ea79ec6c50808abc4",
+    "tests/brand-catalogue.test.js": "897aa84c1144563f673d80887c6fbc95e3c032275e9c556ea38b74880ae0c252",
+    "tests/brand-generation.test.js": "401dfeaaff4da049b645413fdb20a7df16fb2cc7a0d0ef70c515065350688454",
+    "tests/brand-directory-admission.test.js": "59972a62c9a3481cfb461fad53d5829c742640111481e9789389752780e5f8a5",
+    "tests/brand-wave-audit.test.js": "6c5d60c8fa7125a36314943a47979b6d496bf8ca5a9f8222c1558d38c6a8691f",
+    "tests/brand-search-index-parity.test.js": "076a88a984ff500831f9c292a0a0c96e74b33203d000f794953f7be361f3206d",
+    "tests/brand-performance-parity.test.js": "e9a2959994c6b43808983e66df2052e240e22188b7a6d1b25f704ecc93b93fdb",
+    "tests/brand-performance-policy.test.js": "231a60eee34fd803d259ce65b525b142df25167d2c9e0e4291b4ff8dbe45c20b",
+    "tests/off-brand-index-normalization.test.js": "800f72d42cffacc29a5c5cd72fb9d98dc62aed2972a54ecc3dfa4f300462fd13",
+    "tests/open-food-facts-au-catalogue.test.js": "a0b76c7c02a0ba5a6256155d5e7717a0f1df3867a2ab1aec2af5ec04789396f2",
+    "tests/catalogue-search-intelligence.test.js": "660c1e3a8d5e9ac000a20552c673d321aa11b64d862026f6aba284ed1b9f19af",
+    "tests/catalogue-search-regression-recovery.test.js": "a207d69e6d661dc3c624dcba6f6e1f669cafb110863a9a319f584ec93ceb7c5d",
+    "tests/canonical-search-identity-consistency.test.js": "93e0d32d7f417c30d9e6477c94bd49a34b9ae8e072f491129aa03e2ea02b2f87",
+    "tests/canonical-result-consumers.test.js": "e5d0686ccb94998f092b4b7bc0fbd9403a328a476e22ba4f54cc8b3ce267b953",
+    "tests/catalogue-punctuation-reachability.test.js": "c8e9c6d6023c6bdc229f43355250965f664c5bd3ef4d43c15b35030c7e956f43",
+    "tests/intelligence-shard-routing.test.js": "2d02e721dde8e50d7142da7a8a6cac38fa340a4c32c55bfef8016e6419e67704",
+    "tests/guided-product-resolution.test.js": "7c7ed1069ed43142e50bd25179efbb58df4faa07ae2e779d9d9cd9c9a540e515",
+    "tests/guided-product-resolution-repair.test.js": "13f6df50b093dc22edff8b662ca667f0af369c54bf5be789171be9590f716c95",
+    "tests/food-concept-resolution.test.js": "89343cc6d2d4113d47ad38427a81ecbd707ca2d84b7a7b5d7350b30fc1a4e66a",
+    "tests/shortlist-first.test.js": "68cfb55561eab7c9b7852aae05400fcf3990e2b9fb7d252f65c1c987b6470b92",
+    "tests/australian-shortlist-quality.test.js": "aae5d200e2a8407608567c82c7ee3b4eddc3f73c40b29403ea75ba1cf39e6849",
+    "tests/australian-catalogue-foundation.test.js": "150965f05ee6d158c957e93d760caaeb4fe0992f7d902021509010460a25690b",
+    "tests/product-serving-semantics.test.js": "d5794f2548807b229e4071c3ec6645dfcfca45ae1776535fa458cefffa9ea4b2",
+    "tests/physical-form-measure-compatibility.test.js": "732c1a8a201a38e07857fa9a5a299f1ddbf1419e590dd289aa108012ba5eeeba",
+    "tests/portion-handoff-integrity.test.js": "d9c007879490fd562f730a9e75254d4629c31254018ea8fad4960bd4eae4366a",
+    "tests/progressive-portion-choice-polish.test.js": "2c5faae96856e81e040837029af683d1f3de31afcf4c2d6fafe5fc0b57929006",
+    "tests/progressive-food-resolution.test.js": "ddeb39d4b9e2c13f408a1a61358245528ceeb03b1bae180db04d11b1298a5ef4",
+    "tests/universal-food-search-source-branching.test.js": "8d00dcf20f45fda0024d777e716262b3702c78c6ca88a1087cd1cbcb8e5dff5e",
+    "tests/release-coherence.test.js": "784c8fbf13b0c7659c2ff5c169f13fd327e12c07038a455fbf98414690f01ce0",
+    "tests/release-update-lifecycle.test.js": "5f0cb4f28eaad75e552df6f333b513b2ef23f473efd7e187b4bd96a4c5bf55b5",
+    "tests/stage9-release-integration.test.js": "084d06002c2be1b41783ecf77165a17a8b493b990d459078f6d6516c4c4f93a4",
+    "tests/query-ownership.test.js": "b60ddb1322572cae32fdd7dcc3fd4793422a27bcebe88db0c42bcfa3a18ac333",
+    "tests/restaurant-family-search.test.js": "5e03d16e5bfd975c64858b2f5da8415d053ef958910b0bd2061b2e93c8cf3d9d",
+    "tests/post-kfc-search-regressions.test.js": "c0992ddd1e289d3223e0f6d4cd3f6e332cec7eac5dc33b0645bf2bab662323fb",
+    "tests/food-source-mcdonalds-au.test.js": "120d53cc9a2c9aa1dc412fca03390bc76dc4e56f64757118e3879f27a5204b6d",
+    "tests/food-source-kfc-au.test.js": "dce4f6b391366a0cd3b758736b2ced04262b0c0fd70b9443dfc71140c6b8937b",
+    "tests/hungry-jacks-australia-expansion.test.js": "7da8a87bc8ba9aa052b6e83db3786ef7bd405909a2a3d8a146a7a0387b0c5b64",
+    "tests/stage8a-food-catalogue.test.js": "50c49dea26d8abed8f622bf9e2d9ed678ac8e19d3c76764c106e6b4d117f0236",
+    "tests/stage8b-servings-packaged.test.js": "c12ba5d948f7362038c65de8a4476547dfea2c9fd4feab485201108c961e7ef5",
+    "tests/search-session-root-cause-repair.test.js": "64f47a55b83ac45aa2e2a44b9017e1df76106ff69abe8c3313f3cc73989e4acd",
+    "tests/live-prefix-alphabetical.test.js": "6260f39e8b1ecc8a7812593811f8f954a569218b48d5677031a4e7413f602df5",
+    "tests/product-name-reachability.test.js": "4e8b0c2aa81c9e4b9603ad2ac4913b39727dd96dcba32de11e9ae66a0bc1349c",
+    "tests/saved-nutrition-review.test.js": "526eaba98200d9c2691422e52c8bbc1e2c00e8cfa35773cddcfd573080f81e7e",
+    "tests/catalogue-wave-2a.test.js": "e8b176328c8ce25f676b84659f45c13bb439c23778ace0f2c0b1faa5ed693ea9",
+    "tests/coles-source.test.js": "08646da3789c23d2f9510cb08c8026d0f82f93ed8fbc315543fe27f49538ae4c",
+    "tests/aldi-source.test.js": "26308086ac75042757e83ccf7d59a0ad2754ea04e2a16d545ce86f56af67a267",
+    "tests/catalogue-wave-3a.test.js": "9a8f959afe27f914950a3216c42207c1c262389fc948d210d1419528dfdb920e"
+  },
+  "checkedAt": "2026-10-04T11:20:07.202Z"
+}

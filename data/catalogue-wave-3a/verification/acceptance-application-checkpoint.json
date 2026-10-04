@@ -1,0 +1,13 @@
+{
+  "generation": "8306466fcc410bf3cf384ae7",
+  "files": {
+    "index.html": "2f55dec437137ce57d3aedf4f2a35dd39836924e6df1483a5b18278f1b4cf02b",
+    "service-worker.js": "6f2fec17e5e2b15d804c3e734d223f048d1f52715a7065b46d68858b7412db73",
+    "release-manifest.json": "7897d84bdf758a4b694fa1dfa6eaaec852bf0105acc786a7e27c15dd04ee822b",
+    "brand-catalogue.js": "79d7fc919a3748142e76bd0266ee16711ba3b1b216d2920a295d96bb4624cc59",
+    "aldi-au-catalogue.js": "a5b9561e8d0675bc8a4424ecbe1411856fe2b60fd3b3263bdc55b2d883ad15e6",
+    "coles-au-catalogue.js": "a0265ac872107bcc565fbdd543be3a44fb6a5525058085bc4f83f59bcb597aa4",
+    "woolworths-au-catalogue.js": "3af39e0d35d046ec62245ee4e0b3b1e64172af995ad492103ca4e5804657204e",
+    "brand-au-catalogue.js": "6bb8509c19deb0a56466992e305b217e2d1258b863ad3a317ad5138ce8517d59"
+  }
+}

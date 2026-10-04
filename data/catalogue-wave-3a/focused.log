@@ -1,0 +1,102 @@
+✔ 39 enrolled identities resolve uniquely and category moves are subsets of improvements (1.5575ms)
+✔ 15 retained holds and four deferrals stay out of normal admission (345.623ms)
+✔ exact package GTINs complete existing identities without collapsing other milk or vegetable formulations (17.3164ms)
+✔ two package-evidenced Aldi trademarks enter house browse, independent Pepsi stays global (27.9318ms)
+✔ unknown fibre, true printed zero, preparation and human measures survive a complete review flow (19.3157ms)
+✔ shared fallback semantics handle product forms and reject ingredient/flavour/compound traps (0.5877ms)
+✔ all three retailer totals and each cross-retailer category consequence reconcile (1178.7444ms)
+✔ all moved existing products retain exact identity, nutrients, measures and ownership (10643.7306ms)
+✖ new exact brand products are globally reachable and every index entry matches its shard (4.6906ms)
+✔ all protected source payloads are unchanged (846.7425ms)
+✔ real catalogue identity outranks broad beverage ancestry (33.0902ms)
+✔ raw solid mL is quarantined at the final profile and resolved-food boundary (2.6317ms)
+✔ raw solid L is quarantined at the final profile and resolved-food boundary (1.3388ms)
+✔ raw solid cup is quarantined at the final profile and resolved-food boundary (1.4328ms)
+✔ package volume and unsuitable source units cannot redefine a named solid (4.8372ms)
+✔ genuine per-100-mL solid conflict is not relabelled or scaled as grams (2.6558ms)
+✔ valid gram nutrition survives an incompatible source serving (1.9757ms)
+✔ volume aliases are validated by user-facing family, not a countable default (0.985ms)
+✔ guided Review cannot reintroduce quarantined units (12.6306ms)
+✔ voice and typed measure resolution rejects solid volume and accepts supported grams (1.42ms)
+✔ liquid identity preserves volumes and rejects unrelated solid item units (2.7528ms)
+✔ spreads preserve validated household-to-gram measures without becoming liquid (3.4649ms)
+✔ sliced food preserves source slice and grams (1.9718ms)
+✔ official restaurant item preserves its natural unit (81.442ms)
+✔ unknown identity with only volume metadata has a conservative completion state (4.374ms)
+✔ specific short-plural food categories outrank beverage flavour words (2.8084ms)
+✔ specific liquid categories retain milk despite chocolate flavour metadata (1.9233ms)
+✔ powdered milk remains solid despite liquid ancestry (0.4047ms)
+✔ explicit source mL denominator is preserved before semantic normalization (0.9462ms)
+✔ trusted density conversion supports grams without exposing volume for a solid (1.0116ms)
+✔ late carried candidates and legacy allowed lists cross the same firewall (0.6481ms)
+✔ consumedPortion rejects a quarantined carried measure when food is supplied (0.6559ms)
+✔ legacy inferred catalogue form cannot override solid identity (1.8112ms)
+✔ explicit source slice counts on a countable product keep their gram conversion (3.1466ms)
+✖ real McCain product is safe through production search and rendered Portion Choice (38310.5057ms)
+✔ every actual retailer category and house brand has eligible products and settles with exactly those identities (5763.1559ms)
+✔ stale category, stale brand and empty intersection settle empty without offering zero choices (1.4222ms)
+✔ unresolved adapter is bounded; late result cannot refill caches or overwrite retry (39.7236ms)
+✔ shard deadline aborts stalled read, evicts rejected promise and allows real retry (27.449ms)
+✔ loader rejection and catalogue replacement terminate as errors (6.6026ms)
+✔ timeout from an old request cannot finish a newer request (26.9909ms)
+✔ compatible title punctuation and casing retains authority, aliases and original source titles (27.9237ms)
+✔ compatible title harmless wording refresh retains authority, aliases and original source titles (4.4215ms)
+✔ compatible title retailer wording and word order retains authority, aliases and original source titles (2.1345ms)
+✔ compatible title duplicated pack wording retains authority, aliases and original source titles (2.0648ms)
+✔ compatible title current verified title retains authority, aliases and original source titles (3.2176ms)
+✔ equally trusted compatible titles use existing publication currentness (1.0199ms)
+✔ material title Original versus Chocolate remains unresolved (8.4488ms)
+✔ material title Full Cream versus Reduced Fat remains unresolved (5.2916ms)
+✔ material title regular versus Gluten Free remains unresolved (3.9383ms)
+✔ material title title pack 420 g versus 840 g remains unresolved (3.5738ms)
+✔ material title 6 Pack versus 12 Pack remains unresolved (4.9598ms)
+✔ material title salt formulation remains unresolved (3.6879ms)
+✔ material title sweetening remains unresolved (2.1159ms)
+✔ material title title size remains unresolved (2.2724ms)
+✔ material title product family remains unresolved (3.1689ms)
+✔ structured pack versus title-only pack cannot bypass identity checking (3.5941ms)
+✔ compatible same-GTIN evidence still corroborates with manufacturer authority and both sources (2.5604ms)
+✔ same GTIN 420 g versus 840 g is inspectable identity conflict even with stronger manufacturer evidence (2.6918ms)
+✔ incompatible same-GTIN flavour blocks ordinary logging (2.3939ms)
+✔ incompatible same-GTIN brand blocks ordinary logging (2.0547ms)
+✔ incompatible same-GTIN physical form blocks ordinary logging (1.9402ms)
+✔ incompatible same-GTIN explicit variant blocks ordinary logging (5.087ms)
+✔ incompatible same-GTIN count blocks ordinary logging (3.2335ms)
+✔ incompatible same-GTIN size blocks ordinary logging (3.0348ms)
+✔ same-GTIN identity conflict cannot be cleared by re-canonicalising with the preferred clean source (2.9946ms)
+✔ equal-authority nutrition conflict remains blocked and never averaged (0.5659ms)
+✔ different GTINs remain distinct without manufacturing or replacing barcodes (0.3054ms)
+✔ all shared dedupe surfaces retain the same-GTIN conflict instead of choosing a clean rank winner (3.7108ms)
+✔ retailer index loads all same-GTIN evidence on the same page before permitting selection (10.4139ms)
+✔ unlisted OFF evidence for a listed GTIN is retained for conflict analysis without creating another retailer product (2.1115ms)
+ℹ tests 71
+ℹ suites 0
+ℹ pass 69
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 38764.5879
+
+✖ failing tests:
+
+test at tests\catalogue-wave-3a.test.js:45:1
+✖ new exact brand products are globally reachable and every index entry matches its shard (4.6906ms)
+  Error: Brand admission mismatch: package:au:4088700028285
+      at C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\brand-catalogue.js:28:210
+      at Array.map (<anonymous>)
+      at hydrate (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\brand-catalogue.js:26:40)
+      at async Object.search (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\brand-catalogue.js:46:102)
+      at async TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\catalogue-wave-3a.test.js:46:53)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at tests\physical-form-measure-compatibility.test.js:29:1
+✖ real McCain product is safe through production search and rendered Portion Choice (38310.5057ms)
+  page.waitForFunction: Timeout 30000ms exceeded.
+      at openLibrary (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\scripts\audit_physical_form_measures_edge.js:32:106)
+      at async Object.regression (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\scripts\audit_physical_form_measures_edge.js:34:427)
+      at async TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\physical-form-measure-compatibility.test.js:29:100) {
+    name: 'TimeoutError',
+    log: []
+  }

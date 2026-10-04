@@ -1,0 +1,63 @@
+First screen 390 Bread
+First screen 390 Milk
+First screen 390 Big Mac
+First screen 390 Cheeseburger
+First screen 390 Hash Brown
+First screen 390 Flora ProActiv Light
+First screen 390 Whole meal bread
+First screen 390 Wholemeal bread
+First screen 390 White bread
+First screen 390 Cow milk
+First screen 390 Oat milk
+First screen 390 Skim milk
+First screen 390 Lactose-free milk
+First screen 390 Cheese
+First screen 390 Yoghurt
+First screen 390 Cereal
+First screen 390 Sausages
+First screen 390 Chips
+First screen 390 Fries
+First screen 390 Chicken
+First screen 390 Apple
+First screen 390 Crackers
+First screen 390 Margarine
+First screen 390 Burger
+First screen 390 Rice
+First screen 390 Eggs
+First screen 390 KFC Wicked Wings
+Complete flow 390 Bread
+Complete flow 390 Whole meal bread
+Complete flow 390 White bread
+Complete flow 390 Milk
+Complete flow 390 Cow milk
+Complete flow 390 Oat milk
+Complete flow 390 Cheese
+Complete flow 390 Yoghurt
+Complete flow 390 Cereal
+Complete flow 390 Sausages
+Complete flow 390 Hash Brown
+Complete flow 390 Chips
+Complete flow 390 Fries
+Complete flow 390 Chicken
+Complete flow 390 Apple
+Complete flow 390 Crackers
+Complete flow 390 Margarine
+Complete flow 390 Burger
+Complete flow 390 Rice
+Complete flow 390 Eggs
+Complete flow 390 Big Mac
+Complete flow 390 Cheeseburger
+Complete flow 390 Flora ProActiv Light
+Complete flow 390 McCain hash browns
+Complete flow 390 Helga's wholemeal
+node:internal/process/promises:394
+    triggerUncaughtException(err, true /* fromPromise */);
+    ^
+
+route.fulfill: Route is already handled!
+    at C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\scripts\audit_physical_form_measures_edge.js:28:161 {
+  log: [],
+  name: 'Error'
+}
+
+Node.js v24.19.0

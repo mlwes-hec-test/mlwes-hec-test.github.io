@@ -1,0 +1,12 @@
+{
+  "repository": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32",
+  "branch": "alpha-0.6.33",
+  "startingHead": "428603dabd96ea9ebde3ee85ba11d82a97ed83fd",
+  "subject": "Improve Coles catalogue categories and evidence",
+  "parent": "5df00e23f038bc22814290f5ce8497b7625c1db7",
+  "startingRelease": "92b2d9e3b79ed004eb4c91d2",
+  "initialWorkingTreeClean": true,
+  "canonicalDirectoryIsLink": false,
+  "sourceOnly": true,
+  "evidence": "Read-only canonical path, branch, git log and git status checks before any writes"
+}

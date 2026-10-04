@@ -1,0 +1,42 @@
+[
+  {
+    "id": "pepsi-manufacturer",
+    "url": "https://www.pepsimax.com.au/products/pepsi-max",
+    "status": 403,
+    "file": "evidence/pepsi-manufacturer.html.gz",
+    "sha256": "e1c621dac5c9ae95883a4cdb196a8a08b1be286a38a4913503e84f821d6a1ebc",
+    "hashBasis": "uncompressed-public-response-bytes",
+    "retrievedAt": "2026-10-04T10:29:57.142Z",
+    "lastModified": null,
+    "directHttpUsable": false,
+    "webReaderCheckedAt": "2026-10-04",
+    "webReaderFacts": {
+      "url": "https://www.pepsimax.com.au/products/pepsi-max",
+      "captureId": "pepsi-manufacturer",
+      "trustClass": "official-au-manufacturer",
+      "per100": {
+        "energyKj": 1.6,
+        "protein": 0.06,
+        "fat": 0,
+        "satFat": 0,
+        "carbs": 0.06,
+        "sugar": 0,
+        "fibre": 0,
+        "sodium": 13
+      },
+      "servingText": "375ml",
+      "compatibility": "Package rounds 1.6 kJ to 2 kJ and 0.06 g protein/carbohydrate to 0.1 g. Other recorded values agree. Manufacturer page corroborates AU variant, not the 2L serving size; exact package 250mL serving is retained."
+    },
+    "webReaderFactsSha256": "27c36230c8f65f1957145a45da20beddccdf9c6e32042dee84b2b50d7d2437a2"
+  },
+  {
+    "id": "vegemite-manufacturer",
+    "url": "https://vegemite.com.au/products/vegemite/",
+    "status": 200,
+    "file": "evidence/vegemite-manufacturer.html.gz",
+    "sha256": "37aec29a40cd584330eff079d541ec833cb181ef1fe12569ab8912adddc83473",
+    "hashBasis": "uncompressed-public-response-bytes",
+    "retrievedAt": "2026-10-04T10:29:57.474Z",
+    "lastModified": "Sun, 04 Oct 2026 03:26:13 GMT"
+  }
+]

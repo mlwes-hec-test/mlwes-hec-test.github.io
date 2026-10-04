@@ -1,0 +1,1908 @@
+{
+  "schemaVersion": 1,
+  "wave": "3A",
+  "startingHead": "428603dabd96ea9ebde3ee85ba11d82a97ed83fd",
+  "candidateCount": 39,
+  "groups": {
+    "A": {
+      "reviewed": 15,
+      "newCanonicalAdmitted": 0,
+      "existingCanonicalImproved": 0,
+      "recategorised": 0,
+      "restricted": 15,
+      "deferredRejected": 0,
+      "canonicalOverlaps": 15,
+      "duplicateEvidenceCollapsed": 0
+    },
+    "B": {
+      "reviewed": 17,
+      "newCanonicalAdmitted": 0,
+      "existingCanonicalImproved": 17,
+      "recategorised": 17,
+      "restricted": 0,
+      "deferredRejected": 0,
+      "canonicalOverlaps": 17,
+      "duplicateEvidenceCollapsed": 0
+    },
+    "C": {
+      "reviewed": 5,
+      "newCanonicalAdmitted": 0,
+      "existingCanonicalImproved": 2,
+      "recategorised": 0,
+      "restricted": 0,
+      "deferredRejected": 3,
+      "canonicalOverlaps": 2,
+      "duplicateEvidenceCollapsed": 2
+    },
+    "D": {
+      "reviewed": 2,
+      "newCanonicalAdmitted": 1,
+      "existingCanonicalImproved": 0,
+      "recategorised": 0,
+      "restricted": 0,
+      "deferredRejected": 1,
+      "canonicalOverlaps": 0,
+      "duplicateEvidenceCollapsed": 0
+    }
+  },
+  "newCanonicalIdentities": 1,
+  "newlyLoggable": 3,
+  "reviews": [
+    {
+      "group": "A",
+      "canonicalKey": "barcode:4061461224905",
+      "name": "Hash Browns",
+      "brand": "Seasons Pride",
+      "sourceId": "off:4061461224905",
+      "baselineSha256": "0c065835aed17edc45e90dcc944a2f08d4f084f5b731b9860c30567997b53b5e",
+      "priorReasons": [
+        "needs-nutrition-completion",
+        "nutrition-conflict",
+        "energy-disagreement-over-five-percent",
+        "off-quality-errors",
+        "production-projection-ineligible"
+      ],
+      "family": "seasonspride",
+      "relationshipVerified": true,
+      "evidenceIds": [
+        "aldi-2025",
+        "aldi-freezer"
+      ],
+      "currentEligibility": {
+        "status": "needs-nutrition-completion",
+        "label": "Needs Nutrition Completion",
+        "reasonCode": "nutrition-review-required",
+        "message": "We found the exact product, but its nutrition is incomplete or needs review. Read the Nutrition Panel, scan/update the barcode, or enter nutrition manually.",
+        "actions": [
+          {
+            "id": "nutrition-panel",
+            "label": "Read Nutrition Panel"
+          },
+          {
+            "id": "barcode",
+            "label": "Scan Barcode"
+          },
+          {
+            "id": "manual-nutrition",
+            "label": "Enter Nutrition Manually"
+          },
+          {
+            "id": "generic-alternative",
+            "label": "Use a Generic Alternative"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "reason": "Fresh page/package corroboration does not conclusively join the retained conflicting GTIN to this panel. Printed qualified values remain unknown; original energy/conflict hold retained.",
+      "candidateId": "3A-A-01",
+      "sourceReviewKey": "barcode:4061461224905",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": true,
+      "possibleOverlapKeys": [],
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": false,
+      "recategorised": false,
+      "disposition": "restricted",
+      "unresolved": true,
+      "familyCorroboration": null,
+      "evidence": {
+        "candidateId": "3A-A-01",
+        "decision": "restricted",
+        "corroboratingCaptureId": "3A-A-hash-browns",
+        "rawServing": "75 g (1 Hash Brown)",
+        "per100": {
+          "energyKj": 714,
+          "calories": 171,
+          "protein": 2.3,
+          "fat": 9.2,
+          "satFat": null,
+          "carbs": 18.8,
+          "sugar": null,
+          "fibre": null,
+          "sodium": 270
+        },
+        "qualifiedValues": {
+          "satFat": "LESS THAN 1.0 g",
+          "sugar": "LESS THAN 1.0 g"
+        },
+        "reason": "Fresh page/package corroboration does not conclusively join the retained conflicting GTIN to this panel. Printed qualified values remain unknown; original energy/conflict hold retained.",
+        "privateTestingApproved": false
+      }
+    },
+    {
+      "group": "A",
+      "canonicalKey": "barcode:4061459052275",
+      "name": "Sweet Potato Chips",
+      "brand": "Seasons Pride",
+      "sourceId": "off:4061459052275",
+      "baselineSha256": "07ef44efed59940225cb0f1738d628f96a13b321e12ac80087935d5bc097c820",
+      "priorReasons": [
+        "needs-nutrition-completion",
+        "nutrition-conflict",
+        "energy-disagreement-over-five-percent",
+        "production-projection-ineligible"
+      ],
+      "family": "seasonspride",
+      "relationshipVerified": true,
+      "evidenceIds": [
+        "aldi-2025",
+        "aldi-freezer"
+      ],
+      "currentEligibility": {
+        "status": "needs-nutrition-completion",
+        "label": "Needs Nutrition Completion",
+        "reasonCode": "nutrition-review-required",
+        "message": "We found the exact product, but its nutrition is incomplete or needs review. Read the Nutrition Panel, scan/update the barcode, or enter nutrition manually.",
+        "actions": [
+          {
+            "id": "nutrition-panel",
+            "label": "Read Nutrition Panel"
+          },
+          {
+            "id": "barcode",
+            "label": "Scan Barcode"
+          },
+          {
+            "id": "manual-nutrition",
+            "label": "Enter Nutrition Manually"
+          },
+          {
+            "id": "generic-alternative",
+            "label": "Use a Generic Alternative"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "reason": "Retained hold: needs-nutrition-completion; nutrition-conflict; energy-disagreement-over-five-percent; production-projection-ineligible. No exact compatible replacement evidence established.",
+      "candidateId": "3A-A-02",
+      "sourceReviewKey": "barcode:4061459052275",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": true,
+      "possibleOverlapKeys": [],
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": false,
+      "recategorised": false,
+      "disposition": "restricted",
+      "unresolved": true,
+      "familyCorroboration": null,
+      "evidence": null
+    },
+    {
+      "group": "A",
+      "canonicalKey": "barcode:4088700040119",
+      "name": "Onion Rings",
+      "brand": "Seasons Pride",
+      "sourceId": "off:4088700040119",
+      "baselineSha256": "5706faace1c178350a4524814db59b25e19262e2beccf83a943176c938666bf1",
+      "priorReasons": [
+        "needs-nutrition-completion",
+        "nutrition-conflict",
+        "energy-disagreement-over-five-percent",
+        "off-quality-errors",
+        "production-projection-ineligible"
+      ],
+      "family": "seasonspride",
+      "relationshipVerified": true,
+      "evidenceIds": [
+        "aldi-2025",
+        "aldi-freezer"
+      ],
+      "currentEligibility": {
+        "status": "needs-nutrition-completion",
+        "label": "Needs Nutrition Completion",
+        "reasonCode": "nutrition-review-required",
+        "message": "We found the exact product, but its nutrition is incomplete or needs review. Read the Nutrition Panel, scan/update the barcode, or enter nutrition manually.",
+        "actions": [
+          {
+            "id": "nutrition-panel",
+            "label": "Read Nutrition Panel"
+          },
+          {
+            "id": "barcode",
+            "label": "Scan Barcode"
+          },
+          {
+            "id": "manual-nutrition",
+            "label": "Enter Nutrition Manually"
+          },
+          {
+            "id": "generic-alternative",
+            "label": "Use a Generic Alternative"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "reason": "Retained hold: needs-nutrition-completion; nutrition-conflict; energy-disagreement-over-five-percent; off-quality-errors; production-projection-ineligible. No exact compatible replacement evidence established.",
+      "candidateId": "3A-A-03",
+      "sourceReviewKey": "barcode:4088700040119",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": true,
+      "possibleOverlapKeys": [],
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": false,
+      "recategorised": false,
+      "disposition": "restricted",
+      "unresolved": true,
+      "familyCorroboration": null,
+      "evidence": null
+    },
+    {
+      "group": "A",
+      "canonicalKey": "barcode:4061461397524",
+      "name": "Raisin Sliced Toast",
+      "brand": "Bakers Life",
+      "sourceId": "off:4061461397524",
+      "baselineSha256": "2d1bdbfe10ea5daba3314501060da11e174fb0deac7d460732d4b03676b0b019",
+      "priorReasons": [
+        "energy-disagreement-over-five-percent"
+      ],
+      "family": "bakerslife",
+      "relationshipVerified": true,
+      "evidenceIds": [
+        "aldi-2025",
+        "aldi-2026"
+      ],
+      "currentEligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "reason": "Retained hold: energy-disagreement-over-five-percent. No exact compatible replacement evidence established.",
+      "candidateId": "3A-A-04",
+      "sourceReviewKey": "barcode:4061461397524",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": true,
+      "possibleOverlapKeys": [],
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": false,
+      "recategorised": false,
+      "disposition": "restricted",
+      "unresolved": true,
+      "familyCorroboration": null,
+      "evidence": null
+    },
+    {
+      "group": "A",
+      "canonicalKey": "barcode:4088700153604",
+      "name": "English Muffins Original",
+      "brand": "Bakers life",
+      "sourceId": "off:4088700153604",
+      "baselineSha256": "3f89642427a130c65200c1645fab7b022751548938cb3b71f6fb9f16f47e25fd",
+      "priorReasons": [
+        "needs-nutrition-completion",
+        "nutrition-conflict",
+        "energy-disagreement-over-five-percent",
+        "production-projection-ineligible"
+      ],
+      "family": "bakerslife",
+      "relationshipVerified": true,
+      "evidenceIds": [
+        "aldi-2025",
+        "aldi-2026"
+      ],
+      "currentEligibility": {
+        "status": "needs-nutrition-completion",
+        "label": "Needs Nutrition Completion",
+        "reasonCode": "nutrition-review-required",
+        "message": "We found the exact product, but its nutrition is incomplete or needs review. Read the Nutrition Panel, scan/update the barcode, or enter nutrition manually.",
+        "actions": [
+          {
+            "id": "nutrition-panel",
+            "label": "Read Nutrition Panel"
+          },
+          {
+            "id": "barcode",
+            "label": "Scan Barcode"
+          },
+          {
+            "id": "manual-nutrition",
+            "label": "Enter Nutrition Manually"
+          },
+          {
+            "id": "generic-alternative",
+            "label": "Use a Generic Alternative"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "reason": "Retained hold: needs-nutrition-completion; nutrition-conflict; energy-disagreement-over-five-percent; production-projection-ineligible. No exact compatible replacement evidence established.",
+      "candidateId": "3A-A-05",
+      "sourceReviewKey": "barcode:4088700153604",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": true,
+      "possibleOverlapKeys": [],
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": false,
+      "recategorised": false,
+      "disposition": "restricted",
+      "unresolved": true,
+      "familyCorroboration": null,
+      "evidence": null
+    },
+    {
+      "group": "A",
+      "canonicalKey": "barcode:4088700153970",
+      "name": "Soft White Sandwich Sliced Bread",
+      "brand": "Bakers Life",
+      "sourceId": "off:4088700153970",
+      "baselineSha256": "0e886ddef73189257114fef111ad1f64a49b96ed756cebf1fbbe70f901449425",
+      "priorReasons": [
+        "needs-nutrition-completion",
+        "nutrition-conflict",
+        "energy-disagreement-over-five-percent",
+        "production-projection-ineligible"
+      ],
+      "family": "bakerslife",
+      "relationshipVerified": true,
+      "evidenceIds": [
+        "aldi-2025",
+        "aldi-2026"
+      ],
+      "currentEligibility": {
+        "status": "needs-nutrition-completion",
+        "label": "Needs Nutrition Completion",
+        "reasonCode": "nutrition-review-required",
+        "message": "We found the exact product, but its nutrition is incomplete or needs review. Read the Nutrition Panel, scan/update the barcode, or enter nutrition manually.",
+        "actions": [
+          {
+            "id": "nutrition-panel",
+            "label": "Read Nutrition Panel"
+          },
+          {
+            "id": "barcode",
+            "label": "Scan Barcode"
+          },
+          {
+            "id": "manual-nutrition",
+            "label": "Enter Nutrition Manually"
+          },
+          {
+            "id": "generic-alternative",
+            "label": "Use a Generic Alternative"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "reason": "Retained hold: needs-nutrition-completion; nutrition-conflict; energy-disagreement-over-five-percent; production-projection-ineligible. No exact compatible replacement evidence established.",
+      "candidateId": "3A-A-06",
+      "sourceReviewKey": "barcode:4088700153970",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": true,
+      "possibleOverlapKeys": [],
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": false,
+      "recategorised": false,
+      "disposition": "restricted",
+      "unresolved": true,
+      "familyCorroboration": null,
+      "evidence": null
+    },
+    {
+      "group": "A",
+      "canonicalKey": "barcode:4088700091999",
+      "name": "Natural Yogurt",
+      "brand": "Brooklea",
+      "sourceId": "off:4088700091999",
+      "baselineSha256": "363ba534edf22d89f873d276f6e6274017c973d9a9a21aea859e64a779053749",
+      "priorReasons": [
+        "needs-nutrition-completion",
+        "nutrition-conflict",
+        "energy-disagreement-over-five-percent",
+        "off-quality-errors",
+        "production-projection-ineligible"
+      ],
+      "family": "brooklea",
+      "relationshipVerified": true,
+      "evidenceIds": [
+        "aldi-2025",
+        "aldi-2026"
+      ],
+      "currentEligibility": {
+        "status": "needs-nutrition-completion",
+        "label": "Needs Nutrition Completion",
+        "reasonCode": "nutrition-review-required",
+        "message": "We found the exact product, but its nutrition is incomplete or needs review. Read the Nutrition Panel, scan/update the barcode, or enter nutrition manually.",
+        "actions": [
+          {
+            "id": "nutrition-panel",
+            "label": "Read Nutrition Panel"
+          },
+          {
+            "id": "barcode",
+            "label": "Scan Barcode"
+          },
+          {
+            "id": "manual-nutrition",
+            "label": "Enter Nutrition Manually"
+          },
+          {
+            "id": "generic-alternative",
+            "label": "Use a Generic Alternative"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "reason": "Retained hold: needs-nutrition-completion; nutrition-conflict; energy-disagreement-over-five-percent; off-quality-errors; production-projection-ineligible. No exact compatible replacement evidence established.",
+      "candidateId": "3A-A-07",
+      "sourceReviewKey": "barcode:4088700091999",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": true,
+      "possibleOverlapKeys": [],
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": false,
+      "recategorised": false,
+      "disposition": "restricted",
+      "unresolved": true,
+      "familyCorroboration": null,
+      "evidence": null
+    },
+    {
+      "group": "A",
+      "canonicalKey": "barcode:4088700067840",
+      "name": "Crispetts crispbread light & crunchy",
+      "brand": "DAMORA",
+      "sourceId": "off:4088700067840",
+      "baselineSha256": "6c0da1e4e8f6572b82a322225997488b97f16ad9db90423cc13e32cb37765ed9",
+      "priorReasons": [
+        "needs-nutrition-completion",
+        "nutrition-conflict",
+        "energy-disagreement-over-five-percent",
+        "off-quality-errors",
+        "production-projection-ineligible"
+      ],
+      "family": "damora",
+      "relationshipVerified": true,
+      "evidenceIds": [
+        "aldi-2025",
+        "aldi-2026"
+      ],
+      "currentEligibility": {
+        "status": "needs-nutrition-completion",
+        "label": "Needs Nutrition Completion",
+        "reasonCode": "nutrition-review-required",
+        "message": "We found the exact product, but its nutrition is incomplete or needs review. Read the Nutrition Panel, scan/update the barcode, or enter nutrition manually.",
+        "actions": [
+          {
+            "id": "nutrition-panel",
+            "label": "Read Nutrition Panel"
+          },
+          {
+            "id": "barcode",
+            "label": "Scan Barcode"
+          },
+          {
+            "id": "manual-nutrition",
+            "label": "Enter Nutrition Manually"
+          },
+          {
+            "id": "generic-alternative",
+            "label": "Use a Generic Alternative"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "reason": "Retained hold: needs-nutrition-completion; nutrition-conflict; energy-disagreement-over-five-percent; off-quality-errors; production-projection-ineligible. No exact compatible replacement evidence established.",
+      "candidateId": "3A-A-08",
+      "sourceReviewKey": "barcode:4088700067840",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": true,
+      "possibleOverlapKeys": [],
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": false,
+      "recategorised": false,
+      "disposition": "restricted",
+      "unresolved": true,
+      "familyCorroboration": null,
+      "evidence": null
+    },
+    {
+      "group": "A",
+      "canonicalKey": "barcode:4061462110801",
+      "name": "Wheat Biscuits",
+      "brand": "Hillcrest",
+      "sourceId": "off:4061462110801",
+      "baselineSha256": "79ffce451ce82bdd657d84dca2209661f1ec6ff0d7432c3156e8d87a3374a3a5",
+      "priorReasons": [
+        "energy-disagreement-over-five-percent"
+      ],
+      "family": "hillcrest",
+      "relationshipVerified": true,
+      "evidenceIds": [
+        "aldi-2025",
+        "aldi-cereal"
+      ],
+      "currentEligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "reason": "Retained hold: energy-disagreement-over-five-percent. No exact compatible replacement evidence established.",
+      "candidateId": "3A-A-09",
+      "sourceReviewKey": "barcode:4061462110801",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": true,
+      "possibleOverlapKeys": [],
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": false,
+      "recategorised": false,
+      "disposition": "restricted",
+      "unresolved": true,
+      "familyCorroboration": null,
+      "evidence": null
+    },
+    {
+      "group": "A",
+      "canonicalKey": "barcode:4069365222331",
+      "name": "Fruity Bursts",
+      "brand": "Hillcrest",
+      "sourceId": "off:4069365222331",
+      "baselineSha256": "5f62b2a957dbbf9628ea73165ae3d265fe151caf12d905564f1030f0c1277c33",
+      "priorReasons": [
+        "needs-nutrition-completion",
+        "nutrition-conflict",
+        "energy-disagreement-over-five-percent",
+        "off-quality-errors",
+        "production-projection-ineligible"
+      ],
+      "family": "hillcrest",
+      "relationshipVerified": true,
+      "evidenceIds": [
+        "aldi-2025",
+        "aldi-cereal"
+      ],
+      "currentEligibility": {
+        "status": "needs-nutrition-completion",
+        "label": "Needs Nutrition Completion",
+        "reasonCode": "nutrition-review-required",
+        "message": "We found the exact product, but its nutrition is incomplete or needs review. Read the Nutrition Panel, scan/update the barcode, or enter nutrition manually.",
+        "actions": [
+          {
+            "id": "nutrition-panel",
+            "label": "Read Nutrition Panel"
+          },
+          {
+            "id": "barcode",
+            "label": "Scan Barcode"
+          },
+          {
+            "id": "manual-nutrition",
+            "label": "Enter Nutrition Manually"
+          },
+          {
+            "id": "generic-alternative",
+            "label": "Use a Generic Alternative"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "reason": "Retained hold: needs-nutrition-completion; nutrition-conflict; energy-disagreement-over-five-percent; off-quality-errors; production-projection-ineligible. No exact compatible replacement evidence established.",
+      "candidateId": "3A-A-10",
+      "sourceReviewKey": "barcode:4069365222331",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": true,
+      "possibleOverlapKeys": [],
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": false,
+      "recategorised": false,
+      "disposition": "restricted",
+      "unresolved": true,
+      "familyCorroboration": null,
+      "evidence": null
+    },
+    {
+      "group": "A",
+      "canonicalKey": "barcode:4061462842412",
+      "name": "Atlantic Salmon Portions",
+      "brand": "Ocean Royale",
+      "sourceId": "off:4061462842412",
+      "baselineSha256": "1935db3cddd13044fd9b5ca63c24be26108ce8af5b8e54e96df02436559be893",
+      "priorReasons": [
+        "energy-disagreement-over-five-percent"
+      ],
+      "family": "oceanroyale",
+      "relationshipVerified": true,
+      "evidenceIds": [
+        "aldi-2025"
+      ],
+      "currentEligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "reason": "Retained hold: energy-disagreement-over-five-percent. No exact compatible replacement evidence established.",
+      "candidateId": "3A-A-11",
+      "sourceReviewKey": "barcode:4061462842412",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": true,
+      "possibleOverlapKeys": [],
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": false,
+      "recategorised": false,
+      "disposition": "restricted",
+      "unresolved": true,
+      "familyCorroboration": null,
+      "evidence": null
+    },
+    {
+      "group": "A",
+      "canonicalKey": "barcode:4061462564468",
+      "name": "Family Beef Pie",
+      "brand": "Elmsbury",
+      "sourceId": "off:4061462564468",
+      "baselineSha256": "2f36969b9cf3a7b104368a20089b34782e5cc3c97daf732f0872ce115d47b50a",
+      "priorReasons": [
+        "needs-nutrition-completion",
+        "missing-required-macros",
+        "production-projection-ineligible"
+      ],
+      "family": "elmsbury",
+      "relationshipVerified": true,
+      "evidenceIds": [
+        "aldi-2026",
+        "aldi-elmsbury"
+      ],
+      "currentEligibility": {
+        "status": "needs-nutrition-completion",
+        "label": "Needs Nutrition Completion",
+        "reasonCode": "energy-missing",
+        "message": "Energy is missing from the selected nutrition basis. Open Review Nutrition to complete it.",
+        "actions": [
+          {
+            "id": "nutrition-panel",
+            "label": "Read Nutrition Panel"
+          },
+          {
+            "id": "barcode",
+            "label": "Scan Barcode"
+          },
+          {
+            "id": "manual-nutrition",
+            "label": "Enter Nutrition Manually"
+          },
+          {
+            "id": "generic-alternative",
+            "label": "Use a Generic Alternative"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "reason": "Retained hold: needs-nutrition-completion; missing-required-macros; production-projection-ineligible. No exact compatible replacement evidence established.",
+      "candidateId": "3A-A-12",
+      "sourceReviewKey": "barcode:4061462564468",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": true,
+      "possibleOverlapKeys": [],
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": false,
+      "recategorised": false,
+      "disposition": "restricted",
+      "unresolved": true,
+      "familyCorroboration": null,
+      "evidence": null
+    },
+    {
+      "group": "A",
+      "canonicalKey": "barcode:22000682",
+      "name": "Natural Tasty Cheese Block",
+      "brand": "Westacre",
+      "sourceId": "off:22000682",
+      "baselineSha256": "3b6d19c81099b68bb133679c4207cc7bed206ed70f82fc33adeac13c36462d2a",
+      "priorReasons": [
+        "needs-nutrition-completion",
+        "missing-required-macros",
+        "production-projection-ineligible"
+      ],
+      "family": "westacre",
+      "relationshipVerified": true,
+      "evidenceIds": [
+        "aldi-cheese",
+        "aldi-historical"
+      ],
+      "currentEligibility": {
+        "status": "needs-nutrition-completion",
+        "label": "Needs Nutrition Completion",
+        "reasonCode": "energy-missing",
+        "message": "Energy is missing from the selected nutrition basis. Open Review Nutrition to complete it.",
+        "actions": [
+          {
+            "id": "nutrition-panel",
+            "label": "Read Nutrition Panel"
+          },
+          {
+            "id": "barcode",
+            "label": "Scan Barcode"
+          },
+          {
+            "id": "manual-nutrition",
+            "label": "Enter Nutrition Manually"
+          },
+          {
+            "id": "generic-alternative",
+            "label": "Use a Generic Alternative"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "reason": "Retained hold: needs-nutrition-completion; missing-required-macros; production-projection-ineligible. No exact compatible replacement evidence established.",
+      "candidateId": "3A-A-13",
+      "sourceReviewKey": "barcode:22000682",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": true,
+      "possibleOverlapKeys": [],
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": false,
+      "recategorised": false,
+      "disposition": "restricted",
+      "unresolved": true,
+      "familyCorroboration": null,
+      "evidence": null
+    },
+    {
+      "group": "A",
+      "canonicalKey": "barcode:22002136",
+      "name": "Farmdale Full Cream",
+      "brand": "Farmdale,Aldi",
+      "sourceId": "off:22002136",
+      "baselineSha256": "2baa21767d889b10654a2101680cb694018943d5432f5798fc0322663dec22e1",
+      "priorReasons": [
+        "needs-nutrition-completion",
+        "missing-required-macros",
+        "serving-basis-conflict",
+        "production-projection-ineligible",
+        "house-brand-relationship-unverified"
+      ],
+      "family": "farmdale",
+      "relationshipVerified": false,
+      "evidenceIds": [],
+      "currentEligibility": {
+        "status": "needs-nutrition-completion",
+        "label": "Needs Nutrition Completion",
+        "reasonCode": "energy-missing",
+        "message": "Energy is missing from the selected nutrition basis. Open Review Nutrition to complete it.",
+        "actions": [
+          {
+            "id": "nutrition-panel",
+            "label": "Read Nutrition Panel"
+          },
+          {
+            "id": "barcode",
+            "label": "Scan Barcode"
+          },
+          {
+            "id": "manual-nutrition",
+            "label": "Enter Nutrition Manually"
+          },
+          {
+            "id": "generic-alternative",
+            "label": "Use a Generic Alternative"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "reason": "New official package evidence verifies the family relationship; this selected GTIN still lacks complete nutrition or a safe serving basis. Original product hold remains.",
+      "candidateId": "3A-A-14",
+      "sourceReviewKey": "barcode:22002136",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": true,
+      "possibleOverlapKeys": [],
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": false,
+      "recategorised": false,
+      "disposition": "restricted",
+      "unresolved": true,
+      "familyCorroboration": {
+        "candidateId": "3A-C-33",
+        "rawRelationship": "FARMDALE is a registered trademark of ALDI Stores.",
+        "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae"
+      },
+      "evidence": null
+    },
+    {
+      "group": "A",
+      "canonicalKey": "barcode:4061463046932",
+      "name": "Green Beans",
+      "brand": "Market Fare",
+      "sourceId": "off:4061463046932",
+      "baselineSha256": "42423c9bdbc048f0d1ca72ebd5d9be86bb6d8ae4923cab0b7fd3b169febf794d",
+      "priorReasons": [
+        "needs-nutrition-completion",
+        "missing-required-macros",
+        "serving-basis-conflict",
+        "liquid-basis-not-corroborated",
+        "production-projection-ineligible",
+        "house-brand-relationship-unverified"
+      ],
+      "family": "marketfare",
+      "relationshipVerified": false,
+      "evidenceIds": [
+        "aldi-freezer"
+      ],
+      "currentEligibility": {
+        "status": "needs-nutrition-completion",
+        "label": "Needs Nutrition Completion",
+        "reasonCode": "energy-missing",
+        "message": "Energy is missing from the selected nutrition basis. Open Review Nutrition to complete it.",
+        "actions": [
+          {
+            "id": "nutrition-panel",
+            "label": "Read Nutrition Panel"
+          },
+          {
+            "id": "barcode",
+            "label": "Scan Barcode"
+          },
+          {
+            "id": "manual-nutrition",
+            "label": "Enter Nutrition Manually"
+          },
+          {
+            "id": "generic-alternative",
+            "label": "Use a Generic Alternative"
+          }
+        ],
+        "normalLoggingAllowed": false
+      },
+      "reason": "New official package evidence verifies the family relationship; this selected GTIN still lacks complete nutrition or a safe serving basis. Original product hold remains.",
+      "candidateId": "3A-A-15",
+      "sourceReviewKey": "barcode:4061463046932",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": true,
+      "possibleOverlapKeys": [],
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": false,
+      "recategorised": false,
+      "disposition": "restricted",
+      "unresolved": true,
+      "familyCorroboration": {
+        "candidateId": "3A-C-34",
+        "rawRelationship": "MARKET FARE is a registered trademark of ALDI Stores.",
+        "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae"
+      },
+      "evidence": null
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:4088700198728",
+      "name": "Vegetable spring rolls",
+      "brand": "Urban eats",
+      "baselineSha256": "1692e6aa3f6f64fe26db1377d751c1bce6ccb4011ca2993f596e529f6670058e",
+      "reason": "spring-roll-product",
+      "candidateId": "3A-B-16",
+      "sourceReviewKey": "barcode:4088700198728",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": true,
+      "possibleOverlapKeys": [],
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": false,
+      "recategorised": true,
+      "disposition": "improved",
+      "category": {
+        "id": "pizza",
+        "conceptIds": [],
+        "rule": "spring-roll-product"
+      }
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:4061461640736",
+      "name": "Smoked Rainbow Trout Fillets In Truffle Flavoured Oil",
+      "brand": "OceanRise",
+      "baselineSha256": "a07dead44a2a4be7b9d038fcbd547fc502a2f14ee03a2e49ab4f74c4c049cc74",
+      "reason": "fish-fillets-in-oil",
+      "candidateId": "3A-B-17",
+      "sourceReviewKey": "barcode:4061461640736",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": true,
+      "possibleOverlapKeys": [],
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": false,
+      "recategorised": true,
+      "disposition": "improved",
+      "category": {
+        "id": "protein",
+        "conceptIds": [],
+        "rule": "fish-fillets-in-oil"
+      }
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:4061462020650",
+      "name": "Southern Blue Whiting Classic Crumbs",
+      "brand": "Ocean Royale",
+      "baselineSha256": "1a1506cb7c2d1862c075ff41ec6ba9c33690a1d57b8da7f3d14708b21708c9d6",
+      "reason": "coated-fish-product",
+      "candidateId": "3A-B-18",
+      "sourceReviewKey": "barcode:4061462020650",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": true,
+      "possibleOverlapKeys": [],
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": false,
+      "recategorised": true,
+      "disposition": "improved",
+      "category": {
+        "id": "protein",
+        "conceptIds": [],
+        "rule": "coated-fish-product"
+      }
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:4061462197710",
+      "name": "Crisps Sea Salt",
+      "brand": "Damora",
+      "baselineSha256": "dd3847c0051ebe48531863c4ccaa2a86fdbcece3babcdedddf6feb867bf9b109",
+      "reason": "crisp-or-pretzel-snack",
+      "candidateId": "3A-B-19",
+      "sourceReviewKey": "barcode:4061462197710",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": true,
+      "possibleOverlapKeys": [],
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": false,
+      "recategorised": true,
+      "disposition": "improved",
+      "category": {
+        "id": "snacks",
+        "conceptIds": [],
+        "rule": "crisp-or-pretzel-snack"
+      }
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:4061462230264",
+      "name": "Crisps Sweet Chilli & Sour Cream",
+      "brand": "DAMORA",
+      "baselineSha256": "9548d643177e4998fe3b4356858bff37f02391b51a2272b43af6d2af3227b284",
+      "reason": "crisp-or-pretzel-snack",
+      "candidateId": "3A-B-20",
+      "sourceReviewKey": "barcode:4061462230264",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": true,
+      "possibleOverlapKeys": [],
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": false,
+      "recategorised": true,
+      "disposition": "improved",
+      "category": {
+        "id": "snacks",
+        "conceptIds": [],
+        "rule": "crisp-or-pretzel-snack"
+      }
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:4061462270932",
+      "name": "Pecorino Romano",
+      "brand": "Emporium Selection",
+      "baselineSha256": "1ab570a782ef284671eb68bb006bf2ef120b6ce7a47324b2b0eb91ea4bb9d1bf",
+      "reason": "whole-cheese-style",
+      "candidateId": "3A-B-21",
+      "sourceReviewKey": "barcode:4061462270932",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": true,
+      "possibleOverlapKeys": [],
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": false,
+      "recategorised": true,
+      "disposition": "improved",
+      "category": {
+        "id": "cheese",
+        "conceptIds": [
+          "cheese"
+        ],
+        "rule": "whole-cheese-style"
+      }
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:4061462623004",
+      "name": "Grilled Artichokes",
+      "brand": "Deli Originals",
+      "baselineSha256": "f37d4e430053980db6ba0801d4bdffaff7eaf7b62c303564879cb03816e7bcd8",
+      "reason": "antipasto-vegetable",
+      "candidateId": "3A-B-22",
+      "sourceReviewKey": "barcode:4061462623004",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": true,
+      "possibleOverlapKeys": [],
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": false,
+      "recategorised": true,
+      "disposition": "improved",
+      "category": {
+        "id": "produce",
+        "conceptIds": [],
+        "rule": "antipasto-vegetable"
+      }
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:4061463342751",
+      "name": "Pitted Kalamata Olives",
+      "brand": "Deli Originals",
+      "baselineSha256": "45d3697c8f8093c75cf3aaa1bc3a1780ff33131eed271499b12ef16a1e1089b1",
+      "reason": "antipasto-vegetable",
+      "candidateId": "3A-B-23",
+      "sourceReviewKey": "barcode:4061463342751",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": true,
+      "possibleOverlapKeys": [],
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": false,
+      "recategorised": true,
+      "disposition": "improved",
+      "category": {
+        "id": "produce",
+        "conceptIds": [],
+        "rule": "antipasto-vegetable"
+      }
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:4061464721135",
+      "name": "Tempura Barramundi",
+      "brand": "Ocean Royale",
+      "baselineSha256": "86821efc6cb20c1369e897eb0dd343dbf750c3d08e1482a128673afcad1945c2",
+      "reason": "coated-fish-product",
+      "candidateId": "3A-B-24",
+      "sourceReviewKey": "barcode:4061464721135",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": true,
+      "possibleOverlapKeys": [],
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": false,
+      "recategorised": true,
+      "disposition": "improved",
+      "category": {
+        "id": "protein",
+        "conceptIds": [],
+        "rule": "coated-fish-product"
+      }
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:4061464747678",
+      "name": "Mexican Blend Cheese",
+      "brand": "Westacre Dairy",
+      "baselineSha256": "3cfb721e699e8f3ca6cc14a52ff85f6234cb2ec8954d2b7aba43d675e6955da0",
+      "reason": "whole-cheese-style",
+      "candidateId": "3A-B-25",
+      "sourceReviewKey": "barcode:4061464747678",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": true,
+      "possibleOverlapKeys": [],
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": false,
+      "recategorised": true,
+      "disposition": "improved",
+      "category": {
+        "id": "cheese",
+        "conceptIds": [
+          "cheese"
+        ],
+        "rule": "whole-cheese-style"
+      }
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:4069365476444",
+      "name": "Roasted Beetroot Dip",
+      "brand": "Deli Originals",
+      "baselineSha256": "3156dc5625672ebd11ade3a8e0268340a622c1bd81dfc716ac46b9b0da8e4609",
+      "reason": "vegetable-dip-product",
+      "candidateId": "3A-B-26",
+      "sourceReviewKey": "barcode:4069365476444",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": true,
+      "possibleOverlapKeys": [],
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": false,
+      "recategorised": true,
+      "disposition": "improved",
+      "category": {
+        "id": "sauces",
+        "conceptIds": [],
+        "rule": "vegetable-dip-product"
+      }
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:4088700038994",
+      "name": "Pretzel Twists",
+      "brand": "Sprinters",
+      "baselineSha256": "f87ee72df645f9f2ca4bd857d45cec188185ca9e758f3f7432852f207109164d",
+      "reason": "crisp-or-pretzel-snack",
+      "candidateId": "3A-B-27",
+      "sourceReviewKey": "barcode:4088700038994",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": true,
+      "possibleOverlapKeys": [],
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": false,
+      "recategorised": true,
+      "disposition": "improved",
+      "category": {
+        "id": "snacks",
+        "conceptIds": [],
+        "rule": "crisp-or-pretzel-snack"
+      }
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:4088700055625",
+      "name": "Artisan White Sourdough",
+      "brand": "Bakers Life",
+      "baselineSha256": "02d37aefcf8c7d5c01aa1fbea1fcaf5367edfbd8e7390ed641f48c46e0ba1a2f",
+      "reason": "plain-sourdough-bread",
+      "candidateId": "3A-B-28",
+      "sourceReviewKey": "barcode:4088700055625",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": true,
+      "possibleOverlapKeys": [],
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": false,
+      "recategorised": true,
+      "disposition": "improved",
+      "category": {
+        "id": "bread",
+        "conceptIds": [
+          "bread"
+        ],
+        "rule": "plain-sourdough-bread"
+      }
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:4088700157039",
+      "name": "Colby Cheese Block",
+      "brand": "Westacre Dairy",
+      "baselineSha256": "52a1e20587888f954dabbc7f8e9e8ffcb5fcd702b12c6ee05cd979bed302767e",
+      "reason": "whole-cheese-style",
+      "candidateId": "3A-B-29",
+      "sourceReviewKey": "barcode:4088700157039",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": true,
+      "possibleOverlapKeys": [],
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": false,
+      "recategorised": true,
+      "disposition": "improved",
+      "category": {
+        "id": "cheese",
+        "conceptIds": [
+          "cheese"
+        ],
+        "rule": "whole-cheese-style"
+      }
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:4088700157060",
+      "name": "Fetta Cheese",
+      "brand": "EMPORIUM SELECTION",
+      "baselineSha256": "ce291e82289c62fa711866a071db94a4321d64390ebace9307e65cfdcc680152",
+      "reason": "whole-cheese-style",
+      "candidateId": "3A-B-30",
+      "sourceReviewKey": "barcode:4088700157060",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": true,
+      "possibleOverlapKeys": [],
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": false,
+      "recategorised": true,
+      "disposition": "improved",
+      "category": {
+        "id": "cheese",
+        "conceptIds": [
+          "cheese"
+        ],
+        "rule": "whole-cheese-style"
+      }
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:4088700207109",
+      "name": "White sourdough",
+      "brand": "Bakers Life",
+      "baselineSha256": "f38f308170672ca1d48ea6695bbe6c57842b03cebba2bb1467f8b4adc0c8cff4",
+      "reason": "plain-sourdough-bread",
+      "candidateId": "3A-B-31",
+      "sourceReviewKey": "barcode:4088700207109",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": true,
+      "possibleOverlapKeys": [],
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": false,
+      "recategorised": true,
+      "disposition": "improved",
+      "category": {
+        "id": "bread",
+        "conceptIds": [
+          "bread"
+        ],
+        "rule": "plain-sourdough-bread"
+      }
+    },
+    {
+      "group": "B",
+      "canonicalKey": "barcode:4088700355213",
+      "name": "Grana Padano PDO Cheese Flaked",
+      "brand": "Emporium Selection",
+      "baselineSha256": "1cfe829ab9896cab1e68fb9b1c1f5d4bcaa92f1bd40f9082a58ce6bdbc36accb",
+      "reason": "whole-cheese-style",
+      "candidateId": "3A-B-32",
+      "sourceReviewKey": "barcode:4088700355213",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": true,
+      "possibleOverlapKeys": [],
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": false,
+      "recategorised": true,
+      "disposition": "improved",
+      "category": {
+        "id": "cheese",
+        "conceptIds": [
+          "cheese"
+        ],
+        "rule": "whole-cheese-style"
+      }
+    },
+    {
+      "group": "C",
+      "candidateSourceKey": "aldi:000000000000398894",
+      "canonicalKey": "barcode:4088700028285",
+      "identityUnresolved": true,
+      "name": "Full Cream Milk 3L",
+      "brand": "Farmdale",
+      "url": "https://www.aldi.com.au/product/farmdale-full-cream-milk-3l-000000000000398894",
+      "possibleOverlapKeys": [
+        "barcode:22002136",
+        "barcode:26248721",
+        "barcode:4088700028285",
+        "barcode:4088700035238",
+        "barcode:4088700073032",
+        "barcode:4088700157855",
+        "barcode:4088700158074",
+        "barcode:4088700158081",
+        "barcode:4088700158227",
+        "barcode:4088700197394"
+      ],
+      "reason": "Exact package GTIN matches retained identity-only Australian OFF record. Official panel supplies missing nutrition and volume basis; no old nutrient values to overwrite or average.",
+      "candidateId": "3A-C-33",
+      "sourceReviewKey": "unresolved:aldi:farmdale",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": true,
+      "duplicateEvidenceCollapsed": 1,
+      "newCanonicalIdentity": false,
+      "recategorised": false,
+      "disposition": "improved",
+      "newlyLoggable": true,
+      "evidence": {
+        "candidateId": "3A-C-33",
+        "decision": "improved",
+        "gtin": "4088700028285",
+        "rawGtin": "4088700028285",
+        "brand": "Farmdale",
+        "name": "Full Cream Milk 3L",
+        "pack": {
+          "amount": 3000,
+          "unit": "mL"
+        },
+        "categoryId": "milk",
+        "conceptIds": [
+          "milk"
+        ],
+        "physicalForm": "liquid",
+        "nutritionUnit": "mL",
+        "nutritionState": "as-sold ready-to-drink milk",
+        "rawNutritionHeading": "Avg. Quantity per 100 mL",
+        "per100": {
+          "energyKj": 259,
+          "calories": 62,
+          "protein": 3.4,
+          "fat": 3.4,
+          "satFat": 2.3,
+          "carbs": 4.4,
+          "sugar": 4.4,
+          "sodium": 44,
+          "fibre": null
+        },
+        "manufacturerServing": {
+          "amount": 250,
+          "unit": "mL",
+          "text": "250 mL"
+        },
+        "servingsPerPack": 12,
+        "panelImage": 3,
+        "identityImage": "highResolution",
+        "rawRelationship": "FARMDALE is a registered trademark of ALDI Stores.",
+        "reason": "Exact package GTIN matches retained identity-only Australian OFF record. Official panel supplies missing nutrition and volume basis; no old nutrient values to overwrite or average.",
+        "privateTestingApproved": true
+      },
+      "measures": [
+        {
+          "key": "mL",
+          "label": "mL"
+        },
+        {
+          "key": "cup",
+          "label": "Metric cup (250 mL)"
+        },
+        {
+          "key": "L",
+          "label": "Litres"
+        },
+        {
+          "key": "serve",
+          "label": "Manufacturer serve (250 mL)"
+        }
+      ]
+    },
+    {
+      "group": "C",
+      "candidateSourceKey": "aldi:000000000000365539",
+      "canonicalKey": "barcode:4088700137154",
+      "identityUnresolved": true,
+      "name": "Mixed Vegetables 1kg",
+      "brand": "Market Fare",
+      "url": "https://www.aldi.com.au/product/market-fare-mixed-vegetables-1kg-000000000000365539",
+      "possibleOverlapKeys": [
+        "barcode:4088700137154"
+      ],
+      "reason": "Exact package GTIN matches retained identity-only Australian OFF record. Nutrition is explicitly for boiled preparation, never raw/frozen weight. No liquid/count measures.",
+      "candidateId": "3A-C-34",
+      "sourceReviewKey": "unresolved:aldi:market-fare",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": true,
+      "duplicateEvidenceCollapsed": 1,
+      "newCanonicalIdentity": false,
+      "recategorised": false,
+      "disposition": "improved",
+      "newlyLoggable": true,
+      "evidence": {
+        "candidateId": "3A-C-34",
+        "decision": "improved",
+        "gtin": "4088700137154",
+        "rawGtin": "4088700137154",
+        "brand": "Market Fare",
+        "name": "Mixed Vegetables 1kg (prepared by boiling)",
+        "sourceName": "Mixed Vegetables 1kg",
+        "pack": {
+          "amount": 1000,
+          "unit": "g"
+        },
+        "categoryId": "frozen-vegetables",
+        "conceptIds": [],
+        "physicalForm": "weight",
+        "nutritionUnit": "g",
+        "nutritionState": "prepared by boiling as directed, drained; weigh prepared portion",
+        "rawNutritionHeading": "when made up as directed using boil method; Avg. Quantity per 100 g",
+        "per100": {
+          "energyKj": 268,
+          "calories": 64,
+          "protein": 2.6,
+          "fat": 0.9,
+          "satFat": 0.2,
+          "carbs": 9.3,
+          "sugar": 4.9,
+          "fibre": 3.9,
+          "sodium": 27
+        },
+        "manufacturerServing": {
+          "amount": 100,
+          "unit": "g",
+          "text": "100 g prepared by boiling"
+        },
+        "servingsPerPack": 10,
+        "panelImage": 3,
+        "identityImage": "highResolution",
+        "rawRelationship": "MARKET FARE is a registered trademark of ALDI Stores.",
+        "preparationInstructions": "Must be cooked before consumption. Boil frozen vegetables, simmer 3-4 minutes, drain and serve.",
+        "reason": "Exact package GTIN matches retained identity-only Australian OFF record. Nutrition is explicitly for boiled preparation, never raw/frozen weight. No liquid/count measures.",
+        "privateTestingApproved": true
+      },
+      "measures": [
+        {
+          "key": "serve",
+          "label": "Manufacturer serve (100 g)"
+        },
+        {
+          "key": "g",
+          "label": "g"
+        }
+      ]
+    },
+    {
+      "group": "C",
+      "candidateSourceKey": "aldi:000000000000366728",
+      "canonicalKey": "unresolved:aldi:elmsbury",
+      "identityUnresolved": true,
+      "name": "Meat Pies 6 Pack 900g",
+      "brand": "Elmsbury",
+      "url": "https://www.aldi.com.au/product/elmsbury-meat-pies-6-pack-900g-000000000000366728",
+      "possibleOverlapKeys": [],
+      "reason": "Useful official panel and one-pie serving retained, but exact package identity and the reference-panel relationship remain unresolved. No source-key substitute admitted.",
+      "candidateId": "3A-C-35",
+      "sourceReviewKey": "unresolved:aldi:elmsbury",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": false,
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": false,
+      "recategorised": false,
+      "disposition": "deferred",
+      "unresolved": true,
+      "evidence": {
+        "candidateId": "3A-C-35",
+        "decision": "deferred",
+        "brand": "Elmsbury",
+        "name": "Meat Pies 6 Pack 900g",
+        "rawServing": "150 g (1 Pie)",
+        "per100": {
+          "energyKj": 975,
+          "calories": 233,
+          "protein": 7.7,
+          "fat": 11.5,
+          "satFat": 5.8,
+          "carbs": 24.2,
+          "sugar": 0.8,
+          "fibre": 1.4,
+          "sodium": 338
+        },
+        "nutritionNote": "Panel cites a reference barcode. Package image is rotated and exact current GTIN/formulation link is not established in this review.",
+        "reason": "Useful official panel and one-pie serving retained, but exact package identity and the reference-panel relationship remain unresolved. No source-key substitute admitted.",
+        "privateTestingApproved": false
+      }
+    },
+    {
+      "group": "C",
+      "candidateSourceKey": "aldi:000000000365218001",
+      "canonicalKey": "unresolved:aldi:seasons-bubble",
+      "identityUnresolved": true,
+      "name": "Bubble n Squeak 620g",
+      "brand": "Seasons Pride",
+      "url": "https://www.aldi.com.au/product/seasons-pride-bubble-n-squeak-620g-000000000365218001",
+      "possibleOverlapKeys": [
+        "barcode:26149929",
+        "barcode:4088700074510"
+      ],
+      "reason": "Official image has panel and approximate pattie relationship but no readable GTIN. Retained similar identities have 620 g and 520 g pack evidence. Exact formulation link and cooking-basis interpretation remain unresolved.",
+      "candidateId": "3A-C-36",
+      "sourceReviewKey": "unresolved:aldi:seasons-bubble",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": false,
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": false,
+      "recategorised": false,
+      "disposition": "deferred",
+      "unresolved": true,
+      "evidence": {
+        "candidateId": "3A-C-36",
+        "decision": "deferred",
+        "brand": "Seasons Pride",
+        "name": "Bubble n Squeak 620g",
+        "rawServing": "approx. 77 g (1 Pattie)",
+        "per100": {
+          "energyKj": 935,
+          "calories": 224,
+          "protein": 3,
+          "fat": 13.5,
+          "satFat": 1.1,
+          "carbs": 21.4,
+          "sugar": 1.6,
+          "fibre": 2.6,
+          "sodium": 399
+        },
+        "reason": "Official image has panel and approximate pattie relationship but no readable GTIN. Retained similar identities have 620 g and 520 g pack evidence. Exact formulation link and cooking-basis interpretation remain unresolved.",
+        "privateTestingApproved": false
+      }
+    },
+    {
+      "group": "C",
+      "candidateSourceKey": "aldi:000000000365218002",
+      "canonicalKey": "unresolved:aldi:seasons-corn",
+      "identityUnresolved": true,
+      "name": "Corn Fritters 500g",
+      "brand": "Seasons Pride",
+      "url": "https://www.aldi.com.au/product/seasons-pride-corn-fritters-500g-000000000365218002",
+      "possibleOverlapKeys": [
+        "barcode:4088700074527"
+      ],
+      "reason": "Panel and approximate fritter relationship retained, but current GTIN is not shown and retained same-name identity has no pack size or nutrients. No guessed link or minted substitute.",
+      "candidateId": "3A-C-37",
+      "sourceReviewKey": "unresolved:aldi:seasons-corn",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": false,
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": false,
+      "recategorised": false,
+      "disposition": "deferred",
+      "unresolved": true,
+      "evidence": {
+        "candidateId": "3A-C-37",
+        "decision": "deferred",
+        "brand": "Seasons Pride",
+        "name": "Corn Fritters 500g",
+        "rawServing": "approx. 55 g (1 Fritter)",
+        "per100": {
+          "energyKj": 914,
+          "calories": 219,
+          "protein": 3.8,
+          "fat": 10.9,
+          "satFat": 0.9,
+          "carbs": 25,
+          "sugar": 4.4,
+          "fibre": null,
+          "sodium": 283
+        },
+        "reason": "Panel and approximate fritter relationship retained, but current GTIN is not shown and retained same-name identity has no pack size or nutrients. No guessed link or minted substitute.",
+        "privateTestingApproved": false
+      }
+    },
+    {
+      "group": "D",
+      "candidateSourceKey": "aldi:000000000000370431",
+      "canonicalKey": "unresolved:aldi:vegemite",
+      "identityUnresolved": true,
+      "name": "Vegemite 370g",
+      "brand": "Vegemite",
+      "url": "https://www.aldi.com.au/product/vegemite-vegemite-370g-000000000000370431",
+      "possibleOverlapKeys": [
+        "barcode:9300650658615",
+        "barcode:9300650659018",
+        "barcode:9310012029564",
+        "barcode:93135580",
+        "barcode:9352042000281",
+        "barcode:9352042000311",
+        "barcode:9352042000328",
+        "barcode:9352042000359",
+        "barcode:9352042003831",
+        "barcode:9352042004623",
+        "barcode:93560580",
+        "barcode:93560597"
+      ],
+      "reason": "Manufacturer panel and Aldi-hosted 370 g panel differ; manufacturer fat is qualified, not an exact value. Exact GTIN/formulation compatibility unresolved. No averaging or Aldi ownership inference.",
+      "candidateId": "3A-D-38",
+      "sourceReviewKey": "unresolved:aldi:vegemite",
+      "privateTestingApproved": false,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": false,
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": false,
+      "recategorised": false,
+      "disposition": "deferred",
+      "unresolved": true,
+      "evidence": {
+        "candidateId": "3A-D-38",
+        "decision": "deferred",
+        "brand": "Vegemite",
+        "name": "Vegemite 370g",
+        "rawServing": "5 g",
+        "per100": {
+          "energyKj": 746,
+          "protein": 24.7,
+          "fat": 1.6,
+          "satFat": null,
+          "carbs": 11.4,
+          "sugar": 3.8,
+          "fibre": 9.2,
+          "sodium": 3300
+        },
+        "qualifiedValues": {
+          "satFat": "<1.0 g"
+        },
+        "independentEvidence": {
+          "url": "https://vegemite.com.au/products/vegemite/",
+          "captureId": "vegemite-manufacturer",
+          "trustClass": "official-au-manufacturer",
+          "per100": {
+            "energyKj": 729,
+            "protein": 25.9,
+            "fat": null,
+            "satFat": null,
+            "carbs": 11.1,
+            "sugar": 2.4,
+            "fibre": 8.4,
+            "sodium": 3300
+          },
+          "qualifiedValues": {
+            "fat": "<1.0 g",
+            "satFat": "<1.0 g"
+          },
+          "ownership": "Bega Cheese Limited trademarks"
+        },
+        "reason": "Manufacturer panel and Aldi-hosted 370 g panel differ; manufacturer fat is qualified, not an exact value. Exact GTIN/formulation compatibility unresolved. No averaging or Aldi ownership inference.",
+        "privateTestingApproved": false
+      }
+    },
+    {
+      "group": "D",
+      "candidateSourceKey": "aldi:000000000000367148",
+      "canonicalKey": "barcode:9313820004518",
+      "identityUnresolved": true,
+      "name": "Pepsi Max 2L",
+      "brand": "Pepsi Max",
+      "url": "https://www.aldi.com.au/product/pepsi-max-pepsi-max-2l-000000000000367148",
+      "possibleOverlapKeys": [
+        "barcode:9313820001036"
+      ],
+      "reason": "GTIN and 2L identity are explicit on the verified Australian branded package. Independent official manufacturer corroborates nutrition with compatible printed rounding. Aldi presence is stored separately; no house-brand membership.",
+      "candidateId": "3A-D-39",
+      "sourceReviewKey": "unresolved:aldi:pepsi",
+      "privateTestingApproved": true,
+      "publicReleaseReviewRequired": true,
+      "checkedAt": "2026-10-04",
+      "evidenceHash": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+      "canonicalOverlap": false,
+      "duplicateEvidenceCollapsed": 0,
+      "newCanonicalIdentity": true,
+      "recategorised": false,
+      "disposition": "admitted",
+      "newlyLoggable": true,
+      "evidence": {
+        "candidateId": "3A-D-39",
+        "decision": "admitted",
+        "gtin": "9313820004518",
+        "rawGtin": "9 313820 004518",
+        "brand": "Pepsi Max",
+        "sourceBrand": "Pepsi Max",
+        "name": "Pepsi Max 2L",
+        "pack": {
+          "amount": 2000,
+          "unit": "mL"
+        },
+        "categoryId": "drinks",
+        "conceptIds": [],
+        "physicalForm": "liquid",
+        "nutritionUnit": "mL",
+        "nutritionState": "as-sold ready-to-drink cola",
+        "rawNutritionHeading": "AVG QTY PER 100 mL",
+        "per100": {
+          "energyKj": 2,
+          "calories": null,
+          "protein": 0.1,
+          "fat": 0,
+          "satFat": 0,
+          "carbs": 0.1,
+          "sugar": 0,
+          "fibre": 0,
+          "sodium": 13
+        },
+        "manufacturerServing": {
+          "amount": 250,
+          "unit": "mL",
+          "text": "250 mL"
+        },
+        "servingsPerPack": 8,
+        "panelImage": 3,
+        "identityImage": 3,
+        "nutritionTrustClass": "package-verified-au",
+        "rawRelationship": "Pepsi trademarks used under licence in Australia by Asahi Beverages. Bottled and distributed under appointment from PepsiCo.",
+        "independentEvidence": {
+          "url": "https://www.pepsimax.com.au/products/pepsi-max",
+          "captureId": "pepsi-manufacturer",
+          "trustClass": "official-au-manufacturer",
+          "per100": {
+            "energyKj": 1.6,
+            "protein": 0.06,
+            "fat": 0,
+            "satFat": 0,
+            "carbs": 0.06,
+            "sugar": 0,
+            "fibre": 0,
+            "sodium": 13
+          },
+          "servingText": "375ml",
+          "compatibility": "Package rounds 1.6 kJ to 2 kJ and 0.06 g protein/carbohydrate to 0.1 g. Other recorded values agree. Manufacturer page corroborates AU variant, not the 2L serving size; exact package 250mL serving is retained."
+        },
+        "reason": "GTIN and 2L identity are explicit on the verified Australian branded package. Independent official manufacturer corroborates nutrition with compatible printed rounding. Aldi presence is stored separately; no house-brand membership.",
+        "privateTestingApproved": true
+      },
+      "measures": [
+        {
+          "key": "mL",
+          "label": "mL"
+        },
+        {
+          "key": "cup",
+          "label": "Metric cup (250 mL)"
+        },
+        {
+          "key": "L",
+          "label": "Litres"
+        },
+        {
+          "key": "serve",
+          "label": "Manufacturer serve (250 mL)"
+        }
+      ]
+    }
+  ],
+  "admissions": [
+    {
+      "id": "package:au:4088700028285",
+      "canonicalKey": "barcode:4088700028285",
+      "brand": "Farmdale",
+      "name": "Full Cream Milk 3L"
+    },
+    {
+      "id": "package:au:4088700137154",
+      "canonicalKey": "barcode:4088700137154",
+      "brand": "Market Fare",
+      "name": "Mixed Vegetables 1kg (prepared by boiling)"
+    },
+    {
+      "id": "package:au:9313820004518",
+      "canonicalKey": "barcode:9313820004518",
+      "brand": "Pepsi Max",
+      "name": "Pepsi Max 2L"
+    }
+  ],
+  "inputHashes": {
+    "candidate-manifest.json": "9421ba93aed140623b8e965dfd1188c13a57edde62ba2e8c290316d835535466",
+    "baseline.json": "f2abfcd42175a7074b55e159ad43967941bf6d64e6c1090c9475e335f893cf63",
+    "baseline-records.json": "9f48b056b1d6e59e15c5a5811b2132dd43e4d83409d4cbb0721a6ba7928d2419",
+    "baseline-peers.json": "3716e7d17df2024ab0d399c5219b27f485693044a5350d75b53297e1ac905b77",
+    "identity-resolution.json": "e36ffd0d7486e86705853baeff4a792462a41a256a065e777aab3deb32665bc5",
+    "reviewed-evidence.json": "4b5a90a4d7ff62027c681736090e8861865c493bffda3c12f9402f1c6570ddae",
+    "public-captures.json": "34ed08def35e28238bb980dfe0d4f6bc645cc01b0f30900f96acb75beb060ed6",
+    "manufacturer-captures.json": "40fafe9c00189e13720c91051271b0bf9a803cf3408f0b0cac35783171cf5490"
+  }
+}

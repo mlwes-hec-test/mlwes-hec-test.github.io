@@ -1,0 +1,23 @@
+[
+  {
+    "file": "data/woolworths-au/public-products.json",
+    "acceptedGitBlobSha256": "4223cf86aa2abf2d86b5f27b7c776ab26a557de1a94378d92c0e9a2fb5060ab5",
+    "workingBytesSha256": "4223cf86aa2abf2d86b5f27b7c776ab26a557de1a94378d92c0e9a2fb5060ab5",
+    "byteIdentical": true,
+    "normalizedTextIdentical": true
+  },
+  {
+    "file": "data/woolworths-au/capture-manifest.json",
+    "acceptedGitBlobSha256": "db8c710337caf68b0cc8c5b95c20b793cdaa41efa18cec650aa63bc112e879b5",
+    "workingBytesSha256": "db8c710337caf68b0cc8c5b95c20b793cdaa41efa18cec650aa63bc112e879b5",
+    "byteIdentical": true,
+    "normalizedTextIdentical": true
+  },
+  {
+    "file": "data/woolworths-au/off-corroboration.json",
+    "acceptedGitBlobSha256": "083497d1b58c411bfd932aa5a609b5d9bbaa8c54c002b8c9aa021c9d013e55d3",
+    "workingBytesSha256": "083497d1b58c411bfd932aa5a609b5d9bbaa8c54c002b8c9aa021c9d013e55d3",
+    "byteIdentical": true,
+    "normalizedTextIdentical": true
+  }
+]

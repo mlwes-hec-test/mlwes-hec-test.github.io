@@ -1,0 +1,279 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-04",
+  "method": "Manual reading of retained official Australian product-page package and nutrition images, corroborated with independent manufacturer pages. Hashes in capture inventories cover actual captured bytes.",
+  "dateNote": "Capture/check dates are not publication or formulation dates. Package imagery may differ from local stock. Current nationwide availability unknown.",
+  "publicReleaseReviewRequired": true,
+  "records": [
+    {
+      "candidateId": "3A-C-33",
+      "decision": "improved",
+      "gtin": "4088700028285",
+      "rawGtin": "4088700028285",
+      "brand": "Farmdale",
+      "name": "Full Cream Milk 3L",
+      "pack": {
+        "amount": 3000,
+        "unit": "mL"
+      },
+      "categoryId": "milk",
+      "conceptIds": [
+        "milk"
+      ],
+      "physicalForm": "liquid",
+      "nutritionUnit": "mL",
+      "nutritionState": "as-sold ready-to-drink milk",
+      "rawNutritionHeading": "Avg. Quantity per 100 mL",
+      "per100": {
+        "energyKj": 259,
+        "calories": 62,
+        "protein": 3.4,
+        "fat": 3.4,
+        "satFat": 2.3,
+        "carbs": 4.4,
+        "sugar": 4.4,
+        "sodium": 44,
+        "fibre": null
+      },
+      "manufacturerServing": {
+        "amount": 250,
+        "unit": "mL",
+        "text": "250 mL"
+      },
+      "servingsPerPack": 12,
+      "panelImage": 3,
+      "identityImage": "highResolution",
+      "rawRelationship": "FARMDALE is a registered trademark of ALDI Stores.",
+      "reason": "Exact package GTIN matches retained identity-only Australian OFF record. Official panel supplies missing nutrition and volume basis; no old nutrient values to overwrite or average.",
+      "privateTestingApproved": true
+    },
+    {
+      "candidateId": "3A-C-34",
+      "decision": "improved",
+      "gtin": "4088700137154",
+      "rawGtin": "4088700137154",
+      "brand": "Market Fare",
+      "name": "Mixed Vegetables 1kg (prepared by boiling)",
+      "sourceName": "Mixed Vegetables 1kg",
+      "pack": {
+        "amount": 1000,
+        "unit": "g"
+      },
+      "categoryId": "frozen-vegetables",
+      "conceptIds": [],
+      "physicalForm": "weight",
+      "nutritionUnit": "g",
+      "nutritionState": "prepared by boiling as directed, drained; weigh prepared portion",
+      "rawNutritionHeading": "when made up as directed using boil method; Avg. Quantity per 100 g",
+      "per100": {
+        "energyKj": 268,
+        "calories": 64,
+        "protein": 2.6,
+        "fat": 0.9,
+        "satFat": 0.2,
+        "carbs": 9.3,
+        "sugar": 4.9,
+        "fibre": 3.9,
+        "sodium": 27
+      },
+      "manufacturerServing": {
+        "amount": 100,
+        "unit": "g",
+        "text": "100 g prepared by boiling"
+      },
+      "servingsPerPack": 10,
+      "panelImage": 3,
+      "identityImage": "highResolution",
+      "rawRelationship": "MARKET FARE is a registered trademark of ALDI Stores.",
+      "preparationInstructions": "Must be cooked before consumption. Boil frozen vegetables, simmer 3-4 minutes, drain and serve.",
+      "reason": "Exact package GTIN matches retained identity-only Australian OFF record. Nutrition is explicitly for boiled preparation, never raw/frozen weight. No liquid/count measures.",
+      "privateTestingApproved": true
+    },
+    {
+      "candidateId": "3A-C-35",
+      "decision": "deferred",
+      "brand": "Elmsbury",
+      "name": "Meat Pies 6 Pack 900g",
+      "rawServing": "150 g (1 Pie)",
+      "per100": {
+        "energyKj": 975,
+        "calories": 233,
+        "protein": 7.7,
+        "fat": 11.5,
+        "satFat": 5.8,
+        "carbs": 24.2,
+        "sugar": 0.8,
+        "fibre": 1.4,
+        "sodium": 338
+      },
+      "nutritionNote": "Panel cites a reference barcode. Package image is rotated and exact current GTIN/formulation link is not established in this review.",
+      "reason": "Useful official panel and one-pie serving retained, but exact package identity and the reference-panel relationship remain unresolved. No source-key substitute admitted.",
+      "privateTestingApproved": false
+    },
+    {
+      "candidateId": "3A-C-36",
+      "decision": "deferred",
+      "brand": "Seasons Pride",
+      "name": "Bubble n Squeak 620g",
+      "rawServing": "approx. 77 g (1 Pattie)",
+      "per100": {
+        "energyKj": 935,
+        "calories": 224,
+        "protein": 3,
+        "fat": 13.5,
+        "satFat": 1.1,
+        "carbs": 21.4,
+        "sugar": 1.6,
+        "fibre": 2.6,
+        "sodium": 399
+      },
+      "reason": "Official image has panel and approximate pattie relationship but no readable GTIN. Retained similar identities have 620 g and 520 g pack evidence. Exact formulation link and cooking-basis interpretation remain unresolved.",
+      "privateTestingApproved": false
+    },
+    {
+      "candidateId": "3A-C-37",
+      "decision": "deferred",
+      "brand": "Seasons Pride",
+      "name": "Corn Fritters 500g",
+      "rawServing": "approx. 55 g (1 Fritter)",
+      "per100": {
+        "energyKj": 914,
+        "calories": 219,
+        "protein": 3.8,
+        "fat": 10.9,
+        "satFat": 0.9,
+        "carbs": 25,
+        "sugar": 4.4,
+        "fibre": null,
+        "sodium": 283
+      },
+      "reason": "Panel and approximate fritter relationship retained, but current GTIN is not shown and retained same-name identity has no pack size or nutrients. No guessed link or minted substitute.",
+      "privateTestingApproved": false
+    },
+    {
+      "candidateId": "3A-D-38",
+      "decision": "deferred",
+      "brand": "Vegemite",
+      "name": "Vegemite 370g",
+      "rawServing": "5 g",
+      "per100": {
+        "energyKj": 746,
+        "protein": 24.7,
+        "fat": 1.6,
+        "satFat": null,
+        "carbs": 11.4,
+        "sugar": 3.8,
+        "fibre": 9.2,
+        "sodium": 3300
+      },
+      "qualifiedValues": {
+        "satFat": "<1.0 g"
+      },
+      "independentEvidence": {
+        "url": "https://vegemite.com.au/products/vegemite/",
+        "captureId": "vegemite-manufacturer",
+        "trustClass": "official-au-manufacturer",
+        "per100": {
+          "energyKj": 729,
+          "protein": 25.9,
+          "fat": null,
+          "satFat": null,
+          "carbs": 11.1,
+          "sugar": 2.4,
+          "fibre": 8.4,
+          "sodium": 3300
+        },
+        "qualifiedValues": {
+          "fat": "<1.0 g",
+          "satFat": "<1.0 g"
+        },
+        "ownership": "Bega Cheese Limited trademarks"
+      },
+      "reason": "Manufacturer panel and Aldi-hosted 370 g panel differ; manufacturer fat is qualified, not an exact value. Exact GTIN/formulation compatibility unresolved. No averaging or Aldi ownership inference.",
+      "privateTestingApproved": false
+    },
+    {
+      "candidateId": "3A-D-39",
+      "decision": "admitted",
+      "gtin": "9313820004518",
+      "rawGtin": "9 313820 004518",
+      "brand": "Pepsi Max",
+      "sourceBrand": "Pepsi Max",
+      "name": "Pepsi Max 2L",
+      "pack": {
+        "amount": 2000,
+        "unit": "mL"
+      },
+      "categoryId": "drinks",
+      "conceptIds": [],
+      "physicalForm": "liquid",
+      "nutritionUnit": "mL",
+      "nutritionState": "as-sold ready-to-drink cola",
+      "rawNutritionHeading": "AVG QTY PER 100 mL",
+      "per100": {
+        "energyKj": 2,
+        "calories": null,
+        "protein": 0.1,
+        "fat": 0,
+        "satFat": 0,
+        "carbs": 0.1,
+        "sugar": 0,
+        "fibre": 0,
+        "sodium": 13
+      },
+      "manufacturerServing": {
+        "amount": 250,
+        "unit": "mL",
+        "text": "250 mL"
+      },
+      "servingsPerPack": 8,
+      "panelImage": 3,
+      "identityImage": 3,
+      "nutritionTrustClass": "package-verified-au",
+      "rawRelationship": "Pepsi trademarks used under licence in Australia by Asahi Beverages. Bottled and distributed under appointment from PepsiCo.",
+      "independentEvidence": {
+        "url": "https://www.pepsimax.com.au/products/pepsi-max",
+        "captureId": "pepsi-manufacturer",
+        "trustClass": "official-au-manufacturer",
+        "per100": {
+          "energyKj": 1.6,
+          "protein": 0.06,
+          "fat": 0,
+          "satFat": 0,
+          "carbs": 0.06,
+          "sugar": 0,
+          "fibre": 0,
+          "sodium": 13
+        },
+        "servingText": "375ml",
+        "compatibility": "Package rounds 1.6 kJ to 2 kJ and 0.06 g protein/carbohydrate to 0.1 g. Other recorded values agree. Manufacturer page corroborates AU variant, not the 2L serving size; exact package 250mL serving is retained."
+      },
+      "reason": "GTIN and 2L identity are explicit on the verified Australian branded package. Independent official manufacturer corroborates nutrition with compatible printed rounding. Aldi presence is stored separately; no house-brand membership.",
+      "privateTestingApproved": true
+    },
+    {
+      "candidateId": "3A-A-01",
+      "decision": "restricted",
+      "corroboratingCaptureId": "3A-A-hash-browns",
+      "rawServing": "75 g (1 Hash Brown)",
+      "per100": {
+        "energyKj": 714,
+        "calories": 171,
+        "protein": 2.3,
+        "fat": 9.2,
+        "satFat": null,
+        "carbs": 18.8,
+        "sugar": null,
+        "fibre": null,
+        "sodium": 270
+      },
+      "qualifiedValues": {
+        "satFat": "LESS THAN 1.0 g",
+        "sugar": "LESS THAN 1.0 g"
+      },
+      "reason": "Fresh page/package corroboration does not conclusively join the retained conflicting GTIN to this panel. Printed qualified values remain unknown; original energy/conflict hold retained.",
+      "privateTestingApproved": false
+    }
+  ],
+  "privateTestingPolicy": "Reliable Australian identity plus reliable nutrition, subject to serving and conflict safeguards. Decisions and approval flags are per identity."
+}

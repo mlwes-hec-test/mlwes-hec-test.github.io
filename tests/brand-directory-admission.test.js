@@ -29,7 +29,7 @@ test('failed generated shard loading cannot substitute a cached or manufacturer-
 });
 
 test('every generated brand directory has exactly its admitted identities across all pages and categories',async()=>{
-  assert.deepEqual([B.index.entries.length,B.index.brands.length,B.index.categories.length],[7491,2736,20]);
+  assert.deepEqual([B.index.entries.length,B.index.brands.length,B.index.categories.length],[7494,2737,20]);
   for(const brand of B.index.brands){
     const expected=B.index.entries.filter(e=>e.brandKeys.includes(brand.key));
     const actual=[];

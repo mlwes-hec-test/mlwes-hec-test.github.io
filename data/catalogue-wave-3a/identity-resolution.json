@@ -1,0 +1,98 @@
+{
+  "checkedAt": "2026-10-04T10:34:43.423Z",
+  "scope": "All 588 frozen OFF product shards and four current generated catalogue indices",
+  "records": [
+    {
+      "candidateId": "3A-C-33",
+      "gtin": "4088700028285",
+      "canonicalKey": "barcode:4088700028285",
+      "overlap": true,
+      "frozenPeers": [
+        {
+          "file": "data/open-food-facts-au/products/fa-00.json",
+          "row": 373,
+          "sha256": "1d364b046ab104ab1a99ca8788fe329f349342f5839afa9f8c5e93747d57f6a8",
+          "record": {
+            "barcode": "4088700028285",
+            "brand": "FARMDALE",
+            "brandKey": "farmdale",
+            "categories": [
+              "Dairies",
+              "Milks",
+              "Whole milks"
+            ],
+            "countries": [
+              "en:australia"
+            ],
+            "genericName": "",
+            "id": "off:4088700028285",
+            "lastModified": "2025-12-22T06:02:52Z",
+            "market": "AU",
+            "name": "FULL CREAM MILK",
+            "nutrients": {},
+            "nutritionBasis": "per-100g-off-csv",
+            "nutritionCompleteness": "identity-only",
+            "provenanceClass": "australian-external-catalogue",
+            "quantity": "",
+            "recordType": "external-catalogue",
+            "servingQuantity": 250,
+            "servingSize": "250 ml",
+            "source": "Open Food Facts",
+            "sourceId": "off:4088700028285",
+            "sourceScope": "Australia",
+            "sourceUrl": "http://world-en.openfoodfacts.org/product/4088700028285/full-cream-milk-farmdale"
+          }
+        }
+      ],
+      "projectionPeers": []
+    },
+    {
+      "candidateId": "3A-C-34",
+      "gtin": "4088700137154",
+      "canonicalKey": "barcode:4088700137154",
+      "overlap": true,
+      "frozenPeers": [
+        {
+          "file": "data/open-food-facts-au/products/ma-02.json",
+          "row": 14,
+          "sha256": "d1472b5f9091379c1c3f7ee8c97b65f6461e0446fac577fcb28b28cfaa426d08",
+          "record": {
+            "barcode": "4088700137154",
+            "brand": "Market Fare",
+            "brandKey": "marketfare",
+            "categories": [],
+            "countries": [
+              "en:australia"
+            ],
+            "genericName": "",
+            "id": "off:4088700137154",
+            "lastModified": "2026-02-07T22:33:32Z",
+            "market": "AU",
+            "name": "Mixed Vegetables",
+            "nutrients": {},
+            "nutritionBasis": "per-100g-off-csv",
+            "nutritionCompleteness": "identity-only",
+            "provenanceClass": "australian-external-catalogue",
+            "quantity": "",
+            "recordType": "external-catalogue",
+            "servingQuantity": 100,
+            "servingSize": "1 portion (100 g)",
+            "source": "Open Food Facts",
+            "sourceId": "off:4088700137154",
+            "sourceScope": "Australia",
+            "sourceUrl": "http://world-en.openfoodfacts.org/product/4088700137154/mixed-vegetables-market-fare"
+          }
+        }
+      ],
+      "projectionPeers": []
+    },
+    {
+      "candidateId": "3A-D-39",
+      "gtin": "9313820004518",
+      "canonicalKey": "barcode:9313820004518",
+      "overlap": false,
+      "frozenPeers": [],
+      "projectionPeers": []
+    }
+  ]
+}
