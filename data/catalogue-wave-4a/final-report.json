@@ -1,0 +1,1126 @@
+{
+  "generation": "f7490f9daa9d256e8dfb3cb6",
+  "version": "0.6.33",
+  "sourceHeadBefore": "c5393ae8d9f09c5feb8a7aa72e4045c927dc9f7d",
+  "groups": {
+    "A": {
+      "reviewed": 10,
+      "newCanonicalAdmitted": 0,
+      "existingImproved": 0,
+      "newlyRetailerLinked": 0,
+      "recategorised": 0,
+      "held": 10,
+      "deferredRejected": 0,
+      "canonicalOverlap": 10,
+      "duplicateEvidenceCollapsed": 0
+    },
+    "B": {
+      "reviewed": 16,
+      "newCanonicalAdmitted": 0,
+      "existingImproved": 5,
+      "newlyRetailerLinked": 5,
+      "recategorised": 0,
+      "held": 2,
+      "deferredRejected": 9,
+      "canonicalOverlap": 13,
+      "duplicateEvidenceCollapsed": 0
+    },
+    "C": {
+      "reviewed": 2,
+      "newCanonicalAdmitted": 0,
+      "existingImproved": 1,
+      "newlyRetailerLinked": 1,
+      "recategorised": 0,
+      "held": 0,
+      "deferredRejected": 1,
+      "canonicalOverlap": 1,
+      "duplicateEvidenceCollapsed": 0
+    },
+    "D": {
+      "reviewed": 4,
+      "newCanonicalAdmitted": 0,
+      "existingImproved": 3,
+      "newlyRetailerLinked": 3,
+      "recategorised": 3,
+      "held": 1,
+      "deferredRejected": 0,
+      "canonicalOverlap": 4,
+      "duplicateEvidenceCollapsed": 0
+    }
+  },
+  "reviews": [
+    {
+      "candidateId": "4A-A-01",
+      "name": "Australian Full Cream Milk",
+      "brand": "Black & Gold",
+      "disposition": "held",
+      "reason": "Frozen exact Australian identity has no complete nutrient panel; family evidence cannot supply missing energy/macros or prove preparation/serving basis.",
+      "canonicalKey": "barcode:9310077217807"
+    },
+    {
+      "candidateId": "4A-A-02",
+      "name": "Skim Milk (Made From Powder)",
+      "brand": "Black & Gold",
+      "disposition": "held",
+      "reason": "Frozen exact Australian identity has no complete nutrient panel; family evidence cannot supply missing energy/macros or prove preparation/serving basis.",
+      "canonicalKey": "barcode:9310077315879"
+    },
+    {
+      "candidateId": "4A-A-03",
+      "name": "Crinkle Cut Potato Chips",
+      "brand": "Black & Gold",
+      "disposition": "held",
+      "reason": "Frozen exact Australian identity has no complete nutrient panel; family evidence cannot supply missing energy/macros or prove preparation/serving basis.",
+      "canonicalKey": "barcode:9310077219641"
+    },
+    {
+      "candidateId": "4A-A-04",
+      "name": "Baked Beans in Tomato Sauce",
+      "brand": "Black & Gold",
+      "disposition": "held",
+      "reason": "Frozen exact Australian identity has no complete nutrient panel; family evidence cannot supply missing energy/macros or prove preparation/serving basis.",
+      "canonicalKey": "barcode:9310077312786"
+    },
+    {
+      "candidateId": "4A-A-05",
+      "name": "Choc Cream Biscuits",
+      "brand": "Black&Gold",
+      "disposition": "held",
+      "reason": "Frozen exact Australian identity has no complete nutrient panel; family evidence cannot supply missing energy/macros or prove preparation/serving basis.",
+      "canonicalKey": "barcode:9310077316388"
+    },
+    {
+      "candidateId": "4A-A-06",
+      "name": "Spirals",
+      "brand": "Black & Gold",
+      "disposition": "held",
+      "reason": "Frozen exact Australian identity has no complete nutrient panel; family evidence cannot supply missing energy/macros or prove preparation/serving basis.",
+      "canonicalKey": "barcode:9310077289033"
+    },
+    {
+      "candidateId": "4A-A-07",
+      "name": "Kids Tasty Cheese & Crackers",
+      "brand": "Community Co",
+      "disposition": "held",
+      "reason": "Frozen exact Australian identity has no complete nutrient panel; family evidence cannot supply missing energy/macros or prove preparation/serving basis.",
+      "canonicalKey": "barcode:9310246060142"
+    },
+    {
+      "candidateId": "4A-A-08",
+      "name": "Soy milk",
+      "brand": "Community Co",
+      "disposition": "held",
+      "reason": "Frozen exact Australian identity has no complete nutrient panel; family evidence cannot supply missing energy/macros or prove preparation/serving basis.",
+      "canonicalKey": "barcode:9310246048539"
+    },
+    {
+      "candidateId": "4A-A-09",
+      "name": "Unsweetened Almond Milk",
+      "brand": "Community Co",
+      "disposition": "held",
+      "reason": "Frozen exact Australian identity has no complete nutrient panel; family evidence cannot supply missing energy/macros or prove preparation/serving basis.",
+      "canonicalKey": "barcode:9310246048546"
+    },
+    {
+      "candidateId": "4A-A-10",
+      "name": "Sausages",
+      "brand": "IGA",
+      "disposition": "held",
+      "reason": "Frozen exact Australian identity has no complete nutrient panel; family evidence cannot supply missing energy/macros or prove preparation/serving basis.",
+      "canonicalKey": "barcode:0209779111102"
+    },
+    {
+      "candidateId": "4A-B-01",
+      "name": "AUSTRALIAN QUICK OATS",
+      "brand": "BLACK & GOLD",
+      "disposition": "improved",
+      "reason": "Existing approved Australian canonical nutrition and measures retained exactly; independently verified Metcash/IGA family relationship added. No current product availability claim.",
+      "canonicalKey": "barcode:9310077200755"
+    },
+    {
+      "candidateId": "4A-B-02",
+      "name": "Cola Zero Sugar flavoured soft drink",
+      "brand": "Black & Gold",
+      "disposition": "improved",
+      "reason": "Existing approved Australian canonical nutrition and measures retained exactly; independently verified Metcash/IGA family relationship added. No current product availability claim.",
+      "canonicalKey": "barcode:9310077313011"
+    },
+    {
+      "candidateId": "4A-B-03",
+      "name": "Tasty cheese Shredded",
+      "brand": "Black And Gold",
+      "disposition": "improved",
+      "reason": "Existing approved Australian canonical nutrition and measures retained exactly; independently verified Metcash/IGA family relationship added. No current product availability claim.",
+      "canonicalKey": "barcode:9310077317446"
+    },
+    {
+      "candidateId": "4A-B-04",
+      "name": "Black Chia Seeds",
+      "brand": "community Co",
+      "disposition": "improved",
+      "reason": "Existing approved Australian canonical nutrition and measures retained exactly; independently verified Metcash/IGA family relationship added. No current product availability claim.",
+      "canonicalKey": "barcode:9310246047112"
+    },
+    {
+      "candidateId": "4A-B-05",
+      "name": "Greek Style Yohgurt",
+      "brand": "Community co",
+      "disposition": "improved",
+      "reason": "Existing approved Australian canonical nutrition and measures retained exactly; independently verified Metcash/IGA family relationship added. No current product availability claim.",
+      "canonicalKey": "barcode:9310246057135"
+    },
+    {
+      "candidateId": "4A-B-06",
+      "name": "Mini Ice Cupcakes",
+      "brand": "Community Co",
+      "disposition": "held",
+      "reason": "Per-100g versus per-serving basis is not sufficiently corroborated for this wave; unusually small whole-product panel values require exact package review. Do not multiply or guess a correction; prior global record remains unchanged.",
+      "canonicalKey": "barcode:9310246064737"
+    },
+    {
+      "candidateId": "4A-B-07",
+      "name": "Waffle cones",
+      "brand": "Community Co",
+      "disposition": "held",
+      "reason": "Per-100g versus per-serving basis is not sufficiently corroborated for this wave; unusually small whole-product panel values require exact package review. Do not multiply or guess a correction; prior global record remains unchanged.",
+      "canonicalKey": "barcode:9310246064782"
+    },
+    {
+      "candidateId": "4A-B-08",
+      "name": "Brown rice",
+      "brand": "Black & Gold",
+      "disposition": "deferred",
+      "reason": "Prepared/as-sold or reconstituted basis not independently established for this rice/ready meal. Existing global record remains unchanged; do not add IGA browse admission.",
+      "canonicalKey": "barcode:9310077317361"
+    },
+    {
+      "candidateId": "4A-B-09",
+      "name": "Rice N' Now Jasmine",
+      "brand": "community Co",
+      "disposition": "deferred",
+      "reason": "Prepared/as-sold or reconstituted basis not independently established for this rice/ready meal. Existing global record remains unchanged; do not add IGA browse admission.",
+      "canonicalKey": "barcode:9310246047150"
+    },
+    {
+      "candidateId": "4A-B-10",
+      "name": "Rice now Brown Rice & Quinoa",
+      "brand": "Community Co",
+      "disposition": "deferred",
+      "reason": "Prepared/as-sold or reconstituted basis not independently established for this rice/ready meal. Existing global record remains unchanged; do not add IGA browse admission.",
+      "canonicalKey": "barcode:9310246047174"
+    },
+    {
+      "candidateId": "4A-B-11",
+      "name": "Beef Meatballs With Penne Pasta",
+      "brand": "Community Co",
+      "disposition": "deferred",
+      "reason": "Prepared/as-sold or reconstituted basis not independently established for this rice/ready meal. Existing global record remains unchanged; do not add IGA browse admission.",
+      "canonicalKey": "barcode:9310246064607"
+    },
+    {
+      "candidateId": "4A-B-12",
+      "name": "Italian Chicken Pesto",
+      "brand": "CommunityCo",
+      "disposition": "deferred",
+      "reason": "Prepared/as-sold or reconstituted basis not independently established for this rice/ready meal. Existing global record remains unchanged; do not add IGA browse admission.",
+      "canonicalKey": "barcode:9310246064676"
+    },
+    {
+      "candidateId": "4A-B-13",
+      "name": "Classic Cottage Pie",
+      "brand": "Community Co",
+      "disposition": "deferred",
+      "reason": "Prepared/as-sold or reconstituted basis not independently established for this rice/ready meal. Existing global record remains unchanged; do not add IGA browse admission.",
+      "canonicalKey": "barcode:9310246066038"
+    },
+    {
+      "candidateId": "4A-D-01",
+      "name": "Colby Cheese",
+      "brand": "community Co",
+      "disposition": "improved",
+      "reason": "Existing approved Australian canonical nutrition and measures retained exactly; independently verified Metcash/IGA family relationship added. No current product availability claim.",
+      "canonicalKey": "barcode:9310246053328",
+      "category": {
+        "before": "other-food",
+        "after": "cheese",
+        "rule": "whole-cheese-head"
+      }
+    },
+    {
+      "candidateId": "4A-D-02",
+      "name": "Sourdough Rolls",
+      "brand": "community Co",
+      "disposition": "improved",
+      "reason": "Existing approved Australian canonical nutrition and measures retained exactly; independently verified Metcash/IGA family relationship added. No current product availability claim.",
+      "canonicalKey": "barcode:9310246055575",
+      "category": {
+        "before": "other-food",
+        "after": "bread",
+        "rule": "unfilled-bread-roll-head"
+      }
+    },
+    {
+      "candidateId": "4A-D-03",
+      "name": "Rustic Diamond Roll",
+      "brand": "Community Co",
+      "disposition": "improved",
+      "reason": "Existing approved Australian canonical nutrition and measures retained exactly; independently verified Metcash/IGA family relationship added. No current product availability claim.",
+      "canonicalKey": "barcode:9310246062474",
+      "category": {
+        "before": "other-food",
+        "after": "bread",
+        "rule": "unfilled-bread-roll-head"
+      }
+    },
+    {
+      "candidateId": "4A-D-04",
+      "name": "Creamy Double Brie",
+      "brand": "Community Co",
+      "disposition": "held",
+      "reason": "Per-100g versus per-serving basis is not sufficiently corroborated for this wave; unusually small whole-product panel values require exact package review. Do not multiply or guess a correction; prior global record remains unchanged.",
+      "canonicalKey": "barcode:9310246064874"
+    },
+    {
+      "candidateId": "4A-B-milk-3l",
+      "name": "Full Cream Milk 3L",
+      "brand": "Community Co",
+      "disposition": "deferred",
+      "reason": "Manufacturer confirms 3 L and 250 mL serving, but complete nutrition and exact GTIN are absent. Front-pack energy badges cannot complete missing protein/carbohydrate or a full panel.",
+      "canonicalKey": "review:iga:milk-3l"
+    },
+    {
+      "candidateId": "4A-B-date-crackers",
+      "name": "Date & Apricot Fruit Crackers 100g",
+      "brand": "Community Co",
+      "disposition": "deferred",
+      "reason": "Two public package images show the front and perspective front only; no readable nutrition panel, serving relationship or GTIN. No cracker count inferred from the 100 g pack.",
+      "canonicalKey": "review:iga:date-crackers"
+    },
+    {
+      "candidateId": "4A-B-tuna-brine",
+      "name": "Tuna In Brine 425g",
+      "brand": "Black & Gold",
+      "disposition": "deferred",
+      "reason": "Public table presents malformed per-100 energy (0g) alongside nonzero macros; drained/as-sold and serve basis remain unresolved. Do not interpret malformed energy as zero.",
+      "canonicalKey": "review:iga:tuna-brine"
+    },
+    {
+      "candidateId": "4A-C-pepsi-max-2l",
+      "name": "Pepsi Max 2L",
+      "brand": "Pepsi Max",
+      "disposition": "improved",
+      "reason": "Existing global independent package/manufacturer identity gains only a specific Marks SUPA IGA Mansfield listing; no new nutrition, brand ownership or nationwide availability.",
+      "canonicalKey": "barcode:9313820004518"
+    },
+    {
+      "candidateId": "4A-C-meredith-cheese",
+      "name": "Marinated Goat Cheese 320g",
+      "brand": "Meredith Dairy",
+      "disposition": "deferred",
+      "reason": "Store category listing only; exact independent manufacturer nutrition/formulation and canonical GTIN join not established.",
+      "canonicalKey": "review:iga:meredith-cheese"
+    }
+  ],
+  "retailers": {
+    "iga": {
+      "visible": 8,
+      "loggable": 8,
+      "restricted": 0,
+      "categories": [
+        {
+          "id": "bread",
+          "label": "Bread & Bakery",
+          "count": 2
+        },
+        {
+          "id": "yoghurt",
+          "label": "Yoghurt",
+          "count": 1
+        },
+        {
+          "id": "cheese",
+          "label": "Cheese",
+          "count": 2
+        },
+        {
+          "id": "cereal",
+          "label": "Breakfast Cereal",
+          "count": 1
+        },
+        {
+          "id": "drinks",
+          "label": "Non-alcoholic Drinks",
+          "count": 1
+        },
+        {
+          "id": "other-food",
+          "label": "Other Packaged Food",
+          "count": 1
+        }
+      ],
+      "families": [
+        {
+          "key": "blackandgold",
+          "name": "Black & Gold",
+          "count": 3
+        },
+        {
+          "key": "communityco",
+          "name": "Community Co",
+          "count": 5
+        }
+      ],
+      "other": 1
+    },
+    "aldi": {
+      "visible": 224,
+      "loggable": 224,
+      "restricted": 0,
+      "categories": [
+        {
+          "id": "bread",
+          "label": "Bread & Bakery",
+          "count": 16
+        },
+        {
+          "id": "yoghurt",
+          "label": "Yoghurt",
+          "count": 10
+        },
+        {
+          "id": "cheese",
+          "label": "Cheese",
+          "count": 29
+        },
+        {
+          "id": "cereal",
+          "label": "Breakfast Cereal",
+          "count": 9
+        },
+        {
+          "id": "biscuits",
+          "label": "Crackers & Biscuits",
+          "count": 12
+        },
+        {
+          "id": "snacks",
+          "label": "Snack Foods",
+          "count": 31
+        },
+        {
+          "id": "sauces",
+          "label": "Sauces & Condiments",
+          "count": 11
+        },
+        {
+          "id": "produce",
+          "label": "Packaged Fruit & Vegetables",
+          "count": 5
+        },
+        {
+          "id": "protein",
+          "label": "Meat & Protein",
+          "count": 43
+        },
+        {
+          "id": "milk",
+          "label": "Milk",
+          "count": 1
+        },
+        {
+          "id": "canned",
+          "label": "Baked Beans & Canned Food",
+          "count": 8
+        },
+        {
+          "id": "grains",
+          "label": "Rice, Pasta & Grains",
+          "count": 5
+        },
+        {
+          "id": "spreads",
+          "label": "Spreads & Margarine",
+          "count": 10
+        },
+        {
+          "id": "frozen-vegetables",
+          "label": "Frozen Vegetables",
+          "count": 1
+        },
+        {
+          "id": "frozen-potato",
+          "label": "Frozen Potato Products",
+          "count": 1
+        },
+        {
+          "id": "meals",
+          "label": "Prepared Meals",
+          "count": 2
+        },
+        {
+          "id": "pizza",
+          "label": "Pizza & Savoury Snacks",
+          "count": 5
+        },
+        {
+          "id": "other-food",
+          "label": "Other Packaged Food",
+          "count": 25
+        }
+      ],
+      "families": [
+        {
+          "key": "bakerslife",
+          "name": "Bakers Life",
+          "count": 13
+        },
+        {
+          "key": "belmontbiscuitco",
+          "name": "Belmont Biscuit Co",
+          "count": 3
+        },
+        {
+          "key": "berg",
+          "name": "Berg",
+          "count": 8
+        },
+        {
+          "key": "brooklea",
+          "name": "Brooklea",
+          "count": 10
+        },
+        {
+          "key": "choceur",
+          "name": "Choceur",
+          "count": 11
+        },
+        {
+          "key": "colway",
+          "name": "Colway",
+          "count": 7
+        },
+        {
+          "key": "dairyfine",
+          "name": "Dairy Fine",
+          "count": 6
+        },
+        {
+          "key": "damora",
+          "name": "Damora",
+          "count": 10
+        },
+        {
+          "key": "delioriginals",
+          "name": "Deli Originals",
+          "count": 6
+        },
+        {
+          "key": "elmsbury",
+          "name": "Elmsbury",
+          "count": 1
+        },
+        {
+          "key": "eltora",
+          "name": "Eltora",
+          "count": 1
+        },
+        {
+          "key": "emporiumselection",
+          "name": "EMPORIUM SELECTION",
+          "count": 8
+        },
+        {
+          "key": "farmdale",
+          "name": "Farmdale",
+          "count": 1
+        },
+        {
+          "key": "farmwood",
+          "name": "Farmwood",
+          "count": 3
+        },
+        {
+          "key": "goldenvale",
+          "name": "GoldenVale",
+          "count": 2
+        },
+        {
+          "key": "grandessa",
+          "name": "Grandessa",
+          "count": 4
+        },
+        {
+          "key": "hillcrest",
+          "name": "hillcrest",
+          "count": 16
+        },
+        {
+          "key": "internationalcuisine",
+          "name": "International Cuisine",
+          "count": 8
+        },
+        {
+          "key": "marketfare",
+          "name": "Market Fare",
+          "count": 1
+        },
+        {
+          "key": "moserroth",
+          "name": "MOSER ROTH",
+          "count": 6
+        },
+        {
+          "key": "oceanrise",
+          "name": "Ocean Rise",
+          "count": 18
+        },
+        {
+          "key": "oceanroyale",
+          "name": "Ocean royale",
+          "count": 10
+        },
+        {
+          "key": "ohsonatural",
+          "name": "Oh So Natural",
+          "count": 8
+        },
+        {
+          "key": "seasonspride",
+          "name": "Seasons Pride",
+          "count": 2
+        },
+        {
+          "key": "snackersmarket",
+          "name": "SNACKERS MARKET",
+          "count": 2
+        },
+        {
+          "key": "speciallyselected",
+          "name": "Specially Selected",
+          "count": 6
+        },
+        {
+          "key": "sprinters",
+          "name": "Sprinters",
+          "count": 7
+        },
+        {
+          "key": "sweethaven",
+          "name": "Sweet Haven",
+          "count": 1
+        },
+        {
+          "key": "thefreshsaladco",
+          "name": "The Fresh Salad Co",
+          "count": 3
+        },
+        {
+          "key": "urbaneats",
+          "name": "Urban Eats",
+          "count": 10
+        },
+        {
+          "key": "westacre",
+          "name": "Westacre",
+          "count": 5
+        },
+        {
+          "key": "westacredairy",
+          "name": "Westacre Dairy",
+          "count": 17
+        },
+        {
+          "key": "whitemill",
+          "name": "White Mill",
+          "count": 2
+        },
+        {
+          "key": "worldkitchen",
+          "name": "World Kitchen",
+          "count": 8
+        }
+      ],
+      "other": 25
+    },
+    "woolworths": {
+      "visible": 363,
+      "loggable": 348,
+      "restricted": 15,
+      "categories": [
+        {
+          "id": "bread",
+          "label": "Bread & Bakery",
+          "count": 35
+        },
+        {
+          "id": "milk",
+          "label": "Milk",
+          "count": 9
+        },
+        {
+          "id": "yoghurt",
+          "label": "Yoghurt",
+          "count": 7
+        },
+        {
+          "id": "cheese",
+          "label": "Cheese",
+          "count": 13
+        },
+        {
+          "id": "cereal",
+          "label": "Breakfast Cereal",
+          "count": 5
+        },
+        {
+          "id": "canned",
+          "label": "Baked Beans & Canned Food",
+          "count": 14
+        },
+        {
+          "id": "grains",
+          "label": "Rice, Pasta & Grains",
+          "count": 30
+        },
+        {
+          "id": "spreads",
+          "label": "Spreads & Margarine",
+          "count": 7
+        },
+        {
+          "id": "biscuits",
+          "label": "Crackers & Biscuits",
+          "count": 17
+        },
+        {
+          "id": "snacks",
+          "label": "Snack Foods",
+          "count": 27
+        },
+        {
+          "id": "frozen-vegetables",
+          "label": "Frozen Vegetables",
+          "count": 2
+        },
+        {
+          "id": "frozen-potato",
+          "label": "Frozen Potato Products",
+          "count": 2
+        },
+        {
+          "id": "sauces",
+          "label": "Sauces & Condiments",
+          "count": 9
+        },
+        {
+          "id": "drinks",
+          "label": "Non-alcoholic Drinks",
+          "count": 5
+        },
+        {
+          "id": "desserts",
+          "label": "Desserts & Ice Cream",
+          "count": 26
+        },
+        {
+          "id": "produce",
+          "label": "Packaged Fruit & Vegetables",
+          "count": 22
+        },
+        {
+          "id": "protein",
+          "label": "Meat & Protein",
+          "count": 78
+        },
+        {
+          "id": "meals",
+          "label": "Prepared Meals",
+          "count": 15
+        },
+        {
+          "id": "pizza",
+          "label": "Pizza & Savoury Snacks",
+          "count": 4
+        },
+        {
+          "id": "other-food",
+          "label": "Other Packaged Food",
+          "count": 36
+        }
+      ],
+      "families": [
+        {
+          "key": "essentials",
+          "name": "Essentials",
+          "count": 1
+        },
+        {
+          "key": "farmersown",
+          "name": "Farmers Own",
+          "count": 1
+        },
+        {
+          "key": "macro",
+          "name": "macro",
+          "count": 13
+        },
+        {
+          "key": "macrowholefoods",
+          "name": "Macro Wholefoods",
+          "count": 1
+        },
+        {
+          "key": "macrowholefoodsmarket",
+          "name": "macro WHOLEFOODS MARKET",
+          "count": 16
+        },
+        {
+          "key": "theoddbunch",
+          "name": "The Odd Bunch",
+          "count": 2
+        },
+        {
+          "key": "thomasdux",
+          "name": "Thomas dux",
+          "count": 2
+        },
+        {
+          "key": "woolworths",
+          "name": "Woolworths",
+          "count": 283
+        },
+        {
+          "key": "woolworthsbakery",
+          "name": "Woolworths Bakery",
+          "count": 38
+        },
+        {
+          "key": "woolworthsessentials",
+          "name": "Woolworths Essentials",
+          "count": 5
+        },
+        {
+          "key": "woolworthsmacro",
+          "name": "Woolworths Macro",
+          "count": 1
+        }
+      ],
+      "other": 36
+    },
+    "coles": {
+      "visible": 417,
+      "loggable": 417,
+      "restricted": 0,
+      "categories": [
+        {
+          "id": "bread",
+          "label": "Bread & Bakery",
+          "count": 27
+        },
+        {
+          "id": "milk",
+          "label": "Milk",
+          "count": 4
+        },
+        {
+          "id": "yoghurt",
+          "label": "Yoghurt",
+          "count": 7
+        },
+        {
+          "id": "cheese",
+          "label": "Cheese",
+          "count": 16
+        },
+        {
+          "id": "cereal",
+          "label": "Breakfast Cereal",
+          "count": 7
+        },
+        {
+          "id": "spreads",
+          "label": "Spreads & Margarine",
+          "count": 8
+        },
+        {
+          "id": "biscuits",
+          "label": "Crackers & Biscuits",
+          "count": 11
+        },
+        {
+          "id": "snacks",
+          "label": "Snack Foods",
+          "count": 34
+        },
+        {
+          "id": "sauces",
+          "label": "Sauces & Condiments",
+          "count": 14
+        },
+        {
+          "id": "protein",
+          "label": "Meat & Protein",
+          "count": 100
+        },
+        {
+          "id": "desserts",
+          "label": "Desserts & Ice Cream",
+          "count": 33
+        },
+        {
+          "id": "drinks",
+          "label": "Non-alcoholic Drinks",
+          "count": 3
+        },
+        {
+          "id": "canned",
+          "label": "Baked Beans & Canned Food",
+          "count": 16
+        },
+        {
+          "id": "grains",
+          "label": "Rice, Pasta & Grains",
+          "count": 39
+        },
+        {
+          "id": "frozen-potato",
+          "label": "Frozen Potato Products",
+          "count": 1
+        },
+        {
+          "id": "produce",
+          "label": "Packaged Fruit & Vegetables",
+          "count": 20
+        },
+        {
+          "id": "meals",
+          "label": "Prepared Meals",
+          "count": 8
+        },
+        {
+          "id": "pizza",
+          "label": "Pizza & Savoury Snacks",
+          "count": 8
+        },
+        {
+          "id": "other-food",
+          "label": "Other Packaged Food",
+          "count": 61
+        }
+      ],
+      "families": [
+        {
+          "key": "colesperform",
+          "name": "Cole’s Perform",
+          "count": 7
+        },
+        {
+          "key": "coles",
+          "name": "coles",
+          "count": 322
+        },
+        {
+          "key": "colesasia",
+          "name": "Coles Asia",
+          "count": 4
+        },
+        {
+          "key": "colesfinest",
+          "name": "Coles Finest",
+          "count": 19
+        },
+        {
+          "key": "colesfreerange",
+          "name": "Coles Free Range",
+          "count": 1
+        },
+        {
+          "key": "colesimfreefrom",
+          "name": "coles Imfree from",
+          "count": 1
+        },
+        {
+          "key": "coleskitchen",
+          "name": "coles Kitchen",
+          "count": 35
+        },
+        {
+          "key": "colesmadeeasy",
+          "name": "coles made easy",
+          "count": 3
+        },
+        {
+          "key": "colessimply",
+          "name": "coles Simply",
+          "count": 10
+        },
+        {
+          "key": "coleswellnessroad",
+          "name": "Coles- Wellness Road",
+          "count": 4
+        },
+        {
+          "key": "cucinamatese",
+          "name": "Cucina Matese",
+          "count": 5
+        },
+        {
+          "key": "graze",
+          "name": "Graze",
+          "count": 1
+        },
+        {
+          "key": "natureskitchen",
+          "name": "Natures kitchen",
+          "count": 3
+        },
+        {
+          "key": "thesweetporiumco",
+          "name": "The Sweetporium Co",
+          "count": 1
+        },
+        {
+          "key": "urbancoffeeculture",
+          "name": "Urban Coffee Culture",
+          "count": 1
+        }
+      ],
+      "other": 61
+    }
+  },
+  "global": {
+    "canonical": 7494,
+    "newCanonical": 0,
+    "changedExisting": 9,
+    "categoryChanges": 3,
+    "changes": [
+      {
+        "file": "data/brand-au/products/round-two-118.json",
+        "id": "off:9310077200755",
+        "canonicalKey": "barcode:9310077200755",
+        "fields": [
+          "privateLabelCollections",
+          "catalogueWave4A"
+        ],
+        "beforeCategory": "cereal",
+        "afterCategory": "cereal"
+      },
+      {
+        "file": "data/brand-au/products/round-two-118.json",
+        "id": "off:9310077313011",
+        "canonicalKey": "barcode:9310077313011",
+        "fields": [
+          "privateLabelCollections",
+          "catalogueWave4A"
+        ],
+        "beforeCategory": "drinks",
+        "afterCategory": "drinks"
+      },
+      {
+        "file": "data/brand-au/products/round-two-118.json",
+        "id": "off:9310077317446",
+        "canonicalKey": "barcode:9310077317446",
+        "fields": [
+          "privateLabelCollections",
+          "catalogueWave4A"
+        ],
+        "beforeCategory": "cheese",
+        "afterCategory": "cheese"
+      },
+      {
+        "file": "data/brand-au/products/round-two-125.json",
+        "id": "off:9310246047112",
+        "canonicalKey": "barcode:9310246047112",
+        "fields": [
+          "privateLabelCollections",
+          "catalogueWave4A"
+        ],
+        "beforeCategory": "other-food",
+        "afterCategory": "other-food"
+      },
+      {
+        "file": "data/brand-au/products/round-two-125.json",
+        "id": "off:9310246053328",
+        "canonicalKey": "barcode:9310246053328",
+        "fields": [
+          "category",
+          "categoryId",
+          "conceptIds",
+          "privateLabelCollections",
+          "catalogueWave4A",
+          "browseCategoryId",
+          "categoryEvidence"
+        ],
+        "beforeCategory": "other-food",
+        "afterCategory": "cheese"
+      },
+      {
+        "file": "data/brand-au/products/round-two-125.json",
+        "id": "off:9310246055575",
+        "canonicalKey": "barcode:9310246055575",
+        "fields": [
+          "category",
+          "categoryId",
+          "conceptIds",
+          "privateLabelCollections",
+          "catalogueWave4A",
+          "browseCategoryId",
+          "categoryEvidence"
+        ],
+        "beforeCategory": "other-food",
+        "afterCategory": "bread"
+      },
+      {
+        "file": "data/brand-au/products/round-two-125.json",
+        "id": "off:9310246057135",
+        "canonicalKey": "barcode:9310246057135",
+        "fields": [
+          "privateLabelCollections",
+          "catalogueWave4A"
+        ],
+        "beforeCategory": "yoghurt",
+        "afterCategory": "yoghurt"
+      },
+      {
+        "file": "data/brand-au/products/round-two-125.json",
+        "id": "off:9310246062474",
+        "canonicalKey": "barcode:9310246062474",
+        "fields": [
+          "category",
+          "categoryId",
+          "conceptIds",
+          "privateLabelCollections",
+          "catalogueWave4A",
+          "browseCategoryId",
+          "categoryEvidence"
+        ],
+        "beforeCategory": "other-food",
+        "afterCategory": "bread"
+      },
+      {
+        "file": "data/brand-au/products/wave-3a-000.json",
+        "id": "package:au:9313820004518",
+        "canonicalKey": "barcode:9313820004518",
+        "fields": [
+          "retailerMemberships",
+          "catalogueWave4A"
+        ],
+        "beforeCategory": "drinks",
+        "afterCategory": "drinks"
+      }
+    ]
+  },
+  "protected": {
+    "checked": 2610,
+    "unchanged": 2610
+  },
+  "availability": "Eight private-label family relationships and one store-specific independent listing; no national product-stock assertions",
+  "builderInputs": {
+    "candidate-manifest.json": "38fd25bbf7440f1ff1d6a8a4448d8cd6ce15b96bb2f5c6e2eba1aaa264737a12",
+    "baseline-records.json": "b914e3f5b8cd2b6af4339dbca07636f5edc05a4a3dab100e920efdd3740031ae",
+    "independent-baseline.json": "677c20ecd1f06a904bed69d2311e3be2b10c559fc2c5ee966033f2f1a240d9d9",
+    "reviewed-evidence.json": "f45b0c795d9770c2aefeb105e83bc86a3d7bf1213a3d24209898a4c7b836b8ff",
+    "public-captures.json": "d89d327d8ee1c16e75fb4b6a5a259554fbe89e528da7cb7c3671a9874fd202d8",
+    "supplemental-captures.json": "2a8cefd5cc76b185757dd715d657add31a06ef7460bc492079439712e575f156"
+  }
+}

@@ -1,5 +1,33 @@
 # Shared retailer browse and GTIN identity safety
 
+## IGA family foundation (Wave 4A)
+
+IGA, SUPA IGA, IGA Local Grocer and IGA X-Press share the `iga` retailer identity.
+`Super IGA` is a forgiving user alias, not an official additional banner. The
+shared entity registry owns these aliases; the IGA adapter retains the verified
+banner names as evidence context without creating duplicate inventories.
+
+IGA browse uses the existing private-label family gate. Black & Gold and
+Community Co retain their consumer brands and their Metcash provider relationship.
+An `availabilityScope: retailer-family-relationship` collection proves that
+relationship only. It does not assert that a particular product is stocked at
+every IGA, or is exclusive to IGA. The browse notice explicitly says ranges vary
+by independently operated store and current availability is unknown.
+
+Product listing evidence remains separate. Wave 4A's Pepsi Max membership uses
+`availabilityScope: store`, `bannerId: supa-iga`, an explicit Mansfield store ID,
+name and address, and `broaderAvailability: unknown`. Canonicalisation and both
+the global/retailer projections preserve those fields. It receives no private-
+label collection or ownership assertion and never enters IGA house-brand browse.
+Its original independent package/manufacturer nutrition remains unchanged.
+
+`scripts/catalogue-wave-4a.js` validates the pinned manifest, public captures and
+reviewed decisions; `scripts/build_iga_catalogue.js` projects the existing shared
+adapter, bounded loader, categories and brand families. The global builder applies
+the same reviewed relationships and three shared category projections to existing
+canonical identities. No nutrient or measure is supplied by family evidence.
+`tests/catalogue-wave-4a.test.js` and the Wave 4A rendered audit verify these rules.
+
 ## Current supermarket browse policy (Round Three source repair)
 
 Aldi, Woolworths and Coles roots mean the retailer's verified own/private-label

@@ -1,0 +1,9 @@
+# Wave 4A evidence hashes and generated shards must survive Windows checkout.
+/data/catalogue-wave-4a/** text eol=lf
+/data/catalogue-wave-4a/**/*.gz -text
+/data/catalogue-wave-4a/**/*.jpg -text
+/data/catalogue-wave-4a/**/*.png -text
+/data/iga-au/** text eol=lf
+/iga-au-catalogue.js text eol=lf
+# Preserve verbatim test-output whitespace in retained evidence logs.
+/data/catalogue-wave-4a/verification/*.log -whitespace

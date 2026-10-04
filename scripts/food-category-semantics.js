@@ -32,6 +32,8 @@ function reviewedFamily(food){
   const result=(id,conceptIds,rule)=>({id,conceptIds,rule});
   if(/\b(?:with|containing|filled)\b/.test(name))return null;
   if(/\b(?:flavou?red|flavour|flavor|filling|filled|seasoning|recipe base|mix|kit)\b/.test(name)&&! /\bslaw kit\b/.test(name))return null;
+  if(/^(?:colby|cheddar|tasty) cheese$/.test(name))return result('cheese',['cheese'],'whole-cheese-head');
+  if(/^(?:(?:white|wholemeal|rye) )?sourdough rolls?$/.test(name)||/^rustic (?:diamond|round) rolls?$/.test(name))return result('bread',['bread-roll'],'unfilled-bread-roll-head');
   if(/\b(?:macaroni cheese|mac and cheese|cannelloni)\b/.test(name)&&! /\b(?:snack|chips|bites|sauce|powder)\b/.test(name))return result('meals',[],'pasta-meal');
   if(/\bslaw kit\b/.test(name))return result('produce',[],'slaw-kit');
   if(/\bmarinade$/.test(name)||/^(?:mild|medium|hot|chunky|tomato|fresh) salsa$/.test(name))return result('sauces',[],'marinade-or-salsa');

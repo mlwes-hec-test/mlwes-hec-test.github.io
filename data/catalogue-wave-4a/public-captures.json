@@ -1,0 +1,90 @@
+[
+  {
+    "id": "iga-brands",
+    "url": "https://www.iga.com.au/our-brands/",
+    "finalUrl": "https://www.iga.com.au/our-brands/",
+    "status": 200,
+    "retrievedAt": "2026-10-04T20:51:09.835Z",
+    "file": "public/iga-brands.html.gz",
+    "sha256": "a0309ffeb3a15ba58220f31afc2afb2999432726d990f2cb4a92bbebca973a44",
+    "hashBasis": "uncompressed-response-body",
+    "usable": true
+  },
+  {
+    "id": "iga-banners",
+    "url": "https://www.iga.com.au/have-your-say-at-iga/",
+    "finalUrl": "https://www.iga.com.au/have-your-say-at-iga/",
+    "status": 200,
+    "retrievedAt": "2026-10-04T20:51:10.259Z",
+    "file": "public/iga-banners.html.gz",
+    "sha256": "b0b0f4cb60790e6341c998937acf801dedd98d51806f54e35cefbe427cfb5cfd",
+    "hashBasis": "uncompressed-response-body",
+    "usable": true
+  },
+  {
+    "id": "metcash-brands",
+    "url": "https://www.metcash.com/about-us/latest-news/iga-partnership-the-great-unwaste/",
+    "finalUrl": "https://www.metcash.com/about-us/latest-news/iga-partnership-the-great-unwaste/",
+    "status": 200,
+    "retrievedAt": "2026-10-04T20:51:10.441Z",
+    "file": "public/metcash-brands.html.gz",
+    "sha256": "07631935be515974c88861fc05514e92f7e367205c3fdb8bacb4f7aaa3e1b82e",
+    "hashBasis": "uncompressed-response-body",
+    "usable": true
+  },
+  {
+    "id": "chia-melton",
+    "url": "https://melton.shop.morgansiga.com.au/lines/community-co-aussie-black-chia-seeds-350g",
+    "finalUrl": "https://melton.shop.morgansiga.com.au/lines/community-co-aussie-black-chia-seeds-350g",
+    "status": 403,
+    "retrievedAt": "2026-10-04T20:51:12.484Z",
+    "file": "public/chia-melton.html.gz",
+    "sha256": "c029d1c560ecb35bbb632f9f7102907b41a289e258055d477f92e21884f9ab79",
+    "hashBasis": "uncompressed-response-body",
+    "usable": false
+  },
+  {
+    "id": "quick-oats",
+    "url": "https://www.igashop.com.au/product/black-gold-quick-oats-73833",
+    "finalUrl": "https://www.igashop.com.au/product/black-gold-quick-oats-73833",
+    "status": 200,
+    "retrievedAt": "2026-10-04T20:51:12.621Z",
+    "file": "public/quick-oats.html.gz",
+    "sha256": "3aa88093336dbc24845350358c1222b1f65b10a4219145c99eacf570b47bf4d7",
+    "hashBasis": "uncompressed-response-body",
+    "usable": true
+  },
+  {
+    "id": "tuna-brine",
+    "url": "https://www.igashop.com.au/product/black-gold-tuna-in-brine-22298",
+    "finalUrl": "https://www.igashop.com.au/product/black-gold-tuna-in-brine-22298",
+    "status": 200,
+    "retrievedAt": "2026-10-04T20:51:12.827Z",
+    "file": "public/tuna-brine.html.gz",
+    "sha256": "bfa2b91d041253ad4b08a2c71fd3a1c73f173293222cc2a834d72b17b77e554b",
+    "hashBasis": "uncompressed-response-body",
+    "usable": true
+  },
+  {
+    "id": "date-crackers",
+    "url": "https://www.igashop.com.au/product/community-co-date-apricot-fruit-crackers-545563",
+    "finalUrl": "https://www.igashop.com.au/product/community-co-date-apricot-fruit-crackers-545563",
+    "status": 200,
+    "retrievedAt": "2026-10-04T20:51:12.980Z",
+    "file": "public/date-crackers.html.gz",
+    "sha256": "2c6324b93ee0768298100f0473b2fec5835486c339c9e60158836917776c8d96",
+    "hashBasis": "uncompressed-response-body",
+    "usable": true
+  },
+  {
+    "id": "milk-3l",
+    "url": "https://communityco.com.au/product/milk/community-co-full-cream-milk-3l/",
+    "finalUrl": "https://communityco.com.au/product/milk/community-co-full-cream-milk-3l/",
+    "status": 200,
+    "retrievedAt": "2026-10-04T20:51:13.072Z",
+    "file": "public/milk-3l.html.gz",
+    "sha256": "67d41167562eda7050b3515a0afddb98ac35c549a6e0e98d4e11bf1b4c94d8c5",
+    "hashBasis": "uncompressed-response-body",
+    "usable": true
+  }
+]

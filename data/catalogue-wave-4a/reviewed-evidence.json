@@ -1,0 +1,416 @@
+{
+  "checkedAt": "2026-10-04T20:55:08.027Z",
+  "method": "Bounded public HTML and package-image review; web-reader facts labelled separately from direct HTTP captures. No nutrient values inferred.",
+  "relationships": [
+    {
+      "brandKey": "blackandgold",
+      "consumerBrand": "Black & Gold",
+      "commercialProvider": "Metcash",
+      "relationship": "Metcash private-label range associated with the IGA family and other independent supermarkets; not exclusive to IGA",
+      "scope": "retailer-family",
+      "status": "current",
+      "evidenceIds": [
+        "iga-brands",
+        "metcash-brands"
+      ]
+    },
+    {
+      "brandKey": "communityco",
+      "consumerBrand": "Community Co",
+      "commercialProvider": "Metcash",
+      "relationship": "Metcash private-label range associated with the IGA family and independent store network",
+      "scope": "retailer-family",
+      "status": "current",
+      "evidenceIds": [
+        "iga-brands",
+        "metcash-brands"
+      ]
+    }
+  ],
+  "banners": [
+    {
+      "id": "iga",
+      "displayName": "IGA",
+      "aliases": [
+        "IGA"
+      ]
+    },
+    {
+      "id": "supa-iga",
+      "displayName": "SUPA IGA",
+      "aliases": [
+        "Supa IGA",
+        "Super IGA"
+      ],
+      "forgivingUserAliases": [
+        "Super IGA"
+      ]
+    },
+    {
+      "id": "iga-local-grocer",
+      "displayName": "IGA Local Grocer",
+      "aliases": [
+        "IGA Local Grocer"
+      ]
+    },
+    {
+      "id": "iga-x-press",
+      "displayName": "IGA X-Press",
+      "aliases": [
+        "IGA X-Press",
+        "IGA X-press",
+        "IGA Xpress",
+        "IGA X Press"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "iga-brands",
+      "url": "https://www.iga.com.au/our-brands/",
+      "finalUrl": "https://www.iga.com.au/our-brands/",
+      "status": 200,
+      "retrievedAt": "2026-10-04T20:51:09.835Z",
+      "file": "public/iga-brands.html.gz",
+      "sha256": "a0309ffeb3a15ba58220f31afc2afb2999432726d990f2cb4a92bbebca973a44",
+      "hashBasis": "uncompressed-response-body",
+      "usable": true,
+      "summary": "IGA identifies Black & Gold and Community Co as its brand families. This is family evidence, not every-product availability."
+    },
+    {
+      "id": "metcash-brands",
+      "url": "https://www.metcash.com/about-us/latest-news/iga-partnership-the-great-unwaste/",
+      "finalUrl": "https://www.metcash.com/about-us/latest-news/iga-partnership-the-great-unwaste/",
+      "status": 200,
+      "retrievedAt": "2026-10-04T20:51:10.441Z",
+      "file": "public/metcash-brands.html.gz",
+      "sha256": "07631935be515974c88861fc05514e92f7e367205c3fdb8bacb4f7aaa3e1b82e",
+      "hashBasis": "uncompressed-response-body",
+      "usable": true,
+      "summary": "Metcash announcement dated 2025-10-01 identifies its Black & Gold and Community Co private-label ranges; confirms supplier/commercial relationship, not store-level stock."
+    },
+    {
+      "id": "iga-banners",
+      "url": "https://www.iga.com.au/have-your-say-at-iga/",
+      "finalUrl": "https://www.iga.com.au/have-your-say-at-iga/",
+      "status": 200,
+      "retrievedAt": "2026-10-04T20:51:10.259Z",
+      "file": "public/iga-banners.html.gz",
+      "sha256": "b0b0f4cb60790e6341c998937acf801dedd98d51806f54e35cefbe427cfb5cfd",
+      "hashBasis": "uncompressed-response-body",
+      "usable": true,
+      "summary": "Current official store directory uses SUPA IGA, IGA Local Grocer and IGA X-PRESS, alongside IGA. Examples: SUPA IGA TIMBERTOWN; IGA LOCAL GROCER ST IVES NORTH; IGA X-PRESS EAST WAHROONGA."
+    }
+  ],
+  "storeListings": [
+    {
+      "id": "pepsi-mansfield",
+      "url": "https://mansfieldiga.com.au/lines/pepsi-max-2l",
+      "retrievedAt": "2026-10-04T20:55:08.027Z",
+      "acquisition": "web-reader",
+      "directHttpUsable": false,
+      "directHttpStatus": 403,
+      "title": "Pepsi Max Bottle 2L",
+      "brand": "Pepsi Max",
+      "pack": {
+        "amount": 2000,
+        "unit": "mL"
+      },
+      "retailerId": "iga",
+      "bannerId": "supa-iga",
+      "storeId": "marks-supa-iga-mansfield",
+      "storeName": "Marks SUPA IGA",
+      "address": "47-51 High Street, Mansfield, VIC 3722, Australia",
+      "availabilityScope": "store",
+      "broaderAvailability": "unknown",
+      "identityMatch": "Exact Australian brand, no-sugar variant and 2 L bottle; no GTIN asserted by store page; listing relationship only, no replacement nutrition."
+    },
+    {
+      "id": "chia-melton",
+      "url": "https://melton.shop.morgansiga.com.au/lines/community-co-aussie-black-chia-seeds-350g",
+      "retrievedAt": "2026-10-04T20:55:08.027Z",
+      "acquisition": "web-reader",
+      "directHttpUsable": false,
+      "directHttpStatus": 403,
+      "title": "Community Co Aussie Black Chia Seeds 350g",
+      "bannerId": "supa-iga",
+      "storeName": "Morgans SUPA IGA Melton",
+      "availabilityScope": "store",
+      "broaderAvailability": "unknown",
+      "decision": "Discovery corroboration only; frozen identity lacks pack so exact store listing is not joined."
+    },
+    {
+      "id": "meredith-nathalia",
+      "url": "https://iganathalia.com.au/category/cheese-1",
+      "retrievedAt": "2026-10-04T20:55:08.027Z",
+      "acquisition": "web-reader",
+      "directHttpUsable": false,
+      "directHttpStatus": 403,
+      "title": "Meredith Dairy Marinated Goat Cheese 320g",
+      "retailerId": "iga",
+      "bannerId": "iga",
+      "storeName": "IGA Nathalia",
+      "availabilityScope": "store",
+      "broaderAvailability": "unknown",
+      "decision": "Deferred: category listing establishes product discovery but not exact formulation, GTIN and independent nutrition join."
+    }
+  ],
+  "reviews": [
+    {
+      "candidateId": "4A-A-01",
+      "disposition": "held",
+      "reason": "Frozen exact Australian identity has no complete nutrient panel; family evidence cannot supply missing energy/macros or prove preparation/serving basis.",
+      "recategorise": false,
+      "newlyRetailerLinked": false,
+      "newCanonical": false
+    },
+    {
+      "candidateId": "4A-A-02",
+      "disposition": "held",
+      "reason": "Frozen exact Australian identity has no complete nutrient panel; family evidence cannot supply missing energy/macros or prove preparation/serving basis.",
+      "recategorise": false,
+      "newlyRetailerLinked": false,
+      "newCanonical": false
+    },
+    {
+      "candidateId": "4A-A-03",
+      "disposition": "held",
+      "reason": "Frozen exact Australian identity has no complete nutrient panel; family evidence cannot supply missing energy/macros or prove preparation/serving basis.",
+      "recategorise": false,
+      "newlyRetailerLinked": false,
+      "newCanonical": false
+    },
+    {
+      "candidateId": "4A-A-04",
+      "disposition": "held",
+      "reason": "Frozen exact Australian identity has no complete nutrient panel; family evidence cannot supply missing energy/macros or prove preparation/serving basis.",
+      "recategorise": false,
+      "newlyRetailerLinked": false,
+      "newCanonical": false
+    },
+    {
+      "candidateId": "4A-A-05",
+      "disposition": "held",
+      "reason": "Frozen exact Australian identity has no complete nutrient panel; family evidence cannot supply missing energy/macros or prove preparation/serving basis.",
+      "recategorise": false,
+      "newlyRetailerLinked": false,
+      "newCanonical": false
+    },
+    {
+      "candidateId": "4A-A-06",
+      "disposition": "held",
+      "reason": "Frozen exact Australian identity has no complete nutrient panel; family evidence cannot supply missing energy/macros or prove preparation/serving basis.",
+      "recategorise": false,
+      "newlyRetailerLinked": false,
+      "newCanonical": false
+    },
+    {
+      "candidateId": "4A-A-07",
+      "disposition": "held",
+      "reason": "Frozen exact Australian identity has no complete nutrient panel; family evidence cannot supply missing energy/macros or prove preparation/serving basis.",
+      "recategorise": false,
+      "newlyRetailerLinked": false,
+      "newCanonical": false
+    },
+    {
+      "candidateId": "4A-A-08",
+      "disposition": "held",
+      "reason": "Frozen exact Australian identity has no complete nutrient panel; family evidence cannot supply missing energy/macros or prove preparation/serving basis.",
+      "recategorise": false,
+      "newlyRetailerLinked": false,
+      "newCanonical": false
+    },
+    {
+      "candidateId": "4A-A-09",
+      "disposition": "held",
+      "reason": "Frozen exact Australian identity has no complete nutrient panel; family evidence cannot supply missing energy/macros or prove preparation/serving basis.",
+      "recategorise": false,
+      "newlyRetailerLinked": false,
+      "newCanonical": false
+    },
+    {
+      "candidateId": "4A-A-10",
+      "disposition": "held",
+      "reason": "Frozen exact Australian identity has no complete nutrient panel; family evidence cannot supply missing energy/macros or prove preparation/serving basis.",
+      "recategorise": false,
+      "newlyRetailerLinked": false,
+      "newCanonical": false
+    },
+    {
+      "candidateId": "4A-B-01",
+      "disposition": "improved",
+      "reason": "Existing approved Australian canonical nutrition and measures retained exactly; independently verified Metcash/IGA family relationship added. No current product availability claim.",
+      "recategorise": false,
+      "newlyRetailerLinked": true,
+      "newCanonical": false
+    },
+    {
+      "candidateId": "4A-B-02",
+      "disposition": "improved",
+      "reason": "Existing approved Australian canonical nutrition and measures retained exactly; independently verified Metcash/IGA family relationship added. No current product availability claim.",
+      "recategorise": false,
+      "newlyRetailerLinked": true,
+      "newCanonical": false
+    },
+    {
+      "candidateId": "4A-B-03",
+      "disposition": "improved",
+      "reason": "Existing approved Australian canonical nutrition and measures retained exactly; independently verified Metcash/IGA family relationship added. No current product availability claim.",
+      "recategorise": false,
+      "newlyRetailerLinked": true,
+      "newCanonical": false
+    },
+    {
+      "candidateId": "4A-B-04",
+      "disposition": "improved",
+      "reason": "Existing approved Australian canonical nutrition and measures retained exactly; independently verified Metcash/IGA family relationship added. No current product availability claim.",
+      "recategorise": false,
+      "newlyRetailerLinked": true,
+      "newCanonical": false
+    },
+    {
+      "candidateId": "4A-B-05",
+      "disposition": "improved",
+      "reason": "Existing approved Australian canonical nutrition and measures retained exactly; independently verified Metcash/IGA family relationship added. No current product availability claim.",
+      "recategorise": false,
+      "newlyRetailerLinked": true,
+      "newCanonical": false
+    },
+    {
+      "candidateId": "4A-B-06",
+      "disposition": "held",
+      "reason": "Per-100g versus per-serving basis is not sufficiently corroborated for this wave; unusually small whole-product panel values require exact package review. Do not multiply or guess a correction; prior global record remains unchanged.",
+      "recategorise": false,
+      "newlyRetailerLinked": false,
+      "newCanonical": false
+    },
+    {
+      "candidateId": "4A-B-07",
+      "disposition": "held",
+      "reason": "Per-100g versus per-serving basis is not sufficiently corroborated for this wave; unusually small whole-product panel values require exact package review. Do not multiply or guess a correction; prior global record remains unchanged.",
+      "recategorise": false,
+      "newlyRetailerLinked": false,
+      "newCanonical": false
+    },
+    {
+      "candidateId": "4A-B-08",
+      "disposition": "deferred",
+      "reason": "Prepared/as-sold or reconstituted basis not independently established for this rice/ready meal. Existing global record remains unchanged; do not add IGA browse admission.",
+      "recategorise": false,
+      "newlyRetailerLinked": false,
+      "newCanonical": false
+    },
+    {
+      "candidateId": "4A-B-09",
+      "disposition": "deferred",
+      "reason": "Prepared/as-sold or reconstituted basis not independently established for this rice/ready meal. Existing global record remains unchanged; do not add IGA browse admission.",
+      "recategorise": false,
+      "newlyRetailerLinked": false,
+      "newCanonical": false
+    },
+    {
+      "candidateId": "4A-B-10",
+      "disposition": "deferred",
+      "reason": "Prepared/as-sold or reconstituted basis not independently established for this rice/ready meal. Existing global record remains unchanged; do not add IGA browse admission.",
+      "recategorise": false,
+      "newlyRetailerLinked": false,
+      "newCanonical": false
+    },
+    {
+      "candidateId": "4A-B-11",
+      "disposition": "deferred",
+      "reason": "Prepared/as-sold or reconstituted basis not independently established for this rice/ready meal. Existing global record remains unchanged; do not add IGA browse admission.",
+      "recategorise": false,
+      "newlyRetailerLinked": false,
+      "newCanonical": false
+    },
+    {
+      "candidateId": "4A-B-12",
+      "disposition": "deferred",
+      "reason": "Prepared/as-sold or reconstituted basis not independently established for this rice/ready meal. Existing global record remains unchanged; do not add IGA browse admission.",
+      "recategorise": false,
+      "newlyRetailerLinked": false,
+      "newCanonical": false
+    },
+    {
+      "candidateId": "4A-B-13",
+      "disposition": "deferred",
+      "reason": "Prepared/as-sold or reconstituted basis not independently established for this rice/ready meal. Existing global record remains unchanged; do not add IGA browse admission.",
+      "recategorise": false,
+      "newlyRetailerLinked": false,
+      "newCanonical": false
+    },
+    {
+      "candidateId": "4A-D-01",
+      "disposition": "improved",
+      "reason": "Existing approved Australian canonical nutrition and measures retained exactly; independently verified Metcash/IGA family relationship added. No current product availability claim.",
+      "recategorise": true,
+      "newlyRetailerLinked": true,
+      "newCanonical": false
+    },
+    {
+      "candidateId": "4A-D-02",
+      "disposition": "improved",
+      "reason": "Existing approved Australian canonical nutrition and measures retained exactly; independently verified Metcash/IGA family relationship added. No current product availability claim.",
+      "recategorise": true,
+      "newlyRetailerLinked": true,
+      "newCanonical": false
+    },
+    {
+      "candidateId": "4A-D-03",
+      "disposition": "improved",
+      "reason": "Existing approved Australian canonical nutrition and measures retained exactly; independently verified Metcash/IGA family relationship added. No current product availability claim.",
+      "recategorise": true,
+      "newlyRetailerLinked": true,
+      "newCanonical": false
+    },
+    {
+      "candidateId": "4A-D-04",
+      "disposition": "held",
+      "reason": "Per-100g versus per-serving basis is not sufficiently corroborated for this wave; unusually small whole-product panel values require exact package review. Do not multiply or guess a correction; prior global record remains unchanged.",
+      "recategorise": false,
+      "newlyRetailerLinked": false,
+      "newCanonical": false
+    },
+    {
+      "candidateId": "4A-B-milk-3l",
+      "disposition": "deferred",
+      "reason": "Manufacturer confirms 3 L and 250 mL serving, but complete nutrition and exact GTIN are absent. Front-pack energy badges cannot complete missing protein/carbohydrate or a full panel.",
+      "recategorise": false,
+      "newlyRetailerLinked": false,
+      "newCanonical": false
+    },
+    {
+      "candidateId": "4A-B-date-crackers",
+      "disposition": "deferred",
+      "reason": "Two public package images show the front and perspective front only; no readable nutrition panel, serving relationship or GTIN. No cracker count inferred from the 100 g pack.",
+      "recategorise": false,
+      "newlyRetailerLinked": false,
+      "newCanonical": false
+    },
+    {
+      "candidateId": "4A-B-tuna-brine",
+      "disposition": "deferred",
+      "reason": "Public table presents malformed per-100 energy (0g) alongside nonzero macros; drained/as-sold and serve basis remain unresolved. Do not interpret malformed energy as zero.",
+      "recategorise": false,
+      "newlyRetailerLinked": false,
+      "newCanonical": false
+    },
+    {
+      "candidateId": "4A-C-pepsi-max-2l",
+      "disposition": "improved",
+      "reason": "Existing global independent package/manufacturer identity gains only a specific Marks SUPA IGA Mansfield listing; no new nutrition, brand ownership or nationwide availability.",
+      "recategorise": false,
+      "newlyRetailerLinked": true,
+      "newCanonical": false
+    },
+    {
+      "candidateId": "4A-C-meredith-cheese",
+      "disposition": "deferred",
+      "reason": "Store category listing only; exact independent manufacturer nutrition/formulation and canonical GTIN join not established.",
+      "recategorise": false,
+      "newlyRetailerLinked": false,
+      "newCanonical": false
+    }
+  ]
+}

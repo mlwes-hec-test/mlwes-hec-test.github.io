@@ -1,0 +1,18 @@
+{
+  "pass": true,
+  "exitCode": 0,
+  "startedAt": "2026-10-04T21:17:23.098Z",
+  "completedAt": "2026-10-04T21:17:43.054Z",
+  "generation": "f7490f9daa9d256e8dfb3cb6",
+  "testFiles": [
+    "tests/brand-catalogue.test.js",
+    "tests/catalogue-semantics-repair.test.js"
+  ],
+  "tests": 21,
+  "passed": 21,
+  "failed": 0,
+  "productionBytesChanged": false,
+  "fullSuiteRerun": false,
+  "reason": "Historical assertions now validate the exact reviewed overlay before comparing the prior record; no fields are blindly ignored.",
+  "logSha256": "766d74d1db2422492d8c00d6c975b75b4595502bdc441287d35119ac4f2acdb5"
+}

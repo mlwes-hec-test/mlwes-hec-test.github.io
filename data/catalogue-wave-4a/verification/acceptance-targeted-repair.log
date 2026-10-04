@@ -1,0 +1,29 @@
+✔ every generated record passes identity, GTIN, AU, nutrition, conflicts and unknown preservation (10012.0778ms)
+✔ all admitted source tokens meet reproducible tiers without merging companies or sub-brands (4870.5413ms)
+✔ the wave adds no duplicate OFF identity and retains existing retailer evidence (853.3741ms)
+✔ known solids never gain liquid measures in the complete generated wave (1279.5962ms)
+✔ brand plus exact product outranks lexical extensions and incomplete records never enter brand browse (181.581ms)
+✔ brand browse is bounded, category scoped, and all pages cover the complete brand (83.1488ms)
+✔ generic food and retailer intent cannot become an exact-brand catalogue query (1.7287ms)
+✔ a complete indexed brand outranks a shorter registered brand prefix (8.0934ms)
+✔ concept Brand Name options contain accepted relevant products only (201.47ms)
+✔ source tokens allow secondary explicit brand membership without ownership inference (0.5134ms)
+✔ cancelled asynchronous queries cannot hand off foods (1.6682ms)
+✔ decorated brand sorting preserves the existing complete ranking order (137.6325ms)
+✔ cached raw OFF rows cannot bypass audited brand admission (51.8726ms)
+✔ representative real products retain one amount-to-Review conversion (16.325ms)
+✔ ordinary supermarket browse is relationship-gated, current or uncertain, never sale or provenance alone (1904.1384ms)
+✔ independent and legacy products retain useful global search and canonical identity (269.8455ms)
+✔ retailer Brands navigation reaches Seasons Pride and Elmsbury, with category intersection (8.6101ms)
+✔ compound foods outrank ingredient and broad cake tokens in projected categories and concepts (4.2469ms)
+✔ Jewel/Gem aliases resolve one canonical product, preserve authentic names and exact branded intent (12.9737ms)
+✔ all accepted source identity, nutrition, measure and evidence facts remain byte-equivalent (1978.169ms)
+✔ protected McCain review still resolves its canonical alias and accepted energy (2.3474ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 19845.283

@@ -1,0 +1,626 @@
+{
+  "frozenRecordsScanned": 73300,
+  "globalCanonical": 7494,
+  "purpose": "Inventory/canonical overlap audit only; not admission review of the whole source pool",
+  "candidates": [
+    {
+      "candidateId": "4A-A-01",
+      "reviewKey": "barcode:9310077217807",
+      "exactGtin": "9310077217807",
+      "confirmedGlobal": [],
+      "retailerOverlaps": [],
+      "frozenPeers": [
+        {
+          "key": "barcode:9310077217807",
+          "id": "off:9310077217807",
+          "file": "data/open-food-facts-au/products/bl-00.json"
+        }
+      ],
+      "unresolvedPossiblePeers": [],
+      "newCanonicalMinted": false
+    },
+    {
+      "candidateId": "4A-A-02",
+      "reviewKey": "barcode:9310077315879",
+      "exactGtin": "9310077315879",
+      "confirmedGlobal": [],
+      "retailerOverlaps": [],
+      "frozenPeers": [
+        {
+          "key": "barcode:9310077315879",
+          "id": "off:9310077315879",
+          "file": "data/open-food-facts-au/products/bl-00.json"
+        }
+      ],
+      "unresolvedPossiblePeers": [],
+      "newCanonicalMinted": false
+    },
+    {
+      "candidateId": "4A-A-03",
+      "reviewKey": "barcode:9310077219641",
+      "exactGtin": "9310077219641",
+      "confirmedGlobal": [],
+      "retailerOverlaps": [],
+      "frozenPeers": [
+        {
+          "key": "barcode:9310077219641",
+          "id": "off:9310077219641",
+          "file": "data/open-food-facts-au/products/bl-00.json"
+        }
+      ],
+      "unresolvedPossiblePeers": [],
+      "newCanonicalMinted": false
+    },
+    {
+      "candidateId": "4A-A-04",
+      "reviewKey": "barcode:9310077312786",
+      "exactGtin": "9310077312786",
+      "confirmedGlobal": [],
+      "retailerOverlaps": [],
+      "frozenPeers": [
+        {
+          "key": "barcode:9310077312786",
+          "id": "off:9310077312786",
+          "file": "data/open-food-facts-au/products/bl-00.json"
+        }
+      ],
+      "unresolvedPossiblePeers": [],
+      "newCanonicalMinted": false
+    },
+    {
+      "candidateId": "4A-A-05",
+      "reviewKey": "barcode:9310077316388",
+      "exactGtin": "9310077316388",
+      "confirmedGlobal": [],
+      "retailerOverlaps": [],
+      "frozenPeers": [
+        {
+          "key": "barcode:9310077316388",
+          "id": "off:9310077316388",
+          "file": "data/open-food-facts-au/products/bl-00.json"
+        }
+      ],
+      "unresolvedPossiblePeers": [],
+      "newCanonicalMinted": false
+    },
+    {
+      "candidateId": "4A-A-06",
+      "reviewKey": "barcode:9310077289033",
+      "exactGtin": "9310077289033",
+      "confirmedGlobal": [],
+      "retailerOverlaps": [],
+      "frozenPeers": [
+        {
+          "key": "barcode:9310077289033",
+          "id": "off:9310077289033",
+          "file": "data/open-food-facts-au/products/bl-00.json"
+        }
+      ],
+      "unresolvedPossiblePeers": [],
+      "newCanonicalMinted": false
+    },
+    {
+      "candidateId": "4A-A-07",
+      "reviewKey": "barcode:9310246060142",
+      "exactGtin": "9310246060142",
+      "confirmedGlobal": [],
+      "retailerOverlaps": [],
+      "frozenPeers": [
+        {
+          "key": "barcode:9310246060142",
+          "id": "off:9310246060142",
+          "file": "data/open-food-facts-au/products/co-05.json"
+        }
+      ],
+      "unresolvedPossiblePeers": [],
+      "newCanonicalMinted": false
+    },
+    {
+      "candidateId": "4A-A-08",
+      "reviewKey": "barcode:9310246048539",
+      "exactGtin": "9310246048539",
+      "confirmedGlobal": [],
+      "retailerOverlaps": [],
+      "frozenPeers": [
+        {
+          "key": "barcode:9310246048539",
+          "id": "off:9310246048539",
+          "file": "data/open-food-facts-au/products/co-05.json"
+        }
+      ],
+      "unresolvedPossiblePeers": [],
+      "newCanonicalMinted": false
+    },
+    {
+      "candidateId": "4A-A-09",
+      "reviewKey": "barcode:9310246048546",
+      "exactGtin": "9310246048546",
+      "confirmedGlobal": [],
+      "retailerOverlaps": [],
+      "frozenPeers": [
+        {
+          "key": "barcode:9310246048546",
+          "id": "off:9310246048546",
+          "file": "data/open-food-facts-au/products/co-05.json"
+        }
+      ],
+      "unresolvedPossiblePeers": [],
+      "newCanonicalMinted": false
+    },
+    {
+      "candidateId": "4A-A-10",
+      "reviewKey": "barcode:0209779111102",
+      "exactGtin": "0209779111102",
+      "confirmedGlobal": [],
+      "retailerOverlaps": [],
+      "frozenPeers": [
+        {
+          "key": "barcode:0209779111102",
+          "id": "off:0209779111102",
+          "file": "data/open-food-facts-au/products/ig-00.json"
+        }
+      ],
+      "unresolvedPossiblePeers": [],
+      "newCanonicalMinted": false
+    },
+    {
+      "candidateId": "4A-B-01",
+      "reviewKey": "barcode:9310077200755",
+      "exactGtin": "9310077200755",
+      "confirmedGlobal": [
+        {
+          "key": "barcode:9310077200755",
+          "name": "Australian Quick Oats",
+          "brand": "BLACK & GOLD"
+        }
+      ],
+      "retailerOverlaps": [],
+      "frozenPeers": [
+        {
+          "key": "barcode:9310077200755",
+          "id": "off:9310077200755",
+          "file": "data/open-food-facts-au/products/bl-00.json"
+        }
+      ],
+      "unresolvedPossiblePeers": [],
+      "newCanonicalMinted": false
+    },
+    {
+      "candidateId": "4A-B-02",
+      "reviewKey": "barcode:9310077313011",
+      "exactGtin": "9310077313011",
+      "confirmedGlobal": [
+        {
+          "key": "barcode:9310077313011",
+          "name": "Cola Zero Sugar flavoured soft drink",
+          "brand": "Black & Gold"
+        }
+      ],
+      "retailerOverlaps": [],
+      "frozenPeers": [
+        {
+          "key": "barcode:9310077313011",
+          "id": "off:9310077313011",
+          "file": "data/open-food-facts-au/products/bl-00.json"
+        }
+      ],
+      "unresolvedPossiblePeers": [],
+      "newCanonicalMinted": false
+    },
+    {
+      "candidateId": "4A-B-03",
+      "reviewKey": "barcode:9310077317446",
+      "exactGtin": "9310077317446",
+      "confirmedGlobal": [
+        {
+          "key": "barcode:9310077317446",
+          "name": "Tasty cheese Shredded",
+          "brand": "Black And Gold"
+        }
+      ],
+      "retailerOverlaps": [],
+      "frozenPeers": [
+        {
+          "key": "barcode:9310077317446",
+          "id": "off:9310077317446",
+          "file": "data/open-food-facts-au/products/bl-00.json"
+        }
+      ],
+      "unresolvedPossiblePeers": [],
+      "newCanonicalMinted": false
+    },
+    {
+      "candidateId": "4A-B-04",
+      "reviewKey": "barcode:9310246047112",
+      "exactGtin": "9310246047112",
+      "confirmedGlobal": [
+        {
+          "key": "barcode:9310246047112",
+          "name": "Black Chia Seeds",
+          "brand": "community Co"
+        }
+      ],
+      "retailerOverlaps": [],
+      "frozenPeers": [
+        {
+          "key": "barcode:9310246047112",
+          "id": "off:9310246047112",
+          "file": "data/open-food-facts-au/products/co-05.json"
+        }
+      ],
+      "unresolvedPossiblePeers": [],
+      "newCanonicalMinted": false
+    },
+    {
+      "candidateId": "4A-B-05",
+      "reviewKey": "barcode:9310246057135",
+      "exactGtin": "9310246057135",
+      "confirmedGlobal": [
+        {
+          "key": "barcode:9310246057135",
+          "name": "Greek Style Yohgurt",
+          "brand": "Community co"
+        }
+      ],
+      "retailerOverlaps": [],
+      "frozenPeers": [
+        {
+          "key": "barcode:9310246057135",
+          "id": "off:9310246057135",
+          "file": "data/open-food-facts-au/products/co-05.json"
+        }
+      ],
+      "unresolvedPossiblePeers": [],
+      "newCanonicalMinted": false
+    },
+    {
+      "candidateId": "4A-B-06",
+      "reviewKey": "barcode:9310246064737",
+      "exactGtin": "9310246064737",
+      "confirmedGlobal": [
+        {
+          "key": "barcode:9310246064737",
+          "name": "Mini Ice Cupcakes",
+          "brand": "Community Co"
+        }
+      ],
+      "retailerOverlaps": [],
+      "frozenPeers": [
+        {
+          "key": "barcode:9310246064737",
+          "id": "off:9310246064737",
+          "file": "data/open-food-facts-au/products/co-05.json"
+        }
+      ],
+      "unresolvedPossiblePeers": [],
+      "newCanonicalMinted": false
+    },
+    {
+      "candidateId": "4A-B-07",
+      "reviewKey": "barcode:9310246064782",
+      "exactGtin": "9310246064782",
+      "confirmedGlobal": [
+        {
+          "key": "barcode:9310246064782",
+          "name": "Waffle cones",
+          "brand": "Community Co"
+        }
+      ],
+      "retailerOverlaps": [],
+      "frozenPeers": [
+        {
+          "key": "barcode:9310246064782",
+          "id": "off:9310246064782",
+          "file": "data/open-food-facts-au/products/co-05.json"
+        }
+      ],
+      "unresolvedPossiblePeers": [],
+      "newCanonicalMinted": false
+    },
+    {
+      "candidateId": "4A-B-08",
+      "reviewKey": "barcode:9310077317361",
+      "exactGtin": "9310077317361",
+      "confirmedGlobal": [
+        {
+          "key": "barcode:9310077317361",
+          "name": "Brown rice",
+          "brand": "Black & Gold"
+        }
+      ],
+      "retailerOverlaps": [],
+      "frozenPeers": [
+        {
+          "key": "barcode:9310077317361",
+          "id": "off:9310077317361",
+          "file": "data/open-food-facts-au/products/bl-00.json"
+        }
+      ],
+      "unresolvedPossiblePeers": [],
+      "newCanonicalMinted": false
+    },
+    {
+      "candidateId": "4A-B-09",
+      "reviewKey": "barcode:9310246047150",
+      "exactGtin": "9310246047150",
+      "confirmedGlobal": [
+        {
+          "key": "barcode:9310246047150",
+          "name": "Rice N' Now Jasmine",
+          "brand": "community Co"
+        }
+      ],
+      "retailerOverlaps": [],
+      "frozenPeers": [
+        {
+          "key": "barcode:9310246047150",
+          "id": "off:9310246047150",
+          "file": "data/open-food-facts-au/products/co-05.json"
+        }
+      ],
+      "unresolvedPossiblePeers": [],
+      "newCanonicalMinted": false
+    },
+    {
+      "candidateId": "4A-B-10",
+      "reviewKey": "barcode:9310246047174",
+      "exactGtin": "9310246047174",
+      "confirmedGlobal": [
+        {
+          "key": "barcode:9310246047174",
+          "name": "Rice now Brown Rice & Quinoa",
+          "brand": "Community Co"
+        }
+      ],
+      "retailerOverlaps": [],
+      "frozenPeers": [
+        {
+          "key": "barcode:9310246047174",
+          "id": "off:9310246047174",
+          "file": "data/open-food-facts-au/products/co-05.json"
+        }
+      ],
+      "unresolvedPossiblePeers": [],
+      "newCanonicalMinted": false
+    },
+    {
+      "candidateId": "4A-B-11",
+      "reviewKey": "barcode:9310246064607",
+      "exactGtin": "9310246064607",
+      "confirmedGlobal": [
+        {
+          "key": "barcode:9310246064607",
+          "name": "Beef Meatballs With Penne Pasta",
+          "brand": "Community Co"
+        }
+      ],
+      "retailerOverlaps": [],
+      "frozenPeers": [
+        {
+          "key": "barcode:9310246064607",
+          "id": "off:9310246064607",
+          "file": "data/open-food-facts-au/products/co-05.json"
+        }
+      ],
+      "unresolvedPossiblePeers": [],
+      "newCanonicalMinted": false
+    },
+    {
+      "candidateId": "4A-B-12",
+      "reviewKey": "barcode:9310246064676",
+      "exactGtin": "9310246064676",
+      "confirmedGlobal": [
+        {
+          "key": "barcode:9310246064676",
+          "name": "Italian Chicken Pesto",
+          "brand": "CommunityCo"
+        }
+      ],
+      "retailerOverlaps": [],
+      "frozenPeers": [
+        {
+          "key": "barcode:9310246064676",
+          "id": "off:9310246064676",
+          "file": "data/open-food-facts-au/products/co-05.json"
+        }
+      ],
+      "unresolvedPossiblePeers": [],
+      "newCanonicalMinted": false
+    },
+    {
+      "candidateId": "4A-B-13",
+      "reviewKey": "barcode:9310246066038",
+      "exactGtin": "9310246066038",
+      "confirmedGlobal": [
+        {
+          "key": "barcode:9310246066038",
+          "name": "Classic Cottage Pie",
+          "brand": "Community Co"
+        }
+      ],
+      "retailerOverlaps": [],
+      "frozenPeers": [
+        {
+          "key": "barcode:9310246066038",
+          "id": "off:9310246066038",
+          "file": "data/open-food-facts-au/products/co-05.json"
+        }
+      ],
+      "unresolvedPossiblePeers": [],
+      "newCanonicalMinted": false
+    },
+    {
+      "candidateId": "4A-D-01",
+      "reviewKey": "barcode:9310246053328",
+      "exactGtin": "9310246053328",
+      "confirmedGlobal": [
+        {
+          "key": "barcode:9310246053328",
+          "name": "Colby Cheese",
+          "brand": "community Co"
+        }
+      ],
+      "retailerOverlaps": [],
+      "frozenPeers": [
+        {
+          "key": "barcode:9310246053328",
+          "id": "off:9310246053328",
+          "file": "data/open-food-facts-au/products/co-05.json"
+        }
+      ],
+      "unresolvedPossiblePeers": [],
+      "newCanonicalMinted": false
+    },
+    {
+      "candidateId": "4A-D-02",
+      "reviewKey": "barcode:9310246055575",
+      "exactGtin": "9310246055575",
+      "confirmedGlobal": [
+        {
+          "key": "barcode:9310246055575",
+          "name": "Sourdough Rolls",
+          "brand": "community Co"
+        }
+      ],
+      "retailerOverlaps": [],
+      "frozenPeers": [
+        {
+          "key": "barcode:9310246055575",
+          "id": "off:9310246055575",
+          "file": "data/open-food-facts-au/products/co-05.json"
+        }
+      ],
+      "unresolvedPossiblePeers": [],
+      "newCanonicalMinted": false
+    },
+    {
+      "candidateId": "4A-D-03",
+      "reviewKey": "barcode:9310246062474",
+      "exactGtin": "9310246062474",
+      "confirmedGlobal": [
+        {
+          "key": "barcode:9310246062474",
+          "name": "Rustic Diamond Roll",
+          "brand": "Community Co"
+        }
+      ],
+      "retailerOverlaps": [],
+      "frozenPeers": [
+        {
+          "key": "barcode:9310246062474",
+          "id": "off:9310246062474",
+          "file": "data/open-food-facts-au/products/co-05.json"
+        }
+      ],
+      "unresolvedPossiblePeers": [],
+      "newCanonicalMinted": false
+    },
+    {
+      "candidateId": "4A-D-04",
+      "reviewKey": "barcode:9310246064874",
+      "exactGtin": "9310246064874",
+      "confirmedGlobal": [
+        {
+          "key": "barcode:9310246064874",
+          "name": "Creamy Double Brie",
+          "brand": "Community Co"
+        }
+      ],
+      "retailerOverlaps": [],
+      "frozenPeers": [
+        {
+          "key": "barcode:9310246064874",
+          "id": "off:9310246064874",
+          "file": "data/open-food-facts-au/products/co-05.json"
+        }
+      ],
+      "unresolvedPossiblePeers": [],
+      "newCanonicalMinted": false
+    },
+    {
+      "candidateId": "4A-B-milk-3l",
+      "reviewKey": "review:iga:milk-3l",
+      "exactGtin": null,
+      "confirmedGlobal": [],
+      "retailerOverlaps": [],
+      "frozenPeers": [],
+      "unresolvedPossiblePeers": [],
+      "newCanonicalMinted": false
+    },
+    {
+      "candidateId": "4A-B-date-crackers",
+      "reviewKey": "review:iga:date-crackers",
+      "exactGtin": null,
+      "confirmedGlobal": [],
+      "retailerOverlaps": [],
+      "frozenPeers": [],
+      "unresolvedPossiblePeers": [],
+      "newCanonicalMinted": false
+    },
+    {
+      "candidateId": "4A-B-tuna-brine",
+      "reviewKey": "review:iga:tuna-brine",
+      "exactGtin": null,
+      "confirmedGlobal": [],
+      "retailerOverlaps": [],
+      "frozenPeers": [],
+      "unresolvedPossiblePeers": [],
+      "newCanonicalMinted": false
+    },
+    {
+      "candidateId": "4A-C-pepsi-max-2l",
+      "reviewKey": "barcode:9313820004518",
+      "exactGtin": "9313820004518",
+      "confirmedGlobal": [
+        {
+          "key": "barcode:9313820004518",
+          "name": "Pepsi Max 2L",
+          "brand": "Pepsi Max"
+        }
+      ],
+      "retailerOverlaps": [],
+      "frozenPeers": [],
+      "unresolvedPossiblePeers": [],
+      "newCanonicalMinted": false
+    },
+    {
+      "candidateId": "4A-C-meredith-cheese",
+      "reviewKey": "review:iga:meredith-cheese",
+      "exactGtin": null,
+      "confirmedGlobal": [],
+      "retailerOverlaps": [],
+      "frozenPeers": [],
+      "unresolvedPossiblePeers": [
+        {
+          "key": "barcode:9317320100114",
+          "name": "Marinated Goat Cheese",
+          "brand": "Meredith Dairy",
+          "pack": "",
+          "file": "data/open-food-facts-au/products/me-00.json"
+        },
+        {
+          "key": "barcode:9317320100305",
+          "name": "Marinated Goat Cheese",
+          "brand": "meredith dairy",
+          "pack": "",
+          "file": "data/open-food-facts-au/products/me-00.json"
+        },
+        {
+          "key": "barcode:9317320100039",
+          "name": "Marinated Goat Cheese",
+          "brand": "meredith dairy",
+          "pack": "320 g",
+          "file": "data/open-food-facts-au/products/me-00.json"
+        },
+        {
+          "key": "barcode:9317320100091",
+          "name": "Marinated Goat Cheese",
+          "brand": "meredith dairy",
+          "pack": "550g",
+          "file": "data/open-food-facts-au/products/me-00.json"
+        }
+      ],
+      "newCanonicalMinted": false
+    }
+  ]
+}

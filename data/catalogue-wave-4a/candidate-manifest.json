@@ -1,0 +1,360 @@
+{
+  "wave": "4A",
+  "startingHead": "c5393ae8d9f09c5feb8a7aa72e4045c927dc9f7d",
+  "purpose": "Bounded review frozen before any product admission; ceilings are not targets",
+  "groupLimits": {
+    "A": 20,
+    "B": 35,
+    "C": 15,
+    "D": 10
+  },
+  "candidates": [
+    {
+      "candidateId": "4A-A-01",
+      "group": "A",
+      "canonicalKey": "barcode:9310077217807",
+      "gtin": "9310077217807",
+      "name": "Australian Full Cream Milk",
+      "brand": "Black & Gold",
+      "overlap": true,
+      "globalOverlap": false,
+      "priorSource": "data/open-food-facts-au/products/bl-00.json"
+    },
+    {
+      "candidateId": "4A-A-02",
+      "group": "A",
+      "canonicalKey": "barcode:9310077315879",
+      "gtin": "9310077315879",
+      "name": "Skim Milk (Made From Powder)",
+      "brand": "Black & Gold",
+      "overlap": true,
+      "globalOverlap": false,
+      "priorSource": "data/open-food-facts-au/products/bl-00.json"
+    },
+    {
+      "candidateId": "4A-A-03",
+      "group": "A",
+      "canonicalKey": "barcode:9310077219641",
+      "gtin": "9310077219641",
+      "name": "Crinkle Cut Potato Chips",
+      "brand": "Black & Gold",
+      "overlap": true,
+      "globalOverlap": false,
+      "priorSource": "data/open-food-facts-au/products/bl-00.json"
+    },
+    {
+      "candidateId": "4A-A-04",
+      "group": "A",
+      "canonicalKey": "barcode:9310077312786",
+      "gtin": "9310077312786",
+      "name": "Baked Beans in Tomato Sauce",
+      "brand": "Black & Gold",
+      "overlap": true,
+      "globalOverlap": false,
+      "priorSource": "data/open-food-facts-au/products/bl-00.json"
+    },
+    {
+      "candidateId": "4A-A-05",
+      "group": "A",
+      "canonicalKey": "barcode:9310077316388",
+      "gtin": "9310077316388",
+      "name": "Choc Cream Biscuits",
+      "brand": "Black&Gold",
+      "overlap": true,
+      "globalOverlap": false,
+      "priorSource": "data/open-food-facts-au/products/bl-00.json"
+    },
+    {
+      "candidateId": "4A-A-06",
+      "group": "A",
+      "canonicalKey": "barcode:9310077289033",
+      "gtin": "9310077289033",
+      "name": "Spirals",
+      "brand": "Black & Gold",
+      "overlap": true,
+      "globalOverlap": false,
+      "priorSource": "data/open-food-facts-au/products/bl-00.json"
+    },
+    {
+      "candidateId": "4A-A-07",
+      "group": "A",
+      "canonicalKey": "barcode:9310246060142",
+      "gtin": "9310246060142",
+      "name": "Kids Tasty Cheese & Crackers",
+      "brand": "Community Co",
+      "overlap": true,
+      "globalOverlap": false,
+      "priorSource": "data/open-food-facts-au/products/co-05.json"
+    },
+    {
+      "candidateId": "4A-A-08",
+      "group": "A",
+      "canonicalKey": "barcode:9310246048539",
+      "gtin": "9310246048539",
+      "name": "Soy milk",
+      "brand": "Community Co",
+      "overlap": true,
+      "globalOverlap": false,
+      "priorSource": "data/open-food-facts-au/products/co-05.json"
+    },
+    {
+      "candidateId": "4A-A-09",
+      "group": "A",
+      "canonicalKey": "barcode:9310246048546",
+      "gtin": "9310246048546",
+      "name": "Unsweetened Almond Milk",
+      "brand": "Community Co",
+      "overlap": true,
+      "globalOverlap": false,
+      "priorSource": "data/open-food-facts-au/products/co-05.json"
+    },
+    {
+      "candidateId": "4A-A-10",
+      "group": "A",
+      "canonicalKey": "barcode:0209779111102",
+      "gtin": "0209779111102",
+      "name": "Sausages",
+      "brand": "IGA",
+      "overlap": true,
+      "globalOverlap": false,
+      "priorSource": "data/open-food-facts-au/products/ig-00.json"
+    },
+    {
+      "candidateId": "4A-B-01",
+      "group": "B",
+      "canonicalKey": "barcode:9310077200755",
+      "gtin": "9310077200755",
+      "name": "AUSTRALIAN QUICK OATS",
+      "brand": "BLACK & GOLD",
+      "overlap": true,
+      "globalOverlap": true,
+      "priorSource": "data/open-food-facts-au/products/bl-00.json"
+    },
+    {
+      "candidateId": "4A-B-02",
+      "group": "B",
+      "canonicalKey": "barcode:9310077313011",
+      "gtin": "9310077313011",
+      "name": "Cola Zero Sugar flavoured soft drink",
+      "brand": "Black & Gold",
+      "overlap": true,
+      "globalOverlap": true,
+      "priorSource": "data/open-food-facts-au/products/bl-00.json"
+    },
+    {
+      "candidateId": "4A-B-03",
+      "group": "B",
+      "canonicalKey": "barcode:9310077317446",
+      "gtin": "9310077317446",
+      "name": "Tasty cheese Shredded",
+      "brand": "Black And Gold",
+      "overlap": true,
+      "globalOverlap": true,
+      "priorSource": "data/open-food-facts-au/products/bl-00.json"
+    },
+    {
+      "candidateId": "4A-B-04",
+      "group": "B",
+      "canonicalKey": "barcode:9310246047112",
+      "gtin": "9310246047112",
+      "name": "Black Chia Seeds",
+      "brand": "community Co",
+      "overlap": true,
+      "globalOverlap": true,
+      "priorSource": "data/open-food-facts-au/products/co-05.json"
+    },
+    {
+      "candidateId": "4A-B-05",
+      "group": "B",
+      "canonicalKey": "barcode:9310246057135",
+      "gtin": "9310246057135",
+      "name": "Greek Style Yohgurt",
+      "brand": "Community co",
+      "overlap": true,
+      "globalOverlap": true,
+      "priorSource": "data/open-food-facts-au/products/co-05.json"
+    },
+    {
+      "candidateId": "4A-B-06",
+      "group": "B",
+      "canonicalKey": "barcode:9310246064737",
+      "gtin": "9310246064737",
+      "name": "Mini Ice Cupcakes",
+      "brand": "Community Co",
+      "overlap": true,
+      "globalOverlap": true,
+      "priorSource": "data/open-food-facts-au/products/co-05.json"
+    },
+    {
+      "candidateId": "4A-B-07",
+      "group": "B",
+      "canonicalKey": "barcode:9310246064782",
+      "gtin": "9310246064782",
+      "name": "Waffle cones",
+      "brand": "Community Co",
+      "overlap": true,
+      "globalOverlap": true,
+      "priorSource": "data/open-food-facts-au/products/co-05.json"
+    },
+    {
+      "candidateId": "4A-B-08",
+      "group": "B",
+      "canonicalKey": "barcode:9310077317361",
+      "gtin": "9310077317361",
+      "name": "Brown rice",
+      "brand": "Black & Gold",
+      "overlap": true,
+      "globalOverlap": true,
+      "priorSource": "data/open-food-facts-au/products/bl-00.json"
+    },
+    {
+      "candidateId": "4A-B-09",
+      "group": "B",
+      "canonicalKey": "barcode:9310246047150",
+      "gtin": "9310246047150",
+      "name": "Rice N' Now Jasmine",
+      "brand": "community Co",
+      "overlap": true,
+      "globalOverlap": true,
+      "priorSource": "data/open-food-facts-au/products/co-05.json"
+    },
+    {
+      "candidateId": "4A-B-10",
+      "group": "B",
+      "canonicalKey": "barcode:9310246047174",
+      "gtin": "9310246047174",
+      "name": "Rice now Brown Rice & Quinoa",
+      "brand": "Community Co",
+      "overlap": true,
+      "globalOverlap": true,
+      "priorSource": "data/open-food-facts-au/products/co-05.json"
+    },
+    {
+      "candidateId": "4A-B-11",
+      "group": "B",
+      "canonicalKey": "barcode:9310246064607",
+      "gtin": "9310246064607",
+      "name": "Beef Meatballs With Penne Pasta",
+      "brand": "Community Co",
+      "overlap": true,
+      "globalOverlap": true,
+      "priorSource": "data/open-food-facts-au/products/co-05.json"
+    },
+    {
+      "candidateId": "4A-B-12",
+      "group": "B",
+      "canonicalKey": "barcode:9310246064676",
+      "gtin": "9310246064676",
+      "name": "Italian Chicken Pesto",
+      "brand": "CommunityCo",
+      "overlap": true,
+      "globalOverlap": true,
+      "priorSource": "data/open-food-facts-au/products/co-05.json"
+    },
+    {
+      "candidateId": "4A-B-13",
+      "group": "B",
+      "canonicalKey": "barcode:9310246066038",
+      "gtin": "9310246066038",
+      "name": "Classic Cottage Pie",
+      "brand": "Community Co",
+      "overlap": true,
+      "globalOverlap": true,
+      "priorSource": "data/open-food-facts-au/products/co-05.json"
+    },
+    {
+      "candidateId": "4A-D-01",
+      "group": "D",
+      "canonicalKey": "barcode:9310246053328",
+      "gtin": "9310246053328",
+      "name": "Colby Cheese",
+      "brand": "community Co",
+      "overlap": true,
+      "globalOverlap": true,
+      "priorSource": "data/open-food-facts-au/products/co-05.json"
+    },
+    {
+      "candidateId": "4A-D-02",
+      "group": "D",
+      "canonicalKey": "barcode:9310246055575",
+      "gtin": "9310246055575",
+      "name": "Sourdough Rolls",
+      "brand": "community Co",
+      "overlap": true,
+      "globalOverlap": true,
+      "priorSource": "data/open-food-facts-au/products/co-05.json"
+    },
+    {
+      "candidateId": "4A-D-03",
+      "group": "D",
+      "canonicalKey": "barcode:9310246062474",
+      "gtin": "9310246062474",
+      "name": "Rustic Diamond Roll",
+      "brand": "Community Co",
+      "overlap": true,
+      "globalOverlap": true,
+      "priorSource": "data/open-food-facts-au/products/co-05.json"
+    },
+    {
+      "candidateId": "4A-D-04",
+      "group": "D",
+      "canonicalKey": "barcode:9310246064874",
+      "gtin": "9310246064874",
+      "name": "Creamy Double Brie",
+      "brand": "Community Co",
+      "overlap": true,
+      "globalOverlap": true,
+      "priorSource": "data/open-food-facts-au/products/co-05.json"
+    },
+    {
+      "candidateId": "4A-B-milk-3l",
+      "group": "B",
+      "canonicalKey": "review:iga:milk-3l",
+      "name": "Full Cream Milk 3L",
+      "brand": "Community Co",
+      "url": "https://communityco.com.au/product/milk/community-co-full-cream-milk-3l/",
+      "overlap": false,
+      "globalOverlap": false
+    },
+    {
+      "candidateId": "4A-B-date-crackers",
+      "group": "B",
+      "canonicalKey": "review:iga:date-crackers",
+      "name": "Date & Apricot Fruit Crackers 100g",
+      "brand": "Community Co",
+      "url": "https://www.igashop.com.au/product/community-co-date-apricot-fruit-crackers-545563",
+      "overlap": false,
+      "globalOverlap": false
+    },
+    {
+      "candidateId": "4A-B-tuna-brine",
+      "group": "B",
+      "canonicalKey": "review:iga:tuna-brine",
+      "name": "Tuna In Brine 425g",
+      "brand": "Black & Gold",
+      "url": "https://www.igashop.com.au/product/black-gold-tuna-in-brine-22298",
+      "overlap": false,
+      "globalOverlap": false
+    },
+    {
+      "candidateId": "4A-C-pepsi-max-2l",
+      "group": "C",
+      "canonicalKey": "barcode:9313820004518",
+      "name": "Pepsi Max 2L",
+      "brand": "Pepsi Max",
+      "url": "https://mansfieldiga.com.au/lines/pepsi-max-2l",
+      "overlap": true,
+      "globalOverlap": true
+    },
+    {
+      "candidateId": "4A-C-meredith-cheese",
+      "group": "C",
+      "canonicalKey": "review:iga:meredith-cheese",
+      "name": "Marinated Goat Cheese 320g",
+      "brand": "Meredith Dairy",
+      "url": "https://iganathalia.com.au/category/cheese-1",
+      "overlap": false,
+      "globalOverlap": false
+    }
+  ]
+}

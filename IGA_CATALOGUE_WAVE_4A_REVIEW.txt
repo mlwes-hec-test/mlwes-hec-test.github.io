@@ -1,0 +1,280 @@
+HEC AUSTRALIAN FOOD CATALOGUE — WAVE 4A SOURCE REVIEW
+5 October 2026, Australia/Brisbane | Application version 0.6.33
+
+1. SOURCE PREFLIGHT
+Canonical SOURCE: C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32
+Branch: alpha-0.6.33
+Starting HEAD: c5393ae8d9f09c5feb8a7aa72e4045c927dc9f7d
+Exact subject: Complete Aldi catalogue foundation
+Parent: 428603dabd96ea9ebde3ee85ba11d82a97ed83fd
+Starting release: 8306466fcc410bf3cf384ae7
+All match; working tree was completely clean before edits. All development and
+Git operations used the correctly spelled canonical path. The session initially
+listed the supplied working-directory alias before the attachment's path rule
+was read; that was read-only. The historical misspelled alias was not altered.
+No reset, clean, stash, pull, merge, checkout or amend was used.
+
+2. FRESH IGA BASELINE
+Frozen primary-brand inventory: 249 distinct associated canonical identities.
+IGA: 60, 11 generically loggable, 49 restricted/incomplete.
+Black & Gold: 55, 7 generically loggable, 48 restricted/incomplete.
+Community Co: 134, 27 generically loggable, 107 restricted/incomplete.
+Total: 45 generically loggable; 204 restricted/incomplete. These are inventory
+counts, not an assertion that all 249 were individually reviewed or safe to admit.
+The already approved GLOBAL directory contains 35 of these identities: IGA 11,
+Black & Gold 4, Community Co 20; all 35 loggable in that existing projection.
+Approved category inventory: protein 7, bread 2, Other 12, snacks 2, meals 2,
+cereal 1, drinks 1, grains 5, cheese 1, yoghurt 1, desserts 1.
+IGA retailer root was EMPTY: zero products, categories and private-label families.
+Existing verified IGA listing relationships: 0. IGA private-label collections: 0.
+Existing independently branded products with verified IGA membership: 0.
+Consumer-brand strings alone were not retailer or ownership proof. The available
+existing nutrition/identity source was the frozen Australian OFF snapshot and
+its previously reviewed global projection; official relationship evidence was
+newly captured in this authorised wave.
+
+3. OFFICIAL BANNERS AND RELATIONSHIPS
+Current official IGA store directory confirms IGA, SUPA IGA, IGA Local Grocer and
+IGA X-PRESS. Examples retained in reviewed evidence: SUPA IGA Timbertown, IGA Local
+Grocer St Ives North and IGA X-PRESS East Wahroonga. This is a verified banner
+foundation, not a claim to exhaust every store format or trading name.
+https://www.iga.com.au/have-your-say-at-iga/
+IGA's Our Brands page identifies Black & Gold and Community Co. Metcash's official
+1 October 2025 announcement explicitly identifies both private-label ranges.
+https://www.iga.com.au/our-brands/
+https://www.metcash.com/about-us/latest-news/iga-partnership-the-great-unwaste/
+The current captured pages corroborate the ongoing relationship. The evidence
+records Metcash as commercial provider, the actual consumer brand separately,
+family-wide relationship scope, capture date and public-release review status.
+Neither exclusivity nor national product stock is inferred.
+
+4. ALIAS RESULT
+IGA, Supa IGA, SUPA IGA, Super IGA, IGA Local Grocer, IGA X-Press, IGA X-press,
+IGA Xpress and IGA X Press all resolve to the same iga retailer identity.
+Previously Super IGA and IGA Local Grocer became retailer-plus-product queries.
+Those are repaired through the existing shared entity-registry alias list.
+SUPA IGA is the official display name in banner metadata. Super IGA is identified
+as a forgiving user/voice alias. No product-name runtime search exception exists.
+
+5. IGA FAMILY AND STORE SCOPE
+One shared catalogue uses existing category, family, loading, navigation and
+canonical infrastructure. Eight private-label family relationships populate browse.
+One independent product has a separately retained specific-store listing.
+Private-label collection availabilityScope = retailer-family-relationship;
+product currentAvailability and broaderAvailability = unknown.
+The independent listing availabilityScope = store, with bannerId, storeId, name,
+address and capture date. Canonicalisation preserves it. There is no field or
+projection asserting every IGA stocks a listed product. Banner variants do not
+create duplicate canonical identities or separate copied inventories.
+
+6. CANDIDATE ACCOUNTING
+Manifest frozen before admissions: 32 distinct review identities; maximum 80.
+Group limits: A 10/20, B 16/35, C 2/15, D 4/10.
+
+Group Reviewed New canonical Improved New retailer link Recategorised Held Deferred Overlap Duplicate evidence
+A     10       0             0        0                 0             10   0        10      0
+B     16       0             5        5                 0             2    9        13      0
+C     2        0             1        1                 0             0    1        1       0
+D     4        0             3        3                 3             1    0        4       0
+TOTAL 32       0             9        9                 3             13   10       28      0
+
+32 = 9 improvements + 13 holds + 10 deferrals. Links/category changes are subsets
+of improvements, not additional product admissions. Eight improvements enter IGA
+private-label browse; the ninth is an independent store listing. All nine reuse
+existing global canonical identities. The review ceiling is not an admission target.
+
+7. VERIFIED PRIVATE-LABEL FOUNDATION
+Black & Gold: Australian Quick Oats (9310077200755), Cola Zero Sugar flavoured
+soft drink (9310077313011), Tasty cheese Shredded (9310077317446).
+Community Co: Black Chia Seeds (9310246047112), Greek Style Yohgurt
+(9310246057135), Colby Cheese (9310246053328), Sourdough Rolls (9310246055575),
+Rustic Diamond Roll (9310246062474).
+Existing source spelling is retained. The consumer brands are never renamed IGA.
+Nutrition remains existing accepted OFF evidence, not newly official nutrition.
+Every product retains provenance, snapshot/capture dates, attribution and the
+separate later public-release licensing review requirement.
+
+8. EXISTING INCOMPLETE IDENTITIES
+Group A: 10 reviewed, 0 resolved, all 10 held. These cover Black & Gold full-cream
+and skim milk, crinkle-cut chips, baked beans, choc cream biscuits and spirals;
+Community Co kids cheese/crackers, soy milk and almond milk; and IGA sausages.
+The exact frozen identities lack complete nutrition. Official family relationships
+cannot supply missing macros, energy or preparation/serving facts.
+Three further already-global products are withheld from new IGA browse pending
+exact per-100 versus per-serve confirmation: Community Co Mini Ice Cupcakes,
+Waffle cones and Creamy Double Brie. No guessed multiplication/correction was
+applied, and their existing global records were not changed by this wave.
+
+9. NEW PRIVATE-LABEL REVIEW
+Group B: 16 reviewed; 5 existing identities newly linked to IGA browse, 0 newly
+minted canonical products; 2 held and 9 deferred. Six rice/ready-meal products
+remain deferred because preparation/as-sold basis lacks sufficient corroboration.
+Three new public product candidates also remain deferred:
+- Community Co Full Cream Milk 3L: manufacturer confirms pack and 250mL serve,
+  but the available front image/page lacks a full panel and exact GTIN.
+- Community Co Date & Apricot Fruit Crackers 100g: both supplied images show
+  front/perspective front; no full panel, exact GTIN or natural-item relationship.
+- Black & Gold Tuna In Brine 425g: malformed per-100 energy (0g) and unresolved
+  drained/serve basis. Malformed/missing energy was not interpreted as zero.
+Milk, crackers, frozen vegetables, frozen potato, spreads, canned food and ready
+meals remain evidence gaps in IGA browse. This is a small foundation, not broad
+assortment completion or national availability coverage.
+
+10. INDEPENDENT DISCOVERY
+Pepsi Max 2L (9313820004518): existing global Pepsi Max identity, newly retailer-
+linked to Marks SUPA IGA, 47-51 High Street, Mansfield VIC 3722. The store page
+matches brand, no-sugar variant and 2L bottle; it does not assert a GTIN. This is
+listing evidence only. Accepted package/manufacturer nutrition is unchanged.
+https://mansfieldiga.com.au/lines/pepsi-max-2l
+No IGA or Aldi private-label membership/ownership is added. It is excluded from
+IGA browse while remaining searchable globally under Pepsi Max.
+Meredith Dairy Marinated Goat Cheese 320g: discovered on IGA Nathalia's cheese
+category page; deferred without a verified exact manufacturer/formulation join.
+A possible existing 320g canonical overlap (9317320100039), plus other 550g and
+unsized frozen identities, was identified; no duplicate was minted or merged.
+https://iganathalia.com.au/category/cheese-1
+Direct HTTP captures for local Myfoodlink store pages returned 403. Usable public
+web-reader facts are labelled separately; failed responses are retained and are
+not represented as successful HTML or nutrition captures. No bypass was attempted.
+
+11. CANONICAL, DUPLICATE AND CONFLICT ACCOUNTING
+Global canonical count remains 7,494; 0 new identities; 9 existing record overlays.
+Three global product shards change only reviewed relationship/category metadata.
+28 confirmed existing manifest overlaps; possible unresolved joins are separate.
+Zero duplicate evidence rows were added or collapsed. Both global and IGA indexes
+refer to the same canonical keys. Same-GTIN pack/formulation conflicts still block
+logging. No energy averaging, source-priority bypass or safety weakening occurred.
+
+12. CATEGORY RESULTS
+Shared, opt-in whole-product rules project Colby Cheese to Cheese, and Sourdough
+Rolls/Rustic Diamond Roll to Bread & Bakery in both global and retailer views.
+No category change is a new product. Negative flavour/ingredient/compound cases
+are regression-tested across IGA, Woolworths, Coles, Aldi and independent brands.
+IGA categories: Bread & Bakery 2; Cheese 2; Yoghurt 1; Breakfast Cereal 1;
+Non-alcoholic Drinks 1; Other Packaged Food 1 (chia seeds).
+
+13. NUTRITION, UNKNOWN, PREPARATION AND SERVING SAFETY
+All nine improved records retain exact accepted nutrient, identity, serving,
+physical-form and nutrition-basis facts. No nutrient values are added or changed.
+Missing chia sodium remains missing; printed cola zero fat/sugar stays zero.
+All IGA solids expose grams/defensible source serves, with no mL/litre/cup or
+invented slice/piece. Cola keeps liquid measures. No pack-derived item count.
+Farmdale 250mL = 155Cal/648kJ and fibre unavailable; Market Fare prepared boiled/
+drained vegetables 100g = 64Cal/268kJ, fibre 3.9g; Pepsi Max 250mL = 1Cal/5kJ are
+preserved. Woolworths mixed vegetables, Campbell's stock and McCain remain intact.
+An existing generic AFCD frozen-vegetable household cup/halfCup choice was found
+in rendered testing. Exact accepted-SOURCE browser comparison proves it unchanged;
+this is recorded separately from the new branded-product measure gate.
+No micronutrient or Nutrition Details UI project was undertaken.
+
+14. FINAL IGA COUNTS
+Visible 8; loggable 8; restricted 0; occupied categories 6; verified families 2;
+Other Packaged Food 1. Private-label families: Black & Gold 3, Community Co 5.
+The retained adapter also carries one independent listing for search/provenance,
+which is excluded from these private-label browse counts.
+
+15. BANNER COUNTS
+No duplicated banner catalogues. All aliases reach the same eight-item family
+collection. The single independent listing has SUPA IGA/Mansfield context, not a
+banner-wide inventory or stock count. Manual founder validation remains practical.
+
+16. PRIOR RETAILER ANTI-REGRESSION
+Retailer    Visible Loggable Restricted Categories Families Other
+Woolworths  363     348      15         20         11       36
+Coles       417     417      0          19         15       61
+Aldi        224     224      0          18         34       25
+Woolworths Bread & Bakery remains 35. Every retained visible record, category and
+family descriptor compares exactly with the fresh accepted SOURCE baseline.
+
+17. SEARCH AND VOICE-INTENT RESULTS
+All requested retailer phrases pass shared text/voice-intent normalisation.
+Six representative spellings pass actual rendered root navigation. Black & Gold
+and Community Co remain reachable through global consumer-brand browse. Exact
+Quick Oats, Colby Cheese and Pepsi Max reach one final Review. Bread, Milk, Cereal,
+Crackers, Cheese, Frozen Vegetables, Frozen Chips, Coffee, Sausage and Chicken
+retain generic routes and complete ten further Reviews. No microphone/physical
+iPhone session was claimed; these are parser and disposable Edge UI checks.
+
+18. LOADING AND NAVIGATION
+All Items + six categories + two families: nine rendered routes pass.
+Empty category and empty family settle explicitly. Injected stalled loads settle
+to retry in 15.341s; rejected loads in 84ms; both retries recover one yoghurt.
+A delayed Bread response after Back/cereal selection cannot replace Cereal.
+Rapid switching to Coles also passes. No indefinite Loading foods was observed.
+
+19. PROTECTED DATA
+2,610 protected SOURCE files hash-identical: frozen OFF, AFCD/AUSNUT-related data,
+restaurant sources, unrelated retailer payloads and deployment templates.
+New public evidence is confined to data/catalogue-wave-4a/public, capture indexes
+and reviewed evidence. No TEST/MY DATA repository, personal storage or backup was
+opened or modified. Browser contexts use disposable storage with local SOURCE
+responses; the yellow TEST banner in screenshots is a fixture, not a deployment.
+
+20. FOCUSED TESTS
+158 tests passed; 0 failed/skipped/cancelled. Includes new Wave 4A, prior Wave 3A,
+same-GTIN, retailer architecture/loading, global builder determinism, concept
+resolution, serving/physical form, release coherence, protected bytes and retailer
+regressions. Standalone initial Wave 4A run: 12/12 passed.
+
+21. RENDERED RESULTS
+Passed at mobile widths 390 and 375: six aliases, nine routes, two empty routes,
+two consumer-brand roots, ten generic Reviews, three exact-product Reviews,
+timeout/retry/error and late navigation. Screenshots visually inspected.
+Evidence: data/catalogue-wave-4a/verification/rendered/wave-4a-rendered.json.
+
+22. COMPLETE SOURCE ACCEPTANCE
+One 55-file complete SOURCE run: 1,121 tests, initially 1,119 passed and two
+obsolete historical metadata assertions failed; zero skipped/cancelled. The two
+affected test files were repaired and rerun: 21/21 passed. Combined acceptance
+accounts for all 1,121 tests with zero unresolved failures. No production bytes
+changed, and no second complete run was performed. Original failed results and
+targeted repair logs remain retained alongside acceptance-resolution.json.
+
+23. FAILURES AND FIXES
+Initial adapter directory omitted Other because it used only the historical base
+category list. Fixed before the gates by including the existing shared extra
+categories; chia seeds now appears and all eight identities are counted.
+Initial browser harness wrongly applied branded measure restrictions to generic
+AFCD household measures. Exact accepted-SOURCE comparison established unchanged
+behaviour; the harness now records that distinction. The original failure and
+screenshot are retained. No production serving code was changed.
+The Wave 3A projection-only assertion was made explicitly historical: it checks
+the recorded Wave 3A ledger, while Wave 4A checks current exact prior-retailer
+records and the nine authorised global metadata overlays. Nutrition safeguards
+are retained. Two complete-suite assertions likewise expected historical records
+without the new IGA metadata. Their shared test helper first validates the entire
+current record against the exact pinned Wave 4A overlay, then compares the prior
+record; it does not blindly ignore relationship or nutrition fields. Both affected
+files pass in the targeted rerun. There is no application search-engine or loading-
+code rewrite. New hashed evidence/shards have explicit LF/binary Git attributes
+to preserve their bytes on Windows checkout.
+
+24. COMMIT CHECKPOINT
+Intended single local SOURCE commit subject: Build IGA Australia catalogue foundation
+Required parent: c5393ae8d9f09c5feb8a7aa72e4045c927dc9f7d
+Release generation: f7490f9daa9d256e8dfb3cb6; visible version 0.6.33.
+The resulting SHA and post-commit clean-tree check are supplied in the final chat
+report; a commit cannot embed its own SHA in tracked content. No amend or push.
+
+25. DEPLOYMENT CONFIRMATION
+No push. No deployment. TEST v61 (4fd9e1379dc1079270581a4a0941dda922badf3f)
+and MY DATA v15 (d6658886df5b8a3335cafbd4aaaa42904fedbeb0) untouched.
+No personal storage or backups accessed. No MY DATA promotion.
+
+26. BACKLOG
+Shared retailer internal search/filter; Friendly Grocer and other independent/
+regional supermarket investigation; missing IGA milk, biscuits/crackers, spreads,
+canned, frozen vegetables/potato, rice and ready-meal evidence; exact preparation/
+serving basis for held records; deeper independent-brand discovery. Existing
+generic household-measure consistency and micronutrient completeness/display
+remain separate backlog items. Later national-manufacturer wave: Sanitarium,
+Kellogg's, Uncle Tobys, Carman's, Arnott's, Bega, Heinz, Campbell's, MasterFoods,
+SPC, Four'N Twenty, McCain, Birds Eye, Inghams, Steggles, Moccona, Nescafe and other
+verified Australian-market brands. Google AI list remains discovery-only.
+Neither Friendly Grocer nor that broader manufacturer wave was implemented.
+
+27. RECOMMENDATION
+SAFE FOR MYRON/MAL SOURCE REVIEW AND SEPARATE TEST DEPLOYMENT, subject to
+the final single-commit and clean-tree proof supplied in chat. This is an eight-
+product foundation with explicit evidence gaps, not completed IGA assortment
+coverage. No deployment is authorised or performed by this source-only wave.

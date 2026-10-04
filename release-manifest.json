@@ -1,5 +1,5 @@
 {
-  "generation": "8306466fcc410bf3cf384ae7",
+  "generation": "f7490f9daa9d256e8dfb3cb6",
   "version": "0.6.33",
   "runtime": [
     "installation-config.js",
@@ -31,6 +31,7 @@
     "off-catalogue.js",
     "coles-au-catalogue.js",
     "aldi-au-catalogue.js",
+    "iga-au-catalogue.js",
     "brand-au-catalogue.js",
     "brand-catalogue.js",
     "guided-branching.js",
@@ -45,7 +46,7 @@
     "alpha064.js"
   ],
   "files": {
-    "index.html": "2f55dec437137ce57d3aedf4f2a35dd39836924e6df1483a5b18278f1b4cf02b",
+    "index.html": "098187c4552399a68d91ffad66aab35bcb4d850bb29ecff9c9ee3e03644eb02f",
     "installation-config.js": "e04cd8e2625d202b3833aa4f15077489128c1b50780aebf866890baf2b29a9f7",
     "config.js": "5917c660ff0a2bca08efe8029a74ea7a566e34719c27e09fc143390549a26895",
     "installation-foundation.js": "dc71c1e21e8971a650e1f287cb9e9dcf634592586836a4e7dfd688c74d28fb7f",
@@ -58,7 +59,7 @@
     "weight-progress-foundation.js": "5b6b7818bbbc5ac41df685747d6bdcbb46e1ec1e727b6f42109117a5518d7c7f",
     "nutrition-trends-foundation.js": "1c0a338f04fff58d9ea85dd0cac03bb057bb355194bf20f6905be1fe4549e2b1",
     "app.js": "8fc4061605e14c014c456274cd9b50f393be7eb3768f0a3ca715e69bf22c2196",
-    "entity-registry.js": "eec3b44c9f4a35bf1dc8b415412223fcd641614d8de8da1fbf731113d5f6bddb",
+    "entity-registry.js": "e553577e2271ea479caf9dd66260dcfb840b353cb5f39e89affcc6601911ca01",
     "search-foundation.js": "461cbe66be1d08bc8723d80818876be347fd5118c6215b57bdabc6cd2717d06d",
     "product-serving-semantics.js": "35734e07540429ce77d1da99f643acc77325d71b1edf3a75db0a2de7b2e602d2",
     "food-sources.js": "ce47dfe59913769db42d0ea7b1f551bbac1e832f9ac18f9c1f57ef0790d4b4e5",
@@ -75,7 +76,8 @@
     "off-catalogue.js": "2cc88fbc05ee810a903ce6e0e17daf820a5b1a7ad55d7f80eb9437496816c37d",
     "coles-au-catalogue.js": "a0265ac872107bcc565fbdd543be3a44fb6a5525058085bc4f83f59bcb597aa4",
     "aldi-au-catalogue.js": "a5b9561e8d0675bc8a4424ecbe1411856fe2b60fd3b3263bdc55b2d883ad15e6",
-    "brand-au-catalogue.js": "6bb8509c19deb0a56466992e305b217e2d1258b863ad3a317ad5138ce8517d59",
+    "iga-au-catalogue.js": "fd1d8d349a8155228cc4a82f4681a1f853dadaccdff4d7cab0d44f8ee404d79a",
+    "brand-au-catalogue.js": "099d2df0255781e7032a1c5f954886347bbbb888ffe9a2988e036a59f99ec090",
     "brand-catalogue.js": "79d7fc919a3748142e76bd0266ee16711ba3b1b216d2920a295d96bb4624cc59",
     "guided-branching.js": "fc6883c9a34fd19dda80b3f3c2289f01f092a4c6456f196bf2b85c256669eeb0",
     "packaged-foods.js": "81d1f8100edc2d3975af86800ce4bb69ea212967a493b2e75083e4c1c9f0a228",

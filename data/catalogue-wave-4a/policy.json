@@ -1,0 +1,18 @@
+{
+  "wave": "4A",
+  "inputs": {
+    "candidate-manifest.json": "38fd25bbf7440f1ff1d6a8a4448d8cd6ce15b96bb2f5c6e2eba1aaa264737a12",
+    "baseline-records.json": "b914e3f5b8cd2b6af4339dbca07636f5edc05a4a3dab100e920efdd3740031ae",
+    "independent-baseline.json": "677c20ecd1f06a904bed69d2311e3be2b10c559fc2c5ee966033f2f1a240d9d9",
+    "reviewed-evidence.json": "f45b0c795d9770c2aefeb105e83bc86a3d7bf1213a3d24209898a4c7b836b8ff",
+    "public-captures.json": "d89d327d8ee1c16e75fb4b6a5a259554fbe89e528da7cb7c3671a9874fd202d8",
+    "supplemental-captures.json": "2a8cefd5cc76b185757dd715d657add31a06ef7460bc492079439712e575f156"
+  },
+  "licensing": {
+    "privateTestingApproved": true,
+    "publicReleaseReviewRequired": true,
+    "nutritionAttribution": "Open Food Facts contributors; existing ODbL 1.0 / DbCL 1.0 and package/manufacturer provenance retained",
+    "publicEvidence": "IGA, Metcash and participating stores; public access is not a redistribution licence"
+  },
+  "scope": "One IGA family, private-label browse, scoped listing evidence. Product availability remains unknown."
+}

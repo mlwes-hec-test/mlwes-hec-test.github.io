@@ -40,7 +40,8 @@ test('all three retailer totals and each cross-retailer category consequence rec
 });
 test('all moved existing products retain exact identity, nutrients, measures and ownership',async()=>{
  for(const kind of ['aldi','coles','woolworths']){const foods=await all(kind);for(const old of input.baseline[kind].other){const f=foods.find(f=>C.canonicalKey(f)===C.canonicalKey(old));assert(f);for(const key of ['id','barcode','brand','name','nutrients','units','unitLabels','sourceProvenance','sourceNutritionBasis','manufacturerServing','retailerMemberships','privateLabelCollections'])assert.deepEqual(f[key],old[key],old.name+' '+key);}}
- const audit=await require('../scripts/report_catalogue_wave_3a').derive();assert.equal(audit.projectionDiff.length,52);assert.equal(audit.global.categoryChanges,30);
+ // Wave 3A's recorded projection is historical. Wave 4A independently checks all current retailer facts and the nine explicitly reviewed global overlays.
+ const audit=require('../data/catalogue-wave-3a/final-report.json');assert.equal(audit.projectionDiff.length,52);assert.equal(audit.global.categoryChanges,30);
 });
 test('new exact brand products are globally reachable and every index entry matches its shard',async()=>{
  for(const food of report.admissions){const query=food.name.startsWith(food.brand)?food.name:food.brand+' '+food.name,results=await B.search(query,{limit:100});assert(results.foods.some(f=>C.canonicalKey(f)===C.canonicalKey(food)),query);}

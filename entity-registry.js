@@ -15,7 +15,7 @@
     {id:'woolworths',type:'retailer',name:'Woolworths',aliases:['woolworths','woolies','woolworths metro','woolies metro'],sourceMode:'commercial',route:'store'},
     {id:'coles',type:'retailer',name:'Coles',aliases:['coles','coles local'],sourceMode:'commercial',route:'store'},
     {id:'aldi',type:'retailer',name:'ALDI',aliases:['aldi'],sourceMode:'commercial',route:'store'},
-    {id:'iga',type:'retailer',name:'IGA',aliases:['iga','independent grocers of australia','supa iga','iga x press','iga xpress'],sourceMode:'commercial',route:'store'},
+    {id:'iga',type:'retailer',name:'IGA',aliases:['iga','independent grocers of australia','supa iga','super iga','iga local grocer','iga x press','iga xpress'],sourceMode:'commercial',route:'store'},
     {id:'costco',type:'retailer',name:'Costco',aliases:['costco','costco wholesale'],sourceMode:'commercial',route:'store'},
     {id:'foodworks',type:'retailer',name:'FoodWorks',aliases:['foodworks','food works'],sourceMode:'commercial',route:'store'},
     {id:'drakes',type:'retailer',name:'Drakes Supermarkets',aliases:['drakes','drakes supermarkets'],sourceMode:'commercial',route:'store'},

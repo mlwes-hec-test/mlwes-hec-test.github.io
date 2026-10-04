@@ -1,0 +1,43 @@
+{
+  "phase": "focused",
+  "pass": true,
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "generation": "f7490f9daa9d256e8dfb3cb6",
+  "startedAt": "2026-10-04T21:05:15.582Z",
+  "completedAt": "2026-10-04T21:06:05.195Z",
+  "testFiles": [
+    "tests/catalogue-wave-4a.test.js",
+    "tests/catalogue-wave-3a.test.js",
+    "tests/same-gtin-identity-safety.test.js",
+    "tests/retailer-architecture.test.js",
+    "tests/retailer-loading.test.js",
+    "tests/brand-generation.test.js",
+    "tests/product-serving-semantics.test.js",
+    "tests/physical-form-measure-compatibility.test.js",
+    "tests/food-concept-resolution.test.js",
+    "tests/release-coherence.test.js"
+  ],
+  "command": [
+    "C:\\Users\\mlwes\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+    "--test",
+    "--test-concurrency=2",
+    "tests/catalogue-wave-4a.test.js",
+    "tests/catalogue-wave-3a.test.js",
+    "tests/same-gtin-identity-safety.test.js",
+    "tests/retailer-architecture.test.js",
+    "tests/retailer-loading.test.js",
+    "tests/brand-generation.test.js",
+    "tests/product-serving-semantics.test.js",
+    "tests/physical-form-measure-compatibility.test.js",
+    "tests/food-concept-resolution.test.js",
+    "tests/release-coherence.test.js"
+  ],
+  "tests": 158,
+  "passed": 158,
+  "failed": 0,
+  "skipped": 0,
+  "cancelled": 0,
+  "logSha256": "5cdf25d9c3a2d2e90743d03339bc8284056c460e9865facb2cdf619ec26d50d9"
+}

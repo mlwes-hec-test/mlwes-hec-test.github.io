@@ -1,0 +1,47 @@
+[
+  {
+    "id": "date-crackers-front",
+    "url": "https://cdn.metcash.media/image/upload/w_1500,h_1500,c_pad,b_auto/igashop/images/545563.jpg",
+    "retrievedAt": "2026-10-04T20:53:02.752Z",
+    "status": 200,
+    "file": "public/date-crackers-front.jpg",
+    "sha256": "208c828c6c9f2f7484440b5bc4c0df9569d66886cb829f5283f1942b6e1157f6",
+    "usable": true
+  },
+  {
+    "id": "date-crackers-panel",
+    "url": "https://cdn.metcash.media/image/upload/w_1500,h_1500,c_pad,b_auto/igashop/images/545563_1.jpg",
+    "retrievedAt": "2026-10-04T20:53:03.676Z",
+    "status": 200,
+    "file": "public/date-crackers-panel.jpg",
+    "sha256": "13d054f859f41aa01273c5da71b6a9ff7b159d2144d57d89c7411a0683f5fa9f",
+    "usable": true
+  },
+  {
+    "id": "milk-3l-front",
+    "url": "https://communityco.com.au/wp-content/uploads/2024/11/Community-Co-Full-Cream-Milk-3L.png",
+    "retrievedAt": "2026-10-04T20:53:04.401Z",
+    "status": 200,
+    "file": "public/milk-3l-front.png",
+    "sha256": "ab9d36176612f8c6d8390a7fb9e293a9f4cb2f912eafaeca77757c400febfe2a",
+    "usable": true
+  },
+  {
+    "id": "pepsi-mansfield",
+    "url": "https://mansfieldiga.com.au/lines/pepsi-max-2l",
+    "retrievedAt": "2026-10-04T20:53:04.634Z",
+    "status": 403,
+    "file": "public/pepsi-mansfield.html.gz",
+    "sha256": "c029d1c560ecb35bbb632f9f7102907b41a289e258055d477f92e21884f9ab79",
+    "usable": false
+  },
+  {
+    "id": "meredith-nathalia",
+    "url": "https://iganathalia.com.au/category/cheese-1",
+    "retrievedAt": "2026-10-04T20:53:05.050Z",
+    "status": 403,
+    "file": "public/meredith-nathalia.html.gz",
+    "sha256": "c029d1c560ecb35bbb632f9f7102907b41a289e258055d477f92e21884f9ab79",
+    "usable": false
+  }
+]

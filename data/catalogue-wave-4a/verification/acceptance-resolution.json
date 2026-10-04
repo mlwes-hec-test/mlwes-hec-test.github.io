@@ -1,0 +1,24 @@
+{
+  "pass": true,
+  "generation": "f7490f9daa9d256e8dfb3cb6",
+  "completeRuns": 1,
+  "completeRun": {
+    "tests": 1121,
+    "passedInitially": 1119,
+    "failedInitially": 2,
+    "result": "acceptance-result.json",
+    "logSha256": "12732b5372f5ba08e53c1adc19b4d8200931647b0a3a4a00cc195cc507933f24"
+  },
+  "targetedRepair": {
+    "tests": 21,
+    "passed": 21,
+    "failed": 0,
+    "result": "acceptance-targeted-repair.json",
+    "logSha256": "766d74d1db2422492d8c00d6c975b75b4595502bdc441287d35119ac4f2acdb5"
+  },
+  "unresolvedFailures": 0,
+  "skipped": 0,
+  "cancelled": 0,
+  "productionBytesChangedAfterCompleteRun": false,
+  "reason": "Both failures were obsolete whole-record assertions. Current records must now match the exact pinned Wave 4A overlay before historical facts are compared. All original nutrient/conflict/unknown gates remain."
+}
