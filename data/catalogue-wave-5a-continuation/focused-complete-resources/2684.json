@@ -1,0 +1,46 @@
+{
+  "argv": [
+    "C:\\Users\\mlwes\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+    "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\tests\\post-kfc-search-regressions.test.js"
+  ],
+  "start": {
+    "rss": 43634688,
+    "heapTotal": 6283264,
+    "heapUsed": 4222024,
+    "external": 1626770,
+    "arrayBuffers": 137503
+  },
+  "end": {
+    "rss": 217710592,
+    "heapTotal": 147562496,
+    "heapUsed": 118513096,
+    "external": 4806073,
+    "arrayBuffers": 439889
+  },
+  "peak": {
+    "rss": 362790912,
+    "heapTotal": 284418048,
+    "heapUsed": 191122624,
+    "external": 67889269,
+    "arrayBuffers": 63343083
+  },
+  "samples": 91,
+  "usage": {
+    "userCPUTime": 12515000,
+    "systemCPUTime": 3937000,
+    "maxRSS": 375072,
+    "sharedMemorySize": 0,
+    "unsharedDataSize": 0,
+    "unsharedStackSize": 0,
+    "minorPageFault": 0,
+    "majorPageFault": 537363,
+    "swappedOut": 0,
+    "fsRead": 16091,
+    "fsWrite": 7129,
+    "ipcSent": 0,
+    "ipcReceived": 0,
+    "signalsCount": 0,
+    "voluntaryContextSwitches": 0,
+    "involuntaryContextSwitches": 0
+  }
+}

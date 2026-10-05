@@ -172,6 +172,9 @@
     const concepts=categoryConcepts(food),name=norm(food?.name),serving=norm(`${food?.servingSize||''} ${food?.packageServingText||''} ${food?.serving||''}`),units=food?.units||{};
     const hasConcept=pattern=>[...concepts].some(value=>pattern.test(value));
     const result=(form,confidence)=>({form,confidence,primaryUnit:form==='liquid'?'mL':form==='spread'||/weight$/.test(form)||form==='unknown'?'g':food?.defaultUnit||'serve'});
+    const discovery=global.HECCatalogueDiscovery||(typeof require==='function'?require('./catalogue-discovery'):null);
+    // Recheck hydrated records without changing an importer’s raw nutrition basis.
+    if(food?.nutritionPer100Unit&&discovery?.readyToDrink(food))return result('liquid','ready-to-drink-evidence');
     const legacyCatalogueInference=/open food facts/i.test(food?.source||'')&&!food?.physicalFormSource;
     if(Object.hasOwn(FORM_PROFILES,food?.physicalForm)&&food?.physicalFormSource!=='inferred-source-units'&&!legacyCatalogueInference)return result(food.physicalForm,'catalogue-physical-form');
     if(hasConcept(/^(?:spread|margarine|nut butter|seed butter|butter)$/)||/\b(?:margarine|nut butter|seed butter|peanut butter|tahini|spread)\b/.test(name))return result('spread','identity-or-specific-category');
@@ -271,10 +274,22 @@
     }
     return profile.allowed.includes(family)?'':`${family}-measure-incompatible-with-${form.form}-form`;
   }
+  // A published restaurant portion is a nutrition basis in its own right.
+  // A mass reference panel does not require a mass-to-volume conversion when
+  // the selected measure scales that exact, evidenced portion.
+  function officialFixedRestaurantPortion(food,measure){
+    const evidence=food.sourceProvenance,panel=food.sourceNutritionEvidence?.perServing||food.nutritionBasis?.perServing;
+    const energy=panel?.energyKj,parsed=typeof energy==='string'&&energy.trim()?Number(energy.replace(/[,\s]/g,'')):energy;
+    const basis=food.nutritionBasis?.semanticBasis||food.servingPolicy?.nutritionBasis;
+    return food.recordType==='food-source'&&evidence?.trustClass==='official-au-restaurant'&&!!evidence.sha256&&!!evidence.url&&
+      ['per-item','per-serve','per-serving'].includes(basis)&&Number.isFinite(parsed)&&parsed>=0&&Math.abs(parsed-Number(food.nutrients?.energyKj))<.01&&
+      measure.key===food.lockedServingUnit&&Number(measure.multiplier)===1&&Number(food.units?.[measure.key])===1&&
+      ['countable','manufacturer'].includes(vocabularyEntry(measure.key,measure.label).family)&&PORTION_PRESET_POLICY.trustedConfidence.includes(measure.confidence);
+  }
   function finalCompatibilityFirewall(food,candidates,form=physicalForm(food)){
-    const rawBasis=food.sourceNutritionBasis||food.nutritionBasis,per100Unit=normalizeMeasure(rawBasis?.per100Context==='as-prepared'&&rawBasis.selectedBasis==='perServing'?rawBasis.servingUnit:food.nutritionPer100Unit||rawBasis?.per100Unit||(/per[ -]?100[ -]?ml/i.test(typeof rawBasis==='string'?rawBasis:'')?'mL':'')),weightEvidence=food.unitOrigins?.g,hasTrustedWeightConversion=Number(food.units?.g)>0&&PORTION_PRESET_POLICY.trustedConfidence.includes(weightEvidence?.confidence)&&/density|weight conversion/i.test(`${weightEvidence?.origin||''} ${weightEvidence?.derivation||''}`),nutritionBasisConflict=per100Unit==='mL'&&!['liquid','unknown'].includes(form.form)&&!hasTrustedWeightConversion;
+    const rawBasis=food.sourceNutritionBasis||food.nutritionBasis,per100Unit=normalizeMeasure(rawBasis?.per100Context==='as-prepared'&&rawBasis.selectedBasis==='perServing'?rawBasis.servingUnit:food.nutritionPer100Unit||rawBasis?.per100Unit||(/per[ -]?100[ -]?ml/i.test(typeof rawBasis==='string'?rawBasis:'')?'mL':'')),weightEvidence=food.unitOrigins?.g,hasTrustedWeightConversion=Number(food.units?.g)>0&&PORTION_PRESET_POLICY.trustedConfidence.includes(weightEvidence?.confidence)&&/density|weight conversion/i.test(`${weightEvidence?.origin||''} ${weightEvidence?.derivation||''}`),massLiquidReference=form.form==='liquid'&&per100Unit==='g',fixedPortion=massLiquidReference&&candidates.some(m=>officialFixedRestaurantPortion(food,m)),nutritionBasisConflict=(per100Unit==='mL'&&!['liquid','unknown'].includes(form.form)&&!hasTrustedWeightConversion)||(massLiquidReference&&!fixedPortion&&!(food.unitOrigins?.mL&&/density|volume conversion/i.test(JSON.stringify(food.unitOrigins.mL))&&PORTION_PRESET_POLICY.trustedConfidence.includes(food.unitOrigins.mL.confidence)));
     const safe=[],rejected=[...(food.quarantinedMeasures||[])];
-    for(const candidate of candidates){const reason=nutritionBasisConflict?'nutrition-basis-volume-conflict-with-solid-form':compatibilityReason(candidate,form,food);if(reason){const item={...candidate,rejectionReason:reason};if(!rejected.some(old=>old.key===item.key&&old.multiplier===item.multiplier&&old.rejectionReason===reason))rejected.push(item);}else safe.push(enrichChoice(candidate,food,form));}
+    for(const candidate of candidates){const reason=nutritionBasisConflict?'nutrition-basis-volume-conflict-with-solid-form':fixedPortion&&!officialFixedRestaurantPortion(food,candidate)?'fixed-restaurant-portion-has-no-volume-conversion':compatibilityReason(candidate,form,food);if(reason){const item={...candidate,rejectionReason:reason};if(!rejected.some(old=>old.key===item.key&&old.multiplier===item.multiplier&&old.rejectionReason===reason))rejected.push(item);}else safe.push(enrichChoice(candidate,food,form));}
     const equivalent=(a,b)=>{const ac=a.conversionToBase||{},bc=b.conversionToBase||{},sameBase=ac.baseUnit&&ac.baseUnit===bc.baseUnit&&Math.abs(Number(ac.baseQuantity)-Number(bc.baseQuantity))<.0001,sameNutrition=Math.abs(Number(a.multiplier)-Number(b.multiplier))<.000001,oneManufacturer=[a,b].some(item=>item.physicalFamily==='manufacturer'),oneNatural=[a,b].some(item=>['countable','sliced'].includes(item.physicalFamily));return sameBase&&sameNutrition&&oneManufacturer&&oneNatural;};
     const merged=[];for(const item of safe){const duplicate=merged.find(existing=>equivalent(existing,item));if(!duplicate){merged.push(item);continue;}const keepNatural=duplicate.physicalFamily==='manufacturer'&&item.physicalFamily!=='manufacturer';if(keepNatural){merged.splice(merged.indexOf(duplicate),1,item);rejected.push({...duplicate,rejectionReason:'equivalent-natural-and-manufacturer-measure-merged'});}else rejected.push({...item,rejectionReason:'equivalent-natural-and-manufacturer-measure-merged'});}
     merged.sort((a,b)=>a.displayPriority-b.displayPriority||a.label.localeCompare(b.label));
@@ -282,7 +297,7 @@
     if(food.servingPolicy)food.servingPolicy={...food.servingPolicy,allowedUnits:[...food.allowedUnits]};
     if(!food.units[food.lockedServingUnit])delete food.lockedServingUnit;
     if(!food.units[food.defaultUnit]){food.defaultUnit=merged[0]?.key||'';food.defaultAmount=['g','mL'].includes(food.defaultUnit)?100:1;}food.servingDefaultUnit=food.defaultUnit;food.fractionUnits=(food.fractionUnits||[]).filter(key=>food.units[key]);
-    if(nutritionBasisConflict||!merged.length){food.loggable=false;food.nutritionStatus=nutritionBasisConflict?'basis-conflict':food.nutritionStatus||'needs-review';food.entryBlockedReason=nutritionBasisConflict?'This product’s nutrition uses a volume basis that cannot be converted safely to its solid portion. Read the Nutrition Panel, update its barcode, or enter nutrition manually.':'This product needs a supported portion conversion. Read the Nutrition Panel, update its barcode, or enter nutrition manually.';}
+    if(nutritionBasisConflict||!merged.length){food.loggable=false;food.nutritionStatus=nutritionBasisConflict?'basis-conflict':food.nutritionStatus||'needs-review';food.entryBlockedReason=nutritionBasisConflict?'This product’s nutrition basis cannot be converted safely to its physical form. Read the Nutrition Panel, update its barcode, or enter nutrition manually.':'This product needs a supported portion conversion. Read the Nutrition Panel, update its barcode, or enter nutrition manually.';}
     return {measures:merged,rejectedMeasures:rejected,nutritionBasisConflict};
   }
   // Historical kg quantities use the same exact mass as grams, independently

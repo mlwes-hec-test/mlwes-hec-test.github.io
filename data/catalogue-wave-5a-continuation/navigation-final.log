@@ -1,0 +1,41 @@
+Navigation evidence: C:\Users\mlwes\AppData\Local\Temp\hec-nav-repaired-qjVNk0
+✔ returning TEST profile retains real navigation and search ownership at 390x844 (41143.2409ms)
+Navigation evidence: C:\Users\mlwes\AppData\Local\Temp\hec-nav-repaired-jCibBx
+✔ returning TEST profile retains real navigation and search ownership at 320x568 (40334.0829ms)
+✔ readiness audit rejects handled failed readiness (2.3ms)
+✔ readiness audit rejects late registration at settlement (0.3743ms)
+✔ readiness audit rejects missing navigation handler (0.2142ms)
+✔ readiness audit rejects blocked Home after settlement (0.3982ms)
+✔ readiness audit rejects mixed required-core generation (0.3105ms)
+✔ readiness audit rejects mixed active worker generation (0.1894ms)
+✔ readiness audit rejects missing runtime execution (1.5785ms)
+✔ readiness audit rejects lost returning sentinel (0.428ms)
+✔ readiness audit rejects premature interaction exposure (0.3612ms)
+✔ readiness audit fails a never-settling real boundary (23.2971ms)
+✔ settled failed boundary is not accepted as successful readiness (1.6282ms)
+✔ typed and direct Big Mac put the exact product before every other selectable surface (110.0521ms)
+✔ representative exact products use the general exact-first rule (91.3765ms)
+✔ generic Big, burger and wrap queries remain on the broad path (13.6212ms)
+✔ source-card click preserves Big Mac and keeps it first in the filtered source view (45.4908ms)
+✔ clearing only the source product filter opens an honest progressive 211-entry browse (68.9071ms)
+✔ source-only spellings wait for an explicit source-card action (65.0173ms)
+✔ source ranking retains exact identity and the complete loaded scope (25.8705ms)
+✔ clearing the general search invalidates source state and stale live cards (31.0533ms)
+✔ quick-add policy accepts one trusted natural serving with an active destination (36.1838ms)
+✔ quick add blocks missing destination, ambiguous serving, incomplete and configurable foods (4.0682ms)
+✔ quick add blocks uncertain sources and existing safety restrictions (0.5603ms)
+✔ plus quick-add writes one natural serving and remains in Food Library (1.1209ms)
+✔ one click is intercepted once and guarded against double-fire (1.2152ms)
+✔ row or name opens full review while nutrition details and plus remain separate controls (2.0888ms)
+✔ pure McDonald’s source aliases preview the hub and require an explicit action (4.7227ms)
+✔ source plus product and exact Big Mac retain product-first decisions (0.7434ms)
+✔ Back to Categories and Back to All close the keyboard without autofocus (2.4022ms)
+✔ Weight voice affordance and quick actions fit the existing responsive surfaces (0.6274ms)
+ℹ tests 31
+ℹ suites 0
+ℹ pass 31
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 82620.9434

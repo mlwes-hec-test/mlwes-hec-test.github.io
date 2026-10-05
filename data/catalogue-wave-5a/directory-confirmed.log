@@ -1,0 +1,42 @@
+✖ actual directory controller preserves the entire index set despite loaded manufacturer and retailer records (24024.3404ms)
+✔ failed generated shard loading cannot substitute a cached or manufacturer-only directory (17.3885ms)
+✖ every generated brand directory has exactly its admitted identities across all pages and categories (2238.9806ms)
+✔ priority counts, source spellings, Hash Browns membership and exact products remain admitted (133.3074ms)
+✔ raw labels cannot grant admission; accepted manufacturer identities share brand discovery (721.0368ms)
+✔ retailer aliases reuse the admitted canonical GTIN without losing either membership (19.2733ms)
+✔ fresh brand hydration resolves retailer authority, retains OFF evidence and uses canonical Review nutrition (43.0581ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 5
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 29219.7455
+
+✖ failing tests:
+
+test at tests\brand-directory-admission.test.js:17:1
+✖ actual directory controller preserves the entire index set despite loaded manufacturer and retailer records (24024.3404ms)
+  AssertionError [ERR_ASSERTION]: bega: Brand canonical identity needs review: woolworths-au:69286
+      at TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\brand-directory-admission.test.js:22:70)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\brand-directory-admission.test.js:34:1
+✖ every generated brand directory has exactly its admitted identities across all pages and categories (2238.9806ms)
+  Error: Brand canonical identity needs review: woolworths-au:69286
+      at C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\brand-catalogue.js:38:106
+      at async Promise.all (index 3)
+      at async hydrate (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\brand-catalogue.js:29:17)
+      at async Object.page (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\brand-catalogue.js:46:541)
+      at async TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\brand-directory-admission.test.js:39:54)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)

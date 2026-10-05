@@ -1,0 +1,82 @@
+✖ actual directory controller preserves the entire index set despite loaded manufacturer and retailer records (27754.6597ms)
+✔ failed generated shard loading cannot substitute a cached or manufacturer-only directory (15.1002ms)
+✖ every generated brand directory has exactly its admitted identities across all pages and categories (1784.6472ms)
+✔ priority counts, source spellings, Hash Browns membership and exact products remain admitted (115.0797ms)
+✔ raw labels cannot grant admission; accepted manufacturer identities share brand discovery (486.7651ms)
+✔ retailer aliases reuse the admitted canonical GTIN without losing either membership (17.2732ms)
+✔ fresh brand hydration resolves retailer authority, retains OFF evidence and uses canonical Review nutrition (42.707ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 5
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 31389.4749
+
+✖ failing tests:
+
+test at tests\brand-directory-admission.test.js:17:1
+✖ actual directory controller preserves the entire index set despite loaded manufacturer and retailer records (27754.6597ms)
+  TypeError: Cannot read properties of undefined (reading 'key')
+      at Object.au633LoadBrand (evalmachine.<anonymous>:4:158)
+      at TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\brand-directory-admission.test.js:22:23)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+
+test at tests\brand-directory-admission.test.js:34:1
+✖ every generated brand directory has exactly its admitted identities across all pages and categories (1784.6472ms)
+  AssertionError [ERR_ASSERTION]: bega
+  + actual - expected
+  
+    [
+      'barcode:0342053108556',
+  +   'barcode:9300650664012',
+      'barcode:9310052119751',
+      'barcode:9310052333256',
+      'barcode:9310052433208',
+      'barcode:9310052451202',
+      'barcode:9310052551209',
+  
+      at TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\brand-directory-admission.test.js:40:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [
+      'barcode:0342053108556', 'barcode:9300650664012',
+      'barcode:9310052119751', 'barcode:9310052333256',
+      'barcode:9310052433208', 'barcode:9310052451202',
+      'barcode:9310052551209', 'barcode:9310052751203',
+      'barcode:9310053108327', 'barcode:9310053108495',
+      'barcode:9310053108556', 'barcode:9310264107584',
+      'barcode:9310264107591', 'barcode:9310264109588',
+      'barcode:9310264111277', 'barcode:9310264115886',
+      'barcode:9310264605363', 'barcode:9310264911099',
+      'barcode:9310264912751', 'barcode:9310264912768',
+      'barcode:9310264912775', 'barcode:9310264912850',
+      'barcode:9352042000168', 'barcode:9352042000199',
+      'barcode:9352042000243', 'barcode:9352042001189',
+      'barcode:9352042002148', 'barcode:9352042002599',
+      'barcode:9352042004234', 'barcode:93552516'
+    ],
+    expected: [
+      'barcode:0342053108556', 'barcode:9310052119751',
+      'barcode:9310052333256', 'barcode:9310052433208',
+      'barcode:9310052451202', 'barcode:9310052551209',
+      'barcode:9310052751203', 'barcode:9310053108327',
+      'barcode:9310053108495', 'barcode:9310053108556',
+      'barcode:9310264107584', 'barcode:9310264107591',
+      'barcode:9310264109588', 'barcode:9310264111277',
+      'barcode:9310264115886', 'barcode:9310264605363',
+      'barcode:9310264911099', 'barcode:9310264912751',
+      'barcode:9310264912768', 'barcode:9310264912775',
+      'barcode:9310264912850', 'barcode:9352042000168',
+      'barcode:9352042000199', 'barcode:9352042000243',
+      'barcode:9352042001189', 'barcode:9352042002148',
+      'barcode:9352042002599', 'barcode:9352042004234',
+      'barcode:93552516'
+    ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

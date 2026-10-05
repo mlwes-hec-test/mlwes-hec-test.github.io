@@ -24,7 +24,7 @@ function convert(raw,policy,sourcePolicy){
   food.evidenceConflicts=C.sourceConflicts(food);if(food.evidenceConflicts.length){food.loggable=false;food.nutritionStatus='needs-review';food.entryBlockedReason='Published serving or nutrition evidence disagrees. Review the source before logging.';}
   S.applyToFood(food);return food;
 }
-function outputs(){
+function baseOutputs(){
   const policy=read('source-policy.json'),facts=read('public-products.json'),off=read('off-corroboration.json'),byId=new Map(facts.records.map(r=>[r.sourceRecordId,r]));
   const official=policy.products.map(p=>convert(byId.get(p.sourceRecordId),p,policy)),quarantine=official.filter(f=>!f.barcode).map(f=>({id:f.id,barcode:f.sourceBarcode,reason:'Invalid GTIN: source-specific identity only; never used for exact GTIN joining.'}));
   const valid=new Set(official.map(f=>f.barcode).filter(Boolean)),corroboration=off.matches.filter(m=>valid.has(m.record.barcode)).map(m=>{
@@ -39,6 +39,7 @@ function outputs(){
   const canonical=C.canonicaliseRecords(groups.flat()),eligibility=f=>C.productEligibility(f).addability.status,report={officialEvidenceRows:official.length,rawEvidenceRows:groups.flat().length,canonicalIdentities:canonical.length,retailerProducts:canonical.length,verifiedGTINs:new Set(official.map(f=>f.barcode).filter(Boolean)).size,categories:policy.categories.length,privateLabel:official.filter(f=>f.commercialIdentities.length).length,nationalBrand:official.filter(f=>!f.commercialIdentities.length).length,eligibility:Object.fromEntries(['loggable-now','needs-nutrition-completion','details-only'].map(key=>[key,canonical.filter(f=>eligibility(f)===key).length])),conflictBlocked:canonical.filter(f=>C.sourceConflicts(f).some(c=>c.severity==='material'&&(!c.resolution||c.resolution==='unresolved'))).length,listingEvidenced:official.length,uncertainAvailability:official.length,exactOFFCorroborations:corroboration.length,identitiesStrengthened:groups.filter(g=>g.length>1).length,unsafeMergesPrevented:canonical.filter(f=>C.sourceConflicts(f).some(c=>c.code==='same-gtin-identity-conflict')).length,invalidGTINQuarantine:quarantine,rawRowsCollapsed:groups.flat().length-canonical.length,excluded:policy.excluded,products:canonical.map(f=>({id:f.id,name:f.name,brand:f.brand,gtin:f.barcode,category:f.category,status:C.productEligibility(f).addability,conflicts:C.sourceConflicts(f).map(c=>({code:c.code,fields:c.fields,resolution:c.resolution})),officialDisplayMatches:official.some(o=>o.barcode===f.barcode&&o.name===f.name&&o.brand===f.brand)}))};
   projected['build-report.json']=JSON.stringify(report,null,2)+'\n';return projected;
 }
+function outputs(){return require('./catalogue-discovery-index').augment(baseOutputs(),'woolworths');}
 function build({check=false}={}){
   const out=outputs();for(const [file,raw]of Object.entries(out)){const target=path.resolve(base,file);if(check){if(fs.readFileSync(target,'utf8')!==raw)throw Error('Generated output differs: '+file);}else{fs.mkdirSync(path.dirname(target),{recursive:true});fs.writeFileSync(target,raw);}}return JSON.parse(out['build-report.json']);
 }

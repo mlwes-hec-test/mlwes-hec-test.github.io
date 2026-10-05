@@ -1,0 +1,46 @@
+✖ every generated record passes identity, GTIN, AU, nutrition, conflicts and unknown preservation (4709.9443ms)
+✔ all admitted source tokens meet reproducible tiers without merging companies or sub-brands (8922.3887ms)
+✔ the wave adds no duplicate OFF identity and retains existing retailer evidence (1997.8158ms)
+✔ known solids never gain liquid measures in the complete generated wave (1795.4522ms)
+✔ brand plus exact product outranks lexical extensions and incomplete records never enter brand browse (378.8048ms)
+✔ brand browse is bounded, category scoped, and all pages cover the complete brand (183.5623ms)
+✔ generic food and retailer intent cannot become an exact-brand catalogue query (4.5469ms)
+✔ a complete indexed brand outranks a shorter registered brand prefix (16.3754ms)
+✔ concept Brand Name options contain accepted relevant products only (434.0053ms)
+✔ source tokens allow secondary explicit brand membership without ownership inference (0.8294ms)
+✔ cancelled asynchronous queries cannot hand off foods (1.8497ms)
+✔ decorated brand sorting preserves the existing complete ranking order (237.7108ms)
+✔ cached raw OFF rows cannot bypass audited brand admission (91.8783ms)
+✔ representative real products retain one amount-to-Review conversion (31.0981ms)
+✔ audited brand generation is byte deterministic and committed outputs match (37225.8656ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 14
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 37683.2362
+
+✖ failing tests:
+
+test at tests\brand-catalogue.test.js:6:1
+✖ every generated record passes identity, GTIN, AU, nutrition, conflicts and unknown preservation (4709.9443ms)
+  AssertionError [ERR_ASSERTION]: off:9300675012089
+  + actual - expected
+  
+  + 'needs-nutrition-completion'
+  - 'loggable-now'
+  
+      at TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\brand-catalogue.test.js:8:1507)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'needs-nutrition-completion',
+    expected: 'loggable-now',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

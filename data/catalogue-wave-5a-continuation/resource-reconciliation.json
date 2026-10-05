@@ -1,0 +1,159 @@
+{
+  "pass": true,
+  "originalFailure": {
+    "file": "tests/catalogue-wave-4a.test.js",
+    "message": "Committing semi space failed",
+    "heapAtFailureMb": 60.8,
+    "gcReason": "external memory pressure",
+    "concurrency": 2
+  },
+  "isolated": [
+    {
+      "test": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\tests\\catalogue-wave-2a.test.js",
+      "peakRssMiB": 1174.50390625,
+      "peakSampledHeapMiB": 360.2982711791992
+    },
+    {
+      "test": "tests/catalogue-wave-4a.test.js",
+      "peakRssMiB": 43.1171875,
+      "peakSampledHeapMiB": 6.293220520019531
+    },
+    {
+      "test": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\tests\\catalogue-wave-3a.test.js",
+      "peakRssMiB": 460.16015625,
+      "peakSampledHeapMiB": 79.1397476196289
+    },
+    {
+      "test": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\tests\\catalogue-wave-4a.test.js",
+      "peakRssMiB": 261.87890625,
+      "peakSampledHeapMiB": 68.7962417602539
+    }
+  ],
+  "runtime": {
+    "pass": true,
+    "rounds": 12,
+    "retainedGrowth": 91216,
+    "samples": [
+      {
+        "round": 0,
+        "rss": 298688512,
+        "heapTotal": 228335616,
+        "heapUsed": 77206664,
+        "external": 1986204,
+        "arrayBuffers": 137467
+      },
+      {
+        "round": 1,
+        "rss": 299274240,
+        "heapTotal": 226762752,
+        "heapUsed": 77123696,
+        "external": 1986244,
+        "arrayBuffers": 137467
+      },
+      {
+        "round": 2,
+        "rss": 298954752,
+        "heapTotal": 227811328,
+        "heapUsed": 77200640,
+        "external": 1986244,
+        "arrayBuffers": 137467
+      },
+      {
+        "round": 3,
+        "rss": 299368448,
+        "heapTotal": 232005632,
+        "heapUsed": 77210896,
+        "external": 1986244,
+        "arrayBuffers": 137467
+      },
+      {
+        "round": 4,
+        "rss": 298102784,
+        "heapTotal": 234102784,
+        "heapUsed": 77197456,
+        "external": 1986244,
+        "arrayBuffers": 137467
+      },
+      {
+        "round": 5,
+        "rss": 297775104,
+        "heapTotal": 230694912,
+        "heapUsed": 77211976,
+        "external": 1986244,
+        "arrayBuffers": 137467
+      },
+      {
+        "round": 6,
+        "rss": 298012672,
+        "heapTotal": 230170624,
+        "heapUsed": 77249120,
+        "external": 1986244,
+        "arrayBuffers": 137467
+      },
+      {
+        "round": 7,
+        "rss": 299495424,
+        "heapTotal": 234627072,
+        "heapUsed": 77212976,
+        "external": 1986244,
+        "arrayBuffers": 137467
+      },
+      {
+        "round": 8,
+        "rss": 298995712,
+        "heapTotal": 232529920,
+        "heapUsed": 77222368,
+        "external": 1986244,
+        "arrayBuffers": 137467
+      },
+      {
+        "round": 9,
+        "rss": 299515904,
+        "heapTotal": 230170624,
+        "heapUsed": 77273096,
+        "external": 1986244,
+        "arrayBuffers": 137467
+      },
+      {
+        "round": 10,
+        "rss": 298016768,
+        "heapTotal": 230957056,
+        "heapUsed": 77274648,
+        "external": 1986244,
+        "arrayBuffers": 137467
+      },
+      {
+        "round": 11,
+        "rss": 299253760,
+        "heapTotal": 231743488,
+        "heapUsed": 77291856,
+        "external": 1986244,
+        "arrayBuffers": 137467
+      }
+    ],
+    "notes": "Same searches and complete retailer paging repeated; forced collection only measures retained data. No heap limit increase."
+  },
+  "conclusion": "Evidence supports execution memory pressure rather than continuing application retention: isolated files finish, the heavy Wave 2A rebuild reaches about 1.2 GiB RSS, and repeated runtime workload stabilises near 74 MiB retained heap. Exact original system commit usage was not captured, so overlapping processes and giant assertion diagnostics are contributing causes inferred from the failure and workload, not a reconstructed OS trace.",
+  "repair": [
+    "Controlled test concurrency 1 (existing repository pattern bounded further)",
+    "Stream stdout/stderr to a file instead of retaining a 100 MiB spawnSync buffer",
+    "Compare complete catalogue facts per identity and field, preserving every assertion while bounding a failing diff",
+    "Retain aggregate per-process memory metrics; no heap-limit increase",
+    "Browser audits already close browsers in finally; new audit closes each context and browser"
+  ],
+  "finalFocused": {
+    "tests": 454,
+    "passed": 454,
+    "failed": 0,
+    "concurrency": 1,
+    "generation": "55fa50a815871079fbb5e674"
+  },
+  "completeAcceptance": {
+    "pass": true,
+    "tests": 1159,
+    "processes": 58,
+    "maxProcessRssMiB": 1448.1640625,
+    "noHeapLimitIncrease": true,
+    "remainingTestProcesses": 0
+  }
+}

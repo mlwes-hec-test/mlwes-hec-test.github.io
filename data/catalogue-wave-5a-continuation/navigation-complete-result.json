@@ -1,0 +1,30 @@
+{
+  "phase": "isolated",
+  "pass": false,
+  "generation": "55fa50a815871079fbb5e674",
+  "startedAt": "2026-10-05T00:45:00.133Z",
+  "completedAt": "2026-10-05T00:47:10.342Z",
+  "exitCode": 1,
+  "signal": null,
+  "tests": 31,
+  "passed": 29,
+  "failed": 2,
+  "skipped": 0,
+  "cancelled": 0,
+  "testFiles": [
+    "tests/navigation-startup-regression.test.js",
+    "tests/rc4-exact-source-navigation.test.js",
+    "tests/rc6-quick-add-navigation.test.js"
+  ],
+  "command": [
+    "C:\\Users\\mlwes\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+    "--require",
+    "./scripts/catalogue-test-resources.js",
+    "--test",
+    "--test-concurrency=1",
+    "tests/navigation-startup-regression.test.js",
+    "tests/rc4-exact-source-navigation.test.js",
+    "tests/rc6-quick-add-navigation.test.js"
+  ],
+  "logSha256": "2a23f657db358cd993c86ba3612f9c3af54938a018bda7d02aab69f34ebb6448"
+}

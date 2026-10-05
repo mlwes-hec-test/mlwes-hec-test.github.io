@@ -1,0 +1,81 @@
+{
+  "aldi": {
+    "total": 224,
+    "changedCategoryCounts": [
+      {
+        "category": "protein",
+        "before": 43,
+        "after": 44
+      },
+      {
+        "category": "spreads",
+        "before": 10,
+        "after": 9
+      }
+    ],
+    "identities": [
+      {
+        "id": "off:4088700176306",
+        "name": "Thinly Sliced Honey Leg Ham",
+        "after": "protein",
+        "rule": {
+          "id": "protein",
+          "label": "Meat & Protein"
+        },
+        "before": "spreads"
+      }
+    ]
+  },
+  "woolworths": {
+    "total": 363,
+    "changedCategoryCounts": [],
+    "identities": []
+  },
+  "coles": {
+    "total": 417,
+    "changedCategoryCounts": [
+      {
+        "category": "spreads",
+        "before": 8,
+        "after": 7
+      },
+      {
+        "category": "snacks",
+        "before": 34,
+        "after": 35
+      },
+      {
+        "category": "protein",
+        "before": 100,
+        "after": 101
+      },
+      {
+        "category": "other-food",
+        "before": 61,
+        "after": 60
+      }
+    ],
+    "identities": [
+      {
+        "id": "off:9310645491882",
+        "name": "Hummus Chips Salt & Pepper",
+        "after": "snacks",
+        "rule": {
+          "id": "snacks",
+          "label": "Snacks & Confectionery"
+        },
+        "before": "other-food"
+      },
+      {
+        "id": "off:9310645217390",
+        "name": "Sliced Honey Style Ham",
+        "after": "protein",
+        "rule": {
+          "id": "protein",
+          "label": "Meat & Protein"
+        },
+        "before": "spreads"
+      }
+    ]
+  }
+}

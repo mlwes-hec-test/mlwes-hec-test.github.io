@@ -1,0 +1,46 @@
+{
+  "argv": [
+    "C:\\Users\\mlwes\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+    "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\tests\\open-food-facts-au-catalogue.test.js"
+  ],
+  "start": {
+    "rss": 44179456,
+    "heapTotal": 6283264,
+    "heapUsed": 4222024,
+    "external": 1626770,
+    "arrayBuffers": 137503
+  },
+  "end": {
+    "rss": 944136192,
+    "heapTotal": 865267712,
+    "heapUsed": 758824920,
+    "external": 2607074,
+    "arrayBuffers": 137643
+  },
+  "peak": {
+    "rss": 944136192,
+    "heapTotal": 865267712,
+    "heapUsed": 769437336,
+    "external": 2607074,
+    "arrayBuffers": 137643
+  },
+  "samples": 16,
+  "usage": {
+    "userCPUTime": 16265000,
+    "systemCPUTime": 1921000,
+    "maxRSS": 922044,
+    "sharedMemorySize": 0,
+    "unsharedDataSize": 0,
+    "unsharedStackSize": 0,
+    "minorPageFault": 0,
+    "majorPageFault": 431633,
+    "swappedOut": 0,
+    "fsRead": 30222,
+    "fsWrite": 220,
+    "ipcSent": 0,
+    "ipcReceived": 0,
+    "signalsCount": 0,
+    "voluntaryContextSwitches": 0,
+    "involuntaryContextSwitches": 0
+  }
+}

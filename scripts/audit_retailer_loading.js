@@ -6,7 +6,7 @@ async function run(){
   const index=require('../'+id+'-au-catalogue').index,d=R.directory(id),families=new Set(index.retailer.houseBrandFamilies.map(f=>f.key));
   // Derive expected membership from complete source facts, independently of runtime postings.
   const raw=index.files.flatMap(s=>require('../data/'+id+'-au/'+s.path).records);
-  const eligible=C.canonicaliseRecords(raw).filter(f=>families.has(C.brandKey(f.brand))&&X.membership(f,id).length&&!f.legacyPreviewOnly&&f.itemStatus!=='retired'&&(!index.selectableOnly||f.browseEligible===true&&C.productEligibility(f).addability.normalLoggingAllowed));
+  const eligible=C.canonicaliseRecords(raw).map(require('../catalogue-discovery').project).filter(f=>families.has(C.brandKey(f.brand))&&X.membership(f,id).length&&!f.legacyPreviewOnly&&f.itemStatus!=='retired'&&(!index.selectableOnly||f.browseEligible===true&&C.productEligibility(f).addability.normalLoggingAllowed));
   const loggable=eligible.filter(f=>C.productEligibility(f).addability.normalLoggingAllowed).length;
   report.retailers[id]={visible:eligible.length,loggable,restricted:eligible.length-loggable,categories:d.categories.length,brands:d.brands.length};
   assert.equal(d.total,eligible.length);

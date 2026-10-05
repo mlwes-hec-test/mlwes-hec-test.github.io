@@ -1,0 +1,20 @@
+{
+  "pass": true,
+  "generation": "55fa50a815871079fbb5e674",
+  "scenarios": 60,
+  "viewports": [
+    {
+      "width": 390,
+      "height": 844
+    },
+    {
+      "width": 375,
+      "height": 812
+    },
+    {
+      "width": 320,
+      "height": 568
+    }
+  ],
+  "evidenceSha256": "f030a657b7208ee4c1923d62f2d53b02cc156c1e49bf64cf680a2c582dc1cf66"
+}

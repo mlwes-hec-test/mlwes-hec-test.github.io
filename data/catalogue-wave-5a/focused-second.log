@@ -1,0 +1,81 @@
+✔ real catalogue identity outranks broad beverage ancestry (31.6258ms)
+✔ raw solid mL is quarantined at the final profile and resolved-food boundary (2.5178ms)
+✔ raw solid L is quarantined at the final profile and resolved-food boundary (1.2205ms)
+✔ raw solid cup is quarantined at the final profile and resolved-food boundary (1.0272ms)
+✔ package volume and unsuitable source units cannot redefine a named solid (5.1431ms)
+✔ genuine per-100-mL solid conflict is not relabelled or scaled as grams (3.8198ms)
+✔ valid gram nutrition survives an incompatible source serving (2.0187ms)
+✔ volume aliases are validated by user-facing family, not a countable default (0.8665ms)
+✔ guided Review cannot reintroduce quarantined units (11.993ms)
+✔ voice and typed measure resolution rejects solid volume and accepts supported grams (1.981ms)
+✔ liquid identity preserves volumes and rejects unrelated solid item units (4.3197ms)
+✔ spreads preserve validated household-to-gram measures without becoming liquid (4.743ms)
+✔ sliced food preserves source slice and grams (3.1559ms)
+✔ official restaurant item preserves its natural unit (90.409ms)
+✔ unknown identity with only volume metadata has a conservative completion state (3.4563ms)
+✔ specific short-plural food categories outrank beverage flavour words (1.2904ms)
+✔ specific liquid categories retain milk despite chocolate flavour metadata (0.8385ms)
+✔ powdered milk remains solid despite liquid ancestry (0.2228ms)
+✔ explicit source mL denominator is preserved before semantic normalization (0.8271ms)
+✔ trusted density conversion supports grams without exposing volume for a solid (1.0949ms)
+✔ late carried candidates and legacy allowed lists cross the same firewall (0.9812ms)
+✔ consumedPortion rejects a quarantined carried measure when food is supplied (0.5657ms)
+✔ legacy inferred catalogue form cannot override solid identity (1.6316ms)
+✔ explicit source slice counts on a countable product keep their gram conversion (1.5361ms)
+✔ real McCain product is safe through production search and rendered Portion Choice (13558.842ms)
+✔ exact query ownership retires Cote for Côte (15.4647ms)
+✔ exact query ownership retires Côte for Cote (1.1425ms)
+✔ exact query ownership retires resume for résumé (0.7232ms)
+✔ exact query ownership retires résumé for resume (0.6404ms)
+✔ exact query ownership retires Burgen for Bürgen (0.843ms)
+✔ exact query ownership retires Häagen-Dazs for Haagen-Dazs (0.9082ms)
+✔ exact query ownership retires Milk for milk (2.0173ms)
+✔ exact query ownership retires milk for milk  (1.0805ms)
+✔ exact query ownership retires Bürgen for Bürgen (1.1929ms)
+✔ returning to an earlier exact spelling cannot revive its old ticket (1.0513ms)
+✔ approved retrieval equivalence never defines input identity (0.4641ms)
+✔ production brand cache and late hydration stay owned across Cote → Côte (48.483ms)
+✔ production brand cache and late hydration stay owned across Côte → Cote (8.4878ms)
+✔ production brand cache and late hydration stay owned across resume → résumé (6.2427ms)
+✔ production brand cache and late hydration stay owned across résumé → resume (4.2727ms)
+✔ production brand cache and late hydration stay owned across Burgen → Bürgen (3.8187ms)
+✔ production brand cache and late hydration stay owned across Häagen-Dazs → Haagen-Dazs (3.4163ms)
+✔ currentness checks require exact input even if a caller supplies the current revision (2.5318ms)
+✔ production OFF await rejects a late response after an exact-input edit (5.1946ms)
+✔ production delayed preview cannot revive a retired query (4.463ms)
+✔ production explicit-product hydration ignores a retired owner even with the same local request token (3.1103ms)
+✔ production guided-source hydration rejects a retired central owner (2.9335ms)
+✖ every actual retailer category and house brand has eligible products and settles with exactly those identities (701.4579ms)
+✔ stale category, stale brand and empty intersection settle empty without offering zero choices (2.4659ms)
+✔ unresolved adapter is bounded; late result cannot refill caches or overwrite retry (44.2666ms)
+✔ shard deadline aborts stalled read, evicts rejected promise and allows real retry (13.2444ms)
+✔ loader rejection and catalogue replacement terminate as errors (4.657ms)
+✔ timeout from an old request cannot finish a newer request (27.2721ms)
+ℹ tests 53
+ℹ suites 0
+ℹ pass 52
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 13979.1322
+
+✖ failing tests:
+
+test at tests\retailer-loading.test.js:4:1
+✖ every actual retailer category and house brand has eligible products and settles with exactly those identities (701.4579ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  44 !== 43
+  
+      at Object.run (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\scripts\audit_retailer_loading.js:19:90)
+      at async TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\retailer-loading.test.js:6:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 44,
+    expected: 43,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

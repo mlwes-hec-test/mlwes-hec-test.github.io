@@ -1,0 +1,46 @@
+{
+  "argv": [
+    "C:\\Users\\mlwes\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+    "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\tests\\canonical-search-identity-consistency.test.js"
+  ],
+  "start": {
+    "rss": 43556864,
+    "heapTotal": 6283264,
+    "heapUsed": 4222040,
+    "external": 1626770,
+    "arrayBuffers": 137503
+  },
+  "end": {
+    "rss": 166461440,
+    "heapTotal": 131497984,
+    "heapUsed": 86888296,
+    "external": 7067279,
+    "arrayBuffers": 2694800
+  },
+  "peak": {
+    "rss": 187666432,
+    "heapTotal": 147140608,
+    "heapUsed": 86888296,
+    "external": 31437520,
+    "arrayBuffers": 13502586
+  },
+  "samples": 14,
+  "usage": {
+    "userCPUTime": 2125000,
+    "systemCPUTime": 875000,
+    "maxRSS": 218320,
+    "sharedMemorySize": 0,
+    "unsharedDataSize": 0,
+    "unsharedStackSize": 0,
+    "minorPageFault": 0,
+    "majorPageFault": 103859,
+    "swappedOut": 0,
+    "fsRead": 2124,
+    "fsWrite": 394,
+    "ipcSent": 0,
+    "ipcReceived": 0,
+    "signalsCount": 0,
+    "voluntaryContextSwitches": 0,
+    "involuntaryContextSwitches": 0
+  }
+}

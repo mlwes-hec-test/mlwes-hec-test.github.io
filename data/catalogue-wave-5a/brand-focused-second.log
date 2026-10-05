@@ -1,0 +1,168 @@
+✔ every generated record passes identity, GTIN, AU, nutrition, conflicts and unknown preservation (15416.479ms)
+✔ all admitted source tokens meet reproducible tiers without merging companies or sub-brands (9546.1962ms)
+✔ the wave adds no duplicate OFF identity and retains existing retailer evidence (2515.8835ms)
+✔ known solids never gain liquid measures in the complete generated wave (3346.7257ms)
+✔ brand plus exact product outranks lexical extensions and incomplete records never enter brand browse (322.0195ms)
+✔ brand browse is bounded, category scoped, and all pages cover the complete brand (164.0461ms)
+✔ generic food and retailer intent cannot become an exact-brand catalogue query (2.2645ms)
+✔ a complete indexed brand outranks a shorter registered brand prefix (12.0732ms)
+✔ concept Brand Name options contain accepted relevant products only (509.4397ms)
+✔ source tokens allow secondary explicit brand membership without ownership inference (1.0344ms)
+✔ cancelled asynchronous queries cannot hand off foods (2.4123ms)
+✔ decorated brand sorting preserves the existing complete ranking order (344.5882ms)
+✔ cached raw OFF rows cannot bypass audited brand admission (133.8167ms)
+✔ representative real products retain one amount-to-Review conversion (51.9023ms)
+✖ actual directory controller preserves the entire index set despite loaded manufacturer and retailer records (478062.0388ms)
+✔ failed generated shard loading cannot substitute a cached or manufacturer-only directory (13.9192ms)
+✖ every generated brand directory has exactly its admitted identities across all pages and categories (1.0606ms)
+✖ priority counts, source spellings, Hash Browns membership and exact products remain admitted (7.9599ms)
+✖ brand labels, manufacturer supplements and excluded raw products cannot grant generated-directory admission (1062.1914ms)
+✔ retailer aliases reuse the admitted canonical GTIN without losing either membership (21.9448ms)
+✔ fresh brand hydration resolves retailer authority, retains OFF evidence and uses canonical Review nutrition (19.4162ms)
+✔ audited brand generation is byte deterministic and committed outputs match (65912.7363ms)
+✔ brand query families unite membership without merging variant nutrition identities (439.1326ms)
+✔ bare roots and specific product queries retain distinct ownership (5.0739ms)
+✔ reviewed unsafe beverage identities remain held across all canonical consumers (11.7459ms)
+✔ volume and energy audit 9313820004518 (3.9528ms)
+✔ volume and energy audit 9313820016108 (5.1305ms)
+✔ volume and energy audit 9300675001410 (2.4978ms)
+✔ volume and energy audit 9300675011419 (2.7453ms)
+✔ volume and energy audit 9300675090667 (4.1121ms)
+✔ volume and energy audit 9310021039028 (4.2648ms)
+✔ volume and energy audit 9310077313011 (3.2559ms)
+✔ mass, energy units, printed zero and Unknown remain distinct (4.0752ms)
+✔ food heads outrank ingredient words and unsupported snack-stick classification stays deferred (2.249ms)
+✔ retailer totals, ownership, filtering, paging and category membership stay consistent (4167.2285ms)
+✔ small catalogue navigation is adaptive and large catalogues stay bounded (0.6187ms)
+ℹ tests 36
+ℹ suites 0
+ℹ pass 32
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 480508.6663
+
+✖ failing tests:
+
+test at tests\brand-directory-admission.test.js:14:1
+✖ actual directory controller preserves the entire index set despite loaded manufacturer and retailer records (478062.0388ms)
+  AssertionError [ERR_ASSERTION]: bega
+  + actual - expected
+  
+    [
+      'barcode:0342053108556',
+  +   'barcode:9300650664012',
+      'barcode:9310052119751',
+      'barcode:9310052333256',
+      'barcode:9310052433208',
+      'barcode:9310052451202',
+      'barcode:9310052551209',
+  
+      at TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\brand-directory-admission.test.js:21:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [
+      'barcode:0342053108556', 'barcode:9300650664012',
+      'barcode:9310052119751', 'barcode:9310052333256',
+      'barcode:9310052433208', 'barcode:9310052451202',
+      'barcode:9310052551209', 'barcode:9310052751203',
+      'barcode:9310053108327', 'barcode:9310053108495',
+      'barcode:9310053108556', 'barcode:9310264107584',
+      'barcode:9310264107591', 'barcode:9310264109588',
+      'barcode:9310264111277', 'barcode:9310264115886',
+      'barcode:9310264605363', 'barcode:9310264911099',
+      'barcode:9310264912751', 'barcode:9310264912768',
+      'barcode:9310264912775', 'barcode:9310264912850',
+      'barcode:9352042000168', 'barcode:9352042000199',
+      'barcode:9352042000243', 'barcode:9352042001189',
+      'barcode:9352042002148', 'barcode:9352042002599',
+      'barcode:9352042004234', 'barcode:93552516'
+    ],
+    expected: [
+      'barcode:0342053108556', 'barcode:9310052119751',
+      'barcode:9310052333256', 'barcode:9310052433208',
+      'barcode:9310052451202', 'barcode:9310052551209',
+      'barcode:9310052751203', 'barcode:9310053108327',
+      'barcode:9310053108495', 'barcode:9310053108556',
+      'barcode:9310264107584', 'barcode:9310264107591',
+      'barcode:9310264109588', 'barcode:9310264111277',
+      'barcode:9310264115886', 'barcode:9310264605363',
+      'barcode:9310264911099', 'barcode:9310264912751',
+      'barcode:9310264912768', 'barcode:9310264912775',
+      'barcode:9310264912850', 'barcode:9352042000168',
+      'barcode:9352042000199', 'barcode:9352042000243',
+      'barcode:9352042001189', 'barcode:9352042002148',
+      'barcode:9352042002599', 'barcode:9352042004234',
+      'barcode:93552516'
+    ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\brand-directory-admission.test.js:31:1
+✖ every generated brand directory has exactly its admitted identities across all pages and categories (1.0606ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      7494,
+      2737,
+  +   21
+  -   20
+    ]
+  
+      at TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\brand-directory-admission.test.js:32:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 7494, 2737, 21 ],
+    expected: [ 7494, 2737, 20 ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\brand-directory-admission.test.js:43:1
+✖ priority counts, source spellings, Hash Browns membership and exact products remain admitted (7.9599ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  109 !== 108
+  
+      at TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\brand-directory-admission.test.js:44:99)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 109,
+    expected: 108,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\brand-directory-admission.test.js:51:1
+✖ brand labels, manufacturer supplements and excluded raw products cannot grant generated-directory admission (1062.1914ms)
+  AssertionError [ERR_ASSERTION]: supplemental:mccain-au:products-categories-potato-speedy-solutions-quick-cook-hashbrowns-525g
+  
+  true !== false
+  
+      at TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\brand-directory-admission.test.js:56:40)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

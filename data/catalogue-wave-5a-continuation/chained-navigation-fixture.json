@@ -1,0 +1,9 @@
+{
+  "classification": "C",
+  "baseline": "alpha064 global Back has an existing 50 ms history/scroll settlement callback in committed HEAD as well as candidate.",
+  "observed": "The first complete restaurant flow returned correctly to Diary. The fixture immediately re-entered Add before that callback finished; a later Back returned Home. No old Review reopened; Cancel had preserved query, meal and Diary.",
+  "repair": "Wait 75 ms after reaching Diary before the next independent Add gesture; all actual Review, amount, identity, query, meal, no-write and Back destination assertions are retained.",
+  "productionChanged": false,
+  "failedEvidence": "restaurant-navigation-accepted/rendered.json",
+  "validation": "PASS: restaurant-navigation-verified/rendered.json, 51 probes including 42 Review/Back/Cancel flows"
+}

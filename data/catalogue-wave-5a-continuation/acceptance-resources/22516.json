@@ -1,0 +1,46 @@
+{
+  "argv": [
+    "C:\\Users\\mlwes\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+    "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\tests\\hungry-jacks-australia-expansion.test.js"
+  ],
+  "start": {
+    "rss": 44130304,
+    "heapTotal": 6807552,
+    "heapUsed": 4222032,
+    "external": 1626770,
+    "arrayBuffers": 137503
+  },
+  "end": {
+    "rss": 390418432,
+    "heapTotal": 313581568,
+    "heapUsed": 185113440,
+    "external": 17149237,
+    "arrayBuffers": 12782740
+  },
+  "peak": {
+    "rss": 413966336,
+    "heapTotal": 333062144,
+    "heapUsed": 226863752,
+    "external": 49811426,
+    "arrayBuffers": 110392975
+  },
+  "samples": 99,
+  "usage": {
+    "userCPUTime": 14609000,
+    "systemCPUTime": 3640000,
+    "maxRSS": 456568,
+    "sharedMemorySize": 0,
+    "unsharedDataSize": 0,
+    "unsharedStackSize": 0,
+    "minorPageFault": 0,
+    "majorPageFault": 547069,
+    "swappedOut": 0,
+    "fsRead": 17890,
+    "fsWrite": 10144,
+    "ipcSent": 0,
+    "ipcReceived": 0,
+    "signalsCount": 0,
+    "voluntaryContextSwitches": 0,
+    "involuntaryContextSwitches": 0
+  }
+}

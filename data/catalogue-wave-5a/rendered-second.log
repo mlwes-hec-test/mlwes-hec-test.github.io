@@ -1,0 +1,17 @@
+AssertionError [ERR_ASSERTION]: Coke Zero has no direct products: No reliable match is ready to select.
+
+HEC will not guess nutrition. Scan the barcode, read the Nutrition Panel, or create the food.
+
+Scan Barcode
+Read Nutrition Panel
+Create Food
+
+0 catalogue identities loaded · choose a product to continue.
+    at run (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\scripts\audit_catalogue_wave_5a_edge.js:11:5) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}

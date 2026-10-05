@@ -1,0 +1,48 @@
+{
+  "argv": [
+    "C:\\Users\\mlwes\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+    "tests/navigation-startup-regression.test.js",
+    "tests/rc4-exact-source-navigation.test.js",
+    "tests/rc6-quick-add-navigation.test.js"
+  ],
+  "start": {
+    "rss": 40579072,
+    "heapTotal": 6807552,
+    "heapUsed": 5571824,
+    "external": 2522776,
+    "arrayBuffers": 137679
+  },
+  "end": {
+    "rss": 45150208,
+    "heapTotal": 9166848,
+    "heapUsed": 6491408,
+    "external": 2626518,
+    "arrayBuffers": 166247
+  },
+  "peak": {
+    "rss": 45150208,
+    "heapTotal": 9166848,
+    "heapUsed": 6491408,
+    "external": 2641125,
+    "arrayBuffers": 166247
+  },
+  "samples": 129,
+  "usage": {
+    "userCPUTime": 171000,
+    "systemCPUTime": 62000,
+    "maxRSS": 44140,
+    "sharedMemorySize": 0,
+    "unsharedDataSize": 0,
+    "unsharedStackSize": 0,
+    "minorPageFault": 0,
+    "majorPageFault": 12637,
+    "swappedOut": 0,
+    "fsRead": 216,
+    "fsWrite": 42,
+    "ipcSent": 0,
+    "ipcReceived": 0,
+    "signalsCount": 0,
+    "voluntaryContextSwitches": 0,
+    "involuntaryContextSwitches": 0
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "argv": [
+    "C:\\Users\\mlwes\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+    "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\tests\\catalogue-search-regression-recovery.test.js"
+  ],
+  "start": {
+    "rss": 43876352,
+    "heapTotal": 6545408,
+    "heapUsed": 4222040,
+    "external": 1626770,
+    "arrayBuffers": 137503
+  },
+  "end": {
+    "rss": 276283392,
+    "heapTotal": 228716544,
+    "heapUsed": 108079832,
+    "external": 2638711,
+    "arrayBuffers": 137643
+  },
+  "peak": {
+    "rss": 276283392,
+    "heapTotal": 228716544,
+    "heapUsed": 108079832,
+    "external": 2638711,
+    "arrayBuffers": 137643
+  },
+  "samples": 0,
+  "usage": {
+    "userCPUTime": 1015000,
+    "systemCPUTime": 390000,
+    "maxRSS": 269844,
+    "sharedMemorySize": 0,
+    "unsharedDataSize": 0,
+    "unsharedStackSize": 0,
+    "minorPageFault": 0,
+    "majorPageFault": 125930,
+    "swappedOut": 0,
+    "fsRead": 7510,
+    "fsWrite": 100,
+    "ipcSent": 0,
+    "ipcReceived": 0,
+    "signalsCount": 0,
+    "voluntaryContextSwitches": 0,
+    "involuntaryContextSwitches": 0
+  }
+}

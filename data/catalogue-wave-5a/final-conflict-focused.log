@@ -1,0 +1,23 @@
+✔ brand query families unite membership without merging variant nutrition identities (314.4569ms)
+✔ bare roots and specific product queries retain distinct ownership (3.6912ms)
+✔ reviewed unsafe beverage identities remain held across all canonical consumers (9.8091ms)
+✔ volume and energy audit 9313820004518 (1.9736ms)
+✔ volume and energy audit 9313820016108 (1.8645ms)
+✔ volume and energy audit 9300675001410 (2.6922ms)
+✔ volume and energy audit 9300675011419 (2.6947ms)
+✔ volume and energy audit 9300675090667 (3.556ms)
+✔ volume and energy audit 9310021039028 (2.0935ms)
+✔ volume and energy audit 9310077313011 (2.1979ms)
+✔ mass, energy units, printed zero and Unknown remain distinct (3.6537ms)
+✔ food heads outrank ingredient words and unsupported snack-stick classification stays deferred (3.6041ms)
+✔ retailer totals, ownership, filtering, paging and category membership stay consistent (2003.9598ms)
+✔ small catalogue navigation is adaptive and large catalogues stay bounded (0.2051ms)
+✔ accepted local brand products cannot bypass conflicting same-GTIN retailer evidence (12.2574ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4206.44

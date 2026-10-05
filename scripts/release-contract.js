@@ -5,7 +5,7 @@ module.exports={version:'0.6.33',runtime:[
   'installation-config.js','config.js','installation-foundation.js',
   'migrations.js','companions.js','companion-artwork.js','companion-voice-metadata.js','companion-voices.js',
   'stage4-foundation.js','weight-progress-foundation.js','nutrition-trends-foundation.js','app.js',
-  'entity-registry.js','search-foundation.js','product-serving-semantics.js','food-sources.js',
+  'entity-registry.js','catalogue-discovery.js','search-foundation.js','product-serving-semantics.js','food-sources.js',
   'australian-catalogue-data.js','mcdonalds-au-catalogue-data.js','mcdonalds-au-catalogue.js',
   'kfc-au-catalogue-data.js','kfc-au-supplement-data.js','kfc-au-catalogue.js','food-catalogue.js',
   'retailer-catalogue.js','retailer-source.js','woolworths-au-catalogue.js','off-catalogue.js','coles-au-catalogue.js','aldi-au-catalogue.js','iga-au-catalogue.js','brand-au-catalogue.js','brand-catalogue.js',

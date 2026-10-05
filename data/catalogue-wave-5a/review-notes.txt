@@ -1,0 +1,100 @@
+STOPPED / NOT SAFE - NO COMMIT CREATED
+The single full acceptance run reported 1,098 passes and 17 failures.
+Unresolved restaurant regressions and incomplete test-file runs block release.
+See stopped-status.json and the preserved acceptance.log.
+
+HEC Wave 5A - SOURCE review notes
+
+Scope
+Shared brand/retailer discovery, canonical membership, category projection,
+beverage safety and context-preserving Back/Cancel. Visible version 0.6.33.
+No broad beverage, manufacturer or regional retailer import.
+
+Root causes and repairs
+1. Brand directories used a generated admission list separate from locally
+   accepted manufacturer products. Shared rows now combine these canonical
+   identities and reviewed family relationships. Same-GTIN evidence is resolved
+   before acceptance. Conflicts remain excluded; raw matching labels are not
+   admission. Search, directory and page methods consume this common set.
+2. Bare brand/retailer ownership selected a compulsory category hub. The shared
+   UI now presents an optional Browse shortcut plus bounded A-Z product pages.
+   Specific product queries retain product precedence. Small catalogues (at most
+   20 products, or only one populated category) open directly to products.
+3. Existing ready-to-drink records could retain a mass basis. The physical-form
+   firewall prevents unsupported mass/volume conversion. Weak records are held,
+   not converted using assumed water density. Dry preparations remain distinct.
+4. Round-two category fallback gave honey precedence over the ham food head.
+   A shared category projection corrects this while guarding compound foods,
+   flavour words, stock, chocolate and plural pizzas/pies. Raw source nutrition
+   and membership evidence remain unchanged.
+5. Entering Review called search cleanup, clearing catalogue state; the global
+   Back action could bypass the guided step. Review now preserves catalogue
+   state. Back returns to amount; Cancel abandons only the pending add and
+   returns to the originating list/filter. Review uses one final confirmation.
+
+Beverage evidence boundary
+Exactly 12 reviewed identities: seven preserved, three held, two new official
+Australian manufacturer formulation references. The new references have no
+invented GTIN, package size or retailer ownership. Pepsi Regular uses 111 kJ per
+100 mL and a published 375 mL manufacturer serve. Coca-Cola Zero Sugar uses
+1.2 kJ / 0.3 Cal per 100 mL, with mL and Metric Cup; no manufacturer serve is
+inferred from a 100 mL reference. Classic, Diet and Zero remain separate.
+
+Held identities
+9300675047272: Classic Coke reports 142 kcal and 595 kJ per declared 100 g.
+At 250 g this yields 355 Cal and 1487.5 kJ. The energy fields agree approximately;
+a serving/basis mislabelling is possible but unproven. Hold, no reinterpretation.
+9300675012089: Coke Zero identity conflicts with 10.67 g sugar per reference,
+and has an unsafe mass basis. Hold.
+9313820001487: Old Pepsi Max can has mass-only evidence. Hold pending an exact
+volume nutrition panel.
+
+Berg findings
+Eight accepted identities remain. Seven are in Meat & Protein, including Thinly
+Sliced Honey Leg Ham. Mild Snack Stix remains Other Packaged Food: available
+source categories do not establish a meat family strongly enough to reclassify.
+Two Shaved Honey Ham records have distinct GTINs (4061463673213 and 7088240162330)
+and missing energy. They remain internally known and are not merged or offered
+as ordinary complete alternatives. Their 50 g portion wording is serving data,
+not a unique product identity. The founder's approximate fourth choice was not
+reproduced as a separate accepted identity in the frozen query evidence.
+
+UI and navigation
+One filter component serves brand and retailer views, with name/brand/family
+matching, Clear, bounded paging, request ownership and preserved category state.
+Retailer landing views expose their existing house-brand shortcuts. Provenance,
+barcode and nutrition-reference detail are secondary Details information;
+material incomplete/conflict warnings remain available. Manufacturer products
+sold by a retailer do not gain private-label ownership.
+
+Evidence map
+source-checkpoint.json: verified starting branch, parent, subject and generation.
+beverage-audit.json and beverage-evidence.json: bounded dispositions and source facts.
+family-evidence.json: family/alias relationships without recipe or GTIN equivalence.
+final-membership.json: final family, category and retailer totals.
+focused-result.json: focused gate on the final production generation.
+extended-focused-result.json: all 2,737 directories plus targeted safety checks.
+browser-summary.json and rendered-complete/rendered.json: final browser gate.
+acceptance-result.json and acceptance.log: single complete SOURCE suite.
+Any acceptance-resolution files record targeted harness fixes after that run.
+protected-verification.json: 2,441 protected hashes, including frozen OFF, AFCD
+and installation/deployment configuration. Original failure logs are retained.
+
+Browser scope
+Disposable headless Edge contexts, all SOURCE assets intercepted locally; external
+requests aborted, service workers blocked, no live TEST fallthrough. Phone widths
+390x844, 375x812 and 320x568; reduced height approximates an open keyboard.
+This does not replace physical iPhone keyboard or installed-PWA founder testing.
+
+Backlog retained
+Weight Graph v2 (larger graph, Current/Start/Goal context, persistent goal line,
+sensible scale, tappable points and time periods); micronutrient/calcium display;
+My Foods delete confirmation; Recent-food row tap; sticky Done Adding; fluids;
+voice independent of Companion; PWA/icon polish; iPhone/iPad sync; household
+sharing; Friendly Grocer/regional retailers; national manufacturer expansion.
+
+Protection
+No push or deployment. TEST v62 and MY DATA v15 were not accessed. No personal
+storage or backups were inspected. Only disposable browser data was used for
+navigation and cancellation checks. The historical misspelled alias was not
+changed. Commit outcome and exact SHA are reported in the final chat response.

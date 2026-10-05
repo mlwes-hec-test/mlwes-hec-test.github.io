@@ -1,0 +1,71 @@
+{
+  "argv": [
+    "C:\\Users\\mlwes\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+    "tests/catalogue-wave-5a.test.js",
+    "tests/catalogue-wave-5a-continuation.test.js",
+    "tests/query-ownership.test.js",
+    "tests/retailer-loading.test.js",
+    "tests/retailer-architecture.test.js",
+    "tests/same-gtin-identity-safety.test.js",
+    "tests/physical-form-measure-compatibility.test.js",
+    "tests/product-serving-semantics.test.js",
+    "tests/canonical-result-consumers.test.js",
+    "tests/portion-handoff-integrity.test.js",
+    "tests/release-coherence.test.js",
+    "tests/brand-generation.test.js",
+    "tests/brand-catalogue.test.js",
+    "tests/aldi-source.test.js",
+    "tests/canonical-search-identity-consistency.test.js",
+    "tests/catalogue-round-two.test.js",
+    "tests/catalogue-search-intelligence.test.js",
+    "tests/catalogue-search-regression-recovery.test.js",
+    "tests/catalogue-wave-2a.test.js",
+    "tests/catalogue-wave-3a.test.js",
+    "tests/catalogue-wave-4a.test.js",
+    "tests/hungry-jacks-australia-expansion.test.js",
+    "tests/live-prefix-alphabetical.test.js",
+    "tests/post-kfc-search-regressions.test.js",
+    "tests/restaurant-family-search.test.js",
+    "tests/universal-food-search-source-branching.test.js"
+  ],
+  "start": {
+    "rss": 40800256,
+    "heapTotal": 6807552,
+    "heapUsed": 5573184,
+    "external": 2522776,
+    "arrayBuffers": 137679
+  },
+  "end": {
+    "rss": 50458624,
+    "heapTotal": 10215424,
+    "heapUsed": 7450552,
+    "external": 2610551,
+    "arrayBuffers": 150280
+  },
+  "peak": {
+    "rss": 50458624,
+    "heapTotal": 10215424,
+    "heapUsed": 7804912,
+    "external": 2662917,
+    "arrayBuffers": 189143
+  },
+  "samples": 412,
+  "usage": {
+    "userCPUTime": 421000,
+    "systemCPUTime": 546000,
+    "maxRSS": 49344,
+    "sharedMemorySize": 0,
+    "unsharedDataSize": 0,
+    "unsharedStackSize": 0,
+    "minorPageFault": 0,
+    "majorPageFault": 16562,
+    "swappedOut": 0,
+    "fsRead": 3406,
+    "fsWrite": 465,
+    "ipcSent": 0,
+    "ipcReceived": 0,
+    "signalsCount": 0,
+    "voluntaryContextSwitches": 0,
+    "involuntaryContextSwitches": 0
+  }
+}

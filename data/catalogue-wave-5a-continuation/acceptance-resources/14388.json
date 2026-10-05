@@ -1,0 +1,46 @@
+{
+  "argv": [
+    "C:\\Users\\mlwes\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+    "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\tests\\intelligence-shard-routing.test.js"
+  ],
+  "start": {
+    "rss": 44011520,
+    "heapTotal": 6283264,
+    "heapUsed": 4222016,
+    "external": 1626770,
+    "arrayBuffers": 137503
+  },
+  "end": {
+    "rss": 58855424,
+    "heapTotal": 16351232,
+    "heapUsed": 11603512,
+    "external": 2786731,
+    "arrayBuffers": 143823
+  },
+  "peak": {
+    "rss": 58855424,
+    "heapTotal": 16351232,
+    "heapUsed": 11603512,
+    "external": 2786731,
+    "arrayBuffers": 143823
+  },
+  "samples": 0,
+  "usage": {
+    "userCPUTime": 109000,
+    "systemCPUTime": 62000,
+    "maxRSS": 57604,
+    "sharedMemorySize": 0,
+    "unsharedDataSize": 0,
+    "unsharedStackSize": 0,
+    "minorPageFault": 0,
+    "majorPageFault": 15564,
+    "swappedOut": 0,
+    "fsRead": 83,
+    "fsWrite": 100,
+    "ipcSent": 0,
+    "ipcReceived": 0,
+    "signalsCount": 0,
+    "voluntaryContextSwitches": 0,
+    "involuntaryContextSwitches": 0
+  }
+}

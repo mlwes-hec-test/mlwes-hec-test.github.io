@@ -1,0 +1,6 @@
+{
+  "pass": false,
+  "status": "interrupted",
+  "reason": "Edit marker did not match LF source. Shell continued to launch the old candidate; interrupted and verified all task Node processes exited. No complete acceptance run was used.",
+  "generation": "9c53bb825321a59c957ab296"
+}

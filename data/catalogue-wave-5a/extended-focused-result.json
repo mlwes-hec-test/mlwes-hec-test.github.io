@@ -1,0 +1,10 @@
+{
+  "pass": true,
+  "generation": "dc2b4d1c237c935f8b864c6a",
+  "tests": 22,
+  "passed": 22,
+  "failed": 0,
+  "scope": "All 2,737 brand controllers and paged directories, canonical GTIN conflicts, plus Wave 5A targeted tests",
+  "log": "directory-canonical-final.log",
+  "logSha256": "630fa78759761bad8303fbb8b5b5e3901d0a09b2ec9fdef68365cc6f2ae7a712"
+}

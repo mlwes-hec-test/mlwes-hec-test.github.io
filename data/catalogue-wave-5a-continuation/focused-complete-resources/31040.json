@@ -1,0 +1,46 @@
+{
+  "argv": [
+    "C:\\Users\\mlwes\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+    "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\tests\\aldi-source.test.js"
+  ],
+  "start": {
+    "rss": 42905600,
+    "heapTotal": 6283264,
+    "heapUsed": 4221992,
+    "external": 1626770,
+    "arrayBuffers": 137503
+  },
+  "end": {
+    "rss": 327860224,
+    "heapTotal": 239747072,
+    "heapUsed": 138349280,
+    "external": 16264882,
+    "arrayBuffers": 5100323
+  },
+  "peak": {
+    "rss": 327860224,
+    "heapTotal": 239747072,
+    "heapUsed": 138349280,
+    "external": 16264882,
+    "arrayBuffers": 5100323
+  },
+  "samples": 0,
+  "usage": {
+    "userCPUTime": 4906000,
+    "systemCPUTime": 671000,
+    "maxRSS": 379544,
+    "sharedMemorySize": 0,
+    "unsharedDataSize": 0,
+    "unsharedStackSize": 0,
+    "minorPageFault": 0,
+    "majorPageFault": 229284,
+    "swappedOut": 0,
+    "fsRead": 11534,
+    "fsWrite": 135,
+    "ipcSent": 0,
+    "ipcReceived": 0,
+    "signalsCount": 0,
+    "voluntaryContextSwitches": 0,
+    "involuntaryContextSwitches": 0
+  }
+}

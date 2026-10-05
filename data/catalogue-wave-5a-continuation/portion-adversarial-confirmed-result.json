@@ -1,0 +1,26 @@
+{
+  "phase": "isolated",
+  "pass": true,
+  "generation": "9c53bb825321a59c957ab296",
+  "startedAt": "2026-10-05T00:28:15.036Z",
+  "completedAt": "2026-10-05T00:28:19.391Z",
+  "exitCode": 0,
+  "signal": null,
+  "tests": 22,
+  "passed": 22,
+  "failed": 0,
+  "skipped": 0,
+  "cancelled": 0,
+  "testFiles": [
+    "tests/catalogue-wave-5a-continuation.test.js"
+  ],
+  "command": [
+    "C:\\Users\\mlwes\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+    "--require",
+    "./scripts/catalogue-test-resources.js",
+    "--test",
+    "--test-concurrency=1",
+    "tests/catalogue-wave-5a-continuation.test.js"
+  ],
+  "logSha256": "0873dbb6c86eb5d89968af08912622d9c68bdb0de81302bc2b4cc1fd90a521a8"
+}

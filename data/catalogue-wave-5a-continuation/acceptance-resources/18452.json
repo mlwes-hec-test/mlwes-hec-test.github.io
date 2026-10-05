@@ -1,0 +1,46 @@
+{
+  "argv": [
+    "C:\\Users\\mlwes\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+    "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\tests\\release-coherence.test.js"
+  ],
+  "start": {
+    "rss": 42160128,
+    "heapTotal": 6545408,
+    "heapUsed": 4222000,
+    "external": 1626770,
+    "arrayBuffers": 137503
+  },
+  "end": {
+    "rss": 96100352,
+    "heapTotal": 29044736,
+    "heapUsed": 9651552,
+    "external": 31209335,
+    "arrayBuffers": 26965978
+  },
+  "peak": {
+    "rss": 210857984,
+    "heapTotal": 29061120,
+    "heapUsed": 10636256,
+    "external": 134609042,
+    "arrayBuffers": 130371099
+  },
+  "samples": 1,
+  "usage": {
+    "userCPUTime": 1390000,
+    "systemCPUTime": 828000,
+    "maxRSS": 222200,
+    "sharedMemorySize": 0,
+    "unsharedDataSize": 0,
+    "unsharedStackSize": 0,
+    "minorPageFault": 0,
+    "majorPageFault": 310144,
+    "swappedOut": 0,
+    "fsRead": 4062,
+    "fsWrite": 85,
+    "ipcSent": 0,
+    "ipcReceived": 0,
+    "signalsCount": 0,
+    "voluntaryContextSwitches": 0,
+    "involuntaryContextSwitches": 0
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "generation": "55fa50a815871079fbb5e674",
+  "sha256": {
+    "alpha06.js": "d48903a4fdf0069a1156f892e0b3e302dc86b94303d9b8144797659351962a57",
+    "alpha064.js": "4acb04c7a2c99ff0e69250d322893553b1d3820f1862f43632b2413d07994523",
+    "catalogue-discovery.js": "cc80f509dfeb4c336c8b9032d7359a94ecf8c0df1dcdc01631786f09781feee1",
+    "serving-foundation.js": "75610bab83c5c463bb3c7cad5ce284e9d3591ddba403a795b4ebd8979cf16f95",
+    "release-manifest.json": "783faa861957f3de1a9d2d3bbfda844c816eafe052cbb38a38492539c8482060"
+  },
+  "recordedAt": "2026-10-05T00:37:46.283Z"
+}

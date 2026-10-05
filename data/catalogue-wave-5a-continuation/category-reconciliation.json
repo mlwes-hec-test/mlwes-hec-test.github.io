@@ -1,0 +1,509 @@
+{
+  "aldi": {
+    "total": 224,
+    "priorWave2Changes": 28,
+    "diff": [
+      {
+        "id": "off:4088700180365",
+        "name": "Cheese & onion flavour crinkle cut potato chips",
+        "after": "snacks",
+        "rule": {
+          "id": "snacks",
+          "label": "Snacks & Confectionery"
+        }
+      },
+      {
+        "id": "off:4061459791440",
+        "name": "Corn Chips Cheese Extreme",
+        "after": "snacks",
+        "rule": {
+          "id": "snacks",
+          "label": "Snacks & Confectionery"
+        }
+      },
+      {
+        "id": "off:4069365110249",
+        "name": "Mini Peanut Butter Filled Eggs",
+        "after": "spreads",
+        "rule": {
+          "id": "spreads",
+          "label": "Spreads & Margarine"
+        }
+      },
+      {
+        "id": "off:4061459801569",
+        "name": "Organic Original Corn Chips",
+        "after": "snacks",
+        "rule": {
+          "id": "snacks",
+          "label": "Snacks & Confectionery"
+        }
+      },
+      {
+        "id": "off:4088700051900",
+        "name": "Original Crinkle Cut Potato Chips",
+        "after": "snacks",
+        "rule": {
+          "id": "snacks",
+          "label": "Snacks & Confectionery"
+        }
+      },
+      {
+        "id": "off:4088700176160",
+        "name": "Shaved Ham Triple Smoked",
+        "after": "protein",
+        "rule": {
+          "id": "protein",
+          "label": "Meat & Protein"
+        }
+      },
+      {
+        "id": "off:4088700070772",
+        "name": "Snack Stack Sour Cream & Onion Flavour Stackable Chips",
+        "after": "snacks",
+        "rule": {
+          "id": "snacks",
+          "label": "Snacks & Confectionery"
+        }
+      },
+      {
+        "id": "off:4088700176306",
+        "name": "Thinly Sliced Honey Leg Ham",
+        "after": "protein",
+        "rule": {
+          "id": "protein",
+          "label": "Meat & Protein"
+        }
+      }
+    ],
+    "categories": [
+      {
+        "id": "bread",
+        "label": "Bread & Bakery",
+        "count": 16
+      },
+      {
+        "id": "yoghurt",
+        "label": "Yoghurt",
+        "count": 10
+      },
+      {
+        "id": "cheese",
+        "label": "Cheese",
+        "count": 29
+      },
+      {
+        "id": "cereal",
+        "label": "Breakfast Cereal",
+        "count": 9
+      },
+      {
+        "id": "biscuits",
+        "label": "Crackers & Biscuits",
+        "count": 12
+      },
+      {
+        "id": "snacks",
+        "label": "Snack Foods",
+        "count": 31
+      },
+      {
+        "id": "sauces",
+        "label": "Sauces & Condiments",
+        "count": 11
+      },
+      {
+        "id": "produce",
+        "label": "Packaged Fruit & Vegetables",
+        "count": 5
+      },
+      {
+        "id": "protein",
+        "label": "Meat & Protein",
+        "count": 44
+      },
+      {
+        "id": "milk",
+        "label": "Milk",
+        "count": 1
+      },
+      {
+        "id": "canned",
+        "label": "Baked Beans & Canned Food",
+        "count": 8
+      },
+      {
+        "id": "grains",
+        "label": "Rice, Pasta & Grains",
+        "count": 5
+      },
+      {
+        "id": "spreads",
+        "label": "Spreads & Margarine",
+        "count": 9
+      },
+      {
+        "id": "frozen-vegetables",
+        "label": "Frozen Vegetables",
+        "count": 1
+      },
+      {
+        "id": "frozen-potato",
+        "label": "Frozen Potato Products",
+        "count": 1
+      },
+      {
+        "id": "meals",
+        "label": "Prepared Meals",
+        "count": 2
+      },
+      {
+        "id": "pizza",
+        "label": "Pizza & Savoury Snacks",
+        "count": 5
+      },
+      {
+        "id": "other-food",
+        "label": "Other Packaged Food",
+        "count": 25
+      }
+    ]
+  },
+  "woolworths": {
+    "total": 363,
+    "priorWave2Changes": 12,
+    "diff": [
+      {
+        "id": "off:9339687171132",
+        "name": "Organic Corn Chips Original",
+        "after": "snacks",
+        "rule": {
+          "id": "snacks",
+          "label": "Snacks & Confectionery"
+        }
+      },
+      {
+        "id": "off:0344643627980",
+        "name": "Smooth Peanut Butter",
+        "after": "spreads",
+        "rule": {
+          "id": "spreads",
+          "label": "Spreads & Margarine"
+        }
+      },
+      {
+        "id": "off:93563062",
+        "name": "Spring Water",
+        "after": "drinks",
+        "rule": {
+          "id": "drinks",
+          "label": "Drinks"
+        }
+      },
+      {
+        "id": "woolworths-au:756086",
+        "name": "Woolworths Lightly Sparkling Spring Water 1.25L",
+        "after": "drinks",
+        "rule": {
+          "id": "drinks",
+          "label": "Drinks"
+        }
+      },
+      {
+        "id": "woolworths-au:396254",
+        "name": "Woolworths Sea Salt Deli Style Potato Chips 175g",
+        "after": "snacks",
+        "rule": {
+          "id": "snacks",
+          "label": "Snacks & Confectionery"
+        }
+      },
+      {
+        "id": "woolworths-au:233922",
+        "name": "Woolworths Smooth Peanut Butter 500g",
+        "after": "spreads",
+        "rule": {
+          "id": "spreads",
+          "label": "Spreads & Margarine"
+        }
+      }
+    ],
+    "categories": [
+      {
+        "id": "bread",
+        "label": "Bread & Bakery",
+        "count": 35
+      },
+      {
+        "id": "milk",
+        "label": "Milk",
+        "count": 9
+      },
+      {
+        "id": "yoghurt",
+        "label": "Yoghurt",
+        "count": 7
+      },
+      {
+        "id": "cheese",
+        "label": "Cheese",
+        "count": 13
+      },
+      {
+        "id": "cereal",
+        "label": "Breakfast Cereal",
+        "count": 5
+      },
+      {
+        "id": "canned",
+        "label": "Baked Beans & Canned Food",
+        "count": 14
+      },
+      {
+        "id": "grains",
+        "label": "Rice, Pasta & Grains",
+        "count": 30
+      },
+      {
+        "id": "spreads",
+        "label": "Spreads & Margarine",
+        "count": 7
+      },
+      {
+        "id": "biscuits",
+        "label": "Crackers & Biscuits",
+        "count": 17
+      },
+      {
+        "id": "snacks",
+        "label": "Snack Foods",
+        "count": 27
+      },
+      {
+        "id": "frozen-vegetables",
+        "label": "Frozen Vegetables",
+        "count": 2
+      },
+      {
+        "id": "frozen-potato",
+        "label": "Frozen Potato Products",
+        "count": 2
+      },
+      {
+        "id": "sauces",
+        "label": "Sauces & Condiments",
+        "count": 9
+      },
+      {
+        "id": "drinks",
+        "label": "Drinks",
+        "count": 5
+      },
+      {
+        "id": "desserts",
+        "label": "Desserts & Ice Cream",
+        "count": 26
+      },
+      {
+        "id": "produce",
+        "label": "Packaged Fruit & Vegetables",
+        "count": 22
+      },
+      {
+        "id": "protein",
+        "label": "Meat & Protein",
+        "count": 78
+      },
+      {
+        "id": "meals",
+        "label": "Prepared Meals",
+        "count": 15
+      },
+      {
+        "id": "pizza",
+        "label": "Pizza & Savoury Snacks",
+        "count": 4
+      },
+      {
+        "id": "other-food",
+        "label": "Other Packaged Food",
+        "count": 36
+      }
+    ]
+  },
+  "coles": {
+    "total": 417,
+    "priorWave2Changes": 30,
+    "diff": [
+      {
+        "id": "off:9310645470085",
+        "name": "Deli Style Potato Chips",
+        "after": "snacks",
+        "rule": {
+          "id": "snacks",
+          "label": "Snacks & Confectionery"
+        }
+      },
+      {
+        "id": "off:9310645491882",
+        "name": "Hummus Chips Salt & Pepper",
+        "after": "snacks",
+        "rule": {
+          "id": "snacks",
+          "label": "Snacks & Confectionery"
+        }
+      },
+      {
+        "id": "off:9310645351377",
+        "name": "Natural spring water",
+        "after": "drinks",
+        "rule": {
+          "id": "drinks",
+          "label": "Drinks"
+        }
+      },
+      {
+        "id": "off:9310645099859",
+        "name": "Organic Crunchy Peanut Butter",
+        "after": "spreads",
+        "rule": {
+          "id": "spreads",
+          "label": "Spreads & Margarine"
+        }
+      },
+      {
+        "id": "off:9310645421971",
+        "name": "Original Corn Chips",
+        "after": "snacks",
+        "rule": {
+          "id": "snacks",
+          "label": "Snacks & Confectionery"
+        }
+      },
+      {
+        "id": "off:9310645217390",
+        "name": "Sliced Honey Style Ham",
+        "after": "protein",
+        "rule": {
+          "id": "protein",
+          "label": "Meat & Protein"
+        }
+      },
+      {
+        "id": "off:9310645489636",
+        "name": "Smooth Peanut Butter",
+        "after": "spreads",
+        "rule": {
+          "id": "spreads",
+          "label": "Spreads & Margarine"
+        }
+      },
+      {
+        "id": "off:9310645319193",
+        "name": "Stone Ground Tortilla Chips",
+        "after": "snacks",
+        "rule": {
+          "id": "snacks",
+          "label": "Snacks & Confectionery"
+        }
+      }
+    ],
+    "categories": [
+      {
+        "id": "bread",
+        "label": "Bread & Bakery",
+        "count": 27
+      },
+      {
+        "id": "milk",
+        "label": "Milk",
+        "count": 4
+      },
+      {
+        "id": "yoghurt",
+        "label": "Yoghurt",
+        "count": 7
+      },
+      {
+        "id": "cheese",
+        "label": "Cheese",
+        "count": 16
+      },
+      {
+        "id": "cereal",
+        "label": "Breakfast Cereal",
+        "count": 7
+      },
+      {
+        "id": "spreads",
+        "label": "Spreads & Margarine",
+        "count": 7
+      },
+      {
+        "id": "biscuits",
+        "label": "Crackers & Biscuits",
+        "count": 11
+      },
+      {
+        "id": "snacks",
+        "label": "Snack Foods",
+        "count": 35
+      },
+      {
+        "id": "sauces",
+        "label": "Sauces & Condiments",
+        "count": 14
+      },
+      {
+        "id": "protein",
+        "label": "Meat & Protein",
+        "count": 101
+      },
+      {
+        "id": "desserts",
+        "label": "Desserts & Ice Cream",
+        "count": 33
+      },
+      {
+        "id": "drinks",
+        "label": "Drinks",
+        "count": 3
+      },
+      {
+        "id": "canned",
+        "label": "Baked Beans & Canned Food",
+        "count": 16
+      },
+      {
+        "id": "grains",
+        "label": "Rice, Pasta & Grains",
+        "count": 39
+      },
+      {
+        "id": "frozen-potato",
+        "label": "Frozen Potato Products",
+        "count": 1
+      },
+      {
+        "id": "produce",
+        "label": "Packaged Fruit & Vegetables",
+        "count": 20
+      },
+      {
+        "id": "meals",
+        "label": "Prepared Meals",
+        "count": 8
+      },
+      {
+        "id": "pizza",
+        "label": "Pizza & Savoury Snacks",
+        "count": 8
+      },
+      {
+        "id": "other-food",
+        "label": "Other Packaged Food",
+        "count": 60
+      }
+    ]
+  }
+}

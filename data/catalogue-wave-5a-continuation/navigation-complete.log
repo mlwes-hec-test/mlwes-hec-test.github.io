@@ -1,0 +1,61 @@
+Navigation evidence: C:\Users\mlwes\AppData\Local\Temp\hec-nav-repaired-K3Pm2F
+✖ returning TEST profile retains real navigation and search ownership at 390x844 (64627.7748ms)
+Navigation evidence: C:\Users\mlwes\AppData\Local\Temp\hec-nav-repaired-jhootb
+✖ returning TEST profile retains real navigation and search ownership at 320x568 (64303.9212ms)
+✔ readiness audit rejects handled failed readiness (4.9243ms)
+✔ readiness audit rejects late registration at settlement (0.7349ms)
+✔ readiness audit rejects missing navigation handler (0.3392ms)
+✔ readiness audit rejects blocked Home after settlement (0.5612ms)
+✔ readiness audit rejects mixed required-core generation (0.507ms)
+✔ readiness audit rejects mixed active worker generation (0.3054ms)
+✔ readiness audit rejects missing runtime execution (2.9451ms)
+✔ readiness audit rejects lost returning sentinel (0.6812ms)
+✔ readiness audit rejects premature interaction exposure (0.718ms)
+✔ readiness audit fails a never-settling real boundary (16.3048ms)
+✔ settled failed boundary is not accepted as successful readiness (2.1782ms)
+✔ typed and direct Big Mac put the exact product before every other selectable surface (108.0579ms)
+✔ representative exact products use the general exact-first rule (89.8422ms)
+✔ generic Big, burger and wrap queries remain on the broad path (13.2141ms)
+✔ source-card click preserves Big Mac and keeps it first in the filtered source view (51.7254ms)
+✔ clearing only the source product filter opens an honest progressive 211-entry browse (73.5721ms)
+✔ source-only spellings wait for an explicit source-card action (66.2264ms)
+✔ source ranking retains exact identity and the complete loaded scope (27.3693ms)
+✔ clearing the general search invalidates source state and stale live cards (33.2572ms)
+✔ quick-add policy accepts one trusted natural serving with an active destination (34.9846ms)
+✔ quick add blocks missing destination, ambiguous serving, incomplete and configurable foods (4.4182ms)
+✔ quick add blocks uncertain sources and existing safety restrictions (0.7372ms)
+✔ plus quick-add writes one natural serving and remains in Food Library (1.0231ms)
+✔ one click is intercepted once and guarded against double-fire (0.7649ms)
+✔ row or name opens full review while nutrition details and plus remain separate controls (1.6963ms)
+✔ pure McDonald’s source aliases preview the hub and require an explicit action (4.9185ms)
+✔ source plus product and exact Big Mac retain product-first decisions (0.6582ms)
+✔ Back to Categories and Back to All close the keyboard without autofocus (2.4486ms)
+✔ Weight voice affordance and quick actions fit the existing responsive surfaces (0.515ms)
+ℹ tests 31
+ℹ suites 0
+ℹ pass 29
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 130066.8672
+
+✖ failing tests:
+
+test at tests\navigation-startup-regression.test.js:3:71
+✖ returning TEST profile retains real navigation and search ownership at 390x844 (64627.7748ms)
+  page.waitForFunction: Timeout 30000ms exceeded.
+      at Object.run (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\scripts\audit_navigation_startup_edge.js:45:469)
+      at async TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\navigation-startup-regression.test.js:3:225) {
+    name: 'TimeoutError',
+    log: []
+  }
+
+test at tests\navigation-startup-regression.test.js:3:71
+✖ returning TEST profile retains real navigation and search ownership at 320x568 (64303.9212ms)
+  page.waitForFunction: Timeout 30000ms exceeded.
+      at Object.run (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\scripts\audit_navigation_startup_edge.js:45:469)
+      at async TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\navigation-startup-regression.test.js:3:225) {
+    name: 'TimeoutError',
+    log: []
+  }

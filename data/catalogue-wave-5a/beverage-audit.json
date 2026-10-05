@@ -1,0 +1,912 @@
+{
+  "ceiling": 12,
+  "distinctIdentities": 12,
+  "holds": 3,
+  "newFormulations": 2,
+  "rawOffFrozen": true,
+  "offFieldConvention": {
+    "url": "https://github.com/openfoodfacts/openfoodfacts-server/blob/main/html/data-fields.txt",
+    "meaning": "The _100g suffix represents values per 100 g or 100 mL. It is not itself a measured density or a volume conversion."
+  },
+  "energyFinding": {
+    "gtin": "9300675047272",
+    "sourceKcal": 142,
+    "sourceKj": 595,
+    "sourceCarbs": 35,
+    "sourceSugar": 35,
+    "rawReference": "per-100g-off-csv",
+    "displayAt250g": {
+      "calories": 355,
+      "energyKj": 1487.5
+    },
+    "diagnosis": "kcal and kJ are approximately consistent with one another, but the declared per-100 mass basis is unsafe for ready-to-drink cola. A mislabelled serving is possible but unproven. No reinterpretation or conversion applied."
+  },
+  "rows": [
+    {
+      "id": "barcode:9313820001487",
+      "name": "Pepsi max can",
+      "brand": "Pepsi",
+      "gtin": "9313820001487",
+      "disposition": "held",
+      "reason": "This ready-to-drink can has only a mass nutrition basis. An exact volume panel is required; no density conversion is assumed.",
+      "source": {
+        "sourceId": "open-food-facts-au",
+        "recordId": "off:9313820001487",
+        "url": "http://world-en.openfoodfacts.org/product/9313820001487/pepsi-max-can",
+        "trustClass": "open-food-facts-au",
+        "trustRank": 4,
+        "retrievedAt": null,
+        "verifiedAt": null,
+        "publishedDate": null,
+        "page": null,
+        "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+        "market": "AU",
+        "sourceType": "external-catalogue"
+      },
+      "basis": "g",
+      "sourceBasis": "per-100g-off-csv",
+      "sourceNutrients": {
+        "calories": 0.4,
+        "energyKj": 2.04,
+        "protein": 0.06,
+        "carbs": 0.06,
+        "fat": 0,
+        "satFat": 0,
+        "fibre": 0,
+        "sugar": 0
+      },
+      "nutrients": {
+        "energyKj": 1.6736000000000002,
+        "calories": 0.4,
+        "protein": 0.06,
+        "carbs": 0.06,
+        "fat": 0,
+        "satFat": 0,
+        "fibre": 0,
+        "sugar": 0
+      },
+      "eligibility": {
+        "status": "needs-nutrition-completion",
+        "label": "Nutrition needs review",
+        "reasonCode": "reviewed-beverage-hold",
+        "message": "This ready-to-drink can has only a mass nutrition basis. An exact volume panel is required; no density conversion is assumed.",
+        "normalLoggingAllowed": false,
+        "actions": [
+          {
+            "id": "details",
+            "label": "Details"
+          }
+        ]
+      },
+      "measures": [
+        {
+          "key": "g",
+          "multiplier": 0.01
+        }
+      ],
+      "category": null
+    },
+    {
+      "id": "barcode:9313820016108",
+      "name": "Pepsi Max",
+      "brand": "Pepsi",
+      "gtin": "9313820016108",
+      "disposition": "preserved",
+      "reason": null,
+      "source": {
+        "sourceId": "open-food-facts-au",
+        "recordId": "off:9313820016108",
+        "url": "http://world-en.openfoodfacts.org/product/9313820016108/pepsi-max",
+        "trustClass": "open-food-facts-au",
+        "trustRank": 4,
+        "retrievedAt": null,
+        "verifiedAt": null,
+        "publishedDate": null,
+        "page": null,
+        "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+        "market": "AU",
+        "sourceType": "external-catalogue"
+      },
+      "basis": "mL",
+      "sourceBasis": "per-100g-off-csv",
+      "sourceNutrients": {
+        "calories": 0.4,
+        "energyKj": 1.6,
+        "protein": 0.0533333333333333,
+        "carbs": 0.0533333333333333,
+        "fat": 0,
+        "satFat": 0,
+        "fibre": 0,
+        "sugar": 0,
+        "sodium": 13.0666666666667,
+        "salt": 0.0326666666666667
+      },
+      "nutrients": {
+        "energyKj": 1.6,
+        "calories": 0.4,
+        "protein": 0.0533333333333333,
+        "carbs": 0.0533333333333333,
+        "fat": 0,
+        "satFat": 0,
+        "fibre": 0,
+        "sugar": 0,
+        "sodium": 13.0666666666667
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "measures": [
+        {
+          "key": "mL",
+          "multiplier": 0.01
+        },
+        {
+          "key": "cup",
+          "multiplier": 2.5
+        },
+        {
+          "key": "L",
+          "multiplier": 10
+        },
+        {
+          "key": "serve",
+          "multiplier": 3.75
+        }
+      ],
+      "category": {
+        "id": "soft-drinks",
+        "label": "Soft Drinks"
+      }
+    },
+    {
+      "id": "barcode:9313820004518",
+      "name": "Pepsi Max 2L",
+      "brand": "Pepsi Max",
+      "gtin": "9313820004518",
+      "disposition": "preserved",
+      "reason": null,
+      "source": {
+        "sourceId": "pepsi-au-package",
+        "recordId": "9313820004518",
+        "url": "https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/864/5cea33b8-baed-4088-9512-efd66ef6ad79/Pepsi%20Max%202L",
+        "trustClass": "package-verified-au",
+        "trustRank": 3,
+        "retrievedAt": "2026-10-04T10:27:02.716Z",
+        "verifiedAt": null,
+        "publishedDate": null,
+        "page": null,
+        "sha256": "385b9c2c91e82188f31114a11c405f287c572bc9e41deeaa05c77e7f817f14b1",
+        "market": "AU",
+        "sourceType": "packaged"
+      },
+      "basis": "mL",
+      "sourceBasis": {
+        "basis": "per-100",
+        "amount": 100,
+        "unit": "mL",
+        "state": "as-sold ready-to-drink cola"
+      },
+      "nutrients": {
+        "energyKj": 2,
+        "calories": 0.4780114722753346,
+        "protein": 0.1,
+        "fat": 0,
+        "satFat": 0,
+        "carbs": 0.1,
+        "sugar": 0,
+        "fibre": 0,
+        "sodium": 13
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "measures": [
+        {
+          "key": "mL",
+          "multiplier": 0.01
+        },
+        {
+          "key": "cup",
+          "multiplier": 2.5
+        },
+        {
+          "key": "L",
+          "multiplier": 10
+        },
+        {
+          "key": "serve",
+          "multiplier": 2.5
+        }
+      ],
+      "category": {
+        "id": "soft-drinks",
+        "label": "Soft Drinks"
+      }
+    },
+    {
+      "id": "barcode:9300675047272",
+      "name": "Coca-Cola Classic",
+      "brand": "Coke",
+      "gtin": "9300675047272",
+      "disposition": "held",
+      "reason": "The source reports 142 kcal per 100 g for a ready-to-drink cola. The energy and volume basis need exact package evidence.",
+      "source": {
+        "sourceId": "open-food-facts-au",
+        "recordId": "off:9300675047272",
+        "url": "http://world-en.openfoodfacts.org/product/9300675047272/coca-cola-classic-coke",
+        "trustClass": "open-food-facts-au",
+        "trustRank": 4,
+        "retrievedAt": null,
+        "verifiedAt": null,
+        "publishedDate": null,
+        "page": null,
+        "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+        "market": "AU",
+        "sourceType": "external-catalogue"
+      },
+      "basis": "g",
+      "sourceBasis": "per-100g-off-csv",
+      "sourceNutrients": {
+        "calories": 142,
+        "energyKj": 595,
+        "protein": 0,
+        "carbs": 35,
+        "fat": 0,
+        "satFat": 0,
+        "sugar": 35
+      },
+      "nutrients": {
+        "energyKj": 595,
+        "calories": 142,
+        "protein": 0,
+        "carbs": 35,
+        "fat": 0,
+        "satFat": 0,
+        "sugar": 35
+      },
+      "eligibility": {
+        "status": "needs-nutrition-completion",
+        "label": "Nutrition needs review",
+        "reasonCode": "reviewed-beverage-hold",
+        "message": "The source reports 142 kcal per 100 g for a ready-to-drink cola. The energy and volume basis need exact package evidence.",
+        "normalLoggingAllowed": false,
+        "actions": [
+          {
+            "id": "details",
+            "label": "Details"
+          }
+        ]
+      },
+      "measures": [],
+      "category": {
+        "id": "soft-drinks",
+        "label": "Soft Drinks"
+      }
+    },
+    {
+      "id": "barcode:9300675001410",
+      "name": "Classic",
+      "brand": "Coca-Cola",
+      "gtin": "9300675001410",
+      "disposition": "preserved",
+      "reason": null,
+      "source": {
+        "sourceId": "open-food-facts-au",
+        "recordId": "off:9300675001410",
+        "url": "http://world-en.openfoodfacts.org/product/9300675001410/classic-coca-cola",
+        "trustClass": "open-food-facts-au",
+        "trustRank": 4,
+        "retrievedAt": null,
+        "verifiedAt": null,
+        "publishedDate": null,
+        "page": null,
+        "sha256": "94d2d921f5e135e933c9f43e640b15072e101b4fd1d7aa8d58fa5df313b57f24",
+        "market": "AU",
+        "sourceType": "external-catalogue"
+      },
+      "basis": "mL",
+      "sourceBasis": "per-100g-off-csv",
+      "sourceNutrients": {
+        "calories": 42.9333333333333,
+        "carbs": 10.6666666666667,
+        "energyKj": 181.333333333333,
+        "fat": 0,
+        "protein": 0,
+        "salt": 0.0253333333333333,
+        "sodium": 10.133333333333299,
+        "sugar": 10.6666666666667
+      },
+      "nutrients": {
+        "calories": 42.9333333333333,
+        "carbs": 10.6666666666667,
+        "energyKj": 181.333333333333,
+        "fat": 0,
+        "protein": 0,
+        "sodium": 10.133333333333299,
+        "sugar": 10.6666666666667
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "measures": [
+        {
+          "key": "mL",
+          "multiplier": 0.01
+        },
+        {
+          "key": "cup",
+          "multiplier": 2.5
+        },
+        {
+          "key": "L",
+          "multiplier": 10
+        },
+        {
+          "key": "serve",
+          "multiplier": 3.75
+        }
+      ],
+      "category": {
+        "id": "soft-drinks",
+        "label": "Soft Drinks"
+      }
+    },
+    {
+      "id": "barcode:9300675011419",
+      "name": "Diet Coke",
+      "brand": "Coca-Cola",
+      "gtin": "9300675011419",
+      "disposition": "preserved",
+      "reason": null,
+      "source": {
+        "sourceId": "open-food-facts-au",
+        "recordId": "off:9300675011419",
+        "url": "http://world-en.openfoodfacts.org/product/9300675011419/diet-coke-coca-cola",
+        "trustClass": "open-food-facts-au",
+        "trustRank": 4,
+        "retrievedAt": null,
+        "verifiedAt": null,
+        "publishedDate": null,
+        "page": null,
+        "sha256": "94d2d921f5e135e933c9f43e640b15072e101b4fd1d7aa8d58fa5df313b57f24",
+        "market": "AU",
+        "sourceType": "external-catalogue"
+      },
+      "basis": "mL",
+      "sourceBasis": "per-100g-off-csv",
+      "sourceNutrients": {
+        "calories": 0.5,
+        "carbs": 0.1,
+        "energyKj": 1.9,
+        "fat": 0,
+        "fibre": 0,
+        "protein": 0.05,
+        "salt": 0.0025,
+        "satFat": 0,
+        "sodium": 1,
+        "sugar": 0
+      },
+      "nutrients": {
+        "calories": 0.5,
+        "carbs": 0.1,
+        "energyKj": 1.9,
+        "fat": 0,
+        "fibre": 0,
+        "protein": 0.05,
+        "satFat": 0,
+        "sodium": 1,
+        "sugar": 0
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "measures": [
+        {
+          "key": "mL",
+          "multiplier": 0.01
+        },
+        {
+          "key": "cup",
+          "multiplier": 2.5
+        },
+        {
+          "key": "L",
+          "multiplier": 10
+        },
+        {
+          "key": "serve",
+          "multiplier": 3.75
+        }
+      ],
+      "category": {
+        "id": "soft-drinks",
+        "label": "Soft Drinks"
+      }
+    },
+    {
+      "id": "barcode:9300675012089",
+      "name": "Coke Zero",
+      "brand": "Coca Cola",
+      "gtin": "9300675012089",
+      "disposition": "held",
+      "reason": "The Zero product identity conflicts with 10.67 g sugar per source reference. Exact nutrition and volume evidence are required.",
+      "source": {
+        "sourceId": "open-food-facts-au",
+        "recordId": "off:9300675012089",
+        "url": "http://world-en.openfoodfacts.org/product/9300675012089/coke-zero-coca-cola",
+        "trustClass": "open-food-facts-au",
+        "trustRank": 4,
+        "retrievedAt": null,
+        "verifiedAt": null,
+        "publishedDate": null,
+        "page": null,
+        "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+        "market": "AU",
+        "sourceType": "external-catalogue"
+      },
+      "basis": "g",
+      "sourceBasis": "per-100g-off-csv",
+      "sourceNutrients": {
+        "calories": 42.933333333333,
+        "energyKj": 181.333333333339,
+        "protein": 0,
+        "carbs": 10.666666666667,
+        "fat": 0,
+        "satFat": 0,
+        "sugar": 10.666666666667
+      },
+      "nutrients": {
+        "energyKj": 181.333333333339,
+        "calories": 42.933333333333,
+        "protein": 0,
+        "carbs": 10.666666666667,
+        "fat": 0,
+        "satFat": 0,
+        "sugar": 10.666666666667
+      },
+      "eligibility": {
+        "status": "needs-nutrition-completion",
+        "label": "Nutrition needs review",
+        "reasonCode": "reviewed-beverage-hold",
+        "message": "The Zero product identity conflicts with 10.67 g sugar per source reference. Exact nutrition and volume evidence are required.",
+        "normalLoggingAllowed": false,
+        "actions": [
+          {
+            "id": "details",
+            "label": "Details"
+          }
+        ]
+      },
+      "measures": [
+        {
+          "key": "g",
+          "multiplier": 0.01
+        }
+      ],
+      "category": null
+    },
+    {
+      "id": "barcode:9300675090667",
+      "name": "Sprite Zero Sugar Lemon-Lime",
+      "brand": "Sprite",
+      "gtin": "9300675090667",
+      "disposition": "preserved",
+      "reason": null,
+      "source": {
+        "sourceId": "open-food-facts-au",
+        "recordId": "off:9300675090667",
+        "url": "http://world-en.openfoodfacts.org/product/9300675090667/sprite-zero-sugar-lemon-lime",
+        "trustClass": "open-food-facts-au",
+        "trustRank": 4,
+        "retrievedAt": null,
+        "verifiedAt": null,
+        "publishedDate": null,
+        "page": null,
+        "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+        "market": "AU",
+        "sourceType": "external-catalogue"
+      },
+      "basis": "mL",
+      "sourceBasis": "per-100g-off-csv",
+      "sourceNutrients": {
+        "calories": 1,
+        "energyKj": 4.2,
+        "protein": 0.04,
+        "carbs": 0.04,
+        "fat": 0,
+        "satFat": 0,
+        "fibre": 0,
+        "sugar": 0
+      },
+      "nutrients": {
+        "energyKj": 4.2,
+        "calories": 1,
+        "protein": 0.04,
+        "carbs": 0.04,
+        "fat": 0,
+        "satFat": 0,
+        "fibre": 0,
+        "sugar": 0
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "measures": [
+        {
+          "key": "mL",
+          "multiplier": 0.01
+        },
+        {
+          "key": "cup",
+          "multiplier": 2.5
+        },
+        {
+          "key": "L",
+          "multiplier": 10
+        },
+        {
+          "key": "serve",
+          "multiplier": 2.5
+        }
+      ],
+      "category": {
+        "id": "soft-drinks",
+        "label": "Soft Drinks"
+      }
+    },
+    {
+      "id": "barcode:9310021039028",
+      "name": "Lemon Flavour Ice Tea",
+      "brand": "Lipton",
+      "gtin": "9310021039028",
+      "disposition": "preserved",
+      "reason": null,
+      "source": {
+        "sourceId": "open-food-facts-au",
+        "recordId": "off:9310021039028",
+        "url": "http://world-en.openfoodfacts.org/product/9310021039028/lemon-flavour-ice-tea-lipton",
+        "trustClass": "open-food-facts-au",
+        "trustRank": 4,
+        "retrievedAt": null,
+        "verifiedAt": null,
+        "publishedDate": null,
+        "page": null,
+        "sha256": "94d2d921f5e135e933c9f43e640b15072e101b4fd1d7aa8d58fa5df313b57f24",
+        "market": "AU",
+        "sourceType": "external-catalogue"
+      },
+      "basis": "mL",
+      "sourceBasis": "per-100g-off-csv",
+      "sourceNutrients": {
+        "calories": 16,
+        "carbs": 4,
+        "energyKj": 69.24,
+        "fat": 0.02,
+        "fibre": 0.02,
+        "protein": 0.02,
+        "salt": 0.0175,
+        "sodium": 2,
+        "sugar": 3.8
+      },
+      "nutrients": {
+        "calories": 16,
+        "carbs": 4,
+        "energyKj": 66.944,
+        "fat": 0.02,
+        "fibre": 0.02,
+        "protein": 0.02,
+        "sodium": 2,
+        "sugar": 3.8
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "measures": [
+        {
+          "key": "mL",
+          "multiplier": 0.01
+        },
+        {
+          "key": "cup",
+          "multiplier": 2.5
+        },
+        {
+          "key": "L",
+          "multiplier": 10
+        },
+        {
+          "key": "serve",
+          "multiplier": 5
+        }
+      ],
+      "category": {
+        "id": "drinks",
+        "label": "Drinks"
+      }
+    },
+    {
+      "id": "barcode:9310077313011",
+      "name": "Cola Zero Sugar flavoured soft drink",
+      "brand": "Black & Gold",
+      "gtin": "9310077313011",
+      "disposition": "preserved",
+      "reason": null,
+      "source": {
+        "sourceId": "open-food-facts-au",
+        "recordId": "off:9310077313011",
+        "url": "http://world-en.openfoodfacts.org/product/9310077313011/cola-zero-sugar-flavoured-soft-drink-black-gold",
+        "trustClass": "open-food-facts-au",
+        "trustRank": 4,
+        "retrievedAt": null,
+        "verifiedAt": null,
+        "publishedDate": null,
+        "page": null,
+        "sha256": "cc7c43ea07dbd92add0bb0b730629b1ae0b617e1681a53bcd9db990ab46216e5",
+        "market": "AU",
+        "sourceType": "external-catalogue"
+      },
+      "basis": "mL",
+      "sourceBasis": "per-100g-off-csv",
+      "sourceNutrients": {
+        "calories": 1.2,
+        "energyKj": 5,
+        "protein": 0,
+        "carbs": 0.3,
+        "fat": 0,
+        "satFat": 0,
+        "fibre": 0,
+        "sugar": 0,
+        "sodium": 33,
+        "salt": 0.0825
+      },
+      "nutrients": {
+        "energyKj": 5,
+        "calories": 1.2,
+        "protein": 0,
+        "carbs": 0.3,
+        "fat": 0,
+        "satFat": 0,
+        "fibre": 0,
+        "sugar": 0,
+        "sodium": 33
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "measures": [
+        {
+          "key": "mL",
+          "multiplier": 0.01
+        },
+        {
+          "key": "cup",
+          "multiplier": 2.5
+        },
+        {
+          "key": "L",
+          "multiplier": 10
+        },
+        {
+          "key": "serve",
+          "multiplier": 2.5
+        }
+      ],
+      "category": null
+    },
+    {
+      "id": "manufacturer:au:pepsi-regular",
+      "name": "Pepsi Regular",
+      "brand": "Pepsi",
+      "gtin": null,
+      "disposition": "added-official-formulation",
+      "reason": null,
+      "source": {
+        "sourceId": "manufacturer-au",
+        "recordId": "manufacturer:au:pepsi-regular",
+        "url": "https://www.pepsimax.com.au/products/pepsi",
+        "trustClass": "official-au-manufacturer",
+        "trustRank": 1,
+        "retrievedAt": null,
+        "verifiedAt": null,
+        "publishedDate": null,
+        "page": null,
+        "sha256": "748cd45d79f176808408eebaf9fa7a412b25c9b3e0519914f84e21df89cbaa67",
+        "market": "AU",
+        "sourceType": "packaged"
+      },
+      "basis": "mL",
+      "sourceBasis": {
+        "basis": "per-100",
+        "amount": 100,
+        "unit": "mL",
+        "state": "as-sold"
+      },
+      "nutrients": {
+        "energyKj": 111,
+        "protein": 0,
+        "fat": 0,
+        "satFat": 0,
+        "carbs": 7,
+        "sugar": 7,
+        "sodium": 10,
+        "calories": 26.52963671128107
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "measures": [
+        {
+          "key": "mL",
+          "multiplier": 0.01
+        },
+        {
+          "key": "cup",
+          "multiplier": 2.5
+        },
+        {
+          "key": "L",
+          "multiplier": 10
+        },
+        {
+          "key": "serve",
+          "multiplier": 3.75
+        }
+      ],
+      "category": {
+        "id": "soft-drinks",
+        "label": "Soft Drinks"
+      }
+    },
+    {
+      "id": "manufacturer:au:coca-cola-zero-sugar",
+      "name": "Coca-Cola Zero Sugar",
+      "brand": "Coca-Cola",
+      "gtin": null,
+      "disposition": "added-official-formulation",
+      "reason": null,
+      "source": {
+        "sourceId": "manufacturer-au",
+        "recordId": "manufacturer:au:coca-cola-zero-sugar",
+        "url": "https://www.coca-cola.com/au/en/brands/coca-cola/products",
+        "trustClass": "official-au-manufacturer",
+        "trustRank": 1,
+        "retrievedAt": null,
+        "verifiedAt": null,
+        "publishedDate": null,
+        "page": null,
+        "sha256": "748cd45d79f176808408eebaf9fa7a412b25c9b3e0519914f84e21df89cbaa67",
+        "market": "AU",
+        "sourceType": "packaged"
+      },
+      "basis": "mL",
+      "sourceBasis": {
+        "basis": "per-100",
+        "amount": 100,
+        "unit": "mL",
+        "state": "as-sold"
+      },
+      "nutrients": {
+        "energyKj": 1.2,
+        "calories": 0.3,
+        "protein": 0.02,
+        "fat": 0,
+        "satFat": 0,
+        "carbs": 0.03,
+        "sugar": 0,
+        "fibre": 0,
+        "sodium": 4.1
+      },
+      "eligibility": {
+        "status": "loggable-now",
+        "label": "Loggable now",
+        "reasonCode": "identity-nutrition-measure-ready",
+        "message": "Nutrition and at least one safe measure are ready.",
+        "actions": [
+          {
+            "id": "choose-amount",
+            "label": "Choose an Amount"
+          }
+        ],
+        "normalLoggingAllowed": true
+      },
+      "measures": [
+        {
+          "key": "mL",
+          "multiplier": 0.01
+        },
+        {
+          "key": "cup",
+          "multiplier": 2.5
+        },
+        {
+          "key": "L",
+          "multiplier": 10
+        }
+      ],
+      "category": {
+        "id": "soft-drinks",
+        "label": "Soft Drinks"
+      }
+    }
+  ]
+}

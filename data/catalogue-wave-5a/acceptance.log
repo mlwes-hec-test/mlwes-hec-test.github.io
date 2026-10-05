@@ -1,0 +1,1628 @@
+✔ frozen pool is pinned and the reviewed projection rebuilds byte-identically (2377.758ms)
+✔ retailers register once in the established deterministic order (268.3454ms)
+✔ directory counts and All Items are deterministic and lazy (345.5441ms)
+✔ every retained first-wave record preserves Australia-only community evidence, source brand and attribution (205.4602ms)
+✔ all 705 retained exclusions and lexical rejects remain outside the production index (156.3747ms)
+✔ community provenance cannot be fabricated from names, brand, partial store text, foreign country or missing pins (149.5684ms)
+✖ tampered hydrated community evidence fails closed (303.335ms)
+✔ guided bread is limited to its approved Aldi concept (171.4111ms)
+✔ guided yoghurt is limited to its approved Aldi concept (170.2956ms)
+✔ guided cheese is limited to its approved Aldi concept (190.0201ms)
+✔ guided cereal is limited to its approved Aldi concept (149.3569ms)
+✔ retailer-aware Aldi bread uses the food concept even without bread in the source title (163.5476ms)
+✔ cancellation clears Aldi ownership and preserves generic Bread intent (127.416ms)
+✔ all 20 existing protected OFF GTIN records merge compatibly without changing brand or nutrition (442.7566ms)
+✔ incompatible same-GTIN identity remains blocked through repeated canonicalisation (135.2257ms)
+✔ bread slices preserves identity, amount conversion and one final Review (127.4059ms)
+✔ liquid Pepsi preserves identity, amount conversion and one final Review (115.8109ms)
+✔ gram cheese preserves identity, amount conversion and one final Review (110.0962ms)
+✔ muesli serve preserves identity, amount conversion and one final Review (104.774ms)
+✔ gram yoghurt preserves identity, amount conversion and one final Review (112.6974ms)
+✔ unknown values stay unknown; explicit water zeroes remain zero; packs never create count measures (114.4117ms)
+✔ bounded Woolworths and Coles regressions retain their roots and accepted catalogues (225.1465ms)
+✔ submitted retailer product filter keeps approved concept evidence across either merge order (151.8695ms)
+✔ shared concept source choices expose covered retailers without altering generic-only concepts (128.856ms)
+✔ retailer search uses registered food-concept aliases before title matching (147.9523ms)
+✔ canonical identity is stable across display renames and respects explicit source identity (1.8965ms)
+✔ brand normalization handles punctuation, case and spacing without product-specific branches (13.2813ms)
+✔ different GTINs, pack sizes and nutritional variants remain distinct (2.0851ms)
+✔ same GTIN prefers sourced authority and preserves contradictory evidence (14.4774ms)
+✔ equal-trust unresolved contradictions block logging rather than average (1.7681ms)
+✔ a matching brand/name alone is insufficient cross-source identity proof (0.6966ms)
+✔ retailer evidence and online candidates cannot masquerade as manufacturer verification (19.882ms)
+✔ unknown metadata remains unknown on canonical identity (6.9206ms)
+✔ source checks detect impossible servings and nutrition contradictions (0.7133ms)
+✔ canonical eligibility agrees across preview, submitted Search and restaurant branch (66.1433ms)
+✔ legacy preview-only identities are excluded by the shared contract (2.1708ms)
+✔ selecting a weak result cannot discard its contextual eligibility restriction (15.2413ms)
+✔ query revisions discard all previous intent and reject asynchronous writes (1.5719ms)
+✔ Australian-first brand results are bounded and contain only the resolved brand (8.3063ms)
+✔ brand-only queries do not become a food concept inherited from cached products (9.3106ms)
+✔ noisy indexed brands cannot capture generic facets or declared menu families (50.6101ms)
+✔ spread evidence is gated by food form; an unknown spread gets no borrowed spoons (2.5891ms)
+✔ Flora accepted measures, nutrition and canonical identity survive data migration (9.4765ms)
+✔ legacy classification record precedes edits and obsolete production maps are removed (29.5803ms)
+✔ pilot expansion has multiple source families and preserves qualified nutrient values (43.9561ms)
+✔ shared quality preserves base, semantic groups, alphabetical references and bounds (392.8234ms)
+✔ strong AU names and variants precede category-only foreign names despite brand diversity (84.9337ms)
+✔ plain milk precedes a recognised flavoured restaurant product (6.8805ms)
+✔ containing dishes cannot outrank direct identities through source or brand trust (36.8918ms)
+✔ catalogue prevalence is distinct compatible AU records, cached per growing snapshot (21.2684ms)
+✔ committed Bread and Milk discovery replaces weak first-list probes and retains exact foreign products (4185.3286ms)
+✔ every generated record passes identity, GTIN, AU, nutrition, conflicts and unknown preservation (13256.7513ms)
+✔ all admitted source tokens meet reproducible tiers without merging companies or sub-brands (8547.084ms)
+✔ the wave adds no duplicate OFF identity and retains existing retailer evidence (1746.7015ms)
+✔ known solids never gain liquid measures in the complete generated wave (3565.8289ms)
+✔ brand plus exact product outranks lexical extensions and incomplete records never enter brand browse (437.5396ms)
+✔ brand browse is bounded, category scoped, and all pages cover the complete brand (254.8235ms)
+✔ generic food and retailer intent cannot become an exact-brand catalogue query (4.9539ms)
+✔ a complete indexed brand outranks a shorter registered brand prefix (22.9168ms)
+✔ concept Brand Name options contain accepted relevant products only (558.9922ms)
+✔ source tokens allow secondary explicit brand membership without ownership inference (0.9717ms)
+✔ cancelled asynchronous queries cannot hand off foods (2.318ms)
+✔ decorated brand sorting preserves the existing complete ranking order (254.3534ms)
+✔ cached raw OFF rows cannot bypass audited brand admission (105.0175ms)
+✔ representative real products retain one amount-to-Review conversion (34.55ms)
+✔ actual directory controller preserves the entire index set despite loaded manufacturer and retailer records (134738.7342ms)
+✔ failed generated shard loading cannot substitute a cached or manufacturer-only directory (32.0084ms)
+✔ every generated brand directory has exactly its admitted identities across all pages and categories (33554.4416ms)
+✔ priority counts, source spellings, Hash Browns membership and exact products remain admitted (97.263ms)
+✔ raw labels cannot grant admission; accepted manufacturer identities share brand discovery (521.2218ms)
+✔ retailer aliases reuse the admitted canonical GTIN without losing either membership (14.4793ms)
+✔ fresh brand hydration resolves retailer authority, retains OFF evidence and uses canonical Review nutrition (32.2808ms)
+✔ audited brand generation is byte deterministic and committed outputs match (45144.9333ms)
+✔ classification snapshots match uncached decisions after scalar and in-place category/source mutations (1088.7024ms)
+✔ complete-record cache hits are identical, isolated, and invalidate every safety/ranking input (62.2647ms)
+✔ hydrated OFF adapter records reuse unchanged decisions despite optional undefined metadata (313.3959ms)
+✔ memoized and uncached addability agree across all 1922 admitted products (20867.4211ms)
+✔ complete concept candidate groups, diagnostics and ranking match the uncached reference (33087.1556ms)
+✔ serving normalization preserves the uncached text algorithm (71.9112ms)
+✔ the established percentile is the maximum at 20 and index 47 at 50 (1.8094ms)
+✔ all samples including a slow first search remain in arrival order (2.9708ms)
+✔ generic median and p95 are independent inclusive gates, evaluated without rounding (0.6812ms)
+✔ cold check is separate, exactly one observation, and inclusive at 500 ms (3.5788ms)
+✔ all other rendered operations retain their existing strict 250 ms p95 gate (0.6761ms)
+✔ incomplete distributions, unknown operations and invalid durations cannot pass (0.9123ms)
+✔ one failing independent run or cold check fails acceptance without averaging (0.3597ms)
+✔ classification cache distinguishes category fields and invalidates edited identities (11.2642ms)
+✔ indexed peer identity decisions equal the established scan for every admitted category (2284.1769ms)
+✔ indexed identity preserves duplicate labels, family shells and distinct GTIN exceptions (1.0994ms)
+✔ missing source nutrients stay absent; explicit source zero remains zero (2.0177ms)
+✔ whole source brand field and separate tokens are preserved without ownership inference (0.7523ms)
+✔ simple punctuation normalization does not merge unrelated accents or parent labels (0.2003ms)
+✔ unsupported source domains cannot enter through a secondary food tag (0.4926ms)
+✔ category assignment requires explicit supported source category; name or brand is insufficient (0.5948ms)
+✔ noise values are held rather than rewritten into a consumer brand (1.3015ms)
+✔ ingredient suffixes cannot turn pizzas and pasta sauces into cheese (0.609ms)
+✔ contradictory serving quantities and mixed cheese identities are excluded (1.0456ms)
+✔ cached online renderer and subsequent lookup retain conflict, retailer evidence and both packs (42.8859ms)
+✔ product cache retains complete canonical evidence even when one competing source did not score (2.8576ms)
+✔ online canonical ranking retains score, Australian preference and name tie ordering (2.0844ms)
+✔ federated and repeatedly canonicalised conflicts remain blocked through the cached UI (5.8033ms)
+✔ legacy online result policy retains canonical legacy records and stable lookup (7.1448ms)
+✔ independent source identities retain eligibility and ranking when weaker same-label rows arrive (54.6144ms)
+✔ copies of one canonical identity cannot manufacture label ambiguity (1.1289ms)
+✔ ambiguous labels within one source stay blocked and exact preview cannot bypass that decision (8.8971ms)
+✔ independent sources do not make generic or unnamed records specific products (8.3066ms)
+✔ shared GTIN conflict and source authority checks still control canonical merging (10.1336ms)
+Chiko regression evidence: C:\Users\mlwes\AppData\Local\Temp\hec-chiko-regression-j56ooD
+✖ real production Chiko preview, hydrated Search and selection retain the accepted roll identity (14079.892ms)
+✔ automatic apostrophe products preserve display and canonical identity across matching variants (203.2806ms)
+ℹ {"kind":"apostrophe","id":"off:9319133334670","brand":"Carman's","name":"Classic Fruit & Nut Muesli","canonicalId":"barcode:9319133334670","variants":3}
+ℹ {"kind":"apostrophe","id":"off:9340156084976","brand":"Rafferty's Garden","name":"Summer fruits & quinoa","canonicalId":"barcode:9340156084976","variants":3}
+✔ automatic typographic products preserve display and canonical identity across matching variants (151.4859ms)
+ℹ {"kind":"typographic","id":"off:8711327638372","brand":"Ben & Jerry’s","name":"Chocolate Chip Cookie Dough 79g","canonicalId":"barcode:8711327638372","variants":4}
+ℹ {"kind":"typographic","id":"off:8801083421179","brand":"Kellogg’s","name":"Rice Bubbles - Gluten Free","canonicalId":"barcode:8801083421179","variants":3}
+✔ automatic hyphen products preserve display and canonical identity across matching variants (130.3097ms)
+ℹ {"kind":"hyphen","id":"off:8801047168324","brand":"Dogani Seolleongtang - 도가니 설렁탕","name":"Cow Knee And Bone Soup","canonicalId":"barcode:8801047168324","variants":5}
+ℹ {"kind":"hyphen","id":"off:3415581105360","brand":"Häagen-Dazs","name":"STRAWBERRIES & CREAM","canonicalId":"barcode:3415581105360","variants":7}
+✔ automatic ampersand products preserve display and canonical identity across matching variants (97.1596ms)
+ℹ {"kind":"ampersand","id":"off:9310375002495","brand":"Dimmies & Tinnies","name":"Chicken And Corn Dim Sim","canonicalId":"barcode:9310375002495","variants":2}
+ℹ {"kind":"ampersand","id":"off:9300682100113","brand":"m&m's","name":"crunchy cookie m&m's - 11 pieces","canonicalId":"barcode:9300682100113","variants":4}
+✔ automatic punctuationSpacing products preserve display and canonical identity across matching variants (108.1633ms)
+ℹ {"kind":"punctuationSpacing","id":"off:2132780010318","brand":"Ready- Set... Cook!","name":"Boneless Butterfly Chicken Greek Style","canonicalId":"barcode:2132780010318","variants":5}
+ℹ {"kind":"punctuationSpacing","id":"off:9337096101467","brand":"Well & Good","name":"Choc Chip Cookie Mix","canonicalId":"barcode:9337096101467","variants":2}
+✔ all house-brand admissions reuse accepted canonical identity, brand, nutrition and measures (847.4165ms)
+✔ official house-brand relationship is bound to both identities and AU product evidence (1.9276ms)
+✔ every retailer root exposes only audited eligible house families once (2599.6837ms)
+✔ direct house-brand search reaches the same canonical records without retailer brand replacement (744.8164ms)
+✔ source spelling keys, legacy Select and unresolved candidate holds remain explicit (2049.324ms)
+✔ unknown nutrition stays unknown and natural measures do not change (154.4319ms)
+✔ incomplete nutrition and same-GTIN conflicts never gain ordinary admission (2357.644ms)
+✔ protected McCain canonical alias and 75 g Review energy are unchanged (4.7745ms)
+✔ family audit and admissions are hash-pinned with private-testing policy intact (66.6542ms)
+✔ all accepted brand identity, panel and measure bytes match starting SOURCE (1694.3772ms)
+✔ house-brand ingredient and use mentions cannot pollute concept narrowing (1.4251ms)
+✔ explicit retailer and house-brand product requests preserve evidenced identity (28.373ms)
+✖ all admitted expansion identities are unique, loggable, attributable, and retain public release review (4074.8506ms)
+✔ unknown OFF nutrients stay absent and qualified official panel values are never invented as zero (934.0178ms)
+✔ every expanded retailer page has actual evidence and no duplicate canonical choices (5140.7623ms)
+✔ multi-market explicit Australia store evidence is accepted; a foreign-only or fabricated store claim is rejected (11.7266ms)
+✔ manufacturer catalogue identities without GTIN are admitted only by canonical identity (20.3342ms)
+✔ all preserved accepted brand identities remain admitted exactly once (172.6377ms)
+✔ new regional identity holds and ingredient-only family mentions stay out of unrelated categories (272.7265ms)
+✖ new manufacturer products without a known barcode do not display a literal null barcode (28.3469ms)
+✔ category coverage never acts as an admission cap for otherwise eligible foods (38.1891ms)
+✔ 1. exact barcode intent resolves one product (632.6903ms)
+✔ 2. exact product intent requires a defensible product identity (0.4708ms)
+✔ 3. consumer brand intent comes from the brand index (0.2307ms)
+✔ 4. brand plus product intent is composed before ranking (0.2422ms)
+✔ 5. generic category intent comes from category intelligence (0.1879ms)
+✔ 6. broad fallback remains available (0.261ms)
+✔ 7. no confident match is explicit (0.1629ms)
+✔ 8. brand spaces normalise generically (0.183ms)
+✔ 9. brand punctuation is ignored by the generic key (0.2648ms)
+✔ 10. apostrophes normalise generically (0.3019ms)
+✔ 11. case normalises generically (1.298ms)
+✔ 12. company/source text is not consumer-brand membership (0.4639ms)
+✔ 13. exact product-name field outranks weak text (0.5209ms)
+✔ 14. Australian catalogue source outranks broad online fallback (0.1346ms)
+✔ 15. category membership is grouped ahead of incidental text (0.1324ms)
+✔ 16. adding product words restricts a recognised brand (0.0927ms)
+✔ 17. online federation does not mutate local order (2.1282ms)
+✔ 18. query progression reports meaningful refinement (0.2774ms)
+✔ 19. brand reference is navigation-only (0.1686ms)
+✔ 20. barcode-only identity is not exact eligible (0.1413ms)
+✔ 21. all-uppercase source labels receive readable capitalization (0.1355ms)
+✔ 22. exact GTIN deduplication is conservative (11.9682ms)
+✔ 23. real variants with different GTINs remain separate (0.4546ms)
+✔ 24. brand enters the one guided engine (16.0677ms)
+✔ 25. a weak large-brand category facet falls back to product pagination (261.4634ms)
+✔ 26. manageable data-derived variants present concrete products (2.0889ms)
+✔ 27. only facets that divide candidates are asked (1.1338ms)
+✔ 28. Back recomputes from identity answers (8.0609ms)
+✔ 29. upstream identity change clears amount state (12.6765ms)
+✔ 30. liquid profile uses mL (3.3614ms)
+✔ 31. liquid profile offers an Australian 250 mL cup (2.2695ms)
+✔ 32. spread profile uses grams (2.7737ms)
+✔ 33. spread retains an explicit compatible manufacturer serve (2.5826ms)
+✔ 34. trusted generic spread teaspoon uses the existing HEC 5 g conversion (2.3267ms)
+✔ 35. an explicit package teaspoon count is allowed (2.303ms)
+✔ 36. countable package derives a piece measure (2.3919ms)
+✔ 37. custom decimal amount scales after measure (5.3437ms)
+✔ 38. package size is not selected consumption (4.73ms)
+✔ 39. nutrition basis is not selected consumption (3.6355ms)
+✔ 40. conflicting kcal and kJ are normalised from one source (0.2569ms)
+✔ 41. one basis factor scales kcal and kJ together (0.171ms)
+✔ 42. missing nutrient remains unknown (0.1868ms)
+✔ 43. energy conflict downgrades integrity (0.1588ms)
+✔ 44. missing macros produce partial nutrition (0.1248ms)
+✔ 45. identity-only product is blocked safely (0.4571ms)
+✔ 46. real Flora brand universe remains 30 products (0.2198ms)
+✔ 47. real Meadow Lea variants share one brand and omit the reference as exact (1.5001ms)
+✔ 48. real Milk ranks plain identity/category members first (0.321ms)
+✔ 49. real Pauls excludes similar unrelated brands (0.4696ms)
+✔ 50. real Trim Milk keeps both Australian candidates (0.3469ms)
+✔ 51. Pauls Trim Milk restricts within Pauls (0.1493ms)
+✔ 52. Big Mac authoritative source remains present (1.501ms)
+✔ 53. Large McDonald’s Fries remains present (0.7213ms)
+✔ 54. Hotcakes complete-meal rule remains present (0.5295ms)
+✔ 55. Bunnings natural item remains present (4.7571ms)
+✔ 56. Chiko canonical dedup remains one display row (0.4231ms)
+✔ 57. generic Fries routing remains preserved (1.1698ms)
+✔ 58. Weight foundation remains loaded (0.9868ms)
+✖ 59. focused keyboard handler preserves the caret (5.5828ms)
+✔ 60. all 73,300 committed products remain indexed (0.1665ms)
+✔ 61. product shards remain lazy rather than startup-preloaded (0.5891ms)
+✔ 62. broader online remains a weaker source tier (0.188ms)
+✔ 63. exact catalogue product taps enter the shared guide (4.6845ms)
+✔ 64. serving UI asks measure then amount clearly (8.7843ms)
+✔ 65. architecture audit answers all ten requirements YES (17.7618ms)
+✔ 66. punctuation-heavy single-brand products use the derived exact-name index (0.2475ms)
+✔ 1. delayed online arrivals never reorder or replace the local Trim Milk snapshot (20.9097ms)
+✔ 2. a stale Trim mil response is rejected after Trim milk becomes active (12.7808ms)
+✔ 3. continuing the exact query preserves its revision and immutable local result (2.1422ms)
+✔ 4. every changed raw query receives a monotonic revision (0.6269ms)
+✔ 5. weak names cannot become exact while meaningful peer identities exist (2.6398ms)
+✔ 6. barcode-known identity remains incomplete rather than exact (8.9282ms)
+✔ 7. brand references remain navigation-only (0.3096ms)
+✔ 8. small and medium sets use direct concrete products (29.503ms)
+✔ 9. a balanced shopper-facing facet is accepted only for a genuinely large set (62.5666ms)
+✔ 10. broad taxonomy noise is rejected and large results paginate real products (163.3456ms)
+✔ 11. unspecified spread keeps grams without borrowed household measures (32.06ms)
+✔ 12. liquid milk keeps arbitrary mL and the Australian 250 mL cup (14.602ms)
+✔ 13. production online append updates only the broader surface (0.8695ms)
+✔ 14. production large-search awaits are guarded by token, revision and current input (0.7321ms)
+✔ 15. weak online shells are excluded from exact-product selection (1.5568ms)
+✔ 16. recovery production modules contain no named-brand resolver branches (4.8308ms)
+✖ 17. mobile safeguards retain bounded choices, stable caret and unresolved-action suppression (4.2642ms)
+✔ 18. catalogue manifest remains the approved production-scale snapshot (0.282ms)
+✔ ordinary supermarket browse is relationship-gated, current or uncertain, never sale or provenance alone (2799.7498ms)
+✔ independent and legacy products retain useful global search and canonical identity (333.0208ms)
+✔ retailer Brands navigation reaches Seasons Pride and Elmsbury, with category intersection (11.3798ms)
+✔ compound foods outrank ingredient and broad cake tokens in projected categories and concepts (3.7015ms)
+✔ Jewel/Gem aliases resolve one canonical product, preserve authentic names and exact branded intent (19.4125ms)
+✔ all accepted source identity, nutrition, measure and evidence facts remain byte-equivalent (2346.45ms)
+✔ protected McCain review still resolves its canonical alias and accepted energy (1.5215ms)
+✔ fixed manifest is bounded, canonical-distinct and all decisions reconcile (22.3318ms)
+✔ all 15 existing restrictions survive fresh evidence and runtime hydration (805.7239ms)
+✔ 24 Wave 1B corrections survive; Waves 2A and 3A account for later shared fallback changes (470.437ms)
+✔ shared category rules are retailer-neutral and reject misleading ingredients and forms (0.7266ms)
+✔ stock and flavour cues never hijack chicken, while ordinary chicken remains compatible (2.0464ms)
+✔ retailer concept queries retrieve evidenced families without lexical cereal in every title (120.8505ms)
+✔ dry preparation words take precedence over beverage ancestry without changing prepared drinks (10.6788ms)
+✔ structured Australian savoury biscuits provide generic Crackers without admitting sweet biscuits (32.6083ms)
+✔ concepts with a source-context chooser cannot be pre-filtered to generic records (0.6549ms)
+✔ new admissions have complete required nutrients and preserve unknown fibre (4.8488ms)
+✔ physical form and explicit serving support one amount handoff with no pack-derived units (23.209ms)
+✔ independent consumer brand and retailer presence remain separate throughout global hydration (580.6802ms)
+✔ deferred candidates cannot gain a Wave 1B admission or bypass existing restrictions (0.673ms)
+✔ global index/shard hashes, canonical uniqueness and brand counts reconcile (1333.5553ms)
+✔ new evidence cannot override a material same-GTIN identity or formulation conflict (21.2637ms)
+✔ Woolworths outputs regenerate byte-for-byte offline without replacing source evidence (7151.2356ms)
+✔ the standalone Woolworths builder check resolves its adapter dependency without a circular-export failure (4365.6788ms)
+✖ tests\catalogue-wave-2a.test.js (68687.3208ms)
+✔ 39 enrolled identities resolve uniquely and category moves are subsets of improvements (1.6514ms)
+✔ 15 retained holds and four deferrals stay out of normal admission (421.7399ms)
+✔ exact package GTINs complete existing identities without collapsing other milk or vegetable formulations (16.1746ms)
+✔ two package-evidenced Aldi trademarks enter house browse, independent Pepsi stays global (41.7467ms)
+✔ unknown fibre, true printed zero, preparation and human measures survive a complete review flow (21.5713ms)
+✔ shared fallback semantics handle product forms and reject ingredient/flavour/compound traps (1.1146ms)
+✖ all three retailer totals and each cross-retailer category consequence reconcile (2186.6014ms)
+✔ all moved existing products retain exact identity, nutrients, measures and ownership (1407.1867ms)
+✖ new exact brand products are globally reachable and every index entry matches its shard (64.2016ms)
+✔ all protected source payloads are unchanged (1267.0234ms)
+
+<--- Last few GCs --->
+
+[30984:000001BD2AB40000]    48382 ms: Mark-Compact (reduce) 60.8 (63.9) -> 60.8 (62.6) MB, pooled: 0 MB, 34.93 / 0.00 ms  (average mu = 0.040, current mu = 0.006) external memory pressure; GC in old space requested
+[30984:000001BD2AB40000]    48419 ms: Mark-Compact (reduce) 60.8 (62.6) -> 60.8 (62.6) MB, pooled: 0 MB, 37.09 / 0.00 ms  (average mu = 0.020, current mu = 0.001) external memory pressure; GC in old space requested
+
+FATAL ERROR: Committing semi space failed. Allocation failed - JavaScript heap out of memory
+----- Native stack trace -----
+
+ 1: 00007FF78CAD50BF 
+ 2: 00007FF78B6FDD27 
+ 3: 00007FF78B4FE567 
+ 4: 00007FF78B496B5B 
+ 5: 00007FF78B4BF0DA 
+ 6: 00007FF78B500946 
+ 7: 00007FF78B4FFF96 
+ 8: 00007FF78B510EF2 
+ 9: 00007FF78B510A1B 
+10: 00007FF78CDF7DED 
+11: 00007FF78B4FC030 
+12: 00007FF78B503F50 
+13: 00007FF78B378D34 
+14: 00007FF78B72551E 
+15: 00007FF78CB1A510 
+16: 000001BD631CF64D 
+✖ tests\catalogue-wave-4a.test.js (49372.5995ms)
+✔ brand query families unite membership without merging variant nutrition identities (527.2958ms)
+✔ bare roots and specific product queries retain distinct ownership (5.2245ms)
+✔ reviewed unsafe beverage identities remain held across all canonical consumers (13.6247ms)
+✔ volume and energy audit 9313820004518 (2.9324ms)
+✔ volume and energy audit 9313820016108 (2.713ms)
+✔ volume and energy audit 9300675001410 (1.4794ms)
+✔ volume and energy audit 9300675011419 (1.5963ms)
+✔ volume and energy audit 9300675090667 (3.1545ms)
+✔ volume and energy audit 9310021039028 (2.7731ms)
+✔ volume and energy audit 9310077313011 (5.6606ms)
+✔ mass, energy units, printed zero and Unknown remain distinct (4.9239ms)
+✔ food heads outrank ingredient words and unsupported snack-stick classification stays deferred (2.7003ms)
+✔ retailer totals, ownership, filtering, paging and category membership stay consistent (3491.518ms)
+✔ small catalogue navigation is adaptive and large catalogues stay bounded (0.2245ms)
+✔ accepted local brand products cannot bypass conflicting same-GTIN retailer evidence (9.2333ms)
+✔ all Coles source rows reproduce from pinned, attributable OFF bytes without changing the protected layer (4968.3068ms)
+✔ reviewed collection directory is lazy, paged and excludes restricted rows (549.5133ms)
+✔ guided Coles bread uses evidenced house families and separately retained retailer or collection relationships (289.4907ms)
+✔ synthetic national-brand, missing-pin, foreign-source and wrong-record claims cannot enter the collection (211.8812ms)
+✔ compatible same-GTIN OFF hydration retains one identity and the separate collection provenance (155.3135ms)
+✔ synthetic compatible cross-retailer evidence keeps memberships separate and never manufactures Coles listing evidence (195.605ms)
+✔ synthetic same-GTIN brand/pack/form conflicts remain blocked after re-canonicalisation (157.3066ms)
+✔ missing and conflicting real nutrition remains restricted; unknown optional nutrients stay unknown (169.7327ms)
+✔ source natural bread slices and mL drink amounts retain one confirmation and unchanged nutrition (161.8333ms)
+✔ late Coles requests cannot replace Woolworths or generic query ownership (382.8623ms)
+✔ changed hydrated collection evidence fails closed and cannot silently admit a different source (337.0013ms)
+✔ generic intent and existing OFF identifiers remain unchanged (229.1762ms)
+✔ base bread asks origin, then supported bread types (80.3455ms)
+✔ compound bread identities cannot compete with ordinary bread (0.5774ms)
+✔ whole meal spelling and supplied white/wholemeal facets agree (8.1067ms)
+✔ quantity, food identity and supplied bread type remain separate (1.0615ms)
+✔ milk source is unresolved before cow, oat and other source choices (2.8385ms)
+✔ milk compounds are excluded while genuine chocolate flavoured milk remains fluid milk (1.8276ms)
+✔ plant source queries never acquire cow fat/lactose questions (9.2747ms)
+✔ cow source and milk fat/lactose intent are preserved independently (1.3773ms)
+✔ AFCD ingredient qualifiers cannot replace an egg or bread head concept (0.6129ms)
+✔ plain cereal, cheese, chicken, apple and rice exclude containing foods (0.5896ms)
+✔ specific confectionery and condiment categories outrank ingredient-like product names (0.5596ms)
+✔ edited identity metadata invalidates classification and facet caches (0.4031ms)
+✔ fresh apple is distinct from dried apple and whole eggs never acquire poultry measures (18.4978ms)
+✔ hash-brown identity supports plural and spacing without admitting composed dishes (0.5122ms)
+✔ chips asks food class before preparation and distinguishes fries from crisps (4.36ms)
+✔ declared restaurant identities survive an unrelated same-title incomplete record (81.5284ms)
+✔ exact product semantics beat a longer variant independently of product names and scores (4.0969ms)
+✔ restaurant aliases and explicit counts retain distinct shared intent (90.9207ms)
+✔ natural measure utility prioritises slices and fluid volumes without restoring rejected units (4.564ms)
+✔ thin/thick spread cannot acquire invented conversions (2.081ms)
+✔ submitted generic diagnostics separate related concepts from equivalent identities (5.3591ms)
+✔ bare family aliases do not pre-answer catch-all subtype facets (3.8199ms)
+✔ yoghurt cannot inherit the nut ingredient standard serve (1.3492ms)
+✔ non-adjacent chocolate egg names are confectionery (0.2841ms)
+✔ brand and subtype inference separates bread from wraps using committed category evidence (0.4845ms)
+✔ catalogue discovery expands declared alias inflections before concept filtering (0.5681ms)
+✔ egg preparation preserves named methods and skips supplied cooking information (7.2874ms)
+✔ current official snapshot has explicit source authority, freshness and reproducible hash (2.4516ms)
+✔ protected 144 rows retain 126 identities and the reviewed supplement adds 22 across the same categories (2.6745ms)
+✔ quality states are conservative and every active identity is reachable without duplicate results (0.6985ms)
+✔ official kJ is retained and displayed kcal is explicitly derived without invented macros (0.466ms)
+✔ current component values win disclosed conflicts and standard burger extras stay optional (0.3764ms)
+✔ shared editor variants add known official extras and block unknown-extra energy (4.2529ms)
+✔ central semantics preserve burger, count, size, component and configurable identities (9.7791ms)
+✔ source-only aliases, exact KFC intent and data-driven family choices use the shared resolver (165.9737ms)
+✔ shared voice quantity semantics select counted identity once and scale natural servings correctly (25.966ms)
+✔ Diary snapshot keeps KFC identity, source priority and nutrition derivation immutable (1.1812ms)
+✔ integrity, offline loading, legacy removal, responsive hub and refresh tooling contracts are present (198.4816ms)
+✔ KFC and unrelated generic ranking stay lightweight at current scale (1370.2168ms)
+✔ source identity, official references, refresh metadata and Founder-Trial licensing are explicit (1.7133ms)
+✔ complete current catalogue has the reviewed 167-family classification and 211 runtime records (0.5371ms)
+✔ all 17 official category surfaces and overlapping memberships are retained (1.3288ms)
+✔ official per-serving and per-100 facts retain all published fields without inventing fibre or weight (0.34ms)
+✔ the 17 incomplete products are searchable but cannot enter Diary and contain no estimated energy (26.3448ms)
+✔ eight configurable bundles use a future component-assembly model and never a fixed value (0.8614ms)
+✔ McCafé families resolve to complete size children while incomplete families remain details-only (0.9695ms)
+✔ Iced Chai defective source links are recorded and are not converted to latte size records (0.3854ms)
+✔ promotional and explicitly limited-time classifications match the reviewed official surfaces (0.3211ms)
+✔ source, punctuation and product aliases use the shared exact-first resolver (13.7342ms)
+✔ every record uses its central semantic serving and none defaults to 1 g (5.4182ms)
+✔ official fries sizes keep distinct servings and January 2026 source-backed nutrition (0.2892ms)
+✔ Diary snapshots preserve catalogue facts, variant identity and non-production licensing immutably (1.3616ms)
+✔ refresh reconciliation retires removals and versions nutrition/detail changes without deletion (174.8821ms)
+✔ current resolver excludes retired records while historical snapshots remain usable (15.5955ms)
+✔ source catalogue uses the common resolver and all runtime dependencies are offline-cached in order (5.3618ms)
+✔ AFCD, My Foods, Recent and recipes retain their established central paths (4.0023ms)
+✔ published source anomalies remain verbatim facts rather than silent corrections (0.2617ms)
+✔ official provenance is factual verification and never implies production reuse permission (0.4559ms)
+✔ program integrity report returns the reviewed totals with zero errors (20.7742ms)
+✔ UI contract keeps blocked products details-only and displays exact reasons and licensing (3.7506ms)
+✔ 1. Flora uses trusted current Australian candidates as active tier one (135.5089ms)
+✔ 2. Becel Classic is excluded from Flora active candidates (1.229ms)
+✔ 3. generic Butter is excluded from Flora active candidates (0.811ms)
+✔ 4. foreign-language Flora is excluded while trusted Australian products exist (0.636ms)
+✔ 5. a brand-level Flora reference is excluded from exact choices (0.6775ms)
+✔ 6. broader exact-brand products remain separate from active choices (1.4824ms)
+✔ 7. company/source alias evidence is not consumer-brand membership (0.2378ms)
+✔ 8. plain Flora orders the simpler exact identity first (0.5768ms)
+✔ 9. Flora ProActiv query evidence narrows to ProActiv (11.6992ms)
+✔ 10. Flora ProActiv Light resolves exact immediately (6.8476ms)
+✔ 11. actual rendered Flora Light control follows the delegated click path (13.3838ms)
+✔ 12. actual rendered Flora ProActiv Light control follows the delegated click path (4.9367ms)
+✔ 13. rendered click works in focused mobile mode (4.0704ms)
+✔ 14. rendered click works with the keyboard dismissed (3.8678ms)
+✔ 15. stale choice IDs are rejected without changing the guide (2.7952ms)
+✔ 16. guided choices are genuine type button controls (2.5568ms)
+✔ 17. unresolved guide suppresses the floating global action (3.5041ms)
+✔ 18. exact product is reached after a rendered tap (4.1532ms)
+✔ 19. serving UI is absent before exact product and present after tap (3.6112ms)
+✔ 20. rendered selection preserves destination date and meal (3.5747ms)
+✔ 21. rendered Back returns from exact product to brand choices (6.1217ms)
+✔ 22. changing product after Back clears downstream serving state (9.0056ms)
+✔ 23. an active session candidate snapshot does not absorb later catalogue arrivals (2.95ms)
+✔ 24. rendered grams control accepts amount 5 through the selected-surface event path (6.6213ms)
+✔ 25. rendered 5 g flow calculates about 18.5 Cal and hands directly to final Review (4.8422ms)
+✔ 26. one manufacturer serve calculates 37 Cal and hands directly to final Review (5.1495ms)
+✔ 27. nutrition reference does not preselect consumption amount (2.0224ms)
+✔ 28. exact Flora ProActiv Light skips the brand stage (1.5074ms)
+✔ 29. product filtering now retains a selected canonical product (1.8011ms)
+✔ 30. an invalid engine answer cannot enter the answer history (0.8568ms)
+✔ 31. manageable synthetic families present concrete products (1.6481ms)
+✔ 32. curated data contains the two current canonical Flora records (2.597ms)
+✔ 33. the repair contains no Flora-specific resolver branch (1.6197ms)
+✔ 34. touch controls remain at least 48 px with manipulation semantics (0.3758ms)
+✔ 35. nested arrow decoration cannot steal pointer targeting (0.3095ms)
+✔ 36. compact mode retains one-column bounded choices (0.2906ms)
+✔ 37. 390x844 keyboard model remains compact and usable (1.1092ms)
+✔ 38. 390x520 dismissed keyboard model restores full mode (0.9159ms)
+✔ 39. 430x932 reduced viewport follows the existing compact policy (0.811ms)
+✔ 40. the central handler rerenders exactly once after a valid product choice (0.8943ms)
+✔ 41. actual 30-member Flora renders meaningful products and separates incomplete identities before review (26.6706ms)
+✔ 42. actual Meadow Lea renders products without a mandatory taxonomy detour (5.7355ms)
+✔ 43. Meadow, Meadow le and Meadow lea keep product-list-first rendered state (15.5305ms)
+✔ 44. production controller carries generic Margarine teaspoon state directly into final Review (19.6718ms)
+✔ 45. locked generic identity freezes the rendered surface against later arrivals (13.7035ms)
+✔ 46. production controller renders generic Milk without a branded detour (37.5785ms)
+✔ 47. production controller renders sliced Bread and its trusted regular-slice measure (21.3903ms)
+✔ 1. brand-family query is not an exact product (13.3ms)
+✔ 2. exact product query resolves one canonical identity (46.7072ms)
+✔ 3. manageable candidate sets present concrete products (4.3156ms)
+✔ 4. known family words narrow the direct product list (3.4533ms)
+✔ 5. choosing one canonical product reaches serving measure (7.0751ms)
+✔ 6. back recomputes and permits a different concrete product (6.2963ms)
+✔ 7. Flora enters family resolution (1.5555ms)
+✔ 8. Flora does not preselect 10 g (1.7543ms)
+✔ 9. Flora does not preselect 5 g (3.6596ms)
+✔ 10. generic Flora reference is not an exact consumable food (2.1465ms)
+✔ 11. Flora ProActiv narrows without an unnecessary question (2.8054ms)
+✔ 12. Flora ProActiv Light becomes one exact product (2.1063ms)
+✔ 13. exact Flora then exposes serving stage (1.8362ms)
+✔ 14. serving stage is separate from product results (1.3182ms)
+✔ 15. 5 g can be chosen after exact identity (5.6482ms)
+✔ 16. 10 g serving can be chosen after exact identity (3.7617ms)
+✔ 17. Flora nutrition scales correctly (4.2756ms)
+✔ 18. explicit Flora ProActiv Light 5 g skips resolved stages (2.9793ms)
+✔ 19. one exact product does not appear once per serving basis (1.3936ms)
+✔ 20. conflicting source nutrition stays attached for review without duplicate identity rows (0.48ms)
+✔ 21. Big Mac exact product bypasses grocery narrowing (5.8548ms)
+✔ 22. two Big Macs preserves quantity two (2.8777ms)
+✔ 23. McDonald’s fries presents the concrete size products directly (3.5003ms)
+✔ 24. Large Macca’s Fries does not ask size again (3.8667ms)
+✔ 25. MeadowLea-like family presents real products first (1.5843ms)
+✔ 26. milk-like family selects a named product before serving (6.5001ms)
+✔ 27. cereal-like family selects a named product and skips its sole measure (3.5843ms)
+✔ 28. peanut-butter-like family presents named products (1.4894ms)
+✔ 29. bread resolves a named identity before slice amount (2.9289ms)
+✔ 30. yoghurt resolves a named identity before tub or grams (3.0755ms)
+✔ 31. pack size is identity metadata and never automatic consumption (4.9712ms)
+✔ 32. nutrition reference serving is not automatic user amount (1.7442ms)
+✔ 33. measure stage occurs only after exact identity (2.74ms)
+✔ 34. amount occurs after measure (2.3666ms)
+✔ 35. invalid household measures are not offered (1.2755ms)
+✔ 36. grams or mL fallback works only from a defensible per-100 basis (3.6895ms)
+✔ 37. exact product plus quantity and destination reaches confirmation (2.4207ms)
+✔ 38. brand-only voice-equivalent request enters guided resolution (1.0732ms)
+✔ 39. brand exact variant and measure skips answered questions through the shared voice hook (4.3401ms)
+✔ 40. Bunnings does not regain Vegetable Serve (8.5032ms)
+✔ 41. Chiko remains deduplicated (2.4235ms)
+✔ 42. Hotcakes remains complete meal ahead of syrup (1.3077ms)
+✔ 43. generic Fries remains a 100 g reference (5.4761ms)
+✔ 44. Flora ProActiv Light nutrition remains 37 Cal per 10 g serve (3.1562ms)
+✔ 45. architecture audit separates all five required concepts (2.1183ms)
+✔ 46. module loads before alpha and is cached offline (1.8236ms)
+✔ 47. UI presents identity, measure and amount before one final Review editor (2.3437ms)
+✔ 48. responsive guided choices remain bounded at required mobile widths (0.7669ms)
+✔ 49. guided UI exposes Back and Cancel without a trapped modal (1.3439ms)
+✔ 50. scalability brands exist only in fixtures, not production resolution code (0.7761ms)
+✔ Hungry Jack's exact identity, portion and Review: Hash Brown (52.7849ms)
+✔ Hungry Jack's exact identity, portion and Review: Toastie Ham Cheese (15.1018ms)
+✔ Hungry Jack's exact identity, portion and Review: Whopper (62.5505ms)
+✔ Hungry Jack's exact identity, portion and Review: Whopper Double (9.9388ms)
+✔ Hungry Jack's exact identity, portion and Review: Chicken Royale (10.8505ms)
+✔ Hungry Jack's exact identity, portion and Review: JFC Saucy Tender Smoky Chipotle 3 x Pack (10.4925ms)
+✔ Hungry Jack's exact identity, portion and Review: JFC Saucy Tender Smoky Chipotle 5 x Pack (8.7105ms)
+✔ Hungry Jack's exact identity, portion and Review: Nugget 3 Pack (9.6612ms)
+✔ Hungry Jack's exact identity, portion and Review: Nugget 6 Pack (8.5556ms)
+✔ Hungry Jack's exact identity, portion and Review: Nugget 12 Pack (8.2248ms)
+✔ Hungry Jack's exact identity, portion and Review: Chips Small (10.2884ms)
+✔ Hungry Jack's exact identity, portion and Review: Chips Medium (8.4347ms)
+✔ Hungry Jack's exact identity, portion and Review: Chips Large (7.9014ms)
+✔ Hungry Jack's exact identity, portion and Review: Biscoff Storm (8.0636ms)
+✖ Hungry Jack's exact identity, portion and Review: Biscoff Shake Small (7.6158ms)
+✖ the complete Hungry Jack’s catalogue satisfies the shared source and eligibility audit (1605.2338ms)
+✔ both restaurant spellings own the source and exact Whopper precedes longer variants (102.8478ms)
+✔ count and size families remain neutral until a specific variant is supplied (21.8435ms)
+✔ conflicting pages and incomplete products cannot progress to ordinary logging (8.6467ms)
+✔ configurable meals retain their separate identities without a fabricated default order (1.2573ms)
+✔ unclear PDF glyphs remain Details Only and old extraction stays available for history (14.3445ms)
+✔ source category concepts generalise to unrelated restaurant names without accepting community claims (1.1503ms)
+✔ embedded package counts never become consumed orders in an unrelated source (3.784ms)
+✔ one-to-one description repairs preserve IDs and split count variants cannot reuse the ambiguous identity (1.7184ms)
+✔ raw tables retain wrapped product counts, blank top-product values and publication evidence (1.2438ms)
+✖ Hungry Jack’s rendered mobile matrix reaches one Review and synthetic Diary (88189.2722ms)
+✔ historical storage address for Acorn is ASCII and identity remains exact (20.8265ms)
+✔ historical storage address for Ácorn is ASCII and identity remains exact (8.9594ms)
+✔ historical storage address for Eclair is ASCII and identity remains exact (6.2233ms)
+✔ historical storage address for Éclair is ASCII and identity remains exact (5.0249ms)
+✔ historical storage address for Cote is ASCII and identity remains exact (5.1563ms)
+✔ historical storage address for Côte is ASCII and identity remains exact (5.226ms)
+✔ NFC/NFD input shares only the explicitly identified source entry (10.9948ms)
+✔ Burgen approved storage addresses preserve family retrieval and fresh query ownership (6.0573ms)
+✔ Häagen-Dazs approved storage addresses preserve family retrieval and fresh query ownership (5.1301ms)
+✔ shorter accented prefixes use historical ASCII addresses without authorizing an alias (7.6983ms)
+✔ a minimal single-product brand supports exact lookup without inventing a broader prefix match (9.1458ms)
+✔ unlisted intelligence prefix is an empty lookup without an asset request (7.8707ms)
+✔ listed required intelligence shard failure propagates instead of becoming no matches (9.7198ms)
+✔ routing classification keeps required assets strict and optional misses narrowly bounded (1.3199ms)
+✔ a locally generated required-asset 502 is fatal but is not live fallthrough (22.0125ms)
+✔ successful local responses satisfy strict accounting (10.8929ms)
+✔ optional local 404 is counted separately and handled by production as an empty posting lookup (21.5455ms)
+✔ an unhandled response or service-worker response remains fatal live fallthrough (2.0549ms)
+✔ live ordinary candidates are alphabetic after dedupe and before either candidate/display truncation (49.463ms)
+✔ ordinary ordering ignores source insertion, length scores, usage and popularity (13.2304ms)
+✔ Ban and Bac narrow the existing legitimate prefix candidates (6.3373ms)
+✔ general rule preserves alias matching and normalized visible duplicates (5.3293ms)
+✔ entity treatment and default non-live ranking remain independent (6.7009ms)
+✔ approved brand spellings and distinct unapproved identities are preserved (1.9159ms)
+Live prefix evidence: C:\Users\mlwes\AppData\Local\Temp\hec-live-prefix-oDyv17
+✖ alphabetical live phone flow, query ownership and accepted product guards (20598.6917ms)
+✔ approved historical compatibility preserves NFC/NFD, unaccented and hyphen queries (22.1838ms)
+✔ verified alias metadata authorizes widening independently of index compatibility (3.7044ms)
+✔ unapproved same-folded diacritic brands remain separate in brand and exact product retrieval (6.0195ms)
+✔ unapproved exact accented spelling can address its own historical shard without enabling an unaccented alias (5.9278ms)
+✔ approved alias pagination preserves distinct records and GTINs (2.787ms)
+✔ evidence lookup and successful historical shard access are cached (1.6671ms)
+✔ switching approved and unapproved brands never reuses prior family members (4.7614ms)
+✔ same-folded unrelated brand names do not bypass canonical membership or the complete-name collision guard (58.8259ms)
+✔ real approved family retains all eight protected GTINs and exact source spellings (1216.0138ms)
+✔ protected apostrophe and historical-index products remain reachable through shared matching (2487.8021ms)
+✔ 1. complete Australian source subset meets production scale (12458.9932ms)
+✔ 2. complete global source was scanned (0.3528ms)
+✔ 3. source IDs are stable off barcode identities (35.8303ms)
+✔ 4. no duplicate same-source barcode records exist (44.3005ms)
+✔ 5. every record retains source provenance (7.4451ms)
+✔ 6. explicit Australian country scope is preserved (11.1724ms)
+✔ 7. completeness classifications are exhaustive (0.2803ms)
+✔ 8. exact barcode lookup resolves the source product (0.3905ms)
+✔ 9. exact brand lookup exposes the measured brand universe (34.7643ms)
+✔ 10. brand spacing normalization is generic (1.1788ms)
+✔ 11. product-name tokens retrieve real products (0.8929ms)
+✔ 12. brand plus product finds a real exact identity (0.8924ms)
+✔ 13. generic terms retain thousands-scale results while adding category members (20.2984ms)
+✔ 14. serving sizes never create duplicate product IDs (41.37ms)
+✔ 15. generated active records contain no non-Australian country-only row (10.7393ms)
+✔ 16. company/source text cannot create consumer-brand membership (1.0149ms)
+✔ 17. real imported Flora member count is measured (0.1902ms)
+✔ 18. every eligible Flora member is accessible (8.2016ms)
+✔ 19. safe cross-source barcode duplicates consolidate only in federation (10.687ms)
+✔ 20. Flora serving is absent before exact identity (10.634ms)
+✔ 21. real Meadow Lea member count is measured (0.1182ms)
+✔ 22. MeadowLea and Meadow Lea resolve identically (0.0856ms)
+✔ 23. deterministic retrieval audit samples 1000 real products (0.0701ms)
+✔ 24. strong identity top-10 retrieval exceeds 98 percent (0.0723ms)
+✔ 25. deterministic brand completeness audit samples 100 brands (0.0744ms)
+✔ 26. all audited brand members remain accessible without contamination (6085.4303ms)
+✔ 27. retail package size is identity metadata, not selected consumption (2.1236ms)
+✔ 28. nutrition basis does not become selected amount (10.1781ms)
+✔ 29. multi-product identity precedes serving (9.1377ms)
+✔ 30. incomplete products never receive invented calories (0.7185ms)
+✔ 31. full catalogue is not loaded or precached at startup (6.1034ms)
+✔ 32. product and search shards are loaded on demand (0.7321ms)
+✔ 33. runtime catalogue caching uses the active installation cache (4.4096ms)
+✔ 34. catalogue caching introduces no My Data cache name (1.351ms)
+✔ 35. Big Mac authoritative catalogue remains present (1.7044ms)
+✔ 36. McDonald’s sized Fries remain present (0.7153ms)
+✔ 37. Hotcakes complete-meal contract remains present (0.3545ms)
+✔ 38. Bunnings natural-item correction remains present (2.4884ms)
+✔ 39. Chiko canonical duplicate protection remains present (0.6213ms)
+✔ 40. generic Fries AFCD resolution remains present (0.6796ms)
+✔ 41. focused mobile search remains bounded and paginated (2.8613ms)
+✔ 42. Weight foundation is untouched and still loaded (1.247ms)
+✔ real catalogue identity outranks broad beverage ancestry (22.8539ms)
+✔ raw solid mL is quarantined at the final profile and resolved-food boundary (3.0341ms)
+✔ raw solid L is quarantined at the final profile and resolved-food boundary (1.5201ms)
+✔ raw solid cup is quarantined at the final profile and resolved-food boundary (0.9586ms)
+✔ package volume and unsuitable source units cannot redefine a named solid (3.1283ms)
+✔ genuine per-100-mL solid conflict is not relabelled or scaled as grams (1.371ms)
+✔ valid gram nutrition survives an incompatible source serving (1.7983ms)
+✔ volume aliases are validated by user-facing family, not a countable default (0.9427ms)
+✔ guided Review cannot reintroduce quarantined units (9.1168ms)
+✔ voice and typed measure resolution rejects solid volume and accepts supported grams (1.2259ms)
+✔ liquid identity preserves volumes and rejects unrelated solid item units (2.3345ms)
+✔ spreads preserve validated household-to-gram measures without becoming liquid (1.6741ms)
+✔ sliced food preserves source slice and grams (0.8745ms)
+✔ official restaurant item preserves its natural unit (74.6458ms)
+✔ unknown identity with only volume metadata has a conservative completion state (4.252ms)
+✔ specific short-plural food categories outrank beverage flavour words (1.5499ms)
+✔ specific liquid categories retain milk despite chocolate flavour metadata (0.9762ms)
+✔ powdered milk remains solid despite liquid ancestry (0.2268ms)
+✔ explicit source mL denominator is preserved before semantic normalization (0.7576ms)
+✔ trusted density conversion supports grams without exposing volume for a solid (1.5751ms)
+✔ late carried candidates and legacy allowed lists cross the same firewall (1.2786ms)
+✔ consumedPortion rejects a quarantined carried measure when food is supplied (0.6437ms)
+✔ legacy inferred catalogue form cannot override solid identity (1.4088ms)
+✔ explicit source slice counts on a countable product keep their gram conversion (1.3215ms)
+✔ real McCain product is safe through production search and rendered Portion Choice (14405.9752ms)
+✔ A. generic Margarine persists one teaspoon as exactly 5 g (86.6417ms)
+✔ B. generic Margarine persists an arbitrary 7 g amount (23.9838ms)
+✔ C. Flora spread persists one teaspoon without reverting to its 10 g serve (9.7037ms)
+✔ D. explicit manufacturer serve persists one by 10 g (2.9578ms)
+✔ E. generic milk persists 250 mL (45.7802ms)
+✔ F. generic milk persists one metric cup as 250 mL (36.6358ms)
+✔ G. wholemeal bread persists one regular slice as 40 g (28.7775ms)
+✔ H. countable food persists two biscuits as 30 g (3.9136ms)
+✔ final Review amount edits update the same consumed-portion contract (21.1291ms)
+✔ final Review measure edits update the contract without selecting a reference-basis default (19.1946ms)
+✔ production editor scales Review nutrition from the consumed contract and persists it twice (1.125ms)
+✔ AUSNUT spread profile: generic margarine (2.6191ms)
+✔ AUSNUT spread profile: Flora (1.6328ms)
+✔ AUSNUT spread profile: Meadow Lea (0.891ms)
+✔ AUSNUT spread profile: Bega almond (1.076ms)
+✔ AUSNUT spread profile: peanut butter (0.8593ms)
+✔ AUSNUT spread profile: yeast spread (0.8671ms)
+✔ spread packet weights remain product-specific (1.0454ms)
+✔ AUSNUT source metadata and disabled thickness gap are machine-auditable (0.1109ms)
+✔ declared consumer family retains a manufacturer product without moving other manufacturer products (23.6664ms)
+✔ approved Nescafe spellings retrieve the same protected GTINs on cold and loaded lookups (229.4113ms)
+✔ a loggable flavour superset cannot become the best identity of a less specific brand query (19.7819ms)
+✔ Strong identity and raw conflicting nutrition remain distinct, blocked, and on a dry reference (42.6388ms)
+✔ specific instant preparation metadata outranks drink ancestry without changing prepared drinks (0.4858ms)
+Post-KFC rendered evidence: C:\Users\mlwes\AppData\Local\Temp\hec-post-kfc-N40xFE
+✖ reported paths survive real phone controls through source browse, product choice and Review (57137.8291ms)
+✔ complete stored brand plus product survives a longer inferred brand consuming product words (54.8296ms)
+✔ longer-prefix exception does not license partial, alias-only, wrong-brand or missing-word queries (3.3221ms)
+✔ unregistered text fallback does not claim registered brand identity (0.669ms)
+✔ complete product names survive an inferred indexed-brand prefix collision (7.3332ms)
+✔ partial names, aliases and explicit brand qualifiers cannot cross brand boundaries (4.0409ms)
+✔ exact-name matching preserves retired, legacy and nutrition eligibility restrictions (2.3898ms)
+✔ explicit runtime lookup preserves possessive brand spelling after quantity removal (369.6858ms)
+✔ real Arnott’s and Kellogg’s products retain possessive identity and separate quantity through the complete controller (1117.8595ms)
+✔ semantic source order prefers explicit metadata before source metadata and inference (7.1454ms)
+✔ representative records cover all eight reusable semantic roles (3.0177ms)
+✔ serving policy retains natural, count, size, package and 100 g reference semantics (0.9505ms)
+✔ Hotcakes is a complete source-backed meal and never a condiment serving (0.6313ms)
+✔ Hotcakes and hot cakes rank the complete item first while explicit syrup intent ranks the component first (112.3181ms)
+✔ parent/component ranking is general rather than a Hotcakes-only rule (0.9162ms)
+✔ semantic validation rejects unsafe meal, package, natural-item and configurable combinations (0.7453ms)
+✔ the deterministic McDonald’s audit covers all 211 records with no unresolved conflict (24.621ms)
+✔ counted and configurable records remain nutritionally safe (24.6179ms)
+✔ exact and close mobile result names use three-line and two-line wrapping contracts (5.8893ms)
+✔ focused search layout leaves the first result usable at 390x844 and 390x520 (6.7443ms)
+✔ incremental product ranking converges without changing the editable search field (172.8548ms)
+✔ existing representative food behavior remains intact (20.883ms)
+✔ the semantic module is loaded once before catalogue imports and cached offline (5.1444ms)
+✔ 1. generic concept initialized (58.9045ms)
+✔ 2. brand product initialized (3.0915ms)
+✔ 3. known attributes populated (23.473ms)
+✔ 4. unresolved attributes identified (25.751ms)
+✔ 5. milk source remains unresolved across supported source types (39.5863ms)
+✔ 6. best next question selected (17.6345ms)
+✔ 7. answer narrows state (17.4708ms)
+✔ 8. exact generic identity reached (43.0634ms)
+✔ 9. exact branded identity reached (16.1354ms)
+✔ 10. Back clears invalid downstream state (26.0346ms)
+✔ 11. generic margarine enters progressive flow (27.1084ms)
+✔ 12. real supported margarine attributes are asked (1.5676ms)
+✔ 13. unsupported margarine attributes are not invented (0.3065ms)
+✔ 14. final generic nutritional identity achieved (27.3598ms)
+✔ 15. generic margarine requires no brand (21.1238ms)
+✔ 16. serving appears only after identity (46.2347ms)
+✔ 17. amount appears only after serving (25.2989ms)
+✔ 18. Flora recognizes brand intent (4.1931ms)
+✔ 19. exact product metadata skips generic attributes (5.6916ms)
+✔ 20. ProActive family shell does not wrongly become exact (1.1968ms)
+✔ 21. exact selection locks search state (2.3974ms)
+✔ 22. delayed online response is gated from locked flow (0.4807ms)
+✔ 23. grams remain available (22.7303ms)
+✔ 24. trusted teaspoon remains available (20.6628ms)
+✔ 25. manufacturer serving remains explicit (0.6883ms)
+✔ 26. only validated spread presets are enabled (18.4327ms)
+✔ 27. arbitrary gram amount is supported (20.8554ms)
+✔ 28. fractional household amount is supported (30.1173ms)
+✔ 29. package size is not consumption (11.2909ms)
+✔ 30. nutrition basis is not consumption (3.7686ms)
+✔ 31. generic milk uses progressive resolution (62.6321ms)
+✔ 32. exact generic milk identity is reached (57.641ms)
+✔ 33. generic milk offers mL (43.6654ms)
+✔ 34. generic milk offers a 250 mL cup (39.8043ms)
+✔ 35. generic milk accepts arbitrary mL (41.8371ms)
+✔ 36. sliced generic bread reaches an exact identity (32.4388ms)
+✔ 37. sliced generic bread has a trusted natural unit (30.6963ms)
+✔ 38. sliced generic bread accepts an amount (23.3174ms)
+✔ 39. fully specified brand product and measure skip questions (3.2197ms)
+✔ 40. partially specified generic food retains answered attributes (17.6738ms)
+✔ 41. voice and typed requests share the same exported engine (0.2959ms)
+✔ 42. incomplete nutrition is classified before portion entry (7.9329ms)
+✔ 43. missing nutrition cannot become a false-zero logging flow (4.5911ms)
+✔ 44. kcal and kJ scale consistently (3.463ms)
+✔ 45. weak exact product is rejected (0.2933ms)
+✔ 46. selected identity hides live and online result surfaces (0.7304ms)
+✔ 47. active workflow renders one exact card surface (0.6042ms)
+✔ 48. Back restores the previous search state (2.7539ms)
+✔ 49. stale async work is ignored after selection lock (0.7941ms)
+✔ 50. online append cannot alter active portion flow (0.3876ms)
+✔ 51. generic audit covers at least 50 AFCD concepts without stuck states (174.205ms)
+✔ 52. brand inheritance audit covers 100 real Australian products (1447.1864ms)
+✔ 53. portion audit records spread evidence gap and six forms (13.9543ms)
+✔ 54. resolution benchmark executes bounded candidate steps (1620.9468ms)
+✔ 55. portion policy documents provenance and metric fallback (0.3063ms)
+✔ 56. selected generic identity preserves Diary destination (30.5697ms)
+✔ 57. generic route never substitutes a branded online product (24.6393ms)
+✔ 58. floating add is hidden throughout progressive resolution (0.4158ms)
+✔ 59. locked flow remains horizontally bounded (0.2918ms)
+✔ 60. architecture preserves version 0.6.33 (0.1949ms)
+✔ P01 central vocabulary exposes stable IDs (2.915ms)
+✔ P02 aliases normalize through one engine (0.615ms)
+✔ P03 spread physical form is recognized (22.6724ms)
+✔ P04 liquid physical form is recognized (6.7752ms)
+✔ P05 sliced physical form is recognized (3.0284ms)
+✔ P06 countable physical form is recognized (1.4431ms)
+✔ P07 spread profile includes grams (1.4804ms)
+✔ P08 unvalidated spread receives no invented teaspoon or tablespoon (2.153ms)
+✔ P08b explicit reviewed fixture evidence supplies its own teaspoon (1.9252ms)
+✔ P09 spread profile includes manufacturer serving additively (0.9531ms)
+✔ P10 spread profile excludes volume measures (0.7625ms)
+✔ P11 unvalidated spread thickness remains unavailable (0.5372ms)
+✔ P12 liquid profile includes mL (1.0598ms)
+✔ P13 liquid profile includes a metric cup (0.7662ms)
+✔ P14 liquid profile includes litres (0.743ms)
+✔ P15 liquid profile excludes spread teaspoon (1.0536ms)
+✔ P16 sliced profile retains a source slice (0.866ms)
+✔ P17 countable profile retains a source biscuit (1.0028ms)
+✔ P18 every choice carries conversion and provenance (0.7732ms)
+✔ P19 manufacturer serve has a readable label (0.5797ms)
+✔ P20 singular review label is grammatical (0.8679ms)
+✔ P21 plural review label is grammatical (0.6633ms)
+✔ P22 decimal review label is clean (0.7306ms)
+✔ P23 zero amount is rejected (0.1142ms)
+✔ P24 negative amount is rejected (0.0929ms)
+✔ P25 positive decimal amount is accepted (0.0853ms)
+✔ P26 fraction parsing shares stable measure IDs (1.7446ms)
+✔ P27 measure always precedes amount (10.4077ms)
+✔ P28 amount starts blank in state and markup (2.8364ms)
+✔ P29 amount selection reaches confirmation (5.8346ms)
+✔ P30 edit amount preserves identity and measure (3.2414ms)
+✔ P31 edit measure clears only downstream state (4.2584ms)
+✔ P32 cancel clears active downstream state (3.7902ms)
+✔ P33 compact answer history is rendered and wraps without clipping (1.0859ms)
+✔ P34 choice auto-advance has no identity Continue gate (0.9187ms)
+✔ P35 active-card positioning is transition-scoped (0.7799ms)
+✔ P36 responsive controls stay bounded and tappable (0.5185ms)
+✔ P37 policy marks thickness values NOT YET VALIDATED (0.1603ms)
+✔ P38 vocabulary audit is complete and human readable (0.5629ms)
+✔ P39 200-product audit meets required mix (59056.0481ms)
+✔ P40 200-product audit yields safe source-backed profiles (0.1609ms)
+✔ P41 20 unmentioned foods generalize safely (40894.3683ms)
+✔ P42 deterministic generalization spans 100 shards (243.2291ms)
+✔ P43 deterministic generalization has no nonsense failures (0.1157ms)
+✔ P44 portion benchmark executes 500 central profiles (1079.813ms)
+✔ P45 no production brand-specific portion branch exists (3.0345ms)
+✔ P46 architecture stays on Alpha 0.6.33 (0.1538ms)
+✔ exact query ownership retires Cote for Côte (16.0419ms)
+✔ exact query ownership retires Côte for Cote (1.674ms)
+✔ exact query ownership retires resume for résumé (1.5796ms)
+✔ exact query ownership retires résumé for resume (1.3955ms)
+✔ exact query ownership retires Burgen for Bürgen (0.9964ms)
+✔ exact query ownership retires Häagen-Dazs for Haagen-Dazs (1.1264ms)
+✔ exact query ownership retires Milk for milk (2.4191ms)
+✔ exact query ownership retires milk for milk  (0.5673ms)
+✔ exact query ownership retires Bürgen for Bürgen (0.7208ms)
+✔ returning to an earlier exact spelling cannot revive its old ticket (0.813ms)
+✔ approved retrieval equivalence never defines input identity (0.3681ms)
+✔ production brand cache and late hydration stay owned across Cote → Côte (42.1533ms)
+✔ production brand cache and late hydration stay owned across Côte → Cote (5.2289ms)
+✔ production brand cache and late hydration stay owned across resume → résumé (4.0716ms)
+✔ production brand cache and late hydration stay owned across résumé → resume (4.563ms)
+✔ production brand cache and late hydration stay owned across Burgen → Bürgen (3.9276ms)
+✔ production brand cache and late hydration stay owned across Häagen-Dazs → Haagen-Dazs (2.4821ms)
+✔ currentness checks require exact input even if a caller supplies the current revision (1.9131ms)
+✔ production OFF await rejects a late response after an exact-input edit (3.2484ms)
+✔ production delayed preview cannot revive a retired query (3.7626ms)
+✔ production explicit-product hydration ignores a retired owner even with the same local request token (3.08ms)
+✔ production guided-source hydration rejects a retired central owner (2.6607ms)
+✔ generated shell and worker exactly match the canonical content generation (125.3202ms)
+✔ same visible version with changed controller produces a new shared generation (116.4944ms)
+✔ complete dependency inventory includes bootstrap configuration and both deployment variants (1.845ms)
+✔ my-data installs verified core before skipWaiting and exposes safe readiness (156.5521ms)
+✔ test installs verified core before skipWaiting and exposes safe readiness (101.5582ms)
+✔ required core 404 rejects installation and keeps incomplete staging unreadable for retry (94.9235ms)
+✔ required core wrong-bytes rejects installation and keeps incomplete staging unreadable for retry (82.6481ms)
+✔ slow required dependency does not publish readiness or skipWaiting early (109.8027ms)
+✔ optional artwork failure is outside atomic core readiness (87.4732ms)
+✔ navigation and versioned core remain cached and coherent while offline (98.5498ms)
+✔ missing generation and unknown generation cannot fall back to old core or HTML (89.2396ms)
+✔ unversioned core data consumers receive the verified current data, not a network revalidation (91.8381ms)
+✔ activation retains previous caches until every live client reports current readiness (79.1464ms)
+✔ same-path cached assets cannot cross a generation boundary (90.6359ms)
+✔ bootstrap owns update lifecycle and leaves personal storage contracts untouched (2.2255ms)
+✔ legacy client-ready pruning during install cannot publish a detached new core cache (6387.4427ms)
+✔ late client readiness cannot delete a future generation staged after installation (106.4859ms)
+✔ core readiness precedes lazy data cache; a missing required entry invalidates a surviving marker (161.3533ms)
+✔ activation repairs completion lost after install before claiming clients (185.4769ms)
+✔ navigation during cache loss repairs online; offline recovery has actionable Retry and no runtime (195.5624ms)
+✔ concurrent Retry joins pending core repair and never reports premature readiness (93.3893ms)
+✔ delayed install and waiting worker under old controller do not reload the new shell backwards (102.5366ms)
+✔ controllerchange after the original readiness deadline resumes the paused page (421.9765ms)
+✔ cache completion after initial check and Retry during progress converge without reload loops (458.5069ms)
+✔ Retry after partial runtime execution verifies the core before its one explicit reload (75.7261ms)
+✔ late reply from a replaced controller cannot cause a reload to the wrong generation (34.0198ms)
+✔ existing waiting worker is resumed even when the current old page is already coherent (32.9863ms)
+✔ controller replacement during registration lookup cannot pass the old readiness reply (17.4067ms)
+✔ recovery document Retry advances waiting activation, waits for control and reloads once (332.6176ms)
+✔ submitted family grouping overrides lexical order and saved-score preference (117.5971ms)
+✔ submitted explicit 3 selects the matching direct identity (40.7698ms)
+✔ submitted explicit 6 selects the matching direct identity (32.1145ms)
+✔ submitted explicit 10 selects the matching direct identity (31.793ms)
+✔ committed named-size family remains neutral until a named size is supplied (67.9294ms)
+✔ shared metadata handles an unrelated named-size fixture and explicit sizes (12.9295ms)
+✔ unique products retain Best match; family metadata alone does not create ambiguity (0.8089ms)
+✔ additional identity modifiers and explicit combo intent do not become direct-family choices (19.504ms)
+✔ canonical duplicates cannot create a false family (2.5823ms)
+✔ another source derives one family from source family fields and declared sizes (134.8636ms)
+✔ every committed KFC choice family includes all direct peers, including a single-piece order (267.3915ms)
+✔ incomplete size peers retain early completion actions in their neutral group (2.7553ms)
+✖ actual Search button/Return rendering preserves neutral and explicit families through persisted Review (13825.8671ms)
+✔ exact retailer recognition remains separate from consumer-brand identity (15.0237ms)
+✔ no name, OFF URL or brand-index match can substitute for verified retailer membership (14.236ms)
+✔ membership keeps the national and private-label consumer brands and provenance intact (37.6335ms)
+✔ community nutrition with separate official listing evidence does not become manufacturer verification (4.023ms)
+✔ food-only categories and all-items postings exclude non-food products (2.1624ms)
+✔ root and category directory do not hydrate products; pages have a strict bound and cache (10.6757ms)
+✔ category and Back navigation retain retailer ownership (2.2253ms)
+✔ retiring retailer intent leaves subsequent generic and brand searches independent (56.8401ms)
+✔ late retailer hydration cannot replace a newer owner or refill its cancelled session (1.8065ms)
+✔ late category result cannot overwrite a newer category within the same query (2.1761ms)
+✔ a synthetic second retailer uses the identical registration, evidence and browse contracts (1.6619ms)
+✔ guided supermarket identity requires separate house/private-label evidence, not retailer stock (2.3475ms)
+✔ actual consumer-brand selection still uses consumer-brand membership (0.8378ms)
+✔ unverified or wrong-brand commercial identity evidence cannot widen the guided route (0.9283ms)
+✔ product handoff keeps canonical identity, unknown nutrients and one confirmation (10.8947ms)
+✔ a loader cannot substitute foreign IDs or weaken the indexed listing evidence (2.2766ms)
+✔ retailer aliases cannot take over generic food or known consumer-brand recognition (0.8969ms)
+✔ the generic source converter requires consumer brand and does not turn retailers into restaurants (3.0345ms)
+✔ every actual retailer category and house brand has eligible products and settles with exactly those identities (6444.9685ms)
+✔ stale category, stale brand and empty intersection settle empty without offering zero choices (2.3109ms)
+✔ unresolved adapter is bounded; late result cannot refill caches or overwrite retry (38.4129ms)
+✔ shard deadline aborts stalled read, evicts rejected promise and allows real retry (15.0739ms)
+✔ loader rejection and catalogue replacement terminate as errors (4.997ms)
+✔ timeout from an old request cannot finish a newer request (25.8039ms)
+✔ compatible title punctuation and casing retains authority, aliases and original source titles (33.7263ms)
+✔ compatible title harmless wording refresh retains authority, aliases and original source titles (6.1206ms)
+✔ compatible title retailer wording and word order retains authority, aliases and original source titles (4.0794ms)
+✔ compatible title duplicated pack wording retains authority, aliases and original source titles (4.3247ms)
+✔ compatible title current verified title retains authority, aliases and original source titles (4.5345ms)
+✔ equally trusted compatible titles use existing publication currentness (1.164ms)
+✔ material title Original versus Chocolate remains unresolved (12.9245ms)
+✔ material title Full Cream versus Reduced Fat remains unresolved (5.2537ms)
+✔ material title regular versus Gluten Free remains unresolved (4.8294ms)
+✔ material title title pack 420 g versus 840 g remains unresolved (4.6697ms)
+✔ material title 6 Pack versus 12 Pack remains unresolved (3.9825ms)
+✔ material title salt formulation remains unresolved (2.6619ms)
+✔ material title sweetening remains unresolved (3.0368ms)
+✔ material title title size remains unresolved (3.6524ms)
+✔ material title product family remains unresolved (3.9764ms)
+✔ structured pack versus title-only pack cannot bypass identity checking (2.612ms)
+✔ compatible same-GTIN evidence still corroborates with manufacturer authority and both sources (1.2285ms)
+✔ same GTIN 420 g versus 840 g is inspectable identity conflict even with stronger manufacturer evidence (3.4706ms)
+✔ incompatible same-GTIN flavour blocks ordinary logging (2.7918ms)
+✔ incompatible same-GTIN brand blocks ordinary logging (3.6016ms)
+✔ incompatible same-GTIN physical form blocks ordinary logging (2.297ms)
+✔ incompatible same-GTIN explicit variant blocks ordinary logging (3.6147ms)
+✔ incompatible same-GTIN count blocks ordinary logging (2.7144ms)
+✔ incompatible same-GTIN size blocks ordinary logging (3.7029ms)
+✔ same-GTIN identity conflict cannot be cleared by re-canonicalising with the preferred clean source (3.2625ms)
+✔ equal-authority nutrition conflict remains blocked and never averaged (0.664ms)
+✔ different GTINs remain distinct without manufacturing or replacing barcodes (0.2865ms)
+✔ all shared dedupe surfaces retain the same-GTIN conflict instead of choosing a clean rank winner (3.2795ms)
+✔ retailer index loads all same-GTIN evidence on the same page before permitting selection (6.6013ms)
+✔ unlisted OFF evidence for a listed GTIN is retained for conflict analysis without creating another retailer product (4.4285ms)
+✔ empty and partial panels retain same-basis saved nutrition without mutating baseline (39.4797ms)
+✔ changed serving or metric column never inherits incompatible old cells (1.8874ms)
+✔ explicit zero replaces saved cell while printed energy is retained for conflict review (1.7878ms)
+✔ serving and pack distinct: 170 g (1.4319ms)
+✔ serving and pack distinct: 125 g (1.0487ms)
+✔ serving and pack distinct: 250 mL (1.1744ms)
+✔ serving and pack distinct: 1 piece (0.7226ms)
+✔ decimal literal preserved: 5.3 (0.5617ms)
+✔ decimal literal preserved: 3.3 (0.519ms)
+✔ decimal literal preserved: 0.8 (0.5569ms)
+✔ decimal literal preserved: 12.5 (1.0756ms)
+✔ decimal literal preserved: 1.7 (0.4694ms)
+✔ decimal literal preserved: 0.3 (0.4433ms)
+✔ decimal literal preserved: 33 (0.3332ms)
+✔ table geometry associates words across column blocks and preserves missing-cell ownership (7.2472ms)
+✔ geometry rejects low confidence integer and split decimal without losing other column (3.2087ms)
+✔ geometry respects reversed printed column headings (1.9395ms)
+✔ geometry without supported heading evidence falls back without guessing column (0.7354ms)
+✔ metadata-only read retains pack count without erasing a saved column through a misread serving (1.9444ms)
+✔ partial per-100 reading selects that populated baseline column for future nutrition (1.2926ms)
+✔ source metadata lookup retains registry order and detached values (15.6663ms)
+✔ restaurant recognition retains prefix results without reading catalogue items (651.0172ms)
+✔ recognising KFC does not call application blur (7.9421ms)
+✔ KFC remains focused so typing can continue (3.8131ms)
+✔ recognition does not commit restaurant browse state (3.8358ms)
+✔ one central search-session controller owns typing state (0.7886ms)
+✔ production typing controller advances exact ownership for Cote → Côte (13.7888ms)
+✔ production typing controller advances exact ownership for resume → résumé (6.7331ms)
+✔ production typing controller advances exact ownership for Burgen → Bürgen (4.7667ms)
+✔ production typing controller advances exact ownership for Häagen-Dazs → Haagen-Dazs (4.5391ms)
+✔ production typing controller advances exact ownership for Milk → milk  (7.5684ms)
+✔ KFC retains focus through a 0 ms result delay (4.4604ms)
+✔ KFC retains focus through a 250 ms result delay (5.7882ms)
+✔ KFC retains focus through a 750 ms result delay (4.6648ms)
+✔ KFC retains focus through a 1500 ms result delay (3.8968ms)
+✔ the same input DOM node survives character-by-character updates (6.2209ms)
+✔ McDonald’s and Flora ProActiv Light remain continuously typeable (20.1171ms)
+✔ explicit source tap commits and dismisses the keyboard through the shared filter transition (6.3854ms)
+✔ recognition preview cannot instantiate Guided Product Resolution (0.6843ms)
+✔ chips has a data-backed generic schema (0.0943ms)
+✔ chips begins generic progressive resolution (57.8664ms)
+✔ food family is the first chips question (27.5004ms)
+✔ chips amount begins blank and no 100 g is committed (45.8608ms)
+✔ verified AUSNUT chip measures are available for the matching AFCD row (2.1043ms)
+✔ KFC alone is a restaurant source and not an arbitrary product (0.9223ms)
+✔ KFC source inventory exposes all 12 categories and 148 products including the reviewed supplement (4.9724ms)
+✔ KFC product terms remain restricted to authoritative KFC records (7.5374ms)
+✔ consumer/OFF records cannot masquerade as the KFC restaurant source (0.22ms)
+✔ Popcorn Chicken without a source infers the unique restaurant family (8.7493ms)
+✔ KFC 3 Wicked Wings resolves one official identity (1.4585ms)
+✔ KFC 6 Wicked Wings resolves one official identity (1.0935ms)
+✔ KFC 10 Wicked Wings resolves one official identity (1.0596ms)
+✔ KFC Wicked Wings exposes exactly the three committed count choices (2.5565ms)
+✔ KFC Popcorn Chicken exposes Snack, Regular and Maxi sizes (1.6772ms)
+✔ KFC Regular Popcorn Chicken resolves exact (6.6224ms)
+✔ KFC Maxi Popcorn Chicken resolves exact (3.0721ms)
+✔ KFC chips exposes only Regular and Large official sizes (2.3235ms)
+✔ chips food family and source/context are separate dimensions (0.261ms)
+✔ Hot Chips path asks the data-backed source context next (25.8183ms)
+✔ Packet Chips path is separate and asks its supported flavour (27.3443ms)
+✔ typed oven-baked preparation skips the redundant question (27.5393ms)
+✔ an unsupported air-fried method is not silently mapped (1.0384ms)
+✔ generic chips exposes measure only after exact nutritional identity (45.7577ms)
+✔ generic chips grams persist to final Review (31.0272ms)
+✔ generic chips AUSNUT chip measure persists to final Review (28.8899ms)
+✔ generic chips never substitutes a branded online product (23.7872ms)
+✔ source and data-backed generic typing do not launch racing automatic online searches (0.2326ms)
+✔ stale no-record ownership is retired on query change and exact identity (0.8589ms)
+✔ KFC Regular Popcorn Chicken final portion is one natural portion (7.8299ms)
+✔ KFC Maxi Popcorn Chicken final portion is one natural portion (2.7886ms)
+✔ KFC Regular Chips final portion is one natural portion (2.1972ms)
+✔ one six-piece Wicked Wings portion scales nutrition exactly once (3.5184ms)
+✔ six individual Wicked Wings pieces also scale the identity exactly once (3.1137ms)
+✔ Big Mac remains one burger with official McDonald’s provenance (4.4076ms)
+✔ source switching classifies McDonald’s, KFC and generic chips without bleed (135.8517ms)
+✔ control: protected KFC snapshot remains 126 unique products without invented standalone Corn Chips (23.5075ms)
+✔ Bread: bounded shortlist starts with its base concept (173.0353ms)
+✔ Milk: bounded shortlist starts with its base concept (27.6385ms)
+✔ Hash Brown: bounded shortlist starts with its base concept (10.6699ms)
+✔ Bread relationships identify crumbs, rolls and common prepared foods without equating them (4.4854ms)
+✔ Bread commercial entry offers four source classes and retains wholemeal (2.0693ms)
+✔ Missing explicit restaurant and brand identities do not match another source (2.8258ms)
+✔ Big Mac capability requires Standard, blocks unsupported extras and preserves nutrition (9.2471ms)
+✔ Diary hides bulk units while central safe mass and volume remain available (4.6641ms)
+✔ Flora current acceptance uses evidenced measures without requiring thickness (3.719ms)
+✔ explicit missing brand products use the absence path while brand-only and source-only queries retain their hubs (2.0638ms)
+✔ explicit brand concept queries reject containing dishes while preserving exact compound intent (1.694ms)
+✔ plural exact identity survives lexical filtering while consumed quantity stays separate (711.6701ms)
+✔ unrelated loaded packs cannot reclassify consumed quantity as an exact product count (49.091ms)
+✔ 1. catalogue records keep a stable source identity and Australian market context (2.7706ms)
+✔ 2. AFCD, packaged, private, recipe and online candidates remain distinct record types (0.5999ms)
+✔ 3. exact canonical names outrank exact aliases (3.5337ms)
+✔ 4. exact aliases outrank order-independent all-token matches (0.7212ms)
+✔ 5. all query tokens may match in any order (0.4431ms)
+✔ 6. potato scallop is a controlled Australian alias for potato cake (0.6445ms)
+✔ 7. bare scallop is not silently rewritten to a potato food (1.238ms)
+✔ 8. bare chips remains ambiguous while hot chips and potato chips are explicit (0.2429ms)
+✔ 9. Bunnings sausage and snag vocabulary remains explicit and local (4.3397ms)
+✔ 10. controlled cappuccino spelling errors are recognised below Australian aliases (1.2146ms)
+✔ 11. unlisted spelling differences are not accepted as speculative fuzzy identity (0.6685ms)
+✔ 12. broader substring results stay below controlled typos (0.6727ms)
+✔ 13. duplicate source IDs collapse to one canonical AFCD record (0.7048ms)
+✔ 14. compatible title refresh retains the stronger verified title and older evidence (51.3829ms)
+✔ 15. preparation variants are not merged merely because their names match (1.0622ms)
+✔ 16. provenance clearly distinguishes AFCD, My Foods and online candidates (0.3854ms)
+✔ 17. a recognised-only record cannot be logged without usable nutrition (6.729ms)
+✔ 18. a new search is blank while Back restores the same search snapshot (0.5198ms)
+✔ 19. the search parser recognises toast as bread and preserves preparation (3.7228ms)
+✔ 20. egg preparation choices include oven and air-fryer pathways without merging them (1.6285ms)
+✔ 21. required Australian retailers and brands are recognised as commercial context (0.8648ms)
+✔ 22. all 1,588 local AFCD records remain present (7.7586ms)
+✔ 23. the active search controller delegates to the catalogue and de-duplicates ranked products (1.5102ms)
+✔ 24. catalogue loading, offline caching and release runtime version are consistent (0.7354ms)
+✔ 25. Woolworths beef sausage preserves known meat and commercial source context (1.3888ms)
+✔ 26. herb and garlic sausage detail is preserved as an answered flavour facet (0.9113ms)
+✔ 27. hyphen and space variations normalise to the same exact identity (0.4716ms)
+✔ 28. brand, retailer, food-service context and serving descriptions are searchable fields (0.8471ms)
+✔ 29. generic sausage branching remains useful while supplied details skip redundant source questions (1.2384ms)
+✔ 30. production online ownership rejects late OFF arrival across "milk" → "milk " (4.0014ms)
+✔ 30. production online ownership rejects late OFF arrival across "milk " → "milk" (2.1269ms)
+✔ 30. production online ownership rejects late OFF arrival across "Cote" → "Côte" (1.9057ms)
+✔ 30. production online ownership rejects late OFF arrival across "Burgen" → "Bürgen" (1.9493ms)
+✔ 30. production online ownership rejects late OFF arrival across " Häagen-Dazs" → "Häagen-Dazs" (2.3397ms)
+✔ 30. accepted OFF cache survives "milk" → "milk " while late USDA cannot render (2.3638ms)
+✔ 30. accepted OFF cache survives "milk " → "milk" while late USDA cannot render (1.754ms)
+✔ 30. production cancellation aborts in-flight work and rejects its later completion (1.8839ms)
+✔ 31. My Foods, My Recipes and Recent stay on their established stores and render paths (0.4896ms)
+✔ 1. quantity parsing supports the complete approved unit vocabulary (9.329ms)
+✔ 2. parsed quantities and count units remain attached to each component (0.5666ms)
+✔ 3. eggs on toast splits conservatively while preserving both quantities (2.453ms)
+✔ 4. poached eggs and wholemeal toast retain preparation and component amount (3.6525ms)
+✔ 5. banana and yoghurt is an approved high-confidence compound (1.288ms)
+✔ 6. cereal with milk is an approved high-confidence compound (1.4693ms)
+✔ 7. toast with Flora is recognised without inventing a generic spread record (1.3353ms)
+✔ 8. low-confidence phrases are not split into fabricated foods (1.4581ms)
+✔ 9. per-serving and per-100 columns remain independently represented (0.699ms)
+✔ 10. a per-100 reference is never renamed or assumed to be one serving (0.8404ms)
+✔ 11. an explicit manufacturer serving may be calculated from its matching per-100 basis (0.3348ms)
+✔ 12. incompatible or unknown unit conversions return missing values rather than guesses (0.2517ms)
+✔ 13. Flora ProActiv package semantics use the explicit two-teaspoon serving (15.8956ms)
+✔ 14. explicit package cracker counts create a valid per-cracker conversion (4.8245ms)
+✔ 15. kilogram and litre options appear only from valid metric conversions (10.2741ms)
+✔ 16. package foods never borrow household units solely from words in a product name (1.2839ms)
+✔ 17. incomplete recognised products can be saved for review but cannot enter Diary (0.7032ms)
+✔ 18. a complete reviewed packaged food may be saved or logged (0.183ms)
+✔ 19. Diary snapshots retain identity, serving, provenance and scaled nutrition (0.5518ms)
+✔ 20. changing a catalogue product later cannot rewrite an existing Diary snapshot (1.6894ms)
+✔ 21. an entry can be reconstructed from its stored snapshot after catalogue removal (0.6948ms)
+✔ 22. material per-serving versus per-100 discrepancies are flagged for review (0.4098ms)
+✔ 23. active online conversion preserves missing energy as null rather than zero (0.6911ms)
+✔ 24. active Diary creation and historical editing use an immutable food snapshot (0.3827ms)
+✔ 25. packaged-food foundation is loaded offline at the release version without changing migrations (0.4204ms)
+✔ 26. missing online nutrient fields remain null rather than fabricated zeroes (0.484ms)
+✔ 27. voice and meal-planner Diary paths also preserve food snapshots (0.7273ms)
+✔ 28. only an explicit parsed amount survives the guided wizard handoff (0.4783ms)
+✔ 1. HEC_APP remains the one canonical active release authority (8.1621ms)
+✔ 2. every active visible and static release copy is 0.6.33 (3.9967ms)
+✔ 3. runtime module diagnostics report the release version (3.6721ms)
+✔ 4. generation gate precedes runtime loading and keeps failed startup unavailable (0.7743ms)
+✔ 5. dynamic runtime files share the internal generation and dependency order (7.6875ms)
+✔ 6. service-worker core coverage exactly includes every required runtime module (10.3268ms)
+✔ 7. companion authoring sources remain absent and only 48 runtime WebPs ship (3.7527ms)
+✔ 8. My Data prunes only unused same-role application caches (145.5446ms)
+✔ 9. a new generation cannot use an old same-path cache entry (108.9095ms)
+✔ 10. the Alpha 0.6.16 profileStart ReferenceError path is removed (3.8542ms)
+✔ 11. malformed-but-recoverable records remain present while valid records gain identities (8.1664ms)
+✔ 12. reset paths retain one owner, repeated-click protection and the exact protected library scope (2.7552ms)
+✔ 13. backup and diagnostics metadata derive from the canonical release (1.8294ms)
+✔ 14. blank USDA configuration makes no DEMO_KEY request and leaves local search independent (1.4768ms)
+✔ 15. HTML IDs are unique (2.2567ms)
+✔ 16. all local static and dynamic entry references resolve (11.6753ms)
+✔ 17. core release forms retain labels and validation accessibility wiring (2.8043ms)
+✔ 18. release documentation filenames are reserved for this candidate (0.2626ms)
+✔ 19. Reset & Keep My Library preserves exactly the protected library fields (2.9888ms)
+✔ 20. keep-library and full reset paths are single-shot and clear their exact key sets (4.3666ms)
+✔ 21. restored Alpha 0.6.32 backup records migrate without payload loss (7.0597ms)
+✔ 22. static icon-only buttons have accessible names (0.975ms)
+✔ 23. the inline release loader and manifest both parse (2.2057ms)
+✔ 1. bare Hash Brown has a reusable generic concept (4.3699ms)
+✔ 2. submitted bare generic search ranks the generic concept first (34.3932ms)
+✔ 3. solid identity quarantines an incompatible source mL measure (9.477ms)
+✔ 3a. generic concept metadata outranks malformed source volume inference (3.4509ms)
+✔ 4. composite generic source plan keeps four canonical paths separate (3.9928ms)
+✔ 5. purchased frozen and home-prepared are never one guided state (0.7062ms)
+✔ 6. answer history wraps readable labels at phone width (1.1288ms)
+✔ 7. main food search exposes semantic form and visible submit control (0.6572ms)
+✔ 8. deliberate measure selection focuses the newly rendered amount field (1.5008ms)
+✔ 9. written variant count resolves like a digit without multiplying consumption (1.6451ms)
+✔ 10. consumed quantity remains separate from a counted product variant (1.0322ms)
+✔ 11. unfinished prefixes cannot claim the best-match slot (6.0744ms)
+✔ 12. a strong complete exact product submission leads with Best match (5.3169ms)
+✔ 13. simple whole foods can skip source branching (0.25ms)
+✔ 14. submitted groups are immutable snapshots (6.8492ms)
+✔ 15. stale asynchronous work loses ownership after a new preview (1.2546ms)
+✔ 16. decimal, common fraction and written mixed quantities share one parser (0.9315ms)
+✔ 17. quantity may follow the food phrase and dozen is explicit (0.4178ms)
+✔ 18. an exact product-name count is identity metadata, not consumption (0.5873ms)
+✔ 19. exact candidate context separates prefixed consumed count and variant count (0.4844ms)
+✔ 20. explicit solid form wins over a malformed source volume (2.7851ms)
+✔ 21. liquid, spread and sliced forms retain compatible measure families (2.7971ms)
+✔ 22. source plans expose stable route metadata (0.4815ms)
+✔ 23. ordinary technical source questions provide a Not Sure path (0.2019ms)
+✔ 24. the controller records universal destination, source and preparation state (1.3918ms)
+✔ 25. search and amount controls retain visible touch-sized responsive rules (0.5176ms)
+✔ 26. supplied generic source words keep a generic route and mark it direct (1.4551ms)
+✔ 27. delayed online results append a labelled group without reordering primary results (3.9875ms)
+✔ 28. committed universal results guard the legacy asynchronous renderer (1.0429ms)
+✔ 29. online completion appends its group without replacing primary result nodes (1.284ms)
+✔ 30. repeated legacy render requests preserve the owned committed surface (1.6334ms)
+✔ 31. pointer activation survives a legacy focus render without making scroll gestures select (1.8539ms)
+✔ 32. valid custom decimal amounts stay exact in the review label (2.7818ms)
+✔ 33. amount typing and quick amounts update one live nutrition preview (1.4418ms)
+✔ 34. simple whole foods bypass source branching instead of opening an empty chooser (0.9693ms)
+✖ 35. exact result rows expose central addability status (1.9699ms)
+✔ 36. fraction words in an exact product name remain identity language (0.3671ms)
+✔ 37. packaged catalogue arrivals append inside the owned packaged branch (0.8693ms)
+✔ official product 277727 retains factual brand, provenance, pack and unknown nutrients (51.7382ms)
+✔ official product 353871 retains factual brand, provenance, pack and unknown nutrients (3.8141ms)
+✔ official product 814281 retains factual brand, provenance, pack and unknown nutrients (4.0435ms)
+✔ official product 151547 retains factual brand, provenance, pack and unknown nutrients (5.4171ms)
+✔ official product 382738 retains factual brand, provenance, pack and unknown nutrients (2.4833ms)
+✔ official product 571487 retains factual brand, provenance, pack and unknown nutrients (2.0355ms)
+✔ official product 310237 retains factual brand, provenance, pack and unknown nutrients (2.1224ms)
+✔ official product 224941 retains factual brand, provenance, pack and unknown nutrients (3.0593ms)
+✔ official product 311844 retains factual brand, provenance, pack and unknown nutrients (2.234ms)
+✔ official product 702098 retains factual brand, provenance, pack and unknown nutrients (2.1716ms)
+✔ official product 321220 retains factual brand, provenance, pack and unknown nutrients (1.8211ms)
+✔ official product 158188 retains factual brand, provenance, pack and unknown nutrients (3.0596ms)
+✔ official product 47682 retains factual brand, provenance, pack and unknown nutrients (1.9521ms)
+✔ official product 700589 retains factual brand, provenance, pack and unknown nutrients (3.7876ms)
+✔ official product 35007 retains factual brand, provenance, pack and unknown nutrients (2.5105ms)
+✔ official product 346830 retains factual brand, provenance, pack and unknown nutrients (3.2896ms)
+✔ official product 83763 retains factual brand, provenance, pack and unknown nutrients (2.4239ms)
+✔ official product 904775 retains factual brand, provenance, pack and unknown nutrients (2.4944ms)
+✔ official product 93530 retains factual brand, provenance, pack and unknown nutrients (10.99ms)
+✔ official product 233922 retains factual brand, provenance, pack and unknown nutrients (2.6399ms)
+✔ official product 69286 retains factual brand, provenance, pack and unknown nutrients (2.3828ms)
+✔ official product 824365 retains factual brand, provenance, pack and unknown nutrients (2.7835ms)
+✔ official product 355265 retains factual brand, provenance, pack and unknown nutrients (2.1082ms)
+✔ official product 824442 retains factual brand, provenance, pack and unknown nutrients (2.6812ms)
+✔ official product 36009 retains factual brand, provenance, pack and unknown nutrients (2.0313ms)
+✔ official product 396254 retains factual brand, provenance, pack and unknown nutrients (1.8815ms)
+✔ official product 756826 retains factual brand, provenance, pack and unknown nutrients (1.7636ms)
+✔ official product 248249 retains factual brand, provenance, pack and unknown nutrients (1.7355ms)
+✔ official product 754170 retains factual brand, provenance, pack and unknown nutrients (2.3846ms)
+✔ official product 924103 retains factual brand, provenance, pack and unknown nutrients (1.813ms)
+✔ official product 98299 retains factual brand, provenance, pack and unknown nutrients (3.3184ms)
+✔ official product 38939 retains factual brand, provenance, pack and unknown nutrients (3.0323ms)
+✔ official product 230519 retains factual brand, provenance, pack and unknown nutrients (3.0556ms)
+✔ official product 665356 retains factual brand, provenance, pack and unknown nutrients (1.9213ms)
+✔ official product 756086 retains factual brand, provenance, pack and unknown nutrients (2.3969ms)
+✔ official product 6033180 retains factual brand, provenance, pack and unknown nutrients (2.2078ms)
+✔ official product 825528 retains factual brand, provenance, pack and unknown nutrients (2.5276ms)
+✔ official product 228345 retains factual brand, provenance, pack and unknown nutrients (2.8557ms)
+✔ official product 830211 retains factual brand, provenance, pack and unknown nutrients (2.0358ms)
+✔ official product 288440 retains factual brand, provenance, pack and unknown nutrients (2.0424ms)
+✔ official product 208679 retains factual brand, provenance, pack and unknown nutrients (1.6531ms)
+✔ official product 905257 retains factual brand, provenance, pack and unknown nutrients (1.7188ms)
+✔ official product 902837 retains factual brand, provenance, pack and unknown nutrients (1.5874ms)
+✔ bounded wave totals are exact and all retained canonical displays use actual official consumer brands (0.6369ms)
+✔ source shards and exact OFF corroboration remain pinned to committed bytes (215.3438ms)
+✔ invalid GTINs are never corrected and qualified values never become zero (0.2767ms)
+✔ directory is registered with food-only categories and performs zero product hydration (164.9785ms)
+✔ real pagination hydrates complete same-GTIN groups and keeps page context (112.2256ms)
+✔ real private-label breadth is verified product by product and national bread stays outside guided Woolworths (10.1313ms)
+✔ indexed search preserves private product intent and national consumer brands (16.9427ms)
+✔ La Gina title evolution safely merges, retains OFF alias and prefers the official nutrition (3.5956ms)
+✔ sandwich slice bread is a loaf and harmless title evolution is retained (1.6081ms)
+✔ equivalent shared solid-form labels do not manufacture a material identity conflict (1.5126ms)
+✔ real different brand evidence remains conflict-blocked even with a valid shared GTIN (8.2163ms)
+✔ barcode capture actions cannot re-enable ordinary logging for the real identity conflict (5.4353ms)
+✔ official source serving discrepancy retains official identity and cannot fall back to incomplete OFF nutrition (1.7766ms)
+✔ higher-trust nutrition differences are retained, never averaged (1.3348ms)
+✔ missing water/produce nutrition stays missing and package produce stays distinct from generic composition (2.5241ms)
+✔ real spread uses documented measures without invented teaspoons or borrowed conversions (1.0919ms)
+✔ dry and uncooked product nutrition states are visible and ingredient facts remain available (0.1793ms)
+✔ retailer search cancellation discards stale results and never hydrates a whole catalogue (324.3195ms)
+ℹ tests 1115
+ℹ suites 0
+ℹ pass 1098
+ℹ fail 17
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 470692.0097
+
+✖ failing tests:
+
+test at tests\aldi-source.test.js:13:1
+✖ tampered hydrated community evidence fails closed (303.335ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\aldi-source.test.js:13:235)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /community store evidence differs/,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\canonical-search-identity-consistency.test.js:60:1
+✖ real production Chiko preview, hydrated Search and selection retain the accepted roll identity (14079.892ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  3 !== 2
+  
+      at TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\canonical-search-identity-consistency.test.js:77:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 3,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\catalogue-round-two.test.js:6:1
+✖ all admitted expansion identities are unique, loggable, attributable, and retain public release review (4074.8506ms)
+  AssertionError [ERR_ASSERTION]: off:9300675012089
+  
+  false !== true
+  
+      at TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\catalogue-round-two.test.js:7:124)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\catalogue-round-two.test.js:35:1
+✖ new manufacturer products without a known barcode do not display a literal null barcode (28.3469ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert(scope.us633ResultRow({food:{...f,barcode:'9310174025084'}}).includes('Barcode 9310174025084'))
+  
+      at TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\catalogue-round-two.test.js:39:2)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\catalogue-search-intelligence.test.js:70:1
+✖ 59. focused keyboard handler preserves the caret (5.5828ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /setSelectionRange\(caret,caret\)/. Input:
+  
+  '(() => {\n' +
+    '"use strict";\n' +
+    '\n' +
+    'const APP = window.HEC_APP;\n' +
+    'if(!APP?.version)throw new Error("HEC canonical configuration was not loaded");\n' +
+    'const ACTIVITY = window.HECActivity;\n' +
+    'const WEIGHT_PROGRESS = window.HECWeightProgress;\n' +
+    'const NUTRITION_TRENDS = window.HECNutritionTrends;\n' +
+    'const CONVERSATION = window.HECConversationFoundation;\n' +
+    'const GUIDED_PRODUCTS = window.HECGuidedProductResolution;\n' +
+    'const FOOD_GROUPS = window.HECFoodGroups;\n' +
+    'const ACTIVE_VERSION = APP.version;\n' +
+    'const MAIN_KEY = APP.storageKey;\n' +
+    'const EXT_KEY = APP.functionalStorageKey;\n' +
+    'const LEGACY_EXT_KEYS = APP.legacyFunctionalKeys || [];\n' +
+    'const RESET_RELOAD_SESSION_KEY = APP.resetSessionKey;\n' +
+    'let resetInProgress = false;\n' +
+    'const by = id => document.getElementById(id);\n' +
+    'const q = selector => document.querySelector(selector);\n' +
+    'const qa = selector => [...document.querySelectorAll(selector)];\n' +
+    `const esc = value => String(value ?? "").replace(/[&<>\\"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));\n` +
+    'const n = value => Number(value) || 0;\n' +
+    'const round1 = value => Math.round((Number(value) || 0) * 10) / 10;\n' +
+    'const whole = value => Math.round(Number(value) || 0);\n' +
+    'const isoToday = () => window.HECDate?.todayISO?.() || `${new Date().getFullYear()}-${String(new Date().getMonth()+1).padStart(2,"0")}-${String(new Date().getDate()).padStart(2,"0")}`;\n' +
+    'const activeTimeZone = () => window.HECDate?.activeTimeZone?.() || Intl.DateTimeFormat().resolvedOptions().timeZone || "Australia/Brisbane";\n' +
+    'const localClock = () => { const z=window.HECDate?.zonedParts?.() || {}; return `${String(z.hour ?? new Date().getHours()).padStart(2,"0")}:${String(z.minute ?? new Date().getMinutes()).padStart(2,"0")}`; };\n' +
+    'const uid = prefix => window.HECMigrations?.createId?.(prefix) || `${prefix}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2,8)}`;\n' +
+    'const recordTimestamps = createdAt => {const updatedAt=new Date().toISOString();return {createdAt:createdAt||updatedAt,updatedAt};};\n' +
+    'const clone = value => JSON.parse(JSON.stringify(value));\n' +
+    'const formatDate = value => value ? new Intl.DateTimeFormat("en-AU", {weekday:"short", day:"numeric", month:"short", year:"numeric"}).format(new Date(value + "T12:00:00")).replace(",","") : "";\n' +
+    'const formatNumber = (value, precise=false) => {\n' +
+    '  const num = Number(value) || 0;\n' +
+    '  if(precise && Math.abs(num) < 10 && !Number.isInteger(round1(num))) return round1(num).toFixed(1);\n' +
+    '  return Math.round(num).toLocaleString("en-AU");\n' +
+    '};\n' +
+    "function availableValueText(value,unit=''){return value===null||value===undefined||value===''?'Not Available':`${formatNumber(value)}${unit?` ${unit}`:''}`;}\n" +
+    'const normalise = value => String(value || "").toLowerCase().normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").replace(/&/g," and ").replace(/[^a-z0-9]+/g," ").trim();\n' +
+    'const mainData = () => {\n' +
+    '  try { return JSON.parse(localStorage.getItem(MAIN_KEY)) || {}; } catch { return {}; }\n' +
+    '};\n' +
+    '\n' +
+    'const NUTRIENT_KEYS = ["calories","protein","carbs","fat","satFat","fibre","sugar","addedSugar","freeSugar","sodium"];\n' +
+    'const ZERO_NUTRIENTS = Object.fromEntries(NUTRIENT_KEYS.map(k => [k,0]));\n' +
+    'const nutrient = (calories, protein, carbs, fat, satFat, fibre, sugar, sodium, extra={}) => ({calories,protein,carbs,fat,satFat,fibre,sugar,sodium,...extra});\n' +
+    '\n' +
+    'const FOODS = [\n' +
+    '  {id:"weetbix-au",consumerFamilyIds:["weet-bix"],name:"Sanitarium Weet-Bix Original",brand:"Sanitarium",category:"Breakfast Cereals",country:"Australia",aliases:["weet bix","weetbix","weet-bix","wheat bix"],defaultAmount:2,defaultUnit:"biscuit",units:{biscuit:.5,serving:1,g:1/31},unitLabels:{biscuit:"biscuit",serving:"serving (2 biscuits)",g:"g"},serving:"2 biscuits (31 g)",nutrients:nutrient(110,3.8,20.4,.4,.1,4,.9,84,{potassium:113,iron:3}),score:8,source:"Verified From Australian Package Sample",verified:true,ingredients:"Wholegrain wheat, sugar, salt, barley malt extract, vitamins and minerals",allergens:["wheat","gluten"]},\n' +
+    `  {id:"light-milk-au",name:"Australian Light Milk",brand:"Generic Australian Dairy",category:"Dairy & Eggs",country:"Australia",aliases:["light milk","lite milk","low fat milk","1 percent milk"],defaultAmount:200,defaultUnit:"mL",units:{mL:1/200,cup:1.25,serving:1},unitLabels:{mL:"mL",cup:"cup (250 mL)",serving:"serving (200 mL)"},serving:"200 mL",nutrients:nutrient(86,7,10,2.8,1.8,0,10,90,{calcium:240}),score:8,source:"Australian Generic Trial Record",verified:false,ingredients:"Reduced-fat cow's milk",allergens:["milk","dairy"]},\n` +
+    '  {id:"baby-carrot",name:"Baby Snacking Carrot",brand:"Fresh Produce",category:"Fruit & Vegetables",country:"Australia",aliases:["baby carrot","snacking carrot","snackables carrot","snack ables carrot","carrot"],defaultAmount:31,defaultUnit:"g",units:{g:1/31,item:1},unitLabels:{g:"g",item:"small carrot (about 31 g)"},serving:"31 g",nutrients:nutrient(13,.3,3,.1,0,1,.7,21),score:9,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Carrot",allergens:[]},\n' +
+    '  {id:"banana",name:"Banana",brand:"Fresh Produce",category:"Fruit & Vegetables",country:"Australia",aliases:["banana","lady finger banana"],defaultAmount:1,defaultUnit:"item",units:{item:1,g:1/118},unitLabels:{item:"medium banana",g:"g"},serving:"1 medium banana (118 g)",nutrients:nutrient(105,1.3,27,.4,.1,3.1,14.4,1),score:8,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Banana",allergens:[]},\n' +
+    '  {id:"apple",name:"Apple",brand:"Fresh Produce",category:"Fruit & Vegetables",country:"Australia",aliases:["apple","pink lady","royal gala","granny smith"],defaultAmount:1,defaultUnit:"item",units:{item:1,g:1/182},unitLabels:{item:"medium apple",g:"g"},serving:"1 medium apple (182 g)",nutrients:nutrient(95,.5,25,.3,.1,4.4,19,2),score:8,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Apple",allergens:[]},\n' +
+    '  {id:"berries",name:"Mixed Berries",brand:"Fresh or Frozen",category:"Fruit & Vegetables",country:"Australia",aliases:["berries","mixed berries","strawberries","blueberries"],defaultAmount:100,defaultUnit:"g",units:{g:.01,cup:1.4,serving:1},unitLabels:{g:"g",cup:"cup",serving:"100 g serving"},serving:"100 g",nutrients:nutrient(50,.8,12,.4,.1,4.5,7,1),score:9,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Mixed berries",allergens:[]},\n' +
+    '  {id:"wholemeal-bread",name:"Wholemeal Bread",brand:"Generic Australian",category:"Bakery",country:"Australia",aliases:["wholemeal bread","whole wheat bread","brown bread","toast"],defaultAmount:1,defaultUnit:"slice",units:{slice:1,g:1/40},unitLabels:{slice:"slice (40 g)",g:"g"},serving:"1 slice (40 g)",nutrients:nutrient(95,4,16,1.4,.3,3,2,180),score:7,source:"Australian Generic Trial Record",verified:false,ingredients:"Wholemeal wheat flour, water, yeast, salt",allergens:["wheat","gluten"]},\n' +
+    '  {id:"egg",name:"Egg",brand:"Australian Eggs",category:"Dairy & Eggs",country:"Australia",aliases:["egg","eggs","boiled egg","poached egg"],defaultAmount:1,defaultUnit:"item",units:{item:1,g:1/50},unitLabels:{item:"large egg",g:"g"},serving:"1 large egg (50 g)",nutrients:nutrient(72,6.3,.4,4.8,1.6,0,.2,71),score:8,source:"Australian Generic Trial Record",verified:false,ingredients:"Egg",allergens:["egg"]},\n' +
+    '  {id:"chicken-breast",name:"Chicken Breast, Cooked",brand:"Fresh",category:"Meat & Seafood",country:"Australia",aliases:["chicken breast","grilled chicken","roast chicken"],defaultAmount:100,defaultUnit:"g",units:{g:.01,serving:1},unitLabels:{g:"g",serving:"100 g serving"},serving:"100 g",nutrients:nutrient(165,31,0,3.6,1,0,0,74),score:8,source:"Australian Generic Trial Record",verified:false,ingredients:"Chicken breast",allergens:[]},\n' +
+    '  {id:"tuna",name:"Tuna in Springwater, Drained",brand:"Generic Australian",category:"Meat & Seafood",country:"Australia",aliases:["tuna","tinned tuna","canned tuna"],defaultAmount:95,defaultUnit:"g",units:{g:1/95,can:1,serving:1},unitLabels:{g:"g",can:"small can (95 g drained)",serving:"95 g serving"},serving:"95 g drained",nutrients:nutrient(100,22,0,1,.3,0,0,300),score:8,source:"Australian Generic Trial Record",verified:false,ingredients:"Tuna, springwater, salt",allergens:["fish"]},\n' +
+    '  {id:"brown-rice",name:"Brown Rice, Cooked",brand:"Generic",category:"Pantry",country:"Australia",aliases:["brown rice","rice"],defaultAmount:150,defaultUnit:"g",units:{g:1/150,cup:1.3,serving:1},unitLabels:{g:"g",cup:"cup",serving:"150 g serving"},serving:"150 g",nutrients:nutrient(170,3.8,35,1.4,.3,2.4,.7,6),score:8,source:"Australian Generic Trial Record",verified:false,ingredients:"Brown rice",allergens:[]},\n' +
+    '  {id:"potato",name:"Potato, Boiled",brand:"Fresh Produce",category:"Fruit & Vegetables",country:"Australia",aliases:["potato","boiled potato","spud"],defaultAmount:150,defaultUnit:"g",units:{g:1/150,item:1,serving:1},unitLabels:{g:"g",item:"medium potato",serving:"150 g serving"},serving:"150 g",nutrients:nutrient(116,3,26,.2,.1,2.7,1.2,10),score:8,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Potato",allergens:[]},\n' +
+    '  {id:"broccoli",name:"Broccoli, Steamed",brand:"Fresh Produce",category:"Fruit & Vegetables",country:"Australia",aliases:["broccoli","steamed broccoli"],defaultAmount:100,defaultUnit:"g",units:{g:.01,cup:1.5,serving:1},unitLabels:{g:"g",cup:"cup",serving:"100 g serving"},serving:"100 g",nutrients:nutrient(35,2.4,7,.4,.1,3.3,1.4,41),score:9,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Broccoli",allergens:[]},\n' +
+    '  {id:"salad",name:"Mixed Garden Salad",brand:"Fresh",category:"Fruit & Vegetables",country:"Australia",aliases:["salad","garden salad","mixed salad"],defaultAmount:150,defaultUnit:"g",units:{g:1/150,bowl:1,serving:1},unitLabels:{g:"g",bowl:"medium bowl",serving:"150 g serving"},serving:"150 g",nutrients:nutrient(60,2.5,10,1,0.2,4,5,70),score:9,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Lettuce, tomato, cucumber, carrot; dressing not included",allergens:[]},\n' +
+    '  {id:"avocado",name:"Avocado",brand:"Fresh Produce",category:"Fruit & Vegetables",country:"Australia",aliases:["avocado","avo"],defaultAmount:50,defaultUnit:"'... 686871 more characters
+  
+      at TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\catalogue-search-intelligence.test.js:70:69)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '(() => {\n"use strict";\n\nconst APP = window.HEC_APP;\nif(!APP?.version)throw new Error("HEC canonical configuration was not loaded");\nconst ACTIVITY = window.HECActivity;\nconst WEIGHT_PROGRESS = window.HECWeightProgress;\nconst NUTRITION_TRENDS = window.HECNutritionTrends;\nconst CONVERSATION = window.HECConversationFoundation;\nconst GUIDED_PRODUCTS = window.HECGuidedProductResolution;\nconst FOOD_GROUPS = window.HECFoodGroups;\nconst ACTIVE_VERSION = APP.version;\nconst MAIN_KEY = APP.storageKey;\nconst EXT_KEY = APP.functionalStorageKey;\nconst LEGACY_EXT_KEYS = APP.legacyFunctionalKeys || [];\nconst RESET_RELOAD_SESSION_KEY = APP.resetSessionKey;\nlet resetInProgress = false;\nconst by = id => document.getElementById(id);\nconst q = selector => document.querySelector(selector);\nconst qa = selector => [...document.querySelectorAll(selector)];\nconst esc = value => String(value ?? "").replace(/[&<>\\"\']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",\'"\':"&quot;","\'":"&#39;"}[c]));\nconst n = value => Number(value) || 0;\nconst round1 = value => Math.round((Number(value) || 0) * 10) / 10;\nconst whole = value => Math.round(Number(value) || 0);\nconst isoToday = () => window.HECDate?.todayISO?.() || `${new Date().getFullYear()}-${String(new Date().getMonth()+1).padStart(2,"0")}-${String(new Date().getDate()).padStart(2,"0")}`;\nconst activeTimeZone = () => window.HECDate?.activeTimeZone?.() || Intl.DateTimeFormat().resolvedOptions().timeZone || "Australia/Brisbane";\nconst localClock = () => { const z=window.HECDate?.zonedParts?.() || {}; return `${String(z.hour ?? new Date().getHours()).padStart(2,"0")}:${String(z.minute ?? new Date().getMinutes()).padStart(2,"0")}`; };\nconst uid = prefix => window.HECMigrations?.createId?.(prefix) || `${prefix}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2,8)}`;\nconst recordTimestamps = createdAt => {const updatedAt=new Date().toISOString();return {createdAt:createdAt||updatedAt,updatedAt};};\nconst clone = value => JSON.parse(JSON.stringify(value));\nconst formatDate = value => value ? new Intl.DateTimeFormat("en-AU", {weekday:"short", day:"numeric", month:"short", year:"numeric"}).format(new Date(value + "T12:00:00")).replace(",","") : "";\nconst formatNumber = (value, precise=false) => {\n  const num = Number(value) || 0;\n  if(precise && Math.abs(num) < 10 && !Number.isInteger(round1(num))) return round1(num).toFixed(1);\n  return Math.round(num).toLocaleString("en-AU");\n};\nfunction availableValueText(value,unit=\'\'){return value===null||value===undefined||value===\'\'?\'Not Available\':`${formatNumber(value)}${unit?` ${unit}`:\'\'}`;}\nconst normalise = value => String(value || "").toLowerCase().normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").replace(/&/g," and ").replace(/[^a-z0-9]+/g," ").trim();\nconst mainData = () => {\n  try { return JSON.parse(localStorage.getItem(MAIN_KEY)) || {}; } catch { return {}; }\n};\n\nconst NUTRIENT_KEYS = ["calories","protein","carbs","fat","satFat","fibre","sugar","addedSugar","freeSugar","sodium"];\nconst ZERO_NUTRIENTS = Object.fromEntries(NUTRIENT_KEYS.map(k => [k,0]));\nconst nutrient = (calories, protein, carbs, fat, satFat, fibre, sugar, sodium, extra={}) => ({calories,protein,carbs,fat,satFat,fibre,sugar,sodium,...extra});\n\nconst FOODS = [\n  {id:"weetbix-au",consumerFamilyIds:["weet-bix"],name:"Sanitarium Weet-Bix Original",brand:"Sanitarium",category:"Breakfast Cereals",country:"Australia",aliases:["weet bix","weetbix","weet-bix","wheat bix"],defaultAmount:2,defaultUnit:"biscuit",units:{biscuit:.5,serving:1,g:1/31},unitLabels:{biscuit:"biscuit",serving:"serving (2 biscuits)",g:"g"},serving:"2 biscuits (31 g)",nutrients:nutrient(110,3.8,20.4,.4,.1,4,.9,84,{potassium:113,iron:3}),score:8,source:"Verified From Australian Package Sample",verified:true,ingredients:"Wholegrain wheat, sugar, salt, barley malt extract, vitamins and minerals",allergens:["wheat","gluten"]},\n  {id:"light-milk-au",name:"Australian Light Milk",brand:"Generic Australian Dairy",category:"Dairy & Eggs",country:"Australia",aliases:["light milk","lite milk","low fat milk","1 percent milk"],defaultAmount:200,defaultUnit:"mL",units:{mL:1/200,cup:1.25,serving:1},unitLabels:{mL:"mL",cup:"cup (250 mL)",serving:"serving (200 mL)"},serving:"200 mL",nutrients:nutrient(86,7,10,2.8,1.8,0,10,90,{calcium:240}),score:8,source:"Australian Generic Trial Record",verified:false,ingredients:"Reduced-fat cow\'s milk",allergens:["milk","dairy"]},\n  {id:"baby-carrot",name:"Baby Snacking Carrot",brand:"Fresh Produce",category:"Fruit & Vegetables",country:"Australia",aliases:["baby carrot","snacking carrot","snackables carrot","snack ables carrot","carrot"],defaultAmount:31,defaultUnit:"g",units:{g:1/31,item:1},unitLabels:{g:"g",item:"small carrot (about 31 g)"},serving:"31 g",nutrients:nutrient(13,.3,3,.1,0,1,.7,21),score:9,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Carrot",allergens:[]},\n  {id:"banana",name:"Banana",brand:"Fresh Produce",category:"Fruit & Vegetables",country:"Australia",aliases:["banana","lady finger banana"],defaultAmount:1,defaultUnit:"item",units:{item:1,g:1/118},unitLabels:{item:"medium banana",g:"g"},serving:"1 medium banana (118 g)",nutrients:nutrient(105,1.3,27,.4,.1,3.1,14.4,1),score:8,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Banana",allergens:[]},\n  {id:"apple",name:"Apple",brand:"Fresh Produce",category:"Fruit & Vegetables",country:"Australia",aliases:["apple","pink lady","royal gala","granny smith"],defaultAmount:1,defaultUnit:"item",units:{item:1,g:1/182},unitLabels:{item:"medium apple",g:"g"},serving:"1 medium apple (182 g)",nutrients:nutrient(95,.5,25,.3,.1,4.4,19,2),score:8,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Apple",allergens:[]},\n  {id:"berries",name:"Mixed Berries",brand:"Fresh or Frozen",category:"Fruit & Vegetables",country:"Australia",aliases:["berries","mixed berries","strawberries","blueberries"],defaultAmount:100,defaultUnit:"g",units:{g:.01,cup:1.4,serving:1},unitLabels:{g:"g",cup:"cup",serving:"100 g serving"},serving:"100 g",nutrients:nutrient(50,.8,12,.4,.1,4.5,7,1),score:9,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Mixed berries",allergens:[]},\n  {id:"wholemeal-bread",name:"Wholemeal Bread",brand:"Generic Australian",category:"Bakery",country:"Australia",aliases:["wholemeal bread","whole wheat bread","brown bread","toast"],defaultAmount:1,defaultUnit:"slice",units:{slice:1,g:1/40},unitLabels:{slice:"slice (40 g)",g:"g"},serving:"1 slice (40 g)",nutrients:nutrient(95,4,16,1.4,.3,3,2,180),score:7,source:"Australian Generic Trial Record",verified:false,ingredients:"Wholemeal wheat flour, water, yeast, salt",allergens:["wheat","gluten"]},\n  {id:"egg",name:"Egg",brand:"Australian Eggs",category:"Dairy & Eggs",country:"Australia",aliases:["egg","eggs","boiled egg","poached egg"],defaultAmount:1,defaultUnit:"item",units:{item:1,g:1/50},unitLabels:{item:"large egg",g:"g"},serving:"1 large egg (50 g)",nutrients:nutrient(72,6.3,.4,4.8,1.6,0,.2,71),score:8,source:"Australian Generic Trial Record",verified:false,ingredients:"Egg",allergens:["egg"]},\n  {id:"chicken-breast",name:"Chicken Breast, Cooked",brand:"Fresh",category:"Meat & Seafood",country:"Australia",aliases:["chicken breast","grilled chicken","roast chicken"],defaultAmount:100,defaultUnit:"g",units:{g:.01,serving:1},unitLabels:{g:"g",serving:"100 g serving"},serving:"100 g",nutrients:nutrient(165,31,0,3.6,1,0,0,74),score:8,source:"Australian Generic Trial Record",verified:false,ingredients:"Chicken breast",allergens:[]},\n  {id:"tuna",name:"Tuna in Springwater, Drained",brand:"Generic Australian",category:"Meat & Seafood",country:"Australia",aliases:["tuna","tinned tuna","canned tuna"],defaultAmount:95,defaultUnit:"g",units:{g:1/95,can:1,serving:1},unitLabels:{g:"g",can:"small can (95 g drained)",serving:"95 g serving"},serving:"95 g drained",nutrients:nutrient(100,22,0,1,.3,0,0,300),score:8,source:"Australian Generic Trial Record",verified:false,ingredients:"Tuna, springwater, salt",allergens:["fish"]},\n  {id:"brown-rice",name:"Brown Rice, Cooked",brand:"Generic",category:"Pantry",country:"Australia",aliases:["brown rice","rice"],defaultAmount:150,defaultUnit:"g",units:{g:1/150,cup:1.3,serving:1},unitLabels:{g:"g",cup:"cup",serving:"150 g serving"},serving:"150 g",nutrients:nutrient(170,3.8,35,1.4,.3,2.4,.7,6),score:8,source:"Australian Generic Trial Record",verified:false,ingredients:"Brown rice",allergens:[]},\n  {id:"potato",name:"Potato, Boiled",brand:"Fresh Produce",category:"Fruit & Vegetables",country:"Australia",aliases:["potato","boiled potato","spud"],defaultAmount:150,defaultUnit:"g",units:{g:1/150,item:1,serving:1},unitLabels:{g:"g",item:"medium potato",serving:"150 g serving"},serving:"150 g",nutrients:nutrient(116,3,26,.2,.1,2.7,1.2,10),score:8,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Potato",allergens:[]},\n  {id:"broccoli",name:"Broccoli, Steamed",brand:"Fresh Produce",category:"Fruit & Vegetables",country:"Australia",aliases:["broccoli","steamed broccoli"],defaultAmount:100,defaultUnit:"g",units:{g:.01,cup:1.5,serving:1},unitLabels:{g:"g",cup:"cup",serving:"100 g serving"},serving:"100 g",nutrients:nutrient(35,2.4,7,.4,.1,3.3,1.4,41),score:9,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Broccoli",allergens:[]},\n  {id:"salad",name:"Mixed Garden Salad",brand:"Fresh",category:"Fruit & Vegetables",country:"Australia",aliases:["salad","garden salad","mixed salad"],defaultAmount:150,defaultUnit:"g",units:{g:1/150,bowl:1,serving:1},unitLabels:{g:"g",bowl:"medium bowl",serving:"150 g serving"},serving:"150 g",nutrients:nutrient(60,2.5,10,1,0.2,4,5,70),score:9,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Lettuce, tomato, cucumber, carrot; dressing not included",allergens:[]},\n  {id:"avocado",name:"Avocado",brand:"Fresh Produce",category:"Fruit & Vegetables",country:"Australia",aliases:["avocado","avo"],defaultAmount:50,defaultUnit:"'... 686871 more characters,
+    expected: /setSelectionRange\(caret,caret\)/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at tests\catalogue-search-regression-recovery.test.js:54:1
+✖ 17. mobile safeguards retain bounded choices, stable caret and unresolved-action suppression (4.2642ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /setSelectionRange\(caret,caret\)/. Input:
+  
+  '(() => {\n' +
+    '"use strict";\n' +
+    '\n' +
+    'const APP = window.HEC_APP;\n' +
+    'if(!APP?.version)throw new Error("HEC canonical configuration was not loaded");\n' +
+    'const ACTIVITY = window.HECActivity;\n' +
+    'const WEIGHT_PROGRESS = window.HECWeightProgress;\n' +
+    'const NUTRITION_TRENDS = window.HECNutritionTrends;\n' +
+    'const CONVERSATION = window.HECConversationFoundation;\n' +
+    'const GUIDED_PRODUCTS = window.HECGuidedProductResolution;\n' +
+    'const FOOD_GROUPS = window.HECFoodGroups;\n' +
+    'const ACTIVE_VERSION = APP.version;\n' +
+    'const MAIN_KEY = APP.storageKey;\n' +
+    'const EXT_KEY = APP.functionalStorageKey;\n' +
+    'const LEGACY_EXT_KEYS = APP.legacyFunctionalKeys || [];\n' +
+    'const RESET_RELOAD_SESSION_KEY = APP.resetSessionKey;\n' +
+    'let resetInProgress = false;\n' +
+    'const by = id => document.getElementById(id);\n' +
+    'const q = selector => document.querySelector(selector);\n' +
+    'const qa = selector => [...document.querySelectorAll(selector)];\n' +
+    `const esc = value => String(value ?? "").replace(/[&<>\\"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));\n` +
+    'const n = value => Number(value) || 0;\n' +
+    'const round1 = value => Math.round((Number(value) || 0) * 10) / 10;\n' +
+    'const whole = value => Math.round(Number(value) || 0);\n' +
+    'const isoToday = () => window.HECDate?.todayISO?.() || `${new Date().getFullYear()}-${String(new Date().getMonth()+1).padStart(2,"0")}-${String(new Date().getDate()).padStart(2,"0")}`;\n' +
+    'const activeTimeZone = () => window.HECDate?.activeTimeZone?.() || Intl.DateTimeFormat().resolvedOptions().timeZone || "Australia/Brisbane";\n' +
+    'const localClock = () => { const z=window.HECDate?.zonedParts?.() || {}; return `${String(z.hour ?? new Date().getHours()).padStart(2,"0")}:${String(z.minute ?? new Date().getMinutes()).padStart(2,"0")}`; };\n' +
+    'const uid = prefix => window.HECMigrations?.createId?.(prefix) || `${prefix}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2,8)}`;\n' +
+    'const recordTimestamps = createdAt => {const updatedAt=new Date().toISOString();return {createdAt:createdAt||updatedAt,updatedAt};};\n' +
+    'const clone = value => JSON.parse(JSON.stringify(value));\n' +
+    'const formatDate = value => value ? new Intl.DateTimeFormat("en-AU", {weekday:"short", day:"numeric", month:"short", year:"numeric"}).format(new Date(value + "T12:00:00")).replace(",","") : "";\n' +
+    'const formatNumber = (value, precise=false) => {\n' +
+    '  const num = Number(value) || 0;\n' +
+    '  if(precise && Math.abs(num) < 10 && !Number.isInteger(round1(num))) return round1(num).toFixed(1);\n' +
+    '  return Math.round(num).toLocaleString("en-AU");\n' +
+    '};\n' +
+    "function availableValueText(value,unit=''){return value===null||value===undefined||value===''?'Not Available':`${formatNumber(value)}${unit?` ${unit}`:''}`;}\n" +
+    'const normalise = value => String(value || "").toLowerCase().normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").replace(/&/g," and ").replace(/[^a-z0-9]+/g," ").trim();\n' +
+    'const mainData = () => {\n' +
+    '  try { return JSON.parse(localStorage.getItem(MAIN_KEY)) || {}; } catch { return {}; }\n' +
+    '};\n' +
+    '\n' +
+    'const NUTRIENT_KEYS = ["calories","protein","carbs","fat","satFat","fibre","sugar","addedSugar","freeSugar","sodium"];\n' +
+    'const ZERO_NUTRIENTS = Object.fromEntries(NUTRIENT_KEYS.map(k => [k,0]));\n' +
+    'const nutrient = (calories, protein, carbs, fat, satFat, fibre, sugar, sodium, extra={}) => ({calories,protein,carbs,fat,satFat,fibre,sugar,sodium,...extra});\n' +
+    '\n' +
+    'const FOODS = [\n' +
+    '  {id:"weetbix-au",consumerFamilyIds:["weet-bix"],name:"Sanitarium Weet-Bix Original",brand:"Sanitarium",category:"Breakfast Cereals",country:"Australia",aliases:["weet bix","weetbix","weet-bix","wheat bix"],defaultAmount:2,defaultUnit:"biscuit",units:{biscuit:.5,serving:1,g:1/31},unitLabels:{biscuit:"biscuit",serving:"serving (2 biscuits)",g:"g"},serving:"2 biscuits (31 g)",nutrients:nutrient(110,3.8,20.4,.4,.1,4,.9,84,{potassium:113,iron:3}),score:8,source:"Verified From Australian Package Sample",verified:true,ingredients:"Wholegrain wheat, sugar, salt, barley malt extract, vitamins and minerals",allergens:["wheat","gluten"]},\n' +
+    `  {id:"light-milk-au",name:"Australian Light Milk",brand:"Generic Australian Dairy",category:"Dairy & Eggs",country:"Australia",aliases:["light milk","lite milk","low fat milk","1 percent milk"],defaultAmount:200,defaultUnit:"mL",units:{mL:1/200,cup:1.25,serving:1},unitLabels:{mL:"mL",cup:"cup (250 mL)",serving:"serving (200 mL)"},serving:"200 mL",nutrients:nutrient(86,7,10,2.8,1.8,0,10,90,{calcium:240}),score:8,source:"Australian Generic Trial Record",verified:false,ingredients:"Reduced-fat cow's milk",allergens:["milk","dairy"]},\n` +
+    '  {id:"baby-carrot",name:"Baby Snacking Carrot",brand:"Fresh Produce",category:"Fruit & Vegetables",country:"Australia",aliases:["baby carrot","snacking carrot","snackables carrot","snack ables carrot","carrot"],defaultAmount:31,defaultUnit:"g",units:{g:1/31,item:1},unitLabels:{g:"g",item:"small carrot (about 31 g)"},serving:"31 g",nutrients:nutrient(13,.3,3,.1,0,1,.7,21),score:9,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Carrot",allergens:[]},\n' +
+    '  {id:"banana",name:"Banana",brand:"Fresh Produce",category:"Fruit & Vegetables",country:"Australia",aliases:["banana","lady finger banana"],defaultAmount:1,defaultUnit:"item",units:{item:1,g:1/118},unitLabels:{item:"medium banana",g:"g"},serving:"1 medium banana (118 g)",nutrients:nutrient(105,1.3,27,.4,.1,3.1,14.4,1),score:8,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Banana",allergens:[]},\n' +
+    '  {id:"apple",name:"Apple",brand:"Fresh Produce",category:"Fruit & Vegetables",country:"Australia",aliases:["apple","pink lady","royal gala","granny smith"],defaultAmount:1,defaultUnit:"item",units:{item:1,g:1/182},unitLabels:{item:"medium apple",g:"g"},serving:"1 medium apple (182 g)",nutrients:nutrient(95,.5,25,.3,.1,4.4,19,2),score:8,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Apple",allergens:[]},\n' +
+    '  {id:"berries",name:"Mixed Berries",brand:"Fresh or Frozen",category:"Fruit & Vegetables",country:"Australia",aliases:["berries","mixed berries","strawberries","blueberries"],defaultAmount:100,defaultUnit:"g",units:{g:.01,cup:1.4,serving:1},unitLabels:{g:"g",cup:"cup",serving:"100 g serving"},serving:"100 g",nutrients:nutrient(50,.8,12,.4,.1,4.5,7,1),score:9,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Mixed berries",allergens:[]},\n' +
+    '  {id:"wholemeal-bread",name:"Wholemeal Bread",brand:"Generic Australian",category:"Bakery",country:"Australia",aliases:["wholemeal bread","whole wheat bread","brown bread","toast"],defaultAmount:1,defaultUnit:"slice",units:{slice:1,g:1/40},unitLabels:{slice:"slice (40 g)",g:"g"},serving:"1 slice (40 g)",nutrients:nutrient(95,4,16,1.4,.3,3,2,180),score:7,source:"Australian Generic Trial Record",verified:false,ingredients:"Wholemeal wheat flour, water, yeast, salt",allergens:["wheat","gluten"]},\n' +
+    '  {id:"egg",name:"Egg",brand:"Australian Eggs",category:"Dairy & Eggs",country:"Australia",aliases:["egg","eggs","boiled egg","poached egg"],defaultAmount:1,defaultUnit:"item",units:{item:1,g:1/50},unitLabels:{item:"large egg",g:"g"},serving:"1 large egg (50 g)",nutrients:nutrient(72,6.3,.4,4.8,1.6,0,.2,71),score:8,source:"Australian Generic Trial Record",verified:false,ingredients:"Egg",allergens:["egg"]},\n' +
+    '  {id:"chicken-breast",name:"Chicken Breast, Cooked",brand:"Fresh",category:"Meat & Seafood",country:"Australia",aliases:["chicken breast","grilled chicken","roast chicken"],defaultAmount:100,defaultUnit:"g",units:{g:.01,serving:1},unitLabels:{g:"g",serving:"100 g serving"},serving:"100 g",nutrients:nutrient(165,31,0,3.6,1,0,0,74),score:8,source:"Australian Generic Trial Record",verified:false,ingredients:"Chicken breast",allergens:[]},\n' +
+    '  {id:"tuna",name:"Tuna in Springwater, Drained",brand:"Generic Australian",category:"Meat & Seafood",country:"Australia",aliases:["tuna","tinned tuna","canned tuna"],defaultAmount:95,defaultUnit:"g",units:{g:1/95,can:1,serving:1},unitLabels:{g:"g",can:"small can (95 g drained)",serving:"95 g serving"},serving:"95 g drained",nutrients:nutrient(100,22,0,1,.3,0,0,300),score:8,source:"Australian Generic Trial Record",verified:false,ingredients:"Tuna, springwater, salt",allergens:["fish"]},\n' +
+    '  {id:"brown-rice",name:"Brown Rice, Cooked",brand:"Generic",category:"Pantry",country:"Australia",aliases:["brown rice","rice"],defaultAmount:150,defaultUnit:"g",units:{g:1/150,cup:1.3,serving:1},unitLabels:{g:"g",cup:"cup",serving:"150 g serving"},serving:"150 g",nutrients:nutrient(170,3.8,35,1.4,.3,2.4,.7,6),score:8,source:"Australian Generic Trial Record",verified:false,ingredients:"Brown rice",allergens:[]},\n' +
+    '  {id:"potato",name:"Potato, Boiled",brand:"Fresh Produce",category:"Fruit & Vegetables",country:"Australia",aliases:["potato","boiled potato","spud"],defaultAmount:150,defaultUnit:"g",units:{g:1/150,item:1,serving:1},unitLabels:{g:"g",item:"medium potato",serving:"150 g serving"},serving:"150 g",nutrients:nutrient(116,3,26,.2,.1,2.7,1.2,10),score:8,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Potato",allergens:[]},\n' +
+    '  {id:"broccoli",name:"Broccoli, Steamed",brand:"Fresh Produce",category:"Fruit & Vegetables",country:"Australia",aliases:["broccoli","steamed broccoli"],defaultAmount:100,defaultUnit:"g",units:{g:.01,cup:1.5,serving:1},unitLabels:{g:"g",cup:"cup",serving:"100 g serving"},serving:"100 g",nutrients:nutrient(35,2.4,7,.4,.1,3.3,1.4,41),score:9,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Broccoli",allergens:[]},\n' +
+    '  {id:"salad",name:"Mixed Garden Salad",brand:"Fresh",category:"Fruit & Vegetables",country:"Australia",aliases:["salad","garden salad","mixed salad"],defaultAmount:150,defaultUnit:"g",units:{g:1/150,bowl:1,serving:1},unitLabels:{g:"g",bowl:"medium bowl",serving:"150 g serving"},serving:"150 g",nutrients:nutrient(60,2.5,10,1,0.2,4,5,70),score:9,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Lettuce, tomato, cucumber, carrot; dressing not included",allergens:[]},\n' +
+    '  {id:"avocado",name:"Avocado",brand:"Fresh Produce",category:"Fruit & Vegetables",country:"Australia",aliases:["avocado","avo"],defaultAmount:50,defaultUnit:"'... 686871 more characters
+  
+      at TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\catalogue-search-regression-recovery.test.js:54:316)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '(() => {\n"use strict";\n\nconst APP = window.HEC_APP;\nif(!APP?.version)throw new Error("HEC canonical configuration was not loaded");\nconst ACTIVITY = window.HECActivity;\nconst WEIGHT_PROGRESS = window.HECWeightProgress;\nconst NUTRITION_TRENDS = window.HECNutritionTrends;\nconst CONVERSATION = window.HECConversationFoundation;\nconst GUIDED_PRODUCTS = window.HECGuidedProductResolution;\nconst FOOD_GROUPS = window.HECFoodGroups;\nconst ACTIVE_VERSION = APP.version;\nconst MAIN_KEY = APP.storageKey;\nconst EXT_KEY = APP.functionalStorageKey;\nconst LEGACY_EXT_KEYS = APP.legacyFunctionalKeys || [];\nconst RESET_RELOAD_SESSION_KEY = APP.resetSessionKey;\nlet resetInProgress = false;\nconst by = id => document.getElementById(id);\nconst q = selector => document.querySelector(selector);\nconst qa = selector => [...document.querySelectorAll(selector)];\nconst esc = value => String(value ?? "").replace(/[&<>\\"\']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",\'"\':"&quot;","\'":"&#39;"}[c]));\nconst n = value => Number(value) || 0;\nconst round1 = value => Math.round((Number(value) || 0) * 10) / 10;\nconst whole = value => Math.round(Number(value) || 0);\nconst isoToday = () => window.HECDate?.todayISO?.() || `${new Date().getFullYear()}-${String(new Date().getMonth()+1).padStart(2,"0")}-${String(new Date().getDate()).padStart(2,"0")}`;\nconst activeTimeZone = () => window.HECDate?.activeTimeZone?.() || Intl.DateTimeFormat().resolvedOptions().timeZone || "Australia/Brisbane";\nconst localClock = () => { const z=window.HECDate?.zonedParts?.() || {}; return `${String(z.hour ?? new Date().getHours()).padStart(2,"0")}:${String(z.minute ?? new Date().getMinutes()).padStart(2,"0")}`; };\nconst uid = prefix => window.HECMigrations?.createId?.(prefix) || `${prefix}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2,8)}`;\nconst recordTimestamps = createdAt => {const updatedAt=new Date().toISOString();return {createdAt:createdAt||updatedAt,updatedAt};};\nconst clone = value => JSON.parse(JSON.stringify(value));\nconst formatDate = value => value ? new Intl.DateTimeFormat("en-AU", {weekday:"short", day:"numeric", month:"short", year:"numeric"}).format(new Date(value + "T12:00:00")).replace(",","") : "";\nconst formatNumber = (value, precise=false) => {\n  const num = Number(value) || 0;\n  if(precise && Math.abs(num) < 10 && !Number.isInteger(round1(num))) return round1(num).toFixed(1);\n  return Math.round(num).toLocaleString("en-AU");\n};\nfunction availableValueText(value,unit=\'\'){return value===null||value===undefined||value===\'\'?\'Not Available\':`${formatNumber(value)}${unit?` ${unit}`:\'\'}`;}\nconst normalise = value => String(value || "").toLowerCase().normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").replace(/&/g," and ").replace(/[^a-z0-9]+/g," ").trim();\nconst mainData = () => {\n  try { return JSON.parse(localStorage.getItem(MAIN_KEY)) || {}; } catch { return {}; }\n};\n\nconst NUTRIENT_KEYS = ["calories","protein","carbs","fat","satFat","fibre","sugar","addedSugar","freeSugar","sodium"];\nconst ZERO_NUTRIENTS = Object.fromEntries(NUTRIENT_KEYS.map(k => [k,0]));\nconst nutrient = (calories, protein, carbs, fat, satFat, fibre, sugar, sodium, extra={}) => ({calories,protein,carbs,fat,satFat,fibre,sugar,sodium,...extra});\n\nconst FOODS = [\n  {id:"weetbix-au",consumerFamilyIds:["weet-bix"],name:"Sanitarium Weet-Bix Original",brand:"Sanitarium",category:"Breakfast Cereals",country:"Australia",aliases:["weet bix","weetbix","weet-bix","wheat bix"],defaultAmount:2,defaultUnit:"biscuit",units:{biscuit:.5,serving:1,g:1/31},unitLabels:{biscuit:"biscuit",serving:"serving (2 biscuits)",g:"g"},serving:"2 biscuits (31 g)",nutrients:nutrient(110,3.8,20.4,.4,.1,4,.9,84,{potassium:113,iron:3}),score:8,source:"Verified From Australian Package Sample",verified:true,ingredients:"Wholegrain wheat, sugar, salt, barley malt extract, vitamins and minerals",allergens:["wheat","gluten"]},\n  {id:"light-milk-au",name:"Australian Light Milk",brand:"Generic Australian Dairy",category:"Dairy & Eggs",country:"Australia",aliases:["light milk","lite milk","low fat milk","1 percent milk"],defaultAmount:200,defaultUnit:"mL",units:{mL:1/200,cup:1.25,serving:1},unitLabels:{mL:"mL",cup:"cup (250 mL)",serving:"serving (200 mL)"},serving:"200 mL",nutrients:nutrient(86,7,10,2.8,1.8,0,10,90,{calcium:240}),score:8,source:"Australian Generic Trial Record",verified:false,ingredients:"Reduced-fat cow\'s milk",allergens:["milk","dairy"]},\n  {id:"baby-carrot",name:"Baby Snacking Carrot",brand:"Fresh Produce",category:"Fruit & Vegetables",country:"Australia",aliases:["baby carrot","snacking carrot","snackables carrot","snack ables carrot","carrot"],defaultAmount:31,defaultUnit:"g",units:{g:1/31,item:1},unitLabels:{g:"g",item:"small carrot (about 31 g)"},serving:"31 g",nutrients:nutrient(13,.3,3,.1,0,1,.7,21),score:9,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Carrot",allergens:[]},\n  {id:"banana",name:"Banana",brand:"Fresh Produce",category:"Fruit & Vegetables",country:"Australia",aliases:["banana","lady finger banana"],defaultAmount:1,defaultUnit:"item",units:{item:1,g:1/118},unitLabels:{item:"medium banana",g:"g"},serving:"1 medium banana (118 g)",nutrients:nutrient(105,1.3,27,.4,.1,3.1,14.4,1),score:8,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Banana",allergens:[]},\n  {id:"apple",name:"Apple",brand:"Fresh Produce",category:"Fruit & Vegetables",country:"Australia",aliases:["apple","pink lady","royal gala","granny smith"],defaultAmount:1,defaultUnit:"item",units:{item:1,g:1/182},unitLabels:{item:"medium apple",g:"g"},serving:"1 medium apple (182 g)",nutrients:nutrient(95,.5,25,.3,.1,4.4,19,2),score:8,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Apple",allergens:[]},\n  {id:"berries",name:"Mixed Berries",brand:"Fresh or Frozen",category:"Fruit & Vegetables",country:"Australia",aliases:["berries","mixed berries","strawberries","blueberries"],defaultAmount:100,defaultUnit:"g",units:{g:.01,cup:1.4,serving:1},unitLabels:{g:"g",cup:"cup",serving:"100 g serving"},serving:"100 g",nutrients:nutrient(50,.8,12,.4,.1,4.5,7,1),score:9,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Mixed berries",allergens:[]},\n  {id:"wholemeal-bread",name:"Wholemeal Bread",brand:"Generic Australian",category:"Bakery",country:"Australia",aliases:["wholemeal bread","whole wheat bread","brown bread","toast"],defaultAmount:1,defaultUnit:"slice",units:{slice:1,g:1/40},unitLabels:{slice:"slice (40 g)",g:"g"},serving:"1 slice (40 g)",nutrients:nutrient(95,4,16,1.4,.3,3,2,180),score:7,source:"Australian Generic Trial Record",verified:false,ingredients:"Wholemeal wheat flour, water, yeast, salt",allergens:["wheat","gluten"]},\n  {id:"egg",name:"Egg",brand:"Australian Eggs",category:"Dairy & Eggs",country:"Australia",aliases:["egg","eggs","boiled egg","poached egg"],defaultAmount:1,defaultUnit:"item",units:{item:1,g:1/50},unitLabels:{item:"large egg",g:"g"},serving:"1 large egg (50 g)",nutrients:nutrient(72,6.3,.4,4.8,1.6,0,.2,71),score:8,source:"Australian Generic Trial Record",verified:false,ingredients:"Egg",allergens:["egg"]},\n  {id:"chicken-breast",name:"Chicken Breast, Cooked",brand:"Fresh",category:"Meat & Seafood",country:"Australia",aliases:["chicken breast","grilled chicken","roast chicken"],defaultAmount:100,defaultUnit:"g",units:{g:.01,serving:1},unitLabels:{g:"g",serving:"100 g serving"},serving:"100 g",nutrients:nutrient(165,31,0,3.6,1,0,0,74),score:8,source:"Australian Generic Trial Record",verified:false,ingredients:"Chicken breast",allergens:[]},\n  {id:"tuna",name:"Tuna in Springwater, Drained",brand:"Generic Australian",category:"Meat & Seafood",country:"Australia",aliases:["tuna","tinned tuna","canned tuna"],defaultAmount:95,defaultUnit:"g",units:{g:1/95,can:1,serving:1},unitLabels:{g:"g",can:"small can (95 g drained)",serving:"95 g serving"},serving:"95 g drained",nutrients:nutrient(100,22,0,1,.3,0,0,300),score:8,source:"Australian Generic Trial Record",verified:false,ingredients:"Tuna, springwater, salt",allergens:["fish"]},\n  {id:"brown-rice",name:"Brown Rice, Cooked",brand:"Generic",category:"Pantry",country:"Australia",aliases:["brown rice","rice"],defaultAmount:150,defaultUnit:"g",units:{g:1/150,cup:1.3,serving:1},unitLabels:{g:"g",cup:"cup",serving:"150 g serving"},serving:"150 g",nutrients:nutrient(170,3.8,35,1.4,.3,2.4,.7,6),score:8,source:"Australian Generic Trial Record",verified:false,ingredients:"Brown rice",allergens:[]},\n  {id:"potato",name:"Potato, Boiled",brand:"Fresh Produce",category:"Fruit & Vegetables",country:"Australia",aliases:["potato","boiled potato","spud"],defaultAmount:150,defaultUnit:"g",units:{g:1/150,item:1,serving:1},unitLabels:{g:"g",item:"medium potato",serving:"150 g serving"},serving:"150 g",nutrients:nutrient(116,3,26,.2,.1,2.7,1.2,10),score:8,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Potato",allergens:[]},\n  {id:"broccoli",name:"Broccoli, Steamed",brand:"Fresh Produce",category:"Fruit & Vegetables",country:"Australia",aliases:["broccoli","steamed broccoli"],defaultAmount:100,defaultUnit:"g",units:{g:.01,cup:1.5,serving:1},unitLabels:{g:"g",cup:"cup",serving:"100 g serving"},serving:"100 g",nutrients:nutrient(35,2.4,7,.4,.1,3.3,1.4,41),score:9,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Broccoli",allergens:[]},\n  {id:"salad",name:"Mixed Garden Salad",brand:"Fresh",category:"Fruit & Vegetables",country:"Australia",aliases:["salad","garden salad","mixed salad"],defaultAmount:150,defaultUnit:"g",units:{g:1/150,bowl:1,serving:1},unitLabels:{g:"g",bowl:"medium bowl",serving:"150 g serving"},serving:"150 g",nutrients:nutrient(60,2.5,10,1,0.2,4,5,70),score:9,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Lettuce, tomato, cucumber, carrot; dressing not included",allergens:[]},\n  {id:"avocado",name:"Avocado",brand:"Fresh Produce",category:"Fruit & Vegetables",country:"Australia",aliases:["avocado","avo"],defaultAmount:50,defaultUnit:"'... 686871 more characters,
+    expected: /setSelectionRange\(caret,caret\)/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at tests\catalogue-wave-2a.test.js:1:1
+✖ tests\catalogue-wave-2a.test.js (68687.3208ms)
+  'test failed'
+
+test at tests\catalogue-wave-3a.test.js:37:1
+✖ all three retailer totals and each cross-retailer category consequence reconcile (2186.6014ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  60 !== 61
+  
+      at TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\catalogue-wave-3a.test.js:38:435)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 60,
+    expected: 61,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\catalogue-wave-3a.test.js:46:1
+✖ new exact brand products are globally reachable and every index entry matches its shard (64.2016ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'snacks'
+  - undefined
+  
+      at TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\catalogue-wave-3a.test.js:48:505)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'snacks',
+    expected: undefined,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\catalogue-wave-4a.test.js:1:1
+✖ tests\catalogue-wave-4a.test.js (49372.5995ms)
+  'test failed'
+
+test at tests\hungry-jacks-australia-expansion.test.js:8:39
+✖ Hungry Jack's exact identity, portion and Review: Biscoff Shake Small (7.6158ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'needs-nutrition-completion'
+  - 'loggable-now'
+  
+      at TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\hungry-jacks-australia-expansion.test.js:9:117)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'needs-nutrition-completion',
+    expected: 'loggable-now',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\hungry-jacks-australia-expansion.test.js:11:1
+✖ the complete Hungry Jack’s catalogue satisfies the shared source and eligibility audit (1605.2338ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + [
+  +   {
+  +     code: 'builder-runtime-counts',
+  +     id: 'hungry-jacks-au'
+  +   }
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\hungry-jacks-australia-expansion.test.js:11:106)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { id: 'hungry-jacks-au', code: 'builder-runtime-counts' } ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\hungry-jacks-australia-expansion.test.js:21:1
+✖ Hungry Jack’s rendered mobile matrix reaches one Review and synthetic Diary (88189.2722ms)
+  locator.getAttribute: Timeout 30000ms exceeded.
+  Call log:
+  [2m  - waiting for locator('[data-universal-group="best"] [data-universal-result]').first()[22m
+  
+      at Object.run (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\scripts\audit_hungry_jacks_edge.js:23:120)
+      at async TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\hungry-jacks-australia-expansion.test.js:21:124) {
+    name: 'TimeoutError',
+    log: [ `  - waiting for locator('[data-universal-group="best"] [data-universal-result]').first()` ]
+  }
+
+test at tests\live-prefix-alphabetical.test.js:12:1
+✖ alphabetical live phone flow, query ownership and accepted product guards (20598.6917ms)
+  locator.click: Error: strict mode violation: locator('#food-entry-editor').getByRole('button', { name: '← Back', exact: true }) resolved to 2 elements:
+      1) <button class="back" type="button" data-hec-back="">← Back</button> aka getByRole('button', { name: '← Back' }).first()
+      2) <button class="secondary" id="entry-editor-back">← Back</button> aka locator('#entry-editor-back')
+  
+  Call log:
+  [2m  - waiting for locator('#food-entry-editor').getByRole('button', { name: '← Back', exact: true })[22m
+  
+      at Object.run (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\scripts\audit_live_prefix_alphabetical_edge.js:11:1008)
+      at async TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\live-prefix-alphabetical.test.js:12:109) {
+    log: [ "  - waiting for locator('#food-entry-editor').getByRole('button', { name: '← Back', exact: true })" ]
+  }
+
+test at tests\post-kfc-search-regressions.test.js:37:1
+✖ reported paths survive real phone controls through source browse, product choice and Review (57137.8291ms)
+  locator.click: Error: strict mode violation: locator('#food-entry-editor').getByRole('button', { name: '← Back', exact: true }) resolved to 2 elements:
+      1) <button class="back" type="button" data-hec-back="">← Back</button> aka getByRole('button', { name: '← Back' }).first()
+      2) <button class="secondary" id="entry-editor-back">← Back</button> aka locator('#entry-editor-back')
+  
+  Call log:
+  [2m  - waiting for locator('#food-entry-editor').getByRole('button', { name: '← Back', exact: true })[22m
+  
+      at review (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\scripts\audit_post_kfc_search_edge.js:15:760)
+      at async Object.run (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\scripts\audit_post_kfc_search_edge.js:33:231)
+      at async TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\post-kfc-search-regressions.test.js:38:3) {
+    log: [ "  - waiting for locator('#food-entry-editor').getByRole('button', { name: '← Back', exact: true })" ]
+  }
+
+test at tests\restaurant-family-search.test.js:49:1
+✖ actual Search button/Return rendering preserves neutral and explicit families through persisted Review (13825.8671ms)
+  AssertionError [ERR_ASSERTION]: Combos remain visible after direct choices
+      at Object.run (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\scripts\audit_restaurant_family_search.js:52:603)
+      at async TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\restaurant-family-search.test.js:50:16)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\universal-food-search-source-branching.test.js:253:1
+✖ 35. exact result rows expose central addability status (1.9699ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Loggable now · choose an amount/. Input:
+  
+  '(() => {\n' +
+    '"use strict";\n' +
+    '\n' +
+    'const APP = window.HEC_APP;\n' +
+    'if(!APP?.version)throw new Error("HEC canonical configuration was not loaded");\n' +
+    'const ACTIVITY = window.HECActivity;\n' +
+    'const WEIGHT_PROGRESS = window.HECWeightProgress;\n' +
+    'const NUTRITION_TRENDS = window.HECNutritionTrends;\n' +
+    'const CONVERSATION = window.HECConversationFoundation;\n' +
+    'const GUIDED_PRODUCTS = window.HECGuidedProductResolution;\n' +
+    'const FOOD_GROUPS = window.HECFoodGroups;\n' +
+    'const ACTIVE_VERSION = APP.version;\n' +
+    'const MAIN_KEY = APP.storageKey;\n' +
+    'const EXT_KEY = APP.functionalStorageKey;\n' +
+    'const LEGACY_EXT_KEYS = APP.legacyFunctionalKeys || [];\n' +
+    'const RESET_RELOAD_SESSION_KEY = APP.resetSessionKey;\n' +
+    'let resetInProgress = false;\n' +
+    'const by = id => document.getElementById(id);\n' +
+    'const q = selector => document.querySelector(selector);\n' +
+    'const qa = selector => [...document.querySelectorAll(selector)];\n' +
+    `const esc = value => String(value ?? "").replace(/[&<>\\"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));\n` +
+    'const n = value => Number(value) || 0;\n' +
+    'const round1 = value => Math.round((Number(value) || 0) * 10) / 10;\n' +
+    'const whole = value => Math.round(Number(value) || 0);\n' +
+    'const isoToday = () => window.HECDate?.todayISO?.() || `${new Date().getFullYear()}-${String(new Date().getMonth()+1).padStart(2,"0")}-${String(new Date().getDate()).padStart(2,"0")}`;\n' +
+    'const activeTimeZone = () => window.HECDate?.activeTimeZone?.() || Intl.DateTimeFormat().resolvedOptions().timeZone || "Australia/Brisbane";\n' +
+    'const localClock = () => { const z=window.HECDate?.zonedParts?.() || {}; return `${String(z.hour ?? new Date().getHours()).padStart(2,"0")}:${String(z.minute ?? new Date().getMinutes()).padStart(2,"0")}`; };\n' +
+    'const uid = prefix => window.HECMigrations?.createId?.(prefix) || `${prefix}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2,8)}`;\n' +
+    'const recordTimestamps = createdAt => {const updatedAt=new Date().toISOString();return {createdAt:createdAt||updatedAt,updatedAt};};\n' +
+    'const clone = value => JSON.parse(JSON.stringify(value));\n' +
+    'const formatDate = value => value ? new Intl.DateTimeFormat("en-AU", {weekday:"short", day:"numeric", month:"short", year:"numeric"}).format(new Date(value + "T12:00:00")).replace(",","") : "";\n' +
+    'const formatNumber = (value, precise=false) => {\n' +
+    '  const num = Number(value) || 0;\n' +
+    '  if(precise && Math.abs(num) < 10 && !Number.isInteger(round1(num))) return round1(num).toFixed(1);\n' +
+    '  return Math.round(num).toLocaleString("en-AU");\n' +
+    '};\n' +
+    "function availableValueText(value,unit=''){return value===null||value===undefined||value===''?'Not Available':`${formatNumber(value)}${unit?` ${unit}`:''}`;}\n" +
+    'const normalise = value => String(value || "").toLowerCase().normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").replace(/&/g," and ").replace(/[^a-z0-9]+/g," ").trim();\n' +
+    'const mainData = () => {\n' +
+    '  try { return JSON.parse(localStorage.getItem(MAIN_KEY)) || {}; } catch { return {}; }\n' +
+    '};\n' +
+    '\n' +
+    'const NUTRIENT_KEYS = ["calories","protein","carbs","fat","satFat","fibre","sugar","addedSugar","freeSugar","sodium"];\n' +
+    'const ZERO_NUTRIENTS = Object.fromEntries(NUTRIENT_KEYS.map(k => [k,0]));\n' +
+    'const nutrient = (calories, protein, carbs, fat, satFat, fibre, sugar, sodium, extra={}) => ({calories,protein,carbs,fat,satFat,fibre,sugar,sodium,...extra});\n' +
+    '\n' +
+    'const FOODS = [\n' +
+    '  {id:"weetbix-au",consumerFamilyIds:["weet-bix"],name:"Sanitarium Weet-Bix Original",brand:"Sanitarium",category:"Breakfast Cereals",country:"Australia",aliases:["weet bix","weetbix","weet-bix","wheat bix"],defaultAmount:2,defaultUnit:"biscuit",units:{biscuit:.5,serving:1,g:1/31},unitLabels:{biscuit:"biscuit",serving:"serving (2 biscuits)",g:"g"},serving:"2 biscuits (31 g)",nutrients:nutrient(110,3.8,20.4,.4,.1,4,.9,84,{potassium:113,iron:3}),score:8,source:"Verified From Australian Package Sample",verified:true,ingredients:"Wholegrain wheat, sugar, salt, barley malt extract, vitamins and minerals",allergens:["wheat","gluten"]},\n' +
+    `  {id:"light-milk-au",name:"Australian Light Milk",brand:"Generic Australian Dairy",category:"Dairy & Eggs",country:"Australia",aliases:["light milk","lite milk","low fat milk","1 percent milk"],defaultAmount:200,defaultUnit:"mL",units:{mL:1/200,cup:1.25,serving:1},unitLabels:{mL:"mL",cup:"cup (250 mL)",serving:"serving (200 mL)"},serving:"200 mL",nutrients:nutrient(86,7,10,2.8,1.8,0,10,90,{calcium:240}),score:8,source:"Australian Generic Trial Record",verified:false,ingredients:"Reduced-fat cow's milk",allergens:["milk","dairy"]},\n` +
+    '  {id:"baby-carrot",name:"Baby Snacking Carrot",brand:"Fresh Produce",category:"Fruit & Vegetables",country:"Australia",aliases:["baby carrot","snacking carrot","snackables carrot","snack ables carrot","carrot"],defaultAmount:31,defaultUnit:"g",units:{g:1/31,item:1},unitLabels:{g:"g",item:"small carrot (about 31 g)"},serving:"31 g",nutrients:nutrient(13,.3,3,.1,0,1,.7,21),score:9,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Carrot",allergens:[]},\n' +
+    '  {id:"banana",name:"Banana",brand:"Fresh Produce",category:"Fruit & Vegetables",country:"Australia",aliases:["banana","lady finger banana"],defaultAmount:1,defaultUnit:"item",units:{item:1,g:1/118},unitLabels:{item:"medium banana",g:"g"},serving:"1 medium banana (118 g)",nutrients:nutrient(105,1.3,27,.4,.1,3.1,14.4,1),score:8,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Banana",allergens:[]},\n' +
+    '  {id:"apple",name:"Apple",brand:"Fresh Produce",category:"Fruit & Vegetables",country:"Australia",aliases:["apple","pink lady","royal gala","granny smith"],defaultAmount:1,defaultUnit:"item",units:{item:1,g:1/182},unitLabels:{item:"medium apple",g:"g"},serving:"1 medium apple (182 g)",nutrients:nutrient(95,.5,25,.3,.1,4.4,19,2),score:8,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Apple",allergens:[]},\n' +
+    '  {id:"berries",name:"Mixed Berries",brand:"Fresh or Frozen",category:"Fruit & Vegetables",country:"Australia",aliases:["berries","mixed berries","strawberries","blueberries"],defaultAmount:100,defaultUnit:"g",units:{g:.01,cup:1.4,serving:1},unitLabels:{g:"g",cup:"cup",serving:"100 g serving"},serving:"100 g",nutrients:nutrient(50,.8,12,.4,.1,4.5,7,1),score:9,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Mixed berries",allergens:[]},\n' +
+    '  {id:"wholemeal-bread",name:"Wholemeal Bread",brand:"Generic Australian",category:"Bakery",country:"Australia",aliases:["wholemeal bread","whole wheat bread","brown bread","toast"],defaultAmount:1,defaultUnit:"slice",units:{slice:1,g:1/40},unitLabels:{slice:"slice (40 g)",g:"g"},serving:"1 slice (40 g)",nutrients:nutrient(95,4,16,1.4,.3,3,2,180),score:7,source:"Australian Generic Trial Record",verified:false,ingredients:"Wholemeal wheat flour, water, yeast, salt",allergens:["wheat","gluten"]},\n' +
+    '  {id:"egg",name:"Egg",brand:"Australian Eggs",category:"Dairy & Eggs",country:"Australia",aliases:["egg","eggs","boiled egg","poached egg"],defaultAmount:1,defaultUnit:"item",units:{item:1,g:1/50},unitLabels:{item:"large egg",g:"g"},serving:"1 large egg (50 g)",nutrients:nutrient(72,6.3,.4,4.8,1.6,0,.2,71),score:8,source:"Australian Generic Trial Record",verified:false,ingredients:"Egg",allergens:["egg"]},\n' +
+    '  {id:"chicken-breast",name:"Chicken Breast, Cooked",brand:"Fresh",category:"Meat & Seafood",country:"Australia",aliases:["chicken breast","grilled chicken","roast chicken"],defaultAmount:100,defaultUnit:"g",units:{g:.01,serving:1},unitLabels:{g:"g",serving:"100 g serving"},serving:"100 g",nutrients:nutrient(165,31,0,3.6,1,0,0,74),score:8,source:"Australian Generic Trial Record",verified:false,ingredients:"Chicken breast",allergens:[]},\n' +
+    '  {id:"tuna",name:"Tuna in Springwater, Drained",brand:"Generic Australian",category:"Meat & Seafood",country:"Australia",aliases:["tuna","tinned tuna","canned tuna"],defaultAmount:95,defaultUnit:"g",units:{g:1/95,can:1,serving:1},unitLabels:{g:"g",can:"small can (95 g drained)",serving:"95 g serving"},serving:"95 g drained",nutrients:nutrient(100,22,0,1,.3,0,0,300),score:8,source:"Australian Generic Trial Record",verified:false,ingredients:"Tuna, springwater, salt",allergens:["fish"]},\n' +
+    '  {id:"brown-rice",name:"Brown Rice, Cooked",brand:"Generic",category:"Pantry",country:"Australia",aliases:["brown rice","rice"],defaultAmount:150,defaultUnit:"g",units:{g:1/150,cup:1.3,serving:1},unitLabels:{g:"g",cup:"cup",serving:"150 g serving"},serving:"150 g",nutrients:nutrient(170,3.8,35,1.4,.3,2.4,.7,6),score:8,source:"Australian Generic Trial Record",verified:false,ingredients:"Brown rice",allergens:[]},\n' +
+    '  {id:"potato",name:"Potato, Boiled",brand:"Fresh Produce",category:"Fruit & Vegetables",country:"Australia",aliases:["potato","boiled potato","spud"],defaultAmount:150,defaultUnit:"g",units:{g:1/150,item:1,serving:1},unitLabels:{g:"g",item:"medium potato",serving:"150 g serving"},serving:"150 g",nutrients:nutrient(116,3,26,.2,.1,2.7,1.2,10),score:8,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Potato",allergens:[]},\n' +
+    '  {id:"broccoli",name:"Broccoli, Steamed",brand:"Fresh Produce",category:"Fruit & Vegetables",country:"Australia",aliases:["broccoli","steamed broccoli"],defaultAmount:100,defaultUnit:"g",units:{g:.01,cup:1.5,serving:1},unitLabels:{g:"g",cup:"cup",serving:"100 g serving"},serving:"100 g",nutrients:nutrient(35,2.4,7,.4,.1,3.3,1.4,41),score:9,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Broccoli",allergens:[]},\n' +
+    '  {id:"salad",name:"Mixed Garden Salad",brand:"Fresh",category:"Fruit & Vegetables",country:"Australia",aliases:["salad","garden salad","mixed salad"],defaultAmount:150,defaultUnit:"g",units:{g:1/150,bowl:1,serving:1},unitLabels:{g:"g",bowl:"medium bowl",serving:"150 g serving"},serving:"150 g",nutrients:nutrient(60,2.5,10,1,0.2,4,5,70),score:9,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Lettuce, tomato, cucumber, carrot; dressing not included",allergens:[]},\n' +
+    '  {id:"avocado",name:"Avocado",brand:"Fresh Produce",category:"Fruit & Vegetables",country:"Australia",aliases:["avocado","avo"],defaultAmount:50,defaultUnit:"'... 686871 more characters
+  
+      at TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\universal-food-search-source-branching.test.js:254:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '(() => {\n"use strict";\n\nconst APP = window.HEC_APP;\nif(!APP?.version)throw new Error("HEC canonical configuration was not loaded");\nconst ACTIVITY = window.HECActivity;\nconst WEIGHT_PROGRESS = window.HECWeightProgress;\nconst NUTRITION_TRENDS = window.HECNutritionTrends;\nconst CONVERSATION = window.HECConversationFoundation;\nconst GUIDED_PRODUCTS = window.HECGuidedProductResolution;\nconst FOOD_GROUPS = window.HECFoodGroups;\nconst ACTIVE_VERSION = APP.version;\nconst MAIN_KEY = APP.storageKey;\nconst EXT_KEY = APP.functionalStorageKey;\nconst LEGACY_EXT_KEYS = APP.legacyFunctionalKeys || [];\nconst RESET_RELOAD_SESSION_KEY = APP.resetSessionKey;\nlet resetInProgress = false;\nconst by = id => document.getElementById(id);\nconst q = selector => document.querySelector(selector);\nconst qa = selector => [...document.querySelectorAll(selector)];\nconst esc = value => String(value ?? "").replace(/[&<>\\"\']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",\'"\':"&quot;","\'":"&#39;"}[c]));\nconst n = value => Number(value) || 0;\nconst round1 = value => Math.round((Number(value) || 0) * 10) / 10;\nconst whole = value => Math.round(Number(value) || 0);\nconst isoToday = () => window.HECDate?.todayISO?.() || `${new Date().getFullYear()}-${String(new Date().getMonth()+1).padStart(2,"0")}-${String(new Date().getDate()).padStart(2,"0")}`;\nconst activeTimeZone = () => window.HECDate?.activeTimeZone?.() || Intl.DateTimeFormat().resolvedOptions().timeZone || "Australia/Brisbane";\nconst localClock = () => { const z=window.HECDate?.zonedParts?.() || {}; return `${String(z.hour ?? new Date().getHours()).padStart(2,"0")}:${String(z.minute ?? new Date().getMinutes()).padStart(2,"0")}`; };\nconst uid = prefix => window.HECMigrations?.createId?.(prefix) || `${prefix}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2,8)}`;\nconst recordTimestamps = createdAt => {const updatedAt=new Date().toISOString();return {createdAt:createdAt||updatedAt,updatedAt};};\nconst clone = value => JSON.parse(JSON.stringify(value));\nconst formatDate = value => value ? new Intl.DateTimeFormat("en-AU", {weekday:"short", day:"numeric", month:"short", year:"numeric"}).format(new Date(value + "T12:00:00")).replace(",","") : "";\nconst formatNumber = (value, precise=false) => {\n  const num = Number(value) || 0;\n  if(precise && Math.abs(num) < 10 && !Number.isInteger(round1(num))) return round1(num).toFixed(1);\n  return Math.round(num).toLocaleString("en-AU");\n};\nfunction availableValueText(value,unit=\'\'){return value===null||value===undefined||value===\'\'?\'Not Available\':`${formatNumber(value)}${unit?` ${unit}`:\'\'}`;}\nconst normalise = value => String(value || "").toLowerCase().normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").replace(/&/g," and ").replace(/[^a-z0-9]+/g," ").trim();\nconst mainData = () => {\n  try { return JSON.parse(localStorage.getItem(MAIN_KEY)) || {}; } catch { return {}; }\n};\n\nconst NUTRIENT_KEYS = ["calories","protein","carbs","fat","satFat","fibre","sugar","addedSugar","freeSugar","sodium"];\nconst ZERO_NUTRIENTS = Object.fromEntries(NUTRIENT_KEYS.map(k => [k,0]));\nconst nutrient = (calories, protein, carbs, fat, satFat, fibre, sugar, sodium, extra={}) => ({calories,protein,carbs,fat,satFat,fibre,sugar,sodium,...extra});\n\nconst FOODS = [\n  {id:"weetbix-au",consumerFamilyIds:["weet-bix"],name:"Sanitarium Weet-Bix Original",brand:"Sanitarium",category:"Breakfast Cereals",country:"Australia",aliases:["weet bix","weetbix","weet-bix","wheat bix"],defaultAmount:2,defaultUnit:"biscuit",units:{biscuit:.5,serving:1,g:1/31},unitLabels:{biscuit:"biscuit",serving:"serving (2 biscuits)",g:"g"},serving:"2 biscuits (31 g)",nutrients:nutrient(110,3.8,20.4,.4,.1,4,.9,84,{potassium:113,iron:3}),score:8,source:"Verified From Australian Package Sample",verified:true,ingredients:"Wholegrain wheat, sugar, salt, barley malt extract, vitamins and minerals",allergens:["wheat","gluten"]},\n  {id:"light-milk-au",name:"Australian Light Milk",brand:"Generic Australian Dairy",category:"Dairy & Eggs",country:"Australia",aliases:["light milk","lite milk","low fat milk","1 percent milk"],defaultAmount:200,defaultUnit:"mL",units:{mL:1/200,cup:1.25,serving:1},unitLabels:{mL:"mL",cup:"cup (250 mL)",serving:"serving (200 mL)"},serving:"200 mL",nutrients:nutrient(86,7,10,2.8,1.8,0,10,90,{calcium:240}),score:8,source:"Australian Generic Trial Record",verified:false,ingredients:"Reduced-fat cow\'s milk",allergens:["milk","dairy"]},\n  {id:"baby-carrot",name:"Baby Snacking Carrot",brand:"Fresh Produce",category:"Fruit & Vegetables",country:"Australia",aliases:["baby carrot","snacking carrot","snackables carrot","snack ables carrot","carrot"],defaultAmount:31,defaultUnit:"g",units:{g:1/31,item:1},unitLabels:{g:"g",item:"small carrot (about 31 g)"},serving:"31 g",nutrients:nutrient(13,.3,3,.1,0,1,.7,21),score:9,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Carrot",allergens:[]},\n  {id:"banana",name:"Banana",brand:"Fresh Produce",category:"Fruit & Vegetables",country:"Australia",aliases:["banana","lady finger banana"],defaultAmount:1,defaultUnit:"item",units:{item:1,g:1/118},unitLabels:{item:"medium banana",g:"g"},serving:"1 medium banana (118 g)",nutrients:nutrient(105,1.3,27,.4,.1,3.1,14.4,1),score:8,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Banana",allergens:[]},\n  {id:"apple",name:"Apple",brand:"Fresh Produce",category:"Fruit & Vegetables",country:"Australia",aliases:["apple","pink lady","royal gala","granny smith"],defaultAmount:1,defaultUnit:"item",units:{item:1,g:1/182},unitLabels:{item:"medium apple",g:"g"},serving:"1 medium apple (182 g)",nutrients:nutrient(95,.5,25,.3,.1,4.4,19,2),score:8,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Apple",allergens:[]},\n  {id:"berries",name:"Mixed Berries",brand:"Fresh or Frozen",category:"Fruit & Vegetables",country:"Australia",aliases:["berries","mixed berries","strawberries","blueberries"],defaultAmount:100,defaultUnit:"g",units:{g:.01,cup:1.4,serving:1},unitLabels:{g:"g",cup:"cup",serving:"100 g serving"},serving:"100 g",nutrients:nutrient(50,.8,12,.4,.1,4.5,7,1),score:9,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Mixed berries",allergens:[]},\n  {id:"wholemeal-bread",name:"Wholemeal Bread",brand:"Generic Australian",category:"Bakery",country:"Australia",aliases:["wholemeal bread","whole wheat bread","brown bread","toast"],defaultAmount:1,defaultUnit:"slice",units:{slice:1,g:1/40},unitLabels:{slice:"slice (40 g)",g:"g"},serving:"1 slice (40 g)",nutrients:nutrient(95,4,16,1.4,.3,3,2,180),score:7,source:"Australian Generic Trial Record",verified:false,ingredients:"Wholemeal wheat flour, water, yeast, salt",allergens:["wheat","gluten"]},\n  {id:"egg",name:"Egg",brand:"Australian Eggs",category:"Dairy & Eggs",country:"Australia",aliases:["egg","eggs","boiled egg","poached egg"],defaultAmount:1,defaultUnit:"item",units:{item:1,g:1/50},unitLabels:{item:"large egg",g:"g"},serving:"1 large egg (50 g)",nutrients:nutrient(72,6.3,.4,4.8,1.6,0,.2,71),score:8,source:"Australian Generic Trial Record",verified:false,ingredients:"Egg",allergens:["egg"]},\n  {id:"chicken-breast",name:"Chicken Breast, Cooked",brand:"Fresh",category:"Meat & Seafood",country:"Australia",aliases:["chicken breast","grilled chicken","roast chicken"],defaultAmount:100,defaultUnit:"g",units:{g:.01,serving:1},unitLabels:{g:"g",serving:"100 g serving"},serving:"100 g",nutrients:nutrient(165,31,0,3.6,1,0,0,74),score:8,source:"Australian Generic Trial Record",verified:false,ingredients:"Chicken breast",allergens:[]},\n  {id:"tuna",name:"Tuna in Springwater, Drained",brand:"Generic Australian",category:"Meat & Seafood",country:"Australia",aliases:["tuna","tinned tuna","canned tuna"],defaultAmount:95,defaultUnit:"g",units:{g:1/95,can:1,serving:1},unitLabels:{g:"g",can:"small can (95 g drained)",serving:"95 g serving"},serving:"95 g drained",nutrients:nutrient(100,22,0,1,.3,0,0,300),score:8,source:"Australian Generic Trial Record",verified:false,ingredients:"Tuna, springwater, salt",allergens:["fish"]},\n  {id:"brown-rice",name:"Brown Rice, Cooked",brand:"Generic",category:"Pantry",country:"Australia",aliases:["brown rice","rice"],defaultAmount:150,defaultUnit:"g",units:{g:1/150,cup:1.3,serving:1},unitLabels:{g:"g",cup:"cup",serving:"150 g serving"},serving:"150 g",nutrients:nutrient(170,3.8,35,1.4,.3,2.4,.7,6),score:8,source:"Australian Generic Trial Record",verified:false,ingredients:"Brown rice",allergens:[]},\n  {id:"potato",name:"Potato, Boiled",brand:"Fresh Produce",category:"Fruit & Vegetables",country:"Australia",aliases:["potato","boiled potato","spud"],defaultAmount:150,defaultUnit:"g",units:{g:1/150,item:1,serving:1},unitLabels:{g:"g",item:"medium potato",serving:"150 g serving"},serving:"150 g",nutrients:nutrient(116,3,26,.2,.1,2.7,1.2,10),score:8,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Potato",allergens:[]},\n  {id:"broccoli",name:"Broccoli, Steamed",brand:"Fresh Produce",category:"Fruit & Vegetables",country:"Australia",aliases:["broccoli","steamed broccoli"],defaultAmount:100,defaultUnit:"g",units:{g:.01,cup:1.5,serving:1},unitLabels:{g:"g",cup:"cup",serving:"100 g serving"},serving:"100 g",nutrients:nutrient(35,2.4,7,.4,.1,3.3,1.4,41),score:9,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Broccoli",allergens:[]},\n  {id:"salad",name:"Mixed Garden Salad",brand:"Fresh",category:"Fruit & Vegetables",country:"Australia",aliases:["salad","garden salad","mixed salad"],defaultAmount:150,defaultUnit:"g",units:{g:1/150,bowl:1,serving:1},unitLabels:{g:"g",bowl:"medium bowl",serving:"150 g serving"},serving:"150 g",nutrients:nutrient(60,2.5,10,1,0.2,4,5,70),score:9,source:"Australian Fresh Food Estimate",verified:false,ingredients:"Lettuce, tomato, cucumber, carrot; dressing not included",allergens:[]},\n  {id:"avocado",name:"Avocado",brand:"Fresh Produce",category:"Fruit & Vegetables",country:"Australia",aliases:["avocado","avo"],defaultAmount:50,defaultUnit:"'... 686871 more characters,
+    expected: /Loggable now · choose an amount/,
+    operator: 'match',
+    diff: 'simple'
+  }

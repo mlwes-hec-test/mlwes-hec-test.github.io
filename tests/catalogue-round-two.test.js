@@ -4,7 +4,7 @@ const C=require('../food-catalogue'),S=require('../serving-foundation'),B=requir
 const approved=require('../data/catalogue-round-two/approved-products.json').records,baseline=require('../data/catalogue-round-two/baseline-products.json').records,policy=require('../data/catalogue-round-two/policy.json');
 for(const kind of ['woolworths','coles','aldi'])require('../'+kind+'-au-catalogue');
 test('all admitted expansion identities are unique, loggable, attributable, and retain public release review',()=>{
- const seen=new Set();for(const f of approved){const key=C.canonicalKey(f);assert(!seen.has(key),key);seen.add(key);assert.equal(C.productEligibility(f).addability.normalLoggingAllowed,true,f.id);assert(!C.sourceConflicts(f).some(c=>c.severity==='material'&&(!c.resolution||c.resolution==='unresolved')),f.id);assert(f.privateTestingApproved&&f.publicReleaseReviewRequired,f.id);assert(f.sourceProvenance.url&&f.sourceProvenance.sha256,f.id);for(const value of Object.values(f.nutrients))assert(value==null||Number.isFinite(value)&&value>=0,f.id);if(!['liquid','spread','unknown'].includes(S.physicalForm(f).form))assert(!S.servingMeasureProfile(f).measures.some(m=>['mL','L','cup'].includes(m.key)),f.id);}
+ assert.deepEqual(Object.keys(require('../catalogue-discovery').holds).sort(),['9300675012089','9300675047272','9313820001487']);const seen=new Set();for(const f of approved){const key=C.canonicalKey(f);assert(!seen.has(key),key);seen.add(key);const held=require('../catalogue-discovery').holds[f.barcode];assert.equal(C.productEligibility(f).addability.normalLoggingAllowed,!held,f.id);if(held)assert(held.reason||typeof held==='string');assert(!C.sourceConflicts(f).some(c=>c.severity==='material'&&(!c.resolution||c.resolution==='unresolved')),f.id);assert(f.privateTestingApproved&&f.publicReleaseReviewRequired,f.id);assert(f.sourceProvenance.url&&f.sourceProvenance.sha256,f.id);for(const value of Object.values(f.nutrients))assert(value==null||Number.isFinite(value)&&value>=0,f.id);if(!['liquid','spread','unknown'].includes(S.physicalForm(f).form))assert(!S.servingMeasureProfile(f).measures.some(m=>['mL','L','cup'].includes(m.key)),f.id);}
  assert.equal(X.hash(fs.readFileSync('data/catalogue-round-two/approved-products.json')),policy.approvedSha256);
 });
 test('unknown OFF nutrients stay absent and qualified official panel values are never invented as zero',()=>{
@@ -36,7 +36,7 @@ test('new manufacturer products without a known barcode do not display a literal
  const vm=require('node:vm'),source=fs.readFileSync('alpha06.js','utf8'),line=source.split('\n').find(s=>s.startsWith('function us633ResultRow('));
  const scope={C8:C,cleanMeasureText:s=>s,esc:s=>String(s??'')};vm.runInNewContext(line,scope);
  const f=approved.find(f=>f.id.startsWith('manufacturer:')&&!f.barcode);const html=scope.us633ResultRow({food:f});assert(!html.includes('Barcode null'));assert(!html.includes('Barcode undefined'));
- assert(scope.us633ResultRow({food:{...f,barcode:'9310174025084'}}).includes('Barcode 9310174025084'));
+ const known={...f,barcode:'9310174025084'},card=scope.us633ResultRow({food:known});assert(card.includes('Details'));assert(!card.includes('Barcode 9310174025084'));assert.equal(known.barcode,'9310174025084');
 });
 
 

@@ -1,0 +1,30 @@
+✔ hungry-jacks-au Biscoff Shake Small retains evidenced portion and eligibility (419.4808ms)
+✔ hungry-jacks-au Pistachio Shake Small retains evidenced portion and eligibility (176.4868ms)
+✔ hungry-jacks-au Tea Black Small retains evidenced portion and eligibility (147.5284ms)
+✔ hungry-jacks-au Hash Brown retains evidenced portion and eligibility (172.2395ms)
+✔ hungry-jacks-au Whopper retains evidenced portion and eligibility (180.7389ms)
+✔ hungry-jacks-au Whopper Value Meal Small retains evidenced portion and eligibility (152.5685ms)
+✔ mcdonalds-au Medium Coca-Cola retains evidenced portion and eligibility (125.9746ms)
+✔ mcdonalds-au Small Cappuccino retains evidenced portion and eligibility (165.8735ms)
+✔ mcdonalds-au Big Mac retains evidenced portion and eligibility (157.4425ms)
+✔ mcdonalds-au Hash Brown retains evidenced portion and eligibility (159.822ms)
+✔ mcdonalds-au McSmart Meal retains evidenced portion and eligibility (142.5688ms)
+✔ kfc-au Large Pepsi retains evidenced portion and eligibility (138.634ms)
+✔ kfc-au 3 Wicked Wings retains evidenced portion and eligibility (140.3134ms)
+✔ kfc-au 6 Wicked Wings retains evidenced portion and eligibility (145.53ms)
+✔ kfc-au 10 Wicked Wings retains evidenced portion and eligibility (133.2523ms)
+✔ kfc-au Zinger Burger retains evidenced portion and eligibility (147.9732ms)
+✔ kfc-au 3 Wicked Wings Combo retains evidenced portion and eligibility (117.4052ms)
+✔ official fixed restaurant portion requires explicit matching evidence and grants no conversion (31.3516ms)
+✔ restaurant semantic families retain every meaningful sibling and configurable detail (345.7557ms)
+✔ shortlist bounds are context specific; family decisions are never blindly cut at 24 (0.9002ms)
+✔ compound food guards preserve buns, soup, pickles and ambiguous chicken chips (2.0785ms)
+✔ blank official energy is unknown, not an evidenced zero (44.6958ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4192.6074

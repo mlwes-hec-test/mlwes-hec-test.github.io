@@ -1,0 +1,46 @@
+{
+  "argv": [
+    "C:\\Users\\mlwes\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+    "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\tests\\catalogue-wave-1b.test.js"
+  ],
+  "start": {
+    "rss": 43925504,
+    "heapTotal": 6545408,
+    "heapUsed": 4222000,
+    "external": 1626770,
+    "arrayBuffers": 137503
+  },
+  "end": {
+    "rss": 493060096,
+    "heapTotal": 342175744,
+    "heapUsed": 199174200,
+    "external": 16331231,
+    "arrayBuffers": 5136823
+  },
+  "peak": {
+    "rss": 493060096,
+    "heapTotal": 342175744,
+    "heapUsed": 199174200,
+    "external": 16331231,
+    "arrayBuffers": 5136823
+  },
+  "samples": 0,
+  "usage": {
+    "userCPUTime": 8328000,
+    "systemCPUTime": 1484000,
+    "maxRSS": 690864,
+    "sharedMemorySize": 0,
+    "unsharedDataSize": 0,
+    "unsharedStackSize": 0,
+    "minorPageFault": 0,
+    "majorPageFault": 596497,
+    "swappedOut": 0,
+    "fsRead": 25384,
+    "fsWrite": 95,
+    "ipcSent": 0,
+    "ipcReceived": 0,
+    "signalsCount": 0,
+    "voluntaryContextSwitches": 0,
+    "involuntaryContextSwitches": 0
+  }
+}

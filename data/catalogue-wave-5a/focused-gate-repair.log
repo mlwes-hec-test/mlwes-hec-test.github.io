@@ -1,0 +1,48 @@
+✔ exact query ownership retires Cote for Côte (18.8541ms)
+✔ exact query ownership retires Côte for Cote (2.6018ms)
+✔ exact query ownership retires resume for résumé (1.9945ms)
+✔ exact query ownership retires résumé for resume (1.4925ms)
+✔ exact query ownership retires Burgen for Bürgen (2.0975ms)
+✔ exact query ownership retires Häagen-Dazs for Haagen-Dazs (1.5594ms)
+✔ exact query ownership retires Milk for milk (2.2925ms)
+✔ exact query ownership retires milk for milk  (0.7258ms)
+✔ exact query ownership retires Bürgen for Bürgen (1.5543ms)
+✔ returning to an earlier exact spelling cannot revive its old ticket (2.0886ms)
+✔ approved retrieval equivalence never defines input identity (0.563ms)
+✔ production brand cache and late hydration stay owned across Cote → Côte (46.9694ms)
+✔ production brand cache and late hydration stay owned across Côte → Cote (5.5522ms)
+✔ production brand cache and late hydration stay owned across resume → résumé (4.2423ms)
+✔ production brand cache and late hydration stay owned across résumé → resume (3.4907ms)
+✔ production brand cache and late hydration stay owned across Burgen → Bürgen (5.763ms)
+✔ production brand cache and late hydration stay owned across Häagen-Dazs → Haagen-Dazs (2.6718ms)
+✔ currentness checks require exact input even if a caller supplies the current revision (1.8551ms)
+✔ production OFF await rejects a late response after an exact-input edit (3.1988ms)
+✔ production delayed preview cannot revive a retired query (3.6677ms)
+✔ production explicit-product hydration ignores a retired owner even with the same local request token (3.9778ms)
+✔ production guided-source hydration rejects a retired central owner (2.8067ms)
+✔ exact retailer recognition remains separate from consumer-brand identity (20.7931ms)
+✔ no name, OFF URL or brand-index match can substitute for verified retailer membership (16.4614ms)
+✔ membership keeps the national and private-label consumer brands and provenance intact (37.2101ms)
+✔ community nutrition with separate official listing evidence does not become manufacturer verification (4.3425ms)
+✔ food-only categories and all-items postings exclude non-food products (4.3044ms)
+✔ root and category directory do not hydrate products; pages have a strict bound and cache (13.0323ms)
+✔ category and Back navigation retain retailer ownership (2.4617ms)
+✔ retiring retailer intent leaves subsequent generic and brand searches independent (54.2246ms)
+✔ late retailer hydration cannot replace a newer owner or refill its cancelled session (2.7543ms)
+✔ late category result cannot overwrite a newer category within the same query (1.8585ms)
+✔ a synthetic second retailer uses the identical registration, evidence and browse contracts (1.6661ms)
+✔ guided supermarket identity requires separate house/private-label evidence, not retailer stock (2.2662ms)
+✔ actual consumer-brand selection still uses consumer-brand membership (0.8275ms)
+✔ unverified or wrong-brand commercial identity evidence cannot widen the guided route (0.8184ms)
+✔ product handoff keeps canonical identity, unknown nutrients and one confirmation (11.4842ms)
+✔ a loader cannot substitute foreign IDs or weaken the indexed listing evidence (2.2661ms)
+✔ retailer aliases cannot take over generic food or known consumer-brand recognition (0.8278ms)
+✔ the generic source converter requires consumer brand and does not turn retailers into restaurants (2.8841ms)
+ℹ tests 40
+ℹ suites 0
+ℹ pass 40
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 508.7402

@@ -1,0 +1,46 @@
+{
+  "argv": [
+    "C:\\Users\\mlwes\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+    "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\tests\\progressive-portion-choice-polish.test.js"
+  ],
+  "start": {
+    "rss": 44331008,
+    "heapTotal": 6283264,
+    "heapUsed": 4222032,
+    "external": 1626770,
+    "arrayBuffers": 137503
+  },
+  "end": {
+    "rss": 1413644288,
+    "heapTotal": 1257725952,
+    "heapUsed": 1143062792,
+    "external": 2694114,
+    "arrayBuffers": 137643
+  },
+  "peak": {
+    "rss": 1413644288,
+    "heapTotal": 1257725952,
+    "heapUsed": 1143062792,
+    "external": 2694114,
+    "arrayBuffers": 137643
+  },
+  "samples": 0,
+  "usage": {
+    "userCPUTime": 90750000,
+    "systemCPUTime": 2656000,
+    "maxRSS": 1458332,
+    "sharedMemorySize": 0,
+    "unsharedDataSize": 0,
+    "unsharedStackSize": 0,
+    "minorPageFault": 0,
+    "majorPageFault": 669999,
+    "swappedOut": 0,
+    "fsRead": 23514,
+    "fsWrite": 245,
+    "ipcSent": 0,
+    "ipcReceived": 0,
+    "signalsCount": 0,
+    "voluntaryContextSwitches": 0,
+    "involuntaryContextSwitches": 0
+  }
+}

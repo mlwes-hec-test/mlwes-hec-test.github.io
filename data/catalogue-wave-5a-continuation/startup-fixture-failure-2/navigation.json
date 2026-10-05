@@ -1,0 +1,1868 @@
+{
+  "sameOriginRequests": 116,
+  "localFulfilled": 116,
+  "localResponses": 116,
+  "optionalLocalMisses": [],
+  "requiredAssetMisses": [],
+  "liveFallthrough": 0,
+  "pageErrors": [],
+  "consoleErrors": [
+    {
+      "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "url": "https://world.openfoodfacts.org/cgi/search.pl?search_terms=Flora&search_simple=1&action=process&json=1&page_size=24&fields=code%2Cproduct_name%2Cgeneric_name%2Cbrands%2Ccountries%2Ccountries_tags%2Cnutriments%2Cserving_size%2Cserving_quantity%2Cserving_quantity_unit%2Cingredients_text%2Callergens%2Cimage_front_small_url%2Cquantity%2Cproduct_quantity%2Cproduct_quantity_unit%2Cpackaging_text%2Ccategories%2Ccategories_tags"
+    }
+  ],
+  "warnings": [
+    "Service Worker registration blocked by Playwright"
+  ],
+  "failedAssets": [],
+  "external": [
+    {
+      "url": "https://world.openfoodfacts.org/cgi/search.pl?search_terms=Flora&search_simple=1&action=process&json=1&page_size=24&fields=code%2Cproduct_name%2Cgeneric_name%2Cbrands%2Ccountries%2Ccountries_tags%2Cnutriments%2Cserving_size%2Cserving_quantity%2Cserving_quantity_unit%2Cingredients_text%2Callergens%2Cimage_front_small_url%2Cquantity%2Cproduct_quantity%2Cproduct_quantity_unit%2Cpackaging_text%2Ccategories%2Ccategories_tags",
+      "action": "aborted"
+    },
+    {
+      "url": "https://world.openfoodfacts.org/cgi/search.pl?search_terms=Flora&search_simple=1&action=process&json=1&page_size=24&fields=code%2Cproduct_name%2Cgeneric_name%2Cbrands%2Ccountries%2Ccountries_tags%2Cnutriments%2Cserving_size%2Cserving_quantity%2Cserving_quantity_unit%2Cingredients_text%2Callergens%2Cimage_front_small_url%2Cquantity%2Cproduct_quantity%2Cproduct_quantity_unit%2Cpackaging_text%2Ccategories%2Ccategories_tags",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    }
+  ],
+  "routes": [
+    {
+      "url": "https://mlwes-hec-test.github.io/",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\index.html",
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "5606d57ce0e309a04285164770a139ad2912725bb413361481d89f31720cfda1"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/assets/app-icons/hec-my-data-180.png",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\app-icons\\hec-my-data-180.png",
+      "contentType": "image/png",
+      "sha256": "821ad74175976371f63744c5c6c2949c21e70089b5b4e673385849c9af692cf1"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/assets/app-icons/hec-my-data-512.png",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\app-icons\\hec-my-data-512.png",
+      "contentType": "image/png",
+      "sha256": "915bb5322764baeaa2967ee987b92d86648a4540227e60693496238d6fd509b0"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/installation-config.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\deployment\\test\\installation-config.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "51eda2ef257743377cbcaa00eb8af0db7bcfee5601d2f58f53d1f8ec36f5f721"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/config.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\config.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "5917c660ff0a2bca08efe8029a74ea7a566e34719c27e09fc143390549a26895"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/installation-foundation.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\installation-foundation.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "dc71c1e21e8971a650e1f287cb9e9dcf634592586836a4e7dfd688c74d28fb7f"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/migrations.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\migrations.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "eb8433966b7e505147561ca0876585047ce90675817c63cc639469443aad188c"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/companions.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\companions.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "68a968795334573fee49f8aebcbfb863bcb09963c2b24eb541c394e1fc299fc0"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/companion-artwork.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\companion-artwork.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "34b293d84189769df566e668fc7c73039524cb6ffffc99dd5e7fdf8f21e4fb90"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/companion-voice-metadata.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\companion-voice-metadata.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "27140423757ed50ef25852371ae27bb73d4d2ace86b93fc00d0bc8fd14c38ac2"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/companion-voices.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\companion-voices.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "1d8ad4bb334c931d66c407e6b573e35e08bf526d4786440c9cd06d4d602ede64"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/stage4-foundation.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\stage4-foundation.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "3c1616b011cf13a6c5c16d925a04a20e8197cef9734c0a1b1a83b2c86b7f9287"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/weight-progress-foundation.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\weight-progress-foundation.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "5b6b7818bbbc5ac41df685747d6bdcbb46e1ec1e727b6f42109117a5518d7c7f"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/nutrition-trends-foundation.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\nutrition-trends-foundation.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "1c0a338f04fff58d9ea85dd0cac03bb057bb355194bf20f6905be1fe4549e2b1"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/app.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\app.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "8fc4061605e14c014c456274cd9b50f393be7eb3768f0a3ca715e69bf22c2196"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/entity-registry.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\entity-registry.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "e553577e2271ea479caf9dd66260dcfb840b353cb5f39e89affcc6601911ca01"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/catalogue-discovery.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\catalogue-discovery.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "cc80f509dfeb4c336c8b9032d7359a94ecf8c0df1dcdc01631786f09781feee1"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/search-foundation.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\search-foundation.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "461cbe66be1d08bc8723d80818876be347fd5118c6215b57bdabc6cd2717d06d"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/product-serving-semantics.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\product-serving-semantics.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "35734e07540429ce77d1da99f643acc77325d71b1edf3a75db0a2de7b2e602d2"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/food-sources.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\food-sources.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "ce47dfe59913769db42d0ea7b1f551bbac1e832f9ac18f9c1f57ef0790d4b4e5"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/australian-catalogue-data.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\australian-catalogue-data.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "05ab1f75ed98a2c6bdafeff48d51f68b8f57124502d9d4f10846c448d92f3d68"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/mcdonalds-au-catalogue-data.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\mcdonalds-au-catalogue-data.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "8390eac90e11a94ecf436412dbe6cea328ab4e40844a43d9e2c0c1beebf70c50"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/mcdonalds-au-catalogue.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\mcdonalds-au-catalogue.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "88b5f4e2c2e2d7affea39e5d370fb9a635704005ff810df05b2de927c83a6f3e"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/kfc-au-catalogue-data.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\kfc-au-catalogue-data.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "473e071cf68b18fd75481ea4def01166ee7b1237eecc0e56fa5a408e79305201"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/kfc-au-supplement-data.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\kfc-au-supplement-data.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "af33ffc60656c8cd391c35251c88e8c372188fd641a1e9636baeef3a1b64d595"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/kfc-au-catalogue.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\kfc-au-catalogue.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "ea0f01eb3e5e8c609168b14bdb2eec4e05dd03d9ff41c29e12848baf10b7c905"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/food-catalogue.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\food-catalogue.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "b0d36ee7a88c96fede17b8ede4d00a916f5350bb9bee71e73045719662b3d50f"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/retailer-catalogue.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\retailer-catalogue.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "be6d5b3fd1c881b087ff9d06836bcf44b97749663bed2cc64eec2caefecf82f9"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/retailer-source.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\retailer-source.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "2b93bd5f91c4dff76715044ca1f9d497c49ac03b2de0a56922365aed01525e33"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/woolworths-au-catalogue.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\woolworths-au-catalogue.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "594790f6d53c0f785b4443ffaa11b226790d61a5c2fd9f2263e5ef330374b941"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/off-catalogue.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\off-catalogue.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "b456816b7997b78bccb8d3648323a08e68a64c3200f1d2b2b3812d42729c605f"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/coles-au-catalogue.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\coles-au-catalogue.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "a96fac65e3ac2523cd7f3f0f23e82ac664d723c01fa813628cde018079b0ff84"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/aldi-au-catalogue.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\aldi-au-catalogue.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "20989327c79ad76655f90f4b5f70959fa666ef429c0d4f94157876c07ff02574"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/iga-au-catalogue.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\iga-au-catalogue.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "56602b95796cf1fdbbd5e7f6667f5b86cf203ded6e71d1d3a587f81d073d6061"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/brand-au-catalogue.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\brand-au-catalogue.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "d16b2b8ccc822736570306724ff3d5d20f4a411fa990eedbe684efaa6881098f"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/brand-catalogue.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\brand-catalogue.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "546516fec6cd20a9b43a88e74b80662757930ba0c9a6c6b87c9a1c57a815fbaa"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/guided-branching.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\guided-branching.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "fc6883c9a34fd19dda80b3f3c2289f01f092a4c6456f196bf2b85c256669eeb0"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/packaged-foods.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\packaged-foods.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "81d1f8100edc2d3975af86800ce4bb69ea212967a493b2e75083e4c1c9f0a228"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/capture-foundation.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\capture-foundation.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "3ae338c215cc41215d9fc8aeaf7daa36aec4fe24290ca2234f3a494099a9fbee"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/serving-foundation.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\serving-foundation.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "75610bab83c5c463bb3c7cad5ce284e9d3591ddba403a795b4ebd8979cf16f95"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/guided-product-resolution.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\guided-product-resolution.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "6f941507e4937b23599530099b7988ad40af4b54d70c9d224830a4c952b77d68"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/activity-foundation.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\activity-foundation.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "68f2e923769697bb90b0d0e13193533ebff5fa9b29846c0d05e5ced28fb83557"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/food-groups-foundation.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\food-groups-foundation.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "2919670d100bb6de8794bed8a3bcbb7b18dec2d5f4a3a95912ddbd23268526b6"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/conversation-foundation.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\conversation-foundation.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "c313b738df302742261e2fd2ea06c58fcc72e38292f856a3da6df5596f799d26"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/alpha064.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\alpha064.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "4acb04c7a2c99ff0e69250d322893553b1d3820f1862f43632b2413d07994523"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/styles.css?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\styles.css",
+      "contentType": "text/css; charset=utf-8",
+      "sha256": "9a978a83a965fe9e271de61fec2c51ba3c68abeee658ae34081414c9cb65f2a7"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/manifest.webmanifest?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\deployment\\test\\manifest.webmanifest",
+      "contentType": "application/manifest+json",
+      "sha256": "4a520e29476ad7e525265096dd35d105f87844c0efddde44f2f47d950fc74652"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/data/open-food-facts-au/manifest.json?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\open-food-facts-au\\manifest.json",
+      "contentType": "application/json; charset=utf-8",
+      "sha256": "b1e5d58b660cb4d36192ec898bef95f1cfcdbaed9d374be4cc10820450981e42"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/afcd-release-3.json?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\afcd-release-3.json",
+      "contentType": "application/json; charset=utf-8",
+      "sha256": "d729c6ea5bf1014724bde5d4038e995cd79059824cebab9f32b52ed4671560dd"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/alpha06.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\alpha06.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "d48903a4fdf0069a1156f892e0b3e302dc86b94303d9b8144797659351962a57"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/styles.css?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\styles.css",
+      "contentType": "text/css; charset=utf-8",
+      "sha256": "9a978a83a965fe9e271de61fec2c51ba3c68abeee658ae34081414c9cb65f2a7"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/installation-config.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\deployment\\test\\installation-config.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "51eda2ef257743377cbcaa00eb8af0db7bcfee5601d2f58f53d1f8ec36f5f721"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/config.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\config.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "5917c660ff0a2bca08efe8029a74ea7a566e34719c27e09fc143390549a26895"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/installation-foundation.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\installation-foundation.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "dc71c1e21e8971a650e1f287cb9e9dcf634592586836a4e7dfd688c74d28fb7f"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/migrations.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\migrations.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "eb8433966b7e505147561ca0876585047ce90675817c63cc639469443aad188c"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/companions.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\companions.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "68a968795334573fee49f8aebcbfb863bcb09963c2b24eb541c394e1fc299fc0"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/companion-artwork.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\companion-artwork.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "34b293d84189769df566e668fc7c73039524cb6ffffc99dd5e7fdf8f21e4fb90"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/companion-voice-metadata.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\companion-voice-metadata.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "27140423757ed50ef25852371ae27bb73d4d2ace86b93fc00d0bc8fd14c38ac2"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/companion-voices.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\companion-voices.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "1d8ad4bb334c931d66c407e6b573e35e08bf526d4786440c9cd06d4d602ede64"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/stage4-foundation.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\stage4-foundation.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "3c1616b011cf13a6c5c16d925a04a20e8197cef9734c0a1b1a83b2c86b7f9287"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/weight-progress-foundation.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\weight-progress-foundation.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "5b6b7818bbbc5ac41df685747d6bdcbb46e1ec1e727b6f42109117a5518d7c7f"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/nutrition-trends-foundation.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\nutrition-trends-foundation.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "1c0a338f04fff58d9ea85dd0cac03bb057bb355194bf20f6905be1fe4549e2b1"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/app.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\app.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "8fc4061605e14c014c456274cd9b50f393be7eb3768f0a3ca715e69bf22c2196"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/percy-pelican.webp",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\percy-pelican.webp",
+      "contentType": "image/webp",
+      "sha256": "f79e5fc3745ea09fb98b0526d28769ba1e1d871362819fb31df4537a46d4b132"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/wally-wombat.webp",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\wally-wombat.webp",
+      "contentType": "image/webp",
+      "sha256": "8f34fbaf347d465e771281fa7e709453e45c592d795a83c828a76bcaec333d92"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/anna-goanna.webp",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\anna-goanna.webp",
+      "contentType": "image/webp",
+      "sha256": "e2efc2e1da539d2e04bb5ce92552bd5f29906ea56cf1ec326ad09e00bba114f7"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/shelly-turtle.webp",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\shelly-turtle.webp",
+      "contentType": "image/webp",
+      "sha256": "8d537c227cd88fa687eb3a8581dc0de8e7dbdd1c177c0e1eae2200668c3bd8b6"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/ruby-ringneck.webp",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\ruby-ringneck.webp",
+      "contentType": "image/webp",
+      "sha256": "f2ac967e366447432c0bb525119f04874af4fbfa2ac4c31c474b5ec6b0ddf147"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/bonnie-bilby.webp",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\bonnie-bilby.webp",
+      "contentType": "image/webp",
+      "sha256": "333a0b3cf51ae29f62a32777cfba6f493e7497588c2f714a302e495401df749b"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/skip-kangaroo.webp",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\skip-kangaroo.webp",
+      "contentType": "image/webp",
+      "sha256": "b139f5ef5ca9751f7da88cdb52f2367ba8c60d3fe1d638c962f826eaaa9e4aed"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/rusty-dingo.webp",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\rusty-dingo.webp",
+      "contentType": "image/webp",
+      "sha256": "ba049ece4cee5ca74460508143761bed385f43af29967eb58c6cbcced6ab0a50"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/gary-galah.webp",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\gary-galah.webp",
+      "contentType": "image/webp",
+      "sha256": "1f546aee82fc52b4fa220184b85f793d92a4e1edb512fbf7be2bdba4c0f97dba"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/monty-python.webp",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\monty-python.webp",
+      "contentType": "image/webp",
+      "sha256": "127fde1859d768ff07803c4be80cf8902ff194b2fe788351b50483eae2613fd6"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/chuckles-kookaburra.webp",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\chuckles-kookaburra.webp",
+      "contentType": "image/webp",
+      "sha256": "0f52aeba8f024040a9c0579dcdc0e4fb3b877d6763580a28c68a0498a60bf802"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/ernie-echidna.webp",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\ernie-echidna.webp",
+      "contentType": "image/webp",
+      "sha256": "e03ac30375b4f8bf65a4a530d1cfecaf82b5ece0db702fb2d055347dd2814b9a"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/spike-thorny-devil.webp",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\spike-thorny-devil.webp",
+      "contentType": "image/webp",
+      "sha256": "66de8f89fc1134abdef0ce868556d5be45fc6b7314db3c8ffc3c2617ce425232"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/cassie-cassowary.webp",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\cassie-cassowary.webp",
+      "contentType": "image/webp",
+      "sha256": "bf7c0c0aeb9ac97a80f71ae0e2365ec8eda73ace6a148bf0c65fa3badfed830d"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/salty-crocodile.webp",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\salty-crocodile.webp",
+      "contentType": "image/webp",
+      "sha256": "91dc823b4857c94ede69ac6d859afa963f3504e9ac84c3bc4b2faa46055ef875"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/picker/bushy-koala.webp",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\picker\\bushy-koala.webp",
+      "contentType": "image/webp",
+      "sha256": "faff3d2dc1487608ad590e4d18b9c07a28b1db73f5016549a0f9d901be9e158b"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/assets/companions/runtime/hero/512/percy-pelican.webp",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\assets\\companions\\runtime\\hero\\512\\percy-pelican.webp",
+      "contentType": "image/webp",
+      "sha256": "8bcb7041c09acc7a6522f37d82be46cbc586d09aabec42031e687a5c7875e243"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/entity-registry.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\entity-registry.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "e553577e2271ea479caf9dd66260dcfb840b353cb5f39e89affcc6601911ca01"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/catalogue-discovery.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\catalogue-discovery.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "cc80f509dfeb4c336c8b9032d7359a94ecf8c0df1dcdc01631786f09781feee1"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/search-foundation.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\search-foundation.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "461cbe66be1d08bc8723d80818876be347fd5118c6215b57bdabc6cd2717d06d"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/product-serving-semantics.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\product-serving-semantics.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "35734e07540429ce77d1da99f643acc77325d71b1edf3a75db0a2de7b2e602d2"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/food-sources.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\food-sources.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "ce47dfe59913769db42d0ea7b1f551bbac1e832f9ac18f9c1f57ef0790d4b4e5"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/australian-catalogue-data.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\australian-catalogue-data.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "05ab1f75ed98a2c6bdafeff48d51f68b8f57124502d9d4f10846c448d92f3d68"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/mcdonalds-au-catalogue-data.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\mcdonalds-au-catalogue-data.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "8390eac90e11a94ecf436412dbe6cea328ab4e40844a43d9e2c0c1beebf70c50"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/mcdonalds-au-catalogue.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\mcdonalds-au-catalogue.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "88b5f4e2c2e2d7affea39e5d370fb9a635704005ff810df05b2de927c83a6f3e"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/kfc-au-catalogue-data.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\kfc-au-catalogue-data.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "473e071cf68b18fd75481ea4def01166ee7b1237eecc0e56fa5a408e79305201"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/kfc-au-supplement-data.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\kfc-au-supplement-data.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "af33ffc60656c8cd391c35251c88e8c372188fd641a1e9636baeef3a1b64d595"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/kfc-au-catalogue.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\kfc-au-catalogue.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "ea0f01eb3e5e8c609168b14bdb2eec4e05dd03d9ff41c29e12848baf10b7c905"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/food-catalogue.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\food-catalogue.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "b0d36ee7a88c96fede17b8ede4d00a916f5350bb9bee71e73045719662b3d50f"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/retailer-catalogue.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\retailer-catalogue.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "be6d5b3fd1c881b087ff9d06836bcf44b97749663bed2cc64eec2caefecf82f9"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/retailer-source.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\retailer-source.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "2b93bd5f91c4dff76715044ca1f9d497c49ac03b2de0a56922365aed01525e33"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/woolworths-au-catalogue.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\woolworths-au-catalogue.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "594790f6d53c0f785b4443ffaa11b226790d61a5c2fd9f2263e5ef330374b941"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/off-catalogue.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\off-catalogue.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "b456816b7997b78bccb8d3648323a08e68a64c3200f1d2b2b3812d42729c605f"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/coles-au-catalogue.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\coles-au-catalogue.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "a96fac65e3ac2523cd7f3f0f23e82ac664d723c01fa813628cde018079b0ff84"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/aldi-au-catalogue.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\aldi-au-catalogue.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "20989327c79ad76655f90f4b5f70959fa666ef429c0d4f94157876c07ff02574"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/iga-au-catalogue.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\iga-au-catalogue.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "56602b95796cf1fdbbd5e7f6667f5b86cf203ded6e71d1d3a587f81d073d6061"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/brand-au-catalogue.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\brand-au-catalogue.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "d16b2b8ccc822736570306724ff3d5d20f4a411fa990eedbe684efaa6881098f"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/brand-catalogue.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\brand-catalogue.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "546516fec6cd20a9b43a88e74b80662757930ba0c9a6c6b87c9a1c57a815fbaa"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/guided-branching.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\guided-branching.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "fc6883c9a34fd19dda80b3f3c2289f01f092a4c6456f196bf2b85c256669eeb0"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/packaged-foods.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\packaged-foods.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "81d1f8100edc2d3975af86800ce4bb69ea212967a493b2e75083e4c1c9f0a228"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/capture-foundation.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\capture-foundation.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "3ae338c215cc41215d9fc8aeaf7daa36aec4fe24290ca2234f3a494099a9fbee"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/serving-foundation.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\serving-foundation.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "75610bab83c5c463bb3c7cad5ce284e9d3591ddba403a795b4ebd8979cf16f95"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/guided-product-resolution.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\guided-product-resolution.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "6f941507e4937b23599530099b7988ad40af4b54d70c9d224830a4c952b77d68"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/activity-foundation.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\activity-foundation.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "68f2e923769697bb90b0d0e13193533ebff5fa9b29846c0d05e5ced28fb83557"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/food-groups-foundation.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\food-groups-foundation.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "2919670d100bb6de8794bed8a3bcbb7b18dec2d5f4a3a95912ddbd23268526b6"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/conversation-foundation.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\conversation-foundation.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "c313b738df302742261e2fd2ea06c58fcc72e38292f856a3da6df5596f799d26"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/alpha06.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\alpha06.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "d48903a4fdf0069a1156f892e0b3e302dc86b94303d9b8144797659351962a57"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/afcd-release-3.json",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\afcd-release-3.json",
+      "contentType": "application/json; charset=utf-8",
+      "sha256": "d729c6ea5bf1014724bde5d4038e995cd79059824cebab9f32b52ed4671560dd"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/alpha064.js?g=55fa50a815871079fbb5e674",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\alpha064.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "sha256": "4acb04c7a2c99ff0e69250d322893553b1d3820f1862f43632b2413d07994523"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/data/brand-au/products/049.json",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\brand-au\\products\\049.json",
+      "contentType": "application/json; charset=utf-8",
+      "sha256": "42e78f880cfc11357e35141a7f8f8962d4ceea365c409a08adc7ee0bf6367e00"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/data/brand-au/products/round-two-243.json",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\brand-au\\products\\round-two-243.json",
+      "contentType": "application/json; charset=utf-8",
+      "sha256": "b056699d4e06fca3595785f8dea6f6b730b37414d4582e3084c43d639864917b"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/data/brand-au/products/090.json",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\brand-au\\products\\090.json",
+      "contentType": "application/json; charset=utf-8",
+      "sha256": "90cbba905e7746e35df0b8bd2709d2bf3a3a5e46093855a790b1eef1b8b7bbfc"
+    },
+    {
+      "url": "https://mlwes-hec-test.github.io/data/woolworths-au/products/round-two-042.json",
+      "file": "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\data\\woolworths-au\\products\\round-two-042.json",
+      "contentType": "application/json; charset=utf-8",
+      "sha256": "5bdb5fa63c8407527852b34c484118cb5934c3d4b7d40c53e23e9fd0e3bff3ff"
+    }
+  ],
+  "viewport": {
+    "width": 320,
+    "height": 568
+  },
+  "actions": [
+    {
+      "selector": "#home [data-room=\"diary\"]",
+      "hit": {
+        "element": "<button class=\"room r3\" data-room=\"diary\"><span>🍽️</span><b>Diary</b></button>",
+        "hit": "<span>🍽️</span>",
+        "uncovered": true,
+        "pointerEvents": "auto"
+      },
+      "after": {
+        "screen": "food-diary",
+        "events": [
+          {
+            "type": "pointerdown",
+            "trusted": true,
+            "target": "<span>🍽️</span>"
+          },
+          {
+            "type": "touchstart",
+            "trusted": true,
+            "target": "<span>🍽️</span>"
+          },
+          {
+            "type": "click",
+            "trusted": true,
+            "target": "<span>🍽️</span>"
+          }
+        ],
+        "focus": "",
+        "bodyClasses": "hec-test-installation",
+        "inert": false,
+        "bodyPointerEvents": "auto"
+      }
+    },
+    {
+      "selector": "#food-diary [data-go=\"home\"]",
+      "hit": {
+        "element": "<button type=\"button\" class=\"home-nav-button\" data-go=\"home\">🏠 Home</button>",
+        "hit": "<button type=\"button\" class=\"home-nav-button\" data-go=\"home\">🏠 Home</button>",
+        "uncovered": true,
+        "pointerEvents": "auto"
+      },
+      "after": {
+        "screen": "home",
+        "events": [
+          {
+            "type": "pointerdown",
+            "trusted": true,
+            "target": "<button type=\"button\" class=\"home-nav-button\" data-go=\"home\">🏠 Home</button>"
+          },
+          {
+            "type": "touchstart",
+            "trusted": true,
+            "target": "<button type=\"button\" class=\"home-nav-button\" data-go=\"home\">🏠 Home</button>"
+          },
+          {
+            "type": "click",
+            "trusted": true,
+            "target": "<button type=\"button\" class=\"home-nav-button\" data-go=\"home\">🏠 Home</button>"
+          }
+        ],
+        "focus": "",
+        "bodyClasses": "hec-test-installation",
+        "inert": false,
+        "bodyPointerEvents": "auto"
+      }
+    },
+    {
+      "selector": "#home [data-room=\"daily-progress\"]",
+      "hit": {
+        "element": "<button class=\"room r1\" data-room=\"daily-progress\"><span>📊</span><b>Daily Progress</b></button>",
+        "hit": "<span>📊</span>",
+        "uncovered": true,
+        "pointerEvents": "auto"
+      },
+      "after": {
+        "screen": "daily-progress",
+        "events": [
+          {
+            "type": "pointerdown",
+            "trusted": true,
+            "target": "<span>📊</span>"
+          },
+          {
+            "type": "touchstart",
+            "trusted": true,
+            "target": "<span>📊</span>"
+          },
+          {
+            "type": "click",
+            "trusted": true,
+            "target": "<span>📊</span>"
+          }
+        ],
+        "focus": "",
+        "bodyClasses": "hec-test-installation",
+        "inert": false,
+        "bodyPointerEvents": "auto"
+      }
+    },
+    {
+      "selector": "#daily-progress [data-go=\"home\"]",
+      "hit": {
+        "element": "<button type=\"button\" class=\"home-nav-button\" data-go=\"home\">🏠 Home</button>",
+        "hit": "<button type=\"button\" class=\"home-nav-button\" data-go=\"home\">🏠 Home</button>",
+        "uncovered": true,
+        "pointerEvents": "auto"
+      },
+      "after": {
+        "screen": "home",
+        "events": [
+          {
+            "type": "pointerdown",
+            "trusted": true,
+            "target": "<button type=\"button\" class=\"home-nav-button\" data-go=\"home\">🏠 Home</button>"
+          },
+          {
+            "type": "touchstart",
+            "trusted": true,
+            "target": "<button type=\"button\" class=\"home-nav-button\" data-go=\"home\">🏠 Home</button>"
+          },
+          {
+            "type": "click",
+            "trusted": true,
+            "target": "<button type=\"button\" class=\"home-nav-button\" data-go=\"home\">🏠 Home</button>"
+          }
+        ],
+        "focus": "",
+        "bodyClasses": "hec-test-installation",
+        "inert": false,
+        "bodyPointerEvents": "auto"
+      }
+    },
+    {
+      "selector": "#home [data-room=\"shopping-list\"]",
+      "hit": {
+        "element": "<button class=\"room r6\" data-room=\"shopping-list\"><span>🛒</span><b>Shopping List</b></button>",
+        "hit": "<span>🛒</span>",
+        "uncovered": true,
+        "pointerEvents": "auto"
+      },
+      "after": {
+        "screen": "shopping-list",
+        "events": [
+          {
+            "type": "pointerdown",
+            "trusted": true,
+            "target": "<span>🛒</span>"
+          },
+          {
+            "type": "touchstart",
+            "trusted": true,
+            "target": "<span>🛒</span>"
+          },
+          {
+            "type": "click",
+            "trusted": true,
+            "target": "<span>🛒</span>"
+          }
+        ],
+        "focus": "",
+        "bodyClasses": "hec-test-installation",
+        "inert": false,
+        "bodyPointerEvents": "auto"
+      }
+    },
+    {
+      "selector": "#shopping-list [data-go=\"home\"]",
+      "hit": {
+        "element": "<button type=\"button\" class=\"home-nav-button\" data-go=\"home\">🏠 Home</button>",
+        "hit": "<button type=\"button\" class=\"home-nav-button\" data-go=\"home\">🏠 Home</button>",
+        "uncovered": true,
+        "pointerEvents": "auto"
+      },
+      "after": {
+        "screen": "home",
+        "events": [
+          {
+            "type": "pointerdown",
+            "trusted": true,
+            "target": "<button type=\"button\" class=\"home-nav-button\" data-go=\"home\">🏠 Home</button>"
+          },
+          {
+            "type": "touchstart",
+            "trusted": true,
+            "target": "<button type=\"button\" class=\"home-nav-button\" data-go=\"home\">🏠 Home</button>"
+          },
+          {
+            "type": "click",
+            "trusted": true,
+            "target": "<button type=\"button\" class=\"home-nav-button\" data-go=\"home\">🏠 Home</button>"
+          }
+        ],
+        "focus": "",
+        "bodyClasses": "hec-test-installation",
+        "inert": false,
+        "bodyPointerEvents": "auto"
+      }
+    },
+    {
+      "selector": "#home [data-room=\"database\"]",
+      "hit": {
+        "element": "<button class=\"room r4\" data-room=\"database\"><span>🥕</span><b>Food Library</b></button>",
+        "hit": "<span>🥕</span>",
+        "uncovered": true,
+        "pointerEvents": "auto"
+      },
+      "after": {
+        "screen": "food-library",
+        "events": [
+          {
+            "type": "pointerdown",
+            "trusted": true,
+            "target": "<span>🥕</span>"
+          },
+          {
+            "type": "touchstart",
+            "trusted": true,
+            "target": "<span>🥕</span>"
+          },
+          {
+            "type": "click",
+            "trusted": true,
+            "target": "<span>🥕</span>"
+          }
+        ],
+        "focus": "",
+        "bodyClasses": "hec-test-installation",
+        "inert": false,
+        "bodyPointerEvents": "auto"
+      }
+    },
+    {
+      "selector": "#clear-food-search",
+      "hit": {
+        "element": "<button id=\"clear-food-search\" type=\"button\" aria-label=\"Clear search\">×</button>",
+        "hit": "<button id=\"clear-food-search\" type=\"button\" aria-label=\"Clear search\">×</button>",
+        "uncovered": true,
+        "pointerEvents": "auto"
+      },
+      "after": {
+        "screen": "food-library",
+        "events": [
+          {
+            "type": "pointerdown",
+            "trusted": true,
+            "target": "<button id=\"clear-food-search\" type=\"button\" aria-label=\"Clear search\">×</button>"
+          },
+          {
+            "type": "touchstart",
+            "trusted": true,
+            "target": "<button id=\"clear-food-search\" type=\"button\" aria-label=\"Clear search\">×</button>"
+          },
+          {
+            "type": "click",
+            "trusted": true,
+            "target": "<button id=\"clear-food-search\" type=\"button\" aria-label=\"Clear search\">×</button>"
+          }
+        ],
+        "focus": "clear-food-search",
+        "bodyClasses": "hec-test-installation",
+        "inert": false,
+        "bodyPointerEvents": "auto"
+      }
+    },
+    {
+      "selector": "#food-library [data-go=\"home\"]",
+      "hit": {
+        "element": "<button type=\"button\" class=\"home-nav-button\" data-go=\"home\">🏠 Home</button>",
+        "hit": "<button type=\"button\" class=\"home-nav-button\" data-go=\"home\">🏠 Home</button>",
+        "uncovered": true,
+        "pointerEvents": "auto"
+      },
+      "after": {
+        "screen": "home",
+        "events": [
+          {
+            "type": "pointerdown",
+            "trusted": true,
+            "target": "<button type=\"button\" class=\"home-nav-button\" data-go=\"home\">🏠 Home</button>"
+          },
+          {
+            "type": "touchstart",
+            "trusted": true,
+            "target": "<button type=\"button\" class=\"home-nav-button\" data-go=\"home\">🏠 Home</button>"
+          },
+          {
+            "type": "click",
+            "trusted": true,
+            "target": "<button type=\"button\" class=\"home-nav-button\" data-go=\"home\">🏠 Home</button>"
+          }
+        ],
+        "focus": "",
+        "bodyClasses": "hec-test-installation",
+        "inert": false,
+        "bodyPointerEvents": "auto"
+      }
+    },
+    {
+      "selector": "#home [data-room=\"database\"]",
+      "hit": {
+        "element": "<button class=\"room r4\" data-room=\"database\"><span>🥕</span><b>Food Library</b></button>",
+        "hit": "<span>🥕</span>",
+        "uncovered": true,
+        "pointerEvents": "auto"
+      },
+      "after": {
+        "screen": "food-library",
+        "events": [
+          {
+            "type": "pointerdown",
+            "trusted": true,
+            "target": "<span>🥕</span>"
+          },
+          {
+            "type": "touchstart",
+            "trusted": true,
+            "target": "<span>🥕</span>"
+          },
+          {
+            "type": "click",
+            "trusted": true,
+            "target": "<span>🥕</span>"
+          }
+        ],
+        "focus": "",
+        "bodyClasses": "hec-test-installation",
+        "inert": false,
+        "bodyPointerEvents": "auto"
+      }
+    },
+    {
+      "selector": "#food-library [data-hec-back]",
+      "hit": {
+        "element": "<button type=\"button\" class=\"back\" data-hec-back=\"\">← Back</button>",
+        "hit": "<button type=\"button\" class=\"back\" data-hec-back=\"\">← Back</button>",
+        "uncovered": true,
+        "pointerEvents": "auto"
+      },
+      "after": {
+        "screen": "home",
+        "events": [
+          {
+            "type": "pointerdown",
+            "trusted": true,
+            "target": "<button type=\"button\" class=\"back\" data-hec-back=\"\">← Back</button>"
+          },
+          {
+            "type": "touchstart",
+            "trusted": true,
+            "target": "<button type=\"button\" class=\"back\" data-hec-back=\"\">← Back</button>"
+          },
+          {
+            "type": "click",
+            "trusted": true,
+            "target": "<button type=\"button\" class=\"back\" data-hec-back=\"\">← Back</button>"
+          }
+        ],
+        "focus": "",
+        "bodyClasses": "hec-test-installation",
+        "inert": false,
+        "bodyPointerEvents": "auto"
+      }
+    },
+    {
+      "selector": "#home [data-room=\"database\"]",
+      "hit": {
+        "element": "<button class=\"room r4\" data-room=\"database\"><span>🥕</span><b>Food Library</b></button>",
+        "hit": "<span>🥕</span>",
+        "uncovered": true,
+        "pointerEvents": "auto"
+      },
+      "after": {
+        "screen": "food-library",
+        "events": [
+          {
+            "type": "pointerdown",
+            "trusted": true,
+            "target": "<span>🥕</span>"
+          },
+          {
+            "type": "touchstart",
+            "trusted": true,
+            "target": "<span>🥕</span>"
+          },
+          {
+            "type": "click",
+            "trusted": true,
+            "target": "<span>🥕</span>"
+          }
+        ],
+        "focus": "",
+        "bodyClasses": "hec-test-installation",
+        "inert": false,
+        "bodyPointerEvents": "auto"
+      }
+    },
+    {
+      "selector": "#food-library [data-go=\"home\"]",
+      "hit": {
+        "element": "<button type=\"button\" class=\"home-nav-button\" data-go=\"home\">🏠 Home</button>",
+        "hit": "<button type=\"button\" class=\"home-nav-button\" data-go=\"home\">🏠 Home</button>",
+        "uncovered": true,
+        "pointerEvents": "auto"
+      },
+      "after": {
+        "screen": "home",
+        "events": [
+          {
+            "type": "pointerdown",
+            "trusted": true,
+            "target": "<button type=\"button\" class=\"home-nav-button\" data-go=\"home\">🏠 Home</button>"
+          },
+          {
+            "type": "touchstart",
+            "trusted": true,
+            "target": "<button type=\"button\" class=\"home-nav-button\" data-go=\"home\">🏠 Home</button>"
+          },
+          {
+            "type": "click",
+            "trusted": true,
+            "target": "<button type=\"button\" class=\"home-nav-button\" data-go=\"home\">🏠 Home</button>"
+          }
+        ],
+        "focus": "",
+        "bodyClasses": "hec-test-installation",
+        "inert": false,
+        "bodyPointerEvents": "auto"
+      }
+    },
+    {
+      "selector": "#home [data-room=\"diary\"]",
+      "hit": {
+        "element": "<button class=\"room r3\" data-room=\"diary\"><span>🍽️</span><b>Diary</b></button>",
+        "hit": "<span>🍽️</span>",
+        "uncovered": true,
+        "pointerEvents": "auto"
+      },
+      "after": {
+        "screen": "food-diary",
+        "events": [
+          {
+            "type": "pointerdown",
+            "trusted": true,
+            "target": "<span>🍽️</span>"
+          },
+          {
+            "type": "touchstart",
+            "trusted": true,
+            "target": "<span>🍽️</span>"
+          },
+          {
+            "type": "click",
+            "trusted": true,
+            "target": "<span>🍽️</span>"
+          }
+        ],
+        "focus": "",
+        "bodyClasses": "hec-test-installation",
+        "inert": false,
+        "bodyPointerEvents": "auto"
+      }
+    },
+    {
+      "selector": "#food-diary [data-go=\"home\"]",
+      "hit": {
+        "element": "<button type=\"button\" class=\"home-nav-button\" data-go=\"home\">🏠 Home</button>",
+        "hit": "<button type=\"button\" class=\"home-nav-button\" data-go=\"home\">🏠 Home</button>",
+        "uncovered": true,
+        "pointerEvents": "auto"
+      },
+      "after": {
+        "screen": "home",
+        "events": [
+          {
+            "type": "pointerdown",
+            "trusted": true,
+            "target": "<button type=\"button\" class=\"home-nav-button\" data-go=\"home\">🏠 Home</button>"
+          },
+          {
+            "type": "touchstart",
+            "trusted": true,
+            "target": "<button type=\"button\" class=\"home-nav-button\" data-go=\"home\">🏠 Home</button>"
+          },
+          {
+            "type": "click",
+            "trusted": true,
+            "target": "<button type=\"button\" class=\"home-nav-button\" data-go=\"home\">🏠 Home</button>"
+          }
+        ],
+        "focus": "",
+        "bodyClasses": "hec-test-installation",
+        "inert": false,
+        "bodyPointerEvents": "auto"
+      }
+    },
+    {
+      "selector": "#home [data-room=\"database\"]",
+      "hit": {
+        "element": "<button class=\"room r4\" data-room=\"database\"><span>🥕</span><b>Food Library</b></button>",
+        "hit": "<span>🥕</span>",
+        "uncovered": true,
+        "pointerEvents": "auto"
+      },
+      "after": {
+        "screen": "food-library",
+        "events": [
+          {
+            "type": "pointerdown",
+            "trusted": true,
+            "target": "<span>🥕</span>"
+          },
+          {
+            "type": "touchstart",
+            "trusted": true,
+            "target": "<span>🥕</span>"
+          },
+          {
+            "type": "click",
+            "trusted": true,
+            "target": "<span>🥕</span>"
+          }
+        ],
+        "focus": "",
+        "bodyClasses": "hec-test-installation",
+        "inert": false,
+        "bodyPointerEvents": "auto"
+      }
+    }
+  ],
+  "pass": false,
+  "preReady": {
+    "diag": {
+      "pageGeneration": "55fa50a815871079fbb5e674",
+      "requiredCoreGeneration": null,
+      "workerGeneration": null,
+      "cacheGeneration": null,
+      "role": "test",
+      "state": "updating",
+      "executed": [],
+      "reloads": 0,
+      "checks": 0
+    },
+    "generation": "55fa50a815871079fbb5e674",
+    "runtime": [
+      "installation-config.js",
+      "config.js",
+      "installation-foundation.js",
+      "migrations.js",
+      "companions.js",
+      "companion-artwork.js",
+      "companion-voice-metadata.js",
+      "companion-voices.js",
+      "stage4-foundation.js",
+      "weight-progress-foundation.js",
+      "nutrition-trends-foundation.js",
+      "app.js",
+      "entity-registry.js",
+      "catalogue-discovery.js",
+      "search-foundation.js",
+      "product-serving-semantics.js",
+      "food-sources.js",
+      "australian-catalogue-data.js",
+      "mcdonalds-au-catalogue-data.js",
+      "mcdonalds-au-catalogue.js",
+      "kfc-au-catalogue-data.js",
+      "kfc-au-supplement-data.js",
+      "kfc-au-catalogue.js",
+      "food-catalogue.js",
+      "retailer-catalogue.js",
+      "retailer-source.js",
+      "woolworths-au-catalogue.js",
+      "off-catalogue.js",
+      "coles-au-catalogue.js",
+      "aldi-au-catalogue.js",
+      "iga-au-catalogue.js",
+      "brand-au-catalogue.js",
+      "brand-catalogue.js",
+      "guided-branching.js",
+      "packaged-foods.js",
+      "capture-foundation.js",
+      "serving-foundation.js",
+      "guided-product-resolution.js",
+      "activity-foundation.js",
+      "food-groups-foundation.js",
+      "conversation-foundation.js",
+      "alpha06.js",
+      "alpha064.js"
+    ],
+    "files": {
+      "installation-config.js": "e04cd8e2625d202b3833aa4f15077489128c1b50780aebf866890baf2b29a9f7",
+      "config.js": "5917c660ff0a2bca08efe8029a74ea7a566e34719c27e09fc143390549a26895",
+      "installation-foundation.js": "dc71c1e21e8971a650e1f287cb9e9dcf634592586836a4e7dfd688c74d28fb7f",
+      "migrations.js": "eb8433966b7e505147561ca0876585047ce90675817c63cc639469443aad188c",
+      "companions.js": "68a968795334573fee49f8aebcbfb863bcb09963c2b24eb541c394e1fc299fc0",
+      "companion-artwork.js": "34b293d84189769df566e668fc7c73039524cb6ffffc99dd5e7fdf8f21e4fb90",
+      "companion-voice-metadata.js": "27140423757ed50ef25852371ae27bb73d4d2ace86b93fc00d0bc8fd14c38ac2",
+      "companion-voices.js": "1d8ad4bb334c931d66c407e6b573e35e08bf526d4786440c9cd06d4d602ede64",
+      "stage4-foundation.js": "3c1616b011cf13a6c5c16d925a04a20e8197cef9734c0a1b1a83b2c86b7f9287",
+      "weight-progress-foundation.js": "5b6b7818bbbc5ac41df685747d6bdcbb46e1ec1e727b6f42109117a5518d7c7f",
+      "nutrition-trends-foundation.js": "1c0a338f04fff58d9ea85dd0cac03bb057bb355194bf20f6905be1fe4549e2b1",
+      "app.js": "8fc4061605e14c014c456274cd9b50f393be7eb3768f0a3ca715e69bf22c2196",
+      "entity-registry.js": "e553577e2271ea479caf9dd66260dcfb840b353cb5f39e89affcc6601911ca01",
+      "catalogue-discovery.js": "cc80f509dfeb4c336c8b9032d7359a94ecf8c0df1dcdc01631786f09781feee1",
+      "search-foundation.js": "461cbe66be1d08bc8723d80818876be347fd5118c6215b57bdabc6cd2717d06d",
+      "product-serving-semantics.js": "35734e07540429ce77d1da99f643acc77325d71b1edf3a75db0a2de7b2e602d2",
+      "food-sources.js": "ce47dfe59913769db42d0ea7b1f551bbac1e832f9ac18f9c1f57ef0790d4b4e5",
+      "australian-catalogue-data.js": "05ab1f75ed98a2c6bdafeff48d51f68b8f57124502d9d4f10846c448d92f3d68",
+      "mcdonalds-au-catalogue-data.js": "8390eac90e11a94ecf436412dbe6cea328ab4e40844a43d9e2c0c1beebf70c50",
+      "mcdonalds-au-catalogue.js": "88b5f4e2c2e2d7affea39e5d370fb9a635704005ff810df05b2de927c83a6f3e",
+      "kfc-au-catalogue-data.js": "473e071cf68b18fd75481ea4def01166ee7b1237eecc0e56fa5a408e79305201",
+      "kfc-au-supplement-data.js": "af33ffc60656c8cd391c35251c88e8c372188fd641a1e9636baeef3a1b64d595",
+      "kfc-au-catalogue.js": "ea0f01eb3e5e8c609168b14bdb2eec4e05dd03d9ff41c29e12848baf10b7c905",
+      "food-catalogue.js": "b0d36ee7a88c96fede17b8ede4d00a916f5350bb9bee71e73045719662b3d50f",
+      "retailer-catalogue.js": "be6d5b3fd1c881b087ff9d06836bcf44b97749663bed2cc64eec2caefecf82f9",
+      "retailer-source.js": "2b93bd5f91c4dff76715044ca1f9d497c49ac03b2de0a56922365aed01525e33",
+      "woolworths-au-catalogue.js": "594790f6d53c0f785b4443ffaa11b226790d61a5c2fd9f2263e5ef330374b941",
+      "off-catalogue.js": "b456816b7997b78bccb8d3648323a08e68a64c3200f1d2b2b3812d42729c605f",
+      "coles-au-catalogue.js": "a96fac65e3ac2523cd7f3f0f23e82ac664d723c01fa813628cde018079b0ff84",
+      "aldi-au-catalogue.js": "20989327c79ad76655f90f4b5f70959fa666ef429c0d4f94157876c07ff02574",
+      "iga-au-catalogue.js": "56602b95796cf1fdbbd5e7f6667f5b86cf203ded6e71d1d3a587f81d073d6061",
+      "brand-au-catalogue.js": "d16b2b8ccc822736570306724ff3d5d20f4a411fa990eedbe684efaa6881098f",
+      "brand-catalogue.js": "546516fec6cd20a9b43a88e74b80662757930ba0c9a6c6b87c9a1c57a815fbaa",
+      "guided-branching.js": "fc6883c9a34fd19dda80b3f3c2289f01f092a4c6456f196bf2b85c256669eeb0",
+      "packaged-foods.js": "81d1f8100edc2d3975af86800ce4bb69ea212967a493b2e75083e4c1c9f0a228",
+      "capture-foundation.js": "3ae338c215cc41215d9fc8aeaf7daa36aec4fe24290ca2234f3a494099a9fbee",
+      "serving-foundation.js": "75610bab83c5c463bb3c7cad5ce284e9d3591ddba403a795b4ebd8979cf16f95",
+      "guided-product-resolution.js": "6f941507e4937b23599530099b7988ad40af4b54d70c9d224830a4c952b77d68",
+      "activity-foundation.js": "68f2e923769697bb90b0d0e13193533ebff5fa9b29846c0d05e5ced28fb83557",
+      "food-groups-foundation.js": "2919670d100bb6de8794bed8a3bcbb7b18dec2d5f4a3a95912ddbd23268526b6",
+      "conversation-foundation.js": "c313b738df302742261e2fd2ea06c58fcc72e38292f856a3da6df5596f799d26",
+      "alpha06.js": "d48903a4fdf0069a1156f892e0b3e302dc86b94303d9b8144797659351962a57",
+      "alpha064.js": "4acb04c7a2c99ff0e69250d322893553b1d3820f1862f43632b2413d07994523",
+      "styles.css": "9a978a83a965fe9e271de61fec2c51ba3c68abeee658ae34081414c9cb65f2a7",
+      "manifest.webmanifest": "20e91f54038b7ff6863544d11579b3ee3cbdb6001e25d92bafc03c3977e749ed",
+      "data/open-food-facts-au/manifest.json": "b1e5d58b660cb4d36192ec898bef95f1cfcdbaed9d374be4cc10820450981e42",
+      "afcd-release-3.json": "d729c6ea5bf1014724bde5d4038e995cd79059824cebab9f32b52ed4671560dd"
+    },
+    "roles": {
+      "my-data": {
+        "installation-config.js": "e04cd8e2625d202b3833aa4f15077489128c1b50780aebf866890baf2b29a9f7",
+        "manifest.webmanifest": "20e91f54038b7ff6863544d11579b3ee3cbdb6001e25d92bafc03c3977e749ed"
+      },
+      "test": {
+        "installation-config.js": "51eda2ef257743377cbcaa00eb8af0db7bcfee5601d2f58f53d1f8ec36f5f721",
+        "manifest.webmanifest": "4a520e29476ad7e525265096dd35d105f87844c0efddde44f2f47d950fc74652"
+      }
+    },
+    "hidden": true,
+    "inert": true,
+    "readyAttribute": false,
+    "noticeHidden": false,
+    "screen": "welcome",
+    "apis": {
+      "search": false,
+      "catalogue": false,
+      "navigate": false,
+      "beforeScreen": false,
+      "membership": false,
+      "directory": false,
+      "source": false
+    },
+    "controller": null,
+    "profile": {
+      "version": "0.6.33",
+      "completed": true,
+      "firstHomeWelcomeShown": true,
+      "companion": {
+        "enabled": false,
+        "configured": false,
+        "speechEnabled": false
+      },
+      "personal": {
+        "givenName": "Navigation fixture"
+      },
+      "health": {}
+    }
+  },
+  "readiness": [
+    {
+      "diag": {
+        "pageGeneration": "55fa50a815871079fbb5e674",
+        "requiredCoreGeneration": "55fa50a815871079fbb5e674",
+        "workerGeneration": null,
+        "cacheGeneration": null,
+        "role": "test",
+        "state": "ready",
+        "executed": [
+          {
+            "file": "installation-config.js",
+            "sha256": "51eda2ef257743377cbcaa00eb8af0db7bcfee5601d2f58f53d1f8ec36f5f721",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "config.js",
+            "sha256": "5917c660ff0a2bca08efe8029a74ea7a566e34719c27e09fc143390549a26895",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "installation-foundation.js",
+            "sha256": "dc71c1e21e8971a650e1f287cb9e9dcf634592586836a4e7dfd688c74d28fb7f",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "migrations.js",
+            "sha256": "eb8433966b7e505147561ca0876585047ce90675817c63cc639469443aad188c",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "companions.js",
+            "sha256": "68a968795334573fee49f8aebcbfb863bcb09963c2b24eb541c394e1fc299fc0",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "companion-artwork.js",
+            "sha256": "34b293d84189769df566e668fc7c73039524cb6ffffc99dd5e7fdf8f21e4fb90",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "companion-voice-metadata.js",
+            "sha256": "27140423757ed50ef25852371ae27bb73d4d2ace86b93fc00d0bc8fd14c38ac2",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "companion-voices.js",
+            "sha256": "1d8ad4bb334c931d66c407e6b573e35e08bf526d4786440c9cd06d4d602ede64",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "stage4-foundation.js",
+            "sha256": "3c1616b011cf13a6c5c16d925a04a20e8197cef9734c0a1b1a83b2c86b7f9287",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "weight-progress-foundation.js",
+            "sha256": "5b6b7818bbbc5ac41df685747d6bdcbb46e1ec1e727b6f42109117a5518d7c7f",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "nutrition-trends-foundation.js",
+            "sha256": "1c0a338f04fff58d9ea85dd0cac03bb057bb355194bf20f6905be1fe4549e2b1",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "app.js",
+            "sha256": "8fc4061605e14c014c456274cd9b50f393be7eb3768f0a3ca715e69bf22c2196",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "entity-registry.js",
+            "sha256": "e553577e2271ea479caf9dd66260dcfb840b353cb5f39e89affcc6601911ca01",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "catalogue-discovery.js",
+            "sha256": "cc80f509dfeb4c336c8b9032d7359a94ecf8c0df1dcdc01631786f09781feee1",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "search-foundation.js",
+            "sha256": "461cbe66be1d08bc8723d80818876be347fd5118c6215b57bdabc6cd2717d06d",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "product-serving-semantics.js",
+            "sha256": "35734e07540429ce77d1da99f643acc77325d71b1edf3a75db0a2de7b2e602d2",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "food-sources.js",
+            "sha256": "ce47dfe59913769db42d0ea7b1f551bbac1e832f9ac18f9c1f57ef0790d4b4e5",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "australian-catalogue-data.js",
+            "sha256": "05ab1f75ed98a2c6bdafeff48d51f68b8f57124502d9d4f10846c448d92f3d68",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "mcdonalds-au-catalogue-data.js",
+            "sha256": "8390eac90e11a94ecf436412dbe6cea328ab4e40844a43d9e2c0c1beebf70c50",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "mcdonalds-au-catalogue.js",
+            "sha256": "88b5f4e2c2e2d7affea39e5d370fb9a635704005ff810df05b2de927c83a6f3e",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "kfc-au-catalogue-data.js",
+            "sha256": "473e071cf68b18fd75481ea4def01166ee7b1237eecc0e56fa5a408e79305201",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "kfc-au-supplement-data.js",
+            "sha256": "af33ffc60656c8cd391c35251c88e8c372188fd641a1e9636baeef3a1b64d595",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "kfc-au-catalogue.js",
+            "sha256": "ea0f01eb3e5e8c609168b14bdb2eec4e05dd03d9ff41c29e12848baf10b7c905",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "food-catalogue.js",
+            "sha256": "b0d36ee7a88c96fede17b8ede4d00a916f5350bb9bee71e73045719662b3d50f",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "retailer-catalogue.js",
+            "sha256": "be6d5b3fd1c881b087ff9d06836bcf44b97749663bed2cc64eec2caefecf82f9",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "retailer-source.js",
+            "sha256": "2b93bd5f91c4dff76715044ca1f9d497c49ac03b2de0a56922365aed01525e33",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "woolworths-au-catalogue.js",
+            "sha256": "594790f6d53c0f785b4443ffaa11b226790d61a5c2fd9f2263e5ef330374b941",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "off-catalogue.js",
+            "sha256": "b456816b7997b78bccb8d3648323a08e68a64c3200f1d2b2b3812d42729c605f",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "coles-au-catalogue.js",
+            "sha256": "a96fac65e3ac2523cd7f3f0f23e82ac664d723c01fa813628cde018079b0ff84",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "aldi-au-catalogue.js",
+            "sha256": "20989327c79ad76655f90f4b5f70959fa666ef429c0d4f94157876c07ff02574",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "iga-au-catalogue.js",
+            "sha256": "56602b95796cf1fdbbd5e7f6667f5b86cf203ded6e71d1d3a587f81d073d6061",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "brand-au-catalogue.js",
+            "sha256": "d16b2b8ccc822736570306724ff3d5d20f4a411fa990eedbe684efaa6881098f",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "brand-catalogue.js",
+            "sha256": "546516fec6cd20a9b43a88e74b80662757930ba0c9a6c6b87c9a1c57a815fbaa",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "guided-branching.js",
+            "sha256": "fc6883c9a34fd19dda80b3f3c2289f01f092a4c6456f196bf2b85c256669eeb0",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "packaged-foods.js",
+            "sha256": "81d1f8100edc2d3975af86800ce4bb69ea212967a493b2e75083e4c1c9f0a228",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "capture-foundation.js",
+            "sha256": "3ae338c215cc41215d9fc8aeaf7daa36aec4fe24290ca2234f3a494099a9fbee",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "serving-foundation.js",
+            "sha256": "75610bab83c5c463bb3c7cad5ce284e9d3591ddba403a795b4ebd8979cf16f95",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "guided-product-resolution.js",
+            "sha256": "6f941507e4937b23599530099b7988ad40af4b54d70c9d224830a4c952b77d68",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "activity-foundation.js",
+            "sha256": "68f2e923769697bb90b0d0e13193533ebff5fa9b29846c0d05e5ced28fb83557",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "food-groups-foundation.js",
+            "sha256": "2919670d100bb6de8794bed8a3bcbb7b18dec2d5f4a3a95912ddbd23268526b6",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "conversation-foundation.js",
+            "sha256": "c313b738df302742261e2fd2ea06c58fcc72e38292f856a3da6df5596f799d26",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "alpha06.js",
+            "sha256": "d48903a4fdf0069a1156f892e0b3e302dc86b94303d9b8144797659351962a57",
+            "generation": "55fa50a815871079fbb5e674"
+          },
+          {
+            "file": "alpha064.js",
+            "sha256": "4acb04c7a2c99ff0e69250d322893553b1d3820f1862f43632b2413d07994523",
+            "generation": "55fa50a815871079fbb5e674"
+          }
+        ],
+        "reloads": 0,
+        "checks": 0
+      },
+      "generation": "55fa50a815871079fbb5e674",
+      "runtime": [
+        "installation-config.js",
+        "config.js",
+        "installation-foundation.js",
+        "migrations.js",
+        "companions.js",
+        "companion-artwork.js",
+        "companion-voice-metadata.js",
+        "companion-voices.js",
+        "stage4-foundation.js",
+        "weight-progress-foundation.js",
+        "nutrition-trends-foundation.js",
+        "app.js",
+        "entity-registry.js",
+        "catalogue-discovery.js",
+        "search-foundation.js",
+        "product-serving-semantics.js",
+        "food-sources.js",
+        "australian-catalogue-data.js",
+        "mcdonalds-au-catalogue-data.js",
+        "mcdonalds-au-catalogue.js",
+        "kfc-au-catalogue-data.js",
+        "kfc-au-supplement-data.js",
+        "kfc-au-catalogue.js",
+        "food-catalogue.js",
+        "retailer-catalogue.js",
+        "retailer-source.js",
+        "woolworths-au-catalogue.js",
+        "off-catalogue.js",
+        "coles-au-catalogue.js",
+        "aldi-au-catalogue.js",
+        "iga-au-catalogue.js",
+        "brand-au-catalogue.js",
+        "brand-catalogue.js",
+        "guided-branching.js",
+        "packaged-foods.js",
+        "capture-foundation.js",
+        "serving-foundation.js",
+        "guided-product-resolution.js",
+        "activity-foundation.js",
+        "food-groups-foundation.js",
+        "conversation-foundation.js",
+        "alpha06.js",
+        "alpha064.js"
+      ],
+      "files": {
+        "installation-config.js": "e04cd8e2625d202b3833aa4f15077489128c1b50780aebf866890baf2b29a9f7",
+        "config.js": "5917c660ff0a2bca08efe8029a74ea7a566e34719c27e09fc143390549a26895",
+        "installation-foundation.js": "dc71c1e21e8971a650e1f287cb9e9dcf634592586836a4e7dfd688c74d28fb7f",
+        "migrations.js": "eb8433966b7e505147561ca0876585047ce90675817c63cc639469443aad188c",
+        "companions.js": "68a968795334573fee49f8aebcbfb863bcb09963c2b24eb541c394e1fc299fc0",
+        "companion-artwork.js": "34b293d84189769df566e668fc7c73039524cb6ffffc99dd5e7fdf8f21e4fb90",
+        "companion-voice-metadata.js": "27140423757ed50ef25852371ae27bb73d4d2ace86b93fc00d0bc8fd14c38ac2",
+        "companion-voices.js": "1d8ad4bb334c931d66c407e6b573e35e08bf526d4786440c9cd06d4d602ede64",
+        "stage4-foundation.js": "3c1616b011cf13a6c5c16d925a04a20e8197cef9734c0a1b1a83b2c86b7f9287",
+        "weight-progress-foundation.js": "5b6b7818bbbc5ac41df685747d6bdcbb46e1ec1e727b6f42109117a5518d7c7f",
+        "nutrition-trends-foundation.js": "1c0a338f04fff58d9ea85dd0cac03bb057bb355194bf20f6905be1fe4549e2b1",
+        "app.js": "8fc4061605e14c014c456274cd9b50f393be7eb3768f0a3ca715e69bf22c2196",
+        "entity-registry.js": "e553577e2271ea479caf9dd66260dcfb840b353cb5f39e89affcc6601911ca01",
+        "catalogue-discovery.js": "cc80f509dfeb4c336c8b9032d7359a94ecf8c0df1dcdc01631786f09781feee1",
+        "search-foundation.js": "461cbe66be1d08bc8723d80818876be347fd5118c6215b57bdabc6cd2717d06d",
+        "product-serving-semantics.js": "35734e07540429ce77d1da99f643acc77325d71b1edf3a75db0a2de7b2e602d2",
+        "food-sources.js": "ce47dfe59913769db42d0ea7b1f551bbac1e832f9ac18f9c1f57ef0790d4b4e5",
+        "australian-catalogue-data.js": "05ab1f75ed98a2c6bdafeff48d51f68b8f57124502d9d4f10846c448d92f3d68",
+        "mcdonalds-au-catalogue-data.js": "8390eac90e11a94ecf436412dbe6cea328ab4e40844a43d9e2c0c1beebf70c50",
+        "mcdonalds-au-catalogue.js": "88b5f4e2c2e2d7affea39e5d370fb9a635704005ff810df05b2de927c83a6f3e",
+        "kfc-au-catalogue-data.js": "473e071cf68b18fd75481ea4def01166ee7b1237eecc0e56fa5a408e79305201",
+        "kfc-au-supplement-data.js": "af33ffc60656c8cd391c35251c88e8c372188fd641a1e9636baeef3a1b64d595",
+        "kfc-au-catalogue.js": "ea0f01eb3e5e8c609168b14bdb2eec4e05dd03d9ff41c29e12848baf10b7c905",
+        "food-catalogue.js": "b0d36ee7a88c96fede17b8ede4d00a916f5350bb9bee71e73045719662b3d50f",
+        "retailer-catalogue.js": "be6d5b3fd1c881b087ff9d06836bcf44b97749663bed2cc64eec2caefecf82f9",
+        "retailer-source.js": "2b93bd5f91c4dff76715044ca1f9d497c49ac03b2de0a56922365aed01525e33",
+        "woolworths-au-catalogue.js": "594790f6d53c0f785b4443ffaa11b226790d61a5c2fd9f2263e5ef330374b941",
+        "off-catalogue.js": "b456816b7997b78bccb8d3648323a08e68a64c3200f1d2b2b3812d42729c605f",
+        "coles-au-catalogue.js": "a96fac65e3ac2523cd7f3f0f23e82ac664d723c01fa813628cde018079b0ff84",
+        "aldi-au-catalogue.js": "20989327c79ad76655f90f4b5f70959fa666ef429c0d4f94157876c07ff02574",
+        "iga-au-catalogue.js": "56602b95796cf1fdbbd5e7f6667f5b86cf203ded6e71d1d3a587f81d073d6061",
+        "brand-au-catalogue.js": "d16b2b8ccc822736570306724ff3d5d20f4a411fa990eedbe684efaa6881098f",
+        "brand-catalogue.js": "546516fec6cd20a9b43a88e74b80662757930ba0c9a6c6b87c9a1c57a815fbaa",
+        "guided-branching.js": "fc6883c9a34fd19dda80b3f3c2289f01f092a4c6456f196bf2b85c256669eeb0",
+        "packaged-foods.js": "81d1f8100edc2d3975af86800ce4bb69ea212967a493b2e75083e4c1c9f0a228",
+        "capture-foundation.js": "3ae338c215cc41215d9fc8aeaf7daa36aec4fe24290ca2234f3a494099a9fbee",
+        "serving-foundation.js": "75610bab83c5c463bb3c7cad5ce284e9d3591ddba403a795b4ebd8979cf16f95",
+        "guided-product-resolution.js": "6f941507e4937b23599530099b7988ad40af4b54d70c9d224830a4c952b77d68",
+        "activity-foundation.js": "68f2e923769697bb90b0d0e13193533ebff5fa9b29846c0d05e5ced28fb83557",
+        "food-groups-foundation.js": "2919670d100bb6de8794bed8a3bcbb7b18dec2d5f4a3a95912ddbd23268526b6",
+        "conversation-foundation.js": "c313b738df302742261e2fd2ea06c58fcc72e38292f856a3da6df5596f799d26",
+        "alpha06.js": "d48903a4fdf0069a1156f892e0b3e302dc86b94303d9b8144797659351962a57",
+        "alpha064.js": "4acb04c7a2c99ff0e69250d322893553b1d3820f1862f43632b2413d07994523",
+        "styles.css": "9a978a83a965fe9e271de61fec2c51ba3c68abeee658ae34081414c9cb65f2a7",
+        "manifest.webmanifest": "20e91f54038b7ff6863544d11579b3ee3cbdb6001e25d92bafc03c3977e749ed",
+        "data/open-food-facts-au/manifest.json": "b1e5d58b660cb4d36192ec898bef95f1cfcdbaed9d374be4cc10820450981e42",
+        "afcd-release-3.json": "d729c6ea5bf1014724bde5d4038e995cd79059824cebab9f32b52ed4671560dd"
+      },
+      "roles": {
+        "my-data": {
+          "installation-config.js": "e04cd8e2625d202b3833aa4f15077489128c1b50780aebf866890baf2b29a9f7",
+          "manifest.webmanifest": "20e91f54038b7ff6863544d11579b3ee3cbdb6001e25d92bafc03c3977e749ed"
+        },
+        "test": {
+          "installation-config.js": "51eda2ef257743377cbcaa00eb8af0db7bcfee5601d2f58f53d1f8ec36f5f721",
+          "manifest.webmanifest": "4a520e29476ad7e525265096dd35d105f87844c0efddde44f2f47d950fc74652"
+        }
+      },
+      "hidden": false,
+      "inert": false,
+      "readyAttribute": true,
+      "noticeHidden": true,
+      "screen": "home",
+      "apis": {
+        "search": true,
+        "catalogue": true,
+        "navigate": true,
+        "beforeScreen": true,
+        "membership": true,
+        "directory": true,
+        "source": true
+      },
+      "controller": null,
+      "profile": {
+        "version": "0.6.33",
+        "email": "",
+        "code": "",
+        "passwordSet": false,
+        "completed": true,
+        "firstHomeWelcomePending": false,
+        "firstHomeWelcomeShown": true,
+        "preferences": {
+          "language": "en-AU",
+          "theme": "hec-standard",
+          "inspirationIndex": 0
+        },
+        "personal": {
+          "givenName": "Navigation fixture",
+          "surname": "",
+          "fullName": "Navigation fixture",
+          "preferredName": "Navigation",
+          "preferredPronunciation": "",
+          "email": "",
+          "dob": "",
+          "energyUnit": "kJ",
+          "country": "Australia",
+          "region": "",
+          "postcode": "",
+          "suburb": "",
+          "streetAddress": "",
+          "mobile": "",
+          "mobileInternational": "",
+          "phone": "",
+          "phoneInternational": "",
+          "homeTimeZone": "Australia/Brisbane",
+          "activeTimeZone": "Australia/Brisbane",
+          "timeZoneBehaviour": "ask"
+        },
+        "health": {
+          "sex": "",
+          "heightCm": 0,
+          "startingWeightKg": 0,
+          "currentWeightKg": 0,
+          "goal": "",
+          "lossRate": "recommended",
+          "fasting": "none",
+          "fastingDays": [],
+          "fastingEnergyKj": 2092,
+          "activity": 0,
+          "exerciseCredit": 0,
+          "selectedGoalWeight": 0,
+          "recommendedGoalWeight": 0,
+          "lastCalculationWeightKg": 0
+        },
+        "recommendations": {},
+        "companion": {
+          "enabled": false,
+          "configured": false,
+          "id": "percy-pelican",
+          "character": "🐦",
+          "characterName": "Percy the Pelican",
+          "name": "Percy",
+          "gender": "male",
+          "customName": "",
+          "pronunciation": "",
+          "personality": "planner",
+          "voice": "",
+          "voiceStyleId": "calm-organised",
+          "speechEnabled": false,
+          "needsReselection": false,
+          "selectionStatus": "active"
+        },
+        "heightUnit": "metric",
+        "weightUnit": "metric",
+        "goalMilestones": [],
+        "weightHistory": [],
+        "userId": "user-c732b206-60b1-4a77-b10d-bacde479d700",
+        "householdId": null,
+        "createdAt": "2026-10-05T00:46:09.236Z",
+        "updatedAt": "2026-10-05T00:46:09.236Z",
+        "schemaVersion": 1,
+        "schemaMigratedAt": "2026-10-05T00:46:09.236Z",
+        "schemaMigrationId": "alpha-0.6.33-stage-2-schema-1",
+        "profileStartedDate": "2026-10-05",
+        "futureConnections": {
+          "health": {
+            "appleHealth": false,
+            "healthConnect": false,
+            "wearables": false
+          },
+          "sharing": {
+            "household": false,
+            "communityFoods": false
+          },
+          "social": {
+            "enabled": false,
+            "providers": []
+          }
+        },
+        "analytics": {
+          "consent": false
+        },
+        "developer": {
+          "founderEnabled": false
+        },
+        "trial": {}
+      }
+    }
+  ],
+  "error": {
+    "message": "page.waitForFunction: Timeout 30000ms exceeded.",
+    "stack": "page.waitForFunction: Timeout 30000ms exceeded.\n    at Object.run (C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\scripts\\audit_navigation_startup_edge.js:45:469)\n    at async TestContext.<anonymous> (C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\tests\\navigation-startup-regression.test.js:3:225)"
+  }
+}

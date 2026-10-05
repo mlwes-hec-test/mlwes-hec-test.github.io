@@ -250,10 +250,9 @@ test('34. simple whole foods bypass source branching instead of opening an empty
   assert.match(runtime,/direct=!choices\.length\?'typical'/);
 });
 
-test('35. exact result rows expose central addability status',()=>{
-  assert.match(runtime,/Loggable now · choose an amount/);
-  assert.match(runtime,/decision\.status==='needs-nutrition-completion'/);
-  assert.match(runtime,/Details only/);
+test('35. exact result rows expose central eligibility through actions and Details',()=>{
+  const vm=require('node:vm'),line=runtime.split('\n').find(s=>s.startsWith('function us633ResultRow(')),scope={C8:catalogue,esc:s=>String(s??'')};vm.runInNewContext(line,scope);
+  for(const [allowed,label]of [[true,'Choose'],[false,'Details']]){const html=scope.us633ResultRow({recordId:'example',name:'Example',food:{brand:'Example'},addability:{normalLoggingAllowed:allowed,label:allowed?'Loggable now':'Needs nutrition'}});assert(html.includes('>'+label+'</b>'));assert(html.includes('data-food-details="example"'));assert(!html.includes('Loggable now'));if(!allowed)assert(html.includes('Needs nutrition'));}
 });
 
 test('36. fraction words in an exact product name remain identity language',()=>{

@@ -1,0 +1,9 @@
+AssertionError [ERR_ASSERTION]: Pepsi Max unbounded rendering
+    at run (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\scripts\audit_catalogue_wave_5a_edge.js:11:59) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}

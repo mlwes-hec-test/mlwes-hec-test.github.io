@@ -1,0 +1,28 @@
+{
+  "checkedAt": "2026-10-05",
+  "scope": "Discovery family and naming relationships only. No historical GTIN, recipe, package or retailer-ownership equivalence inferred.",
+  "pepsi": {
+    "url": "https://www.pepsimax.com.au/node/21",
+    "members": [
+      "Pepsi",
+      "Pepsi Max"
+    ]
+  },
+  "cocaCola": {
+    "url": "https://www.coca-cola.com/au/en/brands/coca-cola",
+    "members": [
+      "Coca-Cola",
+      "Coke"
+    ]
+  },
+  "zeroAlias": {
+    "consumerQuery": "Coke Zero",
+    "currentFormulation": "Coca-Cola Zero Sugar",
+    "australianNamingEvidence": [
+      "https://www.aldi.com.au/product/coca-cola-coke-zero-sugar-18x375ml-000000000000773435",
+      "https://www.mcdonalds.com/au/en-au/menu/cold-and-frozen-drinks/coca-cola-zero-sugar-medium.html"
+    ],
+    "nutritionEvidence": "https://www.coca-cola.com/au/en/brands/coca-cola/products",
+    "historicalGtinsRemainSeparate": true
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "argv": [
+    "C:\\Users\\mlwes\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+    "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\tests\\restaurant-family-search.test.js"
+  ],
+  "start": {
+    "rss": 43692032,
+    "heapTotal": 6283264,
+    "heapUsed": 4222016,
+    "external": 1626770,
+    "arrayBuffers": 137503
+  },
+  "end": {
+    "rss": 194392064,
+    "heapTotal": 139055104,
+    "heapUsed": 71643192,
+    "external": 13684022,
+    "arrayBuffers": 1965187
+  },
+  "peak": {
+    "rss": 194392064,
+    "heapTotal": 147574784,
+    "heapUsed": 93566472,
+    "external": 32005226,
+    "arrayBuffers": 14039026
+  },
+  "samples": 14,
+  "usage": {
+    "userCPUTime": 3546000,
+    "systemCPUTime": 1015000,
+    "maxRSS": 225600,
+    "sharedMemorySize": 0,
+    "unsharedDataSize": 0,
+    "unsharedStackSize": 0,
+    "minorPageFault": 0,
+    "majorPageFault": 120247,
+    "swappedOut": 0,
+    "fsRead": 3949,
+    "fsWrite": 2064,
+    "ipcSent": 0,
+    "ipcReceived": 0,
+    "signalsCount": 0,
+    "voluntaryContextSwitches": 0,
+    "involuntaryContextSwitches": 0
+  }
+}

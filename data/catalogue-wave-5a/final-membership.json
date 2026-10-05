@@ -1,0 +1,642 @@
+{
+  "generation": "dc2b4d1c237c935f8b864c6a",
+  "brands": {
+    "pepsi": {
+      "total": 4,
+      "categories": [
+        {
+          "id": "soft-drinks",
+          "count": 4
+        }
+      ],
+      "products": [
+        {
+          "id": "barcode:9313820016108",
+          "name": "Pepsi Max",
+          "category": "Soft Drinks",
+          "measures": [
+            "cup",
+            "serve",
+            "L",
+            "mL"
+          ]
+        },
+        {
+          "id": "barcode:9313820004518",
+          "name": "Pepsi Max 2L",
+          "category": "Soft Drinks",
+          "measures": [
+            "cup",
+            "serve",
+            "L",
+            "mL"
+          ]
+        },
+        {
+          "id": "barcode:9313820001036",
+          "name": "Pepsi Max Vanilla Flavour",
+          "category": "Soft Drinks",
+          "measures": [
+            "cup",
+            "serve",
+            "L",
+            "mL"
+          ]
+        },
+        {
+          "id": "manufacturer:au:pepsi-regular",
+          "name": "Pepsi Regular",
+          "category": "Soft Drinks",
+          "measures": [
+            "mL",
+            "cup",
+            "serve"
+          ]
+        }
+      ]
+    },
+    "pepsimax": {
+      "total": 2,
+      "categories": [
+        {
+          "id": "soft-drinks",
+          "count": 2
+        }
+      ],
+      "products": [
+        {
+          "id": "barcode:9313820004518",
+          "name": "Pepsi Max 2L",
+          "category": "Soft Drinks",
+          "measures": [
+            "cup",
+            "serve",
+            "L",
+            "mL"
+          ]
+        },
+        {
+          "id": "barcode:9313820001036",
+          "name": "Pepsi Max Vanilla Flavour",
+          "category": "Soft Drinks",
+          "measures": [
+            "cup",
+            "serve",
+            "L",
+            "mL"
+          ]
+        }
+      ]
+    },
+    "cocacola": {
+      "total": 4,
+      "categories": [
+        {
+          "id": "soft-drinks",
+          "count": 4
+        }
+      ],
+      "products": [
+        {
+          "id": "barcode:9300675001410",
+          "name": "Classic",
+          "category": "Soft Drinks",
+          "measures": [
+            "L",
+            "cup",
+            "mL",
+            "serve"
+          ]
+        },
+        {
+          "id": "manufacturer:au:coca-cola-zero-sugar",
+          "name": "Coca-Cola Zero Sugar",
+          "category": "Soft Drinks",
+          "measures": [
+            "mL",
+            "cup"
+          ]
+        },
+        {
+          "id": "barcode:9300675011419",
+          "name": "Diet Coke",
+          "category": "Soft Drinks",
+          "measures": [
+            "L",
+            "cup",
+            "mL",
+            "serve"
+          ]
+        },
+        {
+          "id": "barcode:9300675020923",
+          "name": "Vanilla Coca-Cola",
+          "category": "Soft Drinks",
+          "measures": [
+            "L",
+            "cup",
+            "mL",
+            "serve"
+          ]
+        }
+      ]
+    },
+    "coke": {
+      "total": 4,
+      "categories": [
+        {
+          "id": "soft-drinks",
+          "count": 4
+        }
+      ],
+      "products": [
+        {
+          "id": "barcode:9300675001410",
+          "name": "Classic",
+          "category": "Soft Drinks",
+          "measures": [
+            "L",
+            "cup",
+            "mL",
+            "serve"
+          ]
+        },
+        {
+          "id": "manufacturer:au:coca-cola-zero-sugar",
+          "name": "Coca-Cola Zero Sugar",
+          "category": "Soft Drinks",
+          "measures": [
+            "mL",
+            "cup"
+          ]
+        },
+        {
+          "id": "barcode:9300675011419",
+          "name": "Diet Coke",
+          "category": "Soft Drinks",
+          "measures": [
+            "L",
+            "cup",
+            "mL",
+            "serve"
+          ]
+        },
+        {
+          "id": "barcode:9300675020923",
+          "name": "Vanilla Coca-Cola",
+          "category": "Soft Drinks",
+          "measures": [
+            "L",
+            "cup",
+            "mL",
+            "serve"
+          ]
+        }
+      ]
+    },
+    "berg": {
+      "total": 8,
+      "categories": [
+        {
+          "id": "protein",
+          "count": 7
+        },
+        {
+          "id": "other-food",
+          "count": 1
+        }
+      ],
+      "products": [
+        {
+          "id": "barcode:2101822009252",
+          "name": "Boneless Leg Ham (Double Smoked)",
+          "category": "Meat & Protein",
+          "measures": [
+            "g"
+          ]
+        },
+        {
+          "id": "barcode:4078700856162",
+          "name": "Deli Ham Off the Bone Sliced",
+          "category": "Meat & Protein",
+          "measures": [
+            "g"
+          ]
+        },
+        {
+          "id": "barcode:4061461699109",
+          "name": "Ham Steaks",
+          "category": "Meat & Protein",
+          "measures": [
+            "g"
+          ]
+        },
+        {
+          "id": "barcode:4061462754821",
+          "name": "Mild Snack Stix",
+          "category": "Other Packaged Food",
+          "measures": [
+            "g"
+          ]
+        },
+        {
+          "id": "barcode:4061461352592",
+          "name": "Portuguese Style Chicken Breast Slices",
+          "category": "Meat & Protein",
+          "measures": [
+            "g"
+          ]
+        },
+        {
+          "id": "barcode:4061464916999",
+          "name": "Rind On Middle Bacon",
+          "category": "Meat & Protein",
+          "measures": [
+            "g"
+          ]
+        },
+        {
+          "id": "barcode:4088700176160",
+          "name": "Shaved Ham Triple Smoked",
+          "category": "Meat & Protein",
+          "measures": [
+            "g"
+          ]
+        },
+        {
+          "id": "barcode:4088700176306",
+          "name": "Thinly Sliced Honey Leg Ham",
+          "category": "Meat & Protein",
+          "measures": [
+            "g"
+          ]
+        }
+      ]
+    },
+    "kelloggs": {
+      "total": 43,
+      "categories": [
+        {
+          "id": "cereal",
+          "count": 25
+        },
+        {
+          "id": "grains",
+          "count": 3
+        },
+        {
+          "id": "spreads",
+          "count": 1
+        },
+        {
+          "id": "biscuits",
+          "count": 3
+        },
+        {
+          "id": "snacks",
+          "count": 7
+        },
+        {
+          "id": "other-food",
+          "count": 4
+        }
+      ]
+    }
+  },
+  "retailers": [
+    {
+      "id": "woolworths",
+      "total": 363,
+      "houseBrands": [
+        {
+          "key": "essentials",
+          "name": "Essentials",
+          "count": 1
+        },
+        {
+          "key": "farmersown",
+          "name": "Farmers Own",
+          "count": 1
+        },
+        {
+          "key": "macro",
+          "name": "macro",
+          "count": 13
+        },
+        {
+          "key": "macrowholefoods",
+          "name": "Macro Wholefoods",
+          "count": 1
+        },
+        {
+          "key": "macrowholefoodsmarket",
+          "name": "macro WHOLEFOODS MARKET",
+          "count": 16
+        },
+        {
+          "key": "theoddbunch",
+          "name": "The Odd Bunch",
+          "count": 2
+        },
+        {
+          "key": "thomasdux",
+          "name": "Thomas dux",
+          "count": 2
+        },
+        {
+          "key": "woolworths",
+          "name": "Woolworths",
+          "count": 283
+        },
+        {
+          "key": "woolworthsbakery",
+          "name": "Woolworths Bakery",
+          "count": 38
+        },
+        {
+          "key": "woolworthsessentials",
+          "name": "Woolworths Essentials",
+          "count": 5
+        },
+        {
+          "key": "woolworthsmacro",
+          "name": "Woolworths Macro",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "coles",
+      "total": 417,
+      "houseBrands": [
+        {
+          "key": "colesperform",
+          "name": "Cole’s Perform",
+          "count": 7
+        },
+        {
+          "key": "coles",
+          "name": "coles",
+          "count": 322
+        },
+        {
+          "key": "colesasia",
+          "name": "Coles Asia",
+          "count": 4
+        },
+        {
+          "key": "colesfinest",
+          "name": "Coles Finest",
+          "count": 19
+        },
+        {
+          "key": "colesfreerange",
+          "name": "Coles Free Range",
+          "count": 1
+        },
+        {
+          "key": "colesimfreefrom",
+          "name": "coles Imfree from",
+          "count": 1
+        },
+        {
+          "key": "coleskitchen",
+          "name": "coles Kitchen",
+          "count": 35
+        },
+        {
+          "key": "colesmadeeasy",
+          "name": "coles made easy",
+          "count": 3
+        },
+        {
+          "key": "colessimply",
+          "name": "coles Simply",
+          "count": 10
+        },
+        {
+          "key": "coleswellnessroad",
+          "name": "Coles- Wellness Road",
+          "count": 4
+        },
+        {
+          "key": "cucinamatese",
+          "name": "Cucina Matese",
+          "count": 5
+        },
+        {
+          "key": "graze",
+          "name": "Graze",
+          "count": 1
+        },
+        {
+          "key": "natureskitchen",
+          "name": "Natures kitchen",
+          "count": 3
+        },
+        {
+          "key": "thesweetporiumco",
+          "name": "The Sweetporium Co",
+          "count": 1
+        },
+        {
+          "key": "urbancoffeeculture",
+          "name": "Urban Coffee Culture",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "aldi",
+      "total": 224,
+      "houseBrands": [
+        {
+          "key": "bakerslife",
+          "name": "Bakers Life",
+          "count": 13
+        },
+        {
+          "key": "belmontbiscuitco",
+          "name": "Belmont Biscuit Co",
+          "count": 3
+        },
+        {
+          "key": "berg",
+          "name": "Berg",
+          "count": 8
+        },
+        {
+          "key": "brooklea",
+          "name": "Brooklea",
+          "count": 10
+        },
+        {
+          "key": "choceur",
+          "name": "Choceur",
+          "count": 11
+        },
+        {
+          "key": "colway",
+          "name": "Colway",
+          "count": 7
+        },
+        {
+          "key": "dairyfine",
+          "name": "Dairy Fine",
+          "count": 6
+        },
+        {
+          "key": "damora",
+          "name": "Damora",
+          "count": 10
+        },
+        {
+          "key": "delioriginals",
+          "name": "Deli Originals",
+          "count": 6
+        },
+        {
+          "key": "elmsbury",
+          "name": "Elmsbury",
+          "count": 1
+        },
+        {
+          "key": "eltora",
+          "name": "Eltora",
+          "count": 1
+        },
+        {
+          "key": "emporiumselection",
+          "name": "EMPORIUM SELECTION",
+          "count": 8
+        },
+        {
+          "key": "farmdale",
+          "name": "Farmdale",
+          "count": 1
+        },
+        {
+          "key": "farmwood",
+          "name": "Farmwood",
+          "count": 3
+        },
+        {
+          "key": "goldenvale",
+          "name": "GoldenVale",
+          "count": 2
+        },
+        {
+          "key": "grandessa",
+          "name": "Grandessa",
+          "count": 4
+        },
+        {
+          "key": "hillcrest",
+          "name": "hillcrest",
+          "count": 16
+        },
+        {
+          "key": "internationalcuisine",
+          "name": "International Cuisine",
+          "count": 8
+        },
+        {
+          "key": "marketfare",
+          "name": "Market Fare",
+          "count": 1
+        },
+        {
+          "key": "moserroth",
+          "name": "MOSER ROTH",
+          "count": 6
+        },
+        {
+          "key": "oceanrise",
+          "name": "Ocean Rise",
+          "count": 18
+        },
+        {
+          "key": "oceanroyale",
+          "name": "Ocean royale",
+          "count": 10
+        },
+        {
+          "key": "ohsonatural",
+          "name": "Oh So Natural",
+          "count": 8
+        },
+        {
+          "key": "seasonspride",
+          "name": "Seasons Pride",
+          "count": 2
+        },
+        {
+          "key": "snackersmarket",
+          "name": "SNACKERS MARKET",
+          "count": 2
+        },
+        {
+          "key": "speciallyselected",
+          "name": "Specially Selected",
+          "count": 6
+        },
+        {
+          "key": "sprinters",
+          "name": "Sprinters",
+          "count": 7
+        },
+        {
+          "key": "sweethaven",
+          "name": "Sweet Haven",
+          "count": 1
+        },
+        {
+          "key": "thefreshsaladco",
+          "name": "The Fresh Salad Co",
+          "count": 3
+        },
+        {
+          "key": "urbaneats",
+          "name": "Urban Eats",
+          "count": 10
+        },
+        {
+          "key": "westacre",
+          "name": "Westacre",
+          "count": 5
+        },
+        {
+          "key": "westacredairy",
+          "name": "Westacre Dairy",
+          "count": 17
+        },
+        {
+          "key": "whitemill",
+          "name": "White Mill",
+          "count": 2
+        },
+        {
+          "key": "worldkitchen",
+          "name": "World Kitchen",
+          "count": 8
+        }
+      ]
+    },
+    {
+      "id": "iga",
+      "total": 8,
+      "houseBrands": [
+        {
+          "key": "blackandgold",
+          "name": "Black & Gold",
+          "count": 3
+        },
+        {
+          "key": "communityco",
+          "name": "Community Co",
+          "count": 5
+        }
+      ]
+    }
+  ]
+}

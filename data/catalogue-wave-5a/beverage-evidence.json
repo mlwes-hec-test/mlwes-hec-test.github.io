@@ -1,0 +1,49 @@
+{
+  "checkedAt": "2026-10-05",
+  "scope": "Two current Australian manufacturer formulation identities; no GTIN, pack or retailer ownership inferred. Historical GTIN records remain separate.",
+  "facts": [
+    {
+      "id": "manufacturer:au:pepsi-regular",
+      "name": "Pepsi",
+      "brand": "Pepsi",
+      "aliases": [
+        "Pepsi Regular",
+        "Pepsi standard cola"
+      ],
+      "url": "https://www.pepsimax.com.au/products/pepsi",
+      "heading": "Average quantity per 100ml",
+      "per100": {
+        "energyKj": 111,
+        "protein": 0,
+        "fat": 0,
+        "satFat": 0,
+        "carbs": 7,
+        "sugar": 7,
+        "sodium": 10
+      },
+      "serve": 375
+    },
+    {
+      "id": "manufacturer:au:coca-cola-zero-sugar",
+      "name": "Coca-Cola Zero Sugar",
+      "brand": "Coca-Cola",
+      "aliases": [
+        "Coke Zero",
+        "Coca Cola Zero Sugar"
+      ],
+      "url": "https://www.coca-cola.com/au/en/brands/coca-cola/products",
+      "heading": "Per 100mLs",
+      "per100": {
+        "energyKj": 1.2,
+        "calories": 0.3,
+        "protein": 0.02,
+        "fat": 0,
+        "satFat": 0,
+        "carbs": 0.03,
+        "sugar": 0,
+        "fibre": 0,
+        "sodium": 4.1
+      }
+    }
+  ]
+}

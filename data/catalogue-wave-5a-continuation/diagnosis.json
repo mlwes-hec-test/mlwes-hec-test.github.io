@@ -1,0 +1,920 @@
+{
+  "restaurant": {
+    "KFC Wicked Wings": [
+      {
+        "key": "restaurant-family",
+        "items": [
+          {
+            "name": "3 Wicked Wings",
+            "kind": "exact-product",
+            "allowed": true,
+            "status": "loggable-now",
+            "reason": "identity-nutrition-measure-ready"
+          },
+          {
+            "name": "6 Wicked Wings",
+            "kind": "exact-product",
+            "allowed": true,
+            "status": "loggable-now",
+            "reason": "identity-nutrition-measure-ready"
+          },
+          {
+            "name": "10 Wicked Wings",
+            "kind": "exact-product",
+            "allowed": true,
+            "status": "loggable-now",
+            "reason": "identity-nutrition-measure-ready"
+          }
+        ]
+      },
+      {
+        "key": "details",
+        "items": [
+          {
+            "name": "10 Wicked Wings Combo",
+            "kind": "exact-product",
+            "allowed": false,
+            "status": "details-only",
+            "reason": "configuration-required"
+          },
+          {
+            "name": "3 Wicked Wings Combo",
+            "kind": "exact-product",
+            "allowed": false,
+            "status": "details-only",
+            "reason": "configuration-required"
+          },
+          {
+            "name": "6 Wicked Wings Combo",
+            "kind": "exact-product",
+            "allowed": false,
+            "status": "details-only",
+            "reason": "configuration-required"
+          },
+          {
+            "name": "Go Bucket 2 Wicked Wings",
+            "kind": "exact-product",
+            "allowed": false,
+            "status": "details-only",
+            "reason": "configuration-required"
+          }
+        ]
+      }
+    ],
+    "KFC Popcorn Chicken": [
+      {
+        "key": "restaurant-family",
+        "items": [
+          {
+            "name": "Snack Popcorn Chicken",
+            "kind": "exact-product",
+            "allowed": true,
+            "status": "loggable-now",
+            "reason": "identity-nutrition-measure-ready"
+          },
+          {
+            "name": "Regular Popcorn Chicken",
+            "kind": "exact-product",
+            "allowed": true,
+            "status": "loggable-now",
+            "reason": "identity-nutrition-measure-ready"
+          },
+          {
+            "name": "Maxi Popcorn Chicken",
+            "kind": "exact-product",
+            "allowed": true,
+            "status": "loggable-now",
+            "reason": "identity-nutrition-measure-ready"
+          }
+        ]
+      },
+      {
+        "key": "details",
+        "items": [
+          {
+            "name": "Go Bucket Popcorn Chicken",
+            "kind": "exact-product",
+            "allowed": false,
+            "status": "details-only",
+            "reason": "configuration-required"
+          },
+          {
+            "name": "Kids Meal with Snack Popcorn Chicken",
+            "kind": "exact-product",
+            "allowed": false,
+            "status": "details-only",
+            "reason": "configuration-required"
+          },
+          {
+            "name": "Maxi Popcorn Chicken Combo",
+            "kind": "exact-product",
+            "allowed": false,
+            "status": "details-only",
+            "reason": "configuration-required"
+          },
+          {
+            "name": "Regular Popcorn Chicken Combo",
+            "kind": "exact-product",
+            "allowed": false,
+            "status": "details-only",
+            "reason": "configuration-required"
+          },
+          {
+            "name": "Snack Popcorn Chicken Combo",
+            "kind": "exact-product",
+            "allowed": false,
+            "status": "details-only",
+            "reason": "configuration-required"
+          }
+        ]
+      }
+    ],
+    "KFC 6 Wicked Wings": [
+      {
+        "key": "best",
+        "items": [
+          {
+            "name": "6 Wicked Wings",
+            "kind": "exact-product",
+            "allowed": true,
+            "status": "loggable-now",
+            "reason": "identity-nutrition-measure-ready"
+          }
+        ]
+      },
+      {
+        "key": "details",
+        "items": [
+          {
+            "name": "6 Wicked Wings Combo",
+            "kind": "exact-product",
+            "allowed": false,
+            "status": "details-only",
+            "reason": "configuration-required"
+          }
+        ]
+      }
+    ]
+  },
+  "retailers": {
+    "woolworths": {
+      "total": 363,
+      "loggable": 348,
+      "categories": [
+        {
+          "id": "bread",
+          "label": "Bread & Bakery",
+          "count": 33
+        },
+        {
+          "id": "milk",
+          "label": "Milk",
+          "count": 9
+        },
+        {
+          "id": "yoghurt",
+          "label": "Yoghurt",
+          "count": 7
+        },
+        {
+          "id": "cheese",
+          "label": "Cheese",
+          "count": 13
+        },
+        {
+          "id": "cereal",
+          "label": "Breakfast Cereal",
+          "count": 5
+        },
+        {
+          "id": "canned",
+          "label": "Baked Beans & Canned Food",
+          "count": 13
+        },
+        {
+          "id": "grains",
+          "label": "Rice, Pasta & Grains",
+          "count": 30
+        },
+        {
+          "id": "spreads",
+          "label": "Spreads & Margarine",
+          "count": 7
+        },
+        {
+          "id": "biscuits",
+          "label": "Crackers & Biscuits",
+          "count": 17
+        },
+        {
+          "id": "snacks",
+          "label": "Snack Foods",
+          "count": 30
+        },
+        {
+          "id": "frozen-vegetables",
+          "label": "Frozen Vegetables",
+          "count": 2
+        },
+        {
+          "id": "frozen-potato",
+          "label": "Frozen Potato Products",
+          "count": 2
+        },
+        {
+          "id": "sauces",
+          "label": "Sauces & Condiments",
+          "count": 8
+        },
+        {
+          "id": "drinks",
+          "label": "Drinks",
+          "count": 5
+        },
+        {
+          "id": "desserts",
+          "label": "Desserts & Ice Cream",
+          "count": 26
+        },
+        {
+          "id": "produce",
+          "label": "Packaged Fruit & Vegetables",
+          "count": 22
+        },
+        {
+          "id": "protein",
+          "label": "Meat & Protein",
+          "count": 79
+        },
+        {
+          "id": "meals",
+          "label": "Prepared Meals",
+          "count": 15
+        },
+        {
+          "id": "pizza",
+          "label": "Pizza & Savoury Snacks",
+          "count": 4
+        },
+        {
+          "id": "other-food",
+          "label": "Other Packaged Food",
+          "count": 36
+        }
+      ],
+      "categoryDiffs": [
+        {
+          "id": "off:9339687138838",
+          "name": "Brioche Cadbury Milk Chocolate Chips Hot Cross Buns",
+          "keys": [
+            "category",
+            "categoryId",
+            "browseCategoryId"
+          ],
+          "before": "bread",
+          "after": "snacks"
+        },
+        {
+          "id": "off:9300633014278",
+          "name": "Cadbury Milk Chocolate Chips Hot Cross Bun",
+          "keys": [
+            "category",
+            "categoryId",
+            "browseCategoryId"
+          ],
+          "before": "bread",
+          "after": "snacks"
+        },
+        {
+          "id": "off:0277308004003",
+          "name": "Chicken Chips Small",
+          "keys": [
+            "category",
+            "categoryId",
+            "browseCategoryId"
+          ],
+          "before": "protein",
+          "after": "snacks"
+        },
+        {
+          "id": "off:9339687424047",
+          "name": "Corn Chips",
+          "keys": [
+            "category"
+          ],
+          "before": "snacks",
+          "after": "snacks"
+        },
+        {
+          "id": "off:9339687303595",
+          "name": "Ham & Mustard Pickles",
+          "keys": [
+            "category",
+            "categoryId",
+            "browseCategoryId"
+          ],
+          "before": "sauces",
+          "after": "protein"
+        },
+        {
+          "id": "off:9339687171156",
+          "name": "Macro Organic Corn Chips Spicy BBQ",
+          "keys": [
+            "category"
+          ],
+          "before": "snacks",
+          "after": "snacks"
+        },
+        {
+          "id": "off:9339687171132",
+          "name": "Organic Corn Chips Original",
+          "keys": [
+            "category",
+            "browseCategoryId"
+          ],
+          "before": "snacks",
+          "after": "snacks"
+        },
+        {
+          "id": "off:9300633472429",
+          "name": "Pea & Ham Soup",
+          "keys": [
+            "category",
+            "categoryId",
+            "browseCategoryId"
+          ],
+          "before": "canned",
+          "after": "protein"
+        },
+        {
+          "id": "off:0344643627980",
+          "name": "Smooth Peanut Butter",
+          "keys": [
+            "browseCategoryId"
+          ],
+          "before": "spreads",
+          "after": "spreads"
+        },
+        {
+          "id": "off:93563062",
+          "name": "Spring Water",
+          "keys": [
+            "category",
+            "browseCategoryId"
+          ],
+          "before": "drinks",
+          "after": "drinks"
+        },
+        {
+          "id": "woolworths-au:756086",
+          "name": "Woolworths Lightly Sparkling Spring Water 1.25L",
+          "keys": [
+            "category",
+            "categoryId",
+            "browseCategoryId"
+          ],
+          "after": "drinks"
+        },
+        {
+          "id": "woolworths-au:396254",
+          "name": "Woolworths Sea Salt Deli Style Potato Chips 175g",
+          "keys": [
+            "category",
+            "categoryId",
+            "browseCategoryId"
+          ],
+          "after": "snacks"
+        },
+        {
+          "id": "woolworths-au:233922",
+          "name": "Woolworths Smooth Peanut Butter 500g",
+          "keys": [
+            "categoryId",
+            "browseCategoryId"
+          ],
+          "after": "spreads"
+        }
+      ],
+      "first": [
+        {
+          "id": "off:6005000537352",
+          "name": "10% Fat Lean Pork Mince",
+          "community": 0,
+          "collections": 1
+        },
+        {
+          "id": "off:9300633900984",
+          "name": "12 Cage Free Eggs - Barn Laid",
+          "community": 1,
+          "collections": 1
+        },
+        {
+          "id": "off:9339687138890",
+          "name": "18 Cage Free Eggs",
+          "community": 0,
+          "collections": 1
+        }
+      ]
+    },
+    "coles": {
+      "total": 417,
+      "loggable": 417,
+      "categories": [
+        {
+          "id": "bread",
+          "label": "Bread & Bakery",
+          "count": 27
+        },
+        {
+          "id": "milk",
+          "label": "Milk",
+          "count": 4
+        },
+        {
+          "id": "yoghurt",
+          "label": "Yoghurt",
+          "count": 7
+        },
+        {
+          "id": "cheese",
+          "label": "Cheese",
+          "count": 16
+        },
+        {
+          "id": "cereal",
+          "label": "Breakfast Cereal",
+          "count": 7
+        },
+        {
+          "id": "spreads",
+          "label": "Spreads & Margarine",
+          "count": 7
+        },
+        {
+          "id": "biscuits",
+          "label": "Crackers & Biscuits",
+          "count": 11
+        },
+        {
+          "id": "snacks",
+          "label": "Snack Foods",
+          "count": 35
+        },
+        {
+          "id": "sauces",
+          "label": "Sauces & Condiments",
+          "count": 14
+        },
+        {
+          "id": "protein",
+          "label": "Meat & Protein",
+          "count": 101
+        },
+        {
+          "id": "desserts",
+          "label": "Desserts & Ice Cream",
+          "count": 33
+        },
+        {
+          "id": "drinks",
+          "label": "Drinks",
+          "count": 3
+        },
+        {
+          "id": "canned",
+          "label": "Baked Beans & Canned Food",
+          "count": 16
+        },
+        {
+          "id": "grains",
+          "label": "Rice, Pasta & Grains",
+          "count": 39
+        },
+        {
+          "id": "frozen-potato",
+          "label": "Frozen Potato Products",
+          "count": 1
+        },
+        {
+          "id": "produce",
+          "label": "Packaged Fruit & Vegetables",
+          "count": 20
+        },
+        {
+          "id": "meals",
+          "label": "Prepared Meals",
+          "count": 8
+        },
+        {
+          "id": "pizza",
+          "label": "Pizza & Savoury Snacks",
+          "count": 8
+        },
+        {
+          "id": "other-food",
+          "label": "Other Packaged Food",
+          "count": 60
+        }
+      ],
+      "categoryDiffs": [
+        {
+          "id": "off:9310645421988",
+          "name": "Cheese Supreme Corn Chips",
+          "keys": [
+            "category"
+          ],
+          "before": "snacks",
+          "after": "snacks"
+        },
+        {
+          "id": "off:9310645470085",
+          "name": "Deli Style Potato Chips",
+          "keys": [
+            "category",
+            "browseCategoryId"
+          ],
+          "before": "snacks",
+          "after": "snacks"
+        },
+        {
+          "id": "off:9310645491882",
+          "name": "Hummus Chips Salt & Pepper",
+          "keys": [
+            "category",
+            "categoryId",
+            "browseCategoryId"
+          ],
+          "before": "other-food",
+          "after": "snacks"
+        },
+        {
+          "id": "off:9310645351377",
+          "name": "Natural spring water",
+          "keys": [
+            "category",
+            "categoryId",
+            "browseCategoryId"
+          ],
+          "after": "drinks"
+        },
+        {
+          "id": "off:9310645099859",
+          "name": "Organic Crunchy Peanut Butter",
+          "keys": [
+            "category",
+            "categoryId",
+            "browseCategoryId"
+          ],
+          "after": "spreads"
+        },
+        {
+          "id": "off:9310645421971",
+          "name": "Original Corn Chips",
+          "keys": [
+            "category",
+            "browseCategoryId"
+          ],
+          "before": "snacks",
+          "after": "snacks"
+        },
+        {
+          "id": "off:9310645217390",
+          "name": "Sliced Honey Style Ham",
+          "keys": [
+            "category",
+            "categoryId",
+            "browseCategoryId"
+          ],
+          "before": "spreads",
+          "after": "protein"
+        },
+        {
+          "id": "off:9310645489636",
+          "name": "Smooth Peanut Butter",
+          "keys": [
+            "category",
+            "categoryId",
+            "browseCategoryId"
+          ],
+          "after": "spreads"
+        },
+        {
+          "id": "off:9310645319193",
+          "name": "Stone Ground Tortilla Chips",
+          "keys": [
+            "category",
+            "browseCategoryId"
+          ],
+          "before": "snacks",
+          "after": "snacks"
+        }
+      ],
+      "first": [
+        {
+          "id": "off:9310645308166",
+          "name": "10 Kebabs",
+          "community": 1,
+          "collections": 1
+        },
+        {
+          "id": "off:9310645389530",
+          "name": "10 Kebabs",
+          "community": 0,
+          "collections": 1
+        },
+        {
+          "id": "off:9310645190068",
+          "name": "12 Pack All Butter Croissant",
+          "community": 1,
+          "collections": 1
+        }
+      ]
+    },
+    "aldi": {
+      "total": 224,
+      "loggable": 224,
+      "categories": [
+        {
+          "id": "bread",
+          "label": "Bread & Bakery",
+          "count": 16
+        },
+        {
+          "id": "yoghurt",
+          "label": "Yoghurt",
+          "count": 10
+        },
+        {
+          "id": "cheese",
+          "label": "Cheese",
+          "count": 29
+        },
+        {
+          "id": "cereal",
+          "label": "Breakfast Cereal",
+          "count": 9
+        },
+        {
+          "id": "biscuits",
+          "label": "Crackers & Biscuits",
+          "count": 12
+        },
+        {
+          "id": "snacks",
+          "label": "Snack Foods",
+          "count": 31
+        },
+        {
+          "id": "sauces",
+          "label": "Sauces & Condiments",
+          "count": 11
+        },
+        {
+          "id": "produce",
+          "label": "Packaged Fruit & Vegetables",
+          "count": 5
+        },
+        {
+          "id": "protein",
+          "label": "Meat & Protein",
+          "count": 44
+        },
+        {
+          "id": "milk",
+          "label": "Milk",
+          "count": 1
+        },
+        {
+          "id": "canned",
+          "label": "Baked Beans & Canned Food",
+          "count": 8
+        },
+        {
+          "id": "grains",
+          "label": "Rice, Pasta & Grains",
+          "count": 5
+        },
+        {
+          "id": "spreads",
+          "label": "Spreads & Margarine",
+          "count": 9
+        },
+        {
+          "id": "frozen-vegetables",
+          "label": "Frozen Vegetables",
+          "count": 1
+        },
+        {
+          "id": "frozen-potato",
+          "label": "Frozen Potato Products",
+          "count": 1
+        },
+        {
+          "id": "meals",
+          "label": "Prepared Meals",
+          "count": 2
+        },
+        {
+          "id": "pizza",
+          "label": "Pizza & Savoury Snacks",
+          "count": 5
+        },
+        {
+          "id": "other-food",
+          "label": "Other Packaged Food",
+          "count": 25
+        }
+      ],
+      "categoryDiffs": [
+        {
+          "id": "off:4088700180365",
+          "name": "Cheese & onion flavour crinkle cut potato chips",
+          "keys": [
+            "category",
+            "browseCategoryId"
+          ],
+          "before": "snacks",
+          "after": "snacks"
+        },
+        {
+          "id": "off:4061459791440",
+          "name": "Corn Chips Cheese Extreme",
+          "keys": [
+            "category",
+            "browseCategoryId"
+          ],
+          "before": "snacks",
+          "after": "snacks"
+        },
+        {
+          "id": "off:4061462197710",
+          "name": "Crisps Sea Salt",
+          "keys": [
+            "category"
+          ],
+          "before": "snacks",
+          "after": "snacks"
+        },
+        {
+          "id": "off:4061462230264",
+          "name": "Crisps Sweet Chilli & Sour Cream",
+          "keys": [
+            "category"
+          ],
+          "before": "snacks",
+          "after": "snacks"
+        },
+        {
+          "id": "off:4069365110249",
+          "name": "Mini Peanut Butter Filled Eggs",
+          "keys": [
+            "browseCategoryId"
+          ],
+          "before": "spreads",
+          "after": "spreads"
+        },
+        {
+          "id": "off:4061459801569",
+          "name": "Organic Original Corn Chips",
+          "keys": [
+            "category",
+            "browseCategoryId"
+          ],
+          "before": "snacks",
+          "after": "snacks"
+        },
+        {
+          "id": "off:4088700051900",
+          "name": "Original Crinkle Cut Potato Chips",
+          "keys": [
+            "category",
+            "browseCategoryId"
+          ],
+          "before": "snacks",
+          "after": "snacks"
+        },
+        {
+          "id": "off:4088700176160",
+          "name": "Shaved Ham Triple Smoked",
+          "keys": [
+            "browseCategoryId"
+          ],
+          "before": "protein",
+          "after": "protein"
+        },
+        {
+          "id": "off:4088700070772",
+          "name": "Snack Stack Sour Cream & Onion Flavour Stackable Chips",
+          "keys": [
+            "category",
+            "categoryId",
+            "browseCategoryId"
+          ],
+          "after": "snacks"
+        },
+        {
+          "id": "off:4088700176306",
+          "name": "Thinly Sliced Honey Leg Ham",
+          "keys": [
+            "category",
+            "categoryId",
+            "browseCategoryId"
+          ],
+          "before": "spreads",
+          "after": "protein"
+        }
+      ],
+      "first": [
+        {
+          "id": "off:4061463638038",
+          "name": "12 Crunchy Corn Taco Shells",
+          "community": 0,
+          "collections": 1
+        },
+        {
+          "id": "off:4061463697295",
+          "name": "Apricot & Almond Muesli",
+          "community": 0,
+          "collections": 1
+        },
+        {
+          "id": "off:4088700055625",
+          "name": "Artisan White Sourdough",
+          "community": 0,
+          "collections": 1
+        }
+      ]
+    },
+    "iga": {
+      "total": 8,
+      "loggable": 8,
+      "categories": [
+        {
+          "id": "bread",
+          "label": "Bread & Bakery",
+          "count": 2
+        },
+        {
+          "id": "yoghurt",
+          "label": "Yoghurt",
+          "count": 1
+        },
+        {
+          "id": "cheese",
+          "label": "Cheese",
+          "count": 2
+        },
+        {
+          "id": "cereal",
+          "label": "Breakfast Cereal",
+          "count": 1
+        },
+        {
+          "id": "drinks",
+          "label": "Drinks",
+          "count": 1
+        },
+        {
+          "id": "other-food",
+          "label": "Other Packaged Food",
+          "count": 1
+        }
+      ],
+      "categoryDiffs": [],
+      "first": [
+        {
+          "id": "off:9310077200755",
+          "name": "Australian Quick Oats",
+          "community": 0,
+          "collections": 1
+        },
+        {
+          "id": "off:9310246047112",
+          "name": "Black Chia Seeds",
+          "community": 0,
+          "collections": 1
+        },
+        {
+          "id": "off:9310077313011",
+          "name": "Cola Zero Sugar flavoured soft drink",
+          "community": 0,
+          "collections": 1
+        }
+      ]
+    }
+  },
+  "memoryBefore": {
+    "rss": 154169344,
+    "heapTotal": 111988736,
+    "heapUsed": 75688960,
+    "external": 1940794,
+    "arrayBuffers": 137474
+  },
+  "memoryAfter": {
+    "rss": 314400768,
+    "heapTotal": 249544704,
+    "heapUsed": 133346816,
+    "external": 1940834,
+    "arrayBuffers": 137474
+  }
+}

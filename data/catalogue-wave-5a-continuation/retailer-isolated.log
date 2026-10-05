@@ -1,0 +1,105 @@
+✔ 39 distinct candidates obey all four ceilings and dispositions reconcile without fabricated admissions (4.5701ms)
+✔ all retained Coles exclusions remain excluded with exact nutrition and serving facts (948.6282ms)
+✔ all reviewed category moves preserve identity, nutrition, unknowns, serving and provenance (1384.0026ms)
+✔ shared product-head rules are retailer-neutral and reject compounds and ambiguous fragments (1.2888ms)
+✖ Coles/Woolworths/Aldi counts, category deltas and every moved house identity reconcile (838.7596ms)
+✔ independent McCain discovery improves the existing global canonical record without ownership or nutrition substitution (484.1211ms)
+✔ thin-family and second independent discovery holds never create substitute canonical identities (4.7886ms)
+✔ accepted Woolworths vegetables and Campbell stock retain exact logged energy and missing fibre (645.7752ms)
+✔ every changed global category has whole-product evidence and retains index/shard parity (922.5886ms)
+✔ protected OFF, restaurant, reference and deployment payloads remain byte-for-byte unchanged (1642.629ms)
+✔ all catalogue projections reproduce byte-for-byte and retain the complete evidence groups (20536.9941ms)
+✔ 39 enrolled identities resolve uniquely and category moves are subsets of improvements (2.2644ms)
+✔ 15 retained holds and four deferrals stay out of normal admission (302.4944ms)
+✔ exact package GTINs complete existing identities without collapsing other milk or vegetable formulations (10.505ms)
+✔ two package-evidenced Aldi trademarks enter house browse, independent Pepsi stays global (28.7332ms)
+✔ unknown fibre, true printed zero, preparation and human measures survive a complete review flow (16.5934ms)
+✔ shared fallback semantics handle product forms and reject ingredient/flavour/compound traps (0.4786ms)
+✔ all three retailer totals and each cross-retailer category consequence reconcile (1449.9135ms)
+✔ all moved existing products retain exact identity, nutrients, measures and ownership (884.3102ms)
+✔ new exact brand products are globally reachable and every index entry matches its shard (940.5405ms)
+✔ all protected source payloads are unchanged (1335.5561ms)
+✔ 32 distinct reviews reconcile; improvements and category changes are not new identities (1.4191ms)
+✔ all official banners and forgiving voice/text aliases resolve to one IGA root (32.3401ms)
+✔ IGA browse contains exactly eight private-label identities in six categories and two families (6.5354ms)
+✔ store evidence survives canonicalisation without national stock or ownership leakage (6.1179ms)
+✔ new relationship cannot override consumer brand, AU scope or exact product evidence (2.3016ms)
+✔ existing nutrition, unknowns, serving basis and measures are byte-equivalent facts (39.2266ms)
+✔ same GTIN pack and formulation conflicts remain blocked with new retailer evidence (6.8122ms)
+✔ three category improvements use whole-product rules for every retailer and reject flavour traps (1.9413ms)
+✔ global index reuses every canonical identity and matches IGA projection (297.2078ms)
+✖ all previous retailer identities, categories, nutrient and serving facts remain unchanged (432.9448ms)
+✔ frozen OFF, AFCD/AUSNUT, restaurants and unrelated retailer payloads remain unchanged (608.365ms)
+✔ IGA builder and all index hashes regenerate deterministically (214.8701ms)
+ℹ tests 33
+ℹ suites 0
+ℹ pass 31
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 37608.3199
+
+✖ failing tests:
+
+test at tests\catalogue-wave-2a.test.js:26:1
+✖ Coles/Woolworths/Aldi counts, category deltas and every moved house identity reconcile (838.7596ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  30 !== 26
+  
+      at TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\catalogue-wave-2a.test.js:29:182)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 30,
+    expected: 26,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\catalogue-wave-4a.test.js:47:1
+✖ all previous retailer identities, categories, nutrient and serving facts remain unchanged (432.9448ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      'frozen-potato': 1,
+      'frozen-vegetables': 1,
+      'other-food': 25,
+      biscuits: 12,
+  +   bread: 16,
+  -   bread: 15,
+      canned: 8,
+  +   cereal: 9,
+  +   cheese: 29,
+  -   cereal: 7,
+  -   cheese: 28,
+      grains: 5,
+      meals: 2,
+      milk: 1,
+      pizza: 5,
+  +   produce: 5,
+  -   produce: 4,
+      protein: 44,
+  +   sauces: 11,
+  +   snacks: 31,
+  -   sauces: 10,
+  -   snacks: 30,
+      spreads: 9,
+  +   yoghurt: 10
+  -   undefined: 8,
+  -   yoghurt: 9
+    }
+  
+      at TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\catalogue-wave-4a.test.js:48:713)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { bread: 16, yoghurt: 10, cheese: 29, cereal: 9, biscuits: 12, snacks: 31, sauces: 11, produce: 5, protein: 44, milk: 1, canned: 8, grains: 5, spreads: 9, 'frozen-vegetables': 1, 'frozen-potato': 1, meals: 2, pizza: 5, 'other-food': 25 },
+    expected: { 'other-food': 25, cereal: 7, bread: 15, protein: 44, sauces: 10, canned: 8, meals: 2, snacks: 30, biscuits: 12, yoghurt: 9, cheese: 28, undefined: 8, milk: 1, produce: 4, pizza: 5, grains: 5, spreads: 9, 'frozen-vegetables': 1, 'frozen-potato': 1 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,54 @@
+{
+  "argv": [
+    "C:\\Users\\mlwes\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+    "tests/catalogue-wave-5a-continuation.test.js",
+    "tests/aldi-source.test.js",
+    "tests/catalogue-round-two.test.js",
+    "tests/catalogue-search-intelligence.test.js",
+    "tests/catalogue-search-regression-recovery.test.js",
+    "tests/universal-food-search-source-branching.test.js",
+    "tests/catalogue-wave-2a.test.js",
+    "tests/catalogue-wave-3a.test.js",
+    "tests/catalogue-wave-4a.test.js"
+  ],
+  "start": {
+    "rss": 40583168,
+    "heapTotal": 6807552,
+    "heapUsed": 5572208,
+    "external": 2522776,
+    "arrayBuffers": 137679
+  },
+  "end": {
+    "rss": 55115776,
+    "heapTotal": 14581760,
+    "heapUsed": 10939168,
+    "external": 5607455,
+    "arrayBuffers": 3147184
+  },
+  "peak": {
+    "rss": 55115776,
+    "heapTotal": 14581760,
+    "heapUsed": 10939168,
+    "external": 5607455,
+    "arrayBuffers": 3147184
+  },
+  "samples": 64,
+  "usage": {
+    "userCPUTime": 250000,
+    "systemCPUTime": 312000,
+    "maxRSS": 56172,
+    "sharedMemorySize": 0,
+    "unsharedDataSize": 0,
+    "unsharedStackSize": 0,
+    "minorPageFault": 0,
+    "majorPageFault": 18106,
+    "swappedOut": 0,
+    "fsRead": 1448,
+    "fsWrite": 219,
+    "ipcSent": 0,
+    "ipcReceived": 0,
+    "signalsCount": 0,
+    "voluntaryContextSwitches": 0,
+    "involuntaryContextSwitches": 0
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "phase": "isolated",
+  "pass": false,
+  "generation": "c6f3f96b1ec822ac01415ff1",
+  "startedAt": "2026-10-05T00:18:34.347Z",
+  "completedAt": "2026-10-05T00:19:39.699Z",
+  "exitCode": 1,
+  "signal": null,
+  "tests": 210,
+  "passed": 207,
+  "failed": 3,
+  "skipped": 0,
+  "cancelled": 0,
+  "testFiles": [
+    "tests/catalogue-wave-5a-continuation.test.js",
+    "tests/aldi-source.test.js",
+    "tests/catalogue-round-two.test.js",
+    "tests/catalogue-search-intelligence.test.js",
+    "tests/catalogue-search-regression-recovery.test.js",
+    "tests/universal-food-search-source-branching.test.js",
+    "tests/catalogue-wave-2a.test.js",
+    "tests/catalogue-wave-3a.test.js",
+    "tests/catalogue-wave-4a.test.js"
+  ],
+  "command": [
+    "C:\\Users\\mlwes\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+    "--require",
+    "./scripts/catalogue-test-resources.js",
+    "--test",
+    "--test-concurrency=1",
+    "tests/catalogue-wave-5a-continuation.test.js",
+    "tests/aldi-source.test.js",
+    "tests/catalogue-round-two.test.js",
+    "tests/catalogue-search-intelligence.test.js",
+    "tests/catalogue-search-regression-recovery.test.js",
+    "tests/universal-food-search-source-branching.test.js",
+    "tests/catalogue-wave-2a.test.js",
+    "tests/catalogue-wave-3a.test.js",
+    "tests/catalogue-wave-4a.test.js"
+  ],
+  "logSha256": "7c7dc0d47bf0161295cbeb23d5ed80b91a21ec86ed82f6da2dae0059d46ea081"
+}

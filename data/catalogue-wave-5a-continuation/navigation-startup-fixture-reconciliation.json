@@ -1,0 +1,8 @@
+{
+  "classification": "C",
+  "test": "navigation-startup-regression.test.js (additional to original 17 and original full acceptance plan)",
+  "cause": "The old delayed-response fixture intercepts Open Food Facts search for bare Flora. Wave 5A correctly routes that brand query through the admitted brand catalogue, so the obsolete hook never runs.",
+  "repair": "Hold HECBrandCatalogue.search instead; keep readiness, navigation, query cancellation, late-result rejection and untouched Diary assertions.",
+  "productionChanged": false,
+  "validation": "PASS: navigation-final-result.json, 31/31"
+}

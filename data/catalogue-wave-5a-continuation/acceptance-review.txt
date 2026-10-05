@@ -1,0 +1,47 @@
+HEC WAVE 5A CONTINUATION — ACCEPTED SOURCE CANDIDATE
+
+1. Baseline: alpha-0.6.33 at 365ceef537f15c0550ffd16b9b9221b0e60187e6, Build IGA Australia catalogue foundation. Retained dirty tree inventoried; no unrelated edits. No reset, stash or discarded Wave 5A work.
+2. Original failure reconciliation (A production, B obsolete expectation, C harness, D execution/resource, E unchanged limitation). Initial accounting: A4/B5/C6/D2/E0. Failure 14 revealed an additional production history defect after its locator was fixed; final accounting by affected failure: A5/B5/C5/D2/E0.
+1. aldi-source.test.js — C — tampered hydrated community evidence fails closed — Fixture now targets the community bread identity explicitly; fail-closed hydration is still required. PASS.
+2. canonical-search-identity-consistency.test.js — C — Chiko raw record count — Canonical two-identity assertion replaces raw cache-entry length; exact roll portion/nutrition and Review retained. PASS.
+3. catalogue-round-two.test.js — B — all admitted expansion identities are loggable — Exact three reviewed holds asserted; all other expansion products remain eligible. PASS.
+4. catalogue-round-two.test.js — B — ordinary card displays barcode — Choose/Details card contract verified with barcode retained in the product object. PASS.
+5. catalogue-search-intelligence.test.js — C — focused keyboard handler preserves caret — Only internal-filter caret restoration excluded; Food Search no-reset invariant retained. PASS.
+6. catalogue-search-regression-recovery.test.js — C — mobile safeguards stable caret — Same scoped caret correction; mobile bounds and unresolved-action guards retained. PASS.
+7. catalogue-wave-2a.test.js — D — test file terminated — Completed isolated; historical moves plus explicit display projection reconciled; source/fact/hash checks retained. PASS.
+8. catalogue-wave-3a.test.js — B — retailer category totals — Fresh totals show only approved ham and hummus-chip deltas; compound-food regressions repaired. PASS.
+9. catalogue-wave-3a.test.js — B — index entry equals raw shard category — Index matches shared display projection; raw shard hashes and canonical IDs still match. PASS.
+10. catalogue-wave-4a.test.js — D — test file OOM termination — Completed isolated without OOM; per-identity full-fact comparison replaces giant array diff; memory evidence supports concurrency 1. PASS.
+11. hungry-jacks-australia-expansion.test.js — A — Biscoff Shake Small eligibility — Shared official fixed-portion evidence restores liquid drink measure; no grams/mL conversion introduced. PASS.
+12. hungry-jacks-australia-expansion.test.js — A — complete source eligibility audit — Complete chain returns 225 loggable, 36 completion, 55 details (316 canonical). PASS.
+13. hungry-jacks-australia-expansion.test.js — A — rendered mobile matrix — Rendered matrix rerun under repaired shared measure contract. PASS.
+14. live-prefix-alphabetical.test.js — A — Review Back locator — Ambiguous footer/header Back locator fixed. Continuing the same flow then proved a genuine cancelled-Review history regression: new shared returnTo consumes the transient Review history, preserving Home/Diary origin. The original final Back-to-Home assertion remains. PASS.
+15. post-kfc-search-regressions.test.js — C — Review Back locator — Explicit footer Back locator; existing clear helper cancels pending amount stage. PASS.
+16. restaurant-family-search.test.js — A — Combos remain visible — Semantic family groups preserve every sibling and configurable detail; ordinary restaurant groups retain prior per-group bound. Incomplete sibling action uses Details and remains non-loggable. PASS.
+17. universal-food-search-source-branching.test.js — B — Loggable now card wording — Behavioural card test asserts Choose versus Details from central eligibility instead of old status copy. PASS.
+
+3. Biscoff diagnosis: official fixed 216 g drink, 1732 kJ/414 Cal per item, was rejected because its supplementary reference panel is per 100 g. It does not need a density conversion to log the published drink portion.
+4. Shared repair: official AU restaurant provenance, explicit matching per-serving energy (including published zero), locked fixed unit and trusted measure evidence permit that portion only. Missing/blank evidence and contradictory units fail closed. No product/chain name exception.
+5. Cross-chain probes: Hungry Jacks Biscoff and Pistachio shakes, black tea, Hash Brown, Whopper and Whopper meal; McDonalds Coca-Cola, Cappuccino, Big Mac, Hash Brown and McSmart Meal; KFC Pepsi, 3/6/10 Wicked Wings, Zinger Burger and Wings Combo. Fixed portions pass; configurable meals remain Details-only.
+6. Combo loss came from global complete-only suppression. Blind 24-item slicing also threatened semantic family decisions.
+7. Context limits: brand/retailer direct pages 20; general submitted shortlist 24; ordinary restaurant shortlist retains existing 24 per group; semantic restaurant families preserve all siblings/details; guided resolver choices keep their own contract; category browse pages remain reachable.
+8. Legitimate configurable combos/meals are reachable without fabricated default nutrition. Share-bundle suitability and conflict/incomplete restrictions remain.
+9. Wicked Wings 3/6/10 remain neutral siblings; explicit counts select the matching variant. Popcorn and other source families pass. Portion and individual-piece Diary conversions remain correct.
+10. Wave 2A/3A/4A reconciled against frozen facts and shared display projection. Totals Woolworths 363, Coles 417, Aldi 224, IGA 8. Only three real category moves remain: Berg honey ham, Coles honey-style ham, Coles hummus chips. Accidental bun/soup/pickle overrides repaired.
+11. Resource evidence: isolated builders complete; repeated runtime work retained only 91216 additional heap bytes after warm-up. Full acceptance uses concurrency 1, streamed logs and bounded per-record failure diffs, with every fact assertion retained. No increased heap limit. Original OS commit usage was not captured; exact original pressure attribution remains an inference. Final test process audit found zero remaining test Node/headless browser processes.
+12. Bounded initial direct lists, deterministic A-Z, Show More, internal filter and Clear remain.
+13. Pepsi/Coke audit retains seven accepted references, three holds and two evidenced manufacturer references. Unsafe Classic GTIN 9300675047272 remains held: 142 kcal/595 kJ per 100 g, 355 Cal at 250 g; no reinterpretation as mL. Pepsi Max 2L, Regular, Diet, Zero, Sprite, Lipton and Black & Gold checks pass.
+14. Berg Thinly Sliced Honey Leg Ham remains Meat & Protein; distinct GTINs are not merged. Mild Snack Stix stays deferred in Other Packaged Food.
+15. Review Back returns to amount; Cancel restores query/filter/category/meal without Diary writes. A shared transient-Review navigation repair prevents later Back reopening abandoned items, for guided and ordinary entries.
+16. Ordinary cards retain name, brand and useful variant identity; technical evidence remains behind Details.
+17. Brand and retailer internal filters and Clear pass; late Pepsi results cannot overwrite Berg.
+18. Verified house brands remain reachable through retailer chips and direct rows; store availability evidence does not become ownership.
+19. Focused gate: 454/454. Additional navigation: 31/31. No skips/cancellations in either final gate.
+20. Browser gates: 63 discovery queries, six discovery navigation checks, 51 cross-chain probes (42 Review/Back/Cancel flows), 60 family scenarios. Widths 390x844, 375x812, 320x568. 1388 local responses, zero live TEST fallthrough, zero required asset/page errors. Keyboard testing is reduced-height emulation, not a physical iPhone keyboard.
+21. Exactly one additional complete acceptance: 1159/1159 across all 57 files, zero failures/skips/cancellations, 2026-10-05T00:58:35.305Z to 2026-10-05T01:10:51.351Z.
+22. No unresolved production/test blockers. Retained limitations: configurable meals need configuration evidence; held beverage and incomplete ham identities stay unavailable; Snack Stix classification remains deferred. Supplemental chained-navigation fixture waits for the existing 50 ms transition to settle (75 ms wait). All initial failed/interrupted logs are retained.
+23. Protected verification: 2441 files unchanged; all 168 retained Wave 5A evidence files unchanged. Current release coherent; only intended edits present.
+24. Approved single local commit subject: Improve brand and retailer food discovery. Parent: 365ceef537f15c0550ffd16b9b9221b0e60187e6. Release generation: 55fa50a815871079fbb5e674. Resulting commit SHA and final clean-tree verification are reported in chat after commit creation.
+25. No push, no deployment. TEST v62 and MY DATA v15 untouched. No personal storage or backups accessed; browser storage is disposable synthetic testing data.
+26. Backlog retained: Weight Graph v2; micronutrient/calcium display; My Foods delete safety; Recent-food row tap; sticky Done Adding; fluids; voice independent of Companion; Friendly Grocer/regional retailers; national manufacturer expansion.
+27. SAFE FOR MYRON/MAL SOURCE REVIEW AND SEPARATE TEST DEPLOYMENT.

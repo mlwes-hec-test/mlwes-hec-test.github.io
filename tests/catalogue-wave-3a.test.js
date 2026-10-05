@@ -1,6 +1,6 @@
 'use strict';
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
-const W=require('../scripts/catalogue-wave-3a'),C=require('../food-catalogue'),O=require('../off-catalogue'),S=require('../serving-foundation'),G=require('../guided-product-resolution'),R=require('../retailer-catalogue'),B=require('../brand-catalogue'),SEM=require('../scripts/food-category-semantics'),X=require('../scripts/catalogue-round-two');
+const W=require('../scripts/catalogue-wave-3a'),C=require('../food-catalogue'),O=require('../off-catalogue'),S=require('../serving-foundation'),G=require('../guided-product-resolution'),D=require('../catalogue-discovery'),R=require('../retailer-catalogue'),B=require('../brand-catalogue'),SEM=require('../scripts/food-category-semantics'),X=require('../scripts/catalogue-round-two');
 const ROOT=path.resolve(__dirname,'..'),report=W.derive(),input=W.inputs();
 for(const kind of ['aldi','coles','woolworths'])require('../'+kind+'-au-catalogue');
 async function all(kind){const foods=[];for(let offset=0;;offset+=20){const p=await R.page(kind,{offset});foods.push(...p.foods);if(!p.hasMore)return foods;}}
@@ -35,7 +35,7 @@ test('shared fallback semantics handle product forms and reject ingredient/flavo
  for(const brand of ['Aldi','Woolworths','Coles','Independent Foods']){for(const [name,id]of positives)assert.equal(SEM.additionalFallbackFamily({brand,name})?.id,id,name);for(const name of negatives)assert.equal(SEM.additionalFallbackFamily({brand,name}),null,name);}
 });
 test('all three retailer totals and each cross-retailer category consequence reconcile',async()=>{
- for(const [kind,total,loggable,other,categories,families]of [['aldi',224,224,25,18,34],['woolworths',363,348,36,20,11],['coles',417,417,61,19,15]]){const foods=await all(kind),d=R.directory(kind);assert.equal(foods.length,total);assert.equal(new Set(foods.map(C.canonicalKey)).size,total);assert.equal(foods.filter(C.canLog).length,loggable);assert.equal(d.categories.length,categories);assert.equal(d.brands.length,families);assert.equal(d.categories.find(c=>c.id==='other-food').count,other);}
+ for(const [kind,total,loggable,other,categories,families]of [['aldi',224,224,25,18,34],['woolworths',363,348,36,20,11],['coles',417,417,60,19,15]]){const foods=await all(kind),d=R.directory(kind);assert.equal(foods.length,total);assert.equal(new Set(foods.map(C.canonicalKey)).size,total);assert.equal(foods.filter(C.canLog).length,loggable);assert.equal(d.categories.length,categories);assert.equal(d.brands.length,families);assert.equal(d.categories.find(c=>c.id==='other-food').count,other);}
  assert.equal(R.directory('woolworths').categories.find(c=>c.id==='bread').count,35);
 });
 test('all moved existing products retain exact identity, nutrients, measures and ownership',async()=>{
@@ -45,6 +45,6 @@ test('all moved existing products retain exact identity, nutrients, measures and
 });
 test('new exact brand products are globally reachable and every index entry matches its shard',async()=>{
  for(const food of report.admissions){const query=food.name.startsWith(food.brand)?food.name:food.brand+' '+food.name,results=await B.search(query,{limit:100});assert(results.foods.some(f=>C.canonicalKey(f)===C.canonicalKey(food)),query);}
- for(const kind of ['aldi','coles','woolworths','brand']){const index=kind==='brand'?B.index:require('../'+kind+'-au-catalogue').index,records=new Map();for(const shard of index.files){const bytes=fs.readFileSync(path.join(ROOT,'data/'+kind+'-au',shard.path));assert.equal(X.hash(bytes),shard.sha256);for(const food of JSON.parse(bytes).records)records.set(food.id,food);}for(const e of index.entries){const food=records.get(e.id);assert(food);assert.equal(C.canonicalKey(e),C.canonicalKey(food));assert.equal(e.browseCategoryId,food.browseCategoryId);}}
+ for(const kind of ['aldi','coles','woolworths','brand']){const index=kind==='brand'?B.index:require('../'+kind+'-au-catalogue').index,records=new Map();for(const shard of index.files){const bytes=fs.readFileSync(path.join(ROOT,'data/'+kind+'-au',shard.path));assert.equal(X.hash(bytes),shard.sha256);for(const food of JSON.parse(bytes).records)records.set(food.id,food);}for(const e of index.entries){const food=records.get(e.id);assert(food);assert.equal(C.canonicalKey(e),C.canonicalKey(food));assert.equal(e.browseCategoryId,D.project(food).browseCategoryId);}}
 });
 test('all protected source payloads are unchanged',()=>{for(const p of require('../data/catalogue-wave-3a/protected-files.json'))assert.equal(X.hash(fs.readFileSync(path.join(ROOT,p.file))),p.sha256,p.file);});

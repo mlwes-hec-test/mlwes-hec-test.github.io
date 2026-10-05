@@ -1,0 +1,5 @@
+{
+  "status": "interrupted",
+  "reason": "Shared navigation review identified the same stale history path for non-guided entries. Stopped before completion to make the transient Review exclusion apply to all exits, then rebuilt a coherent candidate.",
+  "generation": "d406c0a6af1defef53d7ac1c"
+}

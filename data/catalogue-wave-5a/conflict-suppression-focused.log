@@ -1,0 +1,166 @@
+✖ actual directory controller preserves the entire index set despite loaded manufacturer and retailer records (55135.6858ms)
+✔ failed generated shard loading cannot substitute a cached or manufacturer-only directory (12.906ms)
+✔ every generated brand directory has exactly its admitted identities across all pages and categories (22978.8237ms)
+✔ priority counts, source spellings, Hash Browns membership and exact products remain admitted (87.0529ms)
+✔ raw labels cannot grant admission; accepted manufacturer identities share brand discovery (448.8386ms)
+✔ retailer aliases reuse the admitted canonical GTIN without losing either membership (11.3861ms)
+✔ fresh brand hydration resolves retailer authority, retains OFF evidence and uses canonical Review nutrition (22.4327ms)
+✔ brand query families unite membership without merging variant nutrition identities (425.5181ms)
+✔ bare roots and specific product queries retain distinct ownership (6.6073ms)
+✔ reviewed unsafe beverage identities remain held across all canonical consumers (18.1899ms)
+✔ volume and energy audit 9313820004518 (2.332ms)
+✔ volume and energy audit 9313820016108 (2.9607ms)
+✔ volume and energy audit 9300675001410 (1.4695ms)
+✔ volume and energy audit 9300675011419 (1.7045ms)
+✔ volume and energy audit 9300675090667 (2.6197ms)
+✔ volume and energy audit 9310021039028 (2.2075ms)
+✔ volume and energy audit 9310077313011 (3.384ms)
+✔ mass, energy units, printed zero and Unknown remain distinct (4.9083ms)
+✔ food heads outrank ingredient words and unsupported snack-stick classification stays deferred (4.3004ms)
+✔ retailer totals, ownership, filtering, paging and category membership stay consistent (2678.19ms)
+✔ small catalogue navigation is adaptive and large catalogues stay bounded (0.262ms)
+✔ accepted local brand products cannot bypass conflicting same-GTIN retailer evidence (6.9155ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 21
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 81061.4793
+
+✖ failing tests:
+
+test at tests\brand-directory-admission.test.js:18:1
+✖ actual directory controller preserves the entire index set despite loaded manufacturer and retailer records (55135.6858ms)
+  AssertionError [ERR_ASSERTION]: mccain
+  + actual - expected
+  
+    [
+      'barcode:8710438129885',
+      'barcode:8710438130065',
+      'barcode:9310174001477',
+      'barcode:9310174002528',
+      'barcode:9310174002535',
+  -   'barcode:9310174002573',
+  -   'barcode:9310174002580',
+      'barcode:9310174002719',
+      'barcode:9310174003112',
+      'barcode:9310174006021',
+      'barcode:9310174006236',
+      'barcode:9310174022281',
+  
+      at TestContext.<anonymous> (C:\Users\mlwes\OneDrive\Documents\HEC Development\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\tests\brand-directory-admission.test.js:25:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [
+      'barcode:8710438129885',                                                                                  'barcode:8710438130065',
+      'barcode:9310174001477',                                                                                  'barcode:9310174002528',
+      'barcode:9310174002535',                                                                                  'barcode:9310174002719',
+      'barcode:9310174003112',                                                                                  'barcode:9310174006021',
+      'barcode:9310174006236',                                                                                  'barcode:9310174022281',
+      'barcode:9310174024346',                                                                                  'barcode:9310174024407',
+      'barcode:9310174024827',                                                                                  'barcode:9310174024872',
+      'barcode:9310174025084',                                                                                  'barcode:9310174076024',
+      'barcode:9310174094660',                                                                                  'barcode:9310174102730',
+      'barcode:9310174113866',                                                                                  'barcode:9310174121748',
+      'barcode:9310174132027',                                                                                  'barcode:9310174135349',
+      'barcode:9310174135431',                                                                                  'barcode:9310174151295',
+      'barcode:9310174151318',                                                                                  'barcode:9310174152148',
+      'barcode:9310174154128',                                                                                  'barcode:9310174166565',
+      'barcode:9310174170104',                                                                                  'barcode:9310174177646',
+      'barcode:9310386001456',                                                                                  'barcode:9310386001487',
+      'barcode:9416036006106',                                                                                  'barcode:9416036876013',
+      'manufacturer:mccain-au:apricot-chicken-350g',                                                            'manufacturer:mccain-au:baby-peas-500g',
+      'manufacturer:mccain-au:bangers-mash-500g',                                                               'manufacturer:mccain-au:bbq-chicken-pineapple-500g',
+      'manufacturer:mccain-au:bbq-meatlovers-family-pizza-500g',                                                'manufacturer:mccain-au:beef-bacon-pasta-bake-400g',
+      'manufacturer:mccain-au:broccoli-500g',                                                                   'manufacturer:mccain-au:brussel-sprouts-500g',
+      'manufacturer:mccain-au:butter-chicken-300g',                                                             'manufacturer:mccain-au:butter-chicken-480g',
+      'manufacturer:mccain-au:cauliflower-500g',                                                                'manufacturer:mccain-au:cheese-bacon-pizza-slices-600g',
+      'manufacturer:mccain-au:chicken-bacon-bake-480g',                                                         'manufacturer:mccain-au:chicken-kiev-480g',
+      'manufacturer:mccain-au:chilli-con-carne-480g',                                                           'manufacturer:mccain-au:country-greens-mixed-vegetables-1kg',
+      'manufacturer:mccain-au:curried-sausages-480g',                                                           'manufacturer:mccain-au:garden-greens-mixed-vegetables-500g',
+      'manufacturer:mccain-au:herb-parmesan-chicken-schnitzel-310g',                                            'manufacturer:mccain-au:honey-stir-fry-chicken-330g',
+      'manufacturer:mccain-au:lamb-cutlet-with-gravy-320g',                                                     'manufacturer:mccain-au:lasagne-400g',
+      'manufacturer:mccain-au:lemon-herb-chicken-350g',                                                         'manufacturer:mccain-au:lil-pizzas-cheesy-margherita-380g',
+      'manufacturer:mccain-au:margherita-family-pizza-500g',                                                    'manufacturer:mccain-au:mint-baby-peas-500g',
+      'manufacturer:mccain-au:mint-peas-1kg',                                                                   'manufacturer:mccain-au:parma-480g',
+      'manufacturer:mccain-au:peas-2kg',                                                                        'manufacturer:mccain-au:peas-corn-carrots-1kg',
+      'manufacturer:mccain-au:peas-corn-carrots-2kg',                                                           'manufacturer:mccain-au:peas-corn-carrots-500g',
+      'manufacturer:mccain-au:peas-super-juicy-corn-1kg',                                                       'manufacturer:mccain-au:pepperoni-family-pizza-490g',
+      'manufacturer:mccain-au:rich-beef-meatballs-with-creamy-mash-gravy-480g',                                 'manufacturer:mccain-au:roast-chicken-320g',
+      'manufacturer:mccain-au:roast-lamb-320g',                                                                 'manufacturer:mccain-au:seasonal-mixed-vegetables-1kg',
+      'manufacturer:mccain-au:sliced-beans-500g',                                                               'manufacturer:mccain-au:spaghetti-meatballs-500g',
+      'manufacturer:mccain-au:stir-fry-supreme-vegetables-1kg',                                                 'manufacturer:mccain-au:super-juicy-corn-kernels-1kg',
+      'manufacturer:mccain-au:super-juicy-corn-peas-baby-beans-1kg',                                            'manufacturer:mccain-au:supreme-family-pizza-500g',
+      'manufacturer:mccain-au:tomato-bacon-penne-300g',                                                         'manufacturer:mccain-au:tuna-mornay-400g',
+      'manufacturer:mccain-au:veal-cordon-bleu-320g',                                                           'manufacturer:mccain-au:winter-vegetables-1kg',
+      'supplemental:mccain-au:products-categories-potato-breakfast-air-fryer-hash-browns-525g',                 'supplemental:mccain-au:products-categories-potato-everyday-favourites-superfries-crinkle-cut-900g',
+      'supplemental:mccain-au:products-categories-potato-everyday-favourites-superfries-shoestring-900g',       'supplemental:mccain-au:products-categories-potato-everyday-favourites-superfries-shoestring-family-pack-2kg',
+      'supplemental:mccain-au:products-categories-potato-everyday-favourites-superfries-steak-cut-900g',        'supplemental:mccain-au:products-categories-potato-everyday-favourites-superfries-straight-cut-900g',
+      'supplemental:mccain-au:products-categories-potato-pub-favourites-pub-style-beer-batter-chunky-cut-750g', 'supplemental:mccain-au:products-categories-potato-pub-favourites-pub-style-beer-batter-shoestring-chips-750g',
+      'supplemental:mccain-au:products-categories-potato-pub-favourites-pub-style-beer-batter-steak-cut-750g',  'supplemental:mccain-au:products-categories-potato-pub-favourites-pub-style-beer-batter-wedges-750g',
+      'supplemental:mccain-au:products-categories-potato-pub-favourites-pub-style-crispy-broccoli-fries-500g',  'supplemental:mccain-au:products-categories-potato-pub-favourites-pub-style-crispy-cauliflower-fries-500g',
+      'supplemental:mccain-au:products-categories-potato-pub-favourites-pub-style-crispy-wedges-750g',          'supplemental:mccain-au:products-categories-potato-pub-favourites-pub-style-extra-crispy-fries-750g',
+      'supplemental:mccain-au:products-categories-potato-pub-favourites-pub-style-onion-rings-500g',            'supplemental:mccain-au:products-categories-potato-pub-favourites-pub-style-straight-fries-750g',
+      'supplemental:mccain-au:products-categories-potato-pub-favourites-sweet-potato-straight-cut-750g',        'supplemental:mccain-au:products-categories-potato-specialty-gluten-free-chips-750g',
+      ... 7 more items
+    ],
+    expected: [
+      'barcode:8710438129885',                                                                                  'barcode:8710438130065',
+      'barcode:9310174001477',                                                                                  'barcode:9310174002528',
+      'barcode:9310174002535',                                                                                  'barcode:9310174002573',
+      'barcode:9310174002580',                                                                                  'barcode:9310174002719',
+      'barcode:9310174003112',                                                                                  'barcode:9310174006021',
+      'barcode:9310174006236',                                                                                  'barcode:9310174022281',
+      'barcode:9310174024346',                                                                                  'barcode:9310174024407',
+      'barcode:9310174024827',                                                                                  'barcode:9310174024872',
+      'barcode:9310174025084',                                                                                  'barcode:9310174076024',
+      'barcode:9310174094660',                                                                                  'barcode:9310174102730',
+      'barcode:9310174113866',                                                                                  'barcode:9310174121748',
+      'barcode:9310174132027',                                                                                  'barcode:9310174135349',
+      'barcode:9310174135431',                                                                                  'barcode:9310174151295',
+      'barcode:9310174151318',                                                                                  'barcode:9310174152148',
+      'barcode:9310174154128',                                                                                  'barcode:9310174166565',
+      'barcode:9310174170104',                                                                                  'barcode:9310174177646',
+      'barcode:9310386001456',                                                                                  'barcode:9310386001487',
+      'barcode:9416036006106',                                                                                  'barcode:9416036876013',
+      'manufacturer:mccain-au:apricot-chicken-350g',                                                            'manufacturer:mccain-au:baby-peas-500g',
+      'manufacturer:mccain-au:bangers-mash-500g',                                                               'manufacturer:mccain-au:bbq-chicken-pineapple-500g',
+      'manufacturer:mccain-au:bbq-meatlovers-family-pizza-500g',                                                'manufacturer:mccain-au:beef-bacon-pasta-bake-400g',
+      'manufacturer:mccain-au:broccoli-500g',                                                                   'manufacturer:mccain-au:brussel-sprouts-500g',
+      'manufacturer:mccain-au:butter-chicken-300g',                                                             'manufacturer:mccain-au:butter-chicken-480g',
+      'manufacturer:mccain-au:cauliflower-500g',                                                                'manufacturer:mccain-au:cheese-bacon-pizza-slices-600g',
+      'manufacturer:mccain-au:chicken-bacon-bake-480g',                                                         'manufacturer:mccain-au:chicken-kiev-480g',
+      'manufacturer:mccain-au:chilli-con-carne-480g',                                                           'manufacturer:mccain-au:country-greens-mixed-vegetables-1kg',
+      'manufacturer:mccain-au:curried-sausages-480g',                                                           'manufacturer:mccain-au:garden-greens-mixed-vegetables-500g',
+      'manufacturer:mccain-au:herb-parmesan-chicken-schnitzel-310g',                                            'manufacturer:mccain-au:honey-stir-fry-chicken-330g',
+      'manufacturer:mccain-au:lamb-cutlet-with-gravy-320g',                                                     'manufacturer:mccain-au:lasagne-400g',
+      'manufacturer:mccain-au:lemon-herb-chicken-350g',                                                         'manufacturer:mccain-au:lil-pizzas-cheesy-margherita-380g',
+      'manufacturer:mccain-au:margherita-family-pizza-500g',                                                    'manufacturer:mccain-au:mint-baby-peas-500g',
+      'manufacturer:mccain-au:mint-peas-1kg',                                                                   'manufacturer:mccain-au:parma-480g',
+      'manufacturer:mccain-au:peas-2kg',                                                                        'manufacturer:mccain-au:peas-corn-carrots-1kg',
+      'manufacturer:mccain-au:peas-corn-carrots-2kg',                                                           'manufacturer:mccain-au:peas-corn-carrots-500g',
+      'manufacturer:mccain-au:peas-super-juicy-corn-1kg',                                                       'manufacturer:mccain-au:pepperoni-family-pizza-490g',
+      'manufacturer:mccain-au:rich-beef-meatballs-with-creamy-mash-gravy-480g',                                 'manufacturer:mccain-au:roast-chicken-320g',
+      'manufacturer:mccain-au:roast-lamb-320g',                                                                 'manufacturer:mccain-au:seasonal-mixed-vegetables-1kg',
+      'manufacturer:mccain-au:sliced-beans-500g',                                                               'manufacturer:mccain-au:spaghetti-meatballs-500g',
+      'manufacturer:mccain-au:stir-fry-supreme-vegetables-1kg',                                                 'manufacturer:mccain-au:super-juicy-corn-kernels-1kg',
+      'manufacturer:mccain-au:super-juicy-corn-peas-baby-beans-1kg',                                            'manufacturer:mccain-au:supreme-family-pizza-500g',
+      'manufacturer:mccain-au:tomato-bacon-penne-300g',                                                         'manufacturer:mccain-au:tuna-mornay-400g',
+      'manufacturer:mccain-au:veal-cordon-bleu-320g',                                                           'manufacturer:mccain-au:winter-vegetables-1kg',
+      'supplemental:mccain-au:products-categories-potato-breakfast-air-fryer-hash-browns-525g',                 'supplemental:mccain-au:products-categories-potato-everyday-favourites-superfries-crinkle-cut-900g',
+      'supplemental:mccain-au:products-categories-potato-everyday-favourites-superfries-shoestring-900g',       'supplemental:mccain-au:products-categories-potato-everyday-favourites-superfries-shoestring-family-pack-2kg',
+      'supplemental:mccain-au:products-categories-potato-everyday-favourites-superfries-steak-cut-900g',        'supplemental:mccain-au:products-categories-potato-everyday-favourites-superfries-straight-cut-900g',
+      'supplemental:mccain-au:products-categories-potato-pub-favourites-pub-style-beer-batter-chunky-cut-750g', 'supplemental:mccain-au:products-categories-potato-pub-favourites-pub-style-beer-batter-shoestring-chips-750g',
+      'supplemental:mccain-au:products-categories-potato-pub-favourites-pub-style-beer-batter-steak-cut-750g',  'supplemental:mccain-au:products-categories-potato-pub-favourites-pub-style-beer-batter-wedges-750g',
+      'supplemental:mccain-au:products-categories-potato-pub-favourites-pub-style-crispy-broccoli-fries-500g',  'supplemental:mccain-au:products-categories-potato-pub-favourites-pub-style-crispy-cauliflower-fries-500g',
+      'supplemental:mccain-au:products-categories-potato-pub-favourites-pub-style-crispy-wedges-750g',          'supplemental:mccain-au:products-categories-potato-pub-favourites-pub-style-extra-crispy-fries-750g',
+      'supplemental:mccain-au:products-categories-potato-pub-favourites-pub-style-onion-rings-500g',            'supplemental:mccain-au:products-categories-potato-pub-favourites-pub-style-straight-fries-750g',
+      ... 9 more items
+    ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

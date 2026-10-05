@@ -1,0 +1,48 @@
+{
+  "argv": [
+    "C:\\Users\\mlwes\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+    "tests/catalogue-wave-2a.test.js",
+    "tests/catalogue-wave-3a.test.js",
+    "tests/catalogue-wave-4a.test.js"
+  ],
+  "start": {
+    "rss": 40562688,
+    "heapTotal": 6807552,
+    "heapUsed": 5571600,
+    "external": 2522776,
+    "arrayBuffers": 137679
+  },
+  "end": {
+    "rss": 45174784,
+    "heapTotal": 9428992,
+    "heapUsed": 6582304,
+    "external": 2633917,
+    "arrayBuffers": 173646
+  },
+  "peak": {
+    "rss": 45174784,
+    "heapTotal": 9428992,
+    "heapUsed": 6598920,
+    "external": 2644996,
+    "arrayBuffers": 184725
+  },
+  "samples": 37,
+  "usage": {
+    "userCPUTime": 265000,
+    "systemCPUTime": 140000,
+    "maxRSS": 44152,
+    "sharedMemorySize": 0,
+    "unsharedDataSize": 0,
+    "unsharedStackSize": 0,
+    "minorPageFault": 0,
+    "majorPageFault": 12557,
+    "swappedOut": 0,
+    "fsRead": 172,
+    "fsWrite": 42,
+    "ipcSent": 0,
+    "ipcReceived": 0,
+    "signalsCount": 0,
+    "voluntaryContextSwitches": 0,
+    "involuntaryContextSwitches": 0
+  }
+}

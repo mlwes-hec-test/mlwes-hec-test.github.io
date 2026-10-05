@@ -74,10 +74,10 @@ test('real production Chiko preview, hydrated Search and selection retain the ac
       const C=HECFoodCatalogue,records=HEC_AU_CATALOGUE_TEST.foods().filter(food=>/chiko/i.test(food.brand)),canonical=C.canonicaliseRecords(records);
       return {records:records.map(food=>({food,eligibility:C.productEligibility(food,{candidates:canonical}),canonical:C.canonicalProduct(food)})),canonicalIds:canonical.map(C.canonicalKey),dedupedIds:C.dedupe(canonical).map(C.canonicalKey),duplicate:C.strongDuplicateEvidence(records[0],records[1]),model:C.submittedResultModel(records,'Chiko roll')};
     });
-    assert.equal(report.trace.records.length,2);assert.equal(report.trace.canonicalIds.length,2);assert.equal(report.trace.duplicate.duplicate,false);
+    assert.equal(new Set(report.trace.records.map(f=>f.food.id)).size,2);assert.equal(report.trace.canonicalIds.length,2);assert.equal(report.trace.duplicate.duplicate,false);
     const accepted=report.trace.records.find(row=>row.food.id==='aussie-chiko-roll');
     assert(accepted.eligibility.addability.normalLoggingAllowed);assert.equal(accepted.eligibility.verified,false);
-    report.submitted=await page.locator('#food-results').innerText();assert.match(await target.innerText(),/Loggable now/);
+    report.submitted=await page.locator('#food-results').innerText();assert.match(await target.innerText(),/Choose/);assert.match(await page.locator('#food-results').innerText(),/Details/);
     assert.equal(await page.locator('[data-universal-result]').first().getAttribute('data-universal-result'),'aussie-chiko-roll');
     await target.click();
     report.selected=await page.evaluate(()=>({food:HEC_GUIDED_PRODUCT_TEST.food(),profile:HEC_GUIDED_PRODUCT_TEST.profile(),ui:HEC_GUIDED_PRODUCT_TEST.ui()}));

@@ -1,0 +1,46 @@
+{
+  "argv": [
+    "C:\\Users\\mlwes\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+    "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\tests\\guided-product-resolution.test.js"
+  ],
+  "start": {
+    "rss": 44068864,
+    "heapTotal": 6283264,
+    "heapUsed": 4222016,
+    "external": 1626770,
+    "arrayBuffers": 137503
+  },
+  "end": {
+    "rss": 66424832,
+    "heapTotal": 22962176,
+    "heapUsed": 16497016,
+    "external": 2658099,
+    "arrayBuffers": 137679
+  },
+  "peak": {
+    "rss": 66424832,
+    "heapTotal": 22962176,
+    "heapUsed": 16497016,
+    "external": 2658099,
+    "arrayBuffers": 137679
+  },
+  "samples": 0,
+  "usage": {
+    "userCPUTime": 296000,
+    "systemCPUTime": 140000,
+    "maxRSS": 65612,
+    "sharedMemorySize": 0,
+    "unsharedDataSize": 0,
+    "unsharedStackSize": 0,
+    "minorPageFault": 0,
+    "majorPageFault": 19024,
+    "swappedOut": 0,
+    "fsRead": 204,
+    "fsWrite": 260,
+    "ipcSent": 0,
+    "ipcReceived": 0,
+    "signalsCount": 0,
+    "voluntaryContextSwitches": 0,
+    "involuntaryContextSwitches": 0
+  }
+}

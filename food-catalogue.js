@@ -163,6 +163,8 @@
       for(const [key,value] of Object.entries(values)){if(value!=null&&(!Number.isFinite(Number(value))||Number(value)<0))conflicts.push({code:'invalid-nutrient-value',field:'nutrition',severity:'material',evidence:{basis,key,value}});}
       for(const [part,total] of [['sugar','carbs'],['satFat','fat']])if(values[part]!=null&&values[total]!=null&&Number(values[part])>Number(values[total])+.2)conflicts.push({code:'nutrient-component-exceeds-total',field:'nutrition',severity:'material',evidence:{basis,part,total,partValue:values[part],totalValue:values[total]}});
     }
+    const discovery=global.HECCatalogueDiscovery||(typeof require==='function'?require('./catalogue-discovery'):null);
+    if(discovery?.readyToDrink(food)){const values=food.nutrients||{},cal=values.calories,kj=values.energyKj;if(cal!=null&&kj!=null&&Math.abs(Number(cal)*4.184-Number(kj))>Math.max(2,Math.max(Number(cal)*4.184,Number(kj))*.05))conflicts.push({code:'energy-unit-conflict',field:'nutrition',severity:'material',evidence:{calories:cal,energyKj:kj}});if(/\bzero sugar\b/.test(norm(food.name))&&Number(values.sugar)>1)conflicts.push({code:'sugar-identity-conflict',field:'nutrition',severity:'material',evidence:{sugar:values.sugar}});}
     return [...new Map(conflicts.map(value=>[JSON.stringify(value),value])).values()];
   }
   // Serving evaluation is pure but builds and sanitizes a complete measure
@@ -188,6 +190,8 @@
   function productEligibility(food,{candidates=[],profile=null}={}){
     const identity=food?canonicalKey(food):null,evidence=sourceEvidence(food),central=servingFoundation(),base=central?.evaluateAddability?catalogueAddability(food,central,profile):{status:food&&hasEnergy(food)?'loggable-now':'details-only',normalLoggingAllowed:!!food&&hasEnergy(food)},quality=exactProductQuality(food,{candidates}),conflicts=sourceConflicts(food);
     let decision=base;
+    const discovery=global.HECCatalogueDiscovery||(typeof require==='function'?require('./catalogue-discovery'):null),hold=discovery?.holds[food?.barcode];
+    if(hold)decision={status:'needs-nutrition-completion',label:'Nutrition needs review',reasonCode:'reviewed-beverage-hold',message:hold,normalLoggingAllowed:false,actions:[{id:'details',label:'Details'}]};
     if(conflicts.some(item=>item.severity==='material'&&(!item.resolution||item.resolution==='unresolved')))decision={status:'needs-nutrition-completion',label:'Needs Nutrition Completion',reasonCode:'source-conflict',message:'Published serving or nutrition evidence disagrees. Review the source evidence before logging.',actions:[{id:'complete',label:'Complete Nutrition'}],normalLoggingAllowed:false};
     if(conflicts.some(item=>item.code==='same-gtin-identity-conflict'&&item.resolution==='unresolved'))decision={status:'needs-nutrition-completion',label:'Product Identity Conflict',reasonCode:'identity-conflict',message:'Sources disagree about this product identity or pack. Review the evidence before logging.',actions:[{id:'details',label:'View Details'}],normalLoggingAllowed:false};
     const product=[RECORD_TYPES.PACKAGED,RECORD_TYPES.EXTERNAL,RECORD_TYPES.ONLINE,RECORD_TYPES.FOOD_SOURCE].includes(recordType(food));
@@ -329,9 +333,12 @@
     // the product identity. Remove only the restaurant alias from that query.
     const restaurant=REG?.primary?.(raw,['restaurant']);
     if(restaurant)return {kind:'product',query:raw,normalised:normal,entity:restaurant.entity,productQuery:(` ${normal} `).replace(` ${norm(restaurant.matchedAlias)} `,' ').trim(),reason:'restaurant-plus-product'};
-    if(global.HECFoodSources?.hasQueryFamily?.(raw)||global.HECFoodSources?.hasQueryFamily?.(SEARCH.parseQuery(raw).food)||SEARCH?.interpretFoodIntent?.(raw)?.generic)return {kind:'product',query:raw,normalised:normal,entity:null,productQuery:raw,reason:'declared-food-identity'};
+    if(SEARCH?.interpretFoodIntent?.(raw)?.generic)return {kind:'product',query:raw,normalised:normal,entity:null,productQuery:raw,reason:'declared-food-identity'};
+    const discovery=global.HECCatalogueDiscovery||(typeof require==='function'?require('./catalogue-discovery'):null),declaredProduct=discovery?.products.find(f=>[f.name,...(f.aliases||[])].some(alias=>norm(alias)===normal));
+    if(declaredProduct)return {kind:'product',query:raw,normalised:normal,entity:brandIdentity(declaredProduct.brand),productQuery:raw,reason:'declared-product-identity'};
     const indexed=brandIdentity(raw);
     if(indexed)return {kind:'brand-family',query:raw,normalised:normal,entity:indexed,productQuery:'',reason:'indexed-brand-only'};
+    if(global.HECFoodSources?.hasQueryFamily?.(raw)||global.HECFoodSources?.hasQueryFamily?.(SEARCH.parseQuery(raw).food))return {kind:'product',query:raw,normalised:normal,entity:null,productQuery:raw,reason:'declared-food-identity'};
     const indexedPrefix=brandPrefix(raw),match=REG?.primary?.(raw,types)||null,residual=String(REG?.stripRecognisedEntities?.(raw)??raw).trim();
     if(indexedPrefix&&(!match||match.entity.type==='brand'&&norm(indexedPrefix.entity.name).length>norm(match.matchedAlias).length))return {kind:'product',query:raw,normalised:normal,entity:indexedPrefix.entity,productQuery:indexedPrefix.residual,reason:'indexed-brand-plus-product'};
     return {kind:'product',query:raw,normalised:normal,entity:match?.entity||null,productQuery:residual||raw,reason:match?'entity-plus-product':'product'};

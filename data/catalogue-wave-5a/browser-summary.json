@@ -1,0 +1,24 @@
+{
+  "pass": true,
+  "generation": "dc2b4d1c237c935f8b864c6a",
+  "viewports": [
+    "390x844",
+    "375x812",
+    "320x568"
+  ],
+  "searchProbes": 63,
+  "navigationChecks": 6,
+  "brandFilterAndPaging": true,
+  "lateResult": "Berg",
+  "localResponses": 716,
+  "liveFallthrough": 0,
+  "applicationErrors": 0,
+  "blockedExternalRequests": 2,
+  "limitation": "Headless Edge phone-width and reduced-viewport checks; no physical iPhone keyboard or installed-PWA testing.",
+  "screenshotsReviewed": [
+    "320-Pepsi.png",
+    "320-IGA.png",
+    "375-review.png"
+  ],
+  "fullEvidence": "rendered-complete/rendered.json"
+}

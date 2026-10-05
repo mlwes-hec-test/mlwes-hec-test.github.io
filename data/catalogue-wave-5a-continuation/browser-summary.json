@@ -1,0 +1,34 @@
+{
+  "pass": true,
+  "generation": "55fa50a815871079fbb5e674",
+  "viewports": [
+    {
+      "width": 390,
+      "height": 844
+    },
+    {
+      "width": 375,
+      "height": 812
+    },
+    {
+      "width": 320,
+      "height": 568
+    }
+  ],
+  "discoveryQueries": 63,
+  "discoveryNavigation": 6,
+  "restaurantProbes": 51,
+  "restaurantReviewCancelFlows": 42,
+  "familyScenarios": 60,
+  "localResponses": 1388,
+  "liveFallthrough": 0,
+  "requiredAssetFailures": [],
+  "pageErrors": [],
+  "lateOwner": "Berg",
+  "keyboardScope": "Reduced-height viewport emulation; no physical iPhone keyboard test",
+  "visualInspection": [
+    "rendered/320-Pepsi.png",
+    "rendered/375-review.png",
+    "restaurant-navigation-verified/320-shake-review.png"
+  ]
+}

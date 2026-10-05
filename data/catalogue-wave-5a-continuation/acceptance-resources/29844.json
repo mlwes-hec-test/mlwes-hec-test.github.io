@@ -1,0 +1,46 @@
+{
+  "argv": [
+    "C:\\Users\\mlwes\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+    "C:\\Users\\mlwes\\OneDrive\\Documents\\HEC Development\\Healthy_Eating_Companion_Founder_Trial_Alpha_0_6_32\\tests\\physical-form-measure-compatibility.test.js"
+  ],
+  "start": {
+    "rss": 44105728,
+    "heapTotal": 6283264,
+    "heapUsed": 4222040,
+    "external": 1626770,
+    "arrayBuffers": 137503
+  },
+  "end": {
+    "rss": 168058880,
+    "heapTotal": 130486272,
+    "heapUsed": 79992640,
+    "external": 7316030,
+    "arrayBuffers": 2943629
+  },
+  "peak": {
+    "rss": 208797696,
+    "heapTotal": 145158144,
+    "heapUsed": 100195384,
+    "external": 40713377,
+    "arrayBuffers": 18535811
+  },
+  "samples": 13,
+  "usage": {
+    "userCPUTime": 1953000,
+    "systemCPUTime": 562000,
+    "maxRSS": 217864,
+    "sharedMemorySize": 0,
+    "unsharedDataSize": 0,
+    "unsharedStackSize": 0,
+    "minorPageFault": 0,
+    "majorPageFault": 104206,
+    "swappedOut": 0,
+    "fsRead": 1930,
+    "fsWrite": 373,
+    "ipcSent": 0,
+    "ipcReceived": 0,
+    "signalsCount": 0,
+    "voluntaryContextSwitches": 0,
+    "involuntaryContextSwitches": 0
+  }
+}

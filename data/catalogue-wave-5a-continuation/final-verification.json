@@ -1,0 +1,45 @@
+{
+  "pass": true,
+  "verifiedAt": "2026-10-05T01:16:08.783Z",
+  "baseline": "365ceef537f15c0550ffd16b9b9221b0e60187e6",
+  "branch": "alpha-0.6.33",
+  "generation": "55fa50a815871079fbb5e674",
+  "gates": {
+    "focused-complete-result.json": {
+      "pass": true,
+      "tests": 454,
+      "sha256": "7928027b3dc9ca21608437501c5830feadffda84ce16e0d1c077c5e5981767d4"
+    },
+    "navigation-final-result.json": {
+      "pass": true,
+      "tests": 31,
+      "sha256": "b58af0a742e47e027e1041e9f9855e0d5ea42336122b33547ae37486fc61d21a"
+    },
+    "rendered/rendered.json": {
+      "pass": true,
+      "tests": null,
+      "sha256": "57b8505dad694d8f7ca0535437f6258d1f142b90d96c182e1f216a502ee8f456"
+    },
+    "restaurant-navigation-verified/rendered.json": {
+      "pass": true,
+      "tests": null,
+      "sha256": "acf3f0c65ead720e83d324cb76ef986d39b0ffeb51f66d3bce1028b28f1e6b99"
+    },
+    "restaurant-family-gate.json": {
+      "pass": true,
+      "tests": null,
+      "sha256": "fc1956dd8a257135183de1f6ff8051b93a064df8def8997ba65a81355fd92555"
+    },
+    "acceptance-result.json": {
+      "pass": true,
+      "tests": 1159,
+      "sha256": "7896841ea963417d3d46349476d1cadc7ede7352f447b53ef8a52d7cac48de0f"
+    }
+  },
+  "protectedFiles": 2441,
+  "originalEvidenceFiles": 168,
+  "onlyIntendedChanges": true,
+  "files": 455,
+  "noPush": true,
+  "noDeployment": true
+}

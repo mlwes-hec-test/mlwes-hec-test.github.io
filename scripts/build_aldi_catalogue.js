@@ -46,7 +46,7 @@ function derive(){
     return {input,record,item,food,eligibility};
   });return {policy,rows};
 }
-function outputs(){
+function baseOutputs(){
   const {policy,rows}=derive(),approved=rows.filter(r=>r.food.browseEligible).sort((a,b)=>policy.categories.findIndex(c=>c.id===a.item.categoryId)-policy.categories.findIndex(c=>c.id===b.item.categoryId)||a.record.name.localeCompare(b.record.name,'en')||a.record.barcode.localeCompare(b.record.barcode)),out={},entries=[],files=[];
   const categories=policy.categories.filter(c=>approved.some(r=>r.item.categoryId===c.id));
   for(let i=0;i<approved.length;i+=8){const file='products/'+String(i/8).padStart(2,'0')+'.json',records=approved.slice(i,i+8).map(r=>r.food),raw=JSON.stringify({attribution:policy.licence,records})+'\n';out[file]=raw;files.push({path:file,sha256:hash(raw),records:records.length});for(const f of records)entries.push(Object.fromEntries(['id','barcode','recordType','market','brand','name','aliases','conceptIds','retailerMemberships','browseEligible'].map(k=>[k,f[k]]).concat([['shard',file]])));}
@@ -55,6 +55,7 @@ function outputs(){
   const report={admissionPool:rows.length,approved:approved.length,excluded:rows.length-approved.length,categories:categories.map(c=>({...c,count:approved.filter(r=>r.item.categoryId===c.id).length})),allItems:approved.length,exclusionReasons:rows.filter(r=>!r.food.browseEligible).reduce((a,r)=>(a[r.item.excludeReason]=(a[r.item.excludeReason]||0)+1,a),{}),products:rows.map(({record,item,food,eligibility})=>({id:record.id,name:record.name,brand:record.brand,gtin:record.barcode,categoryId:item.categoryId,approved:food.browseEligible,review:food.reviewState,eligibility:eligibility.addability,pack:food.packIdentity,serving:food.sourceServing,measures:food.units,measureLabels:food.unitLabels,quarantinedMeasures:food.quarantinedMeasures||[],nutritionIntegrity:food.nutritionIntegrity,conflicts:C.sourceConflicts(food)}))};
   out['review-manifest.json']=JSON.stringify(report,null,2)+'\n';return require('./catalogue-round-three').augment(require('./catalogue-round-two').augment(out,'aldi'),'aldi');
 }
+function outputs(){return require('./catalogue-discovery-index').augment(baseOutputs(),'aldi');}
 function build({check=false}={}){const out=outputs();for(const [relative,raw] of Object.entries(out)){const file=path.resolve(base,relative);if(check)assert.equal(fs.readFileSync(file,'utf8'),raw,'Stale generated Aldi output: '+relative);else{fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,raw);}}return JSON.parse(out['review-manifest.json']);}
 if(require.main===module){const at=process.argv.indexOf('--evidence');if(at>=0)console.log(JSON.stringify(verifyEvidence(process.argv[at+1])));const report=build({check:process.argv.includes('--check')});console.log(JSON.stringify({pool:report.admissionPool,approved:report.approved,excluded:report.excluded,categories:report.categories}));}
 module.exports={pool,projection,verifyEvidence,derive,outputs,build};

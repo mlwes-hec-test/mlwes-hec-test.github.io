@@ -1,0 +1,30 @@
+✔ actual directory controller preserves the entire index set despite loaded manufacturer and retailer records (151377.2169ms)
+✔ failed generated shard loading cannot substitute a cached or manufacturer-only directory (45.9896ms)
+✔ every generated brand directory has exactly its admitted identities across all pages and categories (30599.7989ms)
+✔ priority counts, source spellings, Hash Browns membership and exact products remain admitted (87.0919ms)
+✔ raw labels cannot grant admission; accepted manufacturer identities share brand discovery (412.0243ms)
+✔ retailer aliases reuse the admitted canonical GTIN without losing either membership (12.5201ms)
+✔ fresh brand hydration resolves retailer authority, retains OFF evidence and uses canonical Review nutrition (28.2247ms)
+✔ brand query families unite membership without merging variant nutrition identities (425.418ms)
+✔ bare roots and specific product queries retain distinct ownership (3.2044ms)
+✔ reviewed unsafe beverage identities remain held across all canonical consumers (13.0398ms)
+✔ volume and energy audit 9313820004518 (3.1714ms)
+✔ volume and energy audit 9313820016108 (3.0752ms)
+✔ volume and energy audit 9300675001410 (1.9501ms)
+✔ volume and energy audit 9300675011419 (1.7285ms)
+✔ volume and energy audit 9300675090667 (2.6107ms)
+✔ volume and energy audit 9310021039028 (2.4496ms)
+✔ volume and energy audit 9310077313011 (2.7837ms)
+✔ mass, energy units, printed zero and Unknown remain distinct (3.0232ms)
+✔ food heads outrank ingredient words and unsupported snack-stick classification stays deferred (1.424ms)
+✔ retailer totals, ownership, filtering, paging and category membership stay consistent (2794.3298ms)
+✔ small catalogue navigation is adaptive and large catalogues stay bounded (0.2726ms)
+✔ accepted local brand products cannot bypass conflicting same-GTIN retailer evidence (16.1295ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 185142.0177

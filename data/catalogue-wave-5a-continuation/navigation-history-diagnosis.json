@@ -1,0 +1,8 @@
+{
+  "classification": "A",
+  "originalFailure": 14,
+  "initialClassification": "C for the ambiguous Back locator; further execution revealed this production history defect",
+  "cause": "The moved footer Back now survives alpha064 installNavigation. Its Wave 5A handler called openFeature(food-library), which the navigation observer recorded as a forward transition from Review. A later global Back could reopen that cancelled Review.",
+  "repair": "The shared navigation returnTo API consumes the existing destination entry and removes abandoned current-screen entries before returning. Guided Review Back and Cancel both use it. Search query/filter/meal restoration remains in the existing discovery controller. The screen-history observer also treats every food Review as transient, covering non-guided footer exits.",
+  "validation": "Live-prefix flow retains final Back-to-Home assertion; all restaurant mobile probes now also require later Back to Diary and no reopened Review. A VM history test covers Home and Diary origins plus ordinary Review exits; the live Banana flow must Back to Home, not merely click Home."
+}

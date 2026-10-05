@@ -1,0 +1,236 @@
+{
+  "preparedBeforeProductionEdits": true,
+  "classes": {
+    "A": "Genuine Wave 5A production regression",
+    "B": "Obsolete intended-contract expectation",
+    "C": "Harness/fixture defect",
+    "D": "Resource/execution failure, behaviour unproven",
+    "E": "Pre-existing limitation"
+  },
+  "failures": [
+    {
+      "number": 1,
+      "test": "aldi-source.test.js",
+      "assertion": "tampered hydrated community evidence fails closed",
+      "classification": "C",
+      "candidateBehaviour": "Expected hydration rejection; current A-Z first page has collection-only products whose empty store-membership arrays were unchanged by the fixture.",
+      "baselineBehaviour": "Original insertion-ordered first page reached the deliberately tampered community rows.",
+      "evidence": "../catalogue-wave-5a/acceptance.log and inspected production/test source",
+      "proposedAction": "Target an evidenced community identity explicitly; retain fail-closed assertion.",
+      "resolution": "Fixture now targets the community bread identity explicitly; fail-closed hydration is still required.",
+      "validation": "PASS: focused 454/454 and complete SOURCE acceptance 1159/1159, generation 55fa50a815871079fbb5e674"
+    },
+    {
+      "number": 2,
+      "test": "canonical-search-identity-consistency.test.js",
+      "assertion": "Chiko raw record count",
+      "classification": "C",
+      "candidateBehaviour": "Three cache entries represent two canonical identities; the accepted local record occurs twice after shared brand hydration.",
+      "baselineBehaviour": "Two raw entries previously; canonical identities and accepted roll nutrition still two/unchanged.",
+      "evidence": "chiko-diagnosis.json",
+      "proposedAction": "Assert canonical identities and unique source IDs, then new Details card contract and unchanged 162 g/313 Cal Review.",
+      "resolution": "Canonical two-identity assertion replaces raw cache-entry length; exact roll portion/nutrition and Review retained.",
+      "validation": "PASS: focused 454/454 and complete SOURCE acceptance 1159/1159, generation 55fa50a815871079fbb5e674"
+    },
+    {
+      "number": 3,
+      "test": "catalogue-round-two.test.js",
+      "assertion": "all admitted expansion identities are loggable",
+      "classification": "B",
+      "candidateBehaviour": "Reviewed unsafe Coke Zero GTIN is now held as authorised.",
+      "baselineBehaviour": "Original accepted snapshot allowed the record.",
+      "evidence": "../catalogue-wave-5a/acceptance.log and inspected production/test source",
+      "proposedAction": "Assert exact reviewed hold set and continued source provenance, not universal loggability.",
+      "resolution": "Exact three reviewed holds asserted; all other expansion products remain eligible.",
+      "validation": "PASS: focused 454/454 and complete SOURCE acceptance 1159/1159, generation 55fa50a815871079fbb5e674"
+    },
+    {
+      "number": 4,
+      "test": "catalogue-round-two.test.js",
+      "assertion": "ordinary card displays barcode",
+      "classification": "B",
+      "candidateBehaviour": "Technical barcode moved behind Details.",
+      "baselineBehaviour": "Ordinary card printed barcode.",
+      "evidence": "../catalogue-wave-5a/acceptance.log and inspected production/test source",
+      "proposedAction": "Assert Details action and preserved backend barcode; no null barcode output.",
+      "resolution": "Choose/Details card contract verified with barcode retained in the product object.",
+      "validation": "PASS: focused 454/454 and complete SOURCE acceptance 1159/1159, generation 55fa50a815871079fbb5e674"
+    },
+    {
+      "number": 5,
+      "test": "catalogue-search-intelligence.test.js",
+      "assertion": "focused keyboard handler preserves caret",
+      "classification": "C",
+      "candidateBehaviour": "Whole-file regex catches new filter caret restoration, not Food Search caret mutation.",
+      "baselineBehaviour": "Search input must not reset its caret while typing.",
+      "evidence": "../catalogue-wave-5a/acceptance.log and inspected production/test source",
+      "proposedAction": "Scope assertion to search handler; test filter caret/context separately.",
+      "resolution": "Only internal-filter caret restoration excluded; Food Search no-reset invariant retained.",
+      "validation": "PASS: focused 454/454 and complete SOURCE acceptance 1159/1159, generation 55fa50a815871079fbb5e674"
+    },
+    {
+      "number": 6,
+      "test": "catalogue-search-regression-recovery.test.js",
+      "assertion": "mobile safeguards stable caret",
+      "classification": "C",
+      "candidateBehaviour": "Same overbroad whole-file caret assertion.",
+      "baselineBehaviour": "Existing typing invariant remains.",
+      "evidence": "../catalogue-wave-5a/acceptance.log and inspected production/test source",
+      "proposedAction": "Keep bounded choices and unresolved-action guards; scope caret check.",
+      "resolution": "Same scoped caret correction; mobile bounds and unresolved-action guards retained.",
+      "validation": "PASS: focused 454/454 and complete SOURCE acceptance 1159/1159, generation 55fa50a815871079fbb5e674"
+    },
+    {
+      "number": 7,
+      "test": "catalogue-wave-2a.test.js",
+      "assertion": "test file terminated",
+      "classification": "D",
+      "candidateBehaviour": "No trustworthy per-test completion recorded. Static inspection finds stale projection/count comparisons; resource cause not yet proven.",
+      "baselineBehaviour": "Historical wave report and accepted source facts passed on committed baseline.",
+      "evidence": "../catalogue-wave-5a/acceptance.log and inspected production/test source",
+      "proposedAction": "Run isolated with resource sampling and compact per-identity assertions; independently reconcile actual deltas.",
+      "resolution": "Completed isolated; historical moves plus explicit display projection reconciled; source/fact/hash checks retained.",
+      "validation": "PASS: focused 454/454 and complete SOURCE acceptance 1159/1159, generation 55fa50a815871079fbb5e674"
+    },
+    {
+      "number": 8,
+      "test": "catalogue-wave-3a.test.js",
+      "assertion": "retailer category totals",
+      "classification": "B",
+      "candidateBehaviour": "Coles Other count is 60 versus historical 61 because Hummus Chips projects to Snacks. Separate diagnostic also found incorrect compound-food overrides.",
+      "baselineBehaviour": "Historical category counts; total/eligibility/ownership unchanged.",
+      "evidence": "diagnosis.json",
+      "proposedAction": "Preserve justified delta, repair compound guards before asserting recalculated categories.",
+      "resolution": "Fresh totals show only approved ham and hummus-chip deltas; compound-food regressions repaired.",
+      "validation": "PASS: focused 454/454 and complete SOURCE acceptance 1159/1159, generation 55fa50a815871079fbb5e674"
+    },
+    {
+      "number": 9,
+      "test": "catalogue-wave-3a.test.js",
+      "assertion": "index entry equals raw shard category",
+      "classification": "B",
+      "candidateBehaviour": "Index now holds intentional display projection; raw source metadata stays unchanged.",
+      "baselineBehaviour": "Index and raw category matched before presentation projection.",
+      "evidence": "../catalogue-wave-5a/acceptance.log and inspected production/test source",
+      "proposedAction": "Compare index to shared projection; keep source hash/identity checks.",
+      "resolution": "Index matches shared display projection; raw shard hashes and canonical IDs still match.",
+      "validation": "PASS: focused 454/454 and complete SOURCE acceptance 1159/1159, generation 55fa50a815871079fbb5e674"
+    },
+    {
+      "number": 10,
+      "test": "catalogue-wave-4a.test.js",
+      "assertion": "test file OOM termination",
+      "classification": "D",
+      "candidateBehaviour": "Node reports Committing semi space failed, heap about 61 MB under external memory pressure; whole-catalogue deep diff plus overlapping suites must be investigated.",
+      "baselineBehaviour": "Existing browser audit closes browser in finally; this test file itself does not launch a browser.",
+      "evidence": "../catalogue-wave-5a/acceptance.log and inspected production/test source",
+      "proposedAction": "Measure isolated process and eliminate giant failure payloads without weakening per-record assertions; run controlled concurrency.",
+      "resolution": "Completed isolated without OOM; per-identity full-fact comparison replaces giant array diff; memory evidence supports concurrency 1.",
+      "validation": "PASS: focused 454/454 and complete SOURCE acceptance 1159/1159, generation 55fa50a815871079fbb5e674"
+    },
+    {
+      "number": 11,
+      "test": "hungry-jacks-australia-expansion.test.js",
+      "assertion": "Biscoff Shake Small eligibility",
+      "classification": "A",
+      "candidateBehaviour": "Mass/volume guard rejects all measures despite official fixed-drink nutrition of 1732 kJ and 216 g serving.",
+      "baselineBehaviour": "Committed serving foundation offers drink; candidate offers no measures.",
+      "evidence": "../catalogue-wave-5a/acceptance.log and inspected production/test source",
+      "proposedAction": "Distinguish published per-item restaurant nutrition from per-100 reference; permit only evidenced fixed portion, no mL conversion.",
+      "resolution": "Shared official fixed-portion evidence restores liquid drink measure; no grams/mL conversion introduced.",
+      "validation": "PASS: focused 454/454 and complete SOURCE acceptance 1159/1159, generation 55fa50a815871079fbb5e674"
+    },
+    {
+      "number": 12,
+      "test": "hungry-jacks-australia-expansion.test.js",
+      "assertion": "complete source eligibility audit",
+      "classification": "A",
+      "candidateBehaviour": "Runtime loggable counts changed due to same restaurant portion rejection.",
+      "baselineBehaviour": "Published catalogue fixed portions accepted.",
+      "evidence": "../catalogue-wave-5a/acceptance.log and inspected production/test source",
+      "proposedAction": "Repair shared portion evidence contract and rerun complete chain audit.",
+      "resolution": "Complete chain returns 225 loggable, 36 completion, 55 details (316 canonical).",
+      "validation": "PASS: focused 454/454 and complete SOURCE acceptance 1159/1159, generation 55fa50a815871079fbb5e674"
+    },
+    {
+      "number": 13,
+      "test": "hungry-jacks-australia-expansion.test.js",
+      "assertion": "rendered mobile matrix",
+      "classification": "A",
+      "candidateBehaviour": "Expected selectable restaurant product missing after eligibility suppression.",
+      "baselineBehaviour": "Accepted fixed portions reached one Review.",
+      "evidence": "../catalogue-wave-5a/acceptance.log and inspected production/test source",
+      "proposedAction": "Repair measure contract; retain complete rendered matrix and Diary checks.",
+      "resolution": "Rendered matrix rerun under repaired shared measure contract.",
+      "validation": "PASS: focused 454/454 and complete SOURCE acceptance 1159/1159, generation 55fa50a815871079fbb5e674"
+    },
+    {
+      "number": 14,
+      "test": "live-prefix-alphabetical.test.js",
+      "assertion": "Review Back locator",
+      "classification": "C",
+      "candidateBehaviour": "Strict locator now matches global Back and nearby footer Back with the same intended behaviour; later test assumes compulsory brand hub.",
+      "baselineBehaviour": "Single matching header Back and category hub.",
+      "evidence": "../catalogue-wave-5a/acceptance.log and inspected production/test source; navigation-history-diagnosis.json; live-prefix-history-failure.json",
+      "proposedAction": "Select explicit footer ID, assert meaningful Back then Cancel where exiting; use direct list.",
+      "resolution": "Ambiguous footer/header Back locator fixed. Continuing the same flow then proved a genuine cancelled-Review history regression: new shared returnTo consumes the transient Review history, preserving Home/Diary origin. The original final Back-to-Home assertion remains.",
+      "validation": "PASS: focused 454/454 and complete SOURCE acceptance 1159/1159, generation 55fa50a815871079fbb5e674",
+      "initialClassification": "C",
+      "reconciledClassification": "A"
+    },
+    {
+      "number": 15,
+      "test": "post-kfc-search-regressions.test.js",
+      "assertion": "Review Back locator",
+      "classification": "C",
+      "candidateBehaviour": "Same ambiguous Back locator.",
+      "baselineBehaviour": "Single header control.",
+      "evidence": "../catalogue-wave-5a/acceptance.log and inspected production/test source",
+      "proposedAction": "Use explicit action and assert preserved guided/navigation context.",
+      "resolution": "Explicit footer Back locator; existing clear helper cancels pending amount stage.",
+      "validation": "PASS: focused 454/454 and complete SOURCE acceptance 1159/1159, generation 55fa50a815871079fbb5e674"
+    },
+    {
+      "number": 16,
+      "test": "restaurant-family-search.test.js",
+      "assertion": "Combos remain visible",
+      "classification": "A",
+      "candidateBehaviour": "KFC family models contain configurable combos in details, but new ordinary incomplete suppression removes them; 24-item global slicing also risks semantic siblings.",
+      "baselineBehaviour": "Wings 3/6/10 and details-only combos visible; configurable combos remain non-loggable.",
+      "evidence": "diagnosis.json",
+      "proposedAction": "Make presentation limits context-aware and preserve restaurant details choices without granting addability.",
+      "resolution": "Semantic family groups preserve every sibling and configurable detail; ordinary restaurant groups retain prior per-group bound. Incomplete sibling action uses Details and remains non-loggable.",
+      "validation": "PASS: focused 454/454 and complete SOURCE acceptance 1159/1159, generation 55fa50a815871079fbb5e674"
+    },
+    {
+      "number": 17,
+      "test": "universal-food-search-source-branching.test.js",
+      "assertion": "Loggable now card wording",
+      "classification": "B",
+      "candidateBehaviour": "Authorised ordinary cards use Choose and Details, not database status wording.",
+      "baselineBehaviour": "Historical status printed on normal card.",
+      "evidence": "../catalogue-wave-5a/acceptance.log and inspected production/test source",
+      "proposedAction": "Assert central eligibility controls Choose/Complete/Details and material warnings.",
+      "resolution": "Behavioural card test asserts Choose versus Details from central eligibility instead of old status copy.",
+      "validation": "PASS: focused 454/454 and complete SOURCE acceptance 1159/1159, generation 55fa50a815871079fbb5e674"
+    }
+  ],
+  "additionalDiagnosticFinding": "Shared category guards incorrectly recategorise chocolate-chip buns, pea/ham soup, ham pickles and ambiguous chicken chips. Repair generic whole-food guards; retain the intended honey-ham correction.",
+  "classificationAccounting": {
+    "initial": {
+      "A": 4,
+      "B": 5,
+      "C": 6,
+      "D": 2,
+      "E": 0
+    },
+    "reconciled": {
+      "A": 5,
+      "B": 5,
+      "C": 5,
+      "D": 2,
+      "E": 0
+    },
+    "note": "Failure 14 first exposed a fixture locator problem; after that was corrected, the retained assertion exposed a real Back-history defect. Both causes are recorded."
+  }
+}
