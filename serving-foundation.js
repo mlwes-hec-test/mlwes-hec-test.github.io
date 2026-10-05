@@ -113,7 +113,18 @@
     const s=String(food?.serving||'');
     if(/reference values per 100|100\s*[gm]l?\s*reference|per 100/i.test(s))return false;
     const units=food?.units||{};
-    return units.serve!==undefined&&(units.g!==undefined||units.mL!==undefined)&&/\d/.test(s);
+    return (Number(units.serve)>0||Number(units.serving)>0)&&(units.g!==undefined||units.mL!==undefined)&&/\d/.test(s);
+  }
+
+  function referenceOnlyServing(food){
+    if(Number(food?.manufacturerServing?.amount)>0)return false;
+    const referenceLabel=/per[ -]?100|100\s*(?:g|ml)\s*reference/i.test(food?.serving||'');
+    // Per-serving evidence remains valid even when a reference panel coexists.
+    // Missing energy still fails addability; it does not erase a declared serve.
+    const servingBasis=food?.nutritionBasis||{},declaredServe=servingBasis.selectedBasis==='perServing'||['per-serve','per-item'].includes(servingBasis.semanticBasis);
+    if(!referenceLabel&&(explicitPackageServing(food)||declaredServe||Object.values(servingBasis.perServing||food?.nutritionPerServing||{}).some(presentNumber)))return false;
+    const basis=food?.sourceNutritionBasis||food?.nutritionBasis||{};
+    return /per[ -]?100|100\s*(?:g|ml)\s*reference/i.test(`${food?.serving||''} ${typeof basis==='string'?basis:JSON.stringify(basis)}`)||!!food?.nutritionPer100Unit||Object.values(food?.nutritionPer100g||{}).some(presentNumber);
   }
 
   function inferCategory(food,context={}){
@@ -255,6 +266,7 @@
   function compatibilityReason(measure,form,food){
     const definition=vocabularyEntry(measure.key,measure.label),family=definition.family,profile=FORM_PROFILES[form.form]||FORM_PROFILES.unknown,conversion=conversionFor(measure,food,form),trusted=PORTION_PRESET_POLICY.trustedConfidence.includes(measure.confidence),solid=form.form!=='liquid'&&form.form!=='unknown';
     if(!(finite(measure.multiplier)>0))return 'missing-positive-conversion';
+    if(family==='manufacturer'&&referenceOnlyServing(food))return 'nutrition-reference-is-not-manufacturer-serving';
     // A checked private fixed serve scales directly; it needs no inferred
     // physical form or conversion to grams/millilitres.
     if(food.recordType==='private'&&food.captureEvidence?.confirmed===true&&food.nutritionBasis?.selectedBasis==='perServing'&&presentNumber(food.nutrients?.calories)&&!food.manufacturerServing&&(measure.key==='serve'||form.form==='unknown'&&food.nutritionBasis.servingCount>0&&measure.key===food.nutritionBasis.servingCountUnit))return '';
@@ -666,6 +678,6 @@
     const f=applyToFood(clone(food),context),policy=SEM?.servingPolicy?.(f);return {defaultUnit:f.servingDefaultUnit||f.defaultUnit,units:Object.entries(f.units||{}).map(([key,multiplier])=>({key,label:f.unitLabels?.[key]||key,multiplier})),source:f.servingFoundationSource||'',hint:f.servingRangeHint||'',category:inferCategory(f,context),packageExplicit:explicitPackageServing(f),semanticType:policy?.semanticType||'',nutritionBasis:policy?.nutritionBasis||'',allowedUnitFamily:policy?.allowedUnitFamily||'',foodGroupUnitEligibility:policy?.foodGroupUnitEligibility||null};
   }
 
-  const api={version:VERSION,GUIDELINE_SOURCE,AUSNUT_SPREAD_SOURCE,AUSNUT_CHIP_SOURCE,SPREAD_MEASURE_STANDARDS,CHIP_MEASURE_STANDARDS,PORTION_PRESET_POLICY,PORTION_VOCABULARY,FORM_PROFILES,addabilityStatuses:ADDABILITY_STATUSES,norm,basisInfo,isPackageFood,explicitPackageServing,inferCategory,stateInfo,categoryConcepts,physicalForm,spreadMeasureFamily,portionKind,normalizeMeasure,normalizeMassAmount,vocabularyEntry,amountPrompt,validateAmount,formatPortionAmount,consumedPortionState,resolveMeasureRequest,finalCompatibilityFirewall,addTrustedSpreadMeasures,sanitizeUnits,applyToFood,servingMeasureProfile,evaluateAddability,portionPresetAudit,diagnostic};
+  const api={version:VERSION,GUIDELINE_SOURCE,AUSNUT_SPREAD_SOURCE,AUSNUT_CHIP_SOURCE,SPREAD_MEASURE_STANDARDS,CHIP_MEASURE_STANDARDS,PORTION_PRESET_POLICY,PORTION_VOCABULARY,FORM_PROFILES,addabilityStatuses:ADDABILITY_STATUSES,norm,basisInfo,isPackageFood,explicitPackageServing,referenceOnlyServing,inferCategory,stateInfo,categoryConcepts,physicalForm,spreadMeasureFamily,portionKind,normalizeMeasure,normalizeMassAmount,vocabularyEntry,amountPrompt,validateAmount,formatPortionAmount,consumedPortionState,resolveMeasureRequest,finalCompatibilityFirewall,addTrustedSpreadMeasures,sanitizeUnits,applyToFood,servingMeasureProfile,evaluateAddability,portionPresetAudit,diagnostic};
   global.HECServingFoundation=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);

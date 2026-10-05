@@ -57,7 +57,9 @@ function installNavigation(){
     const header=screen.querySelector("header.topbar");if(!header)return;
     [...header.children].filter(x=>x.matches?.(".back,.home-nav-button,.hec-nav-pair")).forEach(x=>x.remove());
     const group=document.createElement("div");group.className="hec-nav-pair";group.innerHTML='<button type="button" class="back" data-hec-back>← Back</button><button type="button" class="home-nav-button" data-go="home">🏠 Home</button>';
+    if(['food-library','food-entry-editor'].includes(screen.id))group.insertAdjacentHTML('beforeend','<button type="button" class="secondary" data-discovery-top-cancel>Cancel</button>');
     header.prepend(group);
+    if(["food-library","food-entry-editor"].includes(screen.id)&&typeof ResizeObserver!=="undefined"&&!header.hecNavSizeObserver){header.hecNavSizeObserver=new ResizeObserver(()=>screen.style.setProperty("--hec-food-nav-height",`${header.getBoundingClientRect().height}px`));header.hecNavSizeObserver.observe(header);}
   });
 }
 installNavigation();
