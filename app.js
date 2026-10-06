@@ -1287,7 +1287,7 @@ function showFirstHomeWelcome(){
 function renderHome(){
   const name = displayName();
   $("home-greeting").textContent = `${greeting()}${name ? ", " + name : ""}`;
-  $("home-release-label").textContent=APP.installationRole==="test"?`HEC — TEST · Alpha ${VERSION}`:`Healthy Eating Companion · Alpha ${VERSION}`;
+  $("home-release-label").textContent=APP.installationRole==="test"?"HEC Test":"Healthy Eating Companion";
   const lastWeight=[...(data.weightHistory||[])].sort((a,b)=>String(b.date).localeCompare(String(a.date)))[0];
   $("home-summary").innerHTML = "";
   $("home-summary").classList.add("hidden");
