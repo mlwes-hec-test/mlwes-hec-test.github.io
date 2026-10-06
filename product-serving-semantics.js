@@ -111,13 +111,32 @@
     return {...base,allowedUnitFamily:'natural-item'};
   }
   function applyToFood(food){
-    if(!food)return food;const previousResolution=clone(food.semanticResolution||null),semantics=classify(food),policy=servingPolicy(food,semantics),before={amount:Number(food.defaultAmount),unit:String(food.defaultUnit||''),label:String(food.unitLabels?.[food.defaultUnit]||''),serving:String(food.serving||'')};
+    if(!food)return food;exposeIndividualConcept(food);const previousResolution=clone(food.semanticResolution||null),semantics=classify(food),policy=servingPolicy(food,semantics),before={amount:Number(food.defaultAmount),unit:String(food.defaultUnit||''),label:String(food.unitLabels?.[food.defaultUnit]||''),serving:String(food.serving||'')};
     food.productSemantics={...semantics};food.semanticType=semantics.type;food.semanticSource=semantics.source;food.servingPolicy={...policy,units:undefined,unitLabels:undefined};
     food.units=clone(policy.units);food.unitLabels=clone(policy.unitLabels);food.defaultAmount=policy.defaultAmount;food.defaultUnit=policy.defaultUnit;food.servingDefaultUnit=policy.defaultUnit;food.lockedServingUnit=policy.defaultUnit;food.fractionUnits=policy.countMeaningful?['piece','portion']:policy.allowedUnits.filter(unit=>!['g','mL'].includes(unit));food.serving=policy.naturalServingDisplay||food.serving;
     if(!policy.foodGroupUnitEligibility.allowed&&/dietary guidelines|eat for health/i.test(String(food.servingFoundationSource||''))){delete food.servingFoundationSource;delete food.servingFoundationNotes;}
     food.nutritionBasis={...(food.nutritionBasis||{}),semanticBasis:policy.nutritionBasis};if(!policy.loggable){food.loggable=false;if(semantics.type===TYPES.CONFIGURABLE)food.nutritionStatus='configurable';}
     const after={amount:food.defaultAmount,unit:food.defaultUnit,label:String(food.unitLabels?.[food.defaultUnit]||''),serving:String(food.serving||'')},changed=JSON.stringify(before)!==JSON.stringify(after);
     food.semanticResolution=previousResolution?.autoResolved&&!changed?previousResolution:{autoResolved:changed,before,after,rule:semantics.source};return food;
+  }
+  function exposeIndividualConcept(food){
+    const semantics=classify(food),concept=semantics.individualConcept;
+    // A reviewed component with its own published nutrition can join an order
+    // family. Never derive a component from names, counts or a mixed order.
+    if(!concept||semantics.type!==TYPES.SINGLE||semantics.source!=='explicit-metadata'||semantics.confidence!=='high'||
+      concept.homogeneous!==true||!concept.name||!concept.family||!concept.orderIds?.length||!concept.unit||
+      !food.foodSourceId||food.loggable===false||!['complete','partial','energy-only'].includes(food.nutritionStatus)||
+      semantics.individualScaling===false||food.assemblyModel||food.optionalExtras?.length||
+      food.sourceConflict||food.evidenceConflicts?.some(item=>item.severity==='material'&&item.resolution==='unresolved')||
+      food.energySource?.basis!=='published-individual-piece'||
+      !Number.isFinite(food.nutrients?.energyKj)||food.nutrients.energyKj<=0)return food;
+    food.sourceName=food.sourceName||food.name;
+    food.name=concept.name;food.aliases=unique([...(food.aliases||[]),food.sourceName,concept.name,...(concept.aliases||[])]);
+    food.choiceFamily=concept.family;food.choiceOrder=1;
+    food.units={[concept.unit]:1};food.unitLabels={[concept.unit]:concept.unit==='piece'?'Piece':concept.unit[0].toUpperCase()+concept.unit.slice(1)};
+    food.defaultAmount=1;food.defaultUnit=concept.unit;food.serving=`1 ${concept.unit}`;
+    food.physicalForm='solid-countable';food.individualConceptExposed=true;
+    return food;
   }
   function rankAdjustment(food,query){
     const semantics=classify(food),q=norm(query),intent=hasComponentIntent(q),queryCore=words(q).filter(word=>!COMPONENT_WORDS.includes(word)).map(stem),foodCore=componentBase(food?.name),parentMatch=!!queryCore.length&&queryCore.every(word=>words(foodCore).map(stem).includes(word));

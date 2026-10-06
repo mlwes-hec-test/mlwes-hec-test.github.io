@@ -141,6 +141,16 @@
     if(supplement.uncertainPromotions.includes(item.name)){item.currentState='uncertain';item.nutritionFreshness={...item.nutritionFreshness,menuFreshness:'Conflicting official menu surfaces; retained without asserting discontinuation.'};}
     if(/^(?:1 Piece|\d+ Pieces) of Chicken$/.test(item.name)){item.choiceFamilyAliases=['original recipe','original recipe chicken'];item.aliases=unique([...item.aliases,`KFC ${item.name.replace(/of Chicken/,'Original Recipe Chicken')}`,'KFC Original Recipe Chicken','KFC Original Recipe']);}
   }
+  // Relationships use already reviewed individual-piece tables. These names
+  // and order links are source facts; the shared policy owns their presentation.
+  for(const [id,name,family,unit,orderIds] of [
+    ['chicken-wicked-wing-individual','KFC Wicked Wing','wicked-wings','piece',['3-wicked-wings','6-wicked-wings','10-wicked-wings']],
+    ['chicken-nugget-plain','KFC Nugget (plain)','nuggets','nugget',['3-nuggets']]
+  ]){
+    const item=items.find(value=>value.id===id);
+    if(!orderIds.every(orderId=>{const order=items.find(value=>value.id===orderId);return order?.choiceFamily===family&&order.productSemantics.type==='counted-item'&&order.productSemantics.individualScaling!==false&&order.loggable;}))throw new Error('Unsafe individual/order relationship '+id);
+    item.productSemantics={...item.productSemantics,individualConcept:{name,family,unit,homogeneous:true,orderIds,aliases:[family.replaceAll('-',' ')]}};
+  }
   const categorySurfaces=raw.categories.map(category=>({name:category.name,url:raw.menuUrl,count:category.items.length}));
   const catalogue={
     source:{

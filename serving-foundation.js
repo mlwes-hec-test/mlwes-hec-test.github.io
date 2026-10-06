@@ -247,6 +247,7 @@
     if(/metric/.test(text))return 'metric conversion';return 'source conversion';
   }
   function conversionFor(measure,resolved,form){
+    if(resolved?.individualConceptExposed&&measure.key===resolved.defaultUnit)return {baseUnit:'piece',baseQuantity:1,basis:'published individual component'};
     if(resolved?.productSemantics?.individualScaling===false&&measure.key==='portion')return {baseUnit:'order',baseQuantity:1,basis:'defined order including its published components'};
     const basis=basisInfo(resolved),definition=vocabularyEntry(measure.key,measure.label),semanticCount=Number(resolved?.productSemantics?.count||resolved?.semanticCount)||0;if(measure.canonicalBaseUnit&&finite(measure.canonicalBaseQuantity)>0)return {baseUnit:measure.canonicalBaseUnit,baseQuantity:finite(measure.canonicalBaseQuantity),basis:'physical measure conversion'};if(semanticCount>1&&measure.key==='portion')return {baseUnit:'piece',baseQuantity:semanticCount,basis:'counted product identity'};if(semanticCount>1&&measure.key==='piece')return {baseUnit:'piece',baseQuantity:1,basis:'counted product identity'};const baseUnit=form.form==='liquid'&&basis.mlScale?'mL':basis.gScale?'g':basis.mlScale?'mL':['countable','manufacturer'].includes(definition.family)?'count':'',scale=baseUnit==='g'?basis.gScale:baseUnit==='mL'?basis.mlScale:0;
     const baseQuantity=scale>0?measure.multiplier/scale:definition.family==='countable'||definition.family==='manufacturer'?1:null;
