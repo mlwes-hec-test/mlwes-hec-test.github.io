@@ -914,3 +914,6 @@ body:has(#food-library.active),body:has(#food-entry-editor.active),#app:has(#foo
 
 body:not(.food-search-focused) #food-library .resource-search-shell{position:static!important}
 .discovery-brand-distinction{font-weight:700;color:var(--ink)}
+
+/* Explicit founder safety export; scoped to the existing tools surface. */
+#sync-safety-card button{max-width:100%;white-space:normal;min-height:44px}#sync-safety-confirm{box-sizing:border-box;width:calc(100% - 32px);max-width:440px;max-height:calc(100dvh - 32px);overflow:auto;border:1px solid var(--line);border-radius:18px;padding:20px;color:var(--ink);background:var(--surface,#fff)}#sync-safety-confirm::backdrop{background:rgba(15,30,22,.55)}#sync-safety-confirm button{min-height:44px;white-space:normal}#sync-safety-confirm h3{margin-top:0}
