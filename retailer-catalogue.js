@@ -71,6 +71,32 @@
     const brands=scope==='retailer'?(source?.retailer.houseBrandFamilies||[]).map(f=>({key:f.key,name:f.name,count:list.filter(g=>g.houseBrands.has(f.key)).length})).filter(f=>f.count).sort((a,b)=>a.name.localeCompare(b.name,'en')):[];
     return {kind:'retailer',retailer:{id:retailer.id,name:retailer.name,market:'AU',...(retailer.collectionMode?{collectionMode:retailer.collectionMode,collectionNotice:retailer.collectionNotice}: {})},scope,conceptId,categories,brands,total:list.length,pageSize:PAGE_SIZE};
   }
+  async function usableCatalogue(retailerId,{scope='retailer',conceptId='',isCurrent=()=>true}={}){
+    const source=catalogues.get(retailerId);requireValue(source,'unknown retailer');
+    const current=()=>isCurrent()&&catalogues.get(retailerId)===source;
+    if(!source.usableFoods){
+      const groups=source.postings.get('*')||[],foods=[];
+      // Validate full evidence groups in bounded batches before counting or paging.
+      for(let offset=0;offset<groups.length;offset+=PAGE_SIZE){
+        if(!current())return null;
+        foods.push(...await hydrateGroups(source,groups.slice(offset,offset+PAGE_SIZE),{isCurrent:current}));
+      }
+      if(!current())return null;source.usableFoods=D.usableProducts(foods);
+    }
+    if(!current())return null;
+    const groups=scope==='commercial-identity'?source.commercial.get(conceptId)||[]:source.postings.get('*')||[],byKey=new Map(groups.map(group=>[group.key,group]));
+    const foods=source.usableFoods.filter(food=>byKey.has(C.canonicalKey(food))),model=directory(retailerId,{scope,conceptId});
+    return {...model,total:foods.length,usableTotal:foods.length,foods,
+      categories:model.categories.map(c=>({...c,count:foods.filter(f=>byKey.get(C.canonicalKey(f)).categories.has(c.id)).length})).filter(c=>c.count),
+      brands:model.brands.map(b=>({...b,count:foods.filter(f=>byKey.get(C.canonicalKey(f)).houseBrands.has(b.key)).length})).filter(b=>b.count)};
+  }
+  async function usablePage(retailerId,options){
+    const model=await usableCatalogue(retailerId,options);if(!model)return null;
+    if(options.categoryId===null)return model;
+    const source=catalogues.get(retailerId),groups=new Map((source.postings.get('*')||[]).map(group=>[group.key,group])),categoryId=options.categoryId||'*',brandKey=options.brandKey||'',offset=options.offset||0;
+    const foods=model.foods.filter(food=>{const group=groups.get(C.canonicalKey(food));return (categoryId==='*'||group.categories.has(categoryId))&&(!brandKey||group.houseBrands.has(brandKey))&&D.matches(food,options.filter);});
+    return {...model,foods:foods.slice(offset,offset+PAGE_SIZE),total:foods.length,offset,categoryId,brandKey,brandName:model.brands.find(b=>b.key===brandKey)?.name||'',categoryLabel:categoryId==='*'?'All Items':source.categories.get(categoryId)?.label||'',hasMore:offset+PAGE_SIZE<foods.length};
+  }
   async function page(retailerId,{categoryId='*',brandKey='',filter='',scope='retailer',conceptId='',offset=0,limit=PAGE_SIZE,isCurrent=()=>true}={}){
     requireValue(['retailer','commercial-identity'].includes(scope),'unknown browse scope');
     const source=catalogues.get(retailerId),model=directory(retailerId,{scope,conceptId});requireValue(model,'unknown retailer');
@@ -127,10 +153,10 @@
   async function load(session,{categoryId=session.categoryId,brandKey=session.brandKey||'',offset=0,isCurrent=()=>true,timeoutMs=15000}={}){
     let timer,expired=false;
     const request=++session.request,owns=()=>session.active&&session.request===request&&isCurrent(),current=()=>owns()&&!expired;session.categoryId=categoryId;session.brandKey=brandKey;session.offset=offset;session.loading=true;session.result=null;session.error='';
-    try{const result=categoryId===null?directory(session.retailerId,session):await Promise.race([page(session.retailerId,{...session,categoryId,offset,isCurrent:current}),new Promise((_,reject)=>{timer=setTimeout(()=>{expired=true;reject(Error('Retailer catalogue took too long to load'));},timeoutMs);})]);if(!owns())return null;if(!result)throw Error('Retailer catalogue changed while loading. Try again.');session.result=result;return result;}
+    try{const result=await Promise.race([session.usableOnly?usablePage(session.retailerId,{...session,categoryId,offset,isCurrent:current}):categoryId===null?directory(session.retailerId,session):page(session.retailerId,{...session,categoryId,offset,isCurrent:current}),new Promise((_,reject)=>{timer=setTimeout(()=>{expired=true;reject(Error('Retailer catalogue took too long to load'));},timeoutMs);})]);if(!owns())return null;if(!result)throw Error('Retailer catalogue changed while loading. Try again.');session.result=result;return result;}
     catch(error){if(owns())session.error=String(error.message||error);return null;}
     finally{clearTimeout(timer);if(owns())session.loading=false;}
   }
-  const api={version:'0.6.33',pageSize:PAGE_SIZE,maxEvidenceRows:MAX_EVIDENCE_ROWS,entity,recognise,registerCatalogue,unregisterCatalogue,commercialOptions,conceptSourceQuestion,directory,page,search,loadedFoods,createSession,load,cancel,revision:()=>revision};
+  const api={version:'0.6.33',pageSize:PAGE_SIZE,maxEvidenceRows:MAX_EVIDENCE_ROWS,entity,recognise,registerCatalogue,unregisterCatalogue,commercialOptions,conceptSourceQuestion,directory,usableCatalogue,page,search,loadedFoods,createSession,load,cancel,revision:()=>revision};
   global.HECRetailerCatalogue=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);
