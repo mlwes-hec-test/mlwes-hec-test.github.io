@@ -151,7 +151,7 @@ $("submit-feedback")?.addEventListener("click",async()=>{
 
 // Founder tools: local PIN, invites and local insights.
 async function hashText(text){if(crypto?.subtle){const bytes=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(text));return [...new Uint8Array(bytes)].map(x=>x.toString(16).padStart(2,"0")).join("");}return btoa(text);}
-function founderEnabled(){return !!read(MAIN_KEY,{}).developer?.founderEnabled;}
+function founderEnabled(){return APP.installationRole==="test"||(APP.installationRole==="my-data"&&!!read(MAIN_KEY,{}).developer?.founderEnabled);}
 if(founderEnabled())$("founder-tools-button")?.classList.remove("hidden");
 function renderFounder(){
   const admin=read(ADMIN_KEY,{invites:[],usage:{},feedback:[]});
