@@ -651,11 +651,23 @@
     // Preserve rejected originals even if an earlier semantic cleanup removed
     // them. Do not restore otherwise obsolete food-group candidates.
     for(const [key,value] of Object.entries(food.units||{})){const candidate={key,label:String(food.unitLabels?.[key]||key),multiplier:finite(value),source:'source-product-metadata',sourceType:'product-metadata',confidence:'source-product-metadata'};if(!hasMeasure(key)&&compatibilityReason(candidate,form,resolved))measures.push(candidate);}
+    // Reviewed item measures share the existing conversion provenance and final
+    // firewall. Match the source key and final physical form; no cross-food or
+    // as-purchased conversion is inferred from a guideline standard serve.
+    if(originalBasis.gScale&&food.genericResolution?.quantityWeightState==='raw')for(const item of food.genericMeasurePolicy?.evidence||[]){
+      const source=global.HECGenericFoodMeasures||(typeof require==='function'?require('./generic-food-measures.js'):null);
+      if(item.massBasis!=='edible portion'||form.form==='liquid'||!source?.references?.[food.afcdKey]?.some(row=>row.measureId===item.measureId&&row.grams===item.grams&&row.key===item.key))continue;
+      const evidence={sourceReference:item.sourceReference,sourceUrl:source.source.url,retrievedDate:source.source.retrievedDate,derivation:source.source.methodology,applicability:`${item.sourceFoodName}; ${item.physicalForm}; ${item.massBasis}`,canonicalBaseQuantity:item.grams,canonicalBaseUnit:'g',approximate:true,uncertainty:item.uncertainty};
+      // A keyed food-specific measure replaces the older dietary-guideline
+      // item. Trusted guideline confidence is not evidence for this item weight.
+      const previous=measures.findIndex(measure=>measure.key===item.key);if(previous>=0)measures.splice(previous,1);
+      pushMeasure(item.key,`${item.label} (~${item.grams} g edible)`,originalBasis.gScale*item.grams,source.source.title,'official-reference','high',true,evidence);
+    }
     const applicable=food.genericMeasurePolicy?.allowed?measures.filter(measure=>food.genericMeasurePolicy.allowed.includes(measure.key)):measures;
     const {measures:safe,rejectedMeasures,nutritionBasisConflict}=finalCompatibilityFirewall(resolved,applicable,form);
     // Safety has already decided membership. Utility changes presentation only;
     // it cannot create a conversion or restore a quarantined measure.
-    const naturalOrder=form.form==='liquid'?['mL','cup','L','serve']:form.form==='spread'?['thinSpread','thickSpread','tsp','tbsp','serve','g','kg']:form.form==='sliced'?['regularSlice','slice','sandwichSlice','thickSlice','serve','g','kg']:['burger','wing','piece','item','patty','hashBrown','cracker','biscuit','sausage','thinSausage','thickSausage','cocktailSausage','largeEgg','mediumEgg','smallEgg','xLargeEgg','jumboEgg','kingEgg','egg','portion','serve','g','kg'];
+    const naturalOrder=form.form==='liquid'?['mL','cup','L','serve']:form.form==='spread'?['thinSpread','thickSpread','tsp','tbsp','serve','g','kg']:form.form==='sliced'?['regularSlice','slice','sandwichSlice','thickSlice','serve','g','kg']:['burger','wing','piece','item','mediumFruit','smallMediumFruit','mediumLargeFruit','smallFruit','largeFruit','largeExtraLargeFruit','patty','hashBrown','cracker','biscuit','sausage','thinSausage','thickSausage','cocktailSausage','largeEgg','mediumEgg','smallEgg','xLargeEgg','jumboEgg','kingEgg','egg','portion','serve','g','kg'];
     const utility=measure=>{const index=naturalOrder.indexOf(measure.key);return index<0?naturalOrder.indexOf('g')-.5:index;};
     safe.sort((a,b)=>utility(a)-utility(b));
     const preferred=safe[0]?.key||'';

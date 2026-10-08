@@ -473,7 +473,11 @@
     return {class:'lexical',priority:0,identity};
   }
   function interpretFoodIntent(query,{records=[],sourceIntent=null,restaurantFamilies=[]}={}){
-    const genericQuantity=parseQuantityLanguage(query,{candidates:records}),pilotIntent=GENERIC?.parse(query,{quantity:genericQuantity,sourceIntent});
+    // Formulation numerals are identity facts, not consumed counts. Mask them
+    // only while parsing generic quantity, then restore the original identity.
+    const genericQuantity=parseQuantityLanguage(String(query).replace(/\bomega[- ]?3\b/gi,'omegaenriched'),{candidates:records});
+    genericQuantity.identityQuery=genericQuantity.identityQuery.replace(/\bomegaenriched\b/g,'omega 3');genericQuantity.raw=String(query);
+    const pilotIntent=GENERIC?.parse(query,{quantity:genericQuantity,sourceIntent});
     if(pilotIntent)return {...pilotIntent,attributes:{...pilotIntent.known},known:{...pilotIntent.known,...(pilotIntent.known.preparation?{preparation:title(pilotIntent.known.preparation)}:{})}};
     const quantity=parseQuantityLanguage(query,{candidates:records}),identity=conceptNorm(quantity.identityQuery||query),matches=Object.entries(FOOD_CONCEPT_REGISTRY).flatMap(([id,concept])=>concept.aliases.map(alias=>({id,alias:conceptNorm(alias)}))).filter(item=>` ${identity} `.includes(` ${item.alias} `)).sort((a,b)=>b.alias.length-a.alias.length),match=matches[0],known={};let conceptId=match?.id||'';
     if(!conceptId){
