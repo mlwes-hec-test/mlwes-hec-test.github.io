@@ -12,6 +12,8 @@
   'use strict';
 
   const VERSION='0.6.33';
+  const GENERIC=global.HECGenericFoodCatalogue||(typeof require==='function'?require('./generic-food-catalogue.js'):null);
+  const GENERIC_RESOLUTION=global.HECGenericFoodResolution||(typeof require==='function'?require('./generic-food-resolution.js'):null);
   const REG=global.HECAustralianEntityRegistry;
   const WORD_NUMBERS={zero:0,one:1,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8,nine:9,ten:10,eleven:11,twelve:12,dozen:12,half:.5,quarter:.25,a:1,an:1};
   const IRREGULAR={bananas:'banana',oranges:'orange',apples:'apple',potatoes:'potato',tomatoes:'tomato',berries:'berry',cherries:'cherry',loaves:'loaf',leaves:'leaf',fries:'fries',fish:'fish',cheese:'cheese',rice:'rice',pasta:'pasta',couscous:'couscous',eggs:'egg',sausages:'sausage'};
@@ -74,6 +76,7 @@
     {key:'grape',label:'Grapes',aliases:['grape'],category:'fruit',sourcePolicy:'skip',facetOrder:['variety','form'],natural:{unit:'g',label:'g',grams:1}},
     {key:'mango',label:'Mango',aliases:['mango'],category:'fruit',sourcePolicy:'skip',facetOrder:['variety','form'],natural:{unit:'item',label:'Mango',grams:200}},
     {key:'strawberry',label:'Strawberries',aliases:['strawberry'],category:'fruit',sourcePolicy:'skip',facetOrder:['form'],natural:{unit:'g',label:'g',grams:1}},
+    {key:'sweet-potato',label:'Sweet Potato',aliases:['sweet potato'],category:'vegetable',sourcePolicy:'contextual',facetOrder:['variety','form','prep','source'],natural:{unit:'g',label:'g',grams:1}},
     {key:'potato',label:'Potato',aliases:['potato','spud','potato scallop','potato cake','potato fritter'],category:'vegetable',sourcePolicy:'contextual',facetOrder:['variety','form','prep','source'],natural:{unit:'g',label:'g',grams:1}},
     {key:'tomato',label:'Tomato',aliases:['tomato'],category:'vegetable',sourcePolicy:'skip',facetOrder:['variety','form','prep'],natural:{unit:'item',label:'Medium Tomato (about 120 g)',grams:120}},
     {key:'capsicum',label:'Capsicum',aliases:['capsicum','bell pepper'],category:'vegetable',sourcePolicy:'skip',facetOrder:['variety','form','prep'],natural:{unit:'g',label:'g',grams:1}},
@@ -407,6 +410,7 @@
   function conceptReference(food){return food?.afcd===true||food?.recordType==='afcd';}
   const conceptEvidenceCache=new WeakMap(),conceptAttributeCache=new WeakMap(),conceptSignatureCache=new Map();
   function classifyFoodConcept(food){
+    const genericIdentity=GENERIC?.identity(food);if(genericIdentity?.conceptId)return {...genericIdentity,parentId:'',related:[],confidence:'high',evidence:'shared-generic-source-identity'};
     const name=conceptNorm(food?.name||food?.genericName),categories=conceptNorm([food?.genericName,...(food?.categories||[]),...(food?.categoryMemberships||[])].filter(Boolean).join(' '));
     // An adapter can declare a whole product's concept from an official menu
     // category. Ingredient words in a proprietary name must not redefine it.
@@ -452,6 +456,7 @@
     conceptAttributeCache.set(food,{...(cached?.signature===signature?cached:{}),signature,[conceptId]:Object.freeze(attrs)});return attrs;
   }
   function conceptCompatibility(food,intent,evidence=null){
+    if(intent?.owner==='generic-v2')return GENERIC_RESOLUTION.matchFood(food,intent);
     const candidate=evidence||foodConceptEvidence(food),requested=typeof intent==='string'?intent:intent?.conceptId,known=typeof intent==='object'?intent.known||{}:{};
     const equivalent=candidate.conceptId===requested||(requested==='spread'&&candidate.parentId==='spread')||(requested==='chips'&&candidate.conceptId==='fries');
     if(candidate.excluded||!equivalent)return {candidateConceptId:candidate.conceptId,compatible:false,relationship:candidate.excluded?'excluded':(candidate.related||[]).includes(requested)?'related':'different-concept',evidence:candidate.evidence,confidence:candidate.confidence,conflicts:[]};
@@ -468,6 +473,8 @@
     return {class:'lexical',priority:0,identity};
   }
   function interpretFoodIntent(query,{records=[],sourceIntent=null,restaurantFamilies=[]}={}){
+    const genericQuantity=parseQuantityLanguage(query,{candidates:records}),pilotIntent=GENERIC?.parse(query,{quantity:genericQuantity,sourceIntent});
+    if(pilotIntent)return {...pilotIntent,attributes:{...pilotIntent.known},known:{...pilotIntent.known,...(pilotIntent.known.preparation?{preparation:title(pilotIntent.known.preparation)}:{})}};
     const quantity=parseQuantityLanguage(query,{candidates:records}),identity=conceptNorm(quantity.identityQuery||query),matches=Object.entries(FOOD_CONCEPT_REGISTRY).flatMap(([id,concept])=>concept.aliases.map(alias=>({id,alias:conceptNorm(alias)}))).filter(item=>` ${identity} `.includes(` ${item.alias} `)).sort((a,b)=>b.alias.length-a.alias.length),match=matches[0],known={};let conceptId=match?.id||'';
     if(!conceptId){
       const suppliedBrand=sourceIntent?.entity?.type==='brand'?[sourceIntent.entity.name,...(sourceIntent.entity.aliases||[])].map(conceptNorm):[],detectedBrands=suppliedBrand.length?suppliedBrand:[...new Set(records.map(food=>conceptNorm(food.brand)).filter(brand=>brand&&identity.startsWith(brand+' ')))].sort((a,b)=>b.length-a.length),brand=detectedBrands[0];
@@ -479,10 +486,11 @@
     const compound=COMPOUND_CONCEPTS.find(item=>item.match.test(identity)),generic=!!conceptId&&!compound&&!residual&&!['source','brand-family'].includes(sourceIntent?.kind),exact=!generic&&records.find(food=>semanticProductExactness(food,identity).priority===5&&!conceptReference(food));
     let kind=generic?(Object.keys(known).length?'concept-with-facets':'generic-concept'):exact?'exact-product':sourceIntent?.kind==='source'?'source-intent':sourceIntent?.kind==='brand-family'?'brand-intent':conceptId?'brand-product':'ambiguous';
     if(restaurantFamilies.length&&!generic)kind='restaurant-family';else if(quantity.variantExplicit&&!generic)kind='restaurant-explicit-size';
-    return {rawQuery:String(query||''),identityQuery:identity,conceptId:generic||conceptId?conceptId:'',kind,generic,known,quantity,confidence:generic||exact?'high':conceptId?'medium':'unknown',evidence:generic?'concept-alias-and-supplied-facets':exact?'committed-product-identity':compound?'compound-identity':'residual-product-or-unknown',residual,compoundId:compound?.id||''};
+    return {rawQuery:String(query||''),identityQuery:identity,conceptId:generic||conceptId?conceptId:'',conceptOrigin:match?'query-alias':conceptId?'brand-member-inference':'unknown',kind,generic,known,quantity,confidence:generic||exact?'high':conceptId?'medium':'unknown',evidence:generic?'concept-alias-and-supplied-facets':exact?'committed-product-identity':compound?'compound-identity':'residual-product-or-unknown',residual,compoundId:compound?.id||''};
   }
   function conceptSearchQueries(intent){const concept=FOOD_CONCEPT_REGISTRY[intent?.conceptId];if(!concept)return [intent?.identityQuery||''].filter(Boolean);return [...new Set([intent.identityQuery,...(concept.shortlist?.relatedQueries||[]),...concept.aliases.flatMap(alias=>[alias,...(/s$/.test(alias)?[]:[alias+'s'])])].map(value=>String(value||'').trim()).filter(Boolean))];}
   function nextConceptQuestion(intent,candidates){
+    if(intent?.owner==='generic-v2')return GENERIC_RESOLUTION.createSession(candidates,intent.rawQuery,{intent}).nextQuestion;
     const concept=FOOD_CONCEPT_REGISTRY[intent.conceptId];if(!concept)return null;
     for(const key of concept.facets){if(intent.known?.[key])continue;
       if(key==='breadOrigin')return {key,question:'Home Made or Commercial?',options:[{value:'home',label:'Home Made'},{value:'commercial',label:'Commercial'}],reason:'bread-origin-policy'};

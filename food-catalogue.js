@@ -7,6 +7,7 @@
   'use strict';
 
   const VERSION='0.6.33';
+  const GENERIC=global.HECGenericFoodResolution||(typeof require==='function'?require('./generic-food-resolution.js'):null);
   const SEARCH=global.HECSearchFoundation||(typeof require==='function'?require('./search-foundation.js'):null);
   const SEM=global.HECProductServingSemantics||(typeof require==='function'?require('./product-serving-semantics.js'):null);
   const REG=global.HECAustralianEntityRegistry||(typeof require==='function'?require('./entity-registry.js'):null);
@@ -754,6 +755,7 @@
     return {titleIdentity,containingDish,peripheral,recognisedAU,auOnly,sourceTrust:sourceTier(food),catalogueBrandCount:brandCounts.get(brand)||0,titleWords:name.split(' ').length};
   }
   function conceptShortlist(records,intent){
+    if(intent?.owner==='generic-v2')return GENERIC.shortlist(records,intent);
     const definition=SEARCH.foodConceptRegistry[intent.conceptId],policy=definition.shortlist||{},buckets={direct:[],related:[],branded:[],supermarket:[]};
     const facts=new Map(),hasKnown=!!Object.keys(intent.known).length;
     const eligible=records.filter(food=>{const evidence=SEARCH.foodConceptEvidence(food),compatibility=SEARCH.conceptCompatibility(food,intent,evidence),keep=!evidence.excluded&&(compatibility.compatible||!hasKnown&&((policy.related||[]).includes(evidence.conceptId)||recordType(food)==='afcd'&&(policy.direct||[]).includes(evidence.conceptId)));if(keep)facts.set(food,{evidence,compatibility});return keep;});
@@ -823,12 +825,16 @@
       const hay=SEARCH.conceptNorm([food.name,...(food.aliases||[]),...aliases].join(' '));
       return !!product&&product.split(' ').every(token=>hay.includes(token));
     }
-    if(conceptIntent?.conceptId&&!conceptIntent.compoundId&&SEARCH.semanticProductExactness(food,query).priority<4&&!SEARCH.conceptCompatibility(food,conceptIntent).compatible)return false;
+    // Cached brand members can suggest a browsing concept. They cannot narrow
+    // a newly requested, source-scoped product to that cached subset's identity.
+    if(conceptIntent?.conceptId&&conceptIntent.conceptOrigin!=='brand-member-inference'&&!conceptIntent.compoundId&&SEARCH.semanticProductExactness(food,query).priority<4&&!SEARCH.conceptCompatibility(food,conceptIntent).compatible)return false;
     const identity=SEARCH.conceptNorm(query),entity=intent.entity;
     if(entity){const names=[entity.name,...(entity.aliases||[])].map(SEARCH.conceptNorm),source=SEARCH.conceptNorm([food.brand,food.sourceDisplayName,...(food.sourceAliases||[])].filter(Boolean).join(' '));if(entity.type!=='brand'&&!names.some(name=>(' '+source+' ').includes(' '+name+' ')))return false;const product=SEARCH.conceptNorm(intent.productQuery);return !product||product.split(' ').every(token=>SEARCH.conceptNorm([food.name,...(food.aliases||[])].join(' ')).includes(token));}
     return identity.split(' ').every(token=>SEARCH.conceptNorm([food.name,food.brand,...(food.aliases||[])].join(' ')).includes(token));
   }
   function submittedResultModel(records,query,{savedIds=[],online=[]}={}){
+    const genericIntent=SEARCH.interpretFoodIntent(query,{records,sourceIntent:queryIntent(query)});
+    if(genericIntent.owner==='generic-v2')return deepFreeze(GENERIC.shortlist(records,genericIntent));
     if(queryIntent(query).kind==='retailer')return deepFreeze({version:VERSION,rawQuery:query,identityQuery:query,intent:queryIntent(query),retailerId:queryIntent(query).entity.id,groups:[],total:0,requiresRetailerIndex:true});
     if(queryIntent(query).kind==='brand-family')return brandResultModel([...(records||[]),...(online||[])],query);
     const raw=String(query||'').trim(),parsed=restaurantSearchQuantity(records||[],raw),identity=REG.preserveSearchSpelling(raw,parsed.identityQuery||corrected(raw)),concept=SEARCH?.conceptFromQuery?.(identity)||null,intent=queryIntent(identity),restaurantFamilies=unresolvedRestaurantFamilies(records||[],identity,parsed),conceptIntent=SEARCH?.interpretFoodIntent?.(raw,{records,sourceIntent:intent,restaurantFamilies}),saved=new Set(savedIds||[]),ranked=dedupeRanked(canonicaliseRecords([...(records||[]),...(online||[])]).filter(food=>!food.legacyPreviewOnly&&food.itemStatus!=='retired').map(food=>({food,rank:rank(food,identity,{saved:saved.has(food?.id)}).score})).filter(item=>item.rank>0||SEARCH.semanticProductExactness(item.food,identity).priority>=4||intent.entity?.type==='retailer'&&explicitIdentityMatch(item.food,identity,intent,conceptIntent))).sort((a,b)=>(conceptIntent?.generic?0:(SEARCH?.semanticProductExactness?.(b.food,identity)?.priority||0)-(SEARCH?.semanticProductExactness?.(a.food,identity)?.priority||0))||b.rank-a.rank||quality(b.food)-quality(a.food)||norm(a.food?.name).localeCompare(norm(b.food?.name))).map(item=>item.food),groups=[];
@@ -840,12 +846,18 @@
     const families=genericConcept?[]:restaurantFamilies,unresolvedIds=new Set(families.flatMap(family=>family.recordIds));
     const exactPriority=genericConcept||families.length?0:Math.max(0,...ranked.map(food=>SEARCH.semanticProductExactness(food,identity).priority));
     const exactFoods=exactPriority>=4?ranked.filter(food=>SEARCH.semanticProductExactness(food,identity).priority===exactPriority&&!unresolvedIds.has(String(food.id))):[];
-    const exactUnavailable=exactFoods.filter(food=>!decisions.get(food)?.normalLoggingAllowed);
+    const exactUnavailable=exactFoods.filter(food=>!decisions.get(food)?.normalLoggingAllowed);let deferredUnavailable=null;
+    const usableSameTitle=exactUnavailable.length>0&&exactFoods.some(food=>decisions.get(food)?.normalLoggingAllowed&&productEligibility(food).verified&&exactUnavailable.some(copy=>norm(copy.name)===norm(food.name)));
     if(exactUnavailable.length){
       const ids=new Set(exactUnavailable.map(food=>String(food.id))),items=Object.values(buckets).flatMap(bucket=>{const matches=bucket.filter(item=>ids.has(item.recordId));for(const item of matches)bucket.splice(bucket.indexOf(item),1);return matches;});
-      groups.push({key:'exact-unavailable',label:'Exact match — unavailable for logging',items});
+      const unavailableGroup={key:'exact-unavailable',label:'Exact match — unavailable for logging',items};if(usableSameTitle)deferredUnavailable=unavailableGroup;else groups.push(unavailableGroup);
     }
     const loggableRanked=ranked.filter(food=>decisions.get(food)?.normalLoggingAllowed&&!buckets.related.some(item=>item.recordId===String(food.id))),topFood=loggableRanked[0],topRank=topFood?rank(topFood,identity):{score:0,tier:'none'},strongProduct=!families.length&&!exactUnavailable.length&&!genericConcept&&topFood&&!unresolvedIds.has(String(topFood.id))&&(intent.kind==='product'||intent.kind==='source')&&(SEARCH.semanticProductExactness(topFood,identity).priority>=4||(intent.entity?.type!=='brand'&&['exact-name','exact-alias','exact-source-alias','exact-brand','all-tokens'].includes(topRank.tier)&&topRank.score>=1200));if(strongProduct){const firstGroup=Object.entries(buckets).find(([key,items])=>!['completion','details','related'].includes(key)&&items.some(item=>item.recordId===String(topFood.id)));if(firstGroup){const [key,items]=firstGroup,index=items.findIndex(item=>item.recordId===String(topFood.id));groups.push({key:'best',label:'Best match',items:items.splice(index,1),origin:key});}}
+    if(deferredUnavailable){
+      const winner=loggableRanked.find(food=>exactFoods.includes(food)&&productEligibility(food).verified&&exactUnavailable.some(copy=>norm(copy.name)===norm(food.name)));
+      if(winner){const bucket=Object.values(buckets).find(items=>items.some(item=>item.recordId===String(winner.id)));if(bucket){const index=bucket.findIndex(item=>item.recordId===String(winner.id));groups.push({key:'best',label:'Best match',items:bucket.splice(index,1)});}}
+      groups.push(deferredUnavailable);
+    }
     for(const family of families){
       const items=family.recordIds.flatMap(id=>Object.values(buckets).flatMap(bucket=>{const index=bucket.findIndex(item=>item.recordId===id);return index<0?[]:bucket.splice(index,1);}));
       groups.push({key:'restaurant-family',label:`Which ${family.label} order did you have?`,familyKey:family.key,sourceId:family.sourceId,unresolved:'size-or-count',items});
@@ -855,6 +867,7 @@
     return deepFreeze({version:VERSION,rawQuery:raw,normalisedQuery:corrected(raw),identityQuery:identity,quantity:parsed,conceptIntent,concept:concept?{key:concept.key,label:concept.label}:null,submissionMode:'deliberate',groups,total:groups.reduce((sum,group)=>sum+group.items.length,0)});
   }
   function appendSubmittedOnline(model,records=[]){
+    if(model?.conceptIntent?.owner==='generic-v2')return model;
     if(!model||!Array.isArray(model.groups)||!records.length)return model;
     const existingIds=new Set(model.groups.flatMap(group=>group.items||[]).flatMap(item=>[String(item.id||''),String(item.recordId||'')])),incoming=submittedResultModel(records,model.rawQuery).groups.flatMap(group=>group.items||[]).filter(item=>item.kind==='exact-product'&&!existingIds.has(String(item.id||''))&&!existingIds.has(String(item.recordId||'')));
     if(!incoming.length)return model;

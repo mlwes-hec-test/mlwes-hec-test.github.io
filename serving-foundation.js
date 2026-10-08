@@ -128,6 +128,7 @@
   }
 
   function inferCategory(food,context={}){
+    const genericIdentity=(global.HECGenericFoodCatalogue||(typeof require==='function'?require('./generic-food-catalogue.js'):null))?.identity(food);if(genericIdentity?.category)return genericIdentity.category;
     if(context.conceptCategory)return context.conceptCategory;
     if(context.concept?.category)return context.concept.category;
     const concept=SEARCH?.foodConceptEvidence?.(food),conceptCategories={bread:'grain',milk:'dairy',cheese:'dairy',yoghurt:'dairy',cereal:'grain',rice:'grain',egg:'egg',apple:'fruit',chicken:'meat',sausage:'meat',cracker:'snack',chips:'snack',fries:'snack','hash-brown':'snack',spread:'generic',margarine:'generic',burger:'prepared'};
@@ -183,6 +184,7 @@
     const concepts=categoryConcepts(food),name=norm(food?.name),serving=norm(`${food?.servingSize||''} ${food?.packageServingText||''} ${food?.serving||''}`),units=food?.units||{};
     const hasConcept=pattern=>[...concepts].some(value=>pattern.test(value));
     const result=(form,confidence)=>({form,confidence,primaryUnit:form==='liquid'?'mL':form==='spread'||/weight$/.test(form)||form==='unknown'?'g':food?.defaultUnit||'serve'});
+    const genericIdentity=(global.HECGenericFoodCatalogue||(typeof require==='function'?require('./generic-food-catalogue.js'):null))?.identity(food);if(genericIdentity?.form)return result(genericIdentity.form,'shared-food-head-identity');
     const discovery=global.HECCatalogueDiscovery||(typeof require==='function'?require('./catalogue-discovery'):null);
     // Recheck hydrated records without changing an importer’s raw nutrition basis.
     if(food?.nutritionPer100Unit&&discovery?.readyToDrink(food))return result('liquid','ready-to-drink-evidence');
@@ -584,6 +586,7 @@
       if(food.units[key]===undefined)continue;const label=norm(food.unitLabels[key]||key);if(!label)continue;
       if(seen.has(label)&&key!==food.defaultUnit){delete food.units[key];delete food.unitLabels[key];continue;}seen.set(label,key);
     }
+    if(food.genericMeasurePolicy?.allowed)for(const key of Object.keys(food.units))if(!food.genericMeasurePolicy.allowed.includes(key)){delete food.units[key];delete food.unitLabels[key];if(food.unitOrigins)delete food.unitOrigins[key];}
     return food;
   }
 
@@ -648,7 +651,8 @@
     // Preserve rejected originals even if an earlier semantic cleanup removed
     // them. Do not restore otherwise obsolete food-group candidates.
     for(const [key,value] of Object.entries(food.units||{})){const candidate={key,label:String(food.unitLabels?.[key]||key),multiplier:finite(value),source:'source-product-metadata',sourceType:'product-metadata',confidence:'source-product-metadata'};if(!hasMeasure(key)&&compatibilityReason(candidate,form,resolved))measures.push(candidate);}
-    const {measures:safe,rejectedMeasures,nutritionBasisConflict}=finalCompatibilityFirewall(resolved,measures,form);
+    const applicable=food.genericMeasurePolicy?.allowed?measures.filter(measure=>food.genericMeasurePolicy.allowed.includes(measure.key)):measures;
+    const {measures:safe,rejectedMeasures,nutritionBasisConflict}=finalCompatibilityFirewall(resolved,applicable,form);
     // Safety has already decided membership. Utility changes presentation only;
     // it cannot create a conversion or restore a quarantined measure.
     const naturalOrder=form.form==='liquid'?['mL','cup','L','serve']:form.form==='spread'?['thinSpread','thickSpread','tsp','tbsp','serve','g','kg']:form.form==='sliced'?['regularSlice','slice','sandwichSlice','thickSlice','serve','g','kg']:['burger','wing','piece','item','patty','hashBrown','cracker','biscuit','sausage','thinSausage','thickSausage','cocktailSausage','largeEgg','mediumEgg','smallEgg','xLargeEgg','jumboEgg','kingEgg','egg','portion','serve','g','kg'];
